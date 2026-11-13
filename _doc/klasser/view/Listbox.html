@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Listbox – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      table {
+        width: 100%;
+      }
+      col.keys {
+        width: 12em;
+      }
+
+      .uml-diagram {
+        width: 38rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">Listbox</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1 tabindex="-1" id="start-of-content">
+          <code lang="en">Listbox</code>
+        </h1>
+
+        <nav aria-label="Innehåll" class="page-menu">
+          <ul id="content-menu">
+            <li><a href="#ctor">Konstruktor</a></li>
+            <li><a href="#properties">Fält</a></li>
+            <li>
+              <a href="#m-attach"><code lang="en">attach()</code></a>
+            </li>
+            <li>
+              <a href="#m-detach"><code lang="en">detach()</code></a>
+            </li>
+            <li>
+              <a href="#m-focus"><code lang="en">focus()</code></a>
+            </li>
+            <li>
+              <a href="#m-reset"><code lang="en">reset()</code></a>
+            </li>
+            <li>
+              <a href="#m-subscribe"><code lang="en">subscribe()</code></a>
+            </li>
+            <li>
+              <a href="#m-unfocus"><code lang="en">unfocus()</code></a>
+            </li>
+            <li><a href="#kbd">Tangenter</a></li>
+            <li><a href="#see">Se även</a></li>
+          </ul>
+        </nav>
+
+        <p>
+          En komponent som presenterar en lista med alternativ och låter
+          användaren välja ett eller flera av dem.
+        </p>
+
+        <p>
+          En instans av klassen kopplas till ett listelement (<code
+            class="html tag"
+            >&lt;ul&gt;</code
+          >) som ska ha rollen <code lang="en">listbox</code> och kan ha
+          attributet
+          <code lang="en" class="html attr">aria-multiselectable</code>.
+          Listelementen ska ha rollen <code lang="en">option</code>. Vid
+          enkelval ska det valda elementet ha
+          <code lang="en" class="html attr"
+            >aria-selected=<span>"true"</span></code
+          >; vid flerval ska alla element ha
+          <code lang="en" class="html attr">aria-selected</code>, med värdet
+          antingen <code lang="en" class="html value">"true"</code> eller
+          <code lang="en" class="html value">"false"</code>.
+        </p>
+
+        <p>
+          <code lang="en">Listbox</code> implementerar designmönstret
+          <a
+            href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >Listbox</a
+          >
+          i <cite lang="en">ARIA Authoring Practices Guide</cite>.
+        </p>
+
+        <dl class="src">
+          <dt>Källkod</dt>
+          <dd><code>js/view/Listbox.js</code></dd>
+
+          <dt>Enhetstester</dt>
+          <dd><code>_tests/view/Listbox.test.js</code></dd>
+        </dl>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 380 140" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+            </defs>
+
+            <!--Listbox-->
+            <use
+              xlink:href="Listbox.svg#Listbox"
+              x="0"
+              y="25"
+              class="highlight"
+            />
+
+            <path d="M131,46 h20 v-35 h20" class="composition" />
+            <line x1="131" y1="66" x2="170" y2="66" class="composition" />
+            <path d="M131,86 h20 v30 h20" class="composition" />
+
+            <g transform="translate(170, 0)">
+              <!--HTMLUListElement-->
+              <use
+                xlink:href="../HTMLUListElement.svg#HTMLUListElement"
+                x="0"
+                y="0"
+                class="external"
+              />
+
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="40"
+              />
+
+              <!--KeyMap-->
+              <use xlink:href="KeyMap.svg#KeyMap" x="0" y="100" />
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Listbox</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Listbox</span>(<span class="var">listeners</span>, <span class="var">keyMap</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">keyMap</code></dt>
+          <dd>Tangentmappare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">active</code></dt>
+          <dd>Anger om listan ska reagera på händelser.</dd>
+        </dl>
+      </section>
+
+      <!--attach()-->
+      <section>
+        <h2 id="m-attach"><code lang="en">attach()</code></h2>
+
+        <p>
+          Kopplar listrutan till underliggande HTML-element i DOM-trädet och
+          registrerar händelse&shy;lyssnare.
+        </p>
+
+        <p>
+          Sätter aktivt element till det första elmeentet som har
+          <code lang="en" class="html attr"
+            >aria-selected=<span>"true"</span></code
+          >, eller första elementet i listan om inget är valt.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">attach</span>(<span class="var">list</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">list</code></dt>
+          <dd>
+            Lista (<code class="html tag">&lt;ul&gt;</code>) som innehåller de
+            valbara elementen.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--detach()-->
+      <section>
+        <h2 id="m-detach"><code lang="en">detach()</code></h2>
+
+        <p>Tar bort registrerade händelselyssnare.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">detach</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--focus()-->
+      <section>
+        <h2 id="m-focus"><code lang="en">focus()</code></h2>
+
+        <p>
+          Sätter tangentbordsfokus till listelementet och gör angivet element
+          till aktivt element.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">focus</span>(<span class="var">index</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">index</code></dt>
+          <dd>
+            Index (0-baserat) för det element som ska vara aktivt. Om index
+            anges som -1 blir sista elementet aktivt.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--reset()-->
+      <section>
+        <h2 id="m-reset"><code lang="en">reset()</code></h2>
+
+        <p>Återställer alla valdmarkeringar i listrutan.</p>
+
+        <p>Vid enkelval: gör första elementet till det valda elementet.</p>
+
+        <p>Vid flerval: ta bort alla valdmarkeringar utom de angivna.</p>
+
+        <p>
+          Gör första elementet till aktivt element, oavsett listtyp. Meddela
+          alla registrerade observatörer om markeringsförändringar.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="js"><code lang="en"><span class="ident">reset</span>()
+<span class="ident">reset</span>(<span class="var">selected</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">selected</code></dt>
+          <dd>
+            Vektor med identiteter för de element som ska vara förvalda (endast
+            flerval).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--subscribe()-->
+      <section>
+        <h2 id="m-subscribe"><code lang="en">subscribe()</code></h2>
+
+        <p>
+          Registrerar en observatör på listrutan. När användaren markerar eller
+          avmarkerar element i listrutan meddelas alla registrerade
+          observatörer.
+        </p>
+
+        <p>
+          Observatörerna anropas med ett informationsobjekt med följande fält:
+        </p>
+
+        <dl class="properties">
+          <dt><code lang="en">state</code></dt>
+          <dd>
+            <code lang="en" class="js literal">true</code> om elementet är
+            markerat, annars <code lang="en" class="js literal">false</code>.
+          </dd>
+
+          <dt><code lang="en">target</code></dt>
+          <dd>Det listelement vars markering ändrats.</dd>
+        </dl>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">subscribe</span>(<span class="var">notify</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">notify</code></dt>
+          <dd>Observatör att meddela vid markeringshändelser i listrutan.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--unfocus()-->
+      <section>
+        <h2 id="m-unfocus"><code lang="en">unfocus()</code></h2>
+
+        <p>Tar bort listan ur tangentbordsfokusordningen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">unfocus</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Tangenter-->
+      <section>
+        <h2 id="kbd">Tangenter</h2>
+
+        <p>
+          Övriga knappar <i lang="en">(type-ahead)</i> flyttar fokus till det
+          element vars textinnehåll inleds med den tryckta bokstaven. Om flera
+          bokstäver skrivs in i snabb följd konkaterneras de till en söksträng.
+          Vid enkelval följer valdmarkeringen med fokus.
+        </p>
+
+        <table>
+          <caption>
+            Tangentmappning för
+            <code lang="en">Listbox</code>
+            (enkelval).
+          </caption>
+
+          <colgroup>
+            <col class="keys" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>Flyttar fokus och valdmarkering till nästa element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>Flyttar fokus och valdmarkering till föregående element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Home</kbd></kbd>
+              </td>
+              <td>Flyttar fokus och valdmarkering till första element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">End</kbd></kbd>
+              </td>
+              <td>Flyttar fokus och valdmarkering till sissta element.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Tangentmappning för
+            <code lang="en">Listbox</code>
+            (flerval).
+          </caption>
+
+          <colgroup>
+            <col class="keys" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>Flyttar fokus till nästa element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>Flyttar fokus till föregående element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Home</kbd></kbd>
+              </td>
+              <td>Flyttar fokus till första element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">End</kbd></kbd>
+              </td>
+              <td>Flyttar fokus till sissta element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>mellanslag</kbd></kbd>
+              </td>
+              <td>Växlar valdmarkering på aktivt element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Skift</kbd>+<kbd>mellanslag</kbd></kbd>
+              </td>
+              <td>
+                Väljer alla element från senast valda till aktivt element.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Skift</kbd>+<kbd>⭣</kbd></kbd>
+              </td>
+              <td>Flyttar fokus till nästa element och växlar markering.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Skift</kbd>+<kbd>⭡</kbd></kbd>
+              </td>
+              <td>
+                Flyttar fokus till föregående element och växlar markering.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd
+                  ><kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd lang="en"
+                    >Home</kbd
+                  ></kbd
+                >
+              </td>
+              <td>Väljer alla element från första till aktivt element.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd
+                  ><kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd lang="en"
+                    >End</kbd
+                  ></kbd
+                >
+              </td>
+              <td>Väljer alla element från aktivt element till sista.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Ctrl</kbd>+<kbd>A</kbd></kbd>
+              </td>
+              <td>Väljer eller avmarkerar alla element.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Dropdown.html"><code lang="en">Dropdown</code></a>
+          </li>
+          <li>
+            <a href="../common/KeyMap.html"><code lang="en">KeyMap</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

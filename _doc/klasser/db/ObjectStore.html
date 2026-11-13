@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ObjectStore – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 36rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Databasgränssnitt</a></li>
+          <li><strong lang="en">ObjectStore</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ObjectStore</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-add"><code lang="en">add()</code></a>
+          </li>
+          <li>
+            <a href="#m-count"><code lang="en">count()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete"><code lang="en">delete()</code></a>
+          </li>
+          <li>
+            <a href="#m-get"><code lang="en">get()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-all"><code lang="en">getAll()</code></a>
+          </li>
+          <li>
+            <a href="#m-index"><code lang="en">index()</code></a>
+          </li>
+          <li>
+            <a href="#m-open-cursor"><code lang="en">openCursor()</code></a>
+          </li>
+          <li>
+            <a href="#m-open-key-cursor"
+              ><code lang="en">openKeyCursor()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-put"><code lang="en">put()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Kapslar in en <code lang="en">IDBObjectStore</code>-instans och
+        tillhandahåller ett löftesbaserat alternativ till det
+        händelseorienterade lågnivå-API:et.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/db/ObjectStore.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/db/ObjectStore.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 360 340" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+          </defs>
+
+          <!--ObjectStore-->
+          <use
+            xlink:href="ObjectStore.svg#ObjectStore"
+            x="15"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="80" y1="103" x2="80" y2="130" class="composition" />
+          <line x1="156" y1="33" x2="210" y2="33" class="dependency" />
+          <path d="M156,67 h35 v129 h20" class="dependency" />
+
+          <!--IDBObjectStore-->
+          <use
+            xlink:href="IDBObjectStore.svg#IDBObjectStore"
+            x="0"
+            y="130"
+            class="external"
+          />
+
+          <!--Cursor-->
+          <use xlink:href="Cursor.svg#Cursor" x="210" y="0" />
+
+          <!--Index-->
+          <use xlink:href="Index.class.svg#Index" x="210" y="160" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ObjectStore</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ObjectStore</span>(<span class="var">store</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">store</code></dt>
+          <dd>
+            En <code lang="en">IDBObjectStore</code>-instans att kapsla in.
+          </dd>
+        </dl>
+      </section>
+
+      <!--add()-->
+      <section>
+        <h2 id="m-add"><code lang="en">add()</code></h2>
+
+        <p>
+          Lägger till ett nytt värde i objektlagret. (Jämför
+          <a href="#m-put"><code lang="en">put()</code></a
+          >.)
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">add</span>(<span class="var">value</span>)
+<span class="keyword">await</span> <span class="ident">add</span>(<span class="var">value</span>, <span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Värde att lägga till i objektlagret.</dd>
+
+          <dt class="optional"><code lang="en">key</code></dt>
+          <dd>Extern nyckel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med lågnivå-API:ets resultat när värdet lagts
+          till i objektlagret. När man infogar värden i ett objektlager med
+          <code lang="en" class="js"
+            >autoIncrement=<span class="literal">true</span></code
+          >
+          returnerar exempelvis API:et den nyckel som tilldelats posten.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">id</span> = <span class="keyword">await</span> <span class="var">store</span>.<span class="fn">add</span>(<span class="var">obj</span>);</code></pre>
+      </section>
+
+      <!--count()-->
+      <section>
+        <h2 id="m-count"><code lang="en">count()</code></h2>
+
+        <p>Räknar antalet värden i objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">count</span>()
+<span class="keyword">await</span> <span class="ident">count</span>(<span class="var">count</span>, <span class="var">query</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">query</code></dt>
+          <dd>
+            En nyckel eller ett <code lang="en">IDBKeyRange</code>-objekt som
+            anger ett nyckelintervall att räkna inom.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med det räknade antalet värden.</p>
+      </section>
+
+      <!--delete()-->
+      <section>
+        <h2 id="m-delete"><code lang="en">delete()</code></h2>
+
+        <p>Raderar angivna värden ur objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">delete</span>(<span class="var">keys</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">keys</code></dt>
+          <dd>
+            En nyckel eller ett <code lang="en">IDBKeyRange</code>-objekt som
+            anger ett nyckelintervall att radera.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när värdena raderats.</p>
+      </section>
+
+      <!--get()-->
+      <section>
+        <h2 id="m-get"><code lang="en">get()</code></h2>
+
+        <p>Hämtar angivet värde ur objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">get</span>(<span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Ett nyckelvärde.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med det hämtade värdet.</p>
+      </section>
+
+      <!--getAll()-->
+      <section>
+        <h2 id="m-get-all"><code lang="en">getAll()</code></h2>
+
+        <p>Hämtar alla eller angivna värden ur objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getAll</span>()
+<span class="keyword">await</span> <span class="ident">getAll</span>(<span class="var">query</span>)
+<span class="keyword">await</span> <span class="ident">getAll</span>(<span class="var">query</span>, <span class="var">count</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">query</code></dt>
+          <dd>
+            En nyckel eller ett <code lang="en">IDBKeyRange</code>-objekt som
+            anger ett nyckelintervall att hämta.
+          </dd>
+
+          <dt class="optional"><code lang="en">count</code></dt>
+          <dd>Maximalt antal värden att hämta.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med de hämtade värdena.</p>
+      </section>
+
+      <!--index()-->
+      <section>
+        <h2 id="m-index"><code lang="en">index()</code></h2>
+
+        <p>Öppnar ett index i objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">index</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Namn på det index som ska öppnas.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <a href="Index.class.html"><code>Index</code></a
+          >-instans som kapslar in det <code lang="en">IDBIndex</code>-objekt
+          som lågnivå-API:et returnerar.
+        </p>
+      </section>
+
+      <!--openCursor()-->
+      <section>
+        <h2 id="m-open-cursor"><code lang="en">openCursor()</code></h2>
+
+        <p>Öppnar en <i lang="en">cursor</i> i objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre class="js"><code lang="en"><span class="ident">openCursor</span>()
+<span class="ident">openCursor</span>(<span class="var">query</span>)
+<span class="ident">openCursor</span>(<span class="var">query</span>, <span class="var">direction</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">query</code></dt>
+          <dd>
+            En nyckel eller ett <code lang="en">IDBKeyRange</code>-objekt som
+            anger ett nyckelintervall att iterera över.
+          </dd>
+
+          <dt><code lang="en">direction</code></dt>
+          <dd>
+            Cursorns riktning (standardvärde
+            <code lang="en" class="js literal">"next"</code>).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <a href="Cursor.html"><code>Cursor</code></a
+          >-instans som kapslar in det
+          <code lang="en">IDBCursorWithValue</code>-objekt som lågnivå-API:et
+          returnerar.
+        </p>
+      </section>
+
+      <!--openKeyCursor()-->
+      <section>
+        <h2 id="m-open-key-cursor"><code lang="en">openKeyCursor()</code></h2>
+
+        <p>Öppnar en nyckel-<i lang="en">cursor</i> i objektlagret.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">openKeyCursor</span>()
+<span class="ident">openKeyCursor</span>(<span class="var">query</span>)
+<span class="ident">openKeyCursor</span>(<span class="var">query</span>, <span class="var">direction</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">query</code></dt>
+          <dd>
+            En nyckel eller ett <code lang="en">IDBKeyRange</code>-objekt som
+            anger ett nyckelintervall att iterera över.
+          </dd>
+
+          <dt><code lang="en">direction</code></dt>
+          <dd>
+            Cursorns riktning (standardvärde
+            <code lang="en" class="js literal">"next"</code>).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <a href="Cursor.html"><code>Cursor</code></a
+          >-instans som kapslar in det <code lang="en">IDBCursor</code>-objekt
+          som lågnivå-API:et returnerar.
+        </p>
+      </section>
+
+      <!--put()-->
+      <section>
+        <h2 id="m-put"><code lang="en">put()</code></h2>
+
+        <p>
+          Lägger till eller uppdaterar ett värde i objektlagret. (Jämför
+          <a href="#m-add"><code lang="en">add()</code></a
+          >.)
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">put</span>(<span class="var">value</span>)
+<span class="keyword">await</span> <span class="ident">put</span>(<span class="var">value</span>, <span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Värde att spara i objektlagret.</dd>
+
+          <dt class="optional"><code lang="en">key</code></dt>
+          <dd>Extern nyckel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när värdet sparats i objektlagret.</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Cursor.html"><code lang="en">Cursor</code></a>
+          </li>
+          <li>
+            <a href="Index.class.html"><code lang="en">Index</code></a>
+          </li>
+          <li>
+            <a href="Transaction.html"><code lang="en">Transaction</code></a>
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBObjectStore</code></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBKeyRange</code></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBRequest</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

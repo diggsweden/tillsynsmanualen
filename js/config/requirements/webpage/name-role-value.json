@@ -1,0 +1,22 @@
+{
+  "methods": [
+    "Använd <cite>Inspektören</cite> i <cite translate=\"no\" lang=\"en\">Chrome</cite> för detta, där det finns bra verktyg för att inspektera tillgänglighetsegenskaper. <cite translate=\"no\" lang=\"en\">Firefox</cite> har ett liknande verktyg, som dock är lite svårare att tolka."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Accessibility"
+    }
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Se till att det <em>interaktiva</em> elementet, till exempel en knapp, är markerat i kodpanelen, och inte något underelement (som <code translate=\"no\" lang=\"en\">&lt;span&gt;</code>) eller en textnod!"
+    },
+    {
+      "type": "tip",
+      "text": "I <cite translate=\"no\" lang=\"en\">Chrome</cite> kan du kryssa i ”<samp lang=\"en\">Enable full-page accessibility tree</samp>” i <samp lang=\"en\">Accessibility</samp>-panelen för att kunna se hela tillgänglighetsträdet på samma sätt som elementträdet."
+    }
+  ]
+}

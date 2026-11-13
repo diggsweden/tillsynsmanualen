@@ -1,0 +1,40 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet. Aktivera (med tangentbordet) eventuella funktioner som öppnar en meny, dialogruta eller liknande. Om något element saknar synlig fokusmarkering, kontrollera CSS-koden för att se om man medvetet dolt fokusmarkeringen."
+  ],
+  "exceptions": [
+    "Det är tillåtet att inte visa en synlig fokusmarkering förrän tangentbordet använts. När markeringen en gång visats måste den dock förbli synlig."
+  ],
+  "examples": {
+    "good": [
+      "Länkar och knappar kan ha en fokusmarkering i form av en ram runt elementet eller en tydligt avvikande bakgrundsfärg.",
+      "För inmatningsfält är det tillräckligt att visa en inmatningsmarkör eller att <em>allt</em> innehåll i fältet blir markerat när fältet får fokus."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Style",
+      "help": "Markera <samp>:focus</samp> och <samp>:focus-visible</samp> under <samp>:hov</samp> för att se de CSS-regler som tillämpas när ett element har fokus."
+    }
+  ],
+  "info": [
+    {
+      "type": "warning",
+      "text": "Stäng av <cite translate=\"no\" lang=\"en\">Force Focus</cite> och andra hjälpmedel för att visa fokus innan du granskar detta krav."
+    },
+    {
+      "type": "text",
+      "text": "Om fokusmarkeringen inte är formgiven med CSS, underkänn kravet om någon kontur, kantlinje eller bakgrund gör standardmarkeringen svår att urskilja."
+    },
+    {
+      "type": "tip",
+      "text": "Typiska sätt att medvetet dölja fokusmarkeringen är att sätta <code translate=\"no\">outline:0</code> eller <code translate=\"no\">outline:none</code>."
+    },
+    {
+      "type": "action",
+      "text": "Upprepa kontrollerna i olika webbläsare om sidan förlitar sig på den inbyggda fokusmarkeringen, eftersom den skiljer sig mycket mellan olika webbläsare."
+    }
+  ]
+}

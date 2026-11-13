@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120">
+  <g id="IDBIndex">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="159" height="112"/>
+      <line x1="1" y1="12" x2="160" y2="12"/>
+      <line x1="1" y1="52" x2="160" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="80" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">IDBIndex</text>
+      <text x="5" y="20">keyPath: string</text>
+      <text x="5" y="30">+name: string</text>
+      <text x="5" y="40">+objectStore: string</text>
+      <text x="5" y="50">+unique: boolean</text>
+      <text x="5" y="60">count([*]): IDBRequest</text>
+      <text x="5" y="70">get([*]): IDBRequest</text>
+      <text x="5" y="80">getAll([*] [,number]): IDBRequest</text>
+      <text x="5" y="90">getAllKeys([*] [,number]): IDBRequest</text>
+      <text x="5" y="100">openCursor([*] [,string]): IDBRequest</text>
+      <text x="5" y="110">openKeyCursor([*] [,string]): IDBRequest</text>
+    </g>
+  </g>
+</svg>

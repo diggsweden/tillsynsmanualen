@@ -1,0 +1,12 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "Transkriptionen kan finnas i anslutning till filmen, eller länkad."
+    },
+    {
+      "type": "note",
+      "text": "Att uppfylla det här kravet räcker inte för att uppfylla lagkraven, men kan ha en viss inverkan på mätetalet för otillgänglighet."
+    }
+  ]
+}

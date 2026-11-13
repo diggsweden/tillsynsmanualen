@@ -1,0 +1,70 @@
+{
+  "methods": [
+    "Kontrollera dokumenttypen i källkoden (<kbd><kbd>Ctrl</kbd>+<kbd>U</kbd></kbd>) eller <cite>Inspektören</cite>. HTML&nbsp;5 har dokumenttypen <code translate=\"no\">&lt;!DOCTYPE&nbsp;html&gt;<code>."
+  ],
+  "tools": [
+    {
+      "tool": "WAVE",
+      "tab": "Structure"
+    }
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Landmärke",
+      "description": "En huvuddel av en sida. Skärmläsare har ofta funktioner för att navigera mellan landmärken, för att snabbt och enkelt hitta rätt på sidan."
+    },
+    {
+      "type": "details",
+      "summary": "Landmärken i HTML&nbsp;5 och ARIA-roller",
+      "content": [
+        {
+          "type": "table",
+          "headers": [
+            "HTML 5",
+            "ARIA <code translate=\"no\">role</code>",
+            "Landmärke"
+          ],
+          "rows": [
+            [
+              "<code translate=\"no\">&lt;header&gt;</code>",
+              "<code translate=\"no\">banner</code>",
+              "Sidhuvud."
+            ],
+            [
+              "<code translate=\"no\">&lt;nav&gt;</code>",
+              "<code translate=\"no\">navigation</code>",
+              "Navigering."
+            ],
+            [
+              "<code translate=\"no\">&lt;main&gt;</code>",
+              "<code translate=\"no\">main</code>",
+              "Huvudinnehåll."
+            ],
+            [
+              "<code translate=\"no\">&lt;form&gt;</code>",
+              "<code translate=\"no\">form</code>",
+              "Formulär."
+            ],
+            [
+              "<code translate=\"no\">&lt;aside&gt;</code>",
+              "<code translate=\"no\">complementary</code>",
+              "Relaterat innehåll."
+            ],
+            [
+              "<code translate=\"no\">&lt;footer&gt;</code>",
+              "<code translate=\"no\">contentinfo</code>",
+              "Sidfot."
+            ],
+            ["—", "<code translate=\"no\">region</code>", "Avsnitt."],
+            ["—", "<code translate=\"no\">search</code>", "Sökfunktion."]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "HTML-elementen har automatiskt den angivna rollen. För <code translate=\"no\">&lt;header&gt;</code> och <code translate=\"no\">&lt;footer&gt;</code> gäller det bara om de hör till <code translate=\"no\">&lt;body&gt;</code>, inte om de är underordnade andra ”sektionerade” element som <code translate=\"no\">&lt;article&gt;</code> eller <code translate=\"no\">&lt;section&gt;</code>."
+        }
+      ]
+    }
+  ]
+}

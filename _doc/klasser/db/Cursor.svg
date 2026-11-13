@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150">
+  <g id="Cursor">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="119" height="142"/>
+      <line x1="1" y1="12"  x2="120" y2="12"/>
+      <line x1="1" y1="72"  x2="120" y2="72"/>
+    </g>
+
+    <g stroke="none">
+      <text x="60" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Cursor</text>
+      <text x="5" y="20">+direction: string</text>
+      <text x="5" y="30">+key: *</text>
+      <text x="5" y="40">+primaryKey: *</text>
+      <text x="5" y="50">+request: IDBRequeest</text>
+      <text x="5" y="60">+source: IDBObjectStore</text>
+      <text x="5" y="70">+value: object</text>
+      <text x="5" y="80">[@@iterator]: iterator</text>
+      <text x="5" y="90">advance(number): void</text>
+      <text x="5" y="100">continue([*]): void</text>
+      <text x="5" y="110">continuePrimaryKey(*, *): void</text>
+      <text x="5" y="120">delete(): promise</text>
+      <text x="5" y="130">next(): promise</text>
+      <text x="5" y="140">update(object): promise</text>
+    </g>
+  </g>
+</svg>

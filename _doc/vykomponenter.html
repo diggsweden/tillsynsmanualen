@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vykomponenter – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Vykomponenter</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Vykomponenter</h1>
+
+      <p>
+        Det finns några komponenter som används av vyer, vanligen för att
+        implementera designmönster från
+        <cite
+          ><a
+            href="https://www.w3.org/WAI/ARIA/apg/"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >ARIA Authoring Practices Guide</a
+          ></cite
+        >
+        (APG).
+      </p>
+
+      <section>
+        <h2><code lang="en">Dropdown</code></h2>
+
+        <p>
+          En rullgardinslista <i lang="en">(dropdown list)</i> med flerval.
+          Komponenten består av en knapp och en <code lang="en">Listbox</code>.
+          Knapptexten är lättåtkomlig via ett fält, vilket gör det enkelt för
+          den kontrolle&shy;rande funktionen att uppdatera texten när
+          valmarkeringarna i listrutan förändras.
+        </p>
+
+        <p>
+          <code lang="en">Dropdown</code> används vid stickprovsurvalet och vid
+          redigering av stickprov för att välja innehållstyper när man skapa en
+          ny ”komponent”.
+        </p>
+
+        <p class="note">
+          Klassen skapades som en implementation av ett designmönster i
+          föregångaren till APG. Detta designmönster är nu märkt som
+          <i lang="en">deprecated</i> i APG, men i avsak&shy;nad av en fullgod
+          ersättare får klassen vara kvar tillsvidare.
+        </p>
+      </section>
+
+      <section>
+        <h2><code lang="en">Grid</code></h2>
+
+        <p>
+          Ett rutnät som implementerar designmönstret
+          <a
+            href="https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >Grid</a
+          >
+          i APG. Rutnätet hanterar den interna navigeringen i en behållare, så
+          att behållaren kan utgöra ett enda tabbstop i huvudsekven&shy;sen. Den
+          interna navigeringen sker med piltangenter och med tangenter som
+          <kbd><kbd lang="en">Home</kbd></kbd> och
+          <kbd><kbd lang="en">End</kbd></kbd
+          >.
+        </p>
+
+        <p>
+          <code lang="en">Grid</code> används i den speciella innehållsmenyn
+          <code lang="en">GridMenu</code> i
+          <a href="../start/ordlista.html">ordlistan</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2><code lang="en">Listbox</code></h2>
+
+        <p>
+          En listruta som implementerar designmönstret
+          <a
+            href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >Listbox</a
+          >
+          i APG. Listrutan kan vara av typen enkelval eller flerval och hanterar
+          den interna tangentbordsnavigeringen i sin behållare.
+        </p>
+
+        <p>
+          <code lang="en">Listbox</code> används vid urval och redigering av
+          stickprov, dels för val av innehållstyper i stickprovet, dels som en
+          del av komponenten <code lang="en">Dropdown</code> för innehållstyper
+          i komponenter.
+        </p>
+      </section>
+
+      <section>
+        <h2><code lang="en">TabList</code></h2>
+
+        <p>
+          En tabbflikslista som implementerar designmönstret
+          <a
+            href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >Tabs</a
+          >
+          i APG. Tabbflikslistan kontrollerar de tillhörande panelerna och
+          sköter den interna tangentbordsnavigeringen mellan flikarna.
+        </p>
+
+        <p>
+          <code lang="en">TabList</code> används vid redigering av ärenden för
+          att göra det relativt komplexa formuläret mer överskådligt.
+        </p>
+      </section>
+
+      <ul class="toc">
+        <li>
+          <a href="klasser/view/Dropdown.html"
+            ><code lang="en">Dropdown</code></a
+          >
+        </li>
+        <li>
+          <a href="klasser/view/Grid.html"><code lang="en">Grid</code></a>
+        </li>
+        <li>
+          <a href="klasser/view/Listbox.html"><code lang="en">Listbox</code></a>
+        </li>
+        <li>
+          <a href="klasser/view/TabList.html"><code lang="en">TabList</code></a>
+        </li>
+      </ul>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="controller.html" accesskey="N" rel="next"
+        ><span>Basklass för <i lang="en">controllers</i></span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="vy.html" accesskey="F" rel="prev"
+        ><span>Basklass för vyer</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

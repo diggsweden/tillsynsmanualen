@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 230">
+  <g id="AuditCase-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="222"/>
+      <line x1="1" y1="12"  x2="100" y2="12"/>
+      <line x1="1" y1="102" x2="100" y2="102"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">AuditCase</text>
+      <text x="5" y="20">+caseNumber</text>
+      <text x="5" y="30">+filename</text>
+      <text x="5" y="40">+id</text>
+      <text x="5" y="50">+logSize</text>
+      <text x="5" y="60">+monitoring</text>
+      <text x="5" y="70">+opened</text>
+      <text x="5" y="80">+organization</text>
+      <text x="5" y="90">+service</text>
+      <text x="5" y="100">+type</text>
+      <text x="5" y="110">audit()</text>
+      <text x="5" y="120">*audits()</text>
+      <text x="5" y="130">deleteAudit()</text>
+      <text x="5" y="140">deleteEntry()</text>
+      <text x="5" y="150">entry()</text>
+      <text x="5" y="160">*log()</text>
+      <text x="5" y="170">open()</text>
+      <text x="5" y="180">serialize()</text>
+      <text x="5" y="190">setAudit()</text>
+      <text x="5" y="200">setEntry()</text>
+      <text x="5" y="210">toJSON()</text>
+      <text x="5" y="220">toString()</text>
+    </g>
+  </g>
+
+  <g id="AuditCase">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="222"/>
+      <line x1="1" y1="12"  x2="140" y2="12"/>
+      <line x1="1" y1="102" x2="140" y2="102"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">AuditCase</text>
+      <text x="5" y="20">+caseNumber: CaseNumber</text>
+      <text x="5" y="30">+filename: string</text>
+      <text x="5" y="40">+id: number</text>
+      <text x="5" y="50">+logSize: number</text>
+      <text x="5" y="60">+monitoring: boolean</text>
+      <text x="5" y="70">+opened: date</text>
+      <text x="5" y="80">+organization: Organization</text>
+      <text x="5" y="90">+service: Service</text>
+      <text x="5" y="100">+type: string</text>
+      <text x="5" y="110">audit(number): Audit</text>
+      <text x="5" y="120">audits(): iterator</text>
+      <text x="5" y="130">deleteAudit(Audit): boolean</text>
+      <text x="5" y="140">deleteEntry(LogEntry): boolean</text>
+      <text x="5" y="150">entry(number): LogEntry</text>
+      <text x="5" y="160">log(): iterator</text>
+      <text x="5" y="170">open([date]): void</text>
+      <text x="5" y="180">serialize(): object</text>
+      <text x="5" y="190">setAudit(Audit): void</text>
+      <text x="5" y="200">setEntry(LogEntry): void</text>
+      <text x="5" y="210">toJSON(): object</text>
+      <text x="5" y="220">toString(): string</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>TabList – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      table {
+        width: 100%;
+      }
+      col.keys {
+        width: 4em;
+      }
+      .uml-diagram {
+        width: 37rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">TabList</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">TabList</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-attach"><code lang="en">attach()</code></a>
+          </li>
+          <li>
+            <a href="#m-detach"><code lang="en">detach()</code></a>
+          </li>
+          <li>
+            <a href="#m-select-panel"><code lang="en">selectPanel()</code></a>
+          </li>
+          <li><a href="#kbd">Tangenter</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        En lista med tabbflikar som kontrollerar en uppsättning tabbpaneler,
+        varav exakt en åt gången är aktiv.
+      </p>
+
+      <p>
+        <code lang="en">TabList</code> implementerar designmönstret
+        <a
+          href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/"
+          hreflang="en"
+          lang="en"
+          rel="external"
+          >Tabs</a
+        >
+        i <cite lang="en">ARIA Authoring Practices Guide</cite>.
+      </p>
+
+      <p>
+        En instans av klassen kopplas till en lista med knappar (<code
+          lang="en"
+          class="html tag"
+          >&lt;button&gt;</code
+        >) som alla ska ha attributet
+        <code lang="en" class="html attr">aria-controls</code> med ett värde som
+        pekar ut vilken panel knappen kontrollerar.
+      </p>
+
+      <p>
+        <code lang="en">Listbox</code> implementerar designmönstret
+        <a
+          href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"
+          hreflang="en"
+          lang="en"
+          rel="external"
+          >Listbox</a
+        >
+        i <cite lang="en">ARIA Authoring Practices Guide</cite>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/TabList.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/TabList.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 370 140" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--TabList-->
+          <use
+            xlink:href="TabList.svg#TabList"
+            x="0"
+            y="35"
+            class="highlight"
+          />
+
+          <path d="M121,46 h20 v-35 h20" class="composition" />
+          <line x1="121" y1="56" x2="160" y2="56" class="composition" />
+          <path d="M121,66 h20 v45 h20" class="composition" />
+
+          <g transform="translate(160, 0)">
+            <!--HTMLElement-->
+            <use
+              xlink:href="../HTMLElement.svg#HTMLElement"
+              x="0"
+              y="0"
+              class="external"
+            />
+
+            <!--KeyMap-->
+            <use xlink:href="KeyMap.svg#KeyMap" x="0" y="40" />
+
+            <!--EventListenerList-->
+            <use
+              xlink:href="../common/EventListenerList.svg#EventListenerList"
+              x="0"
+              y="90"
+            />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">TabList</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">TabList</span>(<span class="var">listeners</span>, <span class="var">keyMap</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">keyMap</code></dt>
+          <dd>Tangentmappare.</dd>
+        </dl>
+      </section>
+
+      <!--attach()-->
+      <section>
+        <h2 id="m-attach"><code lang="en">attach()</code></h2>
+
+        <p>
+          Kopplar tabbflikslistan till underliggande HTML-element i DOM-trädet
+          och registrerar händelse&shy;lyssnare.
+        </p>
+
+        <p>
+          Metoden lägger också till en ankarlänk till tabbflikslistan sist i
+          varje panel.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">attach</span>(<span class="var">tabs</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">tabs</code></dt>
+          <dd>En nodlista med knappelement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--detach()-->
+      <section>
+        <h2 id="m-detach"><code lang="en">detach()</code></h2>
+
+        <p>Tar bort registrerade händelselyssnare.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">detach</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--selectPanel()-->
+      <section>
+        <h2 id="m-select-panel"><code lang="en">selectPanel()</code></h2>
+
+        <p>Gör angiven panel till den aktiva panelen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">selectPanel</span>(<span class="var">panel</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">panel</code></dt>
+          <dd>Det panelelement som ska bli aktivt.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Tangenter-->
+      <section>
+        <h2 id="kbd">Tangenter</h2>
+
+        <table>
+          <caption>
+            Tangentmappning för
+            <code lang="en">TabList</code
+            >.
+          </caption>
+
+          <colgroup>
+            <col class="keys" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd>⭠</kbd></kbd>
+              </td>
+              <td>
+                Aktiverar föregående tabbflik, eller sista fliken om den aktiva
+                fliken är den första.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭢</kbd></kbd>
+              </td>
+              <td>
+                Aktiverar nästa tabbflik, eller första fliken om den aktiva
+                fliken är den sista.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Home</kbd></kbd>
+              </td>
+              <td>Aktiverar första tabbfliken.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">End</kbd></kbd>
+              </td>
+              <td>Aktiverar sista tabbfliken.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../common/KeyMap.html"><code lang="en">KeyMap</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

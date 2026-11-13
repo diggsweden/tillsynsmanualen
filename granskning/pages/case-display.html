@@ -1,0 +1,113 @@
+<h1 id="start-of-content"></h1>
+
+<section class="case info advanced">
+  <h2>Ärende</h2>
+
+  <dl>
+    <div>
+      <dt>Tillsynsansvarig</dt>
+      <dd id="supervisor"></dd>
+    </div>
+  </dl>
+</section>
+
+<section class="org info">
+  <h2 id="org"></h2>
+
+  <dl>
+    <div class="advanced">
+      <dt>Organisationsnummer</dt>
+      <dd id="reg-no"></dd>
+    </div>
+
+    <div class="email">
+      <dt>E-postadress</dt>
+      <dd id="email"></dd>
+    </div>
+
+    <div class="tel">
+      <dt>Telefonnummer</dt>
+      <dd id="tel"></dd>
+    </div>
+
+    <div class="addr">
+      <dt>Postadress</dt>
+      <dd id="addr"></dd>
+    </div>
+  </dl>
+</section>
+
+<section class="audits">
+  <h2>Granskningar</h2>
+
+  <ul data-empty="Inga granskningar" class="audit listing"></ul>
+  <template id="audit-listing-template">
+    <li>
+      <svg role="img">
+        <use xlink:href="../img/ikoner.svg#ico-monitor" />
+      </svg>
+      <a title="Ändra"
+        ><svg aria-hidden="true">
+          <use xlink:href="../img/ikoner.svg#ico-edit" /></svg
+      ></a>
+      <a></a>
+    </li>
+  </template>
+
+  <p class="buttons">
+    <a href="#" id="create">
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <use xlink:href="../img/ikoner.svg#ico-monitor" />
+        <use
+          xlink:href="../img/ikoner.svg#ico-new"
+          transform="translate(-12 0)"
+          class="new"
+        />
+      </svg>
+      Ny granskning
+    </a>
+  </p>
+</section>
+
+<section class="doc">
+  <h2>Dokument</h2>
+
+  <ul data-empty="Inga dokument" class="listing"></ul>
+  <template id="doc-listing-template">
+    <li>
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#" />
+      </svg>
+      <a href="#" class="doc"></a>
+      <button type="button" value="save">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <use xlink:href="../img/ikoner.svg#ico-download" />
+        </svg>
+        <span>Spara till fil</span>
+      </button>
+    </li>
+  </template>
+</section>
+
+<p class="buttons">
+  <button data-type="case" type="button" value="save">
+    <svg aria-hidden="true">
+      <use xlink:href="../img/ikoner.svg#ico-download" />
+    </svg>
+    Spara
+  </button>
+
+  <a href="#" id="edit">
+    <svg aria-hidden="true">
+      <use xlink:href="../img/ikoner.svg#ico-edit" />
+    </svg>
+    Ändra
+  </a>
+
+  <a href="#" id="log">
+    <svg aria-hidden="true">
+      <use xlink:href="../img/ikoner.svg#ico-log" />
+    </svg>
+    <span>Logg (<span id="log-count">0</span>)</span>
+  </a>
+</p>

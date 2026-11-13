@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contrast – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .class.uml-diagram {
+        width: 46rem;
+      }
+      figure.ecb {
+        width: 23rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">Contrast</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">Contrast</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#params">Parametrar</a></li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#c-controller" lang="en">Controller</a></li>
+          <li><a href="#c-form">Formulär</a></li>
+          <li><a href="#c-parser">Färgvärdestolk</a></li>
+          <li><a href="#c-analyzer">Kontrastanalysator</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <code lang="en">Contrast</code> är ett verktyg för att beräkna
+        kontrastförhållandet mellan två färger enligt den algoritm som används i
+        <cite>WCAG</cite>&nbsp;2.1.
+      </p>
+
+      <p class="warning">
+        De matematiska uttrycken som används i denna dokumentation visas inte
+        som avsett i webbläsare som saknar stöd för MathML.
+      </p>
+
+      <p class="note">
+        <cite>WCAG</cite>&nbsp;3 kommer troligen att tillämpa en annan algoritm
+        kallad
+        <a href="https://www.myndex.com/APCA/" hreflang="en" rel="external"
+          ><abbr>APCA</abbr></a
+        >.
+      </p>
+
+      <!--Parametrar-->
+      <section>
+        <h2 id="params">Parametrar i granskningskonfigurationen</h2>
+
+        <pre class="json"><code lang="en">{
+    <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+    <span class="key">"module"</span>: <span class="value">"Contrast"</span>,
+    <span class="key">"params"</span>: {
+        <span class="key">"mode"</span>: <span class="value">"<var>läge</var>"</span>
+    }
+}</code></pre>
+
+        <dl class="properties">
+          <dt><code lang="en">mode</code></dt>
+          <dd>
+            Styr verktygets visningsläge:
+            <code lang="en" class="js literal">"text"</code> för text (1.4.3,
+            1.4.6) eller
+            <code lang="en" class="js literal">"graphics"</code> för
+            användargränssnittskomponenter och grafik (1.4.11).
+          </dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Verktyget består av fyra klasser: en <i lang="en">controller</i>, en
+          vy, en kontrastanalysator och en hjälp&shy;klass som tolkar de olika
+          typerna av färgangivelser som verktyget har stöd för.
+        </p>
+
+        <figure aria-hidden="true" class="ecb">
+          <svg viewBox="0 0 230 160" class="ecb uml-diagram">
+            <g transform="translate(25, 0)">
+              <!--Controller-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Controller</text>
+                <line x1="40" y1="22" x2="84" y2="22" />
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+
+              <!--ContrastForm-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">ContrastForm</text>
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+            </g>
+
+            <g transform="translate(25, 100)">
+              <!--ContrastAnalyzer-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">ContrastAnalyzer</text>
+              </g>
+
+              <!--ColourParser-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">ColourParser</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption><code lang="en">Contrast</code>, översikt.</figcaption>
+        </figure>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 460 430" class="class uml-diagram">
+            <defs>
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <g>
+              <!--Controller-->
+              <g transform="translate(180, 5)">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">Controller</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+
+                <line x1="0" y1="11" x2="-39" y2="11" class="dependency" />
+                <line x1="101" y1="11" x2="160" y2="11" class="dependency" />
+                <line x1="50" y1="23" x2="50" y2="65" class="dependency" />
+              </g>
+
+              <!--Audit-->
+              <g class="external">
+                <rect x="0.5" y="0.5" width="140" height="422" />
+                <text x="70" y="10" class="class">Audit</text>
+                <line x1="1" y1="12" x2="140" y2="12" />
+                <text x="5" y="20">+caseID: number</text>
+                <text x="5" y="30">+failed: boolean</text>
+                <text x="5" y="40">+finished: date</text>
+                <text x="5" y="50">+id: number</text>
+                <text x="5" y="60">+firstSample: Sample</text>
+                <text x="5" y="70">+injunctions: date[][]</text>
+                <text x="5" y="80">+officer: Person</text>
+                <text x="5" y="90">+remarks: date[][]</text>
+                <text x="5" y="100">+started: date</text>
+                <text x="5" y="110">+version: string</text>
+                <line x1="1" y1="112" x2="140" y2="112" />
+                <text x="5" y="120">addInjunction(date, date): void</text>
+                <text x="5" y="130">addRemarks(date, date): void</text>
+                <text x="5" y="140">allSamples(): iterator</text>
+                <text x="5" y="150">auditProgress([boolean]): number[]</text>
+                <text x="5" y="160">components(): iterator</text>
+                <text x="5" y="170">contains(string): boolean</text>
+                <text x="5" y="180">count(string): number</text>
+                <text x="5" y="190">countDone(...class): number</text>
+                <text x="5" y="200">countType(class): number</text>
+                <text x="5" y="210">deleteColour(string): boolean</text>
+                <text x="5" y="220">deleteInjunction(date): void</text>
+                <text x="5" y="230">deleteRemarks(date): void</text>
+                <text x="5" y="240">deleteSample(number): boolean</text>
+                <text x="5" y="250">doneSamples(class): iterator</text>
+                <text x="5" y="260">failures(...classes): object</text>
+                <text x="5" y="270">finish(): void</text>
+                <text x="5" y="280">getSampleByName(string): Sample</text>
+                <text x="5" y="290">hasColour(string): boolean</text>
+                <text x="5" y="300">nextCategory(string): string</text>
+                <text x="5" y="310">nextSample(): sample</text>
+                <text x="5" y="320">previousCategory(string): string</text>
+                <text x="5" y="330">randomCount(): number</text>
+                <text x="5" y="340">reopen(): void</text>
+                <text x="5" y="350">sampleProgress(): number[]</text>
+                <text x="5" y="360">sample(number): Sample</text>
+                <text x="5" y="370">samples(string): iterator</text>
+                <text x="5" y="380">serialize(): object</text>
+                <text x="5" y="390">setColour(string, string): void</text>
+                <text x="5" y="400">setSample(Sample): void</text>
+                <text x="5" y="410">toJSON(): object</text>
+                <text x="5" y="420">toString(): string</text>
+              </g>
+
+              <!--ContrastForm-->
+              <g transform="translate(340, 0)">
+                <g>
+                  <rect x="0.5" y="0.5" width="110" height="32" />
+                  <text x="55" y="10" class="class">ContrastForm</text>
+                  <line x1="1" y1="12" x2="110" y2="12" />
+                  <text x="5" y="20">addObserver(callback): void</text>
+                  <text x="5" y="30">update(number, string): void</text>
+
+                  <line x1="55" y1="33" x2="55" y2="70" class="dependency" />
+                </g>
+
+                <!--ColourParser-->
+                <g transform="translate(5, 70)">
+                  <rect x="0.5" y="0.5" width="100" height="22" />
+                  <text x="50" y="10" class="class">ColourParser</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">parse(string): object</text>
+                </g>
+              </g>
+            </g>
+
+            <g transform="translate(240, 70)">
+              <!--ContrastAnalyzer-->
+              <g transform="translate(-90, 0)">
+                <rect x="0.5" y="0.5" width="180" height="42" />
+                <text x="90" y="10" class="class">ContrastAnalyzer</text>
+                <line x1="1" y1="12" x2="180" y2="12" />
+                <text x="5" y="20">
+                  conformance(number, number, number): string
+                </text>
+                <text x="5" y="30">contrast(object, object): number</text>
+                <text x="5" y="40">
+                  normalize(object, object, number): object
+                </text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Contrast</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Controller-->
+      <section>
+        <h2 id="c-controller"><code lang="en">Controller</code></h2>
+
+        <p>
+          Controllern samordnar helt enkelt de andra klasserna. Den registrerar
+          en observatör på vyn (formuläret) och hanterar aviseringar.
+        </p>
+
+        <p>
+          När granskaren ändrar värden i formuläret använder controllern klassen
+          <code lang="en">ContrastAnalyzer</code> för att beräkna
+          kontrastförhållandet mellan de två färgerna och vilken nivå i
+          <cite>WCAG</cite> det överensstämmer med.
+        </p>
+
+        <p>Därefter uppdaterar den resultatfälten i vyn.</p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn sparar bara referenser till argumenten och registrerar en
+          observatör på vyn (formuläret).
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Controller</span>(<span class="var">analyzer</span>, <span class="var">ui</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">analyzer</code></dt>
+          <dd>
+            Analysverktyg för kontrastförhållande; en instans av
+            <code lang="en">ContrastAnalyzer</code>.
+          </dd>
+
+          <dt><code lang="en">ui</code></dt>
+          <dd>
+            Användargränssnitt (vy); en instans av
+            <code lang="en">ContrastForm</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Formulär-->
+      <section>
+        <h2 id="c-form"><code lang="en">ContrastForm</code></h2>
+
+        <p>
+          <code lang="en">ContrastForm</code> är verktygets grafiska
+          användargränssnitt. Det har tre inmatningsfält för färger, ett
+          inmatningsfält för opacitet och resultatfält för kontrastförhållande
+          och exempel. I textläge finns även inmatningsfält för textstorlek och
+          svärta. Dessutom finns knappar för att spara eller radera färgvärden i
+          den aktuella granskningen.
+        </p>
+
+        <p>
+          I webbläsare med stöd för
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >EyeDropper API</a
+          >
+          finns en pipettknapp till varje inmatningsfält för färg, med vars
+          hjälp granskaren kan hämta färgvärden från godtycklig bildpunkt på
+          skärmen.
+        </p>
+
+        <p class="warning">
+          Pipettverktyget stöds vanligen bara vid säkra anslutningar, det vill
+          säga över HTTPS, inte HTTP.
+        </p>
+
+        <p>
+          Inmatningsfälten för färger har datalistor med alla färger som sparats
+          i den aktuella granskningen. Om användaren valt en sparad färg finns
+          en knapp för att radera den ur granskningen, annars visas en knapp för
+          att spara färgvärdet i granskningen. Vid spara öppnas en liten modal
+          dialogruta där användaren kan ange ett namn att spara tillsammans med
+          färgvärdet, för att lättare komma ihåg var färgen används.
+        </p>
+
+        <p>
+          De primära färgfälten är förgrund och bakgrund. I de fall färgen är
+          delvis transparent eller där elementet har en opacitet &lt;1 används
+          även det tredje färgfältet, ”<samp>Sidans bakgrundsfärg</samp>”, för
+          att beräkna de resulterande färgvärdena.
+        </p>
+
+        <p>
+          De primära färgfälten heter ”<samp>Textfärg</samp>” respektive
+          ”<samp>Textbakgrund</samp>” i textläge och ”<samp>Färg&nbsp;1</samp>”
+          respektive ”<samp>Färg&nbsp;2</samp>” i grafikläge.
+        </p>
+
+        <p>
+          I textläge visas även fälten ”<samp lang="en">font-size</samp>” (grad,
+          eller textstorlek) och ”<samp lang="en">font-weight</samp>” (svärta),
+          som används för att bestämma överensstämmelsenivån, då
+          <cite>WCAG</cite> har olika krav för normal text och stor text (där
+          ”stor text” beror både på graden och svärtan).
+        </p>
+
+        <p class="note">
+          Granskningssidan som verktyget visas i utgörs av ett stort formulär.
+          HTML-specifikationen medger inte nästlade formulär, men erbjuder ett
+          något krystat sätt att kringgå den begränsningen genom att låta ett
+          fält som strukturellt ingår i formulär A identifiera sig,
+          funktionellt, som medlem i formulär B. Vyn skapar ett tomt, dolt
+          formulär och skapar sedan elementen i huvudformuläret och låter dem
+          hänvisa till det formulär de egentligen tillhör. Detta gör att en
+          <kbd><kbd lang="en">Enter</kbd></kbd
+          >-tryckning i ett av verktygets fält inte orsakar inskick av hela
+          granskningssidan.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn registrerar händelselyssnare på behållarelementet för
+          validering och avisering. Den lägger till ett utfällbart avsnitt med
+          information om vilka färgspecifikationer som stöd och skapar sedan ett
+          dolt, tomt formulär och därefter inmatnings- och resultat&shy;fälten
+          som alltså strukturellt är underordnade ett helt annat formulär än de
+          funktionellt tillhör. Vilka fält som skapas styrs av
+          konfigurationsparametern <code lang="en">mode</code>.
+        </p>
+
+        <p>
+          Inmatningsfälten för färger har datalistor som konstruktorn populerar
+          med alla sparade färger i den aktuella granskningen. En tillhörande
+          knapp används för att spara nya färger eller radera befintliga. Till
+          varje fält hör även en pipettknapp (om webbläsaren har stöd för
+          <span lang="en">EyeDropper API</span>) som kan hämta färgvärdet för en
+          godtycklig bildpunkt på skärmen och visa det i fältet.
+        </p>
+
+        <p>
+          Konstruktorn lägger till en händelselyssnare för resultatfältet. Om
+          användaren klickar på fältet, eller trycker
+          <kbd><kbd lang="en">Enter</kbd></kbd> när fältet har fokus, kopieras
+          resultatet till klippboken (om webbläsaren tillåter det). Om fältet
+          visar resultatet ”<samp>3,14:1</samp>” kopieras strängen
+          ”<samp>3,14</samp>” till klippboken.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ContrastForm</span>(<span class="var">parent</span>, <span class="var">options</span>, <span class="var">parser</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="parasm">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållarelement att infoga användargränssnittet i.</dd>
+
+          <dt><code lang="en">options</code></dt>
+          <dd>Parameterobjekt.</dd>
+
+          <dt><code lang="en">parser</code></dt>
+          <dd>
+            Färgvärdestolk; en instans av <code lang="en">ColourParser</code>.
+          </dd>
+        </dl>
+
+        <h3><code lang="en">addObserver()</code></h3>
+
+        <p>
+          Registrerar en observatör på vyn. Registrerade observatörer anropas
+          varje gång användaren ändrar värde i ett inmatningsfält.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addObserver</span>(<span class="var">observer</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">observer</code></dt>
+          <dd>
+            En funktion som ska anropas vid avisering om händelser i
+            användargränssnittet. Funktionen anropas med en objektparameter med
+            fälten <code>background</code>, <code>colour1</code>,
+            <code>colour2</code> och <code>opacity</code>. De tre första är
+            RGBA-objekt med fälten <code>r</code>, <code>g</code> och
+            <code>b</code> (numeriska värden i intervallet [0,&nbsp;255]) samt
+            <code>a</code> (numeriskt α-värde i intervallet [0,&nbsp;1]).
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>.)</p>
+
+        <h3><code lang="en">update()</code></h3>
+
+        <p>
+          Uppdaterar resultatfältet för kontrastförhållande och exemplet som
+          illustrerar de angivna färgerna. Metoden gör resultatfältet
+          navigerbart med tangentbordet, för att möjliggöra kopiering av
+          resultatet utan mus.
+        </p>
+
+        <p>
+          I textläge visar exempelfältet ett urval av tecken med olika höjder
+          och bredder. I grafikläge visar det en rektangel med en mindre
+          rektangel inuti. Metoden sätter de angivna färgerna så att exemplet
+          ger en visuell indikation av kontrasten. I textläge sätter den även
+          svärtan och, upp till en viss gräns, graden (textstorleken).
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">update</span>(<span class="var">contrast</span>, <span class="var">conformance</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">contrast</code></dt>
+          <dd>Beräknat kontrastförhallande [1,&nbsp;21]).</dd>
+
+          <dt><code lang="en">conformance</code></dt>
+          <dd>
+            Den nivå i <cite>WCAG</cite> som det beräknade kontrastförhållandet
+            överensstämmer med. Värdet är en sträng (<code class="js literal"
+              >"a"</code
+            >, <code class="js literal">"a&zwnj;a"</code> eller
+            <code class="js literal">"a&zwnj;a&zwnj;a"</code>).
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>.)</p>
+      </section>
+
+      <!--Färgvärdestolk-->
+      <section>
+        <h2 id="c-parser"><code lang="en">ColourParser</code></h2>
+
+        <p>
+          En hjälpklass som omvandlar en färgspecifikation till ett färgvärde
+          (RGBA-objekt).
+        </p>
+
+        <table>
+          <caption>
+            Färgspecifikationer som verktyget stödjer.
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Exempel</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Hexadecimalt</td>
+              <td><code>#3c9</code>, <code>#32CB9E</code></td>
+            </tr>
+
+            <tr>
+              <td>RGB</td>
+              <td><code>rgb(255, 240, 128)</code></td>
+            </tr>
+
+            <tr>
+              <td>RGBA</td>
+              <td><code>rgba(255, 240, 128, 0.8)</code></td>
+            </tr>
+
+            <tr>
+              <td>HSL</td>
+              <td><code>hsl(310, 47%, 72%)</code></td>
+            </tr>
+
+            <tr>
+              <td>HSLA</td>
+              <td><code>hsla(310, 47%, 72%, 0.6)</code></td>
+            </tr>
+
+            <tr>
+              <td>CSS-nyckelord</td>
+              <td><code>white</code>, <code>DarkSlateBlue</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3><code lang="en">parse()</code></h3>
+
+        <p>
+          Tolkar en färgspecifikation och omvandlar den till ett RGBA-objekt.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">parse</span>(<span class="var">value</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Fargspecifikation, se Tabell&nbsp;1 ovan.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          Ett RGBA-objekt med fälten <code>r</code>, <code>g</code> och
+          <code>b</code> (rött, grönt, blått; heltal 0–255) samt
+          <code>a</code> (α-värde, opacitet; flyttal 0–1).
+        </p>
+      </section>
+
+      <!--Kontrastanalysator-->
+      <section>
+        <h2 id="c-analyzer"><code lang="en">ContrastAnalyzer</code></h2>
+
+        <p>Beräknar och utvärderar kontrastförhållandet mellan två färger.</p>
+
+        <p>
+          Kontrastförhållandet är en kvot mellan två relativa luminansvärden,
+          normaliserad så att nämnaren är 1. Värdet ligger i intervallet 1:1
+          (två identiska färger) till och med 21:1 (svart mot vitt).
+        </p>
+
+        <p>
+          Kontrastförhållandet beräknas som
+          <math>
+            <mrow>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>L1</mi>
+                  <mo>+</mo>
+                  <mn>0,05</mn>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+              <mo>/</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>L2</mi>
+                  <mo>+</mo>
+                  <mn>0,05</mn>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow> </math
+          >, där <var>L1</var> och <var>L2</var> är den
+          <a
+            href="https://www.w3.org/TR/WCAG21/#dfn-relative-luminance"
+            hreflang="en"
+            rel="external"
+            >relativa luminansen</a
+          >
+          för den ljusare respektive den mörkare färgen.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyowrd">new</span> <span class="ident">ContrastAnalyzer</span>()</code></pre>
+
+        <h3><code lang="en">conformance()</code></h3>
+
+        <p>
+          Avgör vilken överensstämmelsenivå i <cite>WCAG</cite> som ett angivet
+          kontrastförhållande uppfyller.
+        </p>
+
+        <p>
+          Kriterium
+          <a
+            href="https://www.w3.org/TR/WCAG21/#contrast-minimum"
+            hreflang="en"
+            rel="external"
+            >1.4.3 <span lang="en">Contrast (Minimum)"</span></a
+          >
+          i <cite>WCAG</cite> (nivå A&zwnj;A) ställer krav på att visuell
+          repre&shy;sentation av text, inklusive bilder av text, ska ha ett
+          kontrastförhållande på minst 4,5:1 eller, för ”stor text”, 3:1. Med
+          <dfn>stor text</dfn> avses text som är minst 18&nbsp;punkter eller
+          minst 14&nbsp;punkter och fet.
+        </p>
+
+        <p>
+          Kriterium
+          <a
+            href="https://www.w3.org/TR/WCAG21/#contrast-enhanced"
+            hreflang="en"
+            rel="external"
+            >1.4.6 <span lang="en">Contrast (Enhanced)"</span></a
+          >
+          (nivå A&zwnj;A&zwnj;A) höjer kravnivån till 7:1 för normal text och
+          4,5:1 för stor text.
+        </p>
+
+        <p>
+          Kriterium
+          <a
+            href="https://www.w3.org/TR/WCAG21/#non-text-contrast"
+            hreflang="en"
+            rel="external"
+            >1.4.11 <span lang="en">Non-text Contrast"</span></a
+          >
+          (nivå A&zwnj;A) ställer krav på att
+          användargränssnitts&shy;komponenter och informationsbärande delar av
+          grafiska objekt ska ha ett kontrastför&shy;hållande på minst 3:1 mot
+          omkringliggande färger.
+        </p>
+
+        <ul>
+          <li>
+            Ett kontrastvärde under 4,5 för normal text eller under 3 för stor
+            text eller grafik motsvarar således nivå A.
+          </li>
+          <li>
+            Ett värde mellan 4,5–7 för normal text eller mellan 3–4,5 för stor
+            text eller ≥3 för grafik mostvarar A&zwnj;A.
+          </li>
+          <li>
+            Ett värde ≥7 för normal text eller ≥4,5 för stor text motsvarar
+            A&zwnj;A&zwnj;A.
+          </li>
+        </ul>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">conformance</span>(<span class="var">contrast</span>)
+<span class="ident">conformance</span>(<span class="var">contrast</span>, <span class="var">fontSize</span>)
+<span class="ident">conformance</span>(<span class="var">contrast</span>, <span class="var">fontSize</span>, <span class="var">fontWeight</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>contrast</code></dt>
+          <dd>Kontrastvärde (flyttal [1,&nbsp;21]).</dd>
+
+          <dt><code>fontSize</code></dt>
+          <dd>Textstorlek i pixlar för bedömning av 1.4.3 eller 1.4.6.</dd>
+
+          <dt><code>fontWeight</code></dt>
+          <dd>
+            Svärta för bedömning av 1.4.3 eller 1.4.6; ett heltalsvärde i
+            intervallet [100,&nbsp;900] (jämnt hundratal) där 400 motsvarar
+            <code lang="en" class="js keyword">normal</code> och 700 motsvarar
+            <code lang="en" class="js keyword">bold</code>.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          Överensstämmelsenivå, med hänsyn taget till textstorlek och svärta i
+          textläge. Värdet returneras med gemener (<code class="js literal"
+            >"a"</code
+          >, <code class="js literal">"a&zwnj;a"</code>,
+          <code class="js literal">"a&zwnj;a&zwnj;a"</code>, då det används som
+          CSS-klassnamn vid presentation.
+        </p>
+
+        <h3><code lang="en">contrast()</code></h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">conformance</span>(<span class="var">bg</span>, <span class="var">fg</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>bg</code></dt>
+          <dd>Bakgrundsfärg i textläge, ”färg&nbsp;2” i grafikläge.</dd>
+
+          <dt><code>fg</code></dt>
+          <dd>Textfärg i textläge, ”färg&nbsp;1” i grafikläge.</dd>
+        </dl>
+
+        <p>
+          Parametrarna ska vara RGB-objekt, det vill säga objekt med färgvärden
+          i intervallet [0,&nbsp;255] för rött (<code>r</code>), grönt
+          (<code>g</code>) och blått (<code>b</code>).
+        </p>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          Det beräknade kontrastförhållandet mellan de två färgerna som ett
+          flyttal i intervallet [1,&nbsp;21].
+        </p>
+
+        <h3><code lang="en">normalize()</code></h3>
+
+        <p>
+          Normaliserar färger: beräknar den effektiva färgen för en
+          förgrundsfärg med eventuell transparens mot en angiven bakgrundsfärg.
+          Hela elementet kan också vara delvis transparent.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">normalize</span>(<span class="var">fg</span>, <span class="var">bg</span>, <span class="var">opacity</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>fg</code></dt>
+          <dd>Förgrundsfärg som RGBA.</dd>
+
+          <dt><code>bg</code></dt>
+          <dd>Bakgrundsfärg som RGB.</dd>
+
+          <dt><code>opacity</code></dt>
+          <dd>Opacitet som ett flyttal i intervallet [0,&nbsp;1].</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          Ett RGBA-objekt som representerar den effektiva normaliserade färgen
+          med α=1 (fältet <code>a</code>).
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

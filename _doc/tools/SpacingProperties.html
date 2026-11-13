@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>SpacingProperties – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .class.uml-diagram {
+        width: 70rem;
+      }
+      figure.ecb {
+        width: 23rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">SpacingProperties</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">SpacingProperties</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#params">Parametrar</a></li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#c-controller" lang="en">Controller</a></li>
+          <li><a href="#c-form">Formulär</a></li>
+          <li><a href="#c-analyzer">Avståndskontroll</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <code lang="en">SpacingProperties</code> är ett verktyg för att beräkna
+        fyra textavstånd som ska gå att utöka inom vissa gränser enligt
+        kriterium
+        <a
+          href="https://www.w3.org/TR/WCAG21/#text-spacing"
+          hreflang="en"
+          rel="external"
+          >1.4.12 <span lang="en">Text Spacing</span></a
+        >
+        i <cite>WCAG</cite>.
+      </p>
+
+      <!--Parametrar-->
+      <section>
+        <h2 id="params">Parametrar i granskningskonfigurationen</h2>
+
+        <pre class="json"><code lang="en">{
+    <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+    <span class="key">"module"</span>: <span class="value">"SpacingProperties"</span>,
+    <span class="key">"params"</span>: {
+        <span class="key">"letterSpacing"</span>:    <span class="value">"<var>id</var>"</span>,
+        <span class="key">"lineHeight"</span>:       <span class="value">"<var>id</var>"</span>,
+        <span class="key">"paragraphSpacing"</span>: <span class="value">"<var>id</var>"</span>,
+        <span class="key">"wordSpacing"</span>:      <span class="value">"<var>id</var>"</span>
+    }
+}</code></pre>
+
+        <dl class="params">
+          <dt><code lang="en">letterSpacing</code></dt>
+          <dd>
+            Identifierare i kravkonfigurationen för den kontroll som verifierar
+            att teckenavståndet kan utökas till minst 0,12×graden
+            (teckenstorleken).
+          </dd>
+
+          <dt><code lang="en">lineHeight</code></dt>
+          <dd>
+            Identifierare i kravkonfigurationen för den kontroll som verifierar
+            att kägeln (rad&shy;avståndet) kan utökas till minst 1,5×graden.
+          </dd>
+
+          <dt><code lang="en">paragraphSpacing</code></dt>
+          <dd>
+            Identifierare i kravkonfigurationen för den kontroll som verifierar
+            att styckemellan&shy;rummet kan utökas till minst 2×graden.
+          </dd>
+
+          <dt><code lang="en">wordSpacing</code></dt>
+          <dd>
+            Identifierare i kravkonfigurationen för den kontroll som verifierar
+            att ordmellan&shy;rummet kan utökas till minst 0,16×graden.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Verktyget består av tre klasser: en <i lang="en">controller</i>, en vy
+          och en klass som räknar ut och verifierar de fyra textavstånden.
+        </p>
+
+        <figure aria-hidden="true" class="ecb">
+          <svg viewBox="0 0 230 160" class="ecb uml-diagram">
+            <g transform="translate(35, 0)">
+              <!--Controller-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Controller</text>
+                <line x1="40" y1="22" x2="84" y2="22" />
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+
+              <!--SpacingPropertiesForm-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">SpacingPropertiesForm</text>
+              </g>
+            </g>
+
+            <g transform="translate(35, 100)">
+              <!--SpacingPropertyChecker-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">SpacingPropertyChecker</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            <code lang="en">SpacingProperties</code>, översikt.
+          </figcaption>
+        </figure>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 700 140" class="class uml-diagram">
+            <defs>
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <g>
+              <!--Controller-->
+              <g transform="translate(190, 20)">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">Controller</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+
+                <line x1="0" y1="11" x2="-39" y2="11" class="dependency" />
+                <line x1="101" y1="11" x2="140" y2="11" class="dependency" />
+                <line x1="50" y1="23" x2="50" y2="60" class="dependency" />
+              </g>
+
+              <!--RequirementController-->
+              <g transform="translate(0, 15)" class="external">
+                <rect x="0.5" y="0.5" width="150" height="32" />
+                <text x="75" y="10" class="class">RequirementController</text>
+                <line x1="1" y1="12" x2="150" y2="12" />
+                <text x="5" y="20">prepare(AppContext): promise</text>
+                <text x="5" y="30">setCheck(string, boolean): void</text>
+              </g>
+
+              <!--SpacingPropertiesForm-->
+              <g transform="translate(330, 0)">
+                <rect x="0.5" y="0.5" width="190" height="62" />
+                <text x="95" y="10" class="class">SpacingPropertiesForm</text>
+                <line x1="1" y1="12" x2="190" y2="12" />
+                <text x="5" y="20">addObserver(callback): void</text>
+                <text x="5" y="30">
+                  updateLetterSpacing(number, boolean): void
+                </text>
+                <text x="5" y="40">
+                  updateLineHeight(number, boolean): void
+                </text>
+                <text x="5" y="50">
+                  updateParagraphSpacing(number, boolean): void
+                </text>
+                <text x="5" y="60">
+                  updateWordSpacing(number, boolean): void
+                </text>
+              </g>
+            </g>
+
+            <g transform="translate(240, 80)">
+              <!--SpacingPropertyChecker-->
+              <g transform="translate(-80, 0)">
+                <rect x="0.5" y="0.5" width="160" height="52" />
+                <text x="80" y="10" class="class">SpacingPropertyChecker</text>
+                <line x1="1" y1="12" x2="160" y2="12" />
+                <text x="5" y="20">letterSpacing(number, number): array</text>
+                <text x="5" y="30">lineHeight(number, number): array</text>
+                <text x="5" y="40">
+                  paragraphSpacing(number, number): array
+                </text>
+                <text x="5" y="50">wordSpacing(number, number): array</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">SpacingProperties</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Controller-->
+      <section>
+        <h2 id="c-controller"><code lang="en">Controller</code></h2>
+
+        <p>
+          Controllern samordnar helt enkelt de andra klasserna. Den registrerar
+          en observatör på vyn (formuläret) och hanterar aviseringar.
+        </p>
+
+        <p>
+          När granskaren uppdaterar något av inmatningsfälten använder
+          controllern klassen <code lang="en">SpacingPropertyChecker</code> för
+          att beräkna de relativa avstånden mellan tecken, rader, stycken coh
+          ord.
+        </p>
+
+        <p>
+          Därefter uppdaterar den resultatfälten i vyn. Om kontrollparametrar
+          angivts i konfigura&shy;tionen anropar den sedan granskningssidans
+          <i lang="en">controller</i> (<code>RequirementController</code>) för
+          att antingen godkänna eller underkänna de angivna kontrollerna.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>Konstruktorn sparar bara referenser till argumenten.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Controller</span>(<span class="var">analyzer</span>, <span class="var">ui</span>, <span class="var">options</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">analyzer</code></dt>
+          <dd>
+            Analysverktyg för textavstånd; en instans av
+            <code lang="en">SpacingPropertyChecker</code>.
+          </dd>
+
+          <dt><code lang="en">ui</code></dt>
+          <dd>
+            Användargränssnitt (vy); en instans av
+            <code lang="en">SpacingPropertiesForm</code>.
+          </dd>
+
+          <dt><code lang="en">options</code></dt>
+          <dd>
+            Parametrar: granskningssidans <i lang="en">controller</i>,
+            modellobjektet (används inte av det här verktyget) och parametrarna
+            från granskningskonfigurationen.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Formulär-->
+      <section>
+        <h2 id="c-form"><code lang="en">SpacingPropertiesForm</code></h2>
+
+        <p>
+          <code lang="en">SpacingPropertiesForm</code> är verktygets grafiska
+          användargränssnitt. Det består av fem inmatningsfält (”<samp lang="en"
+            >font-size</samp
+          >”, ”<samp lang="en">letter-spacing</samp>”, ”<samp lang="en"
+            >word-spacing</samp
+          >”, ”<samp lang="en">line-height</samp>” och ”<samp lang="en"
+            >margin</samp
+          >”) med tillhörande resultatfält.
+        </p>
+
+        <p class="note">
+          Granskningssidan som verktyget visas i utgörs av ett stort formulär.
+          HTML-specifikationen medger inte nästlade formulär, men erbjuder ett
+          något krystat sätt att kringgå den begränsningen genom att låta ett
+          fält som strukturellt ingår i formulär A identifiera sig,
+          funktionellt, som medlem i formulär B. Vyn skapar ett tomt, dolt
+          formulär och skapar sedan elementen i huvudformuläret och låter dem
+          hänvisa till det formulär de egentligen tillhör. Detta gör att en
+          <kbd><kbd lang="en">Enter</kbd></kbd
+          >-tryckning i ett av verktygets fält inte orsakar inskick av hela
+          granskningssidan.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn registrerar händelselyssnare på behållarelementet för
+          validering och avisering. Den lägger till en instruktionstext i
+          behållaren följt av ett dolt, tomt formulär. Därefter skapar
+          konstruktorn de fem färginmatningsfälten och resultatfälten, som
+          alltså strukturellt är underordnade ett helt annat formulär än de
+          funktionellt tillhör.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SpacingPropertiesForm</span>(<span class="var">parent</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållarelement att infoga användargränssnittet i.</dd>
+        </dl>
+
+        <h3><code lang="en">addObserver()</code></h3>
+
+        <p>
+          Registrerar en observatör på vyn. Registrerade observatörer anropas
+          varje gång användaren ändrar värde i ett inmatningsfält.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addObserver</span>(<span class="var">observer</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">observer</code></dt>
+          <dd>
+            En funktion som ska anropas vid avisering om händelser i
+            användargränssnittet. Funktionen anropas med en objektparameter med
+            fem fält som motsvarar inmat&shy;ningsfälten:
+            <code lang="en">fontSize</code>,
+            <code lang="en">letterSpacing</code>,
+            <code lang="en">lineHeight</code>,
+            <code lang="en">paragraphSpacing</code> och
+            <code lang="en">wordSpacing</code>.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">updateLetterSpacing()</code></h3>
+
+        <p>Uppdaterar resultatfältet för relativt teckenavstånd.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">updateLetterSpacing</span>(<span class="var">relative</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">relative</code></dt>
+          <dd>Relativt teckenavstånd.</dd>
+
+          <dt><code lang="en">conforming</code></dt>
+          <dd>
+            En flagga som anger om resultatet uppfyller den del av kriterium
+            1.4.12 i <cite>WCAG</cite> som avser teckenavstånd.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">updateLineHeight()</code></h3>
+
+        <p>Uppdaterar resultatfältet för relativt radavstånd.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">updateLineHeight</span>(<span class="var">relative</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">relative</code></dt>
+          <dd>Relativt radavstånd.</dd>
+
+          <dt><code lang="en">conforming</code></dt>
+          <dd>
+            En flagga som anger om resultatet uppfyller den del av kriterium
+            1.4.12 i <cite>WCAG</cite> som avser radavstånd.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">updateParagraphSpacing()</code></h3>
+
+        <p>Uppdaterar resultatfältet för relativt styckemellanrum.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">updateParagraphSpacing</span>(<span class="var">relative</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">relative</code></dt>
+          <dd>Relativt styckemellanrum.</dd>
+
+          <dt><code lang="en">conforming</code></dt>
+          <dd>
+            En flagga som anger om resultatet uppfyller den del av kriterium
+            1.4.12 i <cite>WCAG</cite> som avser styckemellanrum.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">updateWordSpacing()</code></h3>
+
+        <p>Uppdaterar resultatfältet för relativt ordmellanrum.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">updateWordSpacing</span>(<span class="var">relative</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">relative</code></dt>
+          <dd>Relativt ordmellanrum.</dd>
+
+          <dt><code lang="en">conforming</code></dt>
+          <dd>
+            En flagga som anger om resultatet uppfyller den del av kriterium
+            1.4.12 i <cite>WCAG</cite> som avser ordmellanrum.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Avståndskontroll-->
+      <section>
+        <h2 id="c-analyzer"><code lang="en">SpacingPropertyChecker</code></h2>
+
+        <p>
+          Verktyg för att räkna ut de relativa textavstånden och verifiera att
+          de når upp till de värden som specificeras i 1.4.12.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SpacingPropertyChecker</span>()</code></pre>
+
+        <h3><code lang="en">letterSpacing()</code></h3>
+
+        <p>
+          Beräknar teckenavståndet relativt teckenstorleken och kontrollerar att
+          det är minst 0,12.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">letterSpacing</span>(<span class="var">absolute</span>, <span class="var">fontSize</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">absolute</code></dt>
+          <dd>Beräknat absolut teckenavstånd.</dd>
+
+          <dt><code lang="en">fontSize</code></dt>
+          <dd>Beräknad teckenstorlek.</dd>
+        </dl>
+
+        <p>Båda värdena måste anges i samma måttenhet (vanligen pixlar).</p>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          En vektor med två element. Det första är det relativa teckenavståndet,
+          det andra en flagga som anger om avståndet uppfyller den del av
+          kriterium 1.4.12 som gäller teckenavstånd.
+        </p>
+
+        <h3><code lang="en">lineHeight()</code></h3>
+
+        <p>
+          Beräknar radavståndet relativt teckenstorleken och kontrollerar att
+          det är minst 1,5.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">lineHeight</span>(<span class="var">absolute</span>, <span class="var">fontSize</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">absolute</code></dt>
+          <dd>Beräknat absolut radavstånd.</dd>
+
+          <dt><code lang="en">fontSize</code></dt>
+          <dd>Beräknad teckenstorlek.</dd>
+        </dl>
+
+        <p>Båda värdena måste anges i samma måttenhet (vanligen pixlar).</p>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          En vektor med två element. Det första är det relativa radavståndet,
+          det andra en flagga som anger om avståndet uppfyller den del av
+          kriterium 1.4.12 som gäller radavstånd.
+        </p>
+
+        <h3><code lang="en">paragraphSpacing()</code></h3>
+
+        <p>
+          Beräknar styckemellanrummet relativt teckenstorleken och kontrollerar
+          att det är minst 2.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">paragraphSpacing</span>(<span class="var">absolute</span>, <span class="var">fontSize</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">absolute</code></dt>
+          <dd>Beräknat absolut styckemellanrum.</dd>
+
+          <dt><code lang="en">fontSize</code></dt>
+          <dd>Beräknad teckenstorlek.</dd>
+        </dl>
+
+        <p>Båda värdena måste anges i samma måttenhet (vanligen pixlar).</p>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          En vektor med två element. Det första är det relativa
+          styckemellanrummet, det andra en flagga som anger om avståndet
+          uppfyller den del av kriterium 1.4.12 som gäller stycke&shy;mellanrum.
+        </p>
+
+        <h3><code lang="en">wordSpacing()</code></h3>
+
+        <p>
+          Beräknar ordmellanrummet relativt teckenstorleken och kontrollerar att
+          det är minst 0,16.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">wordSpacing</span>(<span class="var">absolute</span>, <span class="var">fontSize</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">absolute</code></dt>
+          <dd>Beräknat absolut ordmellanrum.</dd>
+
+          <dt><code lang="en">fontSize</code></dt>
+          <dd>Beräknad teckenstorlek.</dd>
+        </dl>
+
+        <p>Båda värdena måste anges i samma måttenhet (vanligen pixlar).</p>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          En vektor med två element. Det första är det relativa ordmellanrummet,
+          det andra en flagga som anger om avståndet uppfyller den del av
+          kriterium 1.4.12 som gäller ordmel&shy;lanrum.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="TextSpacing.html"><code lang="en">TextSpacing</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

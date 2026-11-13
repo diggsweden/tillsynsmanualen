@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>LogEditController – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 50rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">LogEditController</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">LogEditController</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-prepare"><code lang="en">prepare()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p><i lang="en">Controller</i> för redigering av personuppgifter.</p>
+
+      <p>
+        <code lang="en">LogEditController</code> ärver från
+        <code lang="en">ControllerBase</code> och implementerar bara metoden
+        <code lang="en">prepare()</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/LogEditController.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/LogEditController.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 500 660" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--LogEditController-->
+          <use
+            xlink:href="LogEditController.svg#LogEditController"
+            x="180"
+            y="95"
+            class="highlight"
+          />
+
+          <line x1="180" y1="106" x2="141" y2="106" class="composition" />
+          <line x1="255" y1="118" x2="255" y2="240" class="inheritance" />
+          <line x1="331" y1="105" x2="370" y2="105" class="dependency" />
+
+          <!--AuditCase-->
+          <use xlink:href="../model/AuditCase.svg#AuditCase" x="0" y="0" />
+
+          <!--LogEntry-->
+          <use xlink:href="../model/LogEntry.svg#LogEntry" x="370" y="50" />
+
+          <g transform="translate(0, 240)">
+            <!--ControllerBase-->
+            <use xlink:href="ControllerBase.svg#ControllerBase" x="190" y="0" />
+
+            <line x1="190" y1="16" x2="141" y2="16" class="composition" />
+            <line x1="321" y1="16" x2="370" y2="16" class="composition" />
+            <line x1="255" y1="33" x2="255" y2="60" class="composition" />
+
+            <!--AppContext-->
+            <use
+              xlink:href="../common/AppContext.svg#AppContext"
+              x="40"
+              y="0"
+            />
+
+            <!--Model-->
+            <use xlink:href="../model/Model.svg#Model" x="180" y="60" />
+
+            <!--LogEditView-->
+            <use
+              xlink:href="../view/LogEditView.svg#LogEditView"
+              x="370"
+              y="0"
+            />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">LogEditController</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">LogEditController</span>(<span class="var">model</span>, <span class="var">view</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjekt.</dd>
+
+          <dt><code lang="en">view</code></dt>
+          <dd>Vyinstans.</dd>
+        </dl>
+      </section>
+
+      <!--prepare()-->
+      <section>
+        <h2 id="m-prepare"><code lang="en">prepare()</code></h2>
+
+        <p>
+          Förbereder sidvisning på normalt sätt: populerar länkstigen,
+          registrerar en observatör för vyhändelser samt registrerar
+          åtgärdshanterare för spara och ta bort.
+        </p>
+
+        <p>
+          Metoden hämtar noteringen ur objektdatabasen om parametern
+          <code lang="en">entry</code> finns i sid&shy;begäran. I annat fall ska
+          parametern <code lang="en">case</code> finnas i sidbegäran och metoden
+          skapar en ny loggnote&shy;ring i det angivna ärendet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">prepare</span>(<span class="var">context</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när förberedelserna är klara.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Ogiltig ärendeidentitet.</dd>
+        </dl>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../log.module.html"
+              ><code lang="en">log.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="ControllerBase.html"
+              ><code lang="en">ControllerBase</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="../view/LogEditView.html"
+              ><code lang="en">LogEditView</code></a
+            >
+          </li>
+          <li>
+            <a href="./LogListController.html"
+              ><code lang="en">LogListController</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

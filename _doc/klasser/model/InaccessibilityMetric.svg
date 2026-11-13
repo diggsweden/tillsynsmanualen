@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50">
+  <g id="InaccessibilityMetric">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="159" height="42"/>
+      <line x1="1" y1="12" x2="160" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="80" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">InaccessibilityMetric</text>
+      <text x="5" y="20">compliance(number): string</text>
+      <text x="5" y="30">impact(number, object [,string]): number</text>
+      <text x="5" y="40">score(number, object [,string]): number</text>
+    </g>
+  </g>
+
+  <g id="Methodology">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="32"/>
+      <line x1="1" y1="12" x2="110" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Methodology</text>
+      <text x="5" y="20">+requirments: Requirement[]</text>
+    </g>
+  </g>
+
+  <g id="Requirement">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="62"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Requirement</text>
+      <text x="5" y="20">+clause: string</text>
+      <text x="5" y="30">+interference: boolean</text>
+      <text x="5" y="40">+level: string</text>
+      <text x="5" y="50">+primaryFPS: number</text>
+      <text x="5" y="60">+secondaryFPS: number</text>
+    </g>
+  </g>
+</svg>

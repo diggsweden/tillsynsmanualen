@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 250">
+  <g id="AuditDisplayView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="189" height="242"/>
+      <line x1="1" y1="12"  x2="190" y2="12"/>
+      <line x1="1" y1="112" x2="190" y2="112"/>
+    </g>
+
+    <g stroke="none">
+      <text x="95" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">AuditDisplayView</text>
+      <text x="5" y="20">+advancedMode: boolean</text>
+      <text x="5" y="30">+appVersion: string</text>
+      <text x="5" y="40">+componentCount: number</text>
+      <text x="5" y="50">+date: date</text>
+      <text x="5" y="60">+documentCount: number</text>
+      <text x="5" y="70">+heading: string</text>
+      <text x="5" y="80">+minDate: date</text>
+      <text x="5" y="90">+screenCount: number</text>
+      <text x="5" y="100">+service: string</text>
+      <text x="5" y="110">+webpageCount: number</text>
+      <text x="5" y="120">activate(): void</text>
+      <text x="5" y="130">addDocument(string, string [,string]): void</text>
+      <text x="5" y="140">addSample(number, number, …): void</text>
+      <text x="5" y="150">close(): void</text>
+      <text x="5" y="160">deleteDocument(string): void</text>
+      <text x="5" y="170">enableInjunctions(boolean): void</text>
+      <text x="5" y="180">enableReopen(): void</text>
+      <text x="5" y="190">open(): promise</text>
+      <text x="5" y="200">setAuditLink(string, string): void</text>
+      <text x="5" y="210">setAuditProgress(number, number, string): void</text>
+      <text x="5" y="220">setFinishedMode(boolean, boolean): void</text>
+      <text x="5" y="230">setSampleLink(string, string): void</text>
+      <text x="5" y="240">setSampleProgress(number, number, string): void</text>
+    </g>
+  </g>
+</svg>

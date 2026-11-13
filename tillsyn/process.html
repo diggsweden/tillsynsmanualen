@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tillsynsprocess – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="../css/processes.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Tillsynsprocess</h1>
+
+      <p>
+        Tillsynsprocessen kan inledas till följd av
+        <a href="anmalningar.html">anmälningar</a> som kommer in eller vid
+        <a href="overvakning.html">övervakning</a> av digital offentlig service.
+      </p>
+
+      <section>
+        <h2>Översikt</h2>
+
+        <svg aria-hidden="true" width="0" height="0">
+          <defs>
+            <marker
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+              id="arrow"
+            >
+              <path d="M 0 0 L 8 4 0 8 z" />
+            </marker>
+
+            <symbol id="sym-start">
+              <circle cx="50" cy="10" r="10" />
+            </symbol>
+
+            <symbol id="sym-end">
+              <circle cx="50" cy="10" r="8" />
+              <circle cx="50" cy="10" r="10" class="ring" />
+            </symbol>
+
+            <symbol id="sym-choice">
+              <rect
+                x="0"
+                y="0"
+                width="70"
+                height="70"
+                transform="translate(50, 0) rotate(45)"
+                class="opaque"
+              />
+            </symbol>
+
+            <symbol id="sym-resource">
+              <path
+                d="M25,0 v70 h50 v-60 l-10,-10 z M65,0 v10 h10"
+                class="resource"
+              />
+            </symbol>
+
+            <symbol id="sym-process">
+              <rect x="1" y="1" rx="8" ry="8" width="100" height="30" />
+            </symbol>
+
+            <symbol id="sym-step">
+              <rect x="1" y="1" width="100" height="30" class="opaque" />
+            </symbol>
+          </defs>
+        </svg>
+
+        <figure>
+          <svg
+            role="img"
+            aria-labelledby="overview-title overview-desc"
+            width="40em"
+            height="43em"
+            viewBox="0 0 400 430"
+          >
+            <title id="overview-title">Processdiagram, översikt</title>
+            <desc id="overview-desc">
+              Se beskrivningstext efter diagrammet.
+            </desc>
+
+            <g>
+              <g>
+                <use xlink:href="#sym-start" />
+                <line x1="50" y1="20" x2="50" y2="50" />
+              </g>
+
+              <g transform="translate(0, 50)">
+                <use xlink:href="#sym-process" class="opaque" />
+                <text x="50" y="18">Anmälan</text>
+                <line x1="50" y1="30" x2="50" y2="70" class="conditional" />
+              </g>
+
+              <g transform="translate(0, 120)">
+                <use xlink:href="#sym-resource" />
+                <text x="50" y="30" class="long">
+                  <tspan>Underlag</tspan>
+                  <tspan x="50" dy="12">för</tspan>
+                  <tspan x="50" dy="12">tillsyn</tspan>
+                </text>
+                <line x1="50" y1="70" x2="50" y2="110" class="conditional" />
+              </g>
+
+              <g transform="translate(0, 230)">
+                <use xlink:href="#sym-step" />
+                <text x="50" y="18">Beslut om tillsyn</text>
+                <line x1="50" y1="30" x2="50" y2="70" />
+              </g>
+
+              <g transform="translate(0, 300)">
+                <use xlink:href="#sym-process" class="highlight" />
+                <text x="50" y="18">Tillsyn</text>
+                <line x1="50" y1="30" x2="50" y2="100" />
+              </g>
+
+              <g transform="translate(0, 400)">
+                <use xlink:href="#sym-end" />
+              </g>
+            </g>
+
+            <g transform="translate(150, 0)">
+              <g>
+                <use xlink:href="#sym-start" />
+                <line x1="50" y1="20" x2="50" y2="50" />
+              </g>
+
+              <g transform="translate(0, 50)">
+                <use xlink:href="#sym-resource" />
+                <text x="50" y="32">
+                  <tspan>Tillsyns-</tspan>
+                  <tspan x="50" dy="12">plan</tspan>
+                </text>
+                <line x1="50" y1="70" x2="50" y2="110" />
+              </g>
+
+              <g transform="translate(0, 160)">
+                <use xlink:href="#sym-choice" />
+                <text x="50" y="48">
+                  <tspan>Typ av</tspan>
+                  <tspan x="50" dy="12">övervakning</tspan>
+                </text>
+
+                <line x1="100" y1="50" x2="140" y2="50" />
+                <text x="100" y="42" class="legend">förenklad</text>
+
+                <line x1="50" y1="100" x2="50" y2="140" />
+                <text x="55" y="108" class="legend">ingående</text>
+              </g>
+
+              <g transform="translate(140, 195)">
+                <use xlink:href="#sym-step" />
+                <text x="50" y="18">Automatisk test</text>
+                <line x1="50" y1="30" x2="50" y2="70" />
+              </g>
+
+              <g transform="translate(0, 300)">
+                <use xlink:href="#sym-process" class="highlight" />
+                <text x="50" y="18">Tillsyn</text>
+                <line x1="50" y1="30" x2="50" y2="100" />
+              </g>
+
+              <g transform="translate(140, 265)">
+                <use xlink:href="#sym-choice" />
+                <text x="50" y="53">Brister?</text>
+
+                <line x1="0" y1="50" x2="-40" y2="50" />
+                <text x="-5" y="42" class="legend right">ja</text>
+
+                <polyline points="50,100 50,145 -80,145" />
+                <text x="55" y="108" class="legend">nej</text>
+              </g>
+
+              <g transform="translate(0, 400)">
+                <use xlink:href="#sym-end" />
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            Diagram över anmälningsprocessen och övervakningsprocessen
+          </figcaption>
+        </figure>
+
+        <p>
+          Om en anmälan kommer in, som rör en offentlig aktörs digitala service,
+          lägger vi till webbplatsen eller den mobila applikationen i en lista
+          med underlag för tillsyn. Tillsynsansvarig kan fatta beslut om tillsyn
+          av någon av kandidaterna på listan om den bedöms ha stor principiell
+          bedydelse. Då inleds tillsynsprocessen, som beskrivs nedan.
+        </p>
+
+        <p>
+          Därutöver finns en tillsynsplan med webbplatser och mobila
+          applikationer som vi valt ut för övervakning via en urvalsprocess. Det
+          finns två typer av övervakning: förenklad och ingående. Förenklad
+          övervakning sker med ett automatiskt verktyg. Om verktyget hittar
+          brister i tillgängligheten tar tillsynsprocessen vid. Ingående
+          övervakning är synonymt med tillsynsprocessen.
+        </p>
+
+        <p>
+          Digital service som hamnat på listan över underlag för tillsyn på
+          grund av anmälningar tar vi normalt med i tillsynsplanen för kommande
+          period.
+        </p>
+      </section>
+
+      <section>
+        <h2>Tillsyn</h2>
+
+        <p>
+          Tillsynsprocessen startar när tillsynsansvarig beslutar om tillsyn av
+          en digital offentlig service enligt 19&nbsp;§
+          <cite>lagen om tillgänglighet till digital offentlig service</cite>.
+          Det kan ske som följd av en inkommen anmälan eller att servicen ingår
+          i den beslutade tillsynsplanen för övervakning.
+        </p>
+
+        <figure>
+          <svg
+            role="img"
+            aria-labelledby="monitoring-title monitoring-desc"
+            width="78em"
+            height="133em"
+            viewBox="0 0 780 1330"
+          >
+            <title id="monitoring-title">
+              Processdiagram, tillsynsprocessen
+            </title>
+            <desc id="monitoring-desc">
+              Se beskrivningstext efter diagrammet.
+            </desc>
+
+            <g transform="translate(280, 0)">
+              <text x="50" y="10">Tillsyn beslutad</text>
+              <use y="20" xlink:href="#sym-start" />
+              <line x1="50" y1="40" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 70)">
+              <use xlink:href="#sym-process" class="highlight" />
+              <text x="50" y="18">Granskning</text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 140)">
+              <use xlink:href="#sym-choice" />
+              <text x="50" y="53">Brister?</text>
+
+              <line x1="0" y1="50" x2="-40" y2="50" />
+              <text x="-10" y="42" class="legend right">nej</text>
+
+              <g transform="translate(-140, 35)">
+                <use xlink:href="#sym-step" />
+                <text x="50" y="18">Stäng ärendet</text>
+                <line x1="0" y1="15" x2="-40" y2="15" />
+                <use x="-100" y="5" xlink:href="#sym-end" />
+              </g>
+
+              <line x1="50" y1="100" x2="50" y2="140" />
+              <text x="55" y="108" class="legend">ja</text>
+            </g>
+
+            <g transform="translate(280, 280)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="18">Påpeka brister</text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 350)">
+              <use xlink:href="#sym-choice" />
+              <text x="50" y="40">
+                <tspan>Aktören</tspan>
+                <tspan x="50" dy="12">svarar inom</tspan>
+                <tspan x="50" dy="12">tidsgränsen?</tspan>
+              </text>
+
+              <line x1="0" y1="50" x2="-40" y2="50" />
+              <text x="0" y="18" class="legend right">
+                <tspan>ja,</tspan>
+                <tspan x="0" dy="12">medger</tspan>
+                <tspan x="0" dy="12">brist</tspan>
+              </text>
+
+              <g transform="translate(-140, 0)">
+                <use xlink:href="#sym-choice" />
+                <text x="50" y="40">
+                  <tspan>Åberopar</tspan>
+                  <tspan x="50" dy="12">undantag</tspan>
+                  <tspan x="50" dy="12">enligt 12 §?</tspan>
+                </text>
+
+                <line x1="0" y1="50" x2="-40" y2="50" />
+                <text x="-5" y="42" class="legend right">ja</text>
+
+                <g transform="translate(-140, 35)">
+                  <use xlink:href="#sym-step" />
+                  <text x="50" y="18">Bedömning</text>
+                  <line x1="50" y1="30" x2="50" y2="70" />
+
+                  <g transform="translate(0, 70)">
+                    <use xlink:href="#sym-choice" />
+                    <text x="50" y="46">
+                      <tspan>Oskäligt</tspan>
+                      <tspan x="50" dy="12">betungande?</tspan>
+                    </text>
+
+                    <line x1="100" y1="50" x2="280" y2="50" />
+                    <text x="105" y="42" class="legend">nej</text>
+
+                    <polyline points="50,100 50,545 280,545" />
+                    <text x="55" y="108" class="legend">ja</text>
+                  </g>
+                </g>
+
+                <line x1="50" y1="100" x2="50" y2="200" />
+                <text x="55" y="108" class="legend">nej</text>
+
+                <g transform="translate(0, 200)">
+                  <use xlink:href="#sym-step" />
+                  <text x="50" y="12">
+                    <tspan>Aktören åtgärdar</tspan>
+                    <tspan x="50" dy="12">bristerna</tspan>
+                  </text>
+                  <line x1="50" y1="30" x2="50" y2="70" />
+                </g>
+
+                <g transform="translate(0, 270)">
+                  <use xlink:href="#sym-process" class="highlight" />
+                  <text x="50" y="18">Granskning</text>
+                  <line x1="50" y1="30" x2="50" y2="70" />
+                </g>
+
+                <g transform="translate(0, 340)">
+                  <use xlink:href="#sym-choice" />
+                  <text x="50" y="53">Brister?</text>
+
+                  <polyline points="100,50 120,50 120,-175 140,-175" />
+                  <text x="105" y="42" class="legend">ja</text>
+
+                  <polyline points="50,100 50,300 140,300" />
+                  <text x="55" y="108" class="legend">nej</text>
+                </g>
+              </g>
+
+              <polyline points="100,50 160,50 160,155 100,155" />
+              <text x="105" y="42" class="legend">ja, förnekar brist</text>
+
+              <line x1="50" y1="100" x2="50" y2="140" />
+              <text x="55" y="108" class="legend">nej</text>
+            </g>
+
+            <g transform="translate(280, 490)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="12">
+                <tspan>Förelägg om att</tspan>
+                <tspan x="50" dy="12">vidta åtgärder</tspan>
+              </text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 560)">
+              <use xlink:href="#sym-choice" />
+              <text x="50" y="53">Överklagar?</text>
+
+              <line x1="100" y1="50" x2="140" y2="50" />
+              <text x="105" y="42" class="legend">ja</text>
+
+              <g transform="translate(140, 35)">
+                <use xlink:href="#sym-step" />
+                <text x="50" y="12">
+                  <tspan>Överlämna till</tspan>
+                  <tspan x="50" dy="12">domstol</tspan>
+                </text>
+                <line x1="50" y1="30" x2="50" y2="70" />
+
+                <g transform="translate(0, 70)">
+                  <use xlink:href="#sym-choice" />
+                  <text x="50" y="46">
+                    <tspan>Avslår</tspan>
+                    <tspan x="50" dy="12">föreläggandet?</tspan>
+                  </text>
+
+                  <line x1="0" y1="50" x2="-40" y2="50" />
+                  <text x="0" y="42" class="legend right">nej</text>
+
+                  <polyline points="50,100 50,320 -40,320" />
+                  <text x="55" y="108" class="legend">ja</text>
+                </g>
+              </g>
+
+              <line x1="50" y1="100" x2="50" y2="140" />
+              <text x="55" y="108" class="legend">nej</text>
+            </g>
+
+            <g transform="translate(280, 700)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="12">
+                <tspan>Aktören åtgärdar</tspan>
+                <tspan x="50" dy="12">bristerna</tspan>
+              </text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 770)">
+              <use xlink:href="#sym-process" class="highlight" />
+              <text x="50" y="18">Granskning</text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 840)">
+              <use xlink:href="#sym-choice" />
+              <text x="50" y="53">Brister?</text>
+
+              <line x1="100" y1="50" x2="370" y2="50" />
+              <text x="105" y="42" class="legend">ja</text>
+
+              <g transform="translate(370, 35)">
+                <use xlink:href="#sym-step" />
+                <text x="50" y="12" class="long">
+                  <tspan>Förelägg på nytt</tspan>
+                  <tspan x="50" dy="12" class="long">
+                    (kan förenas med vite)
+                  </tspan>
+                </text>
+                <line x1="50" y1="30" x2="50" y2="70" />
+
+                <g transform="translate(0, 70)">
+                  <use xlink:href="#sym-choice" />
+                  <text x="50" y="53">Överklagar?</text>
+
+                  <line x1="0" y1="50" x2="-40" y2="50" />
+                  <text x="0" y="42" class="legend right">ja</text>
+
+                  <g transform="translate(-140, 35)">
+                    <use xlink:href="#sym-step" />
+                    <text x="50" y="12">
+                      <tspan>Överlämna till</tspan>
+                      <tspan x="50" dy="12">domstol</tspan>
+                    </text>
+                    <line x1="50" y1="30" x2="50" y2="70" />
+
+                    <g transform="translate(0, 70)">
+                      <use xlink:href="#sym-choice" />
+                      <text x="50" y="46">
+                        <tspan>Avslår</tspan>
+                        <tspan x="50" dy="12">föreläggandet?</tspan>
+                      </text>
+
+                      <line x1="100" y1="50" x2="140" y2="50" />
+                      <text x="105" y="42" class="legend">nej</text>
+
+                      <polyline points="0,50 -20,50 -20,-55 -130,-55" />
+                      <text x="0" y="42" class="legend right">ja</text>
+                    </g>
+                  </g>
+
+                  <line x1="50" y1="100" x2="50" y2="140" />
+                  <text x="55" y="108" class="legend">nej</text>
+
+                  <g transform="translate(0, 140)">
+                    <use xlink:href="#sym-step" />
+                    <text x="50" y="12">
+                      <tspan>Aktören åtgärdar</tspan>
+                      <tspan x="50" dy="12">bristerna</tspan>
+                    </text>
+                    <line x1="50" y1="30" x2="50" y2="70" />
+                  </g>
+
+                  <g transform="translate(0, 210)">
+                    <use xlink:href="#sym-process" class="highlight" />
+                    <text x="50" y="18">Granskning</text>
+                    <line x1="50" y1="30" x2="50" y2="70" />
+                  </g>
+
+                  <g transform="translate(0, 280)">
+                    <use xlink:href="#sym-choice" />
+                    <text x="50" y="53">Brister?</text>
+
+                    <polyline points="0,50 -180,50, -180,-220 -270,-220" />
+                    <text x="0" y="42" class="legend right">nej</text>
+
+                    <polyline points="100,50 120,50 120,-335 100,-335" />
+                    <text x="105" y="42" class="legend">ja</text>
+                  </g>
+                </g>
+              </g>
+
+              <line x1="50" y1="100" x2="50" y2="140" />
+              <text x="55" y="108" class="legend">nej</text>
+            </g>
+
+            <g transform="translate(280, 980)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="18">Stäng ärendet</text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+              <use y="70" xlink:href="#sym-end" />
+            </g>
+          </svg>
+
+          <figcaption>Tillsynsprocessen</figcaption>
+        </figure>
+
+        <h3>Granskning</h3>
+
+        <p>
+          Tillsynsprocessen börjar med en manuell granskning av servicen – en
+          webbplats eller en mobil applikation (”app”). Granskningen sker enligt
+          den metodik som beskrivs i denna manual.
+        </p>
+
+        <h3>Påpekande</h3>
+
+        <p>
+          Om vi vid granskningen konstaterar brister i tillgängligheten är
+          första steget att vi kontaktar den berörda offentliga aktören och
+          berättar vilka brister vi hittat. Detta kallas att
+          <dfn>påpeka</dfn> om bristande tillgänglighet (19&nbsp;§
+          <cite>lagen om tillgänglighet till digital offentlig service</cite>).
+        </p>
+
+        <p>
+          Aktören har en viss tid på sig att åtgärda bristerna. Därefter gör vi
+          en ny granskning. Om aktören rättat bristerna stänger vi
+          tillsynsärendet.
+        </p>
+
+        <p><a href="papekande.html" target="_blank">Exempel på påpekande</a></p>
+
+        <h3>Föreläggande</h3>
+
+        <p>
+          Om DIGG och den offentliga aktören inte kan komma överens i en dialog,
+          eller om aktören inte åtgärdar alla brister, blir nästa steg att vi
+          <dfn>förelägger</dfn> om att vidta åtgärder. Vi skickar föreläggandet
+          med påpekandet och gransknings&shy;protokollet som bilagor. Så länge
+          inte heller detta leder till önskat resultat utfärdar vi nya
+          förelägganden, som då kan förenas om vite enligt
+          <cite>lagen om viten</cite>.
+        </p>
+
+        <p>
+          Om den offentliga aktören medger brister, men åberopar undantag för
+          oskäligt betung&shy;ande anpassning enligt 12&nbsp;§
+          <cite>lagen om tillgänglighet till digital offentlig service</cite>
+          gör vi en bedömning av skälen. Om vi anser att skälen är godtagbara
+          stänger vi tillsynsärendet; annars förväntas aktören åtgärda
+          bristerna.
+        </p>
+
+        <p>
+          Den offentliga aktören kan överklaga ett föreläggande till domstol. On
+          domstolen dömer till aktörens fördel stänger vi tillsynsärendet,
+          annars går det vidare som om inget överklag&shy;ande skett.
+        </p>
+
+        <h3>Expediering av beslut</h3>
+
+        <ul>
+          <li>
+            <p>
+              För myndigheter mejlar vi beslut till diariet, det vill säga
+              registrator@<var>myndighet</var>.se.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              För mindre aktörer, som kommunala bolag, mejlar vi beslut till den
+              kontaktadress de uppger på sin webbplats. Om det inte finns någon
+              kontaktadress på webbplatsen skriver vi ut påpekandet och
+              granskningsprotokollet och skicka dem med brev.
+            </p>
+
+            <p class="note">
+              Vi skickar <em>bara</em> till myndighetsadresser; aldrig till
+              <cite>Hotmail</cite>, <cite>Gmail</cite> eller liknande.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Vi använder leveranskvitto för att se att mejlet levererats till
+              mottagarens mejlserver. När du får ett leveranskvitto ska du
+              diarieföra det i ärendet. Vi begär <em>inte</em> läskvitto.
+            </p>
+
+            <p class="tip">
+              Kryssa i <samp>Begär leveranskvitto</samp> på fliken
+              <samp>Alternativ</samp> i e-postmeddelandet.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Om vi inte får något leveranskvitto och inget svar expedierar vi
+              beslutet per brev efter 14 dagar. Observera att du då behöver
+              skriva ut och bifoga även bilagor som påpekande och
+              granskningsprotokoll.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="../start/tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="../start/webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

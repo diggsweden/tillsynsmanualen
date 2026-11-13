@@ -1,0 +1,6 @@
+{
+  "methods": [
+    "Leta efter knappar som bara innehåller symboltecken, särskilt sådana som använder speciella glyf-teckensnitt för tecken som inte har någon definierad betydelse i Unicode.",
+    "Om du är osäker på om en lösning fungerar, testa helst med skärmläsare."
+  ]
+}

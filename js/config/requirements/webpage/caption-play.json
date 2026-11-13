@@ -1,0 +1,10 @@
+{
+  "methods": [
+    "Spela filmen, aktivera undertextreglaget två eller fler gånger och kontrollera att undertexterna visas och döljs."
+  ],
+  "exceptions": ["Öppna (”inbrända”) undertexter."],
+  "instruction": {
+    "id": "en-7.1-7.2",
+    "title": "Mediespelare"
+  }
+}

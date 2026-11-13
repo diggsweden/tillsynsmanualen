@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Går det att förstå vart länken leder genom att läsa enbart länktexten? Navigera gärna med tangentbordet för att hitta länkar som saknar tydlig visuell formgivning."
+  ],
+  "exceptions": [
+    "Syftet med länken är oklart även för personer utan funktionsnedsättning."
+  ],
+  "examples": {
+    "bad": [
+      "”Klicka här”",
+      "”Läs mer”",
+      "”här” (i löptext)",
+      "Länkade puffar med bild, rubrik och ingress; särskilt om bilden har ett långt textalternativ som beskriver motivet."
+    ],
+    "good": ["”DIGG:s webbplats”", "”Årsredovisning 2019”"]
+  }
+}

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Enhetstester – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      line,
+      polyline {
+        marker-end: url('#dependency');
+      }
+      .uml-diagram {
+        width: 37rem;
+        fill: none;
+      }
+      .uml-diagram text {
+        text-anchor: middle;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Enhetstester</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Enhetstester</h1>
+
+      <p>
+        <cite>Tillsynsmanualen</cite> har drygt 80 testfall med sammanlagt nära
+        2&nbsp;000 tester. De allra flesta klasser har testfall, och de som inte
+        har det är triviala.
+      </p>
+
+      <p>
+        Testerna körs i ett hemmasnickrat testramverk, ytligt inspirerat av
+        syntaxen i <cite>Jest</cite>. Det finns stort utrymme för förbättringar,
+        framförallt i rapporteringen av underkända tester, men ramverket fyller
+        sitt syfte och medför inga externa beroenden.
+      </p>
+
+      <p>
+        Användargränssnittet är sidan
+        <a href="../_utils/enhetstester.html">Enhetstester</a>, som består av
+        ett litet formulär och laddar det skript som utgör skalet för testerna:
+        <code lang="en">_tests/unit-tests.js</code>. Skriptet listar alla
+        testfall och skapar en instans av <code lang="en">TestHTMLView</code>.
+      </p>
+
+      <p>
+        Testfallen importerar funktioner från
+        <code lang="en">_tests/functions.js</code> som populerar en statisk
+        instans av <code lang="en">TestRunner</code>.
+      </p>
+
+      <p>
+        Användaren trycker på <samp>Uppdatera</samp>-knappen i formuläret för
+        att starta testerna, efter att ha fyllt i en eventuell filtertext för
+        att begränsa vilka testfall som ska köras. Filtret är högst rudimentärt
+        och matchar alla testfall där filtertexten ingår i sökvägen.
+      </p>
+
+      <p>
+        <code lang="en">TestHTMLView</code> visar resultatet från körningen och
+        ger användaren möjlighet att välja pre&shy;sentationsnivå. Vyn visar
+        alla förväntningar som inte uppfyllts, men katastrofala fel kan göra att
+        körningen inte kommer så långt som till vyn. Därför bör man alltid ha
+        webbläsa&shy;rens JavaScript-konsoll öppen när man kör testerna.
+      </p>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 370 360" class="uml-diagram">
+          <defs>
+            <marker
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+          </defs>
+
+          <!--enhetstester.html-->
+          <g>
+            <rect x="0.5" y="0.5" width="150" height="50" />
+            <text x="75" y="30">_utils/enhetstester.html</text>
+            <line x1="75" y1="51" x2="75" y2="99" />
+          </g>
+
+          <g transform="translate(0, 100)">
+            <!--unit-tests.js-->
+            <g>
+              <rect x="0.5" y="0.5" width="150" height="50" />
+              <text x="75" y="30">_tests/unit-tests.js</text>
+              <line x1="151" y1="25" x2="199" y2="25" />
+              <line x1="75" y1="51" x2="75" y2="99" />
+            </g>
+
+            <!--Testfall-->
+            <g transform="translate(200, 0)">
+              <rect x="0.5" y="0.5" width="150" height="50" />
+              <text x="75" y="20">
+                <tspan>Testfall</tspan>
+                <tspan x="75" dy="15">_tests/*/*.test.js</tspan>
+              </text>
+              <path d="M151,10 h10 v50 h-150 v-9" />
+              <polyline points="37,61 37,80 -86,80 -86,99" />
+              <line x1="75" y1="61" x2="75" y2="99" />
+            </g>
+          </g>
+
+          <g transform="translate(0, 200)">
+            <!--functions.js-->
+            <g>
+              <rect x="0.5" y="0.5" width="150" height="50" />
+              <text x="75" y="30">_tests/functions.js</text>
+              <line x1="151" y1="25" x2="199" y2="25" />
+              <line x1="75" y1="51" x2="75" y2="99" />
+              <polyline points="112,51 112,75 275,75 275,99" />
+            </g>
+
+            <!--mock.js-->
+            <g transform="translate(200, 0)">
+              <rect x="0.5" y="0.5" width="150" height="50" />
+              <text x="75" y="30">_tests/mock.js</text>
+            </g>
+          </g>
+
+          <g transform="translate(0, 300)">
+            <!--TestHTMLView-->
+            <g>
+              <rect x="0.5" y="0.5" width="150" height="50" />
+              <text x="75" y="30">TestHTMLView</text>
+            </g>
+
+            <!--TestRunner-->
+            <g transform="translate(200, 0)">
+              <rect x="0.5" y="0.5" width="150" height="50" />
+              <text x="75" y="30">TestRunner</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Enhetstester, översikt.</figcaption>
+      </figure>
+
+      <h2 id="toc">Innehåll</h2>
+
+      <ul class="toc">
+        <li><a href="testfall.html">Testfall</a></li>
+        <li><a href="forvantningar.html">Förväntningar</a></li>
+        <li><a href="mockning.html">Mockning</a></li>
+        <li><a href="testklasser.html">Testklasser</a></li>
+      </ul>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a rel="next"><span></span></a>
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="leverans.html" accesskey="F" rel="prev"><span>Leverans</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

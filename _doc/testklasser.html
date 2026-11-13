@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Testklasser – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 39rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="test.html">Enhetstester</a></li>
+          <li><strong>Testklasser</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Testklasser</h1>
+
+      <p>
+        Klassen <code lang="en">Test</code> representerar ett enskilt test
+        (skapas med funktionen <code lang="en">it()</code> i
+        <code lang="en">_test/functions.js</code>). Ett test innehåller en eller
+        flera <a href="forvantningar.html">förväntningar</a>: instanser av
+        <code lang="en">Expectation</code> skapade med funktionen
+        <code lang="en">expect()</code>. Om en förväntning inte uppfylls
+        genererar den ett undantag av klassen
+        <code lang="en">ExpectationFailure</code>.
+      </p>
+
+      <p>
+        En samling tester (en testsvit) representeras av klassen
+        <code lang="en">TestCollection</code> och skapas med funktionen
+        <code lang="en">describe()</code>. En svit kan också innehålla
+        underordnade sviter.
+      </p>
+
+      <p>
+        Ett testfall utgör ett specialfall av en svit och representeras av
+        klassen <code lang="en">TestCase</code>. Ett testfall implementeras av
+        ett skript i form av en JavaScript-modul.
+      </p>
+
+      <p>
+        Filen <code lang="en">_tests/unit-tests.js</code> aggregerar alla
+        testfall och skapar en instans av användar&shy;gränssnittsklassen
+        <code lang="en">TestHTMLView</code>. Den samverkar med klassen som
+        slutligen exekverar testerna: en global instans av
+        <code lang="en">TestRunner</code> med enbart statiska fält och metoder.
+      </p>
+
+      <figure>
+        <svg viewBox="0 0 390 370" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--TestHTMLView-->
+          <g transform="translate(5, 0)">
+            <rect x="0.5" y="0.5" width="170" height="72" />
+            <text x="85" y="10" class="class">TestHTMLView</text>
+            <line x1="1" y1="12" x2="170" y2="12" />
+            <text x="5" y="20">controlledBy(RadioNodeList): TestHTMLView</text>
+            <text x="5" y="30">detailsIn(HTMLUListElement): TestHTMLView</text>
+            <text x="5" y="40">fromPath(string): TestHTMLView</text>
+            <text x="5" y="50">run(): void</text>
+            <text x="5" y="60">tests(...string): TestHTMLView</text>
+            <text x="5" y="70">totalsIn(HTMLElement): TestHTMLView</text>
+
+            <line x1="85" y1="73" x2="85" y2="99" class="dependency" />
+          </g>
+
+          <!--TestRunner-->
+          <g transform="translate(0, 100)">
+            <rect x="0.5" y="0.5" width="180" height="82" />
+            <text x="90" y="10" class="class">TestRunner</text>
+            <line x1="1" y1="12" x2="180" y2="12" />
+            <text x="5" y="20">
+              <tspan>+only: Test</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+            <line x1="1" y1="22" x2="180" y2="22" />
+            <text x="5" y="30">
+              <tspan>addBeforeEach(callback): void</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+            <text x="5" y="40">
+              <tspan>addCase(string): void</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+            <text x="5" y="50">
+              <tspan>addCollection(string, callback): void</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+            <text x="5" y="60">
+              <tspan>addTest(string, callback, object): void</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+            <text x="5" y="70">
+              <tspan>cases(): iterator</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+            <text x="5" y="80">
+              <tspan>run(): promise</tspan>
+              <tspan x="175" class="stereotype">«static»</tspan>
+            </text>
+
+            <path d="M181,41 h20 v-125 h40" class="composition" />
+          </g>
+
+          <!--TestCase-->
+          <g transform="translate(240, 0)">
+            <rect x="0.5" y="0.5" width="100" height="32" />
+            <text x="50" y="10" class="class">TestCase</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+            <text x="5" y="20">+script: string</text>
+            <line x1="1" y1="22" x2="100" y2="22" />
+            <text x="5" y="30">load(): promise</text>
+
+            <line x1="50" y1="33" x2="50" y2="59" class="inheritance" />
+          </g>
+
+          <!--TestCollection-->
+          <g transform="translate(220, 60)">
+            <rect x="0.5" y="0.5" width="140" height="92" />
+            <text x="70" y="10" class="class">TestCollection</text>
+            <line x1="1" y1="12" x2="140" y2="12" />
+            <text x="5" y="20">+name: string</text>
+            <text x="5" y="30">+status: object</text>
+            <line x1="1" y1="32" x2="140" y2="32" />
+            <text x="5" y="40">addBeforeEach(callback): void</text>
+            <text x="5" y="50">addSuite(string, callback): void</text>
+            <text x="5" y="60">addTest(string, callback, object): void</text>
+            <text x="5" y="70">entries(): iterator</text>
+            <text x="5" y="80">findOnly(): Test</text>
+            <text x="5" y="90">run(): promise</text>
+
+            <path d="M141,20 h20 v-10 h-20" class="composition" />
+            <line x1="70" y1="93" x2="70" y2="119" class="composition" />
+          </g>
+
+          <!--Test-->
+          <g transform="translate(240, 180)">
+            <rect x="0.5" y="0.5" width="100" height="52" />
+            <text x="50" y="10" class="class">Test</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+            <text x="5" y="20">+only: boolean</text>
+            <text x="5" y="30">+status: object</text>
+            <line x1="1" y1="32" x2="100" y2="32" />
+            <text x="5" y="40">iterations(): iterator</text>
+            <text x="5" y="50">run(): promise</text>
+
+            <path d="M0,26 h-145 v34" class="dependency" />
+          </g>
+
+          <!--Expectation-->
+          <g transform="translate(25, 240)">
+            <rect x="0.5" y="0.5" width="130" height="122" />
+            <text x="65" y="10" class="class">Expectation</text>
+            <line x1="1" y1="12" x2="130" y2="12" />
+            <text x="5" y="20">+not: Expectation</text>
+            <text x="5" y="30">+toHaveBeenCalled: Expectation</text>
+            <line x1="1" y1="32" x2="130" y2="32" />
+            <text x="5" y="40">atLeastOnce(): Expectation</text>
+            <text x="5" y="50">never(): Expectation</text>
+            <text x="5" y="60">once(): Expectation</text>
+            <text x="5" y="70">times(number): Expectation</text>
+            <text x="5" y="80">toBe(*): void</text>
+            <text x="5" y="90">toBeAnInstanceOf(class): void</text>
+            <text x="5" y="100">toEqual(*): void</text>
+            <text x="5" y="110">toMatch(regexp): void</text>
+            <text x="5" y="120">with(...*): void</text>
+
+            <line x1="131" y1="31" x2="215" y2="31" class="dependency" />
+          </g>
+
+          <!--ExpectationFailure-->
+          <g transform="translate(240, 260)">
+            <g>
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">ExpectationFailure</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">toString(): string</text>
+
+              <line x1="50" y1="23" x2="50" y2="49" class="inheritance" />
+            </g>
+
+            <!--Error-->
+            <g transform="translate(0, 50)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="52" />
+              <text x="50" y="10" class="class">Error</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">+cause: *</text>
+              <text x="5" y="30">+message: string</text>
+              <text x="5" y="40">+name: string</text>
+              <line x1="1" y1="42" x2="100" y2="42" />
+              <text x="5" y="50">toString(): string</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Klassdiagram för enhetstester.</figcaption>
+      </figure>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a rel="next"><span></span></a>
+      <a href="test.html" accesskey="I" class="up"><span>Tester</span></a>
+      <a href="mockning.html" accesskey="F" rel="prev"><span>Mockning</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

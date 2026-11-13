@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sample – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 32rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">Sample</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Sample</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-add-content-type"
+              ><code lang="en">addContentType()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-contains"><code lang="en">contains()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-content-type"
+              ><code lang="en">deleteContentType()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-failures"><code lang="en">failures()</code></a>
+          </li>
+          <li>
+            <a href="#m-next-requirement"
+              ><code lang="en">nextRequirement()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-progress"><code lang="en">progress()</code></a>
+          </li>
+          <li>
+            <a href="#m-requirement"><code lang="en">requirement()</code></a>
+          </li>
+          <li>
+            <a href="#m-requirements"><code lang="en">requirements()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-requirement"
+              ><code lang="en">setRequirement()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-to-json"><code lang="en">toJSON()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-string"><code lang="en">toString()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Basklassen <code lang="en">Sample</code> representerar ett stickprov i
+        en granskning i ett granskningsärende.
+      </p>
+
+      <p>
+        Ett stickprov innehåller ett antal krav. Vilka krav som ingår är
+        konfigurationsstyrt och beror på vilken typ av stickprov det är och
+        vilken typ av innehåll stickprovet har.
+      </p>
+
+      <p>
+        Ett stickprov kan ingå i en process och då ska alla steg i den processen
+        granskas enligt kommissionens genomförandebeslut
+        <a
+          href="https://eur-lex.europa.eu/legal-content/SV/TXT/HTML/?uri=CELEX:32018D1524"
+          rel="external"
+          >(EU)&nbsp;2018/1524</a
+        >
+        om övervakning av digital offentlig service. Den inbördes ordningen
+        mellan stegen i en sådan process uttrycks genom att granskaren anger
+        vilket stickprov som ”följer” vilket.
+      </p>
+
+      <p>
+        Vid urvalet kan granskaren göra en notering, som visas i
+        granskningsöversikten och på stickprovets kravöversikt.
+      </p>
+
+      <p>
+        Ett stickprov ingår i en av de kategorier som definieras i ovannämnda
+        genomförandebeslut (eller den speciella kategorin ”komponenter”).
+      </p>
+
+      <p>
+        Stickprovet har också en uppsättning innehållstyper som talar om vilka
+        typer av innehåll som ingår. Detta styr, via konfigurationsfiler, vilka
+        krav stickprovet populeras med.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/sample.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/sample.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>samples</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>id</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_audit</code> / <code>auditID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 320 310" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--Sample-->
+          <use xlink:href="Sample.svg#Sample" x="0" y="0" class="highlight" />
+
+          <line x1="141" y1="88" x2="180" y2="88" class="composition" />
+
+          <!--Requirement-->
+          <use xlink:href="Requirement.svg#Requirement" x="180" y="0" />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Sample</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Om ett dataobjekt anges som argument populerar konstruktorn instansen
+          med informa&shy;tionen i det. Det används vid återskapande av ett
+          objekt när det hämtas från objektdata&shy;basen eller när ett sparat
+          ärende i JSON-format läses in från fil.
+        </p>
+
+        <p>
+          Om dataobjektet är en instans av <code lang="en">Sample</code> (eller
+          en subklass) kopieras den. Det används när granskaren väljer att
+          kopiera en tidigare granskning vid omgranskning, för att slippa göra
+          om urvalet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Sample</span>(<span class="var">auditID</span>, <span class="var">category</span>)
+<span class="keyword">new</span> <span class="ident">Sample</span>(<span class="var">auditID</span>, <span class="var">source</span>)
+<span class="keyword">new</span> <span class="ident">Sample</span>(<span class="var">auditID</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">auditID</code></dt>
+          <dd>Identitet för den granskning som stickprovet ingår i.</dd>
+
+          <dt class="optional"><code lang="en">category</code></dt>
+          <dd>Namnet på den urvalskategori stickprovet ingår i.</dd>
+
+          <dt class="optional"><code lang="en">source</code></dt>
+          <dd>Källa (stickprov) att kopiera.</dd>
+
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Ingen granskningsidentitet angiven.</dd>
+          <dd>Ingen urvalskategori angiven.</dd>
+          <dd>Dataobjektet hör inte till den angivna granskningen.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt class="readonly"><code lang="en">auditID</code></dt>
+          <dd>Granskningsidentitet.</dd>
+
+          <dt class="readonly"><code lang="en">category</code></dt>
+          <dd>Urvalskategori.</dd>
+
+          <dt class="readonly"><code lang="en">contentTypes</code></dt>
+          <dd>Innehållstyper.</dd>
+
+          <dt class="readonly"><code lang="en">done</code></dt>
+          <dd>
+            Flagga som anger om stickprovet är färdiggranskat. Ett stickprov
+            markerat med partiell granskning anses alltid färdiggranskat.
+          </dd>
+
+          <dt class="readonly"><code lang="en">failed</code></dt>
+          <dd>
+            Flagga som anger om ett färdiggranskat stickprov är underkänt.
+          </dd>
+
+          <dt><code lang="en">follows</code></dt>
+          <dd>
+            Anger namnet på det stickprov som föregår det aktuella stickprovet i
+            en process.
+          </dd>
+
+          <dt class="readonly"><code lang="en">hasExternalNotes</code></dt>
+          <dd>
+            Flagga som anger om ett eller flera krav har en extern anteckning.
+          </dd>
+
+          <dt class="readonly"><code lang="en">hasRequirements</code></dt>
+          <dd>Flagga som anger om stickprovet är populerat med krav.</dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>Identitet i databasen.</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Stickprovets namn eller titel.</dd>
+
+          <dt><code lang="en">note</code></dt>
+          <dd>Granskarens notering vid urvalet.</dd>
+
+          <dt><code lang="en">partial</code></dt>
+          <dd>Flagga som anger om stickprovet ska granskas partiellt.</dd>
+
+          <dt><code lang="en">service</code></dt>
+          <dd>
+            Den ”typ av tjänst” stickprovet tillhör om det ingår i kategorin
+            <code lang="en">service</code>.
+          </dd>
+
+          <dt class="readonly"><code lang="en">started</code></dt>
+          <dd>Flagga som anger om granskningen av stickprovet påbörjats.</dd>
+        </dl>
+      </section>
+
+      <!--addContentType()-->
+      <section>
+        <h2 id="m-add-content-type"><code lang="en">addContentType()</code></h2>
+
+        <p>
+          Lägger till en innehållstyp. Innehållstyper anger vilka typer av
+          innehåll som ingår i stickprovet och styr, via konfigurationsfiler,
+          vilka krav som granskaren ska kontrollera.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addContentType</span>(<span class="var">type</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Innehållstypsidentitet att lägga till. Ska motsvara någon av de
+            innehållstyper som definierias i kravkonfigurationen för
+            stickprovet.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Innehållstypsidentitetn saknas eller är tom.</dd>
+        </dl>
+      </section>
+
+      <!--contains()-->
+      <section>
+        <h2 id="m-contains"><code lang="en">contains()</code></h2>
+
+        <p>
+          Kontrollerar om stickprovet innehåller någon av de angivna
+          innehållstyperna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addContentType</span>(<span class="var">type1</span>, …, <span class="var">typeN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">typeN</code></dt>
+          <dd>Innehållstypsidentitet att söka efter.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om minst en av de
+          angivna innehållstyperna ingår i stickprovet, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--deleteContentType()-->
+      <section>
+        <h2 id="m-delete-content-type">
+          <code lang="en">deleteContentType()</code>
+        </h2>
+
+        <p>Tar bort angiven innehållstyp ur stickprovet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteContentType</span>(<span class="var">type</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>Innehållstypsidentitet att ta bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om den angivna
+          innehållstypen ingick i stickprovet och har tagits bort, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--failures()-->
+      <section>
+        <h2 id="m-failures"><code lang="en">failures()</code></h2>
+
+        <p>
+          Returnerar underkända kravavsnittsnummer. Metoden anropas av
+          <a href="Audit.html#m-failures"
+            ><code lang="en">Audit.failures()</code></a
+          >
+          med ett mängdobjekt (<code lang="en">Set</code>) som den populerar med
+          avsnittsnumren för alla underkända krav i stickprovet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">failures</span>(<span class="var">fails</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">fails</code></dt>
+          <dd>Mẅngden av underkända kravavsnitt för stickprovet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Det populerade mängdobjektet.</p>
+      </section>
+
+      <!--nextRequirement()-->
+      <section>
+        <h2 id="m-next-requirement">
+          <code lang="en">nextRequirement()</code>
+        </h2>
+
+        <p>Returnerar nästa krav att granska.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">nextRequirement</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det första kravet som inte är färdiggranskat, eller
+          <code lang="en" class="js keyword">undefined</code> om alla krav är
+          färdiggranskade.
+        </p>
+      </section>
+
+      <!--progress()-->
+      <section>
+        <h2 id="m-progress"><code lang="en">progress()</code></h2>
+
+        <p>
+          Returnerar antalet granskade krav och det totala antalet krav (med
+          hänsyn taget till eventuella filter).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">progress</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En vektor med två tal: antal granskade krav och totalt antal krav.
+        </p>
+      </section>
+
+      <!--requirement()-->
+      <section>
+        <h2 id="m-requirement"><code lang="en">requirement()</code></h2>
+
+        <p>
+          Returnerar kravet med angiven identitet, om det ska ingå i
+          granskningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">requirement</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Kravidentitet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Kravet med angiven identitet, om det ingår i stickprovet och matchar
+          eventuella villkor för urvalskategori, innehållstyper, dokumentformat
+          och applikationsplattform, annars
+          <code lang="en" class="js keyword">null</code>.
+        </p>
+      </section>
+
+      <!--requirements()-->
+      <section>
+        <h2 id="m-requirements"><code lang="en">requirements()</code></h2>
+
+        <p>
+          Itererar över de krav som ingår i stickprovet, med hänsyn taget till
+          eventuella filter.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">requirements</span>()
+<span class="ident">requirements</span>(<span class="var">all</span>)</code></pre>
+
+        <h3>Parameters</h3>
+
+        <dl class="params">
+          <dt><code lang="en">all</code></dt>
+          <dd>
+            Flagga som anger om alla krav, oavsett filter, ska ingå i
+            iterationen. Standardvärdet är
+            <code lang="en" class="js literal">false</code>, vilket innebär att
+            metoden bara itererar över tillämpliga krav.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en
+          <code lang="en">Requirement</code>-instans vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">req</span> <span class="keyword">of</span> <span class="var">sample</span>.<span class="fn">requirements</span>()) {…} </code></pre>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <p>
+          Kraven ingår inte i serialiseringen, eftersom de lagras i ett eget
+          objektlager och sparas separat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          stickprovsinforma&shy;tionen.
+        </p>
+      </section>
+
+      <!--setRequirement()-->
+      <section>
+        <h2 id="m-set-requirement"><code lang="en">setRequirement()</code></h2>
+
+        <p>Lägger till eller uppdaterar ett krav i stickprovet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setRequirement</span>(<span class="var">requirement</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">requirement</code></dt>
+          <dd>Krav att lägga till eller uppdatera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Kravidentitet saknas eller är tom.</dd>
+        </dl>
+      </section>
+
+      <!--toJSON()-->
+      <section>
+        <h2 id="m-to-json"><code lang="en">toJSON()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett ärende sparas till fil.
+        </p>
+
+        <p>
+          Kraven ingår i serialiseringen, eftersom all information som hör till
+          ärendet behöver ingå i filen för att informationen ska gå att
+          återskapa.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toJSON</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          stickprovsinforma&shy;tionen.
+        </p>
+      </section>
+
+      <!--toString()-->
+      <section>
+        <h2 id="m-to-string"><code lang="en">toString()</code></h2>
+
+        <p>Omvandlar granskningen till en sträng.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toString</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Stickprovets namn eller titel.</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="AppScreen.html"><code lang="en">AppScreen</code></a>
+          </li>
+          <li>
+            <a href="Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="Component.html"><code lang="en">Component</code></a>
+          </li>
+          <li>
+            <a href="CompositeSample.html"
+              ><code lang="en">CompositeSample</code></a
+            >
+          </li>
+          <li>
+            <a href="NonWebDocument.html"
+              ><code lang="en">NonWebDocument</code></a
+            >
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li>
+            <a href="SampleFactory.html"
+              ><code lang="en">SampleFactory</code></a
+            >
+          </li>
+          <li><a href="sample.index.html">Stickprovsklasser</a></li>
+          <li>
+            <a href="Webpage.html"><code lang="en">Webpage</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

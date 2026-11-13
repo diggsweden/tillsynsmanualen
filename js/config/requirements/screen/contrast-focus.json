@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "Använd tangentbord och tabba igenom interaktiva element i vyn. Om en container får fokus så behöver du pila med piltangenterna. <em>Obs!</em> Gäller bara Android. Vi kontrollerar inte iOS eftersom utvecklaren inte har kontroll över detta. Gör en avbildning av skärmen (i både ljust och mörkt visningsläge om tillämpligt) och använd ett program för att mäta färgkoder och kontraster."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphic"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "action",
+      "text": "Om appen har stöd för mörkt/ljust visningsläge, gör kontrollen i båda lägena."
+    }
+  ]
+}

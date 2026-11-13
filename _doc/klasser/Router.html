@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Router – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 34rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="./">Klasser</a></li>
+          <li><strong lang="en">Router</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1 tabindex="-1" id="start-of-content">
+          <code lang="en">Router</code>
+        </h1>
+
+        <nav aria-label="Innehåll" class="page-menu">
+          <ul>
+            <li>
+              <a href="#ctor"><span>Konstruktor</span></a>
+            </li>
+            <li>
+              <a href="#m-load-config"><code lang="en">loadConfig()</code></a>
+            </li>
+            <li>
+              <a href="#m-route"><code lang="en">route()</code></a>
+            </li>
+            <li><a href="#see">Se även</a></li>
+          </ul>
+        </nav>
+
+        <p>
+          Konfigurationsstyrd växel för översättning av begäransparametrar till
+          sidor och moduler i granskningsfunktionen.
+        </p>
+
+        <dl class="src">
+          <dt>Källkod</dt>
+          <dd><code>js/Router.js</code></dd>
+
+          <dt>Enhetstester</dt>
+          <dd><code>_tests/Router.test.js</code></dd>
+        </dl>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 340 450" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <!--Router-->
+            <use
+              xlink:href="Router.svg#Router"
+              x="0"
+              y="15"
+              class="highlight"
+            />
+            <g transform="translate(0, 15)">
+              <line x1="141" y1="16" x2="180" y2="16" class="composition" />
+              <line x1="50" y1="33" x2="50" y2="75" class="dependency" />
+              <path d="M115,33 v29 h140 v12" class="dependency" />
+            </g>
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="common/ResourceLoader.svg#ResourceLoader"
+              x="180"
+              y="0"
+            />
+
+            <!--AppContext-->
+            <use xlink:href="common/AppContext.svg#AppContext" x="0" y="90" />
+
+            <!--Model-->
+            <use xlink:href="model/Model.svg#Model" x="180" y="90" />
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Router</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Router</span>(<span class="var">request</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">request</code></dt>
+          <dd>
+            Initial begäran (frågeparametrar) till en sida i
+            granskningsfunktionen.
+          </dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>
+            En
+            <a href="common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >-instans som används för att hämta konfigurationsfilen.
+          </dd>
+        </dl>
+      </section>
+
+      <!--loadConfig()-->
+      <section>
+        <h2 id="m-load-config"><code lang="en">loadConfig()</code></h2>
+
+        <p>
+          Hämtar den angivna konfigurationsfilen med hjälp av resursladdaren.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">loadConfig</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Konfigurationsfilens namn, utan sökväg eller filändelse.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med ett konfigurationsobjekt när filen hämtats
+          och tolkats.
+        </p>
+      </section>
+
+      <!--route()-->
+      <section>
+        <h2 id="m-route"><code lang="en">route()</code></h2>
+
+        <p>
+          Växlar en sidbegäran. Hämtar parametern ”<code lang="en">page</code>”
+          ur sökvägen i en sidbegäran och översätter den till den
+          initieringsmodul som är tillämplig. Sökvägen hämtas från någon av
+          följande tre källor:
+        </p>
+
+        <ol>
+          <li>applikationskontexten (senaste begäran)</li>
+          <li>den initiala begäran</li>
+          <li>modellen (senast sparade sökväg).</li>
+        </ol>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">route</span>(<span class="var">context</span>, <span class="var">model</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En sökväg till en initieringsmodul som skapar instanser av den vy och
+          <i lang="en">controller</i> som hanterar den begärda sidan.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Den angivna sidan finns inte i applikationskonfigurationen.</dd>
+        </dl>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../konfiguration.html#app-struct">Konfigurationsfil</a>
+          </li>
+          <li>
+            <a href="monitoring.modul.html"
+              ><code lang="en">monitoring.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="Dispatcher.html"><code lang="en">Dispatcher</code></a>
+          </li>
+          <li>
+            <a href="common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tillämpningsanvisningar – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+
+    <style>
+      :root {
+        --del-colour: #dc1e1e;
+      }
+      .trace del[datetime]::before,
+      .trace ins[datetime]::before {
+        content: attr(datetime) ': ';
+      }
+      del {
+        display: none;
+      }
+      ins {
+        color: inherit;
+        text-decoration: none;
+      }
+      .trace button {
+        margin-left: 0.5em;
+        border: 1px solid;
+        border-radius: 1.5em/50%;
+        padding: 0.5em 2em;
+        background: transparent;
+        color: var(--body-text);
+      }
+      .trace del {
+        display: block;
+        color: var(--del-colour);
+        text-decoration: strike-through;
+      }
+      .trace ins {
+        text-decoration: underline;
+      }
+    </style>
+
+    <style media="screen and (prefers-color-scheme:dark)">
+      :root {
+        --del-colour: #e64747;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Tillämpningsanvisningar</h1>
+
+      <p>
+        Den här sidan beskriver granskningsavsnitt där vi gjort särskilda
+        tolkningar eller avvägningar av standarder eller föreskrifter.
+      </p>
+
+      <article>
+        <h2 id="wcag-1.1.1"><cite>WCAG</cite> 1.1.1 – Textalternativ</h2>
+
+        <p>
+          Syftet med ett textalternativ till en bild är att det ska förmedla
+          samma <em>information</em> som bilden i det <em>sammanhang</em> där
+          bilden används.
+        </p>
+
+        <p>
+          För bilder av text, diagram, ikoner och liknande är det vanligen
+          ganska givet vad textalternativet ska vara, då bilden förmedlar fakta.
+          Exempel: textalternativet för en logotyp är organisationens namn; en
+          varningsikon i form av en röd triangel har textalternativet ”varning”
+          (inte ”röd triangel”).
+        </p>
+
+        <p>
+          Bilder vars syfte är att förmedla abstrakta koncept eller känslor
+          kräver ofta mycket eftertanke. En saklig beskrivning av motivet i
+          bilden är bara meningsfull i undantagsfall. Exempel: en artikel med
+          rekommendationer för att minska smittspridningen under covidpandemin
+          illustreras av ett fotografi av två kvinnor som fikar utomhus vid ett
+          bord i ett friluftsområde. Textalternativet ”Fotografi av två kvinnor
+          med termos vid ett bord utomhus på vintern” har ingen relevans i
+          sammanhanget. Ett lämpligt textalternativ kan i stället vara ”Att ses
+          utomhus är ett bra sätt att minska risken för smitta”.
+        </p>
+
+        <p>
+          Bilder som bara är till för att dra till sig uppmärksamheten hos
+          seende användare ska ha ett tomt textalternativ. Exempel kan vara
+          genrebilder som bara illustrerar en artikel: en bild på en ko till en
+          text om boskapsuppfödning.
+        </p>
+      </article>
+
+      <article>
+        <h2 id="wcag-1.4.4"><cite>WCAG</cite> 1.4.4 – Förstoring av text</h2>
+
+        <p class="trace">
+          Uppdaterad <time datetime="2021-04-08">den 8 april 2021</time>.
+        </p>
+
+        <del datetime="2021-04-08">
+          <p>
+            Vår tolkning är att det ska gå att förstora
+            <em>enbart texten</em> till 200&#160;procent utan att information
+            skyms eller blir oåtkomlig. Det räcker alltså inte att det fungerar
+            att förstora <em>allt innehåll</em> (zoom).
+          </p>
+
+          <blockquote
+            cite="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html"
+            lang="en"
+          >
+            <p>
+              The author cannot rely on the user agent to satisfy this Success
+              Criterion for HTML content if users do not have access to a user
+              agent with zoom support.
+            </p>
+
+            <p>
+              … If the user agent doens’t provide zoom functionality but does
+              let the user change the text size, the author is responsible for
+              ensuring that the content remains usable when the text is resized.
+            </p>
+          </blockquote>
+        </del>
+
+        <ins datetime="2021-04-08">
+          <p>
+            Vår tolkning är att kriterium 1.4.4 främst kräver att textstorleken
+            går att öka till åtminstone 200&nbsp;procent på minst ett sätt (till
+            exempel med zoom), utan att information skyms eller blir oåtkomlig.
+          </p>
+
+          <p>
+            Vi vidhåller dock att man <em>bör</em> se till att layouten fungerar
+            även om användaren använder en mekanism som enbart förstorar texten,
+            i stället för att zooma allt innehåll. Det är inte tekniskt svårt –
+            bara man låter bli att sätta dimensioner i olämpliga måttenheter för
+            element som ska innehålla text. Att använda pixlar som måttenhet och
+            förlita sig på att webbläsaren ska korrigera för felet kan inte
+            anses förenligt med den fjärde principen i
+            <cite><abbr>WCAG</abbr></cite> som säger att innehåll ska vara
+            robust och ha största möjliga kompatibilitet med dagens och
+            framtidens läsarprogram, inklusive hjälpmedel.
+          </p>
+        </ins>
+      </article>
+
+      <article>
+        <h2 id="wcag-2.4.1"><cite>WCAG</cite> 2.4.1 – Skipplänkar</h2>
+
+        <p>
+          Att ha landmärken eller rubriker är inte tillräckligt för att uppfylla
+          kriteriet, även om en <i lang="en">sufficient technique</i> säger det.
+          Det hjälper bara personer med vissa hjälpmedel, men många navigerar
+          med tangentbord utan att ha sådana hjälpmedel.
+        </p>
+      </article>
+
+      <article>
+        <h2 id="wcag-3.3.2">
+          <cite>WCAG</cite> 3.3.2 – Ledtexter, instruktioner
+        </h2>
+
+        <p class="trace">
+          Tillagd <time datetime="2021-02-19">den 19 februari 2021</time>.
+          Uppdaterad <time datetime="2021-02-21">den 21 februari 2021</time>.
+        </p>
+
+        <p>
+          En platshållare (attributet
+          <code translate="no" lang="en">placeholder</code>) är inte ett
+          godtagbart alternativ till att ha en synlig ledtext, av följande skäl:
+        </p>
+
+        <del datetime="2021-02-21">
+          <ul>
+            <li>
+              platshållare har ofta dålig kontrast som inte går att påverka på
+              ett standardiserat sätt>
+            </li>
+
+            <li>
+              platshållartexten visas bara närfältet är tomt, så syftet med ett
+              ifyllt fält går inte att urskilja
+            </li>
+
+            <li>platshållare kan läsas upp annorlunda än ledtexter.</li>
+          </ul>
+        </del>
+
+        <ins datetime="2021-02-21">
+          <ul>
+            <li>
+              <p>
+                Attributet <code translate="no" lang="en">placeholder</code> ska
+                ge ett kort tips som hjälper användaren att fylla i ett värde i
+                ett tomt inmatningsfält. Ett tips kan vara ett exempelvärde
+                eller en kortfattade beskrivning av förväntat format, men
+                ersätter inte en ledtext. Elementet
+                <code translate="no" lang="en">&lt;label&gt;</code> är en
+                ledtext som ska beskriva syftet med det kopplade formulärfältet.
+              </p>
+
+              <p></p>
+            </li>
+
+            <li>
+              <p>
+                Platshållare har ofta dålig kontrast som inte går att påverka på
+                ett standardiserat sätt i alla webbläsare.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Platshållartexten visas bara när fältet är tomt, så syftet med
+                ett ifyllt fält går inte att urskilja.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Platshållare kan läsas upp annorlunda än ledtexter av
+                hjälpmedel.
+              </p>
+            </li>
+          </ul>
+        </ins>
+      </article>
+
+      <article>
+        <h2 id="en-7.1-7.2"><cite>EN 301 549</cite> 7.1–7.2 – Mediespelare</h2>
+
+        <p>
+          Vi gör tolkningen att
+          <q lang="en">ICT has video playing capabilities</q> innebär att man
+          har en egen mediespelare, men inte är tillämpligt om man använder
+          webbläsarens inbyggda spelare, det vill säga ett
+          <code translate="no">&lt;video&gt;</code>-element med attributet
+          <code translate="no">controls</code>.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="../start/tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="../start/webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+    <script src="../js/trace.js" type="module"></script>
+  </body>
+</html>

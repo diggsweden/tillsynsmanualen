@@ -1,0 +1,45 @@
+{
+  "examples": {
+    "neutral": [
+      "Knappar, inmatningsfält, textrutor, kryssrutor, radioknappar, rullgardinslistor, listrutor."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Style"
+    },
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphic"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Visuell indikering som är nödvändig för förståelsen",
+      "description": "Någonting som gör det möjligt att känna igen eller förstå en komponent, även om den saknar textinnehåll, till exempel kantlinje eller bakgrundsfärg på ett inmatningsfält utan platshållare eller en indikering av om en komponent är vald eller inte."
+    },
+    {
+      "type": "definition",
+      "term": "Intilliggande färger",
+      "description": "Färgerna som omger själva komponenten eller indikatorn. För ett inmatningsfält med kantlinje är den intilliggande färgen bakgrundsfärgen på elementet som innehåller fältet. För en bockmarkering i en kryssruta kan det vara bakgrundsfärgen i rutan."
+    },
+    {
+      "type": "note",
+      "text": "Kravet handlar om att användaren ska kunna uppfatta att komponenten finns. En knapp <em>måste</em> inte ha någon bakgrundsfärg eller kantlinje om den innehåller text eller en bild. Inte heller ett inmatningsfält med en platshållare."
+    },
+    {
+      "type": "text",
+      "text": "För komponenter som använder flera färger kan man bortse från alla färger som inte är nödvändiga för igenkänningen. Ett inmatningsfält som har en bakgrundsfärg med tillräcklig kontrast mot färgen som omger fältet kan ha en kantlinje eller en droppskugga som inte har tillräcklig kontrast mot någon av färgerna, eftersom fältet ändå går att urskilja."
+    },
+    {
+      "type": "note",
+      "text": "Inaktiva (”utgråade”) komponenter omfattas inte av kontrastkraven."
+    }
+  ]
+}

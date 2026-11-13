@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60">
+  <g id="Error">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="52"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="42" x2="100" y2="42"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Error</text>
+      <text x="5" y="20">+cause: *</text>
+      <text x="5" y="30">+message: string</text>
+      <text x="5" y="40">+name: string</text>
+      <text x="5" y="50">toString(): string</text>
+    </g>
+  </g>
+</svg>

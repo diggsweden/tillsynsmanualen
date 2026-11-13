@@ -1,0 +1,30 @@
+{
+  "methods": [
+    "Kontrollera alla länkkontraster som inte är uppenbart tillräckliga. Använd <cite>Inspektören</cite> för att hitta färgkoder. Pröva både besökta och obesökta länkar, samt vid fokus och hovring (och hovring vid fokus)."
+  ],
+  "exceptions": ["Logotyper"],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Styles"
+    },
+    {
+      "tool": "DevTool",
+      "tab": "CSS Overview"
+    },
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "text"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "För länkar med flerfärgad bakgrund, mät på det ställe där kontrasten är sämst."
+    }
+  ]
+}

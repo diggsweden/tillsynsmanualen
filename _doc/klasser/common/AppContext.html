@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>AppContext – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 12rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Hjälpklasser</a></li>
+          <li><strong lang="en">AppContext</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">AppContext</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#properties"><span>Fält</span></a>
+          </li>
+          <li>
+            <a href="#m-has-param"><code lang="en">hasParam()</code></a>
+          </li>
+          <li>
+            <a href="#m-param"><code lang="en">param()</code></a>
+          </li>
+          <li>
+            <a href="#m-reset"><code lang="en">reset()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li>
+            <a href="#m-unserialize"><code lang="en">unserialize()</code></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">AppContext</code> håller kontextuell information
+        när användaren navigerar mellan olika sidor i granskningsfunktionen. Den
+        ger tillgång till begäransparametrar och gör det möjligt att föra över
+        information (till exempel statusmeddelanden) från en sida till en annan.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/AppContext.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/common/AppContext.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 120 190" class="class uml-diagram">
+          <!--AppContext-->
+          <use
+            xlink:href="AppContext.svg#AppContext"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">AppContext</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">AppContext</span>()</code></pre>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">advanced</code></dt>
+          <dt></dt>
+          <dd>
+            Anger avancerat (<code lang="en" class="js literal">true</code>)
+            eller förenklat (<code lang="en" class="js literal">false</code>)
+            visningsläge. Hämtas ur parametern ”<code lang="en">mode</code>”
+            eller ur en eventuell sessionskaka. Om varken parameter eller kaka
+            är satt är fältets värde
+            <code lang="en" class="js keyword">undefined</code>.
+          </dd>
+
+          <dt><code lang="en">audit</code></dt>
+          <dt></dt>
+          <dd>Aktuell granskningsidentitet ur sidbegäran.</dd>
+
+          <dt><code lang="en">caseNumber</code></dt>
+          <dt></dt>
+          <dd>Aktuellt ärendenummer ur sidbegäran.</dd>
+
+          <dt><code lang="en">error</code></dt>
+          <dt></dt>
+          <dd>Felmeddelande från föregående sida.</dd>
+
+          <dt><code lang="en">history</code></dt>
+          <dt></dt>
+          <dd>
+            <code lang="en" class="js literal">true</code> om navigering sker
+            med bakåt/framåt-knapparna i webbläsaren.
+          </dd>
+
+          <dt><code lang="en">modified</code></dt>
+          <dt></dt>
+          <dd>
+            <code lang="en" class="js literal">true</code> om sökvägen i
+            kontexten förändrats jämfört med sidbegäran..
+          </dd>
+
+          <dt><code lang="en">page</code></dt>
+          <dt></dt>
+          <dd>Sidnamn ur sidbegäran.</dd>
+
+          <dt><code lang="en">path</code></dt>
+          <dt></dt>
+          <dd>Sökväg (frågeparametrar) ur sidbegäran.</dd>
+
+          <dt><code lang="en">requirement</code></dt>
+          <dt></dt>
+          <dd>Aktuell kravidentitet ur sidbegäran.</dd>
+
+          <dt><code lang="en">sample</code></dt>
+          <dt></dt>
+          <dd>Aktuell stickprovsidentitet ur sidbegäran.</dd>
+
+          <dt><code lang="en">status</code></dt>
+          <dt></dt>
+          <dd>Statusmeddelande från föregående sida.</dd>
+
+          <dt><code lang="en">target</code></dt>
+          <dt></dt>
+          <dd>
+            Fragmentidentifierare ur sidbegäran; antingen texten efter ”#” eller
+            värdet i parametern ”<code lang="en">target</code>”.
+          </dd>
+        </dl>
+      </section>
+
+      <!--hasParam()-->
+      <section>
+        <h2 id="m-has-param"><code lang="en">hasParam()</code></h2>
+
+        <p>Kontrollerar om angiven parameter finns angiven i sidbegäran.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">hasParam</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Namnet på den sökta parametern.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om parametern finns i
+          begäran, annars <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--param()-->
+      <section>
+        <h2 id="m-param"><code lang="en">param()</code></h2>
+
+        <p>Returnerar värdet på angiven parameter i sidbegäran.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">param</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Namnet på den sökta parametern.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Värdet på den angivna parametern, eller
+          <code lang="en" class="js keyword">null</code> om den inte finns i
+          begäran.
+        </p>
+      </section>
+
+      <!--reset()-->
+      <section>
+        <h2 id="m-reset"><code lang="en">reset()</code></h2>
+
+        <p>
+          Återställer ändringsmarkeringen i kontexten. Markeringen sätts om
+          fältet <code lang="en">path</code> sätts till ett nytt värde som inte
+          är tomt. Den används i fördelaren för att avgöra om det är dags att
+          lämna tillbaka kontrollen till den yttre händelseslingan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">reset</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återställas. Används för
+          att spara kontexten i navigeringshistoriken.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återställa
+          kontexten.
+        </p>
+      </section>
+
+      <!--unserialize()-->
+      <section>
+        <h2 id="m-unserialize"><code lang="en">unserialize()</code></h2>
+
+        <p>Återställer applikationskontexten från ett serialiserat objekt.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">unserialize</span>(<span class="var">obj</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">obj</code></dt>
+          <dd>En serialiserad applikationskontext att återställa ifrån.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

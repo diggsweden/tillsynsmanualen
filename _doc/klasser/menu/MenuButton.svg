@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30">
+  <g id="MenuButton">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="22"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">MenuButton</text>
+    </g>
+  </g>
+</svg>

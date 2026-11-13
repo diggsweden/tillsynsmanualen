@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>DerivedCheck – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 14rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">DerivedCheck</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">DerivedCheck</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-depends-on"><code lang="en">dependsOn()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">DerivedCheck</code> utökar basklassen
+        <code lang="en">Check</code> och representerar ett ”härlett” krav som
+        inte godkänns eller underkänns explicit av granskaren utan härleds från
+        ett eller flera andra krav i samma stickprov.
+      </p>
+
+      <p>
+        En härledd kontroll kan vara "global", vilket innebär att dess beroenden
+        även ska omfatta eventuella komponenter som ingår i stickprovet.
+        Normalfallet är att beroendena bara omfattar kraven i själva
+        stickprovet.
+      </p>
+
+      <p>
+        Klassen behöver hämta beroenden för att kunna utvärdera dem. Fältet
+        <code lang="en">dependencies</code> ska sättas till en funktion som
+        anropas med en kravidentitet och en globalflagga och returne&shy;rar en
+        vektor av "underkännbara” objekt (i praktiken krav). Detta för att
+        undvika hårda beroenden mellan klasser.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/checks.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/checks.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>checks</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>key</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_req</code> / <code>reqID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 140 290" class="class uml-diagram">
+          <defs>
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--DerivedCheck-->
+          <use
+            xlink:href="DerivedCheck.svg#DerivedCheck"
+            x="15"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="65" y1="103" x2="65" y2="130" class="inheritance" />
+
+          <!--Check-->
+          <use xlink:href="Check.svg#Check" x="0" y="130" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">DerivedCheck</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Om ett dataobjekt anges som argument populerar konstruktorn instansen
+          med informa&shy;tionen i det. Det används vid återskapande av ett
+          objekt när det hämtas från objektdata&shy;basen eller när ett sparat
+          ärende i JSON-format läses in från fil.
+        </p>
+
+        <p>
+          Förutom den återställning som
+          <a href="Check.html#ctor">basklasskonstruktorn</a> utför:
+        </p>
+
+        <ul>
+          <li>
+            Sätt källkravsidentiteter från vektorfältet <code>dep</code>
+            <i lang="en">(dependencies)</i>.
+          </li>
+
+          <li>
+            Sätt globalflaggan i enlighet med fältet
+            <code lang="en">global</code>, om det finns i dataobjektet.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Check</span>(<span class="var">reqID</span>, <span class="var">sample</span>)
+<span class="keyword">new</span> <span class="ident">Check</span>(<span class="var">reqID</span>, <span class="var">sample</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">reqID</code></dt>
+          <dd>Identitet för det krav som kontrollen ingår i.</dd>
+
+          <dt><code lang="en">sample</code></dt>
+          <dd>Det stickprov som kravet ingår i.</dd>
+
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">control</code></dt>
+          <dd>
+            En flagga som anger om kontrollen används enbart för att styra ett
+            härlett villkor, och inte ska påverka kravets tillstånd. Värdet är
+            <code lang="en" class="js literal">true</code> om kontrollens
+            observation är tom, annars
+            <code lang="en" class="js literal">false</code>.
+          </dd>
+
+          <dt><code lang="en">dependencies</code></dt>
+          <dd>
+            En <i lang="en">callback</i>-funktion som anropas med en
+            kravidentitet och en globalflagga och förväntas returnera en vektor
+            av krav. Vektorn har bara ett element om globalflaggan inte är satt.
+            (Endast skrivning.)
+          </dd>
+
+          <dt class="readonly"><code lang="en">derived</code></dt>
+          <dd>
+            Alltid <code lang="en" class="js literal">true</code>; används för
+            att identifiera härledda kontroller.
+          </dd>
+
+          <dt><code lang="en">global</code></dt>
+          <dd>
+            En flagga som anger om kontrollen är ”global”, det vill säga även
+            ska omfatta krav som hör till komponenter som ingår i stickprovet.
+            Standardvärdet är <code lang="en" class="js literal">false</code>.
+          </dd>
+
+          <dt class="readonly"><code lang="en">state</code></dt>
+          <dd>
+            En flagga som anger om kontrollen är godkänd (<code
+              lang="en"
+              class="js literal"
+              >true</code
+            >) eller underkänd (<code lang="en" class="js literal">false</code
+            >). Om kontrollen inte är granskad eller inte är tillämplig har
+            flaggan värdet <code lang="en" class="js keyword">undefined</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--dependsOn()-->
+      <section>
+        <h2 id="m-depends-on"><code lang="en">dependsOn()</code></h2>
+
+        <p>
+          Lägger till identiteten för ett krav (i samma stickprov) som
+          kontrollen ska härledas ifrån.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">dependsOn</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Kravets identitet i konfigurationen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <p>
+          Lägg till i det objekt som
+          <a href="Check.html#m-serialize">basklassmetoden</a> serialiserat:
+        </p>
+
+        <ul>
+          <li>
+            Vektorfältet <code>dep</code> <i lang="en">(dependencies)</i> med
+            identiteterna för de krav som kontrollen är härledd ifrån.
+          </li>
+
+          <li>
+            Flaggan <code lang="en">control</code> om villkorsstyrflaggan är
+            satt.
+          </li>
+
+          <li>
+            Flaggan <code lang="en">global</code> om globalflaggan är satt.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          kontrollinformationen.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Check.html"><code lang="en">Check</code></a>
+          </li>
+          <li>
+            <a href="CheckFactory.html"><code lang="en">CheckFactory</code></a>
+          </li>
+          <li>
+            <a href="MultipleCheck.html"
+              ><code lang="en">MultipleCheck</code></a
+            >
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li>
+            <a href="SingleCheck.html"><code lang="en">SingleCheck</code></a>
+          </li>
+          <li><a href="check.index.html">Kontrollklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

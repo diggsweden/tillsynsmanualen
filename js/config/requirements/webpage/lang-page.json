@@ -1,0 +1,40 @@
+{
+  "methods": [
+    "Använd <cite translate=\"no\" lang=\"en\">WAVE</cite>: språket visas längst upp på sidan.",
+    "Kontrollera i källkod (<kbd><kbd>Ctrl</kbd>+<kbd>U</kbd></kbd>) eller <cite>Inspektören</cite> att taggen <code>&lt;html&gt;</code> har attributet <code>lang</code> med rätt värde."
+  ],
+  "examples": {
+    "good": [
+      "För en sida på svenska ska språkkoden vara ”<code>sv</code>” eller ”<code>swe</code>”, eventuellt med tillägget ”<code>-SE</code>”."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "WAVE",
+      "absent": {
+        "tab": "Details",
+        "section": "Errors",
+        "text": "Language missing or invalid",
+        "icon": {
+          "src": "wave-lang-err.png",
+          "alt": "vit jordglob mot röd bakgrund"
+        }
+      },
+      "present": {
+        "tab": "Details",
+        "section": "Features",
+        "text": "Language",
+        "icon": {
+          "src": "wave-lang.png",
+          "alt": "vit jordglob mot grön bakgrund"
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "url": "https://www.loc.gov/standards/iso639-2/php/code_list.php",
+      "title": "ISO 639-2 Språkkoder"
+    }
+  ]
+}

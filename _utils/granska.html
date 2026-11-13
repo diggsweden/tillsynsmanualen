@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Granskningskonfiguration</title>
+    <style>
+      :root {
+        --bad: #900;
+        --better: #b50;
+        --bg: #fcfcf9;
+        --border: var(--text);
+        --disabled: #666;
+        --fail: #900;
+        --good: #080;
+        --link: #00e;
+        --selected: #06c;
+        --text: #333;
+      }
+      html {
+        background-color: var(--bg);
+        color: var(--text);
+      }
+      body {
+        font:
+          1em/1.5 'Segoe UI',
+          sans-serif;
+      }
+      a:link,
+      a:visited {
+        color: var(--link);
+      }
+      article h1 {
+        font-size: 2em;
+      }
+      td,
+      th {
+        text-align: left;
+        vertical-align: top;
+      }
+      .action,
+      .note,
+      .tip,
+      .warning {
+        padding: 1em;
+        border: 1px solid var(--border);
+        background-color: var(--bg);
+        color: var(--text);
+      }
+      .action {
+        --bg: #476;
+        --text: #fcfcf9;
+      }
+      .bad {
+        color: var(--bad);
+      }
+      .bad::before {
+        content: '[Dåligt] ';
+      }
+      .better {
+        color: var(--better);
+      }
+      .better::before {
+        content: '[Bättre] ';
+      }
+      .check {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5em;
+        margin: 0 0 0.25em;
+      }
+      .check:nth-child(n + 2) {
+        margin-top: 2.25em;
+      }
+      .check + .check {
+        margin-top: 0;
+      }
+      .check > span:nth-last-child(n + 2) {
+        padding: 0 0.75em;
+        border: 2px solid;
+        border-radius: 1em/50%;
+      }
+      .check > span.disabled {
+        color: var(--disabled);
+      }
+      .check svg {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: var(--text);
+        stroke: var(--text);
+      }
+      .check > span.disabled svg {
+        fill: var(--disabled);
+      }
+      .condition {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5em;
+        margin: 1.5em 0 0.25em;
+      }
+      .condition > span:nth-child(1) {
+        padding: 0 0.25em 0 0.75em;
+        border: 1px solid;
+        border-radius: 0.5em 0 0 0.5em;
+      }
+      .condition > span:nth-child(2) {
+        padding: 0 0.75em 0 0.25em;
+        border: 1px solid;
+        border-radius: 0 0.5em 0.5em 0;
+      }
+      .condition > span.disabled {
+        color: var(--disabled);
+      }
+      .condition > .selected {
+        border-color: var(--text) !important;
+        background-color: var(--selected);
+        color: var(--bg);
+        font-weight: bold;
+      }
+      .condition > .selected.disabled {
+        border-color: var(--disabled) !important;
+        background-color: var(--disabled);
+        color: var(--bg);
+      }
+      .conditional {
+        border-left: 0.25em solid var(--selected);
+        padding-left: 1em;
+      }
+      .error {
+        border: 0.25em solid;
+        padding: 1em;
+        color: var(--fail);
+      }
+      .good {
+        color: var(--good);
+      }
+      .good::before {
+        content: '[Bra] ';
+      }
+      .note {
+        --bg: #eef;
+        --border: #515267;
+      }
+      .observation {
+        border: 1px solid;
+        padding: 0.25em;
+        font:
+          smaller/1.0 Consolas,
+          monospace;
+      }
+      .tip {
+        --bg: #ffd;
+        --border: #b08d3b;
+      }
+      .warning {
+        --bg: #fee;
+        --border: #dc1e1e;
+      }
+    </style>
+    <style media="screen and (prefers-color-scheme:dark)">
+      :root {
+        --bad: #c66;
+        --better: #c96;
+        --bg: #111;
+        --disabled: #999;
+        --fail: #c66;
+        --good: #8c9;
+        --link: #cc6;
+        --selected: #7cf;
+        --text: #ddd;
+      }
+      .action {
+        --bg: #7aaf9c;
+        --border: #9c9;
+        --text: #111;
+        font-weight: bolder;
+      }
+      .note {
+        --bg: #353550;
+        --border: #7e7ead;
+      }
+      .tip {
+        --bg: #642;
+        --border: #f96;
+        --text: #ddd;
+      }
+      .warning {
+        --bg: #682727;
+        --border: #e68787;
+      }
+    </style>
+    <style media="(min-width:50em)">
+      article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1em;
+      }
+      h1 {
+        grid-column: 1 / 3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div role="status"></div>
+      <article>
+        <h1>Granskningskonfiguration</h1>
+        <section></section>
+        <aside></aside>
+      </article>
+    </main>
+
+    <script src="granska.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "Spela filmen, visa undertexterna och se om undertexterna är märkbart tidsförskjutna jämfört med ljudet i filmen."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Det är svårt att mäta tidsförskjutningen exakt, men gränsvärdet 100&nbsp;millisekunder är ungefär där de flesta människor reagerar på att ljudet och texten inte är i fas."
+    }
+  ],
+  "instruction": {
+    "id": "en-7.1-7.2",
+    "title": "Mediespelare"
+  }
+}

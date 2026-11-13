@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 90">
+  <g id="Listbox">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="129" height="82"/>
+      <line x1="1" y1="12" x2="130" y2="12"/>
+      <line x1="1" y1="22" x2="130" y2="22"/>
+    </g>
+
+    <g stroke="none">
+      <text x="65" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Listbox</text>
+      <text x="5" y="20">+active: boolean</text>
+      <text x="5" y="30">attach(HTMLUListElement): void</text>
+      <text x="5" y="40">detach(): void</text>
+      <text x="5" y="50">focus(number): void</text>
+      <text x="5" y="60">reset(string[]): void</text>
+      <text x="5" y="70">subscribe(callback): void</text>
+      <text x="5" y="80">unfocus(): void</text>
+    </g>
+  </g>
+</svg>

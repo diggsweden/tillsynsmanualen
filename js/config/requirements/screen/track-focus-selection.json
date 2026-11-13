@@ -1,0 +1,9 @@
+{
+  "methods": ["Använd skärmläsare och röststyrning."],
+  "info": [
+    {
+      "type": "text",
+      "text": "Kontrollera att det fungerar i egengjorda komponenter."
+    }
+  ]
+}

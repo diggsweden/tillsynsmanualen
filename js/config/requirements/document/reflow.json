@@ -1,0 +1,12 @@
+{
+  "methods": [
+    "PDF: Använd <samp>Omforma flöde</samp> (<kbd><kbd>Ctrl</kbd>+<kbd>4</kbd></kbd>) i <cite translate=\"no\" lang=\"en\">Acrobat</cite>."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "filters": ["pdf"],
+      "text": "Det går inte att omforma flödet i PDF-dokument som innehåller formulär, kommentarer, digitala signaturer och ”artefakter” (till exempel sidnumrering, sidhuvud eller sidfot)."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "methods": [
+    "PDF: kontrollera i <cite translate=\"no\" lang=\"en\">Acrobat</cite> att ”<samp>Primärt språk</samp>” är godkänt i panelen <samp>Tillgänglighetskontroll</samp>.",
+    "PDF: öppna dokumentegenskapr i <cite translate=\"no\" lang=\"en\">Acrobat</cite> (<kbd><kbd>Ctrl</kbd>+<kbd>D</kbd></kbd>) och kontrollera att rätt språk är angivet under fliken <samp>Avancerat</samp>.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: gå till <samp>Granska|Språk|Ange redigeringsspråk…</samp> och kontrollera att rätt språk är markerat i listan."
+  ]
+}

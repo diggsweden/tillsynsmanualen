@@ -1,0 +1,28 @@
+{
+  "methods": [
+    "Använd fliken <samp>Nätverk</samp> i <cite>inspektören</cite> för att se om det sker automatisk omdirigering utan fördröjning. Ställ in att displayen inte ska nollställas vid sidladdning."
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "text": "I <cite translate=\"no\" lang=\"en\">Chrome</cite>: kryssa i ”<samp lang=\"en\">Preserve log</samp>” på fliken <samp lang=\"en\">Network</samp>. I <cite translate=\"no\" lang=\"en\">Firefox</cite>: klicka på <samp>Nätverksinställningar</samp> (kugghjulet) på fliken <samp>Nätverk</samp> och markera ”<samp>Persistenta loggar</samp>”."
+    }
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Network"
+    },
+    {
+      "tool": "WAVE",
+      "absent": {
+        "tab": "Details",
+        "text": "Page refreshes or redirects",
+        "icon": {
+          "src": "wave-refresh.png",
+          "alt": "vit cirkelpil mot röd bakgrund"
+        }
+      }
+    }
+  ]
+}

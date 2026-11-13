@@ -1,0 +1,199 @@
+<header>
+  <h1 id="start-of-content">
+    <svg role="img" aria-label="type">
+      <use xlink:href="../img/ikoner.svg#" />
+    </svg>
+    <span>stickprov</span>
+  </h1>
+
+  <p>Granskning: <a href="#" id="audit"></a></p>
+
+  <p><progress value="0" max="1"></progress></p>
+
+  <dl>
+    <div>
+      <dt>Innehållstyper</dt>
+      <dd><ul id="content-types" data-empty="Inga extra typer"></ul></dd>
+    </div>
+
+    <div>
+      <dt>Komponenter</dt>
+      <dd><ul id="components" data-empty="Inga komponenter"></ul></dd>
+    </div>
+
+    <div>
+      <dt>Notering</dt>
+      <dd id="note"></dd>
+    </div>
+  </dl>
+
+  <p class="buttons">
+    <button type="button" aria-pressed="false" value="partial" id="partial">
+      Partiell
+    </button>
+
+    <a href="#" id="edit">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-edit" />
+      </svg>
+      <span>Ändra</span>
+    </a>
+  </p>
+</header>
+
+<div class="filter pass fail unchecked ext int">
+  <h2>Krav</h2>
+
+  <details>
+    <summary>Filter</summary>
+
+    <form name="filter">
+      <fieldset>
+        <legend>Vad vill du se?</legend>
+
+        <p>
+          <label>
+            <input checked type="checkbox" value="pass" />
+            Godkända
+          </label>
+          <label>
+            <input checked type="checkbox" value="fail" />
+            Underkända
+          </label>
+          <label>
+            <input checked type="checkbox" value="unchecked" />
+            Inte granskade
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input checked type="checkbox" value="ext" />
+            Kommentar till aktör
+          </label>
+          <label>
+            <input checked type="checkbox" value="int" />
+            Egen notering
+          </label>
+        </p>
+      </fieldset>
+    </form>
+  </details>
+
+  <p class="buttons">
+    <a href="#" id="resume">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-monitor" />
+      </svg>
+      <span>Börja granska</span>
+    </a>
+
+    <button type="button" value="approve" id="approve">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-check" />
+      </svg>
+      <span>Godkänn ogranskade</span>
+    </button>
+
+    <button
+      type="button"
+      aria-controls="copy-dialog"
+      aria-haspopup="dialog"
+      data-handler="copy"
+      value="open"
+      id="copy-btn"
+    >
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-copy" />
+      </svg>
+      Kopiera godkända…
+    </button>
+  </p>
+
+  <template id="section-template">
+    <h2></h2>
+    <ul class="requirement listing"></ul>
+  </template>
+
+  <template id="requirement-template">
+    <li>
+      <span>
+        <svg role="presentation">
+          <use xlink:href="../img/ikoner.svg#" />
+        </svg>
+      </span>
+
+      <span></span>
+      <a href="."></a>
+
+      <span>
+        <svg role="presentation">
+          <use xlink:href="../img/ikoner.svg#ico-remark" />
+        </svg>
+        Kommentar till aktör
+      </span>
+
+      <span>
+        <svg role="presentation">
+          <use xlink:href="../img/ikoner.svg#ico-note" />
+        </svg>
+        Egen notering
+      </span>
+    </li>
+  </template>
+</div>
+
+<dialog
+  aria-modal="true"
+  aria-atomic="true"
+  aria-labelledby="copy-h"
+  id="copy-dialog"
+>
+  <h2 id="copy-h">Kopiera godkända krav</h2>
+
+  <form name="copy">
+    <p>
+      <label>
+        <em>Stickprov</em>
+        <select name="source">
+          <option value="">(välj stickprov att kopiera ifrån)</option>
+        </select>
+      </label>
+    </p>
+
+    <p>
+      <button type="button" data-value="check" id="check-all">
+        Markera alla krav
+      </button>
+    </p>
+
+    <fieldset>
+      <legend>Krav att kopiera</legend>
+
+      <ul></ul>
+    </fieldset>
+
+    <p>
+      <label class="cb">
+        <input name="notes" type="checkbox" role="switch" />
+        <span>Kopiera noteringar</span>
+      </label>
+    </p>
+
+    <p>
+      <button data-handler="copy" type="button" value="false">
+        <svg aria-hidden="true">
+          <use xlink:href="../img/ikoner.svg#ico-cancel" />
+        </svg>
+        Avbryt
+      </button>
+
+      <button data-handler="copy" type="button" value="true">
+        <svg aria-hidden="true">
+          <use xlink:href="../img/ikoner.svg#ico-copy" />
+        </svg>
+        Kopiera
+      </button>
+    </p>
+  </form>
+</dialog>

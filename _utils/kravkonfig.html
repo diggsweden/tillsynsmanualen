@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kravkonfiguration</title>
+    <style>
+      :root {
+        --accent: #06c;
+        --bg: #fcfcf9;
+        --disabled: #666;
+        --fail: #900;
+        --link: #00e;
+        --text: #333;
+      }
+      html {
+        background-color: var(--bg);
+        color: var(--text);
+      }
+      body {
+        max-width: 50em;
+        margin: 0 auto;
+        padding: 2em 1em 3em;
+        font:
+          1em/1.5 'Segoe UI',
+          sans-serif;
+      }
+      *:focus-visible {
+        outline: 0.25em dotted var(--accent);
+        outline-offset: 0.25em;
+      }
+      header {
+      }
+      header form {
+        margin: 0 0 1.5em;
+      }
+      header form p {
+        display: flex;
+        align-items: center;
+        column-gap: 0.25em;
+      }
+      #cfg {
+        flex: 1 1;
+      }
+      #cfg:focus-visible {
+        outline: 0;
+        background-color: var(--focus);
+      }
+      a:link,
+      a:visited {
+        color: var(--link);
+      }
+      button,
+      input[type='search'],
+      select {
+        border: 1px solid;
+        background-color: var(--bg);
+        color: var(--text);
+        font: inherit;
+      }
+      button {
+        border-radius: 0.5em;
+        padding: 0.25em 0.5em;
+      }
+      details > div,
+      .conditional {
+        margin: 0.75em 0 2.25em;
+        border-left: 0.25em solid var(--accent);
+        padding-left: 1.5em;
+      }
+      details > div > *:first-child,
+      .conditional > *:first-child {
+        margin-top: 0;
+      }
+      h2 {
+        position: relative;
+        margin: 3rem 0 0.75rem;
+      }
+      h3 {
+        position: relative;
+        margin: 1.5rem 0 0.75rem;
+      }
+      p {
+        margin: 0 0 2.25em;
+      }
+      .check {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5em;
+        margin: 0 0 0.25em;
+      }
+      .check > span:nth-last-child(n + 2) {
+        padding: 0 0.75em;
+        border: 2px solid;
+        border-radius: 1em/50%;
+      }
+      .check > span.disabled {
+        color: var(--disabled);
+      }
+      .check svg {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: var(--text);
+        stroke: var(--text);
+      }
+      .check > span.disabled svg {
+        fill: var(--disabled);
+      }
+      .condition {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5em;
+        margin: 1.5em 0 0.25em;
+      }
+      .condition > span:nth-child(1) {
+        padding: 0 0.25em 0 0.75em;
+        border: 1px solid;
+        border-radius: 0.5em 0 0 0.5em;
+      }
+      .condition > span:nth-child(2) {
+        padding: 0 0.75em 0 0.25em;
+        border: 1px solid;
+        border-radius: 0 0.5em 0.5em 0;
+      }
+      .condition > .selected {
+        border-color: var(--text) !important;
+        background-color: var(--accent);
+        color: var(--bg);
+        font-weight: bold;
+      }
+      .error {
+        border: 0.25em solid;
+        padding: 1em;
+        color: var(--fail);
+      }
+      .exceptions {
+        margin: 0 0 0.75em;
+      }
+      .exceptions::before {
+        display: block;
+        font-weight: bold;
+        content: 'Undantag';
+      }
+      pre .error {
+        border: 0;
+        padding: 0;
+        font-weight: bold;
+      }
+      .meta {
+        margin: -0.75rem 0 1.5rem;
+        font-size: smaller;
+      }
+      .conditional > .meta:first-child {
+        margin-top: 0.75em;
+      }
+      .meta + .check {
+        margin-top: -0.75em;
+      }
+      dl.meta {
+        display: grid;
+        grid-template-columns: 8em 1fr;
+        column-gap: 0.5em;
+      }
+      dl.meta dd {
+        margin: 0;
+        font-weight: bold;
+      }
+      dl.meta dt::after {
+        content: ':';
+      }
+      .missing {
+        color: var(--fail);
+      }
+      .observation {
+        margin: 0 0 0.75em;
+        border: 1px solid;
+        padding: 0.25em;
+        font:
+          smaller/1.0 Consolas,
+          monospace;
+      }
+      .observation + .check,
+      .observation + .meta {
+        margin-top: 1.5em;
+      }
+      .sources {
+        margin: 0 0 0.75em;
+      }
+      .sources.group {
+        margin-top: 2.25em;
+      }
+      .sources::before {
+        display: block;
+        font-weight: bold;
+        content: 'Härledd från';
+      }
+      .sources.group::before {
+        margin-left: -40px;
+        content: 'Villkor härlett från';
+      }
+    </style>
+    <style media="screen and (prefers-color-scheme:dark)">
+      :root {
+        --accent: #90afcc;
+        --bg: #111;
+        --disabled: #999;
+        --fail: #c66;
+        --focus: #234;
+        --link: #cc6;
+        --text: #ddd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <form>
+        <p>
+          <label for="cfg">Konfigurationsfil</label>
+          <input name="cfg" type="search" required list="cfgl" id="cfg" />
+          <datalist id="cfgl">
+            <option>document</option>
+            <option>screen-closed</option>
+            <option>screen-open</option>
+            <option>screen-component-closed</option>
+            <option>screen-component-open</option>
+            <option>webpage</option>
+            <option>webpage-component</option>
+          </datalist>
+          <select name="type" aria-label="stickprovstyp" id="type">
+            <option value="webpage">webbsida</option>
+            <option value="document">dokument</option>
+            <option value="screen">vy</option>
+          </select>
+          <button>Ladda</button>
+        </p>
+      </form>
+    </header>
+
+    <main>
+      <h1>Kravkonfiguration</h1>
+      <p id="info">Ange en konfigurationsfil att ladda.</p>
+    </main>
+
+    <script src="kravkonfig.js" type="module"></script>
+  </body>
+</html>

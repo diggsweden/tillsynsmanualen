@@ -1,0 +1,29 @@
+{
+  "methods": [
+    "Kontrollera textalternativen för alla förgrundsbilder på sidan med vyns talfunktion."
+  ],
+  "examples": {
+    "bad": [
+      "Ett stapeldiagram från en opinionsundersökning har textalternativet ”Väljarbarometer 2022-02-18”.",
+      "En bild som ska uppmuntra till umgänge utomhus för att minska smittspridningen under en pandemi har ett textalternativ som beskriver motivet i bilden: ”Fotografi av en ung kvinna med en termos.”"
+    ],
+    "good": [
+      "Väljarbarometern har textalternativet ”V 8,3 %, S 32 %, MP 3,3 %, C 6,8 %, L 2,1 %, KD 5,7 %, M 21,5 %, SD 18,7 %; övriga 1,6 %”",
+      "Pandemibilden har textalternativet ”Umgås gärna utomhus för att minska smittspridningen.”"
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Icke-informationsbärande bilder ska inte läsas upp."
+    },
+    {
+      "type": "note",
+      "text": "Textalternativ som böjar med ”Bild på…”, ”Foto av…” etc. eller avslutas med ”…logotyp” är inte bra, men det är inte en grund för underkännande. I slutändan är det författaren som avgör vilken information bilden är avsedd att förmedla."
+    }
+  ],
+  "instruction": {
+    "id": "wcag-1.1.1",
+    "title": "Textalternativ"
+  }
+}

@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ChecksView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 59rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">ChecksView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ChecksView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-hide-progress"><code lang="en">hideProgress()</code></a>
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-section"><code lang="en">section()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>Vy för presentation av kontroller.</p>
+
+      <p>
+        Den här vyn ingår i strikt mening inte i granskningsfunktionen, men har
+        samma basklass och använder samma stödklasser som dess vyer.
+      </p>
+
+      <p>
+        Eftersom innehållet till sin natur ofta är rekursivt (avsnitt med
+        underavsnitt, innehålls&shy;behållare som består av andra
+        innehållbehållare) används några hjälpklasser som definieras i samma
+        modulfil. Dessa klasser är inte exponerade utanför modulen.
+      </p>
+
+      <p>
+        <code lang="en">ChecksView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/ChecksView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/ChecksView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 590 490" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--ChecksView-->
+          <use
+            xlink:href="ChecksView.svg#ChecksView"
+            x="190"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="190" y1="31" x2="151" y2="31" class="composition" />
+          <line x1="321" y1="16" x2="360" y2="16" class="composition" />
+          <line x1="270" y1="63" x2="270" y2="290" class="inheritance" />
+
+          <!--HTMLProgressElement-->
+          <use
+            xlink:href="../HTMLProgressElement.svg#HTMLProgressElement"
+            x="40"
+            y="20"
+            class="external"
+          />
+
+          <g transform="translate(360, 0)">
+            <!--Section-->
+            <use
+              xlink:href="ChecksView.svg#Section"
+              x="0"
+              y="0"
+              class="internal"
+            />
+
+            <path d="M181,16 h20 v24" class="composition" />
+            <path d="M0,24 h-20 v217 h20" class="dependency" />
+
+            <!--HTMLElement-->
+            <use
+              xlink:href="../HTMLElement.svg#HTMLElement"
+              x="130"
+              y="40"
+              class="external"
+            />
+
+            <!--CheckContainer-->
+            <use
+              xlink:href="ChecksView.svg#CheckContainer"
+              x="0"
+              y="70"
+              class="internal"
+            />
+
+            <g transform="translate(0, 200)">
+              <!--RequirementSection-->
+              <use
+                xlink:href="ChecksView.svg#RequirementSection"
+                x="0"
+                y="0"
+                class="internal"
+              />
+
+              <line x1="60" y1="0" x2="60" y2="-27" class="inheritance" />
+
+              <!--ConditionSection-->
+              <use
+                xlink:href="ChecksView.svg#ConditionSection"
+                x="130"
+                y="0"
+                class="internal"
+              />
+
+              <line x1="180" y1="0" x2="180" y2="-27" class="inheritance" />
+            </g>
+          </g>
+
+          <g transform="translate(0, 290)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ChecksView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn lägger till stilmallen
+          <code lang="en">css/checks.css</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ChecksView</span>(<span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">listeners</code></dt>
+          <dd>
+            Händelselyssnarlista (används inte, men förutsätts av basklassen).
+          </dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">heading</code></dt>
+          <dd>Sidrubrik. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">requirementCount</code></dt>
+          <dd>Antal krav. (Endast skrivning.)</dd>
+        </dl>
+      </section>
+
+      <!--hideProgress()-->
+      <section>
+        <h2 id="m-hide-progress"><code lang="en">hideProgress()</code></h2>
+
+        <p>Döljer förloppsindikatorn.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">hideProgress</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Identifierar förloppsindikatorn när sidinnehållsfragmentet laddats.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">open</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när sidinnehållet laddats.</p>
+      </section>
+
+      <!--section()-->
+      <section>
+        <h2 id="m-section"><code lang="en">section()</code></h2>
+
+        <p>Skapar och infogar ett granskningsavsnitt.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">section</span>(<span class="var">heading</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">heading</code></dt>
+          <dd>Avsnittsrubrik.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En instans av den modulinterna klassen
+          <code lang="en">Section</code> som hanterar renderingen av avsnittet.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../checks.module.html"
+              ><code lang="en">checks.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/ChecksController.html"
+              ><code lang="en">ChecksController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

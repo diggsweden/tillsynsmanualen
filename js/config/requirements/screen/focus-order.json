@@ -1,0 +1,10 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet. Aktivera (med tangentbordet) eventuella funktioner som öppnar en meny, dialogruta eller liknande."
+  ],
+  "examples": {
+    "bad": [
+      "Ett formulär har två grupper med fält sida vid sida, men fokusordningen går ”radvis”, inte genom en grupp i taget, och hoppar mellan fält som inte hör ihop."
+    ]
+  }
+}

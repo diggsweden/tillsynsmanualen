@@ -1,0 +1,175 @@
+<h1 id="start-of-content">Granskning</h1>
+
+<p class="only-if app">Granskad version:</p>
+
+<p class="dual progress">
+  <span>Urval</span> <progress value="0" max="1"></progress>
+  <span>Granskning</span> <progress value="0" max="1"></progress>
+</p>
+
+<table class="sample grid">
+  <caption>
+    <p>
+      Urval:
+      <span id="component-count"></span>
+      <span class="only-if app" id="screen-count"></span>
+      <span id="page-count"></span>
+      <span id="doc-count"></span>
+    </p>
+  </caption>
+
+  <colgroup>
+    <col class="audit" />
+    <col class="progress" />
+    <col class="edit" />
+    <col class="category" />
+    <col class="connections" />
+    <col class="link" />
+    <col class="notes" />
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th scope="col">Granska</th>
+      <th scope="col">Förlopp</th>
+      <th scope="col">Redigera</th>
+      <th scope="col">Kategori</th>
+      <th scope="col">Kopplingar</th>
+      <th scope="col">Extern sida</th>
+      <th scope="col">Egen notering</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <template id="grid-row-template">
+      <tr>
+        <td>
+          <a
+            href="?page=sample&amp;sample={{id}}"
+            aria-label="{{name}}, {{progress}}, {{type}}"
+          >
+            <svg role="img" aria-label="{{type}}">
+              <use xlink:href="../img/ikoner.svg#ico-{{ico}}" />
+            </svg>
+            <span>{{name}}</span>
+          </a>
+        </td>
+        <td>{{progress}}</td>
+        <td>
+          <a
+            href="?page=sample&amp;sample={{id}}&amp;return=audit%26audit%3D{{audit}}&amp;edit"
+            aria-label="Redigera stickprovet ({{name}})"
+          >
+            <svg aria-hidden="true">
+              <use xlink:href="../img/ikoner.svg#ico-edit" />
+            </svg>
+            <span>Redigera stickprovet</span>
+          </a>
+        </td>
+        <td>{{category}}</td>
+        <td>{{connections}}</td>
+        <td>
+          <a
+            target="_blank"
+            href="{{url}}"
+            aria-label="Till {{type}} {{name}} (öppnas i ny vy)"
+          >
+            <span>Till {{type-d}}</span>
+          </a>
+        </td>
+        <td>{{note}}</td>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+<p class="audit buttons">
+  <a href="#" id="sample">
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <use xlink:href="../img/ikoner.svg#ico-sample" />
+      <use xlink:href="../img/ikoner.svg#ico-new" class="new" />
+    </svg>
+    <span>Påbörja urvalet</span>
+  </a>
+
+  <a href="#" id="audit">
+    <svg aria-hidden="true">
+      <use xlink:href="../img/ikoner.svg#ico-monitor" />
+    </svg>
+    <span>Börja granska</span>
+  </a>
+</p>
+
+<h2>Dokument</h2>
+
+<ul data-empty="Inga dokument" class="audit-docs" id="doc-list"></ul>
+<template id="doc-template">
+  <li>
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <use xlink:href="../img/ikoner.svg#ico-" />
+    </svg>
+    <span>
+      <button type="button" value="deleteDoc" title="Ta bort">
+        <svg aria-hidden="true">
+          <use xlink:href="../img/ikoner.svg#ico-delete" />
+        </svg>
+        <span>Ta bort</span>
+      </button>
+    </span>
+    <span><a href="#" class="doc"></a></span>
+  </li>
+</template>
+
+<section id="docs">
+  <form>
+    <p>
+      <label>
+        <em>Åtgärdsdatum</em>
+        <input name="date" type="date" required />
+      </label>
+
+      <button type="button" value="remarks">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <use xlink:href="../img/ikoner.svg#ico-remarks" />
+          <use xlink:href="../img/ikoner.svg#ico-new" class="new" />
+        </svg>
+        <span>Skapa påpekande</span>
+      </button>
+
+      <button type="button" value="injunction">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <use xlink:href="../img/ikoner.svg#ico-injunction" />
+          <use xlink:href="../img/ikoner.svg#ico-new" class="new" />
+        </svg>
+        <span>Skapa föreläggande</span>
+      </button>
+    </p>
+  </form>
+</section>
+
+<p id="reopen" hidden>
+  <button type="button" disabled value="reopen">Lås upp granskningen</button>
+</p>
+
+<dialog
+  role="alertdialog"
+  aria-atomic="true"
+  ,
+  aria-labelledby="confirm-label"
+  aria-modal="true"
+  id="confirm-dialog"
+>
+  <h2 id="confirm-label">Bekräfta</h2>
+  <p class="prompt"></p>
+
+  <p>
+    <button data-handler="confirm" type="button" value="false">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-cancel" />
+      </svg>
+      Avbryt
+    </button>
+
+    <button data-handler="confirm" type="button" value="true">OK</button>
+  </p>
+</dialog>

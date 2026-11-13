@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>TalkBack – Tillsynsmanual – DIGG</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+
+    <style>
+      table {
+        width: 100%;
+        caption-side: top;
+        table-layout: fixed;
+      }
+      caption {
+        margin: 1.5rem 0 0.75rem;
+        font-size: 120%;
+        font-weight: bold;
+        color: var(--heading);
+      }
+      tr:nth-child(even) {
+        background-color: var(--alt-bg);
+      }
+      td {
+        padding-top: 0.1em;
+        padding-top: 0.1em;
+      }
+      col.cmd {
+        width: 10em;
+      }
+      col.cmd-2 {
+        width: 15em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <cite translate="no" lang="en">TalkBack</cite>
+      </h1>
+
+      <p>
+        <cite translate="no" lang="en">TalkBack</cite> är den vanligaste
+        skärmläsaren i mobila enheter med operativsystemet <cite>Android</cite>.
+      </p>
+
+      <section>
+        <h2>Gester</h2>
+
+        <p>
+          Flerpunktsgester stöds från version 9.1. För att kontrollera om din
+          enhet har stöd för flerpunktsgester, starta
+          <cite translate="no" lang="en">TalkBack</cite> och tryck med tre
+          fingrar. Om enheten har stöd för flerpunktsgester öppnas
+          <cite translate="no" lang="en">TalkBack</cite>-menyn.
+        </p>
+
+        <table>
+          <caption>
+            Navigering
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Enkel gest</th>
+              <th scope="col">Flerpunktsgest</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Nästa element</td>
+              <td><kbd>Höger</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Föregående element</td>
+              <td><kbd>Vänster</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Utforska med känsel</td>
+              <td><kbd>Dra med fingret på skärmen</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Välj ett element</td>
+              <td><kbd>Tryck</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Nästa läsfunktion</td>
+              <td><kbd>Upp</kbd>, sedan <kbd>ned</kbd></td>
+              <td><kbd>Svep nedåt med 3 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Föregående läsfunktion</td>
+              <td><kbd>Ned</kbd>, sedan <kbd>upp</kbd></td>
+              <td><kbd>Svep uppåt med 3 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Ändra värde i vald läsfunktion</td>
+              <td><kbd>Upp</kbd> eller <kbd>ned</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Hoppa till nästa element</td>
+              <td><kbd>Ned</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Hoppa till föregående element</td>
+              <td><kbd>Upp</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Läs från nästa element</td>
+              <td></td>
+              <td><kbd>Tryck snabbt 3 gånger med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Aktivera skärmsökning</td>
+              <td><kbd>Vänster</kbd>, sedan <kbd>ned</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Förstoringsinställningar</td>
+              <td><kbd>Tryck snabbt 3 gånger</kbd></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Skrolla skärmen
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Enkel gest</th>
+              <th scope="col">Flerpunktsgest</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Skrolla uppåt</td>
+              <td><kbd>Svep nedåt med 2 fingrar</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Skrolla nedåt</td>
+              <td><kbd>Svep uppåt med 2 fingrar</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Skrolla vänster</td>
+              <td><kbd>Svep åt höger med 2 fingrar</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Skrolla höger</td>
+              <td><kbd>Svep åt vänster med 2 fingrar</kbd></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Utför en ågärd på aktuellt element
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Enkel gest</th>
+              <th scope="col">Flerpunktsgest</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Aktivera</td>
+              <td><kbd>Tryck snabbt 2 gånger</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Långt tryck</td>
+              <td><kbd>Tryck snabbt 2 gånger</kbd> och <kbd>håll ned</kbd></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Öka värde i ett skjutreglage</td>
+              <td>
+                <kbd>Upp</kbd>, eller <kbd>höger</kbd>, sedan <kbd>vänster</kbd>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Minska värde i ett skjutreglage</td>
+              <td>
+                <kbd>Ned</kbd>, eller <kbd>vänster</kbd>, sedan <kbd>höger</kbd>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Systemgester i
+            <cite>Android</cite>
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Enkel gest</th>
+              <th scope="col">Flerpunktsgest</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Hemskärmen</td>
+              <td><kbd>Upp</kbd>, sedan <kbd>vänster</kbd></td>
+              <td><kbd>Svep från nederkant med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Bakåt</td>
+              <td><kbd>Ned</kbd>, sedan <kbd>vänster</kbd></td>
+              <td>
+                <kbd>Svep från vänster- eller högerkant med 2 fingrar</kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Appväxlaren</td>
+              <td><kbd>Vänster</kbd>, sedan <kbd>upp</kbd></td>
+              <td><kbd>Svep från nederkant med 2 fingrar och håll ned</kbd></td>
+            </tr>
+            <tr>
+              <td>Visa notiser</td>
+              <td>
+                <kbd>Höger</kbd>, sedan <kbd>ned</kbd> eller
+                <kbd>svep från överkant med 2 fingrar</kbd>
+              </td>
+              <td><kbd>Svep från överkant med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Visa snabbinställningar</td>
+              <td><kbd>svep nedåt med 2 fingrar</kbd> när notiser visas</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Dölj notiser</td>
+              <td><kbd>Ned</kbd>, sedan <kbd>vänster</kbd></td>
+              <td><kbd>Svep från nederkant med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Öppna appsektionen</td>
+              <td><kbd>svep uppåt med 2 fingrar</kbd> på hemskärmen</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Styr
+            <cite translate="no" lang="en">TalkBack</cite>
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Enkel gest</th>
+              <th scope="col">Flerpunktsgest</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Pausa/fortsätt uppläsning</td>
+              <td></td>
+              <td><kbd>Tryck snabbt med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Starta/stoppa uppspelning</td>
+              <td></td>
+              <td><kbd>Tryck snabbt 2 gånger med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Besvara samtal</td>
+              <td></td>
+              <td><kbd>Tryck snabbt 2 gånger med 2 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td><cite translate="no" lang="en">TalkBack</cite>-menyn</td>
+              <td><kbd>Ned</kbd>, sedan <kbd>höger</kbd></td>
+              <td><kbd>Tryck snabbt med 3 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Öva på gester</td>
+              <td></td>
+              <td><kbd>Tryck med 4 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Hjälp om <cite translate="no" lang="en">TalkBack</cite></td>
+              <td></td>
+              <td><kbd>Tryck snabbt 2 gånger med 4 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Visa/dölj tillgänglighetsmenyn</td>
+              <td><kbd>Svep från nederkant med 2 fingrar</kbd></td>
+              <td><kbd>Svep från nederkant med 3 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Släpp igenom nästa gest</td>
+              <td></td>
+              <td>
+                <kbd>Tryck snabbt 2 gånger med 4 fingrar och håll ned</kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Kopiera texten i elementet som har fokus</td>
+              <td></td>
+              <td><kbd>Tryck snabbt 2 gånger med 3 fingrar</kbd></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Redigera och markera text
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Enkel gest</th>
+              <th scope="col">Flerpunktsgest</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Starta/avsluta markeringläge</td>
+              <td></td>
+              <td>
+                <kbd>Tryck snabbt 2 gånger med 2 fingrar och håll ned</kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Kopiera markerad text</td>
+              <td></td>
+              <td><kbd>Tryck snabbt 2 gånger med 3 fingrar</kbd></td>
+            </tr>
+            <tr>
+              <td>Klipp ut markerad text</td>
+              <td></td>
+              <td>
+                <kbd>Tryck snabbt 2 gånger med 3 fingrar och håll ned</kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Klistra in</td>
+              <td></td>
+              <td><kbd>Tryck snabbt 3 gånger med 3 fingrar</kbd></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Tangentkommandon</h2>
+
+        <table>
+          <caption>
+            Navigering
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd-2" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Kommando</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Nästa element</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>→</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Föregående element</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>←</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Elementet ovanför</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>↑</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Elementet nedanför</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>↓</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Första elementet</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>←</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Sista elementet</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>→</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Nästa fönster</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>↓</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Föregående fönster</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>↑</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Aktivera elementet som har fokus</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Enter</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Tryck-och-håll elementet som har fokus</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>Enter</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Läs från början</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Enter</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Läs från nästa element</td>
+              <td>
+                <kbd
+                  ><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd
+                    >Enter</kbd
+                  ></kbd
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Globala åtgärder
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd-2" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Kommando</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Gå bakåt</td>
+              <td>
+                <kbd
+                  ><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd translate="no" lang="en"
+                    >Backspace</kbd
+                  ></kbd
+                >,
+                <kbd
+                  ><kbd>Alt</kbd>+<kbd translate="no" lang="en"
+                    >Delete</kbd
+                  ></kbd
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Hemskärmen</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>H</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Senaste apparna</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>R</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Notiser</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>N</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Sök på skärmen</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>/</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Öppna <cite translate="no" lang="en">TalkBack</cite>-menyn
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Mellanslag</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Pausa/fortsätt <cite translate="no" lang="en">TalkBack</cite>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Z</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Visa åtgärdslistga</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Mellanslag</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Visa installerade språk</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>L</kbd></kbd>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Textnavigering
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd-2" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Funktion</th>
+              <th scope="col">Kommando</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Nästa ord</td>
+              <td>
+                <kbd
+                  ><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd
+                    >→</kbd
+                  ></kbd
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Föregående ord</td>
+              <td>
+                <kbd
+                  ><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd
+                    >←</kbd
+                  ></kbd
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Nästa tecken</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>→</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Föregående tecken</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>←</kbd></kbd>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Navigering i
+            <cite translate="no" lang="en">Chrome</cite>
+          </caption>
+
+          <colgroup>
+            <col />
+            <col class="cmd" />
+            <col class="cmd-2" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Objekt</th>
+              <th scope="col">Nästa</th>
+              <th scope="col">Föregående</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Landmärke</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>D</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>D</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Knapp</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>B</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>B</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Kryssruta</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>X</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>X</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Combobox</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Z</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>Z</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Kontroll</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>C</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>C</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Inmatningsfält</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>E</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>E</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Fokuserbart element</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>F</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>F</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Bild</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>G</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>G</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Rubrik</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>H</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>H</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Rubriknivå 1–6</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+[<kbd>1</kbd>–<kbd>6</kbd>]</kbd>
+              </td>
+              <td>
+                <kbd
+                  ><kbd>Alt</kbd
+                  >+<kbd>Skift</kbd>+[<kbd>1</kbd>–<kbd>6</kbd>]</kbd
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Länk</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>L</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>L</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Lista</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>O</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>O</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Listelement</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>I</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>I</kbd></kbd>
+              </td>
+            </tr>
+            <tr>
+              <td>Tabell</td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>T</kbd></kbd>
+              </td>
+              <td>
+                <kbd><kbd>Alt</kbd>+<kbd>Skift</kbd>+<kbd>T</kbd></kbd>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="tip">
+          Du kan välja en annan tangent än <kbd><kbd>Alt</kbd></kbd> för
+          snabbkommandon under <samp>Inställningar</samp>.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="../../start/tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="../../start/webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Audit – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40em;
+      }
+
+      .categories dd {
+        margin: 0 0 0.5em 6em;
+      }
+      .categories dt {
+        float: left;
+        clear: left;
+        height: 1.5em;
+      }
+
+      .compare {
+        display: flex;
+        column-gap: 2em;
+      }
+      .compare > * {
+        width: 40%;
+      }
+      .compare h3 {
+        margin-top: 0;
+      }
+      .compare ol {
+        padding-left: 1.5em;
+      }
+
+      .uml-diagram {
+        width: 36rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">Audit</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Audit</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-add-injunction"
+              ><code lang="en">addInjunction()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-add-remarks"><code lang="en">addRemarks()</code></a>
+          </li>
+          <li>
+            <a href="#m-all-samples"><code lang="en">allSamples()</code></a>
+          </li>
+          <li>
+            <a href="#m-audit-progress"
+              ><code lang="en">auditProgress()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-colours"><code lang="en">colours()</code></a>
+          </li>
+          <li>
+            <a href="#m-components"><code lang="en">components()</code></a>
+          </li>
+          <li>
+            <a href="#m-contains"><code lang="en">contains()</code></a>
+          </li>
+          <li>
+            <a href="#m-count"><code lang="en">count()</code></a>
+          </li>
+          <li>
+            <a href="#m-count-done"><code lang="en">countDone()</code></a>
+          </li>
+          <li>
+            <a href="#m-count-type"><code lang="en">countType()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-colour"><code lang="en">deleteColour()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-injunction"
+              ><code lang="en">deleteInjunction()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-delete-remarks"
+              ><code lang="en">deleteRemarks()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-delete-sample"><code lang="en">deleteSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-done-samples"><code lang="en">doneSamples()</code></a>
+          </li>
+          <li>
+            <a href="#m-failures"><code lang="en">failures()</code></a>
+          </li>
+          <li>
+            <a href="#m-finish"><code lang="en">finish()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-sample-by-name"
+              ><code lang="en">getSampleByName()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-has-colour"><code lang="en">hasColour()</code></a>
+          </li>
+          <li>
+            <a href="#m-next-category"><code lang="en">nextCategory()</code></a>
+          </li>
+          <li>
+            <a href="#m-next-sample"><code lang="en">nextSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-observations"><code lang="en">observations()</code></a>
+          </li>
+          <li>
+            <a href="#m-previous-category"
+              ><code lang="en">previousCategory()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-random-count"><code lang="en">randomCount()</code></a>
+          </li>
+          <li>
+            <a href="#m-sample-progress"
+              ><code lang="en">sampleProgress()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-sample"><code lang="en">sample()</code></a>
+          </li>
+          <li>
+            <a href="#m-samples"><code lang="en">samples()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-colour"><code lang="en">setColour()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-sample"><code lang="en">setSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-json"><code lang="en">toJSON()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-string"><code lang="en">toString()</code></a>
+          </li>
+          <li>
+            <a href="#m-use-count"><code lang="en">useCount()</code></a>
+          </li>
+          <li><a href="#categories">Kategorier</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Audit</code> representerar en granskning i ett
+        granskningsärende.
+      </p>
+
+      <p>
+        En granskning består av ett urval av stickprov, vars typer skiljer
+        beroende på vilken typ av digital service granskningen gäller (mobil
+        applikation eller webbplats).
+      </p>
+
+      <p>
+        Granskaren kan också spara färger i granskningen: en färgspecifikation
+        tillsammans med ett identifierande namn. Verktygsmodulen för
+        kontrastanalys kan hämta upp sparade färgvärden och ge som
+        ifyllnadsförslag
+      </p>
+
+      <p>
+        En avslutad granskning kan innehålla påpekanden och förelägganden i form
+        av par av datum (skapatdatum och sista åtgärdsdatum).
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/Audit.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/Audit.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>audits</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>id</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_case</code> / <code>caseID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 360 450" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--Audit-->
+          <use xlink:href="Audit.svg#Audit" x="0" y="0" class="highlight" />
+
+          <line x1="171" y1="78" x2="210" y2="78" class="composition" />
+          <line x1="171" y1="358" x2="210" y2="358" class="composition" />
+
+          <!--Person-->
+          <use xlink:href="Person.svg#Person" x="210" y="0" />
+
+          <!--Sample-->
+          <use xlink:href="Sample.svg#Sample" x="210" y="160" />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Audit</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Audit</span>(<span class="var">caseID</span>)
+<span class="keyword">new</span> <span class="ident">Audit</span>(<span class="var">caseID</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">caseID</code></dt>
+          <dd>
+            Identitet för det ärende som granskningen ingår i (en numerisk
+            representation av ärendenumret, till exempel 20201234).
+          </dd>
+
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Ingen ärendeidentitet angiven.</dd>
+          <dd>Dataobjektet hör inte till det angivna ärendet.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt class="readonly"><code lang="en">caseID</code></dt>
+          <dd>Ärendeidentitet.</dd>
+
+          <dt class="readonly"><code lang="en">failed</code></dt>
+          <dd>En flagga som anger om en avslutad granskning är underkänd.</dd>
+
+          <dt class="finished"><code lang="en">finished</code></dt>
+          <dd>Slutdatum (datum då granskningen avslutades).</dd>
+
+          <dt class="readonly"><code lang="en">firstSample</code></dt>
+          <dd>Första stickprovet i urvalet.</dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>Granskningens identitet i databasen.</dd>
+
+          <dt class="readonly"><code lang="en">injunctions</code></dt>
+          <dd>
+            En vektor med par av skapatdatum/senaste åtgärdsdatum för
+            förelägganden som skapats för en avslutad granskning.
+          </dd>
+
+          <dt><code lang="en">officer</code></dt>
+          <dd>Handläggaren/granskaren som utfört granskningen.</dd>
+
+          <dt class="readonly"><code lang="en">remarks</code></dt>
+          <dd>
+            En vektor med par av skapatdatum/senaste åtgärdsdatum för påpekanden
+            som skapats för en avslutad granskning.
+          </dd>
+
+          <dt><code lang="en">started</code></dt>
+          <dd>Startdatum (datum då granskningen skapades).</dd>
+
+          <dt><code lang="en">version</code></dt>
+          <dd>Versionsnummer vid granskning av en mobil applikation.</dd>
+        </dl>
+      </section>
+
+      <!--addInjunction()-->
+      <section>
+        <h2 id="m-add-injunction"><code lang="en">addInjunction()</code></h2>
+
+        <p>Lägger till ett föreläggande till en avslutad granskning.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addInjunction</span>(<span class="var">created</span>, <span class="var">deadline</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">created</code></dt>
+          <dd>
+            Datum då handläggaren lade till föreläggandet till granskningen.
+          </dd>
+
+          <dt><code lang="en">deadline</code></dt>
+          <dd>
+            Datum då aktören senast ska ha åtgärdat de brister som föreläggandet
+            avser.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Granskningen är inte avslutad.</dd>
+        </dl>
+      </section>
+
+      <!--addRemarks()-->
+      <section>
+        <h2 id="m-add-remarks"><code lang="en">addRemarks()</code></h2>
+
+        <p>Lägger till ett påpekande till en avslutad granskning.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addRemarks</span>(<span class="var">created</span>, <span class="var">deadline</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">created</code></dt>
+          <dd>Datum då handläggaren lade till påpekandet till granskningen.</dd>
+
+          <dt><code lang="en">deadline</code></dt>
+          <dd>
+            Datum då aktören senast ska ha åtgärdat de brister som påpekandet
+            avser.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Granskningen är inte avslutad.</dd>
+        </dl>
+      </section>
+
+      <!--allSamples()-->
+      <section>
+        <h2 id="m-all-samples"><code lang="en">allSamples()</code></h2>
+
+        <p>
+          Itererar över <em>alla</em> stickprov i granskningen, inklusive
+          komponenter.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">allSamples</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en <code lang="en">Sample</code>-instans
+          vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">sample</span> <span class="keyword">of</span> <span class="var">audit</span>.<span class="fn">allSamples</span>()) {…} </code></pre>
+      </section>
+
+      <!--auditProgress()-->
+      <section>
+        <h2 id="m-audit-progress"><code lang="en">auditProgress()</code></h2>
+
+        <p>
+          Returnerar antalet färdiggranskade stickprov och det totala antalet
+          stickprov i urvalet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">auditProgress</span>()
+<span class="ident">auditProgress</span>(<span class="var">components</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">components</code></dt>
+          <dd>
+            Kan anges som <code lang="en" class="js keword">false</code> om
+            komponenter inte ska räknas med.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En vektor med två tal: antal färdiggranskade stickprov och totalt
+          antal stickprov i urvalet.
+        </p>
+      </section>
+
+      <!--colours()-->
+      <section>
+        <h2 id="m-colours"><code lang="en">colours()</code></h2>
+
+        <p>Itererar över alla sparade färger i granskningen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">colours</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett generatorobjekt som ger färgkod och namn vid varje anrop.</p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> [<span class="var">value</span>, <span class="var">name</span>] <span class="keyword">of</span> <span class="var">audit</span>.<span class="fn">colours</span>()) {…} </code></pre>
+      </section>
+
+      <!--components()-->
+      <section>
+        <h2 id="m-components"><code lang="en">components()</code></h2>
+
+        <p>Itererar över alla komponenter i granskningen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">components</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en
+          <code lang="en">Component</code>-instans vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">component</span> <span class="keyword">of</span> <span class="var">audit</span>.<span class="fn">components</span>()) {…} </code></pre>
+      </section>
+
+      <!--contains()-->
+      <section>
+        <h2 id="m-contains"><code lang="en">contains()</code></h2>
+
+        <p>
+          Anger om granskningen innehåller ett stickprov med det angivna namnet.
+        </p>
+
+        <p>
+          Stickprovsnamn måste vara unika inom en granskning, eftersom de
+          fungerar som nycklar när ärenden sparas i JSON-format.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">contains</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Stickprovsnamn att söka efter.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om ett stickprov med
+          angivet namn ingår i granskningen, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--count()-->
+      <section>
+        <h2 id="m-count"><code lang="en">count()</code></h2>
+
+        <p>Räkna antalet utvalda stickprov i angiven kategori.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">count</span>(<span class="var">category</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">category</code></dt>
+          <dd>Namn på kategori att räkna i.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Antalet stickprov i angiven kategori om den ingår i granskningen,
+          annars <code lang="en" class="js keyword">undefined</code>.
+        </p>
+      </section>
+
+      <!--countDone()-->
+      <section>
+        <h2 id="m-count-done"><code lang="en">countDone()</code></h2>
+
+        <p>Räkna antalet färdiggranskade stickprov av angivna typer.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">countDone</span>(<span class="var">class1</span>, …, <span class="var">classN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">classN</code></dt>
+          <dd>Stickprovsklasser att inkludera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Antalet färdiggranskade stickprov av angivna typer.</p>
+      </section>
+
+      <!--countType()-->
+      <section>
+        <h2 id="m-count-type"><code lang="en">countType()</code></h2>
+
+        <p>Räkna antalet ingående stickprov av angiven typ.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">countType</span>(<span class="var">class</span>)
+<span class="ident">countType</span>(<span class="var">class</span>, <span class="var">parentType</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">class</code></dt>
+          <dd>
+            Stickprovsklass att räkna förekomster av:
+            <code lang="en">AppScreen</code>, <code lang="en">Component</code>,
+            <code lang="en">NonWebDocument</code> eller
+            <code lang="en">Webpage</code>.
+          </dd>
+
+          <dt class="optional"><code lang="en">parentType</code></dt>
+          <dd>
+            Stickprovstyp om <code lang="en">class</code> är
+            <code lang="en">Component</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Antalet ingående stickprov av angiven typ. För komponenter räknas bara
+          de som har angiven stickprovstyp.
+        </p>
+      </section>
+
+      <!--deleteColour()-->
+      <section>
+        <h2 id="m-delete-colour"><code lang="en">deleteColour()</code></h2>
+
+        <p>Ta bort den sparade färgen med angivet värde.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteColour</span>(<span class="var">value</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Färgvärde att ta bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--deleteInjunction()-->
+      <section>
+        <h2 id="m-delete-injunction">
+          <code lang="en">deleteInjunction()</code>
+        </h2>
+
+        <p>Ta bort föreläggandet med angivet skapatdatum.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteInjunction</span>(<span class="var">created</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">created</code></dt>
+          <dd>Skapatdatum för föreläggandet som ska tas bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--deleteRemarks()-->
+      <section>
+        <h2 id="m-delete-remarks"><code lang="en">deleteRemarks()</code></h2>
+
+        <p>Ta bort påpekandet med angivet skapatdatum.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteRemarks</span>(<span class="var">created</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">created</code></dt>
+          <dd>Skapatdatum för påpekandet som ska tas bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--deleteSample()-->
+      <section>
+        <h2 id="m-delete-sample"><code lang="en">deleteSample()</code></h2>
+
+        <p>Ta bort det angivna stickprovet ur granskningen.</p>
+
+        <p>
+          Om stickprovet är en komponent tas den även bort ur alla stickprov som
+          refererar till den.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteSample</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Identitet i databasen för stickprovet som ska tas bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om stickprovet
+          existerade i granskningen och togs bort, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--doneSamples()-->
+      <section>
+        <h2 id="m-done-samples"><code lang="en">doneSamples()</code></h2>
+
+        <p>Itererar över färdiggranskade stickprov av angiven typ.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">doneSamples</span>(<span class="var">sampleClass</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sampleClass</code></dt>
+          <dd>Stickprovsklass att iterera över.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en <code lang="en">Sample</code>-instans
+          vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">page</span> <span class="keyword">of</span> <span class="var">audit</span>.<span class="fn">doneSamples</span>(<span class="ident">Webpage</span>)) {…} </code></pre>
+      </section>
+
+      <!--failures()-->
+      <section>
+        <h2 id="m-failures"><code lang="en">failures()</code></h2>
+
+        <p>Returnerar antalet underkända stickprov per krav.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">failures</span>(<span class="var">class1</span>, …, <span class="var">classN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">classN</code></dt>
+          <dd>Stickprovsklasser som ska ingå i resultatet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett associativt objekt där nycklarna är avsnittsnummer (till exempel
+          <code class="js literal">"9.1.1.1"</code> och värdena är antalet
+          stickprov av angivna typer som är underkända för varje krav.
+        </p>
+      </section>
+
+      <!--finish()-->
+      <section>
+        <h2 id="m-finish"><code lang="en">finish()</code></h2>
+
+        <p>Avslutar (slutför) granskningen.</p>
+
+        <p>
+          Metoden sätter granskningens slutdatum till aktuell tid. Om något
+          stickprov är underkänt sätter den även underkännandeflaggan i
+          granskningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">finish</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Granskningen är redan avslutad.</dd>
+        </dl>
+      </section>
+
+      <!--getSampleByName()-->
+      <section>
+        <h2 id="m-get-sample-by-name">
+          <code lang="en">getSampleByName()</code>
+        </h2>
+
+        <p>
+          Returnerar stickprovet med angivet namn. Används primärt för att hitta
+          refererade komponenter vid inläsning av ett ärende från fil.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">getSampleByName</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Komponentnamn</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Stickprovet med angivet namn, om det finns, annars
+          <code lang="en" class="js literal">undefined</code>.
+        </p>
+      </section>
+
+      <!--hasColour()-->
+      <section>
+        <h2 id="m-has-colour"><code lang="en">hasColour()</code></h2>
+
+        <p>Kontrollerar om den angivna färgkoden är sparad i granskningen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">hasColour</span>(<span class="var">value</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Färgvärde att söka efter.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om färgvärdet är sparat
+          i granskningen, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--nextCategory()-->
+      <section>
+        <h2 id="m-next-category"><code lang="en">nextCategory()</code></h2>
+
+        <p>Returnerar nästa urvalskategori i granskningsordningen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">nextCategory</span>()
+<span class="ident">nextCategory</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">ref</code></dt>
+          <dd>Referenskategori.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Om en referenskategori är angiven returnerar metoden nästföljande
+          kategori i granskningsordningen, eller
+          <code lang="en" class="js keyword">undefined</code> om
+          referenskategorin är den sista.
+        </p>
+
+        <p>
+          Om ingen referenskategori är angiven returnerar metoden kategorin
+          efter den sista kategorin som innehåller något urval. Om den sista
+          kategorin inte är tom, returnerar metoden den första kategorin som
+          inte innehåller något urval (eller
+          <code lang="en" class="js keyword">undefined</code> om ingen kategori
+          är tom).
+        </p>
+      </section>
+
+      <!--nextSample()-->
+      <section>
+        <h2 id="m-next-sample"><code lang="en">nextSample()</code></h2>
+
+        <p>Returnerar nästa stickprov att granska.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">nextSample</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det första stickprovet som inte är färdiggranskat, eller
+          <code lang="en" class="js keyword">undefined</code> om alla stickprov
+          är färdiggranskade.
+        </p>
+      </section>
+
+      <!--observations()-->
+      <section>
+        <h2 id="m-observations"><code lang="en">observations()</code></h2>
+
+        <p>
+          Returnerar återanvändbara observationer: observationer från samma
+          underkända kontroll i granskningens övriga stickprov av samma typ.
+        </p>
+
+        <p>
+          För komponenter returnerar metoden alltid en tom vektor, eftersom det
+          knappast är relevant att återanvända observationer för komponenter.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">observations</span>(<span class="var">current</span>, <span class="var">reqID</span>, <span class="var">chkID</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">current</code></dt>
+          <dd>Aktuellt stickprov under granskning.</dd>
+
+          <dt><code lang="en">reqID</code></dt>
+          <dd>Kravidentitet.</dd>
+
+          <dt><code lang="en">chkID</code></dt>
+          <dd>Kontrollidentitet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En strängvektor med unika observationer registrerade för samma krav-
+          och kontrollidentiteter i andra stickprov av samma typ i granskningen.
+        </p>
+      </section>
+
+      <!--previousCategory()-->
+      <section>
+        <h2 id="m-previous-category">
+          <code lang="en">previousCategory()</code>
+        </h2>
+
+        <p>Returnerar föregående urvalskategori i granskningsordningen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">previousCategory</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">ref</code></dt>
+          <dd>Referenskategori.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Metoden returnerar urvalskategorin före referenskategorin i
+          granskningsordningen, eller
+          <code lang="en" class="js keyword">undefined</code> om
+          referenskategorin är den första.
+        </p>
+      </section>
+
+      <!--randomCount()-->
+      <section>
+        <h2 id="m-random-count"><code lang="en">randomCount()</code></h2>
+
+        <p>Returnerar antalet återstående slumpurval.</p>
+
+        <p>
+          Det slumpmässiga urvalet ska uppgå till minst 10&nbsp;procent av det
+          övriga urvalets storlek. (Komponenter räknas inte som egna stickprov.)
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">randomCount</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Närmaste heltal som är större än eller lika med 10&nbsp;procent av
+          urvalets storlek (utan komponenter och slumpurval) minskat med det
+          befintliga slumpurvalets storlek.
+        </p>
+      </section>
+
+      <!--sampleProgress()-->
+      <section>
+        <h2 id="m-sample-progress"><code lang="en">sampleProgress()</code></h2>
+
+        <p>
+          Returnerar antalet kategorier med urval och det totala antalet
+          kategorier.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">sampleProgress</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En vektor med två tal: antal kategorier med urval och totalt antal
+          kategorier.
+        </p>
+      </section>
+
+      <!--sample()-->
+      <section>
+        <h2 id="m-sample"><code lang="en">sample()</code></h2>
+
+        <p>Returnerar stickprovet med angiven identitet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">sample</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Stickprovets identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det angivna stickprovet, om det finns i granskningen, annars
+          <code lang="en" class="js keyword">undefined</code>.
+        </p>
+      </section>
+
+      <!--samples()-->
+      <section>
+        <h2 id="m-samples"><code lang="en">samples()</code></h2>
+
+        <p>
+          Itererar över stickprov i angiven kategori. Stickproven returneras i
+          alfabetisk ordning, utom där granskaren angivit att ett stickprov ska
+          följa efter ett annant stickprov (till exempel steg i en process).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">samples</span>(<span class="var">category</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">category</code></dt>
+          <dd>Urvalskategori att iterera i.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en <code lang="en">Sample</code>-instans
+          vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">sample</span> <span class="keyword">of</span> <span class="var">audit</span>.<span class="fn">samples</span>(<span class="literal">"random"</span>)) {…} </code></pre>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <p>
+          Stickprovsurvalet ingår inte i serialiseringen, eftersom det lagras i
+          ett eget objektlager och sparas separat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          granskningsinformationen.
+        </p>
+      </section>
+
+      <!--setColour()-->
+      <section>
+        <h2 id="m-set-colour"><code lang="en">setColour()</code></h2>
+
+        <p>Sparar ett färgvärde under ett identifierande namn.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="ee"><span class="ident">setColour</span>(<span class="var">value</span>, <span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Färgvärde i något av de format som CSS stödjer.</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Det namn som granskaren valt att spara färgen under.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSample()-->
+      <section>
+        <h2 id="m-set-sample"><code lang="en">setSample()</code></h2>
+
+        <p>Lägger till eller uppdaterar ett stickprov i granskningen.</p>
+
+        <p>
+          Om stickprovet har en väntelista med orealiserade komponenter
+          realiserar metoden dem och lägger till dem i stickprovet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="ee"><span class="ident">setSample</span>(<span class="var">sample</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sample</code></dt>
+          <dd>Stickprov att lägga till eller uppdatera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dt></dt>
+          <dd>Stickprovet har ingen identitet.</dd>
+          <dd>Stickprovet har ingen angiven kategori.</dd>
+          <dd>Den angivna kategorin ingår inte i granskningen.</dd>
+
+          <dt><code lang="en">DuplicateNameError</code></dt>
+          <dt></dt>
+          <dd>Det finns redan ett stickprov med samma namn i granskningen.</dd>
+        </dl>
+      </section>
+
+      <!--toJSON()-->
+      <section>
+        <h2 id="m-to-json"><code lang="en">toJSON()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett ärende sparas till fil.
+        </p>
+
+        <p>
+          Stickprovsurvalet ingår i serialiseringen, eftersom all information
+          som hör till ärendet behöver ingå i filen för att informationen ska gå
+          att återskapa.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toJSON</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          granskningsinformationen.
+        </p>
+      </section>
+
+      <!--toString()-->
+      <section>
+        <h2 id="m-to-string"><code lang="en">toString()</code></h2>
+
+        <p>Omvandlar granskningen till en sträng.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toString</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          För en pågående granskning: det formaterade startdatumet, till exempel
+          ”2020-09-23”.
+        </p>
+
+        <p>
+          För en avslutad granskning: startdatum och slutdatum, till exempel
+          ”2020-09-23–2020-10-07”.
+        </p>
+      </section>
+
+      <!--useCount()-->
+      <section>
+        <h2 id="m-use-count"><code lang="en">useCount()</code></h2>
+
+        <p>Returnerar antalet stickprov som innehåller angiven komponent.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">useCount</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Komponentidentitet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Antalet stickprov som innehåller komponenten med angiven identitet.
+        </p>
+      </section>
+
+      <!--Kategorier-->
+      <section>
+        <h2 id="categories">Kategorier</h2>
+
+        <dl class="categories">
+          <dt><code lang="en">contact</code></dt>
+          <dd>Kontaktfunktion.</dd>
+
+          <dt><code lang="en">doc</code></dt>
+          <dd>Produktdokumentation.</dd>
+
+          <dt><code lang="en">feedback</code></dt>
+          <dd>Kommentarsfunktionen för tillgänglighetsredogörelsen.</dd>
+
+          <dt><code lang="en">help</code></dt>
+          <dd>Hjälpfunktioner.</dd>
+
+          <dt><code lang="en">legal</code></dt>
+          <dd>Sidor med juridisk information, till exempel avtal.</dd>
+
+          <dt><code lang="en">login</code></dt>
+          <dd>Inloggning.</dd>
+
+          <dt><code lang="en">random</code></dt>
+          <dd>
+            Slumpmässigt urval på minst 10&nbsp;% av de övriga stickproven.
+          </dd>
+
+          <dt><code lang="en">relevant</code></dt>
+          <dd>Andra sidor som av tillsynsorgan bedöms vara relevanta.</dd>
+
+          <dt><code lang="en">service</code></dt>
+          <dd>
+            Minst en relevant sida och minst ett relevant dokument för varje typ
+            av tjänst som tillhandahålls av webbplatsen eller den mobila
+            applikationen samt annan primäranvändning av den, inbegripet
+            sökfunktionen.
+          </dd>
+
+          <dt><code lang="en">sitemap</code></dt>
+          <dd>Webbplatskarta.</dd>
+
+          <dt><code lang="en">special</code></dt>
+          <dd>
+            Exempel på sidor med ett mycket markerat utseende eller en annan typ
+            av innehåll.
+          </dd>
+
+          <dt><code lang="en">start</code></dt>
+          <dd>Startsida (webbplats) eller startskärm (mobil applikation).</dd>
+
+          <dt><code lang="en">statement</code></dt>
+          <dd>Tillgänglighetsredogörelse.</dd>
+
+          <dt><code lang="en">support</code></dt>
+          <dd>Supporttjänster och supportdokumentation.</dd>
+        </dl>
+
+        <p>
+          Kategoriuppsättningen bestäms av kommissionens genomförandebeslut.
+          (Produktdoku&shy;mentation och support ingår dock inte i
+          genomförandebeslutet, utan har lagts till på DIGG:s begäran.) Den
+          inbördes ordningen skiljer mellan urval och granskning.
+        </p>
+
+        <div class="compare">
+          <div>
+            <h3>Urval</h3>
+
+            <ol lang="en">
+              <li><code>start</code></li>
+              <li><code>login</code></li>
+              <li><code>sitemap</code></li>
+              <li><code>contact</code></li>
+              <li><code>help</code></li>
+              <li><code>legal</code></li>
+              <li><code>statement</code></li>
+              <li><code>feedback</code></li>
+              <li><code>special</code></li>
+              <li><code>service</code></li>
+              <li><code>relevant</code></li>
+              <li><code>doc</code></li>
+              <li><code>support</code></li>
+              <li><code>random</code></li>
+            </ol>
+          </div>
+
+          <div>
+            <h3>Granskning</h3>
+
+            <ol lang="en">
+              <li><code>start</code></li>
+              <li><code>relevant</code></li>
+              <li><code>contact</code></li>
+              <li><code>sitemap</code></li>
+              <li><code>legal</code></li>
+              <li><code>help</code></li>
+              <li><code>special</code></li>
+              <li><code>random</code></li>
+              <li><code>login</code></li>
+              <li><code>service</code></li>
+              <li><code>doc</code></li>
+              <li><code>support</code></li>
+              <li><code>feedback</code></li>
+              <li><code>statement</code></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="AuditCase.html"><code lang="en">AuditCase</code></a>
+          </li>
+          <li>
+            <a href="Person.html"><code lang="en">Person</code></a>
+          </li>
+          <li><a href="sample.index.html">Stickprovsklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

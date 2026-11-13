@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "Granska alla andra krav först. Om sidan utgör en del av en process kan du behöva gå tillbaka och uppdatera kravet för den här sidan om något annat steg i processen inte uppfyller kraven."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Teknik med tillgänglighetsstöd",
+      "description": "Teknik där innehåll och funktion förmedlas på ett sätt som hjälpmedel kan förstå och använda, och som stöds av vanliga webbläsare och hjälpmedel eller åtminstone via tillägg som är åtkomliga för alla till rimlig kostnad. Undantag kan vara slutna miljöer, som intranät, där organisationen tillhandahåller den programvara som behövs."
+    },
+    {
+      "type": "note",
+      "text": "”Bara är nåbar” innebär att det inte ska vara möjligt att nå sidan – ens om man känner till sökvägen – på annat sätt än via en tillgänglig sida."
+    },
+    {
+      "type": "text",
+      "text": "Att ”sidan som helhet” uppfyller kraven innebär att det är tillåtet att ha innehåll som inte är tillgängligt, förutsatt att det finns ett tillgängligt alternativ och att det otillgängliga innehållet inte är <dfn>hindrande</dfn> (bryter mot 1.4.2, 2.1.2, 2.2.2 eller 2.3.1). Det tillgängliga alternativet ska antingen finnas på samma sida eller länkat på ett tillgängligt sätt i anslutning till det otillgängliga innehållet."
+    }
+  ]
+}

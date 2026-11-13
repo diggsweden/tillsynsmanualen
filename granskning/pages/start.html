@@ -1,0 +1,178 @@
+<h1 id="start-of-content">Välkommen som granskare!</h1>
+
+<p class="simplified note">
+  Den här delen av Tillsynsmanualen handlar om granskning av digital offentlig
+  service. Om du inte ska utföra en granskning, utan vill veta hur DIGG genomför
+  granskningar, får du mer överskådlig information på sidorna som beskriver
+  vilka kontroller vi gör för <a href="kontroller/webbsidor.html">webbsidor</a>,
+  <a href="kontroller/dokument.html">dokument</a> och
+  <a href="kontroller/appar.html">mobila applikationer</a>.
+</p>
+
+<p class="advanced">
+  Den här delen av Tillsynsmanualen handlar om granskning av digital offentlig
+  service.
+</p>
+
+<h2 id="steps">Granskningssteg</h2>
+
+<p>De här stegen kommer du att gå igenom under en granskning:</p>
+
+<ol class="steps">
+  <li>Skapa ett ärende.</li>
+  <li class="advanced">Skapa en mappstruktur för ärendet.</li>
+  <li>Göra ett urval av vyer, webbsidor och dokument</li>
+  <li>Granska vyer, webbsidor, komponenter och dokument.</li>
+  <li>Fylla i anmärkningar för alla krav som tjänsten inte uppfyller.</li>
+  <li class="advanced">Skicka det genererade protokollet till aktören.</li>
+</ol>
+
+<h2 id="basics">Grunduppgifter</h2>
+
+<p>
+  Vissa grunduppgifter behöver du i alla ärenden. Därför går de att spara så att
+  du slipper mata in dem varje gång.
+</p>
+
+<p>
+  Det gäller <span class="advanced">dels</span> uppgifter om granskaren, det
+  vill säga om dig. Du kan spara ditt namn, din e-postadress och ditt
+  telefonnummer. Uppgifterna sparas i din webbläsare samt i ärenden och
+  ärendedokument som du väljer att spara i filsystemet.
+</p>
+
+<p class="advanced">
+  En annan grunduppgift är sökvägen till den filkatalog där ärenden och
+  granskningar ska sparas <dfn>(ärendekatalogen)</dfn>.
+</p>
+
+<p class="advanced">
+  Du kan också spara information som är beständig över en tidsperiod, nämligen
+  om tillsynsansvarig och om tillsynsplaner som ligger till grund för
+  granskningar.
+</p>
+
+<h2 id="case-list">Ärendelistan</h2>
+
+<p>
+  Granskningsverktyget utgår från en <dfn>ärendelista</dfn> som lagras i en
+  databas i webbläsaren. Utrymmet är begränsat och en ingående granskning består
+  av en hel del information, så du bör inte ha fler samtidiga ärenden i listan
+  än nödvändigt.
+</p>
+
+<p>
+  Ärendelistan visar översiktlig information om det eller de ärenden du har i
+  databasen. Du kan också öppna ett befintligt ärende från fil eller skapa ett
+  helt nytt granskningsärende. I listan ser du ärendenummer, den granskade
+  tjänstens namn och ärendets status.
+</p>
+
+<p class="warning">
+  Webbläsarens databas kan raderas utan förvarning under vissa
+  omständig&shy;heter, exempelvis vid större uppgraderingar eller om
+  lagringsutrymmet blir fullt. Du bör därför se till att spara dina pågående
+  ärenden till fil då och då: helst varje gång du stänger webbläsaren eller
+  slutar för dagen.
+</p>
+
+<h2 id="cases">Ärenden</h2>
+
+<p>
+  Ett ärende innehåller uppgifter om själva ärendet (ärendenummer, typ av
+  ärende, handläggare, datum och tillsynsansvarig). Ärendenumret är en identitet
+  för ärendet och består av ett årtal och ett löpnummer, till exempel
+  <samp>2021-1234</samp>.
+  <span class="simplified"
+    >(Du som inte arbetar på DIGG får hitta på egna ärendenummer på detta
+    format.)</span
+  >
+</p>
+
+<p>
+  Till ärendet hör också uppgifter om den digitala tjänsten som ska granskas och
+  den offentliga aktören som ansvarar för tjänsten.
+</p>
+
+<p>
+  Det finns en logg som lagrar viktiga händelser under ärendets gång. Du kan
+  göra tjänsteanteckningar i ärendet. De kan vara interna (för din egen skull)
+  eller publika (för användning i protokoll<span class="advanced">
+    påpekande och föreläggande</span
+  >).
+</p>
+
+<h2 id="protocols">Protokoll</h2>
+
+<p>
+  För varje granskning i ett ärende genererar verktyget ett protokoll. Det
+  innehåller ärendeinformation och uppgifter om själva granskningen (start- och
+  slutdatum, med mera). Dessutom ingår ett stickprovsurval av vyer (för mobila
+  applikationer), webbsidor och dokument som ska ingå i granskningen.
+</p>
+
+<p>
+  Huvuddelen av protokollet består av granskningsresultaten för alla vyer
+  (mobila applikationer), webbsidor och dokument. Här fyller du i underkännande
+  av kontroller med information om vilka brister du konstaterat.
+</p>
+
+<p class="advanced">
+  Verktyget genererar också ett påpekande tillsammans med protokollet.
+  Påpekandet skickar du till den offentliga aktören, med protokollet som bilaga.
+</p>
+
+<h2 id="help">Mer hjälp</h2>
+
+<p>
+  Se <a href="../start/om.html">Om manualen</a> för mer ingående information om
+  hur du använder gransknings&shy;verktyget.
+</p>
+
+<h2 id="next">Nästa steg</h2>
+
+<p>
+  Här nedan ser du de steg du behöver gå igenom för att kunna börja granska
+  webbplatser och mobila applikationer.
+</p>
+
+<ol class="check">
+  <li data-step="officer" class="unchecked">
+    <svg role="img" aria-label="inte klart">
+      <use xlink:href="../img/ikoner.svg#ico-check" />
+    </svg>
+    <a href="?page=person&amp;role=officer" id="step-officer"
+      >Uppgifter om granskare</a
+    >
+  </li>
+
+  <li data-step="supervisor" class="unchecked advanced">
+    <svg role="img" aria-label="inte klart">
+      <use xlink:href="../img/ikoner.svg#ico-check" />
+    </svg>
+    <a href="?page=person&amp;role=supervisor" id="step-supervisor"
+      >Uppgifter om tillsynsansvarig</a
+    >
+  </li>
+
+  <li data-step="dir" class="unchecked advanced">
+    <svg role="img" aria-label="inte klart">
+      <use xlink:href="../img/ikoner.svg#ico-check" />
+    </svg>
+    <a href="?page=directory" id="step-dir">Ärendekatalog</a>
+  </li>
+
+  <li data-step="schedule" class="unchecked advanced">
+    <svg role="img" aria-label="inte klart">
+      <use xlink:href="../img/ikoner.svg#ico-check" />
+    </svg>
+    <a href="?page=schedule" id="step-schedule">Tillsynsplan</a>
+  </li>
+
+  <li data-step="cases" class="unchecked">
+    <svg role="img" aria-label="inte klart">
+      <use xlink:href="../img/ikoner.svg#ico-check" />
+    </svg>
+    <a href="?page=case" id="step-case">Ärende</a>
+  </li>
+</ol>

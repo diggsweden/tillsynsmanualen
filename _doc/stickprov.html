@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stickprov – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      section {
+        max-width: 40em;
+      }
+      figure.ecb {
+        width: 50rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Stickprov</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Stickprov</h1>
+
+      <p>
+        Modulen används för urval, redigering och presentation av stickprov i en
+        granskning.
+      </p>
+
+      <p>
+        Presentationsvyn listar de krav som ingår i granskningen av stickprovet,
+        baserat på dess typ och på vilka innehållstyper granskaren markerat i
+        urvalet. Visningsordningen hanteras av hjälpklassen
+        <code lang="en">RequirementOrder</code>, som även sköter om att populera
+        stickprovet med krav första gången det visas.
+      </p>
+
+      <figure aria-hidden="true" class="ecb">
+        <svg viewBox="0 0 500 360" class="ecb uml-diagram">
+          <g transform="translate(30, 0)">
+            <!--SampleEditController-->
+            <g>
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">SampleEditController</text>
+              <line x1="40" y1="22" x2="384" y2="22" />
+              <line x1="18" y1="56" x2="18" y2="196" />
+              <line x1="22" y1="56" x2="114" y2="196" />
+            </g>
+
+            <!--SampleEditView-->
+            <g transform="translate(400, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">SampleEditView</text>
+              <line x1="14" y1="56" x2="-82" y2="196" />
+              <line x1="18" y1="56" x2="18" y2="196" />
+
+              <g transform="translate(0, 200)">
+                <!--Dropdown-->
+                <g transform="translate(-100, 0)">
+                  <use
+                    xlink:href="uml.svg#boundary"
+                    x="-12"
+                    y="0"
+                    width="48"
+                    height="42"
+                  />
+                  <text x="18" y="52">Dropdown</text>
+                  <line x1="40" y1="22" x2="84" y2="22" />
+                  <line x1="18" y1="56" x2="114" y2="96" />
+                </g>
+
+                <!--Listbox-->
+                <g>
+                  <use
+                    xlink:href="uml.svg#boundary"
+                    x="-12"
+                    y="0"
+                    width="48"
+                    height="42"
+                  />
+                  <text x="18" y="52">Listbox</text>
+                  <line x1="18" y1="56" x2="18" y2="96" />
+                </g>
+
+                <!--KeyMap-->
+                <g transform="translate(0, 100)">
+                  <use
+                    xlink:href="uml.svg#controller"
+                    x="0"
+                    y="0"
+                    width="36"
+                    height="42"
+                  />
+                  <text x="18" y="52">KeyMap</text>
+                </g>
+              </g>
+            </g>
+          </g>
+
+          <g transform="translate(30, 50)">
+            <!--SampleDisplayController-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">SampleDisplayController</text>
+              <line x1="40" y1="22" x2="84" y2="22" />
+              <line x1="14" y1="56" x2="-78" y2="146" />
+              <line x1="18" y1="56" x2="18" y2="146" />
+
+              <!--RequirementOrder-->
+              <g transform="translate(0, 150)">
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">RequirementOrder</text>
+              </g>
+            </g>
+
+            <!--SampleDisplayView-->
+            <g transform="translate(300, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">SampleDisplayView</text>
+            </g>
+          </g>
+
+          <g transform="translate(30, 200)">
+            <!--ResourceLoader-->
+            <g>
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">ResourceLoader</text>
+            </g>
+
+            <!--Model-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Model</text>
+              <line x1="14" y1="56" x2="-82" y2="96" />
+              <line x1="18" y1="56" x2="18" y2="96" />
+              <line x1="22" y1="56" x2="118" y2="96" />
+              <line x1="26" y1="56" x2="218" y2="96" />
+            </g>
+          </g>
+
+          <g transform="translate(30, 300)">
+            <!--AuditCase-->
+            <g>
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">AuditCase</text>
+            </g>
+
+            <!--Audit-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Audit</text>
+            </g>
+
+            <!--Sample-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Sample</text>
+            </g>
+
+            <!--Requiremnt-->
+            <g transform="translate(300, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Requiremnt</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Urval, visning och redigering av stickprov, översik.
+        </figcaption>
+      </figure>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/model/Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="klasser/view/Dropdown.html"
+              ><code lang="en">Dropdown</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/common/KeyMap.html"
+              ><code lang="en">KeyMap</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/Listbox.html"
+              ><code lang="en">Listbox</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="klasser/model/Requirement.html"
+              ><code lang="en">Requirement</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/RequirementOrder.html"
+              ><code lang="en">RequirementOrder</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/sample.module.html"
+              ><code lang="en">sample.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/SampleDisplayController.html"
+              ><code lang="en">SampleDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/SampleDisplayView.html"
+              ><code lang="en">SampleDisplayView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/SampleEditController.html"
+              ><code lang="en">SampleEditController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/SampleEditView.html"
+              ><code lang="en">SampleEditView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/sample.index.html">Stickprovsklasser</a>
+          </li>
+          <li><a href="klasser/model/case.index.html">Ärendeklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="krav.html" accesskey="N" rel="next"><span>KRav</span></a>
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="granskningar.html" accesskey="F" rel="prev"
+        ><span>Granskningar</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

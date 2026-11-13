@@ -1,0 +1,29 @@
+{
+  "methods": [
+    "Testa helst med en skärmläsare och verifiera att statusmeddelandet läses upp utan att du behöver flytta fokus till det.",
+    "Om du inte har tillgång till en skärmläsare, kontrollera att meddelandets behållare har rollen <code translate=\"no\" lang=\"en\">status</code>, <code translate=\"no\" lang=\"en\">alert</code> eller <code translate=\"no\" lang=\"en\">alertdialog</code> eller har attributet <code translate=\"no\" lang=\"en\">aria-live</code>."
+  ],
+  "tools": [
+    {
+      "tool": "external",
+      "text": "Skärmläsare"
+    },
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Accessibility"
+    }
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Statusmeddelande",
+      "description": "En förändring av sidinnehållet som <em>inte</em> innebär en kontextförändring och som förmedlar information till användaren om resultatet av en åtgärd, om vänteläge, om förloppet hos en process eller om förekomsten av felmeddelanden."
+    },
+    {
+      "type": "definition",
+      "term": "Kontextförändring",
+      "description": "En betydande förändring av webbsidans innehåll som kan förvirra användare som inte kan uppfatta hela sidan samtidigt, om de inte är förberedda på den. Exempel: att öppna ett separat program för att visa ett dokument, att öppna ett nytt fönster eller en ny tabbflik i webbläsaren, att flytta fokus till ett annat element eller att förändra innehållet på ett sätt som förändrar sidans betydelse."
+    }
+  ]
+}

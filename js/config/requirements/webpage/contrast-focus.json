@@ -1,0 +1,33 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet. Aktivera (med tangentbordet) eventuella funktioner som öppnar en meny, dialogruta eller liknande."
+  ],
+  "exceptions": [
+    "Komponenter där såväl komponentens som fokusmarkeringens utseende bestäms av webbläsaren och inte påverkas med CSS."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Style",
+      "help": "Markera <samp>:focus</samp> och <samp>:focus-visible</samp> under <samp>:hov</samp> för att se de CSS-regler som tillämpas när ett element har fokus."
+    },
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphic"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "warning",
+      "text": "Stäng av <cite translate=\"no\" lang=\"en\">Force Focus</cite> och andra hjälpmedel för att visa fokus innan du granskar detta krav."
+    },
+    {
+      "type": "action",
+      "text": "Om webbsidan har stöd för mörkt/ljust visningsläge, gör kontrollen i båda lägena."
+    }
+  ]
+}

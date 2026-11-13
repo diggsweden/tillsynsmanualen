@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 160">
+  <g id="LogEditView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="129" height="152"/>
+      <line x1="1" y1="12" x2="130" y2="12"/>
+      <line x1="1" y1="82" x2="130" y2="82"/>
+    </g>
+
+    <g stroke="none">
+      <text x="65" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">LogEditView</text>
+      <text x="5" y="20">+data: string</text>
+      <text x="5" y="30">+direction: string</text>
+      <text x="5" y="40">+readOnly: boolean</text>
+      <text x="5" y="50">+summary: string</text>
+      <text x="5" y="60">+text: string</text>
+      <text x="5" y="70">+timestamp: date</text>
+      <text x="5" y="80">+type: string</text>
+      <text x="5" y="90">disableData(boolean): void</text>
+      <text x="5" y="100">disableDirection(boolean): void</text>
+      <text x="5" y="110">disableRemove(): void</text>
+      <text x="5" y="120">disableTypes(string[]): void</text>
+      <text x="5" y="130">requireData(boolean): void</text>
+      <text x="5" y="140">setData(array[]): void</text>
+      <text x="5" y="150">suggestSummary(text): string</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Kontakta kundtjänst/support och ställ frågor om tillgänglighets- och kompatibilitetsfunktionerna i vyn för att se om de kan ge relevanta svar. Ställ kontrollfrågor om kända brister som tas upp i tillgänglighetsredogörelsen. Fråga sedan var man hittar redogörelsen."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Tillgänglighetsfunktion",
+      "description": "En funktion som är inbyggd i vyn för att tillgodose specifika behov hos användare."
+    },
+    {
+      "type": "definition",
+      "term": "Kompatibilitetsfunktion",
+      "description": "En funktion som ser till att vyn är kompatibel med hjälpmedel för personer med funktionsnedsättning."
+    }
+  ]
+}

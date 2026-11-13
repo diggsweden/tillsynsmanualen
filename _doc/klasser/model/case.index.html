@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ärendeklasser – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 40rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong>Ärendeklasser</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Ärendeklasser</h1>
+
+      <p>
+        Klassen <code lang="en">AuditCase</code> representerar ett
+        granskningsärende för en digital service. Det inne&shy;håller
+        information om den <a href="service.index.html">digitala service</a> som
+        ska granskas och om den <a href="Organization.html">organisation</a> som
+        ansvarar för den. Dessutom innehåller ärendet
+        <a href="Audit.html">granskningar</a>.
+      </p>
+
+      <p>
+        Till ett ärende hör också en ärendelogg med
+        <a href="LogEntry.html">noteringar</a> som skapas såväl automatiskt som
+        manuellt.
+      </p>
+
+      <p>
+        <code lang="en">AuditCase</code> används i det förenklade visningsläget.
+        I det avancerade läget används i stället två subklasser:
+        <code lang="en">ComplaintCase</code> (anmälningsärende) och
+        <code lang="en">MonitoringCase</code> (övervaknings&shy;ärende).
+      </p>
+
+      <p>
+        Fabriksklassen <code lang="en">CaseFactory</code> återskapar en instans
+        av en ärendeklass från ett dataobjekt som hämtats från databasen eller
+        lästs in från en JSON-fil.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/case.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/case.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>cases</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>id</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 400 410" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--AuditCase-->
+          <use xlink:href="AuditCase.svg#AuditCase-no-details" x="145" y="0" />
+
+          <line x1="145" y1="18" x2="101" y2="18" class="composition" />
+          <line x1="145" y1="78" x2="101" y2="78" class="composition" />
+          <line x1="145" y1="108" x2="101" y2="108" class="composition" />
+          <line x1="246" y1="48" x2="295" y2="48" class="composition" />
+          <line x1="246" y1="88" x2="295" y2="88" class="composition" />
+
+          <g transform="translate(145, 0)">
+            <!--CaseNumber-->
+            <g transform="translate(-145, 7)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">CaseNumber</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <!--Organization-->
+            <g transform="translate(-145, 67)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">Organization</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <!--Audit-->
+            <g transform="translate(-145, 97)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">Audit</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <!--LogEntry-->
+            <g transform="translate(150, 37)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">LogEntry</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <!--Service-->
+            <g transform="translate(150, 81)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">Service</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <g transform="translate(-75, 270)">
+              <!--ComplaintCase-->
+              <use
+                xlink:href="ComplaintCase.svg#ComplaintCase-no-details"
+                x="0"
+                y="0"
+              />
+
+              <path d="M50,0 v-23 h45 v-23" class="inheritance" />
+              <path d="M0,47 h-20 v33" class="composition" />
+
+              <!--Person-->
+              <g transform="translate(-70, 80)" class="external">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">Person</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+              </g>
+
+              <g transform="translate(150, 0)">
+                <!--MonitoringCase-->
+                <use
+                  xlink:href="MonitoringCase.svg#MonitoringCase-no-details"
+                  x="0"
+                  y="0"
+                />
+
+                <path d="M50,0 v-23 h-45 v-23" class="inheritance" />
+                <path d="M101,28 h20 v52" class="composition" />
+
+                <!--Schedule-->
+                <g transform="translate(70, 80)" class="external">
+                  <rect x="0.5" y="0.5" width="100" height="22" />
+                  <text x="50" y="10" class="class">Schedule</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                </g>
+              </g>
+            </g>
+
+            <!--CaseFactory-->
+            <use
+              xlink:href="CaseFactory.svg#CaseFactory-no-details"
+              x="0"
+              y="380"
+            />
+
+            <g transform="translate(0, 380)">
+              <line x1="15" y1="0" x2="15" y2="-47" class="dependency" />
+              <line x1="50" y1="0" x2="50" y2="-157" class="dependency" />
+              <line x1="85" y1="0" x2="85" y2="-57" class="dependency" />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Klassdiagram för ärendeklasser (översikt).</figcaption>
+      </figure>
+
+      <!--Se även-->
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="AuditCase.html"><code lang="en">AuditCase</code></a>
+          </li>
+          <li>
+            <a href="CaseFactory.html"><code lang="en">CaseFactory</code></a>
+          </li>
+          <li>
+            <a href="CaseNumber.html"><code lang="en">CaseNumber</code></a>
+          </li>
+          <li>
+            <a href="ComplaintCase.html"
+              ><code lang="en">ComplaintCase</code></a
+            >
+          </li>
+          <li><a href="service.index.html">Digital service-klasser</a></li>
+          <li>
+            <a href="LogEntry.html"><code lang="en">LogEntry</code></a>
+          </li>
+          <li>
+            <a href="MonitoringCase.html"
+              ><code lang="en">MonitoringCase</code></a
+            >
+          </li>
+          <li>
+            <a href="Organization.html"><code lang="en">Organization</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

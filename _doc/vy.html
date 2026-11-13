@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basklass för vyer – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 42rem;
+      }
+
+      svg.life-cycle {
+        width: 40em;
+      }
+      .life-cycle rect {
+        fill: none;
+        stroke-width: 1px;
+      }
+      .life-cycle text {
+        font-size: 14px;
+        text-anchor: middle;
+      }
+      .arrow path {
+        fill: none;
+        stroke: var(--subdued);
+        stroke-width: 4px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Basklass för vyer</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Basklass för vyer</h1>
+
+      <p>
+        Alla vyklasser i granskningsfunktionen är härledda från basklassen
+        <code lang="en">ViewBase</code>, som hanterar de gemensamma,
+        grundläggande vyfunktionerna.
+      </p>
+
+      <p>
+        Till sin hjälp har den en klass som representerar länkstigen (<code
+          lang="en"
+          >BreadcrumbTrail</code
+        >), en klass som håller reda på tillagda händelselyssare (<code
+          lang="en"
+          >EventListenerList</code
+        >) och en resursladdare (<code lang="en">ResourceLoader</code>) för att
+        ladda sidinnehåll. Dessutom kan den skapa en automatisk
+        inne&shy;hållsmeny med hjälp av klassen
+        <code lang="en">AutoContentMenu</code>.
+      </p>
+
+      <p>
+        En vy laddar in ett specifikt sidfragment i den gemensamma mallsida som
+        utgör gransk&shy;ningsfunktionens ramverk
+        (<code>granskning/granska.html</code>).
+      </p>
+
+      <figure>
+        <svg viewBox="0 0 420 190" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <g>
+            <!--ViewBase-->
+            <g transform="translate(140, 0)">
+              <rect x="0.5" y="0.5" width="100" height="182" />
+              <text x="50" y="10" class="class">ViewBase</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">+action</text>
+              <text x="5" y="30">+advancedMode</text>
+              <text x="5" y="40">+breadcrumbs</text>
+              <text x="5" y="50">+busy</text>
+              <text x="5" y="60">+title</text>
+              <line x1="1" y1="62" x2="100" y2="62" />
+              <text x="5" y="70">activate()</text>
+              <text x="5" y="80">autoFocus()</text>
+              <text x="5" y="90">close()</text>
+              <text x="5" y="100">confirm()</text>
+              <text x="5" y="110">deactivate()</text>
+              <text x="5" y="120">hideStatus()</text>
+              <text x="5" y="130">open()</text>
+              <text x="5" y="140">showError()</text>
+              <text x="5" y="150">showStatus()</text>
+              <text x="5" y="160">showSuccess()</text>
+              <text x="5" y="170">subscribe()</text>
+              <text x="5" y="180">unsubscribe()</text>
+
+              <line x1="0" y1="38" x2="-39" y2="38" class="composition" />
+              <line x1="0" y1="166" x2="-39" y2="166" class="composition" />
+              <line x1="101" y1="21" x2="140" y2="21" class="composition" />
+              <line x1="101" y1="111" x2="140" y2="111" class="composition" />
+            </g>
+
+            <!--BreadcrumbTrail-->
+            <g>
+              <rect x="0.5" y="0.5" width="100" height="112" />
+              <text x="50" y="10" class="class">BreadcrumbTrail</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">+current</text>
+              <text x="5" y="30">+links</text>
+              <line x1="1" y1="32" x2="100" y2="32" />
+              <text x="5" y="40">audit()</text>
+              <text x="5" y="50">case()</text>
+              <text x="5" y="60">complete()</text>
+              <text x="5" y="70">deleteRoot()</text>
+              <text x="5" y="80">list()</text>
+              <text x="5" y="90">log()</text>
+              <text x="5" y="100">requirement()</text>
+              <text x="5" y="110">sample()</text>
+            </g>
+
+            <!--AutoContentMenu-->
+            <g transform="translate(0, 150)">
+              <rect x="0.5" y="0.5" width="100" height="32" />
+              <text x="50" y="10" class="class">AutoContentMenu</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">build()</text>
+              <text x="5" y="30">remove()</text>
+            </g>
+
+            <!--EventListenerList-->
+            <g transform="translate(280, 0)">
+              <rect x="0.5" y="0.5" width="100" height="42" />
+              <text x="50" y="10" class="class">EventListenerList</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">add()</text>
+              <text x="5" y="30">remove()</text>
+              <text x="5" y="40">removeAll()</text>
+            </g>
+
+            <!--ResourceLoader-->
+            <g transform="translate(280, 80)">
+              <rect x="0.5" y="0.5" width="100" height="62" />
+              <text x="50" y="10" class="class">ResourceLoader</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">configuration()</text>
+              <text x="5" y="30">loadModule()</text>
+              <text x="5" y="40">pageContent()</text>
+              <text x="5" y="50">pageTemplate()</text>
+              <text x="5" y="60">resource()</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Klassdiagram för vybasklassen.</figcaption>
+      </figure>
+
+      <section>
+        <h2>Livscykel</h2>
+
+        <p>
+          En vys livscykel består av fem stadier, som framgår av Figur&nbsp;2.
+        </p>
+
+        <figure>
+          <svg class="life-cycle" viewBox="0 0 520 60">
+            <defs>
+              <symbol class="arrow" id="transition" viewBox="0 0 20 20">
+                <path d="M1,10 h18 m-8,-8 l8,8 -8,8" />
+              </symbol>
+            </defs>
+
+            <g>
+              <rect x="1" y="1" width="70" height="50" rx="10" ry="10" />
+              <text x="35" y="30">Skapad</text>
+            </g>
+
+            <g transform="translate(80, 0)">
+              <use
+                xlink:href="#transition"
+                x="0"
+                y="15"
+                width="20"
+                height="20"
+              />
+              <rect x="30" y="1" width="70" height="50" rx="10" ry="10" />
+              <text x="65" y="30">Öppen</text>
+            </g>
+
+            <g transform="translate(190, 0)">
+              <use
+                xlink:href="#transition"
+                x="0"
+                y="15"
+                width="20"
+                height="20"
+              />
+              <rect x="30" y="1" width="70" height="50" rx="10" ry="10" />
+              <text x="65" y="30">Aktiv</text>
+            </g>
+
+            <g transform="translate(300, 0)">
+              <use
+                xlink:href="#transition"
+                x="0"
+                y="15"
+                width="20"
+                height="20"
+              />
+              <rect x="30" y="1" width="70" height="50" rx="10" ry="10" />
+              <text x="65" y="30">Inaktiv</text>
+            </g>
+
+            <g transform="translate(410, 0)">
+              <use
+                xlink:href="#transition"
+                x="0"
+                y="15"
+                width="20"
+                height="20"
+              />
+              <rect x="30" y="1" width="70" height="50" rx="10" ry="10" />
+              <text x="65" y="30">Stängd</text>
+            </g>
+          </svg>
+
+          <figcaption>Livscykel för en vyinstans.</figcaption>
+        </figure>
+
+        <section>
+          <h3>Skapad</h3>
+
+          <p>
+            Konstruktorn som skapar vyinstansen gör inte mycket mer än att spara
+            referenserna till länkstigen, händelselyssnarlistan och
+            resursladdaren.
+          </p>
+
+          <p>
+            Vyn innehåller ett antal ”skyddade” fält och metoder som subklasser
+            ska kunna använda; se tabellerna nedan.
+          </p>
+
+          <p class="note">
+            Vissa fält och metoder i vybasklassen skulle behöva vara ”skyddade”
+            <i lang="en">(protected)</i>, men eftersom JavaScript inte har stöd
+            för det är de publika med namnkonventionen att inleda med ett
+            understreck för att indikera att de inte är avsedda för extern
+            användning. Subklasser behöver ha tillgång till dem, så de kan inte
+            vara privata.
+          </p>
+
+          <p>
+            När vyn är skapad kan subklasser förbereda det som komma skall genom
+            att sätta vissa av dessa ”skyddade” fält och genom att anropa
+            ”skyddade” metoder.
+          </p>
+
+          <p>
+            I det här stadiet kan också externa intressenter (vanligen en
+            <i lang="en">controller</i>) registrera observa&shy;törer på vyn.
+            Dessa anropas i det aktiva stadiet när användaren interagerar med
+            vyn.
+          </p>
+
+          <table>
+            <caption>
+              ”Skyddade” fält i vybasklassen.
+            </caption>
+
+            <thead>
+              <tr>
+                <th scope="col">Namn</th>
+                <th scope="col">Typ</th>
+                <th scope="col">Beskrivning</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><code lang="en">_article</code></td>
+                <td><code lang="en">HTMLElement</code></td>
+                <td>
+                  Artikelelementet som är behållare för det sid&shy;specifika
+                  innehållet.
+                </td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_autoMenu</code></td>
+                <td><code lang="en">boolean</code></td>
+                <td>
+                  Flagga som anger om vyn ska ha en automatisk innehållsmeny
+                  (standardvärde
+                  <code lang="en" class="js literal">false</code>).
+                </td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_confirmID</code></td>
+                <td><code lang="en">string</code></td>
+                <td>
+                  Värde på <code>id</code>-attributet för eventuell modal
+                  dia&shy;logruta för bekräftelser som ingår i det laddade
+                  sidfragmentet.
+                </td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_doc</code></td>
+                <td><code lang="en">Document</code></td>
+                <td>
+                  DOM-dokumentet. Används vid enhetstester, men det är av
+                  kritisk betydelse att subklasser använder detta fält och inte
+                  det globala <code lang="en">document</code>-objektet.
+                </td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_form</code></td>
+                <td><code lang="en">HTMLFormElement</code></td>
+                <td>Eventuellt formulär i det laddade sidfragmentet.</td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_listeners</code></td>
+                <td><code lang="en">EventListenerList</code></td>
+                <td>Händelselyssnarlista.</td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_wide</code></td>
+                <td><code lang="en">boolean</code></td>
+                <td>
+                  Flagga som anger om vyn är ”bred” och inte ska ha någon
+                  maxbredd (standardvärde
+                  <code lang="en" class="js literal">false</code>).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table>
+            <caption>
+              ”Skyddade” metoder i vybasklassen.
+            </caption>
+
+            <thead>
+              <tr>
+                <th scope="col">Namn</th>
+                <th scope="col">Beskrivning</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><code lang="en">_addStyles()</code></td>
+                <td>
+                  Namnger sidspecifika stilmallar som ska användas när
+                  sidfrag&shy;mentet laddats.
+                </td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_element()</code></td>
+                <td>
+                  Skapar och, eventuellt, infogar en elementnod i DOM-trädet.
+                  Bör användas av subklasser som behöver generera innehåll
+                  dynamiskt.
+                </td>
+              </tr>
+
+              <tr>
+                <td><code lang="en">_notifyObservers()</code></td>
+                <td>
+                  Anropar alla registrerade observatörer med ett händelseobjekt.
+                  Används av subklasser som tillför egen händelsehantering.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h3>Öppnad</h3>
+
+          <p>
+            Metoden <code lang="en">open()</code> öppnar en vy. Den lägger till
+            eventuella sidspecifika stilmallar som en subklass lagt till med
+            metoden <code lang="en">_addStyles()</code>. Om subklassen satt det
+            ”skyddade” fältet <code lang="en">_wide</code> till
+            <code lang="en" class="js literal">true</code> sätter metoden
+            klassen ”<code lang="en">wide</code>” på
+            <code lang="en" class="html tag">&lt;main&gt;</code>-elementet.
+          </p>
+
+          <p>
+            Sedan använder metoden resursladdaren för att hämta sidfragmentet
+            och populera mall&shy;sidans artikelelement med det. Den lägger
+            också till länkstigen i dokumentet, när den är komplett.
+          </p>
+
+          <p>
+            När detta är gjort döljer metoden statusbehållaren (som visar ett
+            meddelande om att sid&shy;innehållet laddas) och sätter klasser på
+            artikelelementet beroende på om vyn ska använda det förenklade eller
+            avancerade visningsläget.
+          </p>
+
+          <p>
+            Om subklassen satt det ”skyddade” fältet
+            <code lang="en">_autoMenu</code> till
+            <code lang="en" class="js literal">true</code> skapar metoden en
+            instans av <code lang="en">AutoContentMenu</code> som genererar en
+            innehållsmeny med ankarlänkar till alla
+            <code lang="en" class="html tag">&lt;h2&gt;</code>-rubriker i
+            sidfragmentet.
+          </p>
+
+          <p>
+            Slutligen tar metoden bort attributet
+            <code lang="en" class="html attr">aria-busy</code> från
+            <code lang="en" class="html tag">&lt;body&gt;</code>-elementet och
+            klassen ”<code lang="en">changing</code>” från artikelelementet.
+          </p>
+        </section>
+
+        <section>
+          <h3>Aktiv</h3>
+
+          <p>
+            Metoden <code lang="en">activate()</code> lägger till
+            händelselyssnare för länkar (till andra granskningssidor), formulär,
+            knappar och statusbehållaren.
+          </p>
+
+          <p>
+            Lyssnarna läggs till via händelselyssnarlistan, så att de kan
+            avregistrereras så småningom.
+          </p>
+
+          <p>
+            Händelselyssnarna anropar alla registrerade observatörer med ett
+            händelseobjekt som informerar om vad som inträffat.
+          </p>
+        </section>
+
+        <section>
+          <h3>Inaktiv</h3>
+
+          <p>
+            Metoden <code lang="en">deactivate()</code> tar bort alla tillagda
+            händelselyssnare, vilket är möjligt tack vare att
+            händelselyssnarlistan håller reda på dem.
+          </p>
+
+          <p>
+            Den här metoden anropas vanligen inte explicit, men anropas
+            automatiskt när vyn stängs.
+          </p>
+
+          <p>
+            Om ett allvarligt fel uppstår i fördelaren kan dock en vy behöva
+            förbli öppen, men inte aktiv, så att användaren kan läsa ett
+            felmeddelande i statusbehållaren och använda länkar (till exempel
+            länkstigen eller menyn) för att komma till en fungerande sida.
+          </p>
+        </section>
+
+        <section>
+          <h3>Stängd</h3>
+
+          <p>
+            Metoden <code lang="en">close()</code> inaktiverar vyn och tar bort
+            det inladdade sidfragmentet ur artikel&shy;elementet.
+          </p>
+
+          <p>
+            Den sätter klassen ”<code lang="en">changing</code>” på artikeln,
+            vilket medför att sidinnehållet tonar bort. Sedan visar den ett
+            meddelande i statusbehållaren om att sidans innehåll laddas.
+          </p>
+
+          <p>
+            Metoden tar bort en eventuell automatisk innehållsmeny, länkstigen
+            och eventuella tillagda stilmallar. Slutligen tar den också bort den
+            klass som indikerar en ”bred” vy, om den är satt.
+          </p>
+
+          <p>
+            När vyn är stängd är mallsidan alltså återställd till sitt
+            ursprungliga tillstånd.
+          </p>
+        </section>
+      </section>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/view/AutoContentMenu.html"
+              ><code lang="en">AutoContentMenu</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/ViewBase.html"
+              ><code lang="en">ViewBase</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="vykomponenter.html" accesskey="N" rel="next"
+        ><span>Vykomponenter</span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="modell.html" accesskey="F" rel="prev"><span>Modellen</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Anmälningar – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="../css/processes.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Anmälningar</h1>
+
+      <p>
+        DIGG ska ta emot anmälningar enligt 18&#160;§
+        <cite>lagen om tillgänglighet till digital offentlig service</cite>. En
+        anmälning kan avse:
+      </p>
+
+      <ul>
+        <li>
+          bristande tillgänglighet i digital offentlig service enligt
+          10–11&#160;§§
+        </li>
+
+        <li>
+          avsaknad av eller brister i tillgänglighetsredogörelse enligt
+          13&#160;§
+        </li>
+
+        <li>
+          begäran om tillgängliggörande som inte tillgodosetts enligt 15&#160;§
+        </li>
+
+        <li>
+          granskning av bedömning om oskäligt betungande anpassning enligt
+          12&#160;§.
+        </li>
+      </ul>
+
+      <section>
+        <h2>Anmälningsprocessen</h2>
+
+        <figure>
+          <svg
+            role="img"
+            aria-labelledby="complaint-title complaint-desc"
+            width="65em"
+            height="76em"
+            viewBox="0 0 650 760"
+          >
+            <title id="complaint-title">
+              Processdiagram, anmälningsprocessen
+            </title>
+            <desc id="complaint-desc">
+              Se beskrivningstext efter diagrammet.
+            </desc>
+
+            <defs>
+              <marker
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+                id="arrow"
+              >
+                <path d="M 0 0 L 8 4 0 8 z" />
+              </marker>
+
+              <symbol id="sym-start">
+                <circle cx="50" cy="10" r="10" />
+              </symbol>
+
+              <symbol id="sym-end">
+                <circle cx="50" cy="10" r="8" />
+                <circle cx="50" cy="10" r="10" class="ring" />
+              </symbol>
+
+              <symbol id="sym-choice">
+                <rect
+                  x="0"
+                  y="0"
+                  width="70"
+                  height="70"
+                  transform="translate(50, 0) rotate(45)"
+                  class="opaque"
+                />
+              </symbol>
+
+              <symbol id="sym-resource">
+                <path
+                  d="M25,0 v70 h50 v-60 l-10,-10 z M65,0 v10 h10"
+                  class="resource"
+                />
+              </symbol>
+
+              <symbol id="sym-process">
+                <rect
+                  x="1"
+                  y="1"
+                  rx="8"
+                  ry="8"
+                  width="100"
+                  height="30"
+                  class="opaque"
+                />
+              </symbol>
+
+              <symbol id="sym-step">
+                <rect x="1" y="1" width="100" height="30" class="opaque" />
+              </symbol>
+            </defs>
+
+            <g transform="translate(140, 0)">
+              <text x="50" y="10">Anmälning kommer in</text>
+              <use y="20" xlink:href="#sym-start" />
+              <line x1="50" y1="40" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(140, 70)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="18">Diarieför ärendet</text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(140, 140)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="12">
+                <tspan>Skicka ärendet</tspan>
+                <tspan x="50" dy="12">till handläggning</tspan>
+              </text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(140, 210)">
+              <use xlink:href="#sym-choice" />
+              <text x="50" y="46">
+                <tspan>Anmälning</tspan>
+                <tspan x="50" dy="12">komplett?</tspan>
+              </text>
+
+              <line x1="100" y1="50" x2="140" y2="50" />
+              <text x="110" y="42" class="legend">nej</text>
+
+              <g transform="translate(140, 0)">
+                <use xlink:href="#sym-choice" />
+                <text x="50" y="46">
+                  <tspan>Anonym</tspan>
+                  <tspan x="50" dy="12">anmälning?</tspan>
+                </text>
+
+                <line x1="100" y1="50" x2="140" y2="50" />
+                <text x="110" y="42" class="legend">ja</text>
+
+                <g transform="translate(140, 35)">
+                  <use xlink:href="#sym-step" />
+                  <text x="50" y="18">Stäng ärendet</text>
+
+                  <line x1="100" y1="15" x2="140" y2="15" />
+                  <use x="100" y="5" xlink:href="#sym-end" />
+                </g>
+
+                <line x1="50" y1="100" x2="50" y2="140" />
+                <text x="55" y="108" class="legend">nej</text>
+
+                <g transform="translate(0, 140)">
+                  <use xlink:href="#sym-step" />
+                  <text x="50" y="12">
+                    <tspan>Begär</tspan>
+                    <tspan x="50" dy="12">förtydligande</tspan>
+                  </text>
+                  <line x1="50" y1="30" x2="50" y2="70" />
+                </g>
+              </g>
+
+              <line x1="50" y1="100" x2="50" y2="245" />
+              <text x="55" y="108" class="legend">ja</text>
+            </g>
+
+            <g transform="translate(140, 455)">
+              <g transform="translate(140, -35)">
+                <use xlink:href="#sym-choice" />
+                <text x="50" y="40">
+                  <tspan>Kommer in</tspan>
+                  <tspan x="50" dy="12">inom 14</tspan>
+                  <tspan x="50" dy="12">dagar?</tspan>
+                </text>
+
+                <line x1="0" y1="50" x2="-40" y2="50" />
+                <text x="-10" y="42" class="legend right">ja</text>
+
+                <polyline points="100,50 190,50 190,-145" />
+                <text x="110" y="42" class="legend">nej</text>
+              </g>
+
+              <use xlink:href="#sym-step" />
+              <text x="50" y="12" class="long">
+                <tspan>Initial bedömning</tspan>
+                <tspan x="50" dy="12">av ärendet</tspan>
+              </text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+            </g>
+
+            <g transform="translate(280, 560)">
+              <text x="170" y="8" class="left">
+                <tspan>Förtydligande</tspan>
+                <tspan x="170" dy="12">kommer in efter</tspan>
+                <tspan x="170" dy="12">&gt;14 dagar</tspan>
+              </text>
+              <use x="100" y="5" xlink:href="#sym-start" />
+              <line x1="150" y1="15" x2="100" y2="15" />
+
+              <use xlink:href="#sym-step" />
+              <text x="50" y="18">Öppna ärendet</text>
+              <polyline points="0,15 -20,15 -20,-80 -40,-80" />
+            </g>
+
+            <g transform="translate(140, 525)">
+              <use xlink:href="#sym-choice" />
+              <text x="50" y="46">
+                <tspan>Omfattas</tspan>
+                <tspan x="50" dy="12">av lagen?</tspan>
+              </text>
+
+              <line x1="0" y1="50" x2="-40" y2="50" />
+              <text x="-10" y="42" class="legend right">ja</text>
+
+              <g transform="translate(-140, 35)">
+                <use xlink:href="#sym-step" />
+                <text x="50" y="12" class="long">
+                  <tspan>Lägg som underlag</tspan>
+                  <tspan x="50" dy="12">för tillsyn</tspan>
+                </text>
+                <polyline points="50,30 50,120 140,120" />
+              </g>
+
+              <line x1="50" y1="100" x2="50" y2="140" />
+              <text x="55" y="108" class="legend">nej</text>
+            </g>
+
+            <g transform="translate(140, 665)">
+              <use xlink:href="#sym-step" />
+              <text x="50" y="18">Stäng ärendet</text>
+              <line x1="50" y1="30" x2="50" y2="70" />
+              <use y="70" xlink:href="#sym-end" />
+            </g>
+          </svg>
+
+          <figcaption>Anmälningsprocessen</figcaption>
+        </figure>
+
+        <p>
+          Registrator tar emot en anmälning, diarieför den och skickar den
+          vidare till handläggning. En handläggare kontrollerar anmälningen. Om
+          anmälningen inte är komplett, och innehåller kontaktuppgifter till
+          anmälaren, begär handläggaren in förtydligande information.
+        </p>
+
+        <p>
+          När anmälningen är komplett gör handläggaren en initial bedömning för
+          att se om den rör en offentlig aktör och en digital service som
+          omfattas av
+          <cite>lagen om tillgänglighet till digital offentlig service</cite>. I
+          så fall lägger handläggaren till den anmälda digitala servicen i
+          listan med underlag för tillsyn. Utifrån den listan fattar
+          tillsynsansvarig beslut om tillsyn.
+        </p>
+
+        <p>
+          Skräppost, ofullständiga anonyma anmälningar och anmälningar som inte
+          rör en offentlig aktörs digitala service eller inte avser 10, 11, 12,
+          13 eller 15&#160;§
+          <cite>lagen om tillgänglighet till digital offentlig service</cite>
+          stänger vi utan åtgärd. Det gäller också om handläggaren begär
+          förtydligande och det inte kommer in inom föreskriven tid. Då kan vi
+          emellertid öppna ärendet på nytt om ett förtydligande kommer in
+          senare.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="../start/tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="../start/webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

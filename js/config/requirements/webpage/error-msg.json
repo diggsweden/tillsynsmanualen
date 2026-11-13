@@ -1,0 +1,118 @@
+{
+  "steps": [
+    "Lämna obligatoriska fält tomma.",
+    "Fyll i fler eller färre tecken än tillåtet i fält med sådana begränsningar.",
+    "Fyll i bokstäver i numeriska fält.",
+    "Fyll i en formellt oriktig e-postadress (utan ”@”).",
+    "Fyll i för låga eller för höga värden i numeriska fält.",
+    "Fyll i datum på ogiltigt format.",
+    "Fyll i ogiltiga datum (till exempel 31 april eller månad 13).",
+    "Fyll i ogiltiga värden i fält som kräver vissa värden eller format."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements"
+    },
+    {
+      "tool": "WebDeveloper",
+      "tab": "Forms",
+      "function": "Remove Form Validation"
+    }
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Moderna webbplatser använder ofta tekniker från HTML&nbsp;5 för att låta webbläsaren sköta mycket av valideringen. Du känner igen sådan validering på att felmeddelandet visas i en ”pratbubbla”. Du kan då behöva sätta denna validering ur spel för att kontrollera att felmeddelanden visas korrekt även för äldre webbläsare."
+    },
+    {
+      "type": "text",
+      "text": "Du kan också stänga av webbläsarens validering för hand, genom att ändra fälttyper eller attribut i <cite>Inspektören</cite>. Sätt attributet <code translate=\"no\" lang=\"en\">type=\"text\"</code> för fälttyper med inbyggd validering och ta bort valideringsattribut."
+    },
+    {
+      "type": "details",
+      "summary": "Fälttyper (<code translate=\"no\" lang=\"en\">&lt;input type=\"…\"&gt;</code>) med validering",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Typvärde", "Validering"],
+          "rows": [
+            ["<code translate=\"no\" lang=\"en\">color</code>", "färgkod"],
+            ["<code translate=\"no\" lang=\"en\">date</code>", "datum"],
+            [
+              "<code translate=\"no\" lang=\"en\">datetime</code>",
+              "datum och klockslag (med tidszon)"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">datetime-local</code>",
+              "datum och klockslag (lokal tidszon)"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">email</code>",
+              "formellt korrekt e-postadress (en eller flera)"
+            ],
+            ["<code translate=\"no\" lang=\"en\">month</code>", "månad och år"],
+            [
+              "<code translate=\"no\" lang=\"en\">number</code>",
+              "numeriskt värde (heltal eller decimaltal)"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">time</code>",
+              "klockslag (timmar och minuter)"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">url</code>",
+              "formellt korrekt absolut webbadress"
+            ],
+            ["<code translate=\"no\" lang=\"en\">week</code>", "vecka och år"]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "details",
+      "summary": "Valideringsattribut",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Attribut", "Validering"],
+          "rows": [
+            [
+              "<code translate=\"no\" lang=\"en\">max</code>",
+              "högsta tillåtna värde"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">maxlength</code>",
+              "största tillåtna antal tecken"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">min</code>",
+              "lägsta tillåtna värde"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">minlength</code>",
+              "minsta tillåtna antal tecken"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">pattern</code>",
+              "mönstermatchning"
+            ],
+            [
+              "<code translate=\"no\" lang=\"en\">required</code>",
+              "obligatoriskt fält"
+            ],
+            ["<code translate=\"no\" lang=\"en\">step</code>", "steg/intervall"]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Attributen <code translate=\"no\" lang=\"en\">max</code>, <code translate=\"no\" lang=\"en\">min</code> och <code translate=\"no\" lang=\"en\">step</code> går att använda med numeriska fält samt de olika datum- och tidsfälttyperna."
+        },
+        {
+          "type": "text",
+          "text": "Attributen <code translate=\"no\" lang=\"en\">maxlength</code>, <code translate=\"no\" lang=\"en\">minlength</code> och <code translate=\"no\" lang=\"en\">pattern</code> går att använda med textbaserade fält, alltså e-post, sök, telefonnummer, text och URL."
+        }
+      ]
+    }
+  ]
+}

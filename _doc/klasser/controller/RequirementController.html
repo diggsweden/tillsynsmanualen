@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>RequirementController – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 61rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">RequirementController</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">RequirementController</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-prepare"><code lang="en">prepare()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-check"><code lang="en">setCheck()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <i lang="en">Controller</i> för granskning av ett krav i ett stickprov.
+      </p>
+
+      <p>
+        <code lang="en">RequirementController</code> ärver från
+        <code lang="en">ControllerBase</code> och implementerar bara metoden
+        <code lang="en">prepare()</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/RequirementController.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/RequirementController.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 610 1010" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--RequirementController-->
+          <use
+            xlink:href="RequirementController.svg#RequirementController"
+            x="212"
+            y="110"
+            class="highlight"
+          />
+
+          <line x1="232" y1="110" x2="232" y2="73" class="composition" />
+          <line x1="342" y1="110" x2="342" y2="83" class="composition" />
+          <line x1="212" y1="121" x2="141" y2="121" class="composition" />
+          <path d="M212,132 h-52 v108" class="composition" />
+          <line x1="248" y1="143" x2="248" y2="530" class="inheritance" />
+          <line x1="363" y1="126" x2="420" y2="126" class="composition" />
+          <line x1="340" y1="143" x2="340" y2="220" class="composition" />
+
+          <!--ConditionTree-->
+          <use xlink:href="ConditionTree.svg#ConditionTree" x="177" y="0" />
+
+          <!--RequirementOrder-->
+          <use
+            xlink:href="RequirementOrder.svg#RequirementOrder"
+            x="297"
+            y="0"
+          />
+
+          <!--AuditCase-->
+          <use xlink:href="../model/AuditCase.svg#AuditCase" x="0" y="0" />
+
+          <!--Sample-->
+          <use xlink:href="../model/Sample.svg#Sample" x="90" y="240" />
+
+          <!--Audit-->
+          <use xlink:href="../model/Audit.svg#Audit" x="420" y="0" />
+
+          <!--Requirement-->
+          <use
+            xlink:href="../model/Requirement.svg#Requirement"
+            x="270"
+            y="220"
+          />
+
+          <g transform="translate(0, 530)">
+            <!--ControllerBase-->
+            <use xlink:href="ControllerBase.svg#ControllerBase" x="150" y="0" />
+
+            <line x1="150" y1="16" x2="101" y2="16" class="composition" />
+            <line x1="281" y1="16" x2="330" y2="16" class="composition" />
+            <line x1="215" y1="33" x2="215" y2="60" class="composition" />
+
+            <!--AppContext-->
+            <use xlink:href="../common/AppContext.svg#AppContext" x="0" y="0" />
+
+            <!--Model-->
+            <use xlink:href="../model/Model.svg#Model" x="140" y="60" />
+
+            <!--RequirementView-->
+            <use
+              xlink:href="../view/RequirementView.svg#RequirementView"
+              x="330"
+              y="0"
+            />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">RequirementController</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">RequirementController</span>(<span class="var">model</span>, <span class="var">view</span>, <span class="var">loader</span>, <span class="var">order</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjekt.</dd>
+
+          <dt><code lang="en">view</code></dt>
+          <dd>Vyinstans.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+
+          <dt><code lang="en">order</code></dt>
+          <dd>Kravordning.</dd>
+        </dl>
+      </section>
+
+      <!--prepare()-->
+      <section>
+        <h2 id="m-prepare"><code lang="en">prepare()</code></h2>
+
+        <p>
+          Förbereder sidvisning: populerar länkstigen, registrerar en observatör
+          på vyn och registrerar en åtgärdshanterare för spara samt populerar
+          vyn.
+        </p>
+
+        <p>
+          Metoden hämtar stickprovet ur objektdatabasen med identiteten från
+          parametern <code lang="en">sample</code> i sid&shy;begäran. Den hämtar
+          också granskningen som stickprovet ingår i och ärendet som
+          granskningen tillhör. Dessutom hämtar den det krav som anges via
+          parametern <code lang="en">requirement</code> (indirekt; parametern
+          ger en identitet med vars hjälp metoden kan hämta kravdata ur
+          stickprovet vilket ger primärnyckeln för hämtning av hela kravet ur
+          objekt&shy;databasen).
+        </p>
+
+        <p>
+          Metoden hämtar också kravkonfigurationen för det aktuella stickprovet
+          och populerar kravet med kontroller om det är tomt. Därefter går
+          metoden igenom kravets alla villkor i konfigurationen och bedömer för
+          varje villkor om det är manuellt utvärderat och i så fall till vad,
+          eller om det är ett härlett villkor, huruvida det är uppfyllt eller
+          inte. Detta görs med hjälp av klassen
+          <code lang="en">ConditionTree</code>.
+        </p>
+
+        <p>
+          Därnäst hämtar metoden granskningskonfigurationen för kravet, som kan
+          innehålla metodbeskrivningar, undantag, exempel, relaterad
+          information, verktyg och tillämpings&shy;anvisningar.
+        </p>
+
+        <p>
+          Slutligen populerar metoden vyn med alla kontroller och all
+          information och sätter länkadresserna i navigeringen utifrån den
+          ordning som bestäms av
+          <code lang="en">RequirementOrder</code>-instansen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">prepare</span>(<span class="var">context</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när förberedelserna är klara.</p>
+      </section>
+
+      <!--setCheck-->
+      <section>
+        <h2 id="m-set-check"><code lang="en">setCheck()</code></h2>
+
+        <p>
+          Uppdaterar angiven singelkontrolls tillstånd. Metoden anropas från
+          verktygsmoduler för att automatiskt godkänna eller underkänna
+          kontroller utifrån data som användaren angivit i verktyget.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCheck</span>(<span class="var">id</span>, <span class="var">state</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Kontrollidentitet.</dd>
+
+          <dt><code lang="en">state</code></dt>
+          <dd>
+            Tillstånd att sätta;
+            <code lang="en" class="js literal">true</code>=godkänd,
+            <code lang="en" class="js literal">false</code>=underkänd.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="ConditionTree.html"
+              ><code lang="en">ConditionTree</code></a
+            >
+          </li>
+          <li>
+            <a href="ControllerBase.html"
+              ><code lang="en">ControllerBase</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="../requirement.module.html"
+              ><code lang="en">requirement.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="RequirementOrder.html"
+              ><code lang="en">RequirementOrder</code></a
+            >
+          </li>
+          <li>
+            <a href="../view/RequirementView.html"
+              ><code lang="en">RequirementView</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

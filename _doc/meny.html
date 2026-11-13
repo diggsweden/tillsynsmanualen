@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Menyn – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+
+      svg.class {
+        width: 44em;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Menyn</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Menyn</h1>
+
+      <p>
+        Menyn används på alla sidor utom de genererade protokollen, påpekandena
+        och föreläg&shy;gandena. Klassen
+        <code lang="en">MenuBuilder</code> genererar menyn utifrån en struktur
+        som den läser från konfigurationsfilen
+        <code lang="en">js/config/menu.json</code>. Menyn bygger på
+        designmönstret
+        <a
+          href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/"
+          hreflang="en"
+          rel="external"
+          lang="en"
+          >Menu</a
+        >.
+      </p>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 440 380" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--MenuItem-->
+          <g>
+            <rect x="0.5" y="0.5" width="100" height="152" />
+            <text x="50" y="10" class="class">MenuItem</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+            <text x="5" y="20">+current</text>
+            <text x="5" y="30">+focusable</text>
+            <text x="5" y="40">+href</text>
+            <text x="5" y="50">+parentItem</text>
+            <text x="5" y="60">+parentMenu</text>
+            <text x="5" y="70">+submenu</text>
+            <line x1="1" y1="72" x2="100" y2="72" />
+            <text x="5" y="80">activate()</text>
+            <text x="5" y="90">close()</text>
+            <text x="5" y="100">closeAll()</text>
+            <text x="5" y="110">focus()</text>
+            <text x="5" y="120">is()</text>
+            <text x="5" y="130">open()</text>
+            <text x="5" y="140">startsWith()</text>
+            <text x="5" y="150">toggle()</text>
+
+            <path d="M101,18 h12 v-8 h-12" class="composition" />
+            <line x1="101" y1="68" x2="140" y2="68" class="composition" />
+          </g>
+
+          <!--Menu-->
+          <g transform="translate(140, 0)">
+            <rect x="0.5" y="0.5" width="130" height="212" />
+            <text x="65" y="10" class="class">Menu</text>
+            <line x1="1" y1="12" x2="130" y2="12" />
+            <text x="5" y="20">+current</text>
+            <text x="5" y="30">+firstItem</text>
+            <text x="5" y="40">+id</text>
+            <text x="5" y="50">+labelledBy</text>
+            <text x="5" y="60">+lastItem</text>
+            <text x="5" y="70">+orientation</text>
+            <text x="5" y="80">+parentItem</text>
+            <text x="5" y="90">+parentMenu</text>
+            <text x="5" y="100">+root</text>
+            <line x1="1" y1="102" x2="130" y2="102" />
+            <text x="5" y="110">add()</text>
+            <text x="5" y="120">addObserver()</text>
+            <text x="5" y="130">closeAll()</text>
+            <text x="5" y="140">down()</text>
+            <text x="5" y="150">handleLeft()</text>
+            <text x="5" y="160">left()</text>
+            <text x="5" y="170">matchNextItem()</text>
+            <text x="5" y="180">nextItem()</text>
+            <text x="5" y="190">previousItem()</text>
+            <text x="5" y="200">right()</text>
+            <text x="5" y="210">up()</text>
+
+            <line x1="0" y1="78" x2="-39" y2="78" class="composition" />
+            <path d="M0,88 h-20 v10 h20" class="composition" />
+          </g>
+
+          <!--MenuButton-->
+          <g transform="translate(310, 20)">
+            <rect x="0.5" y="0.5" width="100" height="22" />
+            <text x="50" y="10" class="class">MenuButton</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+
+            <line x1="0" y1="11" x2="-39" y2="11" class="composition" />
+          </g>
+
+          <!--MenuController-->
+          <g transform="translate(310, 130)">
+            <rect x="0.5" y="0.5" width="100" height="22" />
+            <text x="50" y="10" class="class">MenuController</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+            <text x="5" y="20">handle()</text>
+
+            <line x1="0" y1="11" x2="-39" y2="11" class="composition" />
+          </g>
+
+          <!--Menubar-->
+          <g transform="translate(90, 240)">
+            <rect x="0.5" y="0.5" width="100" height="82" />
+            <text x="50" y="10" class="class">Menubar</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+            <text x="5" y="20">+current</text>
+            <text x="5" y="30">+id</text>
+            <line x1="1" y1="32" x2="100" y2="32" />
+            <text x="5" y="40">down()</text>
+            <text x="5" y="50">handleLeft()</text>
+            <text x="5" y="60">left()</text>
+            <text x="5" y="70">right()</text>
+            <text x="5" y="80">up()</text>
+
+            <line x1="75" y1="0" x2="75" y2="-26" class="inheritance" />
+          </g>
+
+          <!--ContentMenu-->
+          <g transform="translate(220, 240)">
+            <rect x="0.5" y="0.5" width="100" height="62" />
+            <text x="50" y="10" class="class">ContentMenu</text>
+            <line x1="1" y1="12" x2="100" y2="12" />
+            <text x="5" y="20">+current</text>
+            <line x1="1" y1="22" x2="100" y2="22" />
+            <text x="5" y="30">add()</text>
+            <text x="5" y="40">down()</text>
+            <text x="5" y="50">handleLeft()</text>
+            <text x="5" y="60">up()</text>
+
+            <line x1="25" y1="0" x2="25" y2="-26" class="inheritance" />
+          </g>
+
+          <!--MenuBuilder-->
+          <g transform="translate(140, 350)">
+            <rect x="0.5" y="0.5" width="130" height="22" />
+            <text x="65" y="10" class="class">MenuBuilder</text>
+            <line x1="1" y1="12" x2="130" y2="12" />
+            <text x="5" y="20">build()</text>
+
+            <line x1="32" y1="0" x2="32" y2="-26" class="dependency" />
+            <line x1="65" y1="0" x2="65" y2="-136" class="dependency" />
+            <line x1="108" y1="0" x2="108" y2="-46" class="dependency" />
+            <path d="M0,11 h-90 v-207" class="dependency" />
+            <path d="M131,7 h90 v-203" class="dependency" />
+            <path d="M131,14 h160 v-333 h-20" class="dependency" />
+          </g>
+        </svg>
+
+        <figcaption>Klassdiagram för menyklasser.</figcaption>
+      </figure>
+
+      <section>
+        <h2>Modulinitiering</h2>
+
+        <p>
+          Skriptmodulen
+          <code lang="en"
+            >js/menu/<a href="klasser/menu/menu.module.html"
+              >menu.module.js</a
+            ></code
+          >
+          skapar automatiskt menyer på de sidor som inkluderar den.
+        </p>
+      </section>
+
+      <section>
+        <h2>Klasser</h2>
+
+        <dl class="classes">
+          <dt><code lang="en">ContentMenu</code></dt>
+          <dd>
+            En innehållsmeny: en meny med ankarlänkar till avsnitt på sidan.
+          </dd>
+
+          <dt><code lang="en">Menu</code></dt>
+          <dd>Basklass för menyer: grupperingar av menyelement.</dd>
+
+          <dt><code lang="en">Menubar</code></dt>
+          <dd>Den horisontella menyraden med nedfällbara menyer.</dd>
+
+          <dt><code lang="en">MenuBuilder</code></dt>
+          <dd>
+            En klass som läser en konfigurationsfil och konstruerar menyraden
+            och dess innehåll. Den skapar också en innehållsmeny på sidor som
+            har en sådan.
+          </dd>
+
+          <dt><code lang="en">MenuButton</code></dt>
+          <dd>
+            En knapp kopplad till en innehållsmeny, som visas i stället för
+            menyn i smala vyer. Klick på knappen fäller ut eller fäller ihop
+            menyn.
+          </dd>
+
+          <dt><code lang="en">MenuController</code></dt>
+          <dd>
+            Den klass som hanterar menyers interaktion med användaren, det vill
+            säga reagerar på musklick och tangenttryckningar.
+          </dd>
+
+          <dt><code lang="en">MenuItem</code></dt>
+          <dd>
+            Ett element i en meny, som kan ha en undermeny eller vara en lövnod
+            (länk).
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/menu/menu.module.html"
+              ><code lang="en">menu.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/menu/ContentMenu.html"
+              ><code lang="en">ContentMenu</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/menu/Menu.html"><code lang="en">Menu</code></a>
+          </li>
+          <li>
+            <a href="klasser/menu/Menubar.html"
+              ><code lang="en">Menubar</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/menu/MenuBuilder.html"
+              ><code lang="en">MenuBuilder</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/menu/MenuButton.html"
+              ><code lang="en">MenuButton</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/menu/MenuController.html"
+              ><code lang="en">MenuController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/menu/MenuItem.html"
+              ><code lang="en">MenuItem</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="granskning.html" accesskey="N" rel="next"
+        ><span>Gransknings&shy;funktionen</span></a
+      >
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="konfiguration.html" accesskey="F" rel="prev"
+        ><span>Konfiguration</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

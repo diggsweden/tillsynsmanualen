@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Leverans – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      svg.process {
+        width: 40rem;
+        fill: none;
+        stroke: var(--text);
+        stroke-width: 0.625px;
+      }
+      .process line,
+      .process path {
+        marker-end: url('#arrow');
+        stroke-linecap: butt;
+        stroke-width: 2px;
+      }
+      .process marker path {
+        fill: none;
+        stroke: var(--text);
+        stroke-width: 1px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .process text {
+        font-size: 8px;
+      }
+      .process text.env {
+        font-size: 9px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+      .process text.rpm {
+        font-style: italic;
+        text-anchor: middle;
+      }
+      .process text.server {
+        font-size: 8px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+      rect.environment {
+        stroke: var(--subdued);
+        stroke-dasharray: 2, 3;
+      }
+      .development rect.environment,
+      rect.server {
+        fill: var(--server);
+        stroke: none;
+      }
+    </style>
+
+    <style media="screen and (prefers-color-scheme:light)">
+      .process line,
+      .process path,
+      .process marker path {
+        stroke: #a00;
+      }
+      .development {
+        --server: #ecc;
+      }
+      .test {
+        --server: #ffa;
+      }
+      .production {
+        --server: #cec;
+      }
+    </style>
+
+    <style media="screen and (prefers-color-scheme:dark)">
+      .process line,
+      .process path,
+      .process marker path {
+        stroke: #ebb;
+      }
+      .development {
+        --server: #311;
+      }
+      .test {
+        --server: #321;
+      }
+      .production {
+        --server: #232;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Leverans</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Leverans</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#servers">Servrar</a></li>
+          <li><a href="#rpmdev">Förberedelser</a></li>
+          <li><a href="#distro">Bygga distribution</a></li>
+          <li><a href="#deploy">Leverera</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Leverans av <cite>Tillsynsmanualen</cite> är lite omständligt på grund
+        av föregivna säkerhetskrav (externa och interna).
+      </p>
+
+      <p>
+        Du behöver ha användarkonton på de fyra servrar som beskrivs nedan. På
+        webbservrarna måste ditt konto ha behörighet att exekvera
+        <code>sudo(8)</code>.
+      </p>
+
+      <figure>
+        <svg class="process" viewBox="0 0 400 310">
+          <defs>
+            <marker
+              id="arrow"
+              markerWidth="6"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8" />
+            </marker>
+          </defs>
+
+          <!--Utvecklingsmiljö-->
+          <g class="development">
+            <rect x="1" y="1" width="100" height="300" class="environment" />
+            <text x="50" y="14" class="env">Utvecklingsmiljö</text>
+
+            <rect x="5.5" y="49.5" width="90" height="20" rx="4" ry="5" />
+            <text x="11" y="62">1. Bygg distributionen</text>
+
+            <circle cx="50" cy="240" r="12.5" />
+            <text x="50" y="242" class="rpm">rpm</text>
+          </g>
+
+          <!--Testmiljö-->
+          <g transform="translate(110, 0)" class="test">
+            <rect x="1" y="1" width="280" height="140" class="environment" />
+            <text x="140" y="14" class="env">Testmiljö</text>
+
+            <!--Hoppserver-->
+            <g transform="translate(10, 20)">
+              <rect x="0" y="0" width="100" height="110" class="server" />
+              <text x="50" y="14" class="server">distwmem0005</text>
+
+              <rect x="5.5" y="29.5" width="90" height="20" rx="4" ry="5" />
+              <text x="12" y="42">2. Packa upp</text>
+
+              <circle cx="50" cy="80" r="12.5" />
+              <text x="50" y="82" class="rpm">rpm</text>
+            </g>
+
+            <!--Webbserver-->
+            <g transform="translate(170, 20)">
+              <rect x="0" y="0" width="100" height="110" class="server" />
+              <text x="50" y="14" class="server">distlweb0001</text>
+
+              <rect x="5.5" y="29.5" width="90" height="20" rx="4" ry="5" />
+              <text x="12" y="42">3. Skapa tarball</text>
+
+              <rect x="5.5" y="69.5" width="90" height="20" rx="4" ry="5" />
+              <text x="12" y="82">4. Bygg rpm</text>
+            </g>
+          </g>
+
+          <!--Produktionsmiljö-->
+          <g transform="translate(110, 160)" class="production">
+            <rect x="1" y="1" width="280" height="140" class="environment" />
+            <text x="140" y="14" class="env">Produktionsmiljö</text>
+
+            <!--Hoppserver-->
+            <g transform="translate(10, 20)">
+              <rect x="0" y="0" width="100" height="110" class="server" />
+              <text x="50" y="14" class="server">dispwmem0001</text>
+
+              <circle cx="50" cy="60" r="12.5" />
+              <text x="50" y="62" class="rpm">rpm</text>
+            </g>
+
+            <!--Webbserver-->
+            <g transform="translate(170, 20)">
+              <rect x="0" y="0" width="100" height="110" class="server" />
+              <text x="50" y="14" class="server">displweb0001</text>
+
+              <rect x="5.5" y="49.5" width="90" height="20" rx="4" ry="5" />
+              <text x="12" y="62">5. Installera rpm</text>
+            </g>
+          </g>
+
+          <!--Pilar-->
+          <g>
+            <line x1="95" y1="60" x2="124" y2="60" />
+            <line x1="215" y1="60" x2="284" y2="60" />
+            <line x1="330" y1="70" x2="330" y2="89" />
+            <line x1="285" y1="100" x2="182" y2="100" />
+            <path d="M158,100 h-88 c-10,0 -20,10 -20,20 v108" />
+            <line x1="62" y1="240" x2="157" y2="240" />
+            <line x1="182" y1="240" x2="284" y2="240" />
+          </g>
+        </svg>
+
+        <figcaption>Leveransprocessen, översikt.</figcaption>
+      </figure>
+
+      <section>
+        <h2 id="servers">Servrar</h2>
+
+        <p>
+          Fyra servrar är inblandade i en leverans: två webbservrar (test och
+          produktion) och en ”hoppserver” till var och en av dem.
+        </p>
+
+        <table>
+          <caption>
+            Servrar i leveransprocessen.
+          </caption>
+
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col">Testmiljö</th>
+              <th scope="col">Produktionsmiljö</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Hoppserver</th>
+              <td><code>distwmem0005.utv.digg.se</code></td>
+              <td><code>dispwmem0001.digg.se</code></td>
+            </tr>
+            <tr>
+              <th scope="row">Webbserver</th>
+              <td><code>distlweb0001.utv.digg.se</code></td>
+              <td><code>displweb0001.digg.se</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2 id="rpmdev">Förberedelser</h2>
+
+        <p>
+          På grund av säkerhetskraven måste leveransen ske i form av ett
+          <abbr>rpm</abbr>-paket. Det innebär att programvara för att skapa
+          <abbr>rpm</abbr>-paket måste finnas på testservern och att den
+          användare som utför leveransen måste skapa katalogstrukturen som
+          programvaran kräver under sin hemkatalog.
+        </p>
+
+        <section>
+          <h3>Konfigurera proxy</h3>
+
+          <p>
+            Det kan vara nödvändigt att konfigurera en proxy för att komma åt
+            internet från test&shy;servern. Det gör du genom att definiera två
+            miljövariabler och sedan starta om webb&shy;servern.
+          </p>
+
+          <p>
+            (Du behöver ha behörighet att exekvera <code>sudo(8)</code> på
+            servrarna för att kunna göra leveranser.)
+          </p>
+
+          <pre
+            class="bash"
+          ><code lang="en">$ <kbd>export HTTP_PROXY=proxy.digg.se:8080</kbd>
+$ <kbd>export HTTPS_PROXY=proxy.digg.se:8080</kbd>
+$ <kbd>sudo systemctl restart httpd24-httpd</kbd></code></pre>
+        </section>
+
+        <section>
+          <h3>Installera programvara</h3>
+
+          <pre
+            class="bash"
+          ><code lang="en">$ <kbd>sudo yum install dnf.noarch</kbd>
+$ <kbd>sudo dfn install fedora-packager fedora-review</kbd>
+$ <kbd>sudo usermod -a -G mock <var lang="sv">användarnamn</var></kbd></code></pre>
+
+          <p>
+            Logga ut och in igen. Kontrollera med <code>id(1)</code> att
+            <var>användarnamn</var> ingår i gruppen <code>mock</code>.
+          </p>
+        </section>
+
+        <section>
+          <h3>Skapa katalogstruktur</h3>
+
+          <p>
+            Slutligen behöver du skapa den katalogstruktur som programvaran
+            kräver. Det gör du under din hemkatalog.
+          </p>
+
+          <pre class="bash"><code lang="en">$ <kbd>cd ~</kbd>
+$ <kbd>rpmdev-setuptree</kbd></code></pre>
+        </section>
+      </section>
+
+      <section>
+        <h2 id="distro">Bygga distribution</h2>
+
+        <p>
+          Första steget i en leverans är att skapa den distribution du vill
+          leverera. Det gör du helt enkelt genom att komprimera filerna till ett
+          arkiv. Men först behöver du justera underlaget för att så småningom
+          skapa ett <abbr>rpm</abbr>-paket av det hela.
+        </p>
+
+        <section>
+          <h3>Redigera specifikationen</h3>
+
+          <p>
+            Redigera filen <code>manual.spec</code> i källkodsträdets
+            rotkatalog. Programmet som skapar <abbr>rpm</abbr>-paket läser denna
+            fil och genererar en <abbr>rpm</abbr> utifrån dess innehåll. Du
+            behöver göra några små justeringar för varje leverans:
+          </p>
+
+          <ul>
+            <li>
+              Uppdatera versionsnumret (<code>Version</code>) om det är en
+              större förändring. Ange den som exempelvis ”<kbd>2.1</kbd>”.
+            </li>
+            <li>
+              Uppdatera <code>Release</code>. Sätt den till
+              ”<kbd>1%{dist}</kbd>” om du ändrat versionsnumret; i annat fall
+              räknar du bara upp löpnumret före procenttecknet.
+            </li>
+            <li>
+              Lägg till rader efter <code>%changelog</code>. Den första ska ha
+              en asterisk (*) i första kolumnen följt av ett datum på
+              amerikanskt format (till exempel ”<kbd
+                ><samp>Sun&nbsp;Feb&nbsp;13&nbsp;2022</samp></kbd
+              >”), ditt namn, din e-postadress inom vinkelparenteser
+              (&lt;…&gt;), ett bindestreck och versionsspecifikationen
+              (<var>version</var>-<var lang="en">release</var>, till exempel
+              ”<kbd>2.1-1</kbd>”). Nästföljande rader (du måste lägga till minst
+              en) ska ha ett bindestreck i första kolumnen och en kort
+              beskrivning av ändringarna från föregå&shy;ende release.
+            </li>
+          </ul>
+
+          <figure>
+            <pre class="example"><code lang="en">%changelog
+* Sun Feb 13 2022 Ulrika Utvecklare &lt;ulrika.utvecklare@digg.se&gt; - 2.1-1
+- Improved algorithm for ContentMenu.
+- Fixed bug #1313.</code></pre>
+
+            <figcaption>
+              Exempel på versionskommentarer i <code>manual.spec</code>.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h3>Paketera distributionen</h3>
+
+          <p>
+            Därefter packar du ihop delar av källkodsträdet till ett zip-arkiv.
+            Följande kataloger och filer (och inga andra) ska ingå i
+            distributionen:
+          </p>
+
+          <ul>
+            <li><code>css/</code></li>
+            <li><code>granskning/</code></li>
+            <li><code>img/</code></li>
+            <li><code>js/</code></li>
+            <li><code>start/</code></li>
+            <li><code>tillsyn/</code></li>
+            <li><code>index.html</code></li>
+            <li><code>manual.spec</code></li>
+          </ul>
+
+          <p>
+            Döp filen med versionsnummer, men inte release. Till exempel:
+            ”<code>manual-2.1.zip</code>”.
+          </p>
+        </section>
+      </section>
+
+      <section>
+        <h2 id="deploy">Leverera</h2>
+
+        <p>
+          Själva leveransen sker tyvärr i flera steg, med många olika
+          inloggningar.
+        </p>
+
+        <ol>
+          <li><a href="#dev2jmp-test">Kopiera till hoppserver (test)</a></li>
+          <li><a href="#jmp2web-test">Kopiera till testservern</a></li>
+          <li><a href="#mk-rpm">Bygg rpm-paket på testservern</a></li>
+          <li><a href="#web2jmp-test">Kopiera från testservern</a></li>
+          <li><a href="#jmp2dev-test">Flytta från hoppserver (test)</a></li>
+          <li>
+            <a href="#dev2jmp-prod">Kopiera till hoppserver (produktion)</a>
+          </li>
+          <li><a href="#jmp2web-prod">Kopiera till produktionservern</a></li>
+          <li>
+            <a href="#install-rpm">Installera rpm på produktionservern</a>
+          </li>
+        </ol>
+
+        <section>
+          <h3 id="dev2jmp-test">Steg 1 – kopiera till hoppserver (test)</h3>
+
+          <ol>
+            <li>
+              Öppna Utforskaren i din utvecklingsmiljö och öppna den mapp som
+              innehåller <code>manual-2.<var>x</var>.zip</code>
+            </li>
+            <li>
+              Logga in på hoppservern <code>distwmem0005.utv.digg.se</code> via
+              Anslutning till fjärrskrivbord (mstsc).
+            </li>
+            <li>
+              Öppna utforskaren på hoppservern och öppna mappen
+              <code lang="en">Documents</code> (Mina dokument).
+            </li>
+            <li>
+              Kopiera zip-filen med <kbd><kbd>Ctrl</kbd>+<kbd>C</kbd></kbd>
+              från utvecklingsmiljön och klistra in den med
+              <kbd><kbd>Ctrl</kbd>+<kbd>V</kbd></kbd> på hoppservern
+              (dra-och-släpp fungerar inte).
+            </li>
+            <li>
+              Packa upp <code>manual-2.<var>x</var>.zip</code> på hoppservern
+              som <code>Documents\manual-2.<var>x</var></code>
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h3 id="jmp2web-test">Steg 2 – kopiera till testservern</h3>
+
+          <p>
+            Starta <code>PSFTP</code> via Start-menyn på hoppservern (test) och
+            kör följande kommandon:
+          </p>
+
+          <pre
+            class="bash"
+          ><code lang="en">psftp&gt; <kbd>lcd \Users\<var lang="sv">användarnamn</var>\Documents</kbd>
+psftp&gt; <kbd>open distlweb0001.utv.digg.se</kbd>
+<i>(logga in med användarnamn och lösenord)</i>
+psftp&gt; <kbd>cd rpmbuild/SOURCES</kbd>
+psftp&gt; <kbd>mput -r manual-2.<var>x</var></kbd></code></pre>
+
+          <p class="note">Logga inte ut, utan låt PSFTP-fönstret vara öppet.</p>
+        </section>
+
+        <section>
+          <h3 id="mk-rpm">Steg 3 – bygg rpm-paket på testservern</h3>
+
+          <ol>
+            <li>
+              Starta <code>PuTTy</code> via Start-menyn på hoppservern (test).
+            </li>
+            <li>
+              Logga in på testservern <code>distlweb0001.utv.digg.se</code>.
+            </li>
+            <li>
+              <pre
+                class="bash"
+              ><code lang="en">$ <kbd>cd rpmbuild</kbd></code></pre>
+            </li>
+            <li>
+              Flytta spec-filen:
+              <pre
+                class="bash"
+              ><code lang="en" class="bash">$ <kbd>mv -f SOURCES/manual-2.<var>x</var>/manual.spec SPEC/</kbd></code></pre>
+            </li>
+            <li>
+              Bygg en <i lang="en">tarball</i>:
+              <pre class="bash"><code lang="en">$ <kbd>cd SOURCES</kbd>
+$ <kbd>tar czf manual-2.<var>x</var>.tar.gz manual-2.<var>x</var></kbd></code></pre>
+            </li>
+            <li>
+              Bygg <abbr>rpm</abbr>-paketet:
+              <pre class="bash"><code lang="en">$ <kbd>cd ..</kbd>
+$ <kbd>rpmbuild -bb SPECS/manual.spec</kbd></code></pre>
+            </li>
+          </ol>
+
+          <p>
+            Nu kan du logga ut från testservern med
+            <kbd><kbd>Ctrl</kbd>+<kbd>D</kbd></kbd
+            >.
+          </p>
+        </section>
+
+        <section>
+          <h3 id="web2jmp-test">Steg 4 – kopiera från testservern</h3>
+
+          <p>I PSFTP-fönstret på hoppservern (test):</p>
+
+          <pre
+            class="bash"
+          ><code lang="en">psftp&gt; <kbd>cd ../RPMS/noarch</kbd>
+psftp&gt; <kbd>get manual-2.<var>x</var>-<var>y</var>.el7_9.noarch.rpm</kbd>
+psftp&gt; <kbd>bye</kbd></code></pre>
+        </section>
+
+        <section>
+          <h3 id="jmp2dev-test">
+            Steg 5 – flytta <abbr>rpm</abbr> från hoppserver (test)
+          </h3>
+
+          <ol>
+            <li>
+              Kopiera
+              <code>manual-2.<var>x</var>-<var>y</var>.el7_9.noarch.rpm</code>
+              med <kbd><kbd>Ctrl</kbd>+<kbd>C</kbd></kbd> från Utforskaren på
+              hoppservern och klistra in den med
+              <kbd><kbd>Ctrl</kbd>+<kbd>V</kbd></kbd> i Utforskaren i din
+              utvecklingsmiljö.
+            </li>
+            <li>
+              Städa bort zip-fil, uppackad mapp och <abbr>rpm</abbr>-paket från
+              hoppservern (test).
+            </li>
+            <li>Logga ut från hoppservern (test).</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3 id="dev2jmp-prod">
+            Steg 6 – kopiera <abbr>rpm</abbr> till hoppserver (produktion)
+          </h3>
+
+          <ol>
+            <li>
+              Logga in på hoppservern <code>dispwmem0001.digg.se</code> via
+              Anslutning till fjärrskrivbord (mstsc).
+            </li>
+            <li>
+              Öppna utforskaren på hoppservern och öppna mappen
+              <code lang="en">Documents</code> (Mina dokument).
+            </li>
+            <li>
+              Kopiera
+              <code>manual-2.<var>x</var>-<var>y</var>.el7_9.noarch.rpm</code>
+              med <kbd><kbd>Ctrl</kbd>+<kbd>C</kbd></kbd> från utvecklingsmiljön
+              och klistra in den med <kbd><kbd>Ctrl</kbd>+<kbd>V</kbd></kbd> på
+              hoppservern (dra-och-släpp fungerar inte).
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h3 id="jmp2web-prod">
+            Steg 7 – kopiera <abbr>rpm</abbr> till produktionsservern
+          </h3>
+
+          <p>
+            Starta <code>PSFTP</code> via Start-menyn på hoppservern
+            (produktion) och kör följande kommandon:
+          </p>
+
+          <pre
+            class="bash"
+          ><code lang="en">psftp&gt; <kbd>lcd \Users\<var lang="sv">användarnamn</var>\Documents</kbd>
+psftp&gt; <kbd>open displweb0001.digg.se</kbd>
+<i>(logga in med användarnamn och lösenord)</i>
+psftp&gt; <kbd>put manual-2.<var>x</var>-<var>y</var>.el7_9.noarch.rpm</kbd>
+psftp&gt; <kbd>bye</kbd></code></pre>
+        </section>
+
+        <section>
+          <h3 id="install-rpm">
+            Steg 8 – installera <abbr>rpm</abbr> på produktionsservern
+          </h3>
+
+          <ol>
+            <li>
+              Starta <code>PuTTy</code> via Start-menyn på hoppservern
+              (produktion).
+            </li>
+            <li>
+              Logga in på produktionsservern <code>displweb0001.digg.se</code>.
+            </li>
+            <li>
+              Installera <abbr>rpm</abbr>-paketet:
+              <pre
+                class="bash"
+              ><code lang="en">$ <kbd>sudo rpm -Uh manual-2.<var>x</var>-<var>y</var>.el7_9.noarch.rpm</kbd></code></pre>
+            </li>
+            <li>Städa gärna bort gamla <abbr>rpm</abbr>-versioner.</li>
+            <li>
+              Nu kan du logga ut från produktionsservern med
+              <kbd><kbd>Ctrl</kbd>+<kbd>D</kbd></kbd
+              >.
+            </li>
+          </ol>
+
+          <p>Logga ut från hoppservern (produktion).</p>
+
+          <p>Leveransen är klar!</p>
+        </section>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="test.html" accesskey="N" rel="next"><span>Enhetstester</span></a>
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="hjalpverktyg.html" accesskey="F" rel="prev"
+        ><span>Hjälpverktyg</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 190">
+  <g id="SampleDisplayView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="229" height="182"/>
+      <line x1="1" y1="12" x2="230" y2="12"/>
+      <line x1="1" y1="62" x2="230" y2="62"/>
+    </g>
+
+    <g stroke="none">
+      <text x="120" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">SampleDisplayView</text>
+      <text x="5" y="20">+copyNotes: boolean</text>
+      <text x="5" y="30">+edit: string</text>
+      <text x="5" y="40">+note: string</text>
+      <text x="5" y="50">+sourceRequirements: string[]</text>
+      <text x="5" y="60">+sourceSample: number</text>
+      <text x="5" y="70">activate(): void</text>
+      <text x="5" y="80">addComponent(string): void</text>
+      <text x="5" y="90">addContentType(string): void</text>
+      <text x="5" y="100">addRequirement(string, string, string, boolean, boolean): void</text>
+      <text x="5" y="110">addSection(string): void</text>
+      <text x="5" y="120">addSubsection(string, number): void</text>
+      <text x="5" y="130">setApprove(string, string): void</text>
+      <text x="5" y="140">setAuditLink(string, string): void</text>
+      <text x="5" y="150">setCopyableRequirements(object[], boolean): void</text>
+      <text x="5" y="160">setCopyableSamples(object[]): void</text>
+      <text x="5" y="170">setHeading(string, string [, string]): void</text>
+      <text x="5" y="180">setProgress(number, number, string): void</text>
+    </g>
+  </g>
+</svg>

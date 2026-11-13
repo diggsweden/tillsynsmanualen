@@ -1,0 +1,28 @@
+{
+  "methods": [
+    "Kontrollera att färg inte används som det enda visuella sättet att förmedla information, kommunicera status eller tillstånd för ett objekt, indikera en åtgärd eller särskilja ett visuellt element."
+  ],
+  "examples": {
+    "bad": [
+      "Ett diagram använder enbart färg för att särskilja de olika staplarna",
+      "En filtreringsfunktion indikerar det aktiva filtret endast med en annan färg än övriga filter"
+    ],
+    "good": [
+      "Ett diagram använder både färg och mönster för att särskilja staplarna.",
+      "En filtreringsfunktion indikerar det aktiva filtret med både fetstil och avvikande färg."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "bookmarklet",
+      "file": "Grayscale",
+      "title": "Gråskala"
+    }
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "text": "I Chrome kan du också använda Inspektören. Se till att visa ”byrålådan” <samp lang=en>Rendering</samp> (tryck <kbd><kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd>P</kbd></kbd> och skriv ”<kbd>show rendering</kbd>”). Använd <kbd><kbd>Esc</kbd></kbd> för att visa/dölja byrålådor. Under <samp lang=en>Rendering</samp>, använd <samp lang=en>Emulate vision deficiencies</samp> och ställ in den på ”<samp lang=en>Achromatopsia (no color)</samp>” för att visa sidan i gråskala."
+    }
+  ]
+}

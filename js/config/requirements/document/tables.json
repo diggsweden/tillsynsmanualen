@@ -1,0 +1,19 @@
+{
+  "methods": [
+    "PDF: Gör en tillgänglighetskontroll och se till att inga varningar finns angående tabeller.",
+    "PDF: Välj <samp>Tillgänglighet|Läsordning</samp> och markera radioknappen <samp>Strukturtyper</samp>. Kontrollera att samtliga tabeller är korrekt uppmärkta och att alla celler är uppmärkta som rubrikceller eller dataceller. Gör detta för varje sida där tabeller förekommer.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: Visa markeringsfönstret, bläddra igenom dokumentet och kontrollera att markeringsordningen är meningsfull."
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "filters": ["doc", "docx", "ppt", "pptx", "xls", "xlsx"],
+      "text": "Visa markeringsfönstret: <samp>Start|Markera|Markeringsfönster…</samp>."
+    },
+    {
+      "type": "note",
+      "filters": ["doc", "docx", "ppt", "pptx", "xls", "xlsx"],
+      "text": "Observera att markeringsfönstret visar objekten i fallande ordning, alltså att det första elementet i läsordningen visas längst ned i listan."
+    }
+  ]
+}

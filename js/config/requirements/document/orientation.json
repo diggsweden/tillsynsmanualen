@@ -1,0 +1,9 @@
+{
+  "methods": [
+    "Vrid den mobila enheten 90° och kontrollera att innehållet anpassar sig (eller går att anpassa) efter orienteringen, alltså att textriktningen ändras så att den följer orienteringen."
+  ],
+  "exceptions": [
+    "En viss orientering är nödvändig, som för innehåll som till sin natur är avlångt (till exempel en pianoapp).",
+    "Användaren har valt att låsa orienteringen i sin mobila enhet."
+  ]
+}

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för startsida, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Klasser och attribut. */
+
+  col.date {
+    width: 7.5em;
+  }
+
+  table.log {
+    width: 100%;
+    table-layout: fixed;
+  }
+  table.log td,
+  table.log th {
+    padding: 0;
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Klasser och attribut. */
+
+  col.date {
+    width: 7.5em;
+  }
+
+  /* Sidelement. */
+
+  body > header > p {
+    font-size: 120%;
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Klasser och attribut. */
+
+  .action span {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+  }
+}

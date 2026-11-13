@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Spela filmen och kontrollera att det går att komma är reglagen för att visa/dölja undertexter och syntolkning med samma antal tryckningar som för att spela/pausa filmen"
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Interaktionsnivå",
+      "description": "Hur många handgrepp, till exempel musklick eller tangenttryckningar, som krävs för att nå och aktivera ett reglage."
+    },
+    {
+      "type": "definition",
+      "term": "Primära mediereglage",
+      "description": "Reglagen för att starta, pausa eller stoppa uppspelningen av filmen, eller för att höja eller sänka ljudvolymen."
+    }
+  ]
+}

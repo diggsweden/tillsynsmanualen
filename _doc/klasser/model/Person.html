@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Person – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 12rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">Person</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Person</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-add-role"><code lang="en">addRole()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-role"><code lang="en">deleteRole()</code></a>
+          </li>
+          <li>
+            <a href="#m-has-role"><code lang="en">hasRole()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-json"><code lang="en">toJSON()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-string"><code lang="en">toString()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Person</code> representerar en person vars
+        uppgifter behöver refereras till då och då: handläggare och, vid
+        tillsyn, tillsynsansvariga.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/Person.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/Person.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>entries</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>id</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 120 150" class="class uml-diagram">
+          <!--Person-->
+          <use xlink:href="Person.svg#Person" x="0" y="0" class="highlight" />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Person</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Om ett dataobjekt anges som argument populerar konstruktorn instansen
+          med informa&shy;tionen i det. Det används vid återskapande av ett
+          objekt när det hämtas från objektdata&shy;basen eller när ett sparat
+          ärende i JSON-format läses in från fil.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Person</span>()
+<span class="keyword">new</span> <span class="ident">Person</span>(<span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">email</code></dt>
+          <dd>E-postadress.</dd>
+
+          <dt><code lang="en">familyName</code></dt>
+          <dd>Efternamn.</dd>
+
+          <dt><code lang="en">giveName</code></dt>
+          <dd>Förnamn.</dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>Identitet i databasen (kan sättas, men inte ändras).</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>
+            Hela namnet (Efternamn, Förnamn); jämför
+            <code lang="en">toString()</code>.
+          </dd>
+
+          <dt><code lang="en">roles</code></dt>
+          <dd>
+            En vektor med de roller personen innehar. De roller som används är
+            <code lang="en" class="js literal">"officer"</code> (handläggare)
+            och
+            <code lang="en" class="js literal">"supervisor"</code>
+            (tillsynsansvarig).
+          </dd>
+
+          <dt><code lang="en">telephone</code></dt>
+          <dd>Telefonnummer.</dd>
+        </dl>
+
+        <p>
+          E-postadressen används som nyckel i databasen och är därför
+          obligatorisk.
+        </p>
+
+        <p>
+          Klassen använder <code lang="en">TelephoneNumber</code> internt för
+          validering och formatering, men åtkomstmetoderna för fältet hanterar
+          det som en sträng.
+        </p>
+      </section>
+
+      <!--addRole()-->
+      <section>
+        <h2 id="m-add-role"><code lang="en">addRole()</code></h2>
+
+        <p>Lägger till en roll för personen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addRole</span>(<span class="var">role</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">role</code></dt>
+          <dd>Roll att lägga till.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--deleteRole()-->
+      <section>
+        <h2 id="m-delete-role"><code lang="en">deleteRole()</code></h2>
+
+        <p>Tar bort angiven roll från personen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteRole</span>(<span class="var">role</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">role</code></dt>
+          <dd>Roll att ta bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--hasRole()-->
+      <section>
+        <h2 id="m-has-role"><code lang="en">hasRole()</code></h2>
+
+        <p>Kontrollerar om personen har angiven roll.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">hasRole</span>(<span class="var">role</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">role</code></dt>
+          <dd>Roll att kontrollera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om personen har den
+          angivna rollen, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          personinformationen.
+        </p>
+      </section>
+
+      <!--toJSON()-->
+      <section>
+        <h2 id="m-to-json"><code lang="en">toJSON()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett ärende sparas till fil.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toJSON</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          personinformationen.
+        </p>
+      </section>
+
+      <!--toString()-->
+      <section>
+        <h2 id="m-to-string"><code lang="en">toString()</code></h2>
+
+        <p>Omvandlar ett personobjekt till en sträng.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toString</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En sträng på formen ”Förnamn Efternamn” (jämför fältet
+          <code lang="en">name</code>).
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="TelephoneNumber.html"
+              ><code lang="en">TelephoneNumber</code></a
+            >
+          </li>
+          <li>
+            <a href="ValidationError.html"
+              ><code lang="en">ValidationError</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

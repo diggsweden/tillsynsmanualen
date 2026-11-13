@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Verktyg</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="../css/audit.css" />
+    <link rel="stylesheet" href="../css/requirement.css" />
+    <style>
+      article > div[role='status']:not(:empty) {
+        margin: 0 0 2.25em;
+        border: 2px solid;
+        border-radius: 0.5em;
+        padding: 1em;
+        color: var(--fail);
+      }
+      .tool-opt {
+      }
+      .tool-opt > p {
+        display: flex;
+        align-items: flex-end;
+        column-gap: 0.25em;
+      }
+      .tool-opt p span {
+        display: inline-block;
+        flex: 1 1;
+      }
+      .tool-opt p button {
+        flex: 0 0 auto;
+      }
+      .tool-opt table {
+        width: 100%;
+      }
+      .tool-opt tr > *:last-child {
+        width: 4em;
+        text-align: center;
+      }
+      .tool-opt tr button {
+        border: 0;
+        padding: 0 0.5em;
+      }
+    </style>
+  </head>
+
+  <body class="focus font">
+    <main>
+      <article>
+        <h1>Verktygstest</h1>
+        <div role="status"></div>
+        <form>
+          <div>
+            <p>
+              <label for="tool-module">Modulnamn</label>
+              <input type="text" required list="modules" id="tool-module" />
+              <datalist id="modules">
+                <option>Contrast</option>
+                <option>FlashThreshold</option>
+                <option>FontSize</option>
+                <option>Oscillator</option>
+                <option>SAO</option>
+                <option>SpacingProperties</option>
+                <option>Timer</option>
+              </datalist>
+            </p>
+
+            <details>
+              <summary>Parametrar</summary>
+
+              <fieldset class="tool-opt">
+                <legend>Parametrar</legend>
+                <p>
+                  <span>
+                    <label for="tool-opt-name">Namn</label>
+                    <input type="text" id="tool-opt-name" />
+                  </span>
+                  <span>
+                    <label for="tool-opt-value">Värde</label>
+                    <input type="text" id="tool-opt-value" />
+                  </span>
+                  <button type="button" id="tool-opt-add">Lägg till</button>
+                </p>
+
+                <table>
+                  <caption>
+                    Tillagda parametrar
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Namn</th>
+                      <th scope="col">Värde</th>
+                      <th scope="col">Ta bort</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tool-options">
+                    <template id="tool-option-template">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td><button type="button">&#x2212;</button></td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </fieldset>
+            </details>
+
+            <p><button type="button" id="tool-load">Ladda modul</button></p>
+          </div>
+
+          <aside>
+            <h2>Mer info</h2>
+            <section class="tools">
+              <h3>Verktyg</h3>
+            </section>
+          </aside>
+        </form>
+      </article>
+    </main>
+    <script src="verktyg.js" type="module"></script>
+  </body>
+</html>

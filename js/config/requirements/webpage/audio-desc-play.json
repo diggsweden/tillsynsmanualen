@@ -1,0 +1,16 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "Om mediespelaren inte kan mixa flera ljudspår kan den i stället ha en funktion som sömlöst växlar mellan två olika ljudspår eller filmer (med/utan syntolkning)."
+    },
+    {
+      "type": "tip",
+      "text": "Funktioner i mediespelare för att aktivera syntolkning använder ofta förkortningen <abbr>AD</abbr> <i translate=\"no\" lang=\"en\">(audio description)</i> eller symbolen <img src=\"../img/audio-descr.png\" alt=\"Ett öga och tre koncentriska cirkelsegment som symboliserar ljudvågor\" style=\"vertical-align:middle\">."
+    }
+  ],
+  "instruction": {
+    "id": "en-7.1-7.2",
+    "title": "Mediespelare"
+  }
+}

@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Modellen – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      section {
+        max-width: 40em;
+      }
+
+      svg.audit {
+        width: 70rem;
+      }
+      svg.cases {
+        width: 70rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Modellen</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Modellen</h1>
+
+      <p>
+        Modellen representerar de entiteter granskningsfunktionen hanterar. De
+        primära entitet&shy;erna är hierarkin ärende &rarr; granskning &rarr;
+        stickprov &rarr; krav &rarr; kontroll. Därutöver finns några
+        stödentiteter och hjälpklasser. För ärenden, digital service, stickprov
+        och kontroller – som representeras av specialiserade subklasser – finns
+        också fabriksklasser.
+      </p>
+
+      <p>
+        Klassen <code lang="en">Model</code> är gränssnittet mellan
+        applikationen och persistent lagring. Den skriver och hämtar information
+        i lagringsutrymmet för inställningar och i objektdatabasen.
+      </p>
+
+      <p>
+        En lite udda fågel är klassen
+        <code lang="en">InaccessibilityMetric</code> som beräknar mätetal för
+        otill&shy;gänglighet. Mätetalen används i granskningsprotokollet.
+      </p>
+
+      <section>
+        <h2>Ärendeklasser</h2>
+
+        <p>
+          Basklassen för ärenden är <code lang="en">AuditCase</code>, som
+          representerar ett generellt granskningsärende. Användare i det
+          förenklade visningsläget hanterar ärenden av denna klass. I det
+          avance&shy;rade visningsläget använder granskaren i stället två
+          subklasser: <code lang="en">ComplaintCase</code>
+          (anmäl&shy;ningsärende) och – framför allt –
+          <code lang="en">MonitoringCase</code> (övervakningsärende).
+        </p>
+
+        <p>
+          Information om den granskade aktören ligger i en egen klass (<code
+            lang="en"
+            >Organization</code
+          >). Noteringar i ärendeloggen representeras av klassen
+          <code lang="en">LogEntry</code>.
+        </p>
+
+        <p>
+          Information om den granskade digitala servicen representeras av
+          basklassen <code lang="en">Service</code>, via någon av subklasserna
+          <code lang="en">MobileApp</code> eller <code lang="en">Website</code>.
+        </p>
+
+        <p>Hierarkin av klasser som ingår i en granskning beskrivs nedan.</p>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 700 520" class="class uml-diagram cases">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+
+              <marker
+                class="hollow"
+                id="inheritance"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M1,0 8,4 1,8 Z" />
+              </marker>
+            </defs>
+
+            <g transform="translate(295, 0)">
+              <!--AuditCase-->
+              <g>
+                <rect x="0.5" y="0.5" width="100" height="222" />
+                <text x="50" y="10" class="class">AuditCase</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">+caseNumber</text>
+                <text x="5" y="30">+filename</text>
+                <text x="5" y="40">+id</text>
+                <text x="5" y="50">+logSize</text>
+                <text x="5" y="60">+monitoring</text>
+                <text x="5" y="70">+opened</text>
+                <text x="5" y="80">+organization</text>
+                <text x="5" y="90">+service</text>
+                <text x="5" y="100">+text</text>
+                <line x1="1" y1="102" x2="100" y2="102" />
+                <text x="5" y="110">audit(number)</text>
+                <text x="5" y="120">audits()</text>
+                <text x="5" y="130">deleteAudit()</text>
+                <text x="5" y="140">deleteEntry()</text>
+                <text x="5" y="150">entry()</text>
+                <text x="5" y="160">log()</text>
+                <text x="5" y="170">open()</text>
+                <text x="5" y="180">serialize()</text>
+                <text x="5" y="190">setAudit()</text>
+                <text x="5" y="200">setEntry()</text>
+                <text x="5" y="210">toJSON()</text>
+                <text x="5" y="220">toString()</text>
+
+                <line x1="0" y1="78" x2="-44" y2="78" class="composition" />
+                <line x1="0" y1="211" x2="-44" y2="211" class="composition" />
+                <line x1="101" y1="48" x2="205" y2="48" class="composition" />
+                <path d="M101,88 h52 v128 h52" , class="composition" />
+                <line x1="50" y1="223" x2="50" y2="340" class="composition" />
+              </g>
+
+              <g transform="translate(-145, 32)">
+                <!--Organization-->
+                <g>
+                  <rect x="0.5" y="0.5" width="100" height="92" />
+                  <text x="50" y="10" class="class">Organization</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">+abbreviation</text>
+                  <text x="5" y="30">+address</text>
+                  <text x="5" y="40">+email</text>
+                  <text x="5" y="50">+name</text>
+                  <text x="5" y="60">+registrationNumber</text>
+                  <text x="5" y="70">+telephone</text>
+                  <line x1="1" y1="72" x2="100" y2="72" />
+                  <text x="5" y="80">serialize()</text>
+                  <text x="5" y="90">toJSON()</text>
+
+                  <line x1="0" y1="58" x2="-49" y2="58" class="composition" />
+                  <path d="M0,68 h-25 v21 h-24" class="composition" />
+                </g>
+
+                <!--RegistrationNumber-->
+                <g transform="translate(-150, 47)">
+                  <rect x="0.5" y="0.5" width="100" height="22" />
+                  <text x="50" y="10" class="class">RegistrationNumber</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">toString()</text>
+                </g>
+              </g>
+
+              <!--Audit-->
+              <g transform="translate(-145, 200)">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">Audit</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">(se Figur 2)</text>
+              </g>
+
+              <!--LogEntry-->
+              <g transform="translate(205, 0)">
+                <rect x="0.5" y="0.5" width="100" height="122" />
+                <text x="50" y="10" class="class">LogEntry</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">+caseID</text>
+                <text x="5" y="30">+data</text>
+                <text x="5" y="40">+direction</text>
+                <text x="5" y="50">+id</text>
+                <text x="5" y="60">+summary</text>
+                <text x="5" y="70">+text</text>
+                <text x="5" y="80">+timestamp</text>
+                <text x="5" y="90">+type</text>
+                <line x1="1" y1="92" x2="100" y2="92" />
+                <text x="5" y="100">serialize()</text>
+                <text x="5" y="110">toJSON()</text>
+                <text x="5" y="120">toString()</text>
+              </g>
+
+              <g transform="translate(205, 190)">
+                <!--Service-->
+                <g>
+                  <rect x="0.5" y="0.5" width="100" height="52" />
+                  <text x="50" y="10" class="class">Service</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">+authentication</text>
+                  <text x="5" y="30">+name</text>
+                  <line x1="1" y1="32" x2="100" y2="32" />
+                  <text x="5" y="40">serialize()</text>
+                  <text x="5" y="50">toJSON()</text>
+                </g>
+
+                <g transform="translate(-60, 140)">
+                  <!--MobileApp-->
+                  <g>
+                    <line x1="85" y1="0" x2="85" y2="-87" class="inheritance" />
+                    <rect x="0.5" y="0.5" width="100" height="42" />
+                    <text x="50" y="10" class="class">MobileApp</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+operatingSystem</text>
+                    <text x="5" y="30">+type</text>
+                    <line x1="1" y1="32" x2="100" y2="32" />
+                    <text x="5" y="40">serialize()</text>
+                  </g>
+
+                  <!--Website-->
+                  <g transform="translate(120, 0)">
+                    <line x1="15" y1="0" x2="15" y2="-87" class="inheritance" />
+                    <rect x="0.5" y="0.5" width="100" height="42" />
+                    <text x="50" y="10" class="class">Website</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+access</text>
+                    <text x="5" y="30">+type</text>
+                    <line x1="1" y1="32" x2="100" y2="32" />
+                    <text x="5" y="40">serialize()</text>
+                  </g>
+                </g>
+              </g>
+
+              <g transform="translate(-75, 270)">
+                <!--ComplaintCase-->
+                <g>
+                  <rect x="0.5" y="0.5" width="100" height="62" />
+                  <text x="50" y="10" class="class">ComplaintCase</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">+date</text>
+                  <text x="5" y="30">+monitoring</text>
+                  <text x="5" y="40">+sections</text>
+                  <text x="5" y="50">+supervisor</text>
+                  <line x1="1" y1="52" x2="100" y2="52" />
+                  <text x="5" y="60">serialize()</text>
+
+                  <path d="M50,0 v-23 h45 v-23" class="inheritance" />
+                  <path d="M0,47 h-20 v43" class="composition" />
+                </g>
+
+                <g transform="translate(150, 0)">
+                  <!--MonitoringCase-->
+                  <g>
+                    <rect x="0.5" y="0.5" width="100" height="52" />
+                    <text x="50" y="10" class="class">MonitoringCase</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+monitoring</text>
+                    <text x="5" y="30">+schedule</text>
+                    <text x="5" y="40">+sections</text>
+                    <line x1="1" y1="42" x2="100" y2="42" />
+                    <text x="5" y="50">serialize()</text>
+
+                    <path d="M50,0 v-23 h-45 v-23" class="inheritance" />
+                    <line
+                      x1="50"
+                      y1="53"
+                      x2="50"
+                      y2="130"
+                      class="composition"
+                    />
+                  </g>
+
+                  <!--Schedule-->
+                  <g transform="translate(0, 130)">
+                    <rect x="0.5" y="0.5" width="100" height="112" />
+                    <text x="50" y="10" class="class">Schedule</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+begins</text>
+                    <text x="5" y="30">+caseNumber</text>
+                    <text x="5" y="40">+date</text>
+                    <text x="5" y="50">+ends</text>
+                    <text x="5" y="60">+id</text>
+                    <text x="5" y="70">+period</text>
+                    <text x="5" y="80">+supervisor</text>
+                    <line x1="1" y1="82" x2="100" y2="82" />
+                    <text x="5" y="90">serialize()</text>
+                    <text x="5" y="100">toJSON()</text>
+                    <text x="5" y="110">toString()</text>
+
+                    <path d="M0,28 h-20 v-36" class="composition" />
+                  </g>
+                </g>
+              </g>
+
+              <!--CaseNumber-->
+              <g transform="translate(0, 340)">
+                <rect x="0.5" y="0.5" width="100" height="52" />
+                <text x="50" y="10" class="class">CaseNumber</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">+id</text>
+                <text x="5" y="30">+serial</text>
+                <text x="5" y="40">+year</text>
+                <line x1="1" y1="42" x2="100" y2="42" />
+                <text x="5" y="50">toString()</text>
+              </g>
+
+              <!--TelephoneNumber-->
+              <g transform="translate(-295, 110)">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">TelephoneNumber</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">toString()</text>
+              </g>
+
+              <!--Person-->
+              <g transform="translate(-145, 360)">
+                <rect x="0.5" y="0.5" width="100" height="142" />
+                <text x="50" y="10" class="class">Person</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">+email</text>
+                <text x="5" y="30">+familyName</text>
+                <text x="5" y="40">+giveName</text>
+                <text x="5" y="50">+id</text>
+                <text x="5" y="60">+name</text>
+                <text x="5" y="70">+roles</text>
+                <text x="5" y="80">+telephone</text>
+                <line x1="1" y1="82" x2="100" y2="82" />
+                <text x="5" y="90">addRole()</text>
+                <text x="5" y="100">deleteRole()</text>
+                <text x="5" y="110">hasRole()</text>
+                <text x="5" y="120">serialize()</text>
+                <text x="5" y="130">toJSON()</text>
+                <text x="5" y="140">toString()</text>
+
+                <path d="M0,78 h-95 v-305" class="composition" />
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>Klassdiagram för ärendeklasser.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Granskningshierarkin</h2>
+
+        <p>
+          Ett granskningsärende innehåller granskningar, som representeras av
+          klassen <code lang="en">Audit</code>.
+        </p>
+
+        <p>
+          Varje granskning består av stickprov (ett 30-tal vid övervakning) som
+          representeras av basklassen <code lang="en">Sample</code> via
+          subklasserna <code lang="en">Webpage</code> (webbsida),
+          <code lang="en">NonWebDocument</code> (dokument) eller
+          <code lang="en">AppScreen</code> (vy). Webbsidor och vyer kan också
+          innehålla <dfn>komponenter</dfn> som återanvänds på flera ställen.
+          Dessa representeras av en annan subklass till
+          <code lang="en">Sample</code>, nämligen
+          <code lang="en">Component</code>.
+        </p>
+
+        <p>
+          Ett stickprov innehåller i sin tur ett stort antal krav,
+          representerade av instanser av klassen
+          <code lang="en">Requirement</code>. Ett krav, slutligen, består av en
+          eller flera kontroller som representeras av klassen
+          <code lang="en">Check</code> via subklasserna
+          <code lang="en">SingleCheck</code> (singulär kontroll),
+          <code lang="en">MultipleCheck</code> (multipel kontroll) och
+          <code lang="en">DerivedCheck</code> (härledd kontroll).
+        </p>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 700 870" class="class uml-diagram audit">
+            <g transform="translate(230, 70)">
+              <!--AuditCase-->
+              <g transform="translate(0, -70)">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="50" y="10" class="class">AuditCase</text>
+                <text x="5" y="20">(se Figur 1)</text>
+
+                <line x1="50" y1="23" x2="50" y2="70" class="composition" />
+              </g>
+
+              <g>
+                <!--Audit-->
+                <g>
+                  <rect x="0.5" y="0.5" width="100" height="432" />
+                  <text x="50" y="10" class="class">Audit</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">+caseID</text>
+                  <text x="5" y="30">+failed</text>
+                  <text x="5" y="40">+finished</text>
+                  <text x="5" y="50">+id</text>
+                  <text x="5" y="60">+firstSample</text>
+                  <text x="5" y="70">+injunctions</text>
+                  <text x="5" y="80">+officer</text>
+                  <text x="5" y="90">+remarks</text>
+                  <text x="5" y="100">+started</text>
+                  <text x="5" y="110">+version</text>
+                  <line x1="1" y1="112" x2="100" y2="112" />
+                  <text x="5" y="120">addInjunction()</text>
+                  <text x="5" y="130">addRemarks()</text>
+                  <text x="5" y="140">allSamples()</text>
+                  <text x="5" y="150">auditProgress()</text>
+                  <text x="5" y="160">components()</text>
+                  <text x="5" y="170">contains()</text>
+                  <text x="5" y="180">count()</text>
+                  <text x="5" y="190">countDone()</text>
+                  <text x="5" y="200">countType()</text>
+                  <text x="5" y="210">deleteColour()</text>
+                  <text x="5" y="220">deleteInjunction()</text>
+                  <text x="5" y="230">deleteRemarks()</text>
+                  <text x="5" y="240">deleteSample()</text>
+                  <text x="5" y="250">doneSamples()</text>
+                  <text x="5" y="260">failures()</text>
+                  <text x="5" y="270">finish()</text>
+                  <text x="5" y="280">getSampleByName()</text>
+                  <text x="5" y="290">hasColour()</text>
+                  <text x="5" y="300">nextCategory()</text>
+                  <text x="5" y="310">nextSample()</text>
+                  <text x="5" y="320">previousCategory()</text>
+                  <text x="5" y="330">randomCount()</text>
+                  <text x="5" y="340">reopen()</text>
+                  <text x="5" y="350">sampleProgress()</text>
+                  <text x="5" y="360">sample()</text>
+                  <text x="5" y="370">samples()</text>
+                  <text x="5" y="380">serialize()</text>
+                  <text x="5" y="390">setColour()</text>
+                  <text x="5" y="400">setSample()</text>
+                  <text x="5" y="410">toJSON()</text>
+                  <text x="5" y="420">toString()</text>
+                  <text x="5" y="430">useCount()</text>
+
+                  <line x1="101" y1="78" x2="150" y2="78" class="composition" />
+                  <line x1="50" y1="433" x2="50" y2="470" class="composition" />
+                </g>
+
+                <!--Person-->
+                <g transform="translate(150, 67)">
+                  <rect x="0.5" y="0.5" width="100" height="22" />
+                  <text x="50" y="10" class="class">Person</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">(se Figur 1)</text>
+                </g>
+              </g>
+
+              <g transform="translate(0, 470)">
+                <!--Sample-->
+                <g>
+                  <rect x="0.5" y="0.5" width="100" height="282" />
+                  <text x="50" y="10" class="class">Sample</text>
+                  <line x1="1" y1="12" x2="100" y2="12" />
+                  <text x="5" y="20">+auditID</text>
+                  <text x="5" y="30">+category</text>
+                  <text x="5" y="40">+contentTypes</text>
+                  <text x="5" y="50">+done</text>
+                  <text x="5" y="60">+failed</text>
+                  <text x="5" y="70">+follows</text>
+                  <text x="5" y="80">+hasExternalNotes</text>
+                  <text x="5" y="90">+hasRequirements</text>
+                  <text x="5" y="100">+id</text>
+                  <text x="5" y="110">+mode</text>
+                  <text x="5" y="120">+name</text>
+                  <text x="5" y="130">+note</text>
+                  <text x="5" y="140">+partial</text>
+                  <text x="5" y="150">+service</text>
+                  <text x="5" y="160">+started</text>
+                  <line x1="1" y1="162" x2="100" y2="162" />
+                  <text x="5" y="170">addContentType()</text>
+                  <text x="5" y="180">contains()</text>
+                  <text x="5" y="190">deleteContentType()</text>
+                  <text x="5" y="200">failures()</text>
+                  <text x="5" y="210">nextRequirement()</text>
+                  <text x="5" y="220">progress()</text>
+                  <text x="5" y="230">requirement()</text>
+                  <text x="5" y="240">requirements()</text>
+                  <text x="5" y="250">serialize()</text>
+                  <text x="5" y="260">setRequirement()</text>
+                  <text x="5" y="270">toJSON()</text>
+                  <text x="5" y="280">toString()</text>
+
+                  <path d="M101,88 h25 v-292 h25" class="composition" />
+                </g>
+
+                <g transform="translate(-170, 0)">
+                  <!--Component-->
+                  <g transform="translate(0, -10)">
+                    <rect x="0.5" y="0.5" width="100" height="72" />
+                    <text x="50" y="10" class="class">Component</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+closed</text>
+                    <text x="5" y="30">+default</text>
+                    <text x="5" y="40">+parentType</text>
+                    <text x="5" y="50">+platform</text>
+                    <text x="5" y="60">+type</text>
+                    <line x1="1" y1="62" x2="100" y2="62" />
+                    <text x="5" y="70">serialize()</text>
+
+                    <line
+                      x1="101"
+                      y1="31"
+                      x2="170"
+                      y2="31"
+                      class="inheritance"
+                    />
+                  </g>
+
+                  <!--NonWebDocument-->
+                  <g transform="translate(0, 75)">
+                    <rect x="0.5" y="0.5" width="100" height="52" />
+                    <text x="50" y="10" class="class">NonWebDocument</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+format</text>
+                    <text x="5" y="30">+type</text>
+                    <text x="5" y="40">+url</text>
+                    <line x1="1" y1="42" x2="100" y2="42" />
+                    <text x="5" y="50">serialize()</text>
+
+                    <line
+                      x1="101"
+                      y1="26"
+                      x2="170"
+                      y2="26"
+                      class="inheritance"
+                    />
+                  </g>
+
+                  <g transform="translate(0, 140)">
+                    <!--CompositeSample-->
+                    <g>
+                      <rect x="0.5" y="0.5" width="100" height="112" />
+                      <text x="50" y="10" class="class">CompositeSample</text>
+                      <line x1="1" y1="12" x2="100" y2="12" />
+                      <text x="5" y="20">+components</text>
+                      <text x="5" y="30">+isComposite</text>
+                      <text x="5" y="40">+numComponents</text>
+                      <text x="5" y="50">+pending</text>
+                      <line x1="1" y1="52" x2="100" y2="52" />
+                      <text x="5" y="60">addComponent()</text>
+                      <text x="5" y="70">clearPending()</text>
+                      <text x="5" y="80">deleteComponent()</text>
+                      <text x="5" y="90">hasComponent()</text>
+                      <text x="5" y="100">serialize()</text>
+                      <text x="5" y="110">toJSON()</text>
+
+                      <line
+                        x1="101"
+                        y1="36"
+                        x2="170"
+                        y2="36"
+                        class="inheritance"
+                      />
+                    </g>
+
+                    <g transform="translate(-60, 130)">
+                      <!--AppScreen-->
+                      <g>
+                        <rect x="0.5" y="0.5" width="100" height="52" />
+                        <text x="50" y="10" class="class">AppScreen</text>
+                        <line x1="1" y1="12" x2="100" y2="12" />
+                        <text x="5" y="20">+closed</text>
+                        <text x="5" y="30">+platform</text>
+                        <text x="5" y="40">+type</text>
+                        <line x1="1" y1="42" x2="100" y2="42" />
+                        <text x="5" y="50">serialize()</text>
+
+                        <line
+                          x1="85"
+                          y1="0"
+                          x2="85"
+                          y2="-16"
+                          class="inheritance"
+                        />
+                      </g>
+
+                      <!--Webpage-->
+                      <g transform="translate(120, 0)">
+                        <rect x="0.5" y="0.5" width="100" height="42" />
+                        <text x="50" y="10" class="class">Webpage</text>
+                        <line x1="1" y1="12" x2="100" y2="12" />
+                        <text x="5" y="20">+type</text>
+                        <text x="5" y="30">+url</text>
+                        <line x1="1" y1="32" x2="100" y2="32" />
+                        <text x="5" y="40">serialize()</text>
+
+                        <line
+                          x1="15"
+                          y1="0"
+                          x2="15"
+                          y2="-16"
+                          class="inheritance"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+
+              <!--Requirement-->
+              <g transform="translate(150, 125)">
+                <rect x="0.5" y="0.5" width="100" height="302" />
+                <text x="50" y="10" class="class">Requirement</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">+approvable</text>
+                <text x="5" y="30">+approved</text>
+                <text x="5" y="40">+categories</text>
+                <text x="5" y="50">+clause</text>
+                <text x="5" y="60">+contentTypes</text>
+                <text x="5" y="70">+dependencies</text>
+                <text x="5" y="80">+done</text>
+                <text x="5" y="90">+externalNote</text>
+                <text x="5" y="100">+failed</text>
+                <text x="5" y="110">+formats</text>
+                <text x="5" y="120">+hasChecks</text>
+                <text x="5" y="130">+id</text>
+                <text x="5" y="140">+internalNote</text>
+                <text x="5" y="150">+key</text>
+                <text x="5" y="160">+modes</text>
+                <text x="5" y="170">+sampleID</text>
+                <text x="5" y="180">+state</text>
+                <text x="5" y="190">+title</text>
+                <line x1="1" y1="192" x2="100" y2="192" />
+                <text x="5" y="200">check()</text>
+                <text x="5" y="210">checks()</text>
+                <text x="5" y="220">matchCategory()</text>
+                <text x="5" y="230">matchContentTypes()</text>
+                <text x="5" y="240">matchFormat()</text>
+                <text x="5" y="250">matchMode()</text>
+                <text x="5" y="260">matchPlatform()</text>
+                <text x="5" y="270">serialize()</text>
+                <text x="5" y="280">setCheck()</text>
+                <text x="5" y="290">toJSON()</text>
+                <text x="5" y="300">toString()</text>
+
+                <line x1="50" y1="303" x2="50" y2="345" class="composition" />
+
+                <g transform="translate(0, 300)">
+                  <!--Check-->
+                  <g transform="translate(0, 45)">
+                    <rect x="0.5" y="0.5" width="100" height="152" />
+                    <text x="50" y="10" class="class">Check</text>
+                    <line x1="1" y1="12" x2="100" y2="12" />
+                    <text x="5" y="20">+applicable</text>
+                    <text x="5" y="30">+cardinality</text>
+                    <text x="5" y="40">+disabled</text>
+                    <text x="5" y="50">+done</text>
+                    <text x="5" y="60">+failed</text>
+                    <text x="5" y="70">+id</text>
+                    <text x="5" y="80">+observation</text>
+                    <text x="5" y="90">+screenshot</text>
+                    <text x="5" y="100">+state</text>
+                    <line x1="1" y1="102" x2="100" y2="102" />
+                    <text x="5" y="110">controlledBy()</text>
+                    <text x="5" y="120">serialize()</text>
+                    <text x="5" y="130">setScreenshot()</text>
+                    <text x="5" y="140">toJSON()</text>
+                    <text x="5" y="150">toString()</text>
+                  </g>
+
+                  <g transform="translate(150, 0)">
+                    <!--DerivedCheck-->
+                    <g transform="translate(0, -40)">
+                      <path d="M0,51 h-25 v54 h-24" class="inheritance" />
+                      <rect x="0.5" y="0.5" width="100" height="102" />
+                      <text x="50" y="10" class="class">DerivedCheck</text>
+                      <line x1="1" y1="12" x2="100" y2="12" />
+                      <text x="5" y="20">+applicable</text>
+                      <text x="5" y="30">+control</text>
+                      <text x="5" y="40">+dependencies</text>
+                      <text x="5" y="50">+derived</text>
+                      <text x="5" y="60">+global</text>
+                      <text x="5" y="70">+state</text>
+                      <text x="5" y="80">+sources</text>
+                      <line x1="1" y1="82" x2="100" y2="82" />
+                      <text x="5" y="90">dependsOn()</text>
+                      <text x="5" y="100">serialize()</text>
+                    </g>
+
+                    <!--MultipleCheck-->
+                    <g transform="translate(0, 85)">
+                      <line
+                        x1="0"
+                        y1="31"
+                        x2="-49"
+                        y2="31"
+                        class="inheritance"
+                      />
+                      <rect x="0.5" y="0.5" width="100" height="62" />
+                      <text x="50" y="10" class="class">MultipleCheck</text>
+                      <line x1="1" y1="12" x2="100" y2="12" />
+                      <text x="5" y="20">+cardinality</text>
+                      <text x="5" y="30">+state</text>
+                      <line x1="1" y1="32" x2="100" y2="32" />
+                      <text x="5" y="40">fail()</text>
+                      <text x="5" y="50">fails()</text>
+                      <text x="5" y="60">serialize()</text>
+                    </g>
+
+                    <!--SingleCheck-->
+                    <g transform="translate(0, 170)">
+                      <path d="M0,16 h-25 v-32 h-24" class="inheritance" />
+                      <rect x="0.5" y="0.5" width="100" height="32" />
+                      <text x="50" y="10" class="class">SingleCheck</text>
+                      <line x1="1" y1="12" x2="100" y2="12" />
+                      <text x="5" y="20">+state</text>
+                      <line x1="1" y1="22" x2="100" y2="22" />
+                      <text x="5" y="30">serialize()</text>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>Klassdiagram för granskningshierarkin.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="klasser/model/Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="klasser/model/CaseNumber.html"
+              ><code lang="en">CaseNumber</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/service.index.html"
+              >Digital service-klasser</a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/InaccessibilityMetric.html"
+              ><code lang="en">InaccessibilityMetric</code></a
+            >
+          </li>
+          <li><a href="klasser/model/check.index.html">Kontrollklasser</a></li>
+          <li>
+            <a href="klasser/model/LogEntry.html"
+              ><code lang="en">LogEntry</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Organization.html"
+              ><code lang="en">Organization</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Person.html"
+              ><code lang="en">Person</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/RegistrationNumber.html"
+              ><code lang="en">RegistrationNumber</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Requirement.html"
+              ><code lang="en">Requirement</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/sample.index.html">Stickprovsklasser</a>
+          </li>
+          <li>
+            <a href="klasser/model/Schedule.html"
+              ><code lang="en">Schedule</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/TelephoneNumber.html"
+              ><code lang="en">TelephoneNumber</code></a
+            >
+          </li>
+          <li><a href="klasser/model/case.index.html">Ärendeklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="vy.html" accesskey="N" rel="next"
+        ><span>Basklass för vyer</span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="lagring.html" accesskey="F" rel="prev"><span>Lagring</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

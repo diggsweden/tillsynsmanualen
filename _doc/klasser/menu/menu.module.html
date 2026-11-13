@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>menu.module.js – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">menu.module.js</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">menu.module.js</code>
+      </h1>
+
+      <p>Initieringsmodul för menyfunktioner.</p>
+
+      <section>
+        <h2>Menyrad</h2>
+
+        <p>
+          Modulen skapar en instans av
+          <a href="MenuBuilder.html"><code lang="en">MenuBuilder</code></a>
+          och en instans av
+          <a href="MenuController.html"><code lang="en">MenuController</code></a
+          >.
+        </p>
+
+        <p>
+          Därefter söker den i dokumentet efter ett element med
+          <code lang="en" class="html attr"
+            >id=<span>"nav-placeholder"</span></code
+          >. Om det existerar låter modulen
+          <code lang="en">MenuBuilder</code>-instansen bygga en instans av
+          <a href="Menubar.html"><code lang="en">Menubar</code></a> som ersätter
+          platshållaren med en genererad menyrad. Modulen kopplar också
+          menyraden till meny&shy;controllern, som hanterar
+          användarinteraktionen.
+        </p>
+      </section>
+
+      <section>
+        <h2>Innehållsmeny</h2>
+
+        <p>
+          Om det finns ett
+          <code lang="en" class="html tag">&lt;nav&gt;</code>-element med
+          <code lang="en" class="html attr"
+            >class=<span>"page-menu"</span></code
+          >
+          förutsätts det innehålla en lista (<code class="html tag"
+            >&lt;ul&gt;</code
+          >) med ankarlänkar till avsnitt på sidan. Modulen skapar en instans av
+          <a href="ContentMenu.html"><code lang="en">ContentMenu</code></a> och
+          traverserar sedan listans länkar och skapar en instans av
+          <a href="MenuItem.html"><code lang="en">MenuItem</code></a> för var
+          och en och lägger till den till innehållsmenyn.
+        </p>
+
+        <p>
+          Modulen skapar också en instans av
+          <a href="MenuButton.html"><code lang="en">MenuButton</code></a> för
+          att erbjuda en menyknapp för inne&shy;hållsmenyn i smala vyer. Modulen
+          kopplar menyknappen till menycontrollern som hante&shy;rar
+          interaktionen.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

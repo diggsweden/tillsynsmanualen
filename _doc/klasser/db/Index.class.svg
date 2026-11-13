@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 80">
+  <g id="Index">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="72"/>
+      <line x1="1" y1="12" x2="140" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Index</text>
+      <text x="5" y="20">count([*]): promise</text>
+      <text x="5" y="30">get([*]): promise</text>
+      <text x="5" y="40">getAll([*] [,number]): promise</text>
+      <text x="5" y="50">getAllKeys([*] [,number]): promise</text>
+      <text x="5" y="60">openCursor([*] [,string]): Cursor</text>
+      <text x="5" y="70">openKeyCursor([*] [,string]): Cursor</text>
+    </g>
+  </g>
+</svg>

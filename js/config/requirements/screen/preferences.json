@@ -1,0 +1,70 @@
+{
+  "methods": [
+    "Ändra inställningar i operativsystemet för att kontrollera att vyn respekterar dem."
+  ],
+  "examples": {
+    "neutral": [
+      "När du växlar mellan <i lang=\"en\">”light”</i> och <i lang=\"en\">”dark”</i> ändras färgerna i appen från mörk text mot ljus bakgrund till ljus text mot mörk bakgrund och tvärtom.",
+      "När du ändrar operativsystemets inställning för textstorlek förstoras eller förminskas textens storlek i appen.",
+      "När du byter teckensnitt visas text i appen med det valda teckensnittet."
+    ]
+  },
+  "info": [
+    {
+      "type": "note",
+      "text": "Vyn får erbjuda alternativa värden för de olika inställningarna, så länge det finns ett läge som respekterar användarens inställningar."
+    },
+    {
+      "type": "text",
+      "text": "Färger: Här kontrollerar du om appen följer mobilens inställningar för <i lang=\"en\">”dark mode”</i>. En app kan ha stöd för att ställa in mörkt eller ljust läge, men det ska alltid finnas en inställning som gör att appen följer operativsystemets inställningar. Testmetod:"
+    },
+    {
+      "type": "olist",
+      "items": [
+        "Starta appen.",
+        "Dra ned notisfältet och växla mellan ljust och mörkt läge.",
+        "Kontrollera att appen växlar mellan ljust och mörkt läge. Om appen inte växlar automatiskt, kontrollera om det finns någon inställning i appen som styr färgtemat. Auto-läget ska finnas för att appen ska bli godkänd."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Textstorlek: Här kontrollerar du att appen följer operativsystemets inställningar för textstorlek. Om någon text, exempelvis i en flik, inte tycks lyda inställd storlek: prova att hålla nere ett finger över texten. Ibland kan texten då visas i större storlek."
+    },
+    {
+      "type": "text",
+      "text": "Testmetod för textstorlek (iOS):"
+    },
+    {
+      "type": "olist",
+      "items": [
+        "Gå till <samp>Inställningar</samp> &gt; <samp>Hjälpmedel</samp> och välj <samp>Skärm och textstorlek</samp>.",
+        "Tryck på <samp>Större text</samp> för alternativ till större text.",
+        "Dra reglaget för att ändra textstorlek och kontrolla både med mindre och större storlek."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Testmetod för textstorlek (Android):"
+    },
+    {
+      "type": "olist",
+      "items": [
+        "Gå till <samp>Inställningar</samp> &gt; <samp>Tillgänglighet</samp> och välj <samp>Synlighetsförbättringar</samp>.",
+        "Välj <samp>Teckenstorlek och stil</samp>.",
+        "Dra reglaget för att ändra textstorlek och kontrolla både med mindre och större storlek."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Testmetod för teckensnitt (Android):"
+    },
+    {
+      "type": "olist",
+      "items": [
+        "Gå till <samp>Inställningar</samp> &gt; <samp>Skärm</samp> &gt; <samp>Teckenstorlek och stil</samp> och välj <samp>Teckenstil</samp>.",
+        "Ändra teckensnitt.",
+        "Växla tillbaka till den app som du testar och kontrollera att texten fått ett annat utseende."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "methods": ["Leta visuellt efter innehåll som är formgivet som rubriker."],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Det kan vara värt att anmärka på överdrivet långa rubriktexter, även om det kanske inte går att underkänna kravet. Rubriker som sträcker sig över flera rader är inte bra."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160">
+  <g id="MenuItem">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="152"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="72" x2="100" y2="72"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">MenuItem</text>
+      <text x="5" y="20">+current: string</text>
+      <text x="5" y="30">+focusable: boolean</text>
+      <text x="5" y="40">+href: string</text>
+      <text x="5" y="50">+parentItem: MenuItem</text>
+      <text x="5" y="60">+parentMenu: Menu</text>
+      <text x="5" y="70">+submenu: Menu</text>
+      <text x="5" y="80">activate(): MenuItem</text>
+      <text x="5" y="90">close(): MenuItem</text>
+      <text x="5" y="100">closeAll(): MenuItem</text>
+      <text x="5" y="110">focus(): MenuItem</text>
+      <text x="5" y="120">is(Node): boolean</text>
+      <text x="5" y="130">open(): Menu</text>
+      <text x="5" y="140">startsWith(string): boolean</text>
+      <text x="5" y="150">toggle(): boolean</text>
+    </g>
+  </g>
+</svg>

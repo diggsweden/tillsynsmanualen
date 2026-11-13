@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style type="text/css"><![CDATA[
+      path {fill:none; stroke:#333; stroke-linecap:round; stroke-linejoin:round; stroke-width:4}
+    ]]></style>
+  </defs>
+  <path d="M2,12 h20 m-8,-8 l8,8 -8,8"/>
+</svg>
+

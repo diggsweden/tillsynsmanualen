@@ -1,0 +1,37 @@
+{
+  "steps": [
+    "Öppna den granskade sidan i ett nytt fönster (<kbd><kbd>Ctrl</kbd>+<kbd>N</kbd></kbd>).",
+    "Använd funktionen <samp translate=\"no\" lang=\"en\">Resize</samp> i <cite translate=\"no\" lang=\"en\">Web Developer</cite> och sätt storleken för båda fönstren till 1280×1024.",
+    "Förstora (zooma) innehållet i det ena fönstret till 400&nbsp;% (<kbd><kbd>Ctrl</kbd>+<kbd>+</kbd></kbd>).",
+    "Jämför innehållet i de två fönstren och leta efter text som inte ser ut att vara större i det zoomade fönstret. I misstänkta fall, använd <cite>Inspektören</cite> och jämför de beräknade värdena för egenskapen <code translate=\"no\" lang=\"en\">font-size</code>.",
+    "Minska gradvis förstoringen ned till 100&nbsp;% (<kbd><kbd>Ctrl</kbd>+<kbd>-</kbd></kbd>). För varje följsamt läge (när andra ändringar än bara förstoringsgraden inträffar), upprepa kontrollen i steg 4."
+  ],
+  "exceptions": [
+    "Det kan vara acceptabelt att text inte förstoras om den redan från början är minst dubbelt så stor som standardtext (alltså 32&nbsp;px eller mer)."
+  ],
+  "tools": [
+    {
+      "tool": "WebDeveloper",
+      "tab": "Resize",
+      "help": "Använd <samp translate=\"no\" lang=\"en\">Edit Resize Dimensions</samp> för att skapa ett val för 1280×1024, så slipper du skriva in siffrorna varje gång."
+    },
+    {
+      "tool": "module",
+      "module": "FontSize"
+    }
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Webbläsare i mobila enheter zoomar på ett annat sätt och kan lyda instruktioner om att inte tillåta zoom. Testa i mobilen och/eller leta i <code translate=\"no\" lang=\"en\">&lt;head&gt;</code> efter taggen <code translate=\"no\" lang=\"en\">&lt;meta name=\"viewport\"&gt;</code>. Om den finns, se till att dess <code translate=\"no\" lang=\"en\">content</code>-attribut inte innehåller begränsningar som <code translate=\"no\" lang=\"en\">user-scalable=no</code> eller <code translate=\"no\" lang=\"en\">maximum-scale</code> med ett värde som är lägre än 2,0."
+    },
+    {
+      "type": "warning",
+      "text": "I vissa mobila webbläsare går det att stänga av den här funktionen, så att webbplatser inte kan förhindra zoom. Se till att spärren inte är aktiv innan du testar."
+    },
+    {
+      "type": "tip",
+      "text": "Använd funktionen <samp translate=\"no\" lang=\"en\">Edit Resize Dimensions</samp> på fliken <samp translate=\"no\" lang=\"en\">Resize</samp> i <cite translate=\"no\" lang=\"en\">Web Developer</cite> för att skapa en inställning på 1280×1024, så slipper du mata in värdena varje gång."
+    }
+  ]
+}

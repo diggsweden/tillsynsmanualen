@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 190">
+  <g id="AppContext">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="182"/>
+      <line x1="1" y1="12"  x2="100" y2="12"/>
+      <line x1="1" y1="132" x2="100" y2="132"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">AppContext</text>
+      <text x="5" y="20">+advanced: boolean</text>
+      <text x="5" y="30">+audit: number</text>
+      <text x="5" y="40">+case: number</text>
+      <text x="5" y="50">+error: string</text>
+      <text x="5" y="60">+history: boolean</text>
+      <text x="5" y="70">+modified: boolean</text>
+      <text x="5" y="80">+page: string</text>
+      <text x="5" y="90">+path: string</text>
+      <text x="5" y="100">+requirement: string</text>
+      <text x="5" y="110">+sample: number</text>
+      <text x="5" y="120">+status: string</text>
+      <text x="5" y="130">+target: string</text>
+      <text x="5" y="140">hasParam(string): boolean</text>
+      <text x="5" y="150">param(string): string</text>
+      <text x="5" y="160">reset(): void</text>
+      <text x="5" y="170">serialize(): object</text>
+      <text x="5" y="180">unserialize(object): void</text>
+    </g>
+  </g>
+</svg>

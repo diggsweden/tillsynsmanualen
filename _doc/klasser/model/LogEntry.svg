@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 130">
+  <g id="LogEntry">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="122"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="92" x2="100" y2="92"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">LogEntry</text>
+      <text x="5" y="20">+caseID: number</text>
+      <text x="5" y="30">+data: *</text>
+      <text x="5" y="40">+direction: string</text>
+      <text x="5" y="50">+id: number</text>
+      <text x="5" y="60">+summary: string</text>
+      <text x="5" y="70">+text: string</text>
+      <text x="5" y="80">+timestamp: date</text>
+      <text x="5" y="90">+type: string</text>
+      <text x="5" y="100">serialize(): object</text>
+      <text x="5" y="110">toJSON(): object</text>
+      <text x="5" y="120">toString(): string</text>
+    </g>
+  </g>
+</svg>

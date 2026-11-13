@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för webbplatskarta, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Formgivning av HTML-element. */
+
+  main ul {
+    padding: 0;
+  }
+  main p + ul {
+    margin-top: -1.5em;
+  }
+  main li {
+    display: block;
+  }
+  main li > span {
+    display: block;
+    margin: 1.5rem 0 0.75rem 1.5rem;
+  }
+  main li ul {
+    margin: 0 0 0 1.5rem;
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: light) {
+  /* Egna egenskaper. */
+
+  main ul li a {
+    --link-icon: url('img/light/link.svg');
+  }
+}
+
+/*
+ * Bildskärm, mörkt visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  /* Egna egenskaper. */
+
+  main ul li a {
+    --link-icon: url('img/dark/link.svg');
+  }
+}
+
+/**
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Formgivning av HTML-element. */
+
+  main li a {
+    padding-left: 1.5em;
+    background: var(--link-icon) no-repeat left center/1em;
+    text-decoration: none;
+  }
+  main li a:hover {
+    text-decoration: underline;
+  }
+}

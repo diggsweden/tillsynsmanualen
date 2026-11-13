@@ -1,0 +1,22 @@
+{
+  "info": [
+    {
+      "type": "definition",
+      "term": "Flerpunktsgest",
+      "description": "En åtgärd som kräver att man använder flera fingrar samtidigt, till exempel nyper ihop eller drar isär två fingrar för att zooma innehåll eller trycker med tre fingrar."
+    },
+    {
+      "type": "definition",
+      "term": "Beroende av rörelsebanan",
+      "description": "Innebär att pekaren eller fingret måste passera någon punkt mellan start- och slutpunkterna (vanligen nära startpunkten). Exempel: en svepgest som beror på den initiala förflyttningen (höger/vänster); om man börjar med att dra en aning åt vänster går det inte att göra rörelsen till en svepning åt höger."
+    },
+    {
+      "type": "text",
+      "text": "Dra-och-släpp–funktioner berörs inte av det här kravet, eftersom de bara beror på rörelsens start- och slutpunkter, inte på mellanliggande punkter."
+    },
+    {
+      "type": "note",
+      "text": "Detta gäller funktioner som tillhandahålls av vyn, inte funktioner i hjälpmedel eller operativsystem."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "methods": [
+    "Skriv in text i inmatningsfält. Med touchskärm och tangentbord: markera och avmarkera kryssrutor, gör val i listor eller radiogrupper."
+  ],
+  "exceptions": ["Användaren informeras om beteendet före användning."],
+  "examples": {
+    "bad": [
+      "En ny vy laddas så snart man väljer ett alternativ i en rullgardinslista.",
+      "Fokus flyttas till ett nytt fält när man skrivit in ett visst antal tecken.",
+      "Ett sökresultat uppdateras direkt när man väljer ett filter i en rullgardinslista eller med en kryssruta."
+    ],
+    "neutral": [
+      "Att element aktiveras/avaktiveras eller visas/döljs till följd av att man ändrar markering på en kryssruta eller gör ett val i en lista eller radiogrupp kan vara acceptabelt."
+    ]
+  },
+  "info": [
+    {
+      "type": "definition",
+      "term": "Kontextförändring",
+      "description": "En större förändring av innehållet som kan förvirra användare som inte kan överblicka hela innehållet samtidigt, om den sker utan förvarning. Exempel: en ny app öppnas; en ny vy öppnas; ett formulär skickas in; fokus flyttas till en annan komponent."
+    }
+  ]
+}

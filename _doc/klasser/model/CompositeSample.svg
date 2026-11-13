@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120">
+  <g id="CompositeSample-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="112"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="52" x2="100" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CompositeSample</text>
+      <text x="5" y="20">+components</text>
+      <text x="5" y="30">+isComposite</text>
+      <text x="5" y="40">+numComponents</text>
+      <text x="5" y="50">+pending</text>
+      <text x="5" y="60">addComponent()</text>
+      <text x="5" y="70">clearPending()</text>
+      <text x="5" y="80">deleteComponent()</text>
+      <text x="5" y="90">hasComponent()</text>
+      <text x="5" y="100">serialize()</text>
+      <text x="5" y="110">toJSON()</text>
+    </g>
+  </g>
+
+  <g id="CompositeSample">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="112"/>
+      <line x1="1" y1="12" x2="140" y2="12"/>
+      <line x1="1" y1="52" x2="140" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CompositeSample</text>
+      <text x="5" y="20">+components: Component[]</text>
+      <text x="5" y="30">+isComposite: boolean</text>
+      <text x="5" y="40">+numComponents: number</text>
+      <text x="5" y="50">+pending: object[]</text>
+      <text x="5" y="60">addComponent(number): void</text>
+      <text x="5" y="70">clearPending(): void</text>
+      <text x="5" y="80">deleteComponent(number): boolean</text>
+      <text x="5" y="90">hasComponent(number): boolean</text>
+      <text x="5" y="100">serialize(): object</text>
+      <text x="5" y="110">toJSON(): object</text>
+    </g>
+  </g>
+</svg>

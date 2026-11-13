@@ -1,0 +1,23 @@
+{
+  "steps": [
+    "Testa att åtminstone tangentbordet, skärmläsaren och zoomfunktionen fungerar med vyn.",
+    "Testa tillbakagesterna i Talkback eller VoiceOver, samt motsvarande tangentbordskommando (<kbd><kbd>Escape</kbd></kbd>).",
+    "Om en vy i iOS kan spela upp ljud eller film, eller innehåller en mediespelare, kontrollera att det går att starta och pausa uppspelningen genom att dubbeltrycka med två fingrar (med VoiceOver påslaget).",
+    "Om vyn spelar in eller upp ljud, kontrollera att skärmläsarljudet inte flyttas till telefonens samtalshögtalare så att det blir svårt att höra."
+  ],
+  "exceptions": ["Störningar som sker på användarens uttryckliga begäran."],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Vid tangentbordsanvändning: Om <kbd><kbd>Escape</kbd></kbd> inte fungerar som det ska, kontrollera att omkopplaren är inställd på rätt tangentbord (<samp>Android</samp>/<samp>iOS</samp>)."
+    },
+    {
+      "type": "tip",
+      "text": "Stäng-/tillbakagest i VoiceOver: dra med två fingrar höger, vänster, höger (som ett ’Z’)."
+    },
+    {
+      "type": "tip",
+      "text": "Stäng-/tillbakagest i TalkBack: dra med ett finger nedåt, vänster (som ett spegelvänt ’L’)."
+    }
+  ]
+}

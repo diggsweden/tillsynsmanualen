@@ -1,0 +1,25 @@
+{
+  "steps": [
+    "Förstora texten till minst 200&nbsp;procent i enhetens inställningar.",
+    "Kontrollera att texten blir dubbelt så stor i vyn och att ingen information eller funktion går förlorad.",
+    "Om någon text, exempelvis i en flik, inte blir större: prova att hålla nere ett finger över texten. Ibland kan texten då visas i större storlek."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "I Android ställer du textstorleken med ett skjutreglage utan skala. Det högra ändläget motsvarar ungefär 200&nbsp;procent."
+    },
+    {
+      "type": "text",
+      "text": "I iOS kan du ställa in textstorleken med ett skjutreglage utan skala. (Aktivera först <samp>Större textstorlekar</samp>.) Position 9 motsvarar drygt 200&nbsp;procent."
+    },
+    {
+      "type": "note",
+      "text": "I iOS behöver du aktivera <samp>Större textstorlekar</samp> för att kunna förstora till 200&nbsp;procent."
+    },
+    {
+      "type": "tip",
+      "text": "I iOS kan du lägga till en förstoringskontroll i kontrollcentret. Öppna <samp>Inställningar</samp> och sedan <samp>Kontrollcenter</samp>. Under ”<samp>Fler reglage</samp>” trycker du på plustecknet vid <samp>Textstorlek</samp>. Nu visas en ”Aa”-knapp i kontrollcentret som ger möjlighet att förstora texten och även att se förstoringsgraden i procent."
+    }
+  ]
+}

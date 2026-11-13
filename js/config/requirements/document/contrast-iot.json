@@ -1,0 +1,15 @@
+{
+  "steps": [
+    "Identifiera alla bilder av text.",
+    "Mät kontrasten mellan text och bakgrund på det ställe där den är sämst."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphic"
+      }
+    }
+  ]
+}

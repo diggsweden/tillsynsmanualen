@@ -1,0 +1,71 @@
+{
+  "info": [
+    {
+      "type": "definition",
+      "term": "ETSI",
+      "description": "<i translate=\"no\" lang=\"en\">European Telecommunications Standards Institute</i>; en europeisk standardiseringsorganisation inom informations- och kommunikationsområdet. Står bland annat bakom <cite>EN&nbsp;301&nbsp;549</cite>."
+    },
+    {
+      "type": "definition",
+      "term": "IMS",
+      "description": "<cite lang=\"en\">IP Multimedia Sub-System</cite>; ett ramverk för leverans av multimedietjänster via mobilnätverk."
+    },
+    {
+      "type": "definition",
+      "term": "Realtidstext (RTT)",
+      "description": "Text som förmedlas till mottagaren direkt när den skrivs in av avsändaren. Används till exempel av personer som är döva eller har nedsatt hörsel och har svårt att uppfatta tal, eller personer som saknar talförmåga. <em>Inte</em> detsamma som en chattfunktion, där man vanligen skickar ett helt meddelande åt gången."
+    },
+    {
+      "type": "definition",
+      "term": "Referensterminal för RTT",
+      "description": "En specialtillverkad terminal för testning av enheter med RTT-stöd för att bekräfta funktion och interoperabilitet. Referensterminaler tillhandahålls vanligen av ett standardiseringsinstitut eller motsvarande."
+    },
+    {
+      "type": "definition",
+      "term": "Referensterminal för V.18",
+      "description": "En specialtillverkad terminal för testning av enheter med stöd för ITU-T&nbsp;V.18 för att bekräfta funktion och interoperabilitet. Referensterminaler tillhandahålls vanligen av ett standardiseringsinstitut eller motsvarande."
+    },
+    {
+      "type": "definition",
+      "term": "RFC 4103",
+      "description": "<cite lang=\"en\">RTP Payload for Text Conversation</cite>; en standard för textkommunikation via RTP-paket (RTP är ett protokoll för audio- och videokommunikation via IP-nätverk). Ges ut av <span lang=\"en\">Internent Engineering Task Force</span> (IETF)."
+    },
+    {
+      "type": "definition",
+      "term": "SIP",
+      "description": "<cite lang=\"en\">Session Initiation Protocol</cite>; ett kommunikationsprotkoll för multimediesessioner."
+    },
+    {
+      "type": "definition",
+      "term": "V.18",
+      "description": "<cite lang=\"en\">Operational and interworking requirements for DCEs operating in the text telephone mode</cite>; en standard för interoperabilitet i textkommunikation mellan terminaler. Ges ut av <span lang=\"en\">International Telecommunications Union</span> (ITU)."
+    },
+    {
+      "type": "definition",
+      "term": "<abbr>VOIP</abbr>",
+      "description": "<i translate=\"no\" lang=\"en\">Voice Over IP</i>; IP-telefoni; en metod och en uppsättning tekniker för leverans av röstkommunikation och multimediesessioner via IP-nätverk."
+    }
+  ],
+  "links": [
+    {
+      "url": "https://www.itu.int/rec/T-REC-V.18/en",
+      "title": "ITU-T V.18"
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4103.html",
+      "title": "RFC 4103"
+    },
+    {
+      "url": "https://www.etsi.org/deliver/etsi_ts/126100_126199/126114/16.11.00_60/ts_126114v161100p.pdf",
+      "title": "ETSI TS 126 114 V16.11.0"
+    },
+    {
+      "url": "https://www.etsi.org/deliver/etsi_ts/122100_122199/122173/16.03.00_60/ts_122173v160300p.pdf",
+      "title": "ETSI TS 122 173 V16.3.0"
+    },
+    {
+      "url": "https://www.etsi.org/deliver/etsi_ts/134200_134299/13422905/16.01.00_60/ts_13422905v160100p.pdf",
+      "title": "ETSI TS 134 229 V16.1.0"
+    }
+  ]
+}

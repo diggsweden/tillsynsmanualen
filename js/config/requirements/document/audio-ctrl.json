@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "Öppna dokumentet och lyssna efter ljud som spelas upp automatiskt."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Timer",
+      "params": {
+        "duration": 3000
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "”Sänka separat” innebär att ljudvolymen går att ändra oberoende av systemets ljudvolym."
+    }
+  ]
+}

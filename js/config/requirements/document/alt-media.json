@@ -1,0 +1,9 @@
+{
+  "info": [
+    {
+      "type": "definition",
+      "term": "Identifierande textalternativ",
+      "description": "Ett textalternativ som åtminstone förklarar vad innehållet är, för innehåll där det inte är praktiskt möjligt att ge ett alternativ som är helt ekvivalent."
+    }
+  ]
+}

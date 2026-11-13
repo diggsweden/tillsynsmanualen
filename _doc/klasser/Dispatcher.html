@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dispatcher – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 34rem;
+      }
+
+      .seq line {
+        stroke-width: 1px;
+      }
+      .seq line.async {
+        marker-end: url('#async');
+      }
+      .seq line.lifeline {
+        stroke-width: 1px;
+        stroke-dasharray: 3, 3;
+      }
+      .seq line.origin {
+        marker-start: url('#origin');
+      }
+      .seq line.return {
+        marker-end: url('#async');
+        stroke-width: 1px;
+        stroke-dasharray: 5, 5;
+      }
+      .seq line.sync {
+        marker-end: url('#sync');
+      }
+      .seq path.condition,
+      .seq rect.duration {
+        fill: var(--bg);
+        stroke: var(--text);
+        stroke-width: 2px;
+      }
+      .seq rect.iteration {
+        fill: none;
+        stroke: var(--text);
+        stroke-width: 2px;
+      }
+      .seq text.condition {
+        font-size: 14px;
+      }
+      .seq text.method {
+        font-size: 14px;
+        text-anchor: middle;
+      }
+      .seq text.system {
+        text-anchor: middle;
+      }
+      #async path {
+        fill: none;
+        stroke: var(--text);
+        stroke-width: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="./">Klasser</a></li>
+          <li><strong lang="en">Dispatcher</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1 tabindex="-1" id="start-of-content">
+          <code lang="en">Dispatcher</code>
+        </h1>
+
+        <nav aria-label="Innehåll" class="page-menu">
+          <ul>
+            <li>
+              <a href="#ctor"><span>Konstruktor</span></a>
+            </li>
+            <li>
+              <a href="#m-dispatch"><code lang="en">dispatch()</code></a>
+            </li>
+            <li><a href="#seq">Sekvensdiagram</a></li>
+            <li><a href="#see">Se även</a></li>
+          </ul>
+        </nav>
+
+        <p>Fördelare för sidbegäranden i granskningsfunktionen.</p>
+
+        <dl class="src">
+          <dt>Källkod</dt>
+          <dd><code>js/Dispatcher.js</code></dd>
+
+          <dt>Enhetstester</dt>
+          <dd><code>_tests/Dispatcher.test.js</code></dd>
+        </dl>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 340 440" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <!--Dispatcher-->
+            <use
+              xlink:href="Dispatcher.svg#Dispatcher"
+              x="0"
+              y="60"
+              class="highlight"
+            />
+            <g transform="translate(0, 60)">
+              <path d="M141,7 h20 v-36 h20" class="composition" />
+              <path d="M141,14 h20 v172 h20" class="composition" />
+              <line x1="70" y1="23" x2="70" y2="50" class="dependency" />
+            </g>
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="common/ResourceLoader.svg#ResourceLoader"
+              x="180"
+              y="0"
+            />
+
+            <!--Model-->
+            <use xlink:href="model/Model.svg#Model" x="180" y="80" />
+
+            <!--AppContext-->
+            <use xlink:href="common/AppContext.svg#AppContext" x="15" y="110" />
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Dispatcher</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Dispatcher</span>(<span class="var">model</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellen.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>
+            En
+            <a href="common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >-instans som används för att ladda initieringsmodulen.
+          </dd>
+        </dl>
+      </section>
+
+      <!--dispatch()-->
+      <section>
+        <h2 id="m-dispatch"><code lang="en">dispatch()</code></h2>
+
+        <p>
+          Metoden importerar den angivna initieringsmodulen och anropar den för
+          att instansiera vy och <i lang="en">controller</i>. Den öppnar vyn,
+          anropar controllerns <code lang="en">prepare()</code>-metod och
+          aktiverar sedan vyn.
+        </p>
+
+        <p>
+          Därefter exekverar metoden en händelseslinga så länge användaren är
+          kvar på gransk&shy;ningssidan. I varje varv i slingan anropar den
+          controllerns <code lang="en">handle()</code>-metod och utvärderar
+          sedan sökvägen i applikationskontexten. Om den förändrats avbryter
+          metoden slingan och återgår till granskningsmodulskriptet för att
+          ladda en ny begärd sida. (Länkar till sidor utanför
+          granskningsfunktionen avbryter automatiskt händelseslingan.)
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">dispatch</span>(<span class="var">context</span>, <span class="var">path</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+
+          <dt><code lang="en">path</code></dt>
+          <dd>Sökvägen till en initieringsmodul.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Sekvensdiagram-->
+      <section>
+        <h2 id="seq">Sekvensdiagram</h2>
+
+        <figure aria-hidden="true">
+          <svg class="seq" viewBox="0 0 640 750">
+            <defs>
+              <marker
+                id="async"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+
+              <marker
+                id="origin"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="4"
+                refY="4"
+                stroke="none"
+                viewBox="0 0 8 8"
+              >
+                <circle cx="4" cy="4" r="4" stroke="none" />
+              </marker>
+
+              <marker
+                id="sync"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                stroke="none"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8 Z" stroke="none" />
+              </marker>
+
+              <symbol
+                id="actor"
+                fill="none"
+                stroke-width="1"
+                viewBox="0 0 24 28"
+              >
+                <circle cx="11.5" cy="6.5" r="5" />
+                <path d="M4.5,15.5 h14 m-7,-4 v11 m-8,7 l8,-7 8,7" />
+              </symbol>
+
+              <symbol
+                id="system"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 100 50"
+              >
+                <rect x="0.5" y="0.5" width="99" height="49" />
+              </symbol>
+            </defs>
+
+            <g aria-hidden="true">
+              <use xlink:href="#actor" x="0" y="0" width="43" height="50" />
+              <line x1="20.5" y1="50" x2="20.5" y2="740" class="lifeline" />
+
+              <!--Dispatcher-->
+              <g transform="translate(60, 0)">
+                <use xlink:href="#system" x="0" y="0" width="100" height="50" />
+                <text x="50" y="30" xml:lang="en" class="system">
+                  :Dispatcher
+                </text>
+                <line x1="49.5" y1="50" x2="49.5" y2="740" class="lifeline" />
+              </g>
+
+              <!--ResourceLoader-->
+              <g transform="translate(180, 0)">
+                <use xlink:href="#system" x="0" y="0" width="100" height="50" />
+                <text x="50" y="22" xml:lang="en" class="system">
+                  <tspan>:Resource</tspan>
+                  <tspan x="50" dy="1em">Loader</tspan>
+                </text>
+                <line x1="49.5" y1="50" x2="49.5" y2="740" class="lifeline" />
+              </g>
+
+              <!--Module-->
+              <g transform="translate(300, 0)">
+                <use xlink:href="#system" x="0" y="0" width="100" height="50" />
+                <text x="50" y="30" xml:lang="en" class="system">:Module</text>
+                <line x1="49.5" y1="50" x2="49.5" y2="740" class="lifeline" />
+              </g>
+
+              <!--View-->
+              <g transform="translate(420, 0)">
+                <use xlink:href="#system" x="0" y="0" width="100" height="50" />
+                <text x="50" y="30" xml:lang="en" class="system">:View</text>
+                <line x1="49.5" y1="50" x2="49.5" y2="740" class="lifeline" />
+              </g>
+
+              <!--Controller-->
+              <g transform="translate(540, 0)">
+                <use xlink:href="#system" x="0" y="0" width="100" height="50" />
+                <text x="50" y="30" xml:lang="en" class="system">
+                  :Controller
+                </text>
+                <line x1="49.5" y1="50" x2="49.5" y2="740" class="lifeline" />
+              </g>
+            </g>
+
+            <!--Dispatcher.dispatch()-->
+            <g transform="translate(0, 100)">
+              <text x="61" y="12" class="method">dispatch()</text>
+              <line x1="21" y1="19.5" x2="100" y2="19.5" class="origin async" />
+            </g>
+
+            <!--ResourceLoader.loadModule()-->
+            <g transform="translate(60, 100)">
+              <rect x="40" y="20" width="20" height="600" class="duration" />
+              <text x="110" y="22" xml:lang="en" class="method">
+                loadModule()
+              </text>
+              <line x1="60" y1="29.5" x2="160" y2="29.5" class="async" />
+            </g>
+
+            <!--import()-->
+            <g transform="translate(180, 110)">
+              <rect x="40" y="20" width="20" height="50" class="duration" />
+              <text x="110" y="22" xml:lang="en" class="method">import()</text>
+              <line x1="60" y1="29.5" x2="160" y2="29.5" class="async" />
+
+              <rect x="160" y="30" width="20" height="30" class="duration" />
+              <line x1="160" y1="59.5" x2="60" y2="59.5" class="return" />
+
+              <line x1="40" y1="69.5" x2="-60" y2="69.5" class="return" />
+            </g>
+
+            <!--Module.default()-->
+            <g transform="translate(60, 180)">
+              <text x="170" y="22" xml:lang="en" class="method">default()</text>
+              <line x1="60" y1="29.5" x2="280" y2="29.5" class="async" />
+            </g>
+
+            <!--new View/Controller-->
+            <g transform="translate(300, 180)">
+              <rect x="40" y="30" width="20" height="90" class="duration" />
+              <text x="110" y="32" xml:lang="en" class="method">new</text>
+              <line x1="60" y1="39.5" x2="160" y2="39.5" class="sync" />
+              <rect x="160" y="40" width="20" height="20" class="duration" />
+              <line x1="160" y1="59.5" x2="60" y2="59.5" class="return" />
+
+              <text x="170" y="82" xml:lang="en" class="method">new</text>
+              <line x1="60" y1="89.5" x2="280" y2="89.5" class="sync" />
+              <rect x="280" y="90" width="20" height="20" class="duration" />
+              <line x1="280" y1="109.5" x2="60" y2="109.5" class="return" />
+
+              <line x1="40" y1="119.5" x2="-180" y2="119.5" class="return" />
+            </g>
+
+            <!--View.open()-->
+            <g transform="translate(60, 320)">
+              <text x="230" y="22" xml:lang="en" class="method">open()</text>
+              <line x1="60" y1="29.5" x2="400" y2="29.5" class="async" />
+
+              <rect x="400" y="30" width="20" height="20" class="duration" />
+              <line x1="400" y1="49.5" x2="60" y2="49.5" class="return" />
+            </g>
+
+            <!--Controller.prepare()-->
+            <g transform="translate(60, 380)">
+              <text x="290" y="22" xml:lang="en" class="method">prepare()</text>
+              <line x1="60" y1="29.5" x2="520" y2="29.5" class="async" />
+
+              <rect x="520" y="30" width="20" height="20" class="duration" />
+              <line x1="520" y1="49.5" x2="60" y2="49.5" class="return" />
+            </g>
+
+            <!--View.activate()-->
+            <g transform="translate(60, 430)">
+              <text x="230" y="22" xml:lang="en" class="method">
+                activate()
+              </text>
+              <line x1="60" y1="29.5" x2="400" y2="29.5" class="sync" />
+              <rect x="400" y="30" width="20" height="20" class="duration" />
+            </g>
+
+            <g transform="translate(0, 500)">
+              <rect x="0" y="0" width="640" height="130" class="iteration" />
+              <path d="M250,0 v15 l-15,15 h-235 v-30 z" class="condition" />
+              <text x="10" y="20" class="condition">
+                Medan användaren är kvar på sidan
+              </text>
+
+              <!--Controller.handle()-->
+              <g transform="translate(60, 50)">
+                <text x="290" y="22" xml:lang="en" class="method">
+                  handle()
+                </text>
+                <line x1="60" y1="29.5" x2="520" y2="29.5" class="async" />
+
+                <rect x="520" y="30" width="20" height="20" class="duration" />
+                <line x1="520" y1="49.5" x2="60" y2="49.5" class="return" />
+              </g>
+            </g>
+
+            <!--View.close()-->
+            <g transform="translate(60, 640)">
+              <text x="230" y="22" xml:lang="en" class="method">close()</text>
+              <line x1="60" y1="29.5" x2="400" y2="29.5" class="async" />
+
+              <rect x="400" y="30" width="20" height="20" class="duration" />
+              <line x1="400" y1="49.5" x2="60" y2="49.5" class="return" />
+            </g>
+
+            <line x1="100" y1="709.5" x2="21" y2="709.5" class="return" />
+          </svg>
+
+          <figcaption>
+            Sekvensdiagram för <code lang="en">Dispatcher</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="monitoring.module.html"
+              ><code lang="en">monitoring.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="Router.html"><code lang="en">Router</code></a>
+          </li>
+          <li>
+            <a href="common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

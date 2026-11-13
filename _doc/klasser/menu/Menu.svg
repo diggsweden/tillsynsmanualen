@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220">
+  <g id="Menu">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="179" height="212"/>
+      <line x1="1" y1="12"  x2="180" y2="12"/>
+      <line x1="1" y1="102" x2="180" y2="102"/>
+    </g>
+
+    <g stroke="none">
+      <text x="90" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Menu</text>
+      <text x="5" y="20">+current: MenuItem</text>
+      <text x="5" y="30">+firstItem: MenuItem</text>
+      <text x="5" y="40">+id: string</text>
+      <text x="5" y="50">+labelledBy: string</text>
+      <text x="5" y="60">+lastItem: MenuITem</text>
+      <text x="5" y="70">+orientation: string</text>
+      <text x="5" y="80">+parentItem: MenuItem</text>
+      <text x="5" y="90">+parentMenu: Menu</text>
+      <text x="5" y="100">+root: Menu</text>
+      <text x="5" y="110">add(MenuItem): void</text>
+      <text x="5" y="120">addObserver(callback): void</text>
+      <text x="5" y="130">closeAll(): MenuItem</text>
+      <text x="5" y="140">down(MenuItem): MenuItem</text>
+      <text x="5" y="150">handleLeft(MenuItem): MenuItem</text>
+      <text x="5" y="160">left(MenuItem): MenuItem</text>
+      <text x="5" y="170">matchNextItem(MenuItem, string): MenuItem</text>
+      <text x="5" y="180">nextItem(MenuItem): MenuItem</text>
+      <text x="5" y="190">previousItem(MenuItem): MenuItem</text>
+      <text x="5" y="200">right(MenuItem): MenuItem</text>
+      <text x="5" y="210">up(MenuItem): MenuItem</text>
+    </g>
+  </g>
+</svg>

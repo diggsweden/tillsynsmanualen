@@ -1,0 +1,88 @@
+<h1 id="start-of-content">Redigera tillsynsplan</h1>
+
+<p aria-hidden="true" class="req">
+  Obligatoriska fält har tjock kantlinje och ledtexten är <em>betonad</em> och
+  följs av en asterisk&nbsp;(<samp>*</samp>).
+</p>
+
+<form action="?page=list&amp;type=schedule" autocomplete="off">
+  <p>
+    <label>
+      <em>Ärendenummer</em>
+      <input
+        name="caseNumber"
+        inputmode="tel"
+        type="text"
+        required
+        pattern="^2\d{3}-?\d+$"
+        title="Fyll i som till exempel ”2020-0001”."
+        class="case-number"
+      />
+    </label>
+  </p>
+
+  <p class="multiple">
+    <label>
+      <em>Beslutsdatum</em>
+      <input name="date" type="date" required min="2020-01-01" />
+    </label>
+
+    <label>
+      <em>Beslutad av</em>
+      <select name="supervisor" required>
+        <option value="">(välj)</option>
+      </select>
+    </label>
+  </p>
+
+  <p class="multiple">
+    <label>
+      <em>Startdatum</em>
+      <input name="begins" type="date" required min="2020-01-01" />
+    </label>
+
+    <label>
+      <em>Slutdatum</em>
+      <input name="ends" type="date" required />
+    </label>
+  </p>
+
+  <p>
+    <button value="save" accesskey="s" data-action="save">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-save" />
+      </svg>
+      Spara
+    </button>
+
+    <button formnovalidate value="delete" data-action="delete" class="button">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-delete" />
+      </svg>
+      Ta bort
+    </button>
+  </p>
+</form>
+
+<dialog
+  role="alertdialog"
+  aria-atomic="true"
+  ,
+  aria-labelledby="confirm-label"
+  aria-modal="true"
+  id="confirm-dialog"
+>
+  <h2 id="confirmm-label">Bekräfta borttag</h2>
+  <p class="prompt"></p>
+
+  <p>
+    <button data-handler="confirm" type="button" value="false">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-cancel" />
+      </svg>
+      Avbryt
+    </button>
+
+    <button data-handler="confirm" type="button" value="true">OK</button>
+  </p>
+</dialog>

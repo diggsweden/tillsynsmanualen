@@ -1,0 +1,22 @@
+{
+  "methods": [
+    "Kontrollera att färg inte används som det enda visuella sättet att förmedla information, kommunicera status eller tillstånd för ett objekt, indikera en åtgärd eller särskilja ett visuellt element."
+  ],
+  "examples": {
+    "bad": [
+      "Ett diagram använder enbart färg för att särskilja de olika staplarna",
+      "En filtreringsfunktion indikerar det aktiva filtret endast med en annan färg än övriga filter"
+    ],
+    "good": [
+      "Ett diagram använder både färg och mönster för att särskilja staplarna.",
+      "En filtreringsfunktion indikerar det aktiva filtret med både fetstil och avvikande färg."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "bookmarklet",
+      "file": "Grayscale",
+      "title": "Gråskala"
+    }
+  ]
+}

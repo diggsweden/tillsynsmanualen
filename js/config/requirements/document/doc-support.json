@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "Kontakta kundtjänst/support och be om förekommande supportinformation. Granska hela supportdokumentationen enligt denna manual."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Detta hindrar inte att dokumentation kan finnas i ytterligare format (elektroniskt, på papper eller i ljudform) som inte är helt tillgängliga."
+    },
+    {
+      "type": "note",
+      "text": "Även om det finns dokumentation i alternativa format för att tillgodose specifika behov, till exempel punktskrift eller Lättläst, måste den ordinarie dokumentationen ändå uppfylla tillgänglighetskraven."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "examples": {
+    "good": [
+      "Kurvor i en graf har olika färger, men indikeras också med särskiljande symboler (cirklar, trianglar, romber) eller heldragna/streckade/prickade linjer."
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Kontrollen är bara relevant där det kan vara svårt att tolka informationen om man har nedsatt färgseende. I grafer där kurvorna är lätta att följa med ögat, till exempel för att de inte ligger nära varandra, behövs inga särskiljande kännetecken."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110">
+  <g id="DerivedCheck-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="102"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="82" x2="100" y2="82"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">DerivedCheck</text>
+      <text x="5" y="20">+applicable</text>
+      <text x="5" y="30">+control</text>
+      <text x="5" y="40">+dependencies</text>
+      <text x="5" y="50">+derived</text>
+      <text x="5" y="60">+global</text>
+      <text x="5" y="70">+state</text>
+      <text x="5" y="80">+sources</text>
+      <text x="5" y="90">dependsOn()</text>
+      <text x="5" y="100">serialize()</text>
+    </g>
+  </g>
+
+  <g id="DerivedCheck">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="102"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="82" x2="100" y2="82"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">DerivedCheck</text>
+      <text x="5" y="20">+applicable: boolean</text>
+      <text x="5" y="30">+control: boolean</text>
+      <text x="5" y="40">+dependencies: callback</text>
+      <text x="5" y="50">+derived: boolean</text>
+      <text x="5" y="60">+global: boolean</text>
+      <text x="5" y="70">+state: boolean</text>
+      <text x="5" y="80">+sources: string[]</text>
+      <text x="5" y="90">dependsOn(string): void</text>
+      <text x="5" y="100">serialize(): object</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "methods": [
+    "PDF: Markera ordet och välj <samp>Sök tagg från markering</samp> i panelmenyn i panelen <samp>Taggar</samp>. Högerklicka på taggen och välj <samp>Egenskaper…</samp>. Kontrollera att rätt språk är valt under fliken <samp>Tagg</samp>.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: ställ markören i ordet och gå till <samp>Granska|Språk|Ange redigeringsspråk…</samp>. Kontrollera att rätt språk är markerat i listan."
+  ],
+  "exceptions": [
+    "egennamn",
+    "tekniska termer",
+    "ord på obestämt språk",
+    "lånord och fraser som tagits upp i den omgivande textens språk."
+  ]
+}

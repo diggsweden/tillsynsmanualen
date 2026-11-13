@@ -1,0 +1,17 @@
+{
+  "steps": [
+    "Om din Android-mobilskärm är bredare än 320 px, gör följande inställningar under Inställningar / Tillgänglighet / Synlighetsförbättringar: Textstorlek ska stå på fjärde markeringen från vänster; Skärmzoom ska stå på andra markeringen från vänster.",
+    "Öppna en webbläsare (till exempel Chrome) och gå till whatismyviewport.com. Där ser du hur stor ”viewport” appen har.",
+    "Ställ in webbläsaren att visas i popup-vy. (Visa Senaste appar, tryck på ikonen ovanför Chrome-appen, välj sedan ”popup-vy” i listan.)",
+    "Nu kan du dra i appens kanter för att ändra storleken på viewport. Ändra bredden på Chrome/appen tills det står 320px i webbläsaren.",
+    "Öppna den app du vill kontrollera och gör steg 3 ovan så att den appen också visas i popup-vy.",
+    "Placera appen du vill kontrollera ovanpå Chrome-appen och dra i appens kanter så att apparnas viewports blir lika stora.",
+    "Kontrollera hur appen ser ut och fungerar i 320 px bredd."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Det här kravet går inte att kontrollera i iOS."
+    }
+  ]
+}

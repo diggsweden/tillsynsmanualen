@@ -1,0 +1,5 @@
+{
+  "methods": [
+    "Leta efter länkar som omges av text som inte är länkad och som inte har någon visuell indikering utöver färg för att visa att de är länkar (exempelvis understrykning eller ikon)."
+  ]
+}

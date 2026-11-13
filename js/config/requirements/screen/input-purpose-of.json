@@ -1,0 +1,211 @@
+{
+  "methods": [
+    "Kontrollera att skärmläsaren förmedlar information om syftet för de berörda fälten."
+  ],
+  "info": [
+    {
+      "type": "details",
+      "summary": "Fördefinierade syften med inmatningsfält",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Beskrivning", "Värde"],
+          "rows": [
+            [
+              "Fullständigt namn",
+              "<code translate=\"no\" lang=\"en\">name</code>"
+            ],
+            [
+              "Titel (”Fru”, ”Herr”, etc.)",
+              "<code translate=\"no\" lang=\"en\">honorific-prefix</code>"
+            ],
+            ["Förnamn", "<code translate=\"no\" lang=\"en\">given-name</code>"],
+            [
+              "Mellannamn",
+              "<code translate=\"no\" lang=\"en\">additional-name</code>"
+            ],
+            [
+              "Efternamn",
+              "<code translate=\"no\" lang=\"en\">family-name</code>"
+            ],
+            [
+              "Suffix (”Jr”, ”fil. kand.”, etc.)",
+              "<code translate=\"no\" lang=\"en\">honorific-suffix</code>"
+            ],
+            [
+              "Smeknamn, alias",
+              "<code translate=\"no\" lang=\"en\">nickname</code>"
+            ],
+            [
+              "Yrkestitel",
+              "<code translate=\"no\" lang=\"en\">organization-title</code>"
+            ],
+            [
+              "Användarnamn",
+              "<code translate=\"no\" lang=\"en\">username</code>"
+            ],
+            [
+              "Nytt lösenord (vid byte)",
+              "<code translate=\"no\" lang=\"en\">new-password</code>"
+            ],
+            [
+              "Nuvarande lösenord",
+              "<code translate=\"no\" lang=\"en\">current-password</code>"
+            ],
+            [
+              "Företag, organisation eller liknande",
+              "<code translate=\"no\" lang=\"en\">organization</code>"
+            ],
+            [
+              "Gatuadress (flera rader)",
+              "<code translate=\"no\" lang=\"en\">street-address</code>"
+            ],
+            [
+              "Gatuadress (en rad per fält, rad 1)",
+              "<code translate=\"no\" lang=\"en\">address-line1</code>"
+            ],
+            [
+              "Gatuadress (en rad per fält, rad 2)",
+              "<code translate=\"no\" lang=\"en\">address-line2</code>"
+            ],
+            [
+              "Gatuadress (en rad per fält, rad 3)",
+              "<code translate=\"no\" lang=\"en\">address-line3</code>"
+            ],
+            [
+              "Mest särskiljande nivån i adresser med fyra administrativa nivåer",
+              "<code translate=\"no\" lang=\"en\">address-level4</code>"
+            ],
+            [
+              "Tredje nivån i adresser med minst tre administrativa nivåer",
+              "<code translate=\"no\" lang=\"en\">address-level3</code>"
+            ],
+            [
+              "Andra nivån i adresser med minst två administrativa nivåer",
+              "<code translate=\"no\" lang=\"en\">address-level2</code>"
+            ],
+            [
+              "Minst särskiljande nivån i adresser; exempelvis län",
+              "<code translate=\"no\" lang=\"en\">address-level1</code>"
+            ],
+            [
+              "Landskod, exempelvis ”<code>SE</code>” för Sverige",
+              "<code translate=\"no\" lang=\"en\">country</code>"
+            ],
+            [
+              "Land, exempelvis Sverige",
+              "<code translate=\"no\" lang=\"en\">country-name</code>"
+            ],
+            [
+              "Postnummer",
+              "<code translate=\"no\" lang=\"en\">postal-code</code>"
+            ],
+            [
+              "Fullständigt namn så som angivet på betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-name</code>"
+            ],
+            [
+              "Förnamn så som angivet på betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-given-name</code>"
+            ],
+            [
+              "Efternamn så som angivet på betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-family-name</code>"
+            ],
+            [
+              "Kortnummer på betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-number</code>"
+            ],
+            [
+              "Giltighetstid för betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-exp</code>"
+            ],
+            [
+              "Månadskomponent i giltighetstid för betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-exp-month</code>"
+            ],
+            [
+              "Årskomponent i giltighetstid för betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-exp-year</code>"
+            ],
+            [
+              "Säkerhetskod (CVV) för betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-csc</code>"
+            ],
+            [
+              "Typ av betalkort etc.",
+              "<code translate=\"no\" lang=\"en\">cc-type</code>"
+            ],
+            [
+              "Önskad valuta för en transaktion",
+              "<code translate=\"no\" lang=\"en\">transaction-currency</code>"
+            ],
+            [
+              "Önskat belopp för en transaktion",
+              "<code translate=\"no\" lang=\"en\">transaction-amount</code>"
+            ],
+            [
+              "Önskat språk",
+              "<code translate=\"no\" lang=\"en\">language</code>"
+            ],
+            ["Födelsedatum", "<code translate=\"no\" lang=\"en\">bday</code>"],
+            [
+              "Dagkomponent i födelsedatum",
+              "<code translate=\"no\" lang=\"en\">bday-day</code>"
+            ],
+            [
+              "Månadskomponent i födelsedatum",
+              "<code translate=\"no\" lang=\"en\">bday-month</code>"
+            ],
+            [
+              "Årskomponent i födelsedatum",
+              "<code translate=\"no\" lang=\"en\">bday-year</code>"
+            ],
+            ["Könsidentitet", "<code translate=\"no\" lang=\"en\">sex</code>"],
+            [
+              "Webbadress för organisationen, personen etc.",
+              "<code translate=\"no\" lang=\"en\">url</code>"
+            ],
+            [
+              "Fotografi, ikon eller annan bild för företaget, personen etc.",
+              "<code translate=\"no\" lang=\"en\">photo</code>"
+            ],
+            [
+              "Telefonnummer inklusive landskod",
+              "<code translate=\"no\" lang=\"en\">tel</code>"
+            ],
+            [
+              "Landskodskomponent i telefonnummer",
+              "<code translate=\"no\" lang=\"en\">tel-country-code</code>"
+            ],
+            [
+              "Telefonnummer utan landskod",
+              "<code translate=\"no\" lang=\"en\">tel-national</code>"
+            ],
+            [
+              "Telefonnummer utan landskod och riktnummer",
+              "<code translate=\"no\" lang=\"en\">tel-local</code>"
+            ],
+            [
+              "Första delen av telefonnummer efter riktnummer, om tvådelat",
+              "<code translate=\"no\" lang=\"en\">tel-local-prefix</code>"
+            ],
+            [
+              "Andra delen av telefonnummer efter riktnummer, om tvådelat",
+              "<code translate=\"no\" lang=\"en\">tel-local-suffix</code>"
+            ],
+            [
+              "Intern anknytning i telefonnummer",
+              "<code translate=\"no\" lang=\"en\">tel-extension</code>"
+            ],
+            ["E-postadress", "<code translate=\"no\" lang=\"en\">email</code>"],
+            [
+              "URL som representerar en ändpunkt för ett direktmeddelandeprotokoll",
+              "<code translate=\"no\" lang=\"en\">impp</code>"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rätttslig grund – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="../css/legal.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Rättslig grund</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#definitions"><span>Definitioner</span></a>
+          </li>
+          <li>
+            <a href="#a11y-reqs"><span>Tillgänglighetskrav</span></a>
+          </li>
+          <li>
+            <a href="#exemptions"><span>Undantag</span></a>
+          </li>
+          <li>
+            <a href="#a11y-stmt"><span>Tillgänglighetsredogörelse</span></a>
+          </li>
+          <li>
+            <a href="#supervision"><span>Tillsyn</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        DIGG utövar tillsyn enligt
+        <cite
+          >lag (2018:1937) om tillgänglighet till digital offentlig
+          service</cite
+        >
+        (<dfn>DOS-lagen</dfn>) med stöd av
+        <cite
+          >förordning (2018:1938) om tillgänglighet till digital offentlig
+          service</cite
+        >
+        (<dfn>förordningen</dfn>) och
+        <cite
+          >Myndigheten för digital förvaltnings föreskrifter om tillgänglighet
+          till digital offentlig service</cite
+        >
+        (<dfn>föreskriften</dfn>). Här har vi samlat de viktigaste avsnitten ur
+        underlagen som berör tillsyn.
+      </p>
+
+      <section>
+        <h2 id="definitions">Definitioner</h2>
+
+        <h3>Webbplats, webbsida, mobil applikation</h3>
+
+        <p>
+          Begreppen <dfn>webbplats</dfn>, <dfn>webbsida</dfn> och
+          <dfn>mobil applikation</dfn> definieras i 3&nbsp;§ föreskriften.
+        </p>
+
+        <blockquote
+          cite="https://www.digg.se/om-oss/var-verksamhet/forfattningssamling/foreskrifter-om-tillganglighet-till-digital-offentlig-service"
+        >
+          <p><b>3 §</b> I dessa föreskrifter avses med</p>
+
+          <ol>
+            <li>
+              webbplats: en eller ett antal webbsidor som hålls samman på något
+              sätt, till exempel genom att ha samma domännamn, ett gemensamt
+              utseende eller något systematiskt sätt att navigera mellan
+              sidorna.
+            </li>
+
+            <li>
+              webbsida: en resurs som inte är inbäddad och som hämtats från en
+              enda <abbr>URI</abbr>
+              <span translate="no" lang="en"
+                >(Uniform Resource Identifier)</span
+              >
+              med hjälp av <abbr>HTTP</abbr>
+              <span translate="no" lang="en"
+                >(Hypertext Transfer Protocol),</span
+              >
+              och varje annan resurs som används i återgivningen eller är tänkt
+              att återges tillsammans med den huvudsakliga resursen i ett
+              användarprogram.
+            </li>
+
+            <li>
+              mobil applikation: en programvara som utformas och utvecklas för
+              användning av allmänheten i mobila enheter, till exempel
+              smarttelefoner och surfplattor. I detta ingår inte den programvara
+              som styr dessa enheter (mobila operativsystem) eller själva
+              datorutrustningen.
+            </li>
+          </ol>
+        </blockquote>
+
+        <h3>Offentlig aktör</h3>
+
+        <p>
+          Begreppet <dfn>offentlig aktör</dfn> definieras i 4–5&nbsp;§§
+          DOS-lagen.
+        </p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>4 §</b> Med offentlig aktör avses en statlig eller kommunal
+            myndighet eller en beslutande församling i en kommun eller en
+            region.
+          </p>
+
+          <p>
+            Vid tillämpningen av denna lag ska med offentlig aktör jämställas
+          </p>
+
+          <ol>
+            <li>ett sådant offentligt styrt organ som avses i 5 §,</li>
+
+            <li>
+              en sammanslutning som inrättats särskilt för att tillgodose behov
+              i det allmännas intresse, under förutsättning att behovet inte är
+              av industriell eller kommersiell karaktär, och som består av
+
+              <ol>
+                <li>
+                  en eller flera myndigheter eller församlingar enligt första
+                  stycket, eller
+                </li>
+
+                <li>ett eller flera organ enligt 1,</li>
+              </ol>
+            </li>
+
+            <li>
+              privata aktörer som yrkesmässigt bedriver verksamhet som till
+              någon del är offentligt finansierad och som
+
+              <ol>
+                <li>
+                  aktören bedriver i egenskap av enskild huvudman inom
+                  skolväsendet eller huvudman för en sådan internationell skola
+                  som avses i 24&nbsp;<abbr>kap.</abbr>
+                  <cite>skollagen (2010:800)</cite>,
+                </li>
+
+                <li>
+                  utgör hälso- och sjukvård enligt
+                  <cite translate="no"
+                    >hälso- och sjukvårdslagen (2017:30)</cite
+                  >
+                  eller tandvård enligt
+                  <cite translate="no">tandvårdslagen (1985:125)</cite>, eller
+                </li>
+
+                <li>
+                  bedrivs enligt
+                  <cite translate="no">socialtjänstlagen (2001:453)</cite>,
+                  <cite translate="no"
+                    >lagen (1988:870) om vård av missbrukare i vissa fall</cite
+                  >,
+                  <cite translate="no"
+                    >lagen (1990:52) med särskilda bestämmelser om vård av
+                    unga</cite
+                  >,
+                  <cite translate="no"
+                    >lagen (1993:387) om stöd och service till vissa
+                    funktionshindrade</cite
+                  >
+                  eller utgör personlig assistans som utförs med
+                  assistansersättning enligt 51&nbsp;<abbr>kap.</abbr>
+                  <cite translate="no">socialförsäkringsbalken</cite>, och
+                </li>
+
+                <li>
+                  enskilda utbildningsanordnare med tillstånd att utfärda
+                  examina enligt
+                  <cite translate="no"
+                    >lagen (1993:792) om tillstånd att utfärda vissa
+                    examina</cite
+                  >, och som till största delen har statsbidrag som finansiering
+                  av högskoleutbildning på grundnivå eller avancerad nivå eller
+                  för utbildning på forskarnivå.
+                </li>
+              </ol>
+            </li>
+          </ol>
+
+          <p>
+            <b>5 §</b> Med offentligt styrt organ avses en sådan juridisk person
+            som tillgodoser behov i det allmännas intresse, under förutsättning
+            att behovet inte är av industriell eller kommersiell karaktär, och
+          </p>
+
+          <ol>
+            <li>
+              som till största delen är finansierad av staten, en kommun, en
+              region eller en sådan offentlig aktör som avses i 4 § första
+              stycket eller andra stycket 1 eller 2,
+            </li>
+
+            <li>
+              vars verksamhet står under kontroll av staten, en kommun, en
+              region eller en sådan offentlig aktör som avses i 4 § första
+              stycket eller andra stycket 1 eller 2, eller
+            </li>
+
+            <li>
+              i vars styrelse eller motsvarande ledningsorgan mer än halva
+              antalet ledamöter är utsedda av staten, en kommun, en region eller
+              en sådan offentlig aktör som avses i 4 § första stycket eller
+              andra stycket 1 eller 2.
+            </li>
+          </ol>
+        </blockquote>
+
+        <h3>Tidsberoende medier</h3>
+
+        <p>
+          Begreppet <dfn>tidsberoende medier</dfn> definieras i 6&nbsp;§
+          DOS-lagen.
+        </p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>6 §</b> Med tidsberoende medier avses ljud eller video, en
+            kombination av ljud och video, eller något av de föregående i
+            kombination med möjligheter till interaktion.
+          </p>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2 id="a11y-reqs">Tillgänglighetskrav</h2>
+
+        <p>Kraven på tillgänglighet definieras i 10–11&nbsp;§§ DOS-lagen</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>10 §</b> Digital service som tillhandahålls av en offentlig aktör
+            genom en teknisk lösning som står under aktörens kontroll ska följa
+            tillgänglighetskraven enligt föreskrifter som har meddelats med stöd
+            av denna lag.
+          </p>
+
+          <p>
+            Regeringen eller den myndighet som regeringen bestämmer får meddela
+            föreskrifter om vilka tekniska krav som ska gälla.
+          </p>
+
+          <p>
+            <strong>11 §</strong> Digital service som tillhandahålls av en
+            offentlig aktör genom en teknisk lösning som står under tredje parts
+            kontroll ska, så långt det är möjligt, följa tillgänglighetskraven
+            enligt föreskrifter som har meddelats med stöd av denna lag.
+          </p>
+        </blockquote>
+
+        <p>och förtydligas i 4&nbsp;§ föreskriften</p>
+
+        <blockquote
+          cite="https://www.digg.se/publicerat/forfattningssamlingar/2019/foreskrifter-om-tillganglighet-till-digital-offentlig-service/"
+        >
+          <p>
+            <b>4 §</b> Digital offentlig service ska vara möjlig att uppfatta,
+            vara hanterbar, begriplig och robust.
+          </p>
+        </blockquote>
+
+        <p>med stöd av 4&nbsp;§ förordningen.</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/forordning-20181938-om-tillganglighet-till_sfs-2018-1938"
+        >
+          <p>
+            <b>4 §</b> Myndigheten för digital förvaltning får meddela
+            föreskrifter om vilka tekniska krav som ska gälla för digital
+            service som tillhandahålls av en offentlig aktör genom en teknisk
+            lösning som står under aktörens kontroll.
+          </p>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2 id="exemptions">Undantag</h2>
+
+        <h3>Från lagens tillämpningsområde</h3>
+
+        <p>
+          Undantag från lagens tillämpningsområde beskrivs i 8–9&nbsp;§§
+          DOS-lagen.
+        </p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>8 §</b> Denna lag är inte tillämplig på digital service som
+            tillhandahålls av
+          </p>
+
+          <ol>
+            <li>
+              ett företag som bedriver radio- och tv-verksamhet som finansieras
+              enligt
+              <cite translate="no"
+                >lagen (2018:1893) om finansiering av radio och tv i
+                allmänhetens tjänst</cite
+              >, eller
+            </li>
+
+            <li>
+              en icke-statlig organisation vars service inte
+
+              <ol>
+                <li>är väsentlig för allmänheten, eller</li>
+
+                <li>
+                  är avsedd för personer med funktionsnedsättning eller
+                  specifikt tillgodoser deras behov.
+                </li>
+              </ol>
+            </li>
+          </ol>
+
+          <p>
+            <b>9 §</b> Denna lag är inte tillämplig på digital service som
+            utgörs av
+          </p>
+
+          <ol>
+            <li>direktsändningar av tidsberoende medier,</li>
+
+            <li>kartor som inte är avsedda för navigering,</li>
+
+            <li>
+              digital service från tredje part som varken har finansierats eller
+              tagits fram av den berörda offentliga aktören eller står under
+              dess kontroll,
+            </li>
+
+            <li>
+              reproduktioner av föremål från kulturarvssamlingar som inte kan
+              göras fullständigt tillgängliga utan betydande hinder,
+            </li>
+
+            <li>
+              digital service inom verksamhet som tillhör skolväsendet eller de
+              särskilda utbildningsformerna enligt 1&nbsp;<abbr>kap.</abbr>
+              eller 24&nbsp;<abbr>kap.</abbr>
+              <cite translate="no">skollagen (2010:800)</cite> eller pedagogisk
+              omsorg som erbjuds i stället för förskola eller fritidshem enligt
+              25&#610;<abbr>kap.</abbr> <cite translate="no">skollagen</cite>,
+              om inte servicen hänför sig till verksamhetens väsentliga
+              administrativa funktioner.
+            </li>
+          </ol>
+
+          <p>
+            Lagen är inte heller tillämplig på kartor avsedda för navigering, om
+            väsentlig information om innehållet i dessa tillhandahålls på ett
+            tillgängligt digitalt sätt.
+          </p>
+
+          <p>
+            Regeringen får meddela ytterligare föreskrifter om undantag från
+            lagens tillämpningsområde i fråga om sådan digital service som får
+            undantas enligt artikel 1.4&nbsp;a, b, g och h i
+            <cite>direktiv (EU) 2016/2102</cite>, i den ursprungliga lydelsen.
+          </p>
+        </blockquote>
+
+        <p>
+          Dessutom finns undantag för gammalt innehåll i 2&nbsp;§ förordningen.
+        </p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/forordning-20181938-om-tillganglighet-till_sfs-2018-1938"
+        >
+          <p>
+            <b>2 §</b>
+            <cite
+              >Lagen (2018:1937) om tillgänglighet till digital offentlig
+              service</cite
+            >
+            är inte tillämplig på digital service som utgörs av
+          </p>
+
+          <ol>
+            <li>
+              filformat för dokument som offentliggjorts före den
+              23&nbsp;september 2018, om sådant innehåll inte behövs för att
+              genomföra de aktiva administrativa förfaranden som följer av den
+              berörda offentliga aktörens uppgifter,
+            </li>
+
+            <li>
+              förinspelade tidsberoende medier som offentliggjorts före den
+              23&nbsp;september 2020,
+            </li>
+
+            <li>
+              innehåll på webbplatser som endast är tillgängliga för slutna
+              grupper och inte för allmänheten som sådan, som offentliggjorts
+              före den 23&nbsp;september 2019 fram till dess att sådana
+              webbplatser genomgår en omfattande översyn,
+            </li>
+
+            <li>
+              endast sådant innehåll som varken är nödvändigt för att genomföra
+              aktiva administrativa förfaranden eller uppdateras eller redigeras
+              efter den 23&nbsp;september 2019.
+            </li>
+          </ol>
+        </blockquote>
+
+        <h3>Oskäligt betungande anpassning</h3>
+
+        <p>
+          Undantag för oskäligt betungande anpassning beskrivs i 12&nbsp;§
+          DOS-lagen.
+        </p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>12 §</b> En offentlig aktör behöver inte uppfylla kraven enligt
+            10 och 11 §§ om det är oskäligt betungande att fullgöra dessa krav.
+          </p>
+
+          <p>
+            Vid bedömningen av om en anpassning är oskäligt betungande ska bland
+            annat den offentliga aktörens storlek beaktas, liksom karaktär på
+            uppgifter och resurser samt uppskattade kostnader och fördelar för
+            aktören i förhållande till de uppskattade fördelarna för personer
+            med funktionsnedsättning.
+          </p>
+
+          <p>
+            För en sådan aktör som avses i 4&nbsp;§ andra stycket 3 eller 4, och
+            som inte utgör ett offentligt styrt organ enligt 5&nbsp;§, ska även
+            den offentliga finansieringens storlek och varaktighet beaktas vid
+            bedömningen, liksom hur lång tid aktören har haft på sig att anpassa
+            sin digitala service till kraven.
+          </p>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2 id="a11y-stmt">Tillgänglighetsredogörelse</h2>
+
+        <p>
+          Krav på tillgänglighetsredogörelse definieras i 13&nbsp;§ DOS-lagen.
+        </p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>13 §</b> En offentlig aktör ska för sådan digital service som
+            avses i 10&nbsp;§ tillhandahålla en tillgänglighetsredogörelse.
+          </p>
+
+          <p>
+            Redogörelsen ska innehålla en funktion som gör det möjligt för en
+            enskild person att meddela den berörda aktören att dess digitala
+            service inte uppfyller tillgänglighetskraven eller framställa en
+            sådan begäran som avses i 15&nbsp;§.
+          </p>
+
+          <p>
+            Om en offentlig aktör bedömer att det är oskäligt betungande att
+            fullgöra kraven enligt 10&nbsp;§, ska denna bedömning återges i
+            tillgänglighetsredogörelsen.
+          </p>
+        </blockquote>
+
+        <p>Detaljer om innehållet regleras av 6&nbsp;§ föreskriften</p>
+
+        <blockquote
+          cite="https://www.digg.se/publicerat/forfattningssamlingar/2019/foreskrifter-om-tillganglighet-till-digital-offentlig-service/"
+        >
+          <p>
+            <b>6 §</b> Den tillgänglighetsredogörelse som avses i 13&nbsp;§
+            <cite translate="no"
+              >lagen (2018:1937) om tillgänglighet till digital offentlig
+              service</cite
+            >
+            ska innehålla
+          </p>
+
+          <ol>
+            <li>
+              namn på offentlig aktör samt den eller de webbplatser och mobila
+              applikationer som tillgänglighetsredogörelsen avser,
+            </li>
+
+            <li>
+              en redogörelse över om den eller de webbplatser och mobila
+              applikationer som tillgänglighetsredogörelsen avser helt, delvis,
+              eller inte uppfyller kraven i 4&nbsp;§,
+            </li>
+
+            <li>
+              en förteckning över de delar av innehållet som inte är
+              tillgängliga och de skäl som ligger till grund för att de inte är
+              tillgängliga och, i förekommande fall, de tillgängliga alternativ
+              som finns,
+            </li>
+
+            <li>
+              datum för när bedömningen om den digitala servicen uppfyller
+              kraven i 4&nbsp;§, som ligger till grund för
+              tillgänglighetsredogörelsen, utfördes och vilken metod som har
+              använts för att göra bedömningen samt datum när
+              tillgänglighetsredogörelsen senast uppdaterades,
+            </li>
+
+            <li>
+              den funktion, eller en länk till en sådan funktion, som avses i
+              13&nbsp;§ andra stycket
+              <cite translate="no"
+                >lagen (2018:1937) om tillgänglighet till digital offentlig
+                service</cite
+              >, som gör det möjligt för en enskild person att meddela den
+              berörda aktören att dess digitala service inte uppfyller kraven i
+              4&nbsp;§ dessa föreskrifter. Genom funktionen ska det också gå att
+              framställa en sådan begäran som avses i 15&nbsp;§ samma lag,
+              avseende tillgängliggörande av digital service som har
+              undantagits, och
+            </li>
+
+            <li>
+              information om att upplevd brist avseende tillgänglighet till
+              digital offentlig service kan anmälas till Myndigheten för digital
+              förvaltning och en länk till det förfarande för anmälningar som
+              myndigheten tillhandahåller.
+            </li>
+          </ol>
+
+          <p>
+            Tillgänglighetsredogörelsen ska spegla webbplatsens eller den mobila
+            applikationens aktuella tillgänglighet.
+          </p>
+
+          <p>
+            När det gäller webbplatser ska tillgänglighetsredogörelsen vara i
+            ett tillgängligt format och en länk till den vara klart och tydligt
+            presenterad och finnas på den relevanta webbplatsens hemsida eller
+            finnas på alla webbsidor. När det gäller mobila applikationer ska
+            tillgänglighetsredogörelsen vara i ett tillgängligt format och vara
+            åtkomlig på webbplatsen för den offentliga aktör som ansvarar för
+            den berörda mobila applikationen, eller i anslutning till den
+            information som är tillgänglig när applikationen laddas ner.
+            Tillgänglighetsredogörelsen får också vara åtkomlig i den mobila
+            applikationen.
+          </p>
+        </blockquote>
+
+        <p>med stöd av 5&nbsp;§ förordningen.</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/forordning-20181938-om-tillganglighet-till_sfs-2018-1938"
+        >
+          <p>
+            <b>5 §</b> Myndigheten för digital förvaltning får meddela
+            föreskrifter om tillgänglighetsredogörelsens utformning och
+            innehåll.
+          </p>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2 id="supervision">Tillsyn</h2>
+
+        <p>Tillsyn beskrivs i 16–17 §§ DOS-lagen</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>16 §</b> Den myndighet som regeringen bestämmer utövar tillsyn
+            över att denna lag och föreskrifter som har meddelats i anslutning
+            till lagen följs.
+          </p>
+
+          <p>
+            <b>17 §</b> Tillsynsmyndigheten ska övervaka att digital service som
+            tillhandahålls av en offentlig aktör uppfyller kraven i 10, 11, 13
+            och 15&nbsp;§§.
+          </p>
+        </blockquote>
+
+        <p>och genomförs med stöd av 6&nbsp;§ förordningen.</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/forordning-20181938-om-tillganglighet-till_sfs-2018-1938"
+        >
+          <p>
+            <b>6 §</b> Myndigheten för digital förvaltning ska utöva den tillsyn
+            som avses i 16 och 17&nbsp;§§
+            <cite translate="no"
+              >lagen (2018:1937) om tillgänglighet till digital offentlig
+              service</cite
+            >. Tillsynen ska genomföras i enlighet med Europaparlamentets och
+            rådets direktiv
+            <cite
+              >(EU)&nbsp;2016/2102 av den 26&nbsp;oktober 2016 om tillgänglighet
+              avseende offentliga myndigheters webbplatser och mobila
+              applikationer</cite
+            >, i den ursprungliga lydelsen, och kommissionens genomförandebeslut
+            <cite
+              >(EU)&nbsp;2018/1524 av den 11&nbsp;oktober 2018 om fastställande
+              av en övervakningsmetod och bestämmelser om medlemsstaternas
+              rapportering i enlighet med
+              <cite
+                >Europaparlamentets och rådets direktiv (EU)&nbsp;2016/2102 om
+                tillgänglighet avseende offentliga myndigheters webbplatser och
+                mobila applikationer</cite
+              ></cite
+            >.
+          </p>
+
+          <p>
+            Myndigheten har rätt att på begäran få de upplysningar och
+            handlingar som behövs för att utöva tillsynen.
+          </p>
+
+          <p>
+            Myndigheten får meddela föreskrifter om hur övervakningen av att
+            digital service som tillhandahålls av en offentlig aktör uppfyller
+            kraven i 10, 11, 13 och 15&nbsp;§§ lagen om tillgänglighet till
+            digital offentlig service ska genomföras.
+          </p>
+        </blockquote>
+
+        <p>
+          Regler för övervakning beskrivs i
+          <cite translate="no"
+            >Kommissionens genomförandebeslut (EU) 2018/1524 av den
+            11&nbsp;oktober 2018 om fastställande av en övervakningsmetod och
+            bestämmelser om medlemsstaternas rapportering i enlighet med
+            <cite
+              >Europaparlamentets och rådets direktiv (EU) 2016/2102 om
+              tillgänglighet avseende offentliga myndigheters webbplatser och
+              mobila applikationer</cite
+            ></cite
+          >.
+        </p>
+
+        <p>Anmälningar regleras av 18 § DOS-lagen.</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>18 §</b> Den som anser att en offentlig aktör inte uppfyller ett
+            eller flera av de krav som avses i 10, 11, 13 eller 15&nbsp;§, eller
+            vill att en bedömning enligt 12&nbsp;§ ska granskas, får anmäla
+            detta till tillsynsmyndigheten.
+          </p>
+        </blockquote>
+
+        <p>Rättelse styrs av 19 § DOS-lagen.</p>
+
+        <blockquote
+          cite="https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937"
+        >
+          <p>
+            <b>19 §</b> Om tillsynsmyndigheten genom övervakning eller efter
+            anmälan konstaterar brister i förhållande till kraven i 10, 11, 13
+            eller 15&nbsp;§, ska myndigheten genom påpekanden eller liknande
+            förfaranden försöka åstadkomma rättelse.
+          </p>
+
+          <p>
+            Leder insatserna enligt första stycket inte till rättelse får
+            tillsynsmyndigheten besluta att förelägga den offentliga aktören att
+            vidta åtgärder för att uppfylla kraven.
+          </p>
+
+          <p>Ett nytt föreläggande om samma sak får förenas med vite.</p>
+        </blockquote>
+
+        <p>
+          Vite regleras i <cite translate="no">Lag (1985:206) om viten</cite>.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="../start/tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="../start/webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

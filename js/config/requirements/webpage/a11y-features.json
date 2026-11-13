@@ -1,0 +1,10 @@
+{
+  "methods": [
+    "Prova att aktivera alla tillgänglighetsfunktioner och kontrollera att det är möjligt utan att uppfylla det behov funktionen ska tillgodose."
+  ],
+  "examples": {
+    "bad": [
+      "En ikon för att öka kontrasten har otillräcklig kontrast för att kunna uppfattas av personer med nedsatt synförmåga eller färgseende."
+    ]
+  }
+}

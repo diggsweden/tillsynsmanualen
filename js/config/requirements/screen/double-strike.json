@@ -1,0 +1,9 @@
+{
+  "steps": [
+    "Om fördröjningen mellan tangenttryck på vyns skärmtangentbord är justerbar, ställ in den på maximal fördröjning.",
+    "Tryck på samma tangent två gånger inom 0,5 sekunder.",
+    "Kontrollera att bara den första tangenttryckningen registrerades.",
+    "Efter mer än 0,5 sekunder, tryck på samma tangent igen.",
+    "Kontrollera att den sista tangenttryckningen registrerades."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "exceptions": [
+    "Kravet är inte tillämpligt om målformatet vid omvandling saknar stöd för de tillgänglighetsfunktioner som finns i källformatet, till exempel om en WYSIWYG-editor har en funktion för att spara innehållet som ASCII-text."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Omstrukturering",
+      "description": "innebär att formatet förblir detsamma (till exempel HTML), men att informationsstrukturen förändras, till exempel genom linjärisering av tabeller eller uppdelning av ett dokument i separata sidor."
+    },
+    {
+      "type": "definition",
+      "term": "Omvandling",
+      "description": "innebär att formatet eller tekniken för att representera innehållet förändras, exemeplvis en funktion på en webbsida för att spara den redigerade texten som PDF."
+    }
+  ]
+}

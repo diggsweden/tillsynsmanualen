@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <style type="text/css"><![CDATA[
+      rect {fill: url("#bg")}
+      text {fill:#fff; font:bold 40px/1.0 Arial,sans-serif; text-anchor:middle}
+      #r2 {fill: #fff}
+    ]]></style>
+    <linearGradient gradientTransform="rotate(90)" id="bg">
+      <stop offset="0%" stop-color="#efe"/>
+      <stop offset="60%" stop-color="#9c9"/>
+      <stop offset="100%" stop-color="#090"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(0 10)">
+    <rect x="0" y="0" width="90" height="50"/>
+    <text x="45" y="40">?</text>
+  </g>
+
+  <g transform="translate(110 10)">
+    <rect x="0" y="0" width="90" height="50"/>
+    <rect x="0" y="0" width="90" height="25" id="r2"/>
+    <text x="45" y="40">?</text>
+  </g>
+</svg>

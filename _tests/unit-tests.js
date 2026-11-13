@@ -1,0 +1,102 @@
+import { show } from './functions.js';
+
+const $ = (sel) => document.querySelector(sel);
+const params = new URLSearchParams(location.search.slice(1));
+const filter = params.get('filter');
+const tests = [
+  'Dispatcher.test.js',
+  'Router.test.js',
+  'common/AppContext.test.js',
+  'common/EventListenerList.test.js',
+  'common/FileStorage.test.js',
+  'common/KeyMap.test.js',
+  'common/ResourceLoader.test.js',
+  'common/SettingStorage.test.js',
+  'controller/AuditDisplayController.test.js',
+  'controller/AuditEditController.test.js',
+  'controller/AuditStartController.test.js',
+  'controller/CaseDisplayController.test.js',
+  'controller/CaseEditController.test.js',
+  'controller/ChecksController.test.js',
+  'controller/ConditionTree.test.js',
+  'controller/ControllerBase.test.js',
+  'controller/DirectoryController.test.js',
+  'controller/ListController.test.js',
+  'controller/LogEditController.test.js',
+  'controller/LogListController.test.js',
+  'controller/PersonController.test.js',
+  'controller/RequirementController.test.js',
+  'controller/RequirementOrder.test.js',
+  'controller/SampleDisplayController.test.js',
+  'controller/SampleEditController.test.js',
+  'controller/ScheduleController.test.js',
+  'controller/StartController.test.js',
+  'controller/URLParameters.test.js',
+  'db/ConnectionFactory.test.js',
+  'db/Cursor.test.js',
+  'db/Database.test.js',
+  'db/Index.test.js',
+  'db/ObjectStore.test.js',
+  'db/Transaction.test.js',
+  'menu/ContentMenu.test.js',
+  'menu/MenuController.test.js',
+  'menu/Menu.test.js',
+  'menu/Menubar.test.js',
+  'menu/MenuBuilder.test.js',
+  'menu/MenuButton.test.js',
+  'menu/MenuItem.test.js',
+  'model/Audit.test.js',
+  'model/case.test.js',
+  'model/CaseNumber.test.js',
+  'model/check.test.js',
+  'model/FailureList.test.js',
+  'model/InaccessibilityMetric.test.js',
+  'model/LogEntry.test.js',
+  'model/Model.test.js',
+  'model/Organization.test.js',
+  'model/Person.test.js',
+  'model/RegistrationNumber.test.js',
+  'model/Requirement.test.js',
+  'model/sample.test.js',
+  'model/Schedule.test.js',
+  'model/service.test.js',
+  'model/TelephoneNumber.test.js',
+  'view/AuditDisplayView.test.js',
+  'view/AuditEditView.test.js',
+  'view/AuditStartView.test.js',
+  'view/AutoContentMenu.test.js',
+  'view/BreadcrumbTrail.test.js',
+  'view/CaseDisplayView.test.js',
+  'view/CaseEditView.test.js',
+  'view/ChecksView.test.js',
+  'view/DirectoryView.test.js',
+  'view/Dropdown.test.js',
+  'view/Grid.test.js',
+  'view/Listbox.test.js',
+  'view/ListView.test.js',
+  'view/LogEditView.test.js',
+  'view/LogListView.test.js',
+  'view/PersonView.test.js',
+  'view/RemarksView.test.js',
+  'view/RequirementView.test.js',
+  'view/SampleDisplayView.test.js',
+  'view/SampleEditView.test.js',
+  'view/ScheduleView.test.js',
+  'view/StartView.test.js',
+  'view/SVGChart.test.js',
+  'view/TabList.test.js',
+  'view/ViewBase.test.js',
+  'view/ViewCondition.test.js',
+].filter((s) => !filter || -1 !== s.indexOf(filter));
+
+$('#filter').value = filter ?? '';
+$('form').level.value = params.get('level') ?? 'cases';
+
+const view = show()
+  .tests(...tests)
+  .fromPath('../')
+  .detailsIn($('#results'))
+  .totalsIn($('#totals'))
+  .controlledBy($('form').level);
+
+null !== filter && view.run();

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 90">
+  <g id="IDBDatabase">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="199" height="82"/>
+      <line x1="1" y1="12" x2="200" y2="12"/>
+      <line x1="1" y1="42" x2="200" y2="42"/>
+    </g>
+
+    <g stroke="none">
+      <text x="100" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">IDBDatabase</text>
+      <text x="5" y="20">+name: string</text>
+      <text x="5" y="30">+objectStoreNames: DOMStringList</text>
+      <text x="5" y="40">+version: number</text>
+      <text x="5" y="50">close(): void</text>
+      <text x="5" y="60">createObjectStore(string [,object]): IDBObjectStore</text>
+      <text x="5" y="70">deleteObjectStore(string): void</text>
+      <text x="5" y="80">transaction(string[], [,string [,object]]): IDBTransaction</text>
+    </g>
+  </g>
+</svg>

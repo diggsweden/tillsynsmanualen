@@ -1,0 +1,453 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för dokumentation, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Formgivning av HTML-element. */
+
+  body {
+    counter-reset: figures, tables;
+  }
+
+  code {
+    color: var(--text);
+    white-space: nowrap;
+  }
+  a code {
+    color: inherit;
+  }
+  pre code {
+    white-space: pre;
+  }
+
+  figure {
+    margin: 0 0 2.25em;
+    padding: 0;
+  }
+
+  h3 {
+    margin-top: 2.25rem;
+  }
+
+  pre {
+    margin: 0 0 2.25rem;
+    border-radius: 0.5em;
+    padding: 1em 0.5em;
+    background: var(--bg);
+    color: var(--text);
+    font: smaller/1.2 var(--mono-fonts);
+  }
+  li pre {
+    margin: 0;
+  }
+
+  marker path {
+    fill: var(--text);
+    stroke: none;
+  }
+  svg text {
+    fill: var(--text);
+    stroke: none;
+    font-family: var(--fonts);
+  }
+
+  table {
+    counter-increment: tables;
+  }
+  caption::before {
+    content: 'Tabell ' counter(tables) '. ';
+  }
+
+  sup a {
+    margin-left: 0.25em;
+    text-decoration: none;
+  }
+
+  /* Klasser och attribut. */
+
+  .bash kbd {
+    color: var(--text);
+  }
+  .bash kbd var {
+    color: var(--var);
+  }
+
+  figure.ecb {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .footnotes {
+    padding-left: 1.5em;
+    font-size: smaller;
+  }
+  .footnotes::before {
+    display: block;
+    width: 25%;
+    max-width: 16rem;
+    margin: 0 0 0.5em -1.5em;
+    border: 1px solid var(--border);
+    content: '';
+  }
+
+  dl.src {
+    display: grid;
+    grid-template-columns: 6.5em 1fr;
+    column-gap: 1em;
+  }
+  dl.src dd {
+    margin: 0;
+  }
+  dl.src dt {
+    color: var(--subdued);
+  }
+  dl.src dt::after {
+    content: ':';
+  }
+
+  .toc a {
+    text-decoration: none;
+  }
+
+  .uml-diagram {
+    display: block;
+    fill: var(--fill);
+    stroke: var(--text);
+    stroke-width: 0.625px;
+    font-size: 10px;
+  }
+  .uml-diagram.class {
+    fill: var(--fill);
+    stroke: var(--text);
+    stroke-width: 0.625px;
+    font-size: 8px;
+  }
+  .uml-diagram rect {
+    fill: none;
+  }
+  .uml-diagram text.class {
+    font-size: 1.125em;
+    font-weight: bold;
+    text-anchor: middle;
+  }
+  .uml-diagram.ecb text {
+    text-anchor: middle;
+  }
+  .uml-diagram .external {
+    fill: var(--subdued);
+    stroke: var(--subdued);
+  }
+  .uml-diagram .external text {
+    fill: var(--subdued);
+  }
+  .uml-diagram .highlight {
+    fill: var(--highlight);
+    stroke: var(--highlight);
+  }
+  .uml-diagram .internal {
+    fill: var(--internal);
+    stroke: var(--internal);
+  }
+  .composition {
+    fill: none;
+    marker-start: url('#composition');
+  }
+  .dependency {
+    fill: none;
+    marker-end: url('#dependency');
+    stroke-dasharray: 3, 3;
+  }
+  .inheritance {
+    fill: none;
+    marker-end: url('#inheritance');
+  }
+  marker.hollow path {
+    fill: var(--bg);
+    stroke: var(--text);
+    stroke-width: 1px;
+  }
+  marker.stroked path {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 1px;
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: light) {
+  /* Egna egenskaper. */
+
+  a {
+    --subdued: #777;
+  }
+
+  code {
+    --attribute: var(--keyword);
+    --bg: #f2f1f1;
+    --function: var(--var);
+    --ident: #060;
+    --keyword: #00c;
+    --literal: #a00;
+    --tag: var(--ident);
+    --text: #555;
+    --value: var(--literal);
+    --var: #111;
+  }
+
+  pre {
+    --bg: #f2f1f1;
+    --text: #515151;
+  }
+
+  pre.example {
+    --text: #111;
+  }
+
+  svg {
+    --highlight: #04c;
+    --internal: #090;
+  }
+
+  .bash kbd {
+    --text: #111;
+    --var: #a00;
+  }
+}
+
+/*
+ * Bildskärm, mörkt visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  /* Egna egenskaper. */
+
+  code {
+    --attribute: var(--keyword);
+    --bg: #333;
+    --function: var(--var);
+    --ident: #cc6;
+    --keyword: #84ae84;
+    --literal: #d99;
+    --tag: var(--ident);
+    --text: #bbb;
+    --value: var(--literal);
+    --var: #ddd;
+  }
+
+  pre {
+    --bg: #222;
+    --text: #999;
+  }
+
+  pre.example {
+    --text: #ddd;
+  }
+
+  svg {
+    --highlight: #cc9;
+    --internal: #aca;
+  }
+
+  .bash kbd {
+    --text: #ddd;
+    --var: #d99;
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Formgivning av HTML-element. */
+
+  sup a:hover {
+    text-decoration: underline;
+  }
+
+  /* Klasser och attribut. */
+
+  dl.classes dd,
+  dl.events dd,
+  dl.exceptions dd,
+  dl.params dd,
+  dl.properties dd {
+    margin: 0 0 2.25em 2em;
+  }
+  dl.classes dt code,
+  dl.events dt code,
+  dl.exceptions dt code,
+  dl.params dt code,
+  dl.properties dt code {
+    border-radius: 0.5em;
+    background: var(--bg);
+    font-size: smaller;
+    line-height: 1.2;
+    padding: 0.5em;
+  }
+  dt.optional::after {
+    margin-left: 2em;
+    border: 1px solid var(--border);
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+    color: var(--subdued);
+    font-size: smaller;
+    content: 'frivilligt';
+  }
+  dt.readonly::after {
+    margin-left: 2em;
+    border: 1px solid var(--border);
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+    color: var(--subdued);
+    font-size: smaller;
+    content: 'skrivskyddat';
+  }
+
+  .html code > span,
+  code.html > span,
+  code.html.tag {
+    color: var(--tag);
+  }
+  .html code > span > span,
+  code.html > span > span,
+  code.html > span,
+  code.html.attr {
+    color: var(--attribute);
+  }
+  .html code > span > span > span,
+  code.html > span > span > span,
+  code.html > span > span,
+  code.html.attr > span,
+  code.html.value {
+    color: var(--value);
+  }
+
+  .js .fn,
+  .js.fn {
+    color: var(--function);
+  }
+  .js .ident,
+  .js.ident {
+    color: var(--ident);
+  }
+  .js .keyword,
+  .js.keyword {
+    color: var(--keyword);
+  }
+  .js .literal,
+  .js.literal {
+    color: var(--literal);
+  }
+  .js .var,
+  .js.var {
+    color: var(--var);
+  }
+
+  .json .key {
+    color: var(--ident);
+  }
+  .json .value {
+    color: var(--literal);
+  }
+
+  .nav {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-between;
+    column-gap: 1em;
+    margin: 6em 0 3em;
+  }
+  .nav a {
+    display: inline-block;
+    position: relative;
+    width: 4em;
+    height: 4em;
+    border: 1px solid;
+    border-radius: 50%;
+    color: var(--text);
+    line-height: 4em;
+    text-align: center;
+  }
+  .nav a:not([href]) {
+    color: var(--subdued);
+  }
+  .nav a span {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding-top: 0.5em;
+    font-size: x-small;
+    line-height: 1.2;
+    transform: translateX(-50%);
+  }
+  .nav [rel='next']::after,
+  .nav [rel='prev']::before,
+  .nav .up::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-style: solid;
+    content: '';
+  }
+  .nav [rel='next']::after {
+    border-width: 0 3px 3px 0;
+    transform: translate(-0.25em, 0.1em) rotate(-45deg);
+  }
+  .nav [rel='prev']::before {
+    border-width: 0 0 3px 3px;
+    transform: translate(0.25em, 0.1em) rotate(45deg);
+  }
+  .nav .up::before {
+    border-width: 0 3px 3px 0;
+    transform: translate(0, 0.5em) rotate(-135deg);
+  }
+
+  .page-menu {
+    width: 16em;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    margin-right: -17.5em;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  .wide,
+  .wide main {
+    max-width: none;
+  }
+  .wide main,
+  main.wide {
+    margin-right: 18em;
+    margin-left: 1.5em;
+  }
+  .wide p {
+    box-sizing: border-box;
+    max-width: 40rem;
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * --------------------------
+ */
+@media print {
+  /* Formgivning av HTML-element. */
+
+  nav {
+    display: none;
+  }
+}

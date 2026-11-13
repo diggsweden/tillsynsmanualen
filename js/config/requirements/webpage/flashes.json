@@ -1,0 +1,55 @@
+{
+  "methods": [
+    "Ladda (om) sidan och titta efter innehåll som flimrar eller blinkar snabbt."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Timer",
+      "params": {
+        "duration": 1000
+      }
+    },
+    {
+      "tool": "bookmarklet",
+      "file": "Flashbox",
+      "title": "Flashbox"
+    },
+    {
+      "tool": "module",
+      "module": "FlashThreshold",
+      "params": {
+        "luminance": "luminance",
+        "red": "saturated-red"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "details",
+      "summary": "Definitioner",
+      "content": [
+        {
+          "type": "definition",
+          "term": "Flimmer",
+          "description": "Snabba växlingar mellan synligt och dolt, mellan ljust och mörkt eller mellan olika färger. Ett flimmer består av två motsatta sådana växlingar."
+        },
+        {
+          "type": "definition",
+          "term": "Yta som överskrider gränsvärdet",
+          "description": "Det flimrande innehållets sammanlagda yta är större än 0,006&nbsp;steradianer inom 10° av synfältet."
+        },
+        {
+          "type": "definition",
+          "term": "Luminansskillnad under tröskelvärde",
+          "description": "Skillnaden i relativ luminans (RL) i övergången mellan två färger är mindre än 10&nbsp;procent av den ljusare färgens RL om den mörkare färgens RL är under 0,80."
+        },
+        {
+          "type": "definition",
+          "term": "Par av övergångar innehåller mättat röd färg",
+          "description": "Minst en färg i vardera övergången har R/(R+G+B)≥0,8 och skillnaden i (R-G-B)×320 är &gt;20 för båda övergångarna."
+        }
+      ]
+    }
+  ]
+}

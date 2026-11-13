@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>StartView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">StartView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">StartView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-check-step"><code lang="en">checkStep()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Välkomstvy för granskare. Förklarar kortfattat granskningsprocessen och
+        gransknings&shy;funktionen. Innehåller också en lista på steg som
+        granskaren behöver vidta för att komma igång; innehållet skiljer mellan
+        det förenklade och det avancerade visningsläget.
+      </p>
+
+      <p>
+        <code lang="en">StartView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/StartView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/StartView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 250" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--StartView-->
+          <use
+            xlink:href="StartView.svg#StartView"
+            x="185"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="255" y1="23" x2="255" y2="50" class="inheritance" />
+
+          <g transform="translate(0, 50)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">StartView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">StartView</span>(<span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--checkStep()-->
+      <section>
+        <h2 id="m-check-stop"><code lang="en">checkStep()</code></h2>
+
+        <p>Sätter markeringen för ett steg till klart/inte klart.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">checkStep</code>(<span class="var">step</span>, <span class="var">checked</span>, <span class="var">link</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">step</code></dt>
+          <dd>Namn på steget att markera.</dd>
+
+          <dt><code lang="en">checked</code></dt>
+          <dd>Flagga som anger om steget är avklarat.</dd>
+
+          <dt><code lang="en">link</code></dt>
+          <dd>Frågeparametrar till länken.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="AutoContentMenu.html"
+              ><code lang="en">AutoContentMenu</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../start.module.html"
+              ><code lang="en">start.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/StartController.html"
+              ><code lang="en">StartController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

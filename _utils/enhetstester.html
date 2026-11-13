@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enhetstester</title>
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+
+    <style>
+      html {
+        font:
+          100%/1.5 'Segoe UI',
+          sans-serif;
+      }
+      body {
+        max-width: 40em;
+        margin: 0 auto;
+      }
+      form > p {
+        display: flex;
+        column-gap: 0.25em;
+      }
+      form > p > label,
+      button {
+        flex: 0 0 auto;
+      }
+      input[type='search'] {
+        flex: 1 1 90%;
+        border: 1px solid;
+        background: transparent;
+      }
+      button {
+        border: 0;
+        border-radius: 0.25em;
+        padding: 0 0.5em;
+        background: #5a6751;
+        color: #ddd;
+      }
+      fieldset {
+        display: flex;
+        align-items: center;
+        column-gap: 1em;
+        border: 0;
+        padding: 0;
+      }
+      legend {
+        display: contents;
+      }
+      input[type='radio'] {
+        position: absolute;
+        z-index: -1;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      input[type='radio']:focus {
+        outline: 0;
+      }
+      input[type='radio'] + label {
+        display: inline-block;
+        border-radius: 1em/50%;
+        padding: 0.25em 1em;
+        background-color: #b9beb6;
+        text-align: center;
+      }
+      input[type='radio']:checked + label {
+        background-color: #5a6751;
+        color: #ddd;
+      }
+      input[type='radio']:checked + label::before {
+        content: '\2714  ';
+      }
+      input[type='radio']:focus + label {
+        outline: 2px dotted #f60;
+        outline-offset: 0.2em;
+      }
+      input[type='radio']:focus + label:hover {
+        outline: 0;
+      }
+      ul {
+        padding: 0;
+      }
+      ul ul {
+        margin-left: 1em;
+      }
+      ul.errors {
+        padding-left: 1em;
+        background-color: #f88;
+        color: #300;
+      }
+      li {
+        display: block;
+      }
+      [aria-expanded] > *:first-child {
+        cursor: default;
+      }
+      [aria-expanded] > *:first-child:focus {
+        outline: 2px dotted #f60;
+        outline-offset: 2px;
+      }
+      [aria-expanded] > *:first-child:focus:hover {
+        outline: 0;
+      }
+      [aria-expanded] > *:first-child::before {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.5em;
+        border: 1px solid;
+        border-radius: 0.25em;
+        color: #333;
+        line-height: 0.75;
+        text-align: center;
+      }
+      [aria-expanded='true'] > *:first-child::before {
+        content: '-';
+      }
+      [aria-expanded='false'] > *:first-child::before {
+        content: '+';
+      }
+      [aria-expanded] > .error:first-child::before {
+        content: none;
+      }
+      [aria-expanded='true'] .suite,
+      [aria-expanded='true'] .test {
+        display: block;
+      }
+      [aria-expanded='false'] .suite,
+      [aria-expanded='false'] .test {
+        display: none;
+      }
+      .fails li:not(.fail) {
+        display: none;
+      }
+      .case {
+        font-size: 1.2rem;
+      }
+      .cases .case,
+      .suites .case {
+        font-size: 1rem;
+      }
+      .suite {
+        font-size: 1rem;
+      }
+      .suites .suite {
+        font-size: 0.8333rem;
+      }
+      .test {
+        font-size: 0.8333rem;
+      }
+      strong.fail {
+        color: #a70606;
+      }
+      .fail::before,
+      .pass::before,
+      .pending::before,
+      .skipped::before {
+        display: inline-block;
+        width: 1.5em;
+      }
+      strong[class]::before {
+        text-align: center;
+      }
+      .fail::before {
+        color: #a70606;
+        content: '\2718';
+      }
+      strong.pass {
+        color: #060;
+      }
+      .pass::before {
+        color: #060;
+        content: '\2714';
+      }
+      strong.pending,
+      strong.skipped {
+        color: #f60;
+      }
+      .pending::before,
+      .skipped::before {
+        color: #f60;
+        content: '\26a0';
+      }
+      .error {
+        margin: 0;
+        border: 1px solid #300;
+        padding: 0.25em 0.5em;
+        font-family: Consolas, monospace;
+        font-size: smaller;
+        white-space: pre;
+      }
+      #results.waiting:empty::after {
+        display: block;
+        color: #666;
+        font-style: italic;
+        content: 'Kör testerna...';
+      }
+    </style>
+
+    <style media="screen and (prefers-color-scheme:dark)">
+      html {
+        background-color: #111;
+        color: #ddd;
+      }
+      a {
+        color: yellow;
+      }
+      button {
+        background-color: #9aae9a;
+        color: #111;
+      }
+      input[type='radio'] + label {
+        background-color: #2c302c;
+      }
+      input[type='radio']:checked + label {
+        background-color: #9aae9a;
+        color: #111;
+      }
+      input[type='radio']:checked + label::before {
+        content: '\2714  ';
+      }
+      input[type='radio']:focus + label {
+        outline-color: #dd8;
+      }
+      input[type='search'] {
+        color: #ddd;
+      }
+      [aria-expanded] > *:first-child:focus {
+        outline-color: #dd0;
+      }
+      [aria-expanded] > *:first-child::before {
+        color: #bbb;
+      }
+      .fail::before,
+      strong.fail {
+        color: #faa;
+      }
+      .pass::before,
+      strong.pass {
+        color: #84ae84;
+      }
+      .pending::before,
+      .skipped::before,
+      strong.pending,
+      strong.skipped {
+        color: #cc6;
+      }
+      .error {
+        border-color: #600;
+        background-color: #300;
+        color: #f88;
+      }
+      #results:empty::after {
+        color: #999;
+      }
+      strong.cases,
+      strong.collections,
+      strong.tests {
+        color: #cc6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Enhetstester för Tillsynsmanualen</h1>
+
+    <form>
+      <p>
+        <label for="filter">Filter</label>
+        <input name="filter" spellcheck="false" type="search" id="filter" />
+        <button>Uppdatera</button>
+      </p>
+
+      <fieldset>
+        <legend>Detaljnivå</legend>
+        <span>
+          <input
+            type="radio"
+            name="level"
+            checked
+            value="cases"
+            id="level-case"
+          />
+          <label for="level-case">Testfall</label>
+        </span>
+
+        <span>
+          <input type="radio" name="level" value="suites" id="level-suite" />
+          <label for="level-suite">Samlingar</label>
+        </span>
+
+        <span>
+          <input type="radio" name="level" value="tests" id="level-test" />
+          <label for="level-test">Tester</label>
+        </span>
+
+        <span>
+          <input type="radio" name="level" value="fails" id="level-fail" />
+          <label for="level-fail">Fel</label>
+        </span>
+      </fieldset>
+    </form>
+
+    <h2>Testresultat</h2>
+    <div id="totals"></div>
+
+    <ul class="cases" id="results"></ul>
+
+    <script src="../_tests/unit-tests.js" type="module"></script>
+  </body>
+</html>

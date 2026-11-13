@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 30">
+  <g id="CheckFactory-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="22"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CheckFactory</text>
+      <text x="5" y="20">
+        <tspan>build()</tspan>
+        <tspan x="95" text-anchor="end">«static»</tspan>
+      </text>
+    </g>
+  </g>
+
+  <g id="CheckFactory">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="22"/>
+      <line x1="1" y1="12" x2="110" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CheckFactory</text>
+      <text x="5" y="20">
+        <tspan>build(object): Check</tspan>
+        <tspan x="105" text-anchor="end">«static»</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

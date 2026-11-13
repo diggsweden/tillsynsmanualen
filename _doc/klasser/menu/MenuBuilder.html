@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>MenuBuilder – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 51rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">MenuBuilder</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">MenuBuilder</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-build"><code lang="en">build()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#example"><span>Exempel</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Skapar en menystruktur utifrån en konfiguration i JSON-format.
+        Strukturen utgör en hierarki av oordnade listor. En platshållare i
+        DOM-trädet ersätts av den överordnade listan.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/menu/MenuBuilder.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/menu/MenuBuilder.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 510 380" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--MenuBuilder-->
+          <use
+            xlink:href="MenuBuilder.svg#MenuBuilder"
+            x="140"
+            y="0"
+            class="highlight"
+          />
+
+          <g transform="translate(140, 0)">
+            <line x1="30" y1="23" x2="30" y2="50" class="dependency" />
+            <line x1="90" y1="23" x2="90" y2="160" class="dependency" />
+            <line x1="150" y1="23" x2="150" y2="50" class="dependency" />
+            <path d="M0,11 h-115 v149" class="dependency" />
+            <path d="M181,7 h155 v283" class="dependency" />
+            <path d="M181,14 h115 v146" class="dependency" />
+          </g>
+
+          <!--Menubar-->
+          <use xlink:href="Menubar.svg#Menubar" x="80" y="50" />
+
+          <line x1="170" y1="133" x2="170" y2="160" class="inheritance" />
+
+          <!--ContentMenu-->
+          <use xlink:href="ContentMenu.svg#ContentMenu" x="250" y="50" />
+
+          <line x1="290" y1="113" x2="290" y2="160" class="inheritance" />
+
+          <!--MenuItem-->
+          <use xlink:href="MenuItem.svg#MenuItem" x="0" y="160" />
+
+          <g transform="translate(0, 160)">
+            <path d="M101,18 h12 v-8 h-12" class="composition" />
+            <line x1="101" y1="68" x2="140" y2="68" class="composition" />
+          </g>
+
+          <!--Menu-->
+          <use xlink:href="Menu.svg#Menu" x="140" y="160" />
+
+          <g transform="translate(140, 160)">
+            <line x1="0" y1="78" x2="-39" y2="78" class="composition" />
+            <path d="M0,88 h-20 v10 h20" class="composition" />
+          </g>
+
+          <!--MenuButton-->
+          <use xlink:href="MenuButton.svg#MenuButton" x="360" y="160" />
+
+          <!--MenuController-->
+          <use xlink:href="MenuController.svg#MenuController" x="400" y="290" />
+
+          <line x1="400" y1="301" x2="321" y2="301" class="composition" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">MenuBuilder</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">MenuBuilder</span>()</code></pre>
+      </section>
+
+      <!--build()-->
+      <section>
+        <h2 id="m-build"><code lang="en">build()</code></h2>
+
+        <p>Skapar liststrukturen för menyn.</p>
+
+        <p>Hämtar konfigurationen och genererar menystrukturen utfrån den.</p>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">build</span>(<span class="var">pathname</span>, <span class="var">label</span>, <span class="var">placeholder</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">pathname</code></dt>
+          <dd>Absolut sökväg till den sida där skriptet exekverar.</dd>
+
+          <dt><code lang="en">label</code></dt>
+          <dd>Etikett som förmedlas till hjälpmedel.</dd>
+
+          <dt><code lang="en">placeholder</code></dt>
+          <dd>Platshållarelement i DOM-trädet som ersätts av menyn.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <a href="Menubar.html"><code lang="en">Menubar</code></a
+          >-instans kopplad till den skapade liststrukturen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Ett fel uppstod vid hämtning av konfigurationsfilen.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Metoden skapar ett <code class="html tag">&lt;nav&gt;</code>-element
+          som yttre behållare. Därefter hämtar den konfigura&shy;tionsfilen
+          <a href="../../konfiguration.html#menu">
+            <code lang="en">js/config/menu.json</code></a
+          >
+          asynkront med <code lang="en">fetch()</code> och skapar ett
+          <code class="html tag">&lt;ul&gt;</code>-element och kopplar det till
+          en instans av klassen
+          <a href="Menubar.html"><code lang="en">Menubar</code></a
+          >.
+        </p>
+
+        <p>
+          Sedan genererar metoden för varje element i konfigurationen ett
+          <code class="html tag">&lt;li&gt;</code>-element kopplat till en
+          <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-instans. För undermenyer skapar metoden ett underordnat
+          <code class="html tag">&lt;ul&gt;</code>-element kopplat till en
+          <a href="Menu.html"><code lang="en">Menu</code></a
+          >-instans.
+        </p>
+      </section>
+
+      <!--Exempel-->
+      <section>
+        <h2 id="example">Exempel</h2>
+
+        <p>
+          Utifrån exempelkonfigurationen i Figur&nbsp;2 genererar metoden en
+          elementstruktur enligt Figur&nbsp;3.
+        </p>
+
+        <p>
+          Slutligen ersätter metoden platshållaren som har identiteten ”<code
+            lang="en"
+            >nav-placeholder</code
+          >” i DOM-trädet med det genererade
+          <code class="html tag">&lt;nav&gt;</code>-elementet.
+        </p>
+
+        <figure>
+          <pre class="json"><code>{
+  <span class="key">"menu"</span>: [
+    {
+      <span class="key">"label"</span>: <span class="value">"Alfa"</span>,
+      <span class="key">"content"</span>: [
+        {<span class="key">"label"</span>: <span class="value">"Beta"</span>,  <span class="key">"url"</span>: <span class="value">"alfa/beta.html"</span>},
+        {<span class="key">"label"</span>: <span class="value">"Gamma"</span>, <span class="key">"url"</span>: <span class="value">"alfa/gamma.html"</span>}
+      }
+    },
+    {
+      <span class="key">"label"</span>: <span class="value">Delta</span>,
+      <span class="key">"content"</span>: [
+        {<span class="key">"label"</span>: <span class="value">"Epsilon"</span>, <span class="key">"url"</span>: <span class="value">"delta/epsilon.html"</span>},
+        {
+          <span class="key">"label"</span>: <span class="value">"Zeta"</span>,
+          <span class="key">"content"</span>: [
+            {<span class="key">"label"</span>: <span class="value">"Eta"</span>,   <span class="key">"url"</span>: <span class="value">"delta/zeta/eta.html"</span>},
+            {<span class="key">"label"</span>: <span class="value">"Theta"</span>, <span class="key">"url"</span>: <span class="value">"delta/zeta/theta.html"</span>}
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+          <figcaption>Exempel på menykonfiguration.</figcaption>
+        </figure>
+
+        <figure>
+          <pre
+            class="html"
+          ><code><span>&lt;ul <span>role=<span>"menubar"</span></span>&gt;</span>
+  <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span>
+    <span>&lt;a <span>role=<span>"menuitem"</span></span>&gt;</span>Alfa<span>&lt;/a&gt;</span>
+    <span>&lt;ul <span>role=<span>"menu"</span></span>&gt;</span>
+      <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span><span>&lt;a <span>role=<span>"menuitem"</span></span> <span>href=<span>"alfa/beta.html"</span></span>&gt;</span>Beta<span>&lt;/a&gt;&lt;/li&gt;</span>
+      <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span><span>&lt;a <span>role=<span>"menuitem"</span></span> <span>href=<span>"alfa/gamma.html"</span></span>&gt;</span>Gamma<span>&lt;/a&gt;&lt;/li&gt;</span>
+    <span>&lt;/ul&gt;</span>
+  <span>&lt;/li&gt;</span>
+  <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span>
+    <span>&lt;a <span>role=<span>"menuitem"</span></span>&gt;</span>Delta<span>&lt;/a&gt;</span>
+    <span>&lt;ul <span>role=<span>"menu"</span></span>&gt;</span>
+      <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span><span>&lt;a <span>role=<span>"menuitem"</span></span> <span>href=<span>"delta/epsilon.html"</span></span>&gt;</span>Epsilon<span>&lt;/a&gt;&lt;/li&gt;</span>
+      <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span><span>&lt;a <span>role=<span>"menuitem"</span></span>&gt;</span>Zeta<span>&lt;/a&gt;</span>
+        <span>&lt;ul <span>role=<span>"menu"</span></span>&gt;</span>
+          <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span><span>&lt;a <span>role=<span>"menuitem"</span></span> <span>href=<span>"delta/zeta/eta.html"</span></span>&gt;</span>Eta<span>&lt;/a&gt;&lt;/li&gt;</span>
+          <span>&lt;li <span>role=<span>"none"</span></span>&gt;</span><span>&lt;a <span>role=<span>"menuitem"</span></span> <span>href=<span>"delta/zeta/theta.html"</span></span>&gt;</span>Theta<span>&lt;/a&gt;&lt;/li&gt;</span>
+        <span>&lt;/ul&gt;</span>
+      <span>&lt;/li&gt;</span>
+    <span>&lt;/ul&gt;</span>
+  <span>&lt;/li&gt;</span>
+<span>&lt;/ul&gt;</span></code></pre>
+          <figcaption>Genererad DOM-struktur.</figcaption>
+        </figure>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../../meny.html">Menyn</a></li>
+          <li>
+            <a href="Menu.html"><code lang="en">Menu</code></a>
+          </li>
+          <li>
+            <a href="Menubar.html"><code lang="en">Menubar</code></a>
+          </li>
+          <li>
+            <a href="MenuItem.html"><code lang="en">MenuItem</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

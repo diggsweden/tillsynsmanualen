@@ -1,0 +1,3400 @@
+{
+  "contentTypes": [
+    { "id": "txt", "title": "Text", "default": true },
+    { "id": "lnk", "title": "Länkar", "default": true },
+    { "id": "hea", "title": "Rubriker", "default": true },
+    { "id": "lst", "title": "Listor" },
+    { "id": "tbl", "title": "Tabeller" },
+    { "id": "img", "title": "Bilder, ikoner och grafik" },
+    { "id": "aud", "title": "Ljudklipp" },
+    { "id": "ani", "title": "Animeringar och filmklipp utan ljud" },
+    { "id": "vid", "title": "Filmklipp" },
+    { "id": "mp", "title": "Mediespelare" },
+    { "id": "inp", "title": "Formulärobjekt och inmatningsfält" },
+    { "id": "btn", "title": "Knappar", "end": 1678406400000 },
+    { "id": "ui", "title": "Interaktiva element", "end": 1678406400000 },
+    {
+      "id": "uib",
+      "title": "Knappar och interaktiva element",
+      "begin": 1678406400000
+    },
+    {
+      "id": "leg",
+      "title": "Juridiska/ekonomiska åtaganden",
+      "end": 1678406400000
+    },
+    { "id": "eco", "title": "Ekonomiska transaktioner", "end": 1678406400000 },
+    {
+      "id": "lec",
+      "title": "Juridiska eller ekonomiska konsekvenser",
+      "begin": 1678406400000
+    },
+    { "id": "uda", "title": "Radering eller ändring av profildata" },
+    { "id": "snd", "title": "Automatiskt uppspelat ljud" },
+    { "id": "mov", "title": "Rörelse", "end": 1678406400000 },
+    { "id": "upd", "title": "Uppdatering", "end": 1678406400000 },
+    {
+      "id": "muc",
+      "title": "Automatiskt rörligt eller uppdaterande innehåll",
+      "begin": 1678406400000
+    },
+    { "id": "fla", "title": "Snabba blinkningar" },
+    { "id": "acc", "title": "Funktioner för utökad tillgänglighet" },
+    { "id": "edt", "title": "Formateringsverktyg" },
+    { "id": "bio", "title": "Biometri" },
+    { "id": "cnv", "title": "Konvertering mellan filformat" },
+    { "id": "doc", "title": "Produktdokumentation", "end": 1678406400000 },
+    { "id": "sup", "title": "Supporttjänster", "end": 1678406400000 },
+    { "id": "tch", "title": "Funktioner för touchskärm", "end": 1678406400000 },
+    { "id": "pg", "title": "Pekargester", "begin": 1678406400000 },
+    { "id": "mc", "title": "Aktivering med rörelse", "begin": 1678406400000 },
+    { "id": "vox", "title": "Röst-/videokommunikation" }
+  ],
+  "sections": [
+    {
+      "id": "preparation",
+      "title": "Förberedelser",
+      "modes": ["advanced"],
+      "requirements": ["screenshot"]
+    },
+    {
+      "id": "distracting",
+      "title": "Störande",
+      "contentTypes": ["snd", "mov", "upd", "muc", "fla"],
+      "requirements": ["audio-ctrl", "pause-stop-hide", "flashes"]
+    },
+    {
+      "id": "content",
+      "title": "Innehåll",
+      "requirements": ["title", "lang-page", "timing-refresh", "use-of-colour"],
+      "sections": [
+        {
+          "id": "semantics",
+          "title": "Semantik",
+          "contentTypes": ["txt", "lnk", "hea", "lst", "tbl"],
+          "requirements": [
+            "landmarks",
+            "headings",
+            "lists",
+            "tables",
+            "info-rel",
+            "info-rel-generic"
+          ]
+        },
+        {
+          "id": "links",
+          "title": "Länkar",
+          "contentTypes": ["lnk"],
+          "requirements": ["link-purpose", "colour-links", "sensory-links-2"]
+        },
+        {
+          "id": "text",
+          "title": "Text",
+          "contentTypes": ["txt", "hea"],
+          "requirements": [
+            "lang-parts",
+            "heading-purpose",
+            "contrast-text",
+            "sensory-text"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard",
+      "title": "Tangentbord",
+      "contentTypes": ["lnk", "mp", "inp", "btn", "ui", "uib"],
+      "sections": [
+        {
+          "id": "focus",
+          "title": "Fokus",
+          "requirements": [
+            "focus-order",
+            "focus-visible",
+            "contrast-focus",
+            "on-focus",
+            "content-focus"
+          ]
+        },
+        {
+          "id": "operable",
+          "title": "Hanterbart",
+          "requirements": ["bypass", "keyboard", "kbd-trap"]
+        }
+      ]
+    },
+    {
+      "id": "layout",
+      "title": "Layout",
+      "requirements": ["reflow", "text-spacing"],
+      "sections": [
+        {
+          "id": "reize",
+          "title": "Förstoring",
+          "contentTypes": ["txt", "lnk", "mp", "inp", "btn", "ui", "uib"],
+          "requirements": [
+            "resize-text",
+            "content-focus-zoom",
+            "content-hover-zoom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "general",
+      "title": "Generella krav",
+      "requirements": [
+        "status-messages",
+        "timing-form",
+        "sequence",
+        "navigation",
+        "identification",
+        "ways",
+        "cancel",
+        "preferences"
+      ]
+    },
+    {
+      "id": "odd",
+      "title": "Avvikande sidor",
+      "requirements": [
+        "error-prevention",
+        "shortcuts",
+        "a11y-features",
+        "biometrics",
+        "conv-a11y"
+      ]
+    },
+    {
+      "id": "images",
+      "title": "Bilder",
+      "contentTypes": ["img"],
+      "requirements": ["contrast-graphic", "images-of-text", "contrast-iot"],
+      "sections": [
+        {
+          "id": "images-alt",
+          "title": "Textalternativ",
+          "requirements": ["alt", "lang-alt"]
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "title": "Användargränssnitt",
+      "contentTypes": ["inp", "btn", "mp", "ui", "uib", "edt"],
+      "sections": [
+        {
+          "id": "labels",
+          "title": "Ledtexter",
+          "contentTypes": ["inp"],
+          "requirements": ["label-instr", "labels", "label-purpose"]
+        },
+        {
+          "id": "components",
+          "title": "Interaktiva komponenter",
+          "requirements": [
+            "info-rel-fields",
+            "name-role-value",
+            "label-in-name",
+            "sensory-button-2",
+            "contrast-ui",
+            "input-purpose"
+          ]
+        },
+        {
+          "id": "behaviour",
+          "title": "Beteende",
+          "requirements": ["content-hover", "on-input"]
+        },
+        {
+          "id": "errors",
+          "title": "Felmeddelanden",
+          "contentTypes": ["inp", "btn", "mp", "ui", "edt"],
+          "requirements": ["error-msg", "colour-error-2", "error-suggestion"]
+        },
+        {
+          "id": "editor",
+          "title": "Redigeringsverktyg",
+          "contentTypes": ["edt"],
+          "requirements": [
+            "edit-content",
+            "edit-transform",
+            "edit-repair",
+            "edit-templates",
+            "edit-tech"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Ljud och video",
+      "contentTypes": ["aud", "ani", "vid", "mp"],
+      "requirements": [
+        "alt-media",
+        "audio-only",
+        "video-only",
+        "media-controls"
+      ],
+      "sections": [
+        {
+          "id": "captions",
+          "title": "Undertexter",
+          "contentTypes": ["vid", "mp"],
+          "requirements": [
+            "captions",
+            "caption-play",
+            "caption-synch",
+            "caption-conv",
+            "caption-char",
+            "spoken-subtitles"
+          ]
+        },
+        {
+          "id": "audio-desc",
+          "title": "Syntolkning",
+          "contentTypes": ["vid", "mp"],
+          "requirements": [
+            "audio-desc-req",
+            "audio-desc-alt",
+            "audio-desc-play",
+            "audio-desc-synch",
+            "audio-desc-conv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doc",
+      "title": "Dokumentation och support",
+      "categories": ["doc", "support"],
+      "sections": [
+        {
+          "id": "doc-product",
+          "title": "Produktdokumentation",
+          "categories": ["doc"],
+          "requirements": ["doc-a11y", "doc-product"]
+        },
+        {
+          "id": "doc-support",
+          "title": "Supporttjänster",
+          "categories": ["support"],
+          "requirements": ["support-a11y", "support-comm", "doc-support"]
+        }
+      ]
+    },
+    {
+      "id": "touch",
+      "title": "Touchskärmar, mobila enheter och pekare",
+      "contentTypes": ["tch", "pg", "mc"],
+      "requirements": [
+        "gestures",
+        "cancel-touch",
+        "motion-actuation",
+        "orientation"
+      ]
+    },
+    {
+      "id": "communication",
+      "title": "Tvåvägs röst- eller videokommunikation",
+      "contentTypes": ["vox"],
+      "requirements": ["audio-bandwidth", "caller-id", "voice-alt"],
+      "sections": [
+        {
+          "id": "rtt",
+          "title": "Realtidstext",
+          "requirements": [
+            "rtt",
+            "rtt-concurrent",
+            "rtt-display",
+            "rtt-dir",
+            "rtt-ident",
+            "rtt-audio",
+            "interoperability",
+            "rtt-responsiveness"
+          ]
+        },
+        {
+          "id": "video-comm",
+          "title": "Videokommunikation",
+          "requirements": [
+            "resolution",
+            "frame-rate",
+            "video-synch",
+            "video-audio-ind",
+            "video-ident"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conformance",
+      "title": "Överensstämmelse",
+      "requirements": ["wcag-conformance"]
+    },
+    {
+      "id": "a11y-statement",
+      "title": "Tillgänglighetsredogörelse",
+      "categories": ["statement"],
+      "requirements": [
+        "stmt-names",
+        "stmt-compliance",
+        "stmt-non-acc",
+        "stmt-dates-method",
+        "stmt-feedback",
+        "stmt-enforcement",
+        "stmt-current",
+        "stmt-access",
+        "stmt-disprop"
+      ]
+    },
+    {
+      "id": "a11y-statement-app",
+      "title": "Tillgänglighetsredogörelse (app)",
+      "categories": ["statementApp"],
+      "requirements": [
+        "stmt-names-app",
+        "stmt-version-date-app",
+        "stmt-compliance-app",
+        "stmt-non-acc-app",
+        "stmt-dates-method-app",
+        "stmt-feedback-app",
+        "stmt-enforcement-app",
+        "stmt-current-app",
+        "stmt-access-app",
+        "stmt-disprop-app"
+      ]
+    }
+  ],
+  "requirements": {
+    "a11y-features": {
+      "title": "Aktivering av tillgänglighetsfunktioner",
+      "reference": "5.2",
+      "section": "odd",
+      "contentTypes": ["acc"],
+      "checks": [{ "check": "a11y-features" }]
+    },
+    "a11y-statement": {
+      "title": "Tillgänglighetsredogörelsen",
+      "reference": "MDFFS2019:2 6 §",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-reachable" },
+        { "check": "stmt-psb-name" },
+        { "check": "stmt-service-name" },
+        { "check": "stmt-compliance" },
+        { "check": "stmt-non-accessible" },
+        { "check": "stmt-prep-date" },
+        { "check": "stmt-review-date" },
+        { "check": "stmt-method" },
+        { "check": "stmt-feedback" },
+        { "check": "stmt-enforcement" },
+        { "condition": "disprop-burden" }
+      ]
+    },
+    "alt": {
+      "title": "Textalternativ för bilder",
+      "reference": "9.1.1.1",
+      "section": "images",
+      "subsection": "images-alt",
+      "checks": [
+        { "check": "img-fg" },
+        { "check": "alt-present" },
+        { "check": "alt-equal" },
+        { "check": "alt-abstract" },
+        { "check": "alt-empty" },
+        { "condition": "captcha" }
+      ]
+    },
+    "alt-media": {
+      "title": "Textalternativ för tidsberoende medier",
+      "reference": "9.1.1.1",
+      "section": "media",
+      "checks": [{ "check": "alt-media" }]
+    },
+    "audio-bandwidth": {
+      "title": "Bandbredd för tal",
+      "reference": "6.1",
+      "section": "communication",
+      "checks": [{ "check": "audio-bandwidth" }]
+    },
+    "audio-ctrl": {
+      "title": "Ljudkontroll",
+      "reference": "9.1.4.2",
+      "section": "distracting",
+      "contentTypes": ["snd"],
+      "checks": [{ "condition": "audio" }]
+    },
+    "audio-desc-alt": {
+      "title": "Syntolkning eller transkription",
+      "reference": "9.1.2.3",
+      "section": "media",
+      "subsection": "audio-desc",
+      "contentTypes": ["vid"],
+      "approvable": false,
+      "checks": [
+        { "check": "has-audio-desc" },
+        { "condition": "audio-desc-alt" }
+      ]
+    },
+    "audio-desc-conv": {
+      "title": "Bevara syntolkning vid omvandling",
+      "reference": "7.2.3",
+      "section": "media",
+      "subsection": "audio-desc",
+      "contentTypes": ["mp"],
+      "checks": [{ "condition": "audio-desc-conv" }]
+    },
+    "audio-desc-play": {
+      "title": "Spela upp syntolkning",
+      "reference": "7.2.1",
+      "section": "media",
+      "subsection": "audio-desc",
+      "contentTypes": ["mp"],
+      "checks": [{ "check": "audio-desc-play" }]
+    },
+    "audio-desc-req": {
+      "title": "Syntolkning",
+      "reference": "9.1.2.5",
+      "section": "media",
+      "subsection": "audio-desc",
+      "contentTypes": ["vid"],
+      "checks": [{ "check": "audio-desc-req" }]
+    },
+    "audio-desc-synch": {
+      "title": "Synkroniserad syntolkning",
+      "reference": "7.2.2",
+      "section": "media",
+      "subsection": "audio-desc",
+      "contentTypes": ["mp"],
+      "checks": [{ "check": "audio-desc-synch" }]
+    },
+    "audio-only": {
+      "title": "Alternativ för ljudklipp",
+      "reference": "9.1.2.1",
+      "section": "media",
+      "contentTypes": ["aud"],
+      "checks": [{ "condition": "audio-only" }]
+    },
+    "biometrics": {
+      "title": "Biometri",
+      "reference": "5.3",
+      "section": "odd",
+      "contentTypes": ["bio"],
+      "checks": [{ "check": "biometrics" }]
+    },
+    "bypass": {
+      "title": "Skipplänkar",
+      "reference": "9.2.4.1",
+      "section": "keyboard",
+      "subsection": "operable",
+      "contentTypes": ["lnk"],
+      "checks": [
+        { "condition": "bypass-header" },
+        { "condition": "bypass-block" }
+      ]
+    },
+    "caller-id": {
+      "title": "Nummerpresentation",
+      "reference": "6.3",
+      "section": "communication",
+      "checks": [{ "condition": "caller-id" }]
+    },
+    "cancel": {
+      "title": "Avbryta klick",
+      "reference": "9.2.5.2",
+      "section": "general",
+      "checks": [{ "condition": "cancel" }]
+    },
+    "cancel-touch": {
+      "title": "Avbryta tryck",
+      "reference": "9.2.5.2",
+      "section": "touch",
+      "checks": [{ "condition": "cancel-touch" }]
+    },
+    "caption-char": {
+      "title": "Anpassa undertexter",
+      "reference": "7.1.4",
+      "section": "media",
+      "subsection": "captions",
+      "contentTypes": ["mp"],
+      "checks": [{ "check": "caption-char" }]
+    },
+    "caption-conv": {
+      "title": "Bevara undertexter vid omvandling",
+      "reference": "7.1.3",
+      "section": "media",
+      "subsection": "captions",
+      "contentTypes": ["mp"],
+      "checks": [{ "condition": "caption-conv" }]
+    },
+    "caption-play": {
+      "title": "Visa/dölja undertexter",
+      "reference": "7.1.1",
+      "section": "media",
+      "subsection": "captions",
+      "contentTypes": ["mp"],
+      "checks": [{ "check": "caption-play" }]
+    },
+    "caption-synch": {
+      "title": "Synkroniserade undertexter",
+      "reference": "7.1.2",
+      "section": "media",
+      "subsection": "captions",
+      "contentTypes": ["mp"],
+      "checks": [{ "check": "caption-synch" }]
+    },
+    "captions": {
+      "title": "Undertexter",
+      "reference": "9.1.2.2",
+      "section": "media",
+      "subsection": "captions",
+      "contentTypes": ["vid"],
+      "checks": [{ "condition": "captions" }]
+    },
+    "colour-error": {
+      "title": "Färganvändning för felmeddelanden",
+      "reference": "9.1.4.1",
+      "section": "ui",
+      "subsection": "errors",
+      "contentTypes": ["inp", "ui", "edt"],
+      "checks": [{ "check": "colour-error" }]
+    },
+    "colour-error-2": {
+      "title": "Färganvändning för felmeddelanden",
+      "reference": "9.1.4.1",
+      "section": "ui",
+      "subsection": "errors",
+      "contentTypes": ["inp", "ui", "edt"],
+      "checks": [{ "check": "colour-error-2" }]
+    },
+    "colour-links": {
+      "title": "Färganvändning för länkar",
+      "reference": "9.1.4.1",
+      "section": "content",
+      "subsection": "links",
+      "checks": [{ "check": "colour-link" }]
+    },
+    "content-focus": {
+      "title": "Uppdykande innehåll vid fokus",
+      "reference": "9.1.4.13",
+      "section": "keyboard",
+      "subsection": "focus",
+      "checks": [{ "condition": "content-focus" }]
+    },
+    "content-focus-zoom": {
+      "title": "Uppdykande innehåll vid fokus (förstorad text)",
+      "reference": "9.1.4.13",
+      "section": "layout",
+      "subsection": "resize",
+      "contentTypes": ["lnk", "mp", "inp", "btn", "ui", "uib"],
+      "checks": [{ "condition": "content-focus-zoom" }]
+    },
+    "content-hover": {
+      "title": "Uppdykande innehåll vid hovring",
+      "reference": "9.1.4.13",
+      "section": "ui",
+      "subsection": "behaviour",
+      "checks": [{ "condition": "content-hover" }]
+    },
+    "content-hover-zoom": {
+      "title": "Uppdykande innehåll vid hovring (förstorad text)",
+      "reference": "9.1.4.13",
+      "section": "layout",
+      "subsection": "resize",
+      "contentTypes": ["inp", "btn", "mp", "ui", "uib", "edt"],
+      "checks": [{ "condition": "content-hover-zoom" }]
+    },
+    "contrast-alt": {
+      "title": "Kontrast för textalternativ",
+      "reference": "9.1.4.3",
+      "section": "images",
+      "subsection": "images-alt",
+      "checks": [{ "check": "contrast-alt" }]
+    },
+    "contrast-focus": {
+      "title": "Kontrast för fokusmarkering",
+      "reference": "9.1.4.11",
+      "section": "keyboard",
+      "subsection": "focus",
+      "checks": [{ "check": "contrast-focus" }]
+    },
+    "contrast-graphic": {
+      "title": "Kontrast i grafik",
+      "reference": "9.1.4.11",
+      "section": "images",
+      "checks": [
+        { "condition": "contrast-icons" },
+        { "condition": "contrast-graphics" }
+      ]
+    },
+    "contrast-iot": {
+      "title": "Kontrast för bilder av text",
+      "reference": "9.1.4.3",
+      "section": "images",
+      "checks": [{ "condition": "contrast-iot" }]
+    },
+    "contrast-text": {
+      "title": "Kontrast för text",
+      "reference": "9.1.4.3",
+      "section": "content",
+      "subsection": "text",
+      "checks": [
+        { "check": "contrast-link-large" },
+        { "check": "contrast-link-normal" },
+        { "check": "contrast-text-large" },
+        { "check": "contrast-text-normal" },
+        { "check": "contrast-graphic-text" }
+      ]
+    },
+    "contrast-ui": {
+      "title": "Kontrast för komponenter",
+      "reference": "9.1.4.11",
+      "section": "ui",
+      "subsection": "components",
+      "checks": [{ "condition": "contrast-ui" }]
+    },
+    "conv-a11y": {
+      "title": "Bevara tillgänglighet vid omvandling",
+      "reference": "5.4",
+      "section": "odd",
+      "contentTypes": ["cnv"],
+      "checks": [{ "check": "conv-a11y" }]
+    },
+    "doc-a11y": {
+      "title": "Dokumentation av tillgänglighetsfunktioner",
+      "reference": "12.1.1",
+      "section": "doc",
+      "subection": "doc-product",
+      "checks": [{ "check": "doc-a11y" }]
+    },
+    "doc-product": {
+      "title": "Tillgänglig produktdokumentation",
+      "reference": "12.1.2",
+      "section": "doc",
+      "subsection": "doc-product",
+      "checks": [{ "condition": "doc-product" }]
+    },
+    "doc-support": {
+      "title": "Tillgänglig supportdokumentation",
+      "reference": "12.2.4",
+      "section": "doc",
+      "subsection": "doc-support",
+      "checks": [{ "condition": "doc-support" }]
+    },
+    "edit-content": {
+      "title": "Skapa tillgängligt innehåll",
+      "reference": "11.8.2",
+      "section": "ui",
+      "subsection": "editor",
+      "checks": [
+        { "check": "edit-content-create" },
+        { "check": "edit-content-help" }
+      ]
+    },
+    "edit-repair": {
+      "title": "Åtgärdsförslag för brister",
+      "reference": "11.8.4",
+      "section": "ui",
+      "subsection": "editor",
+      "checks": [{ "condition": "edit-repair" }]
+    },
+    "edit-tech": {
+      "title": "Innehållsteknik",
+      "reference": "11.8.1",
+      "section": "ui",
+      "subsection": "editor",
+      "approvable": false,
+      "checks": [{ "check": "edit-tech" }]
+    },
+    "edit-templates": {
+      "title": "Mallar",
+      "reference": "11.8.5",
+      "section": "ui",
+      "subsection": "editor",
+      "checks": [{ "condition": "edit-templates" }]
+    },
+    "edit-transform": {
+      "title": "Omstrukturering",
+      "reference": "11.8.3",
+      "section": "ui",
+      "subsection": "editor",
+      "checks": [{ "check": "edit-transform" }, { "check": "edit-conv" }]
+    },
+    "error-msg": {
+      "title": "Felmeddelanden",
+      "reference": "9.3.3.1",
+      "section": "ui",
+      "subsection": "errors",
+      "contentTypes": ["inp", "ui", "edt"],
+      "checks": [{ "condition": "validation" }]
+    },
+    "error-prevention": {
+      "title": "Förhindra allvarliga konsekvenser",
+      "reference": "9.3.3.4",
+      "section": "odd",
+      "contentTypes": ["leg", "eco", "lec", "uda"],
+      "checks": [{ "check": "error-prevention" }]
+    },
+    "error-suggestion": {
+      "title": "Korrigeringsförslag",
+      "reference": "9.3.3.3",
+      "section": "ui",
+      "subsection": "errors",
+      "contentTypes": ["inp", "ui", "edt"],
+      "checks": [{ "condition": "error-suggestion" }]
+    },
+    "flashes": {
+      "title": "Flimmer",
+      "reference": "9.2.3.1",
+      "section": "distracting",
+      "contentTypes": ["fla"],
+      "checks": [{ "condition": "flashes" }]
+    },
+    "focus-order": {
+      "title": "Fokusordning",
+      "reference": "9.2.4.3",
+      "section": "keyboard",
+      "subsection": "focus",
+      "checks": [{ "check": "focus-order" }, { "condition": "rel-focus" }]
+    },
+    "focus-visible": {
+      "title": "Synlig fokusmarkering",
+      "reference": "9.2.4.7",
+      "section": "keyboard",
+      "subsection": "focus",
+      "checks": [{ "check": "focus-visible" }]
+    },
+    "frame-rate": {
+      "title": "Bildväxlingsfrekvens",
+      "reference": "6.5.3",
+      "section": "communication",
+      "subsection": "video-comm",
+      "checks": [{ "check": "frame-rate" }]
+    },
+    "gestures": {
+      "title": "Pekargester",
+      "reference": "9.2.5.1",
+      "section": "touch",
+      "checks": [
+        { "condition": "multipoint-gestures" },
+        { "condition": "path-based-gestures" }
+      ]
+    },
+    "heading-purpose": {
+      "title": "Rubriker",
+      "reference": "9.2.4.6",
+      "section": "content",
+      "subsection": "text",
+      "contentTypes": ["hea"],
+      "checks": [{ "check": "heading-text" }]
+    },
+    "headings": {
+      "title": "Rubriker",
+      "reference": "9.1.3.1",
+      "section": "content",
+      "subsection": "semantics",
+      "contentTypes": ["hea"],
+      "checks": [
+        { "check": "heading" },
+        { "check": "heading-levels" },
+        { "check": "heading-skipped" },
+        { "check": "adjacent-headings" },
+        { "condition": "hgroup" }
+      ]
+    },
+    "identification": {
+      "title": "Konsekvent benämning",
+      "reference": "9.3.2.4",
+      "section": "general",
+      "checks": [
+        { "condition": "ident-symbols" },
+        { "condition": "ident-links" },
+        { "condition": "ident-buttons" },
+        { "condition": "ident-fields" }
+      ]
+    },
+    "images-of-text": {
+      "title": "Bilder av text",
+      "reference": "9.1.4.5",
+      "section": "images",
+      "checks": [{ "check": "images-of-text" }]
+    },
+    "info-rel": {
+      "title": "Semantik",
+      "reference": "9.1.3.1",
+      "section": "content",
+      "subsection": "semantics",
+      "checks": [{ "check": "semantics" }, { "check": "markup" }]
+    },
+    "info-rel-fields": {
+      "title": "Kopplade fält",
+      "reference": "9.1.3.1",
+      "section": "ui",
+      "subsection": "components",
+      "checks": [{ "condition": "info-rel-fields" }]
+    },
+    "info-rel-generic": {
+      "title": "Info och relationer",
+      "reference": "9.1.3.1",
+      "section": "content",
+      "subsection": "semantics",
+      "checks": [{ "check": "info-rel-generic" }]
+    },
+    "input-purpose": {
+      "title": "Syfte för inmatningsfält",
+      "reference": "9.1.3.5",
+      "section": "ui",
+      "subsection": "components",
+      "contentTypes": ["inp"],
+      "checks": [{ "condition": "user-info" }]
+    },
+    "interoperability": {
+      "title": "Interoperabilitet",
+      "reference": "6.2.3",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [
+        { "check": "rtt-iop-v18" },
+        { "check": "rtt-iop-rfc4103" },
+        { "condition": "rtt-iop-ims" },
+        { "condition": "rtt-iop-other" },
+        { "condition": "rtt-iop-new" }
+      ]
+    },
+    "kbd-trap": {
+      "title": "Ingen tangentbordsfälla",
+      "reference": "9.2.1.2",
+      "section": "keyboard",
+      "subsection": "operable",
+      "checks": [{ "check": "kbd-trap" }, { "condition": "kbd-navkey" }]
+    },
+    "keyboard": {
+      "title": "Hanterbart med tangentbord",
+      "reference": "9.2.1.1",
+      "section": "keyboard",
+      "subsection": "operable",
+      "checks": [
+        { "check": "func-nav" },
+        { "check": "func-handle" },
+        { "check": "kbd-seq" },
+        { "check": "kbd-hold" }
+      ]
+    },
+    "label-in-name": {
+      "title": "Etiketter i namn",
+      "reference": "9.2.5.3",
+      "section": "ui",
+      "subsection": "components",
+      "checks": [{ "check": "label-in-name" }]
+    },
+    "label-instr": {
+      "title": "Ledtexter, instruktioner",
+      "reference": "9.3.3.2",
+      "section": "ui",
+      "subsection": "labels",
+      "checks": [{ "check": "label-instr" }, { "check": "req-opt" }]
+    },
+    "label-purpose": {
+      "title": "Begripliga ledtexter",
+      "reference": "9.2.4.6",
+      "section": "ui",
+      "subsection": "labels",
+      "checks": [{ "check": "label-purpose" }]
+    },
+    "labels": {
+      "title": "Kopplade ledtexter",
+      "reference": "9.1.3.1",
+      "section": "ui",
+      "subsection": "labels",
+      "checks": [{ "check": "label" }, { "check": "rel-labels" }]
+    },
+    "landmarks": {
+      "title": "Landmärken",
+      "reference": "9.1.3.1",
+      "section": "content",
+      "subsection": "semantics",
+      "checks": [{ "condition": "landmarks" }]
+    },
+    "lang-alt": {
+      "title": "Språk för textalternativ",
+      "reference": "9.3.1.2",
+      "section": "images",
+      "subsection": "images-alt",
+      "checks": [{ "condition": "lang-alt" }]
+    },
+    "lang-page": {
+      "title": "Sidans språk",
+      "reference": "9.3.1.1",
+      "section": "content",
+      "checks": [{ "check": "lang-page-attr" }, { "condition": "lang-page" }]
+    },
+    "lang-parts": {
+      "title": "Språkändringar",
+      "reference": "9.3.1.2",
+      "section": "content",
+      "subsection": "text",
+      "checks": [{ "condition": "foreign" }]
+    },
+    "link-purpose": {
+      "title": "Syfte för länkar",
+      "reference": "9.2.4.4",
+      "section": "content",
+      "subsection": "links",
+      "checks": [
+        { "check": "link-purpose" },
+        { "check": "link-length" },
+        { "condition": "img-links" },
+        { "condition": "compound-links" }
+      ]
+    },
+    "lists": {
+      "title": "Listor",
+      "reference": "9.1.3.1",
+      "section": "content",
+      "subsection": "semantics",
+      "contentTypes": ["lst"],
+      "checks": [
+        { "check": "ol" },
+        { "check": "ul" },
+        { "condition": "dl" },
+        { "check": "lists" }
+      ]
+    },
+    "media-controls": {
+      "title": "Reglage",
+      "reference": "7.3",
+      "section": "media",
+      "contentTypes": ["mp"],
+      "checks": [{ "condition": "player-captions" }]
+    },
+    "motion-actuation": {
+      "title": "Rörelsestyrning",
+      "reference": "9.2.5.4",
+      "section": "touch",
+      "checks": [{ "condition": "motion-actuation" }]
+    },
+    "name-role-value": {
+      "title": "Namn, roll, värde",
+      "reference": "9.4.1.2",
+      "section": "ui",
+      "subsection": "components",
+      "checks": [
+        { "check": "role-present" },
+        { "check": "role-correct" },
+        { "check": "name-present" },
+        { "check": "value-present" }
+      ]
+    },
+    "navigation": {
+      "title": "Konsekvent navigering",
+      "reference": "9.3.2.3",
+      "section": "general",
+      "checks": [{ "condition": "navigation" }]
+    },
+    "on-focus": {
+      "title": "Kontextförändring vid fokus",
+      "reference": "9.3.2.1",
+      "section": "keyboard",
+      "subsection": "focus",
+      "checks": [{ "check": "on-focus" }]
+    },
+    "on-input": {
+      "title": "Kontextförändring vid inmatning",
+      "reference": "9.3.2.2",
+      "section": "ui",
+      "subsection": "behaviour",
+      "checks": [{ "check": "on-input" }]
+    },
+    "orientation": {
+      "title": "Orientering",
+      "reference": "9.1.3.4",
+      "section": "touch",
+      "checks": [{ "check": "orientation" }]
+    },
+    "parsing": {
+      "title": "Kodkvalitet",
+      "reference": "9.4.1.1",
+      "section": "general",
+      "checks": [
+        { "check": "tags" },
+        { "check": "nesting" },
+        { "check": "attrs" },
+        { "check": "ids" }
+      ]
+    },
+    "pause-stop-hide": {
+      "title": "Rörligt innehåll",
+      "reference": "9.2.2.2",
+      "section": "distracting",
+      "contentTypes": ["mov", "upd", "muc"],
+      "checks": [
+        { "condition": "motion" },
+        { "condition": "blink" },
+        { "condition": "scroll" },
+        { "condition": "update" }
+      ]
+    },
+    "preferences": {
+      "title": "Användarinställningar",
+      "reference": "11.7",
+      "section": "general",
+      "checks": [
+        { "check": "pref-colour" },
+        { "check": "pref-contrast" },
+        { "check": "pref-font-size" }
+      ]
+    },
+    "reflow": {
+      "title": "Flexibel layout",
+      "reference": "9.1.4.10",
+      "section": "layout",
+      "checks": [{ "condition": "scroll-dir" }]
+    },
+    "resize-text": {
+      "title": "Förstora text",
+      "reference": "9.1.4.4",
+      "section": "layout",
+      "subsection": "resize",
+      "contentTypes": ["txt"],
+      "checks": [{ "condition": "resize-text" }, { "check": "resize-input" }]
+    },
+    "resolution": {
+      "title": "Upplösning",
+      "reference": "6.5.2",
+      "section": "communication",
+      "subsection": "video-comm",
+      "checks": [{ "check": "resolution" }]
+    },
+    "rtt": {
+      "title": "Kommunikation via realtidstext",
+      "reference": "6.2.1.1",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-comm" }]
+    },
+    "rtt-audio": {
+      "title": "Visuell ljudindikering för realtidstext",
+      "reference": "6.2.2.4",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-audio" }]
+    },
+    "rtt-concurrent": {
+      "title": "Samtidig röst- och textkommunikation",
+      "reference": "6.2.1.2",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-concurrent" }]
+    },
+    "rtt-dir": {
+      "title": "Maskinläsbar sändnings- och mottagningsriktning",
+      "reference": "6.2.2.2",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-dir" }]
+    },
+    "rtt-display": {
+      "title": "Visuellt urskiljbar visning",
+      "reference": "6.2.2.1",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-display" }]
+    },
+    "rtt-ident": {
+      "title": "Indikering av textare",
+      "reference": "6.2.2.3",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-ident" }]
+    },
+    "rtt-responsiveness": {
+      "title": "Svarstid för realtidstext",
+      "reference": "6.2.4",
+      "section": "communication",
+      "subsection": "rtt",
+      "checks": [{ "check": "rtt-responsiveness" }]
+    },
+    "screenshot": {
+      "pseudo": true,
+      "title": "Spara källkod",
+      "section": "preparation",
+      "checks": [{ "check": "screenshot" }, { "check": "save-src" }]
+    },
+    "sensory-button": {
+      "title": "Ikon-/symbolknappar",
+      "reference": "9.1.3.3",
+      "section": "ui",
+      "subsection": "components",
+      "contentTypes": ["btn", "uib", "mp"],
+      "checks": [{ "condition": "sensory-buttons" }]
+    },
+    "sensory-links": {
+      "title": "Ikon-/symbollänkar",
+      "reference": "9.1.3.3",
+      "section": "content",
+      "subsection": "links",
+      "checks": [{ "condition": "sensory-links" }]
+    },
+    "sensory-button-2": {
+      "title": "Ikon-/symbolknappar",
+      "reference": "9.1.1.1",
+      "section": "ui",
+      "subsection": "components",
+      "contentTypes": ["btn", "uib", "mp"],
+      "checks": [{ "condition": "sensory-buttons" }]
+    },
+    "sensory-links-2": {
+      "title": "Ikon-/symbollänkar",
+      "reference": "9.1.1.1",
+      "section": "content",
+      "subsection": "links",
+      "checks": [{ "condition": "sensory-links" }]
+    },
+    "sensory-text": {
+      "title": "Sensoriska hänvisningar",
+      "reference": "9.1.3.3",
+      "section": "content",
+      "subsection": "text",
+      "checks": [{ "condition": "sensory-text" }]
+    },
+    "sequence": {
+      "title": "Innehållets ordning",
+      "reference": "9.1.3.2",
+      "section": "general",
+      "checks": [{ "check": "sequence" }]
+    },
+    "shortcuts": {
+      "title": "En-knapps snabbtangenter",
+      "reference": "9.2.1.4",
+      "section": "odd",
+      "checks": [{ "condition": "shortcuts" }]
+    },
+    "spoken-subtitles": {
+      "title": "Upplästa undertexter",
+      "reference": "7.1.5",
+      "section": "media",
+      "subsection": "captions",
+      "contentTypes": ["mp"],
+      "checks": [{ "check": "spoken-subtitles" }]
+    },
+    "status-messages": {
+      "title": "Statusmeddelanden",
+      "reference": "9.4.1.3",
+      "section": "general",
+      "subsection": "components",
+      "checks": [{ "condition": "status-messages" }]
+    },
+    "stmt-access": {
+      "title": "Nåbarhet",
+      "reference": "MDFFS2019:2 6 § 3 st",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-accessible" },
+        { "check": "stmt-obvious" },
+        { "check": "stmt-start" }
+      ]
+    },
+    "stmt-access-app": {
+      "title": "Nåbarhet",
+      "reference": "MDFFS2019:2 6 § 3 st",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-accessible" },
+        { "check": "stmt-available-app" }
+      ]
+    },
+    "stmt-compliance": {
+      "title": "Förenlighet med lagkraven",
+      "reference": "MDFFS2019:2 6 § 1 st 2 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-compliance" }]
+    },
+    "stmt-compliance-app": {
+      "title": "Förenlighet med lagkraven",
+      "reference": "MDFFS2019:2 6 § 1 st 2 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-compliance-app" }]
+    },
+    "stmt-current": {
+      "title": "Aktualitet",
+      "reference": "MDFFS2019:2 6 § 2 st",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-current" }]
+    },
+    "stmt-current-app": {
+      "title": "Aktualitet",
+      "reference": "MDFFS2019:2 6 § 2 st",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-current-app" }]
+    },
+    "stmt-dates-method": {
+      "title": "Datum och utvärderingsmetod",
+      "reference": "MDFFS2019:2 6 § 1 st 4 p",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-prep-date" },
+        { "check": "stmt-method" },
+        { "check": "stmt-review-date" }
+      ]
+    },
+    "stmt-dates-method-app": {
+      "title": "Datum och utvärderingsmetod",
+      "reference": "MDFFS2019:2 6 § 1 st 4 p",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-prep-date" },
+        { "check": "stmt-method" },
+        { "check": "stmt-review-date" }
+      ]
+    },
+    "stmt-disprop": {
+      "title": "Oskäligt betungande anpassning",
+      "reference": "SFS2018:1937 13 § 3 st",
+      "section": "a11y-statement",
+      "checks": [{ "condition": "disprop-burden" }]
+    },
+    "stmt-disprop-app": {
+      "title": "Oskäligt betungande anpassning",
+      "reference": "SFS2018:1937 13 § 3 st",
+      "section": "a11y-statement",
+      "checks": [{ "condition": "disprop-burden" }]
+    },
+    "stmt-enforcement": {
+      "title": "Anmälningsfunktion",
+      "reference": "MDFFS2019:2 6 § 1 st 6 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-enf-info" }, { "check": "stmt-enf-link" }]
+    },
+    "stmt-enforcement-app": {
+      "title": "Anmälningsfunktion",
+      "reference": "MDFFS2019:2 6 § 1 st 6 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-enf-info" }, { "check": "stmt-enf-link" }]
+    },
+    "stmt-feedback": {
+      "title": "Meddelandefunktion",
+      "reference": "MDFFS2019:2 6 § 1 st 5 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-feedback" }, { "condition": "stmt-acc-alt" }]
+    },
+    "stmt-feedback-app": {
+      "title": "Meddelandefunktion",
+      "reference": "MDFFS2019:2 6 § 1 st 5 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-feedback" }, { "condition": "stmt-acc-alt" }]
+    },
+    "stmt-names": {
+      "title": "Namn på aktör och tjänst",
+      "reference": "MDFFS2019:2 6 § 1 st 1 p",
+      "section": "a11y-statement",
+      "checks": [{ "check": "stmt-psb-name" }, { "check": "stmt-service-name" }]
+    },
+    "stmt-names-app": {
+      "title": "Namn på aktör och tjänst",
+      "reference": "MDFFS2019:2 6 § 1 st 1 p",
+      "section": "a11y-statement-app",
+      "checks": [
+        { "check": "stmt-psb-name-app" },
+        { "check": "stmt-service-name-app" }
+      ]
+    },
+    "stmt-non-acc": {
+      "title": "Icke tillgängligt innehåll",
+      "reference": "MDFFS2019:2 6 § 1 st 3 p",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-non-accessible" },
+        { "check": "stmt-out-of-scope" }
+      ]
+    },
+    "stmt-non-acc-app": {
+      "title": "Icke tillgängligt innehåll",
+      "reference": "MDFFS2019:2 6 § 1 st 3 p",
+      "section": "a11y-statement",
+      "checks": [
+        { "check": "stmt-non-accessible" },
+        { "check": "stmt-out-of-scope" }
+      ]
+    },
+    "stmt-version-date-app": {
+      "title": "Version och datum",
+      "reference": "MDFFS2019:2 6 § 2 st",
+      "section": "a11y-statement-app",
+      "checks": [{ "check": "stmt-version-date-app" }]
+    },
+    "support-a11y": {
+      "title": "Support för tillgänglighetsfunktioner",
+      "reference": "12.2.2",
+      "section": "doc",
+      "subsection": "doc-support",
+      "checks": [{ "check": "support-a11y" }]
+    },
+    "support-comm": {
+      "title": "Effektiv supportkommunikation",
+      "reference": "12.2.3",
+      "section": "doc",
+      "subsection": "doc-support",
+      "checks": [{ "check": "support-comm" }]
+    },
+    "tables": {
+      "title": "Tabeller",
+      "reference": "9.1.3.1",
+      "section": "content",
+      "subsection": "semantics",
+      "contentTypes": ["tbl"],
+      "checks": [
+        { "condition": "layout-tables" },
+        { "check": "table" },
+        { "check": "th" },
+        { "check": "empty-th" },
+        { "check": "caption" }
+      ]
+    },
+    "text-spacing": {
+      "title": "Utöka textavstånd",
+      "reference": "9.1.4.12",
+      "section": "layout",
+      "contentTypes": ["txt"],
+      "checks": [
+        { "check": "ts-para" },
+        { "check": "ts-line" },
+        { "check": "ts-word" },
+        { "check": "ts-char" },
+        { "check": "ts-clip" },
+        { "check": "ts-obscure" }
+      ]
+    },
+    "timing-form": {
+      "title": "Tidsgränser",
+      "reference": "9.2.2.1",
+      "section": "general",
+      "checks": [{ "condition": "timing" }]
+    },
+    "timing-refresh": {
+      "title": "Automatisk omladdning",
+      "reference": "9.2.2.1",
+      "section": "content",
+      "checks": [{ "check": "no-refresh" }, { "check": "no-redirect" }]
+    },
+    "title": {
+      "title": "Sidtitel",
+      "reference": "9.2.4.2",
+      "section": "content",
+      "checks": [
+        { "check": "title-present" },
+        { "condition": "title-descr" },
+        { "condition": "spa" }
+      ]
+    },
+    "use-of-colour": {
+      "title": "Färganvändning",
+      "reference": "9.1.4.1",
+      "section": "content",
+      "checks": [{ "check": "use-of-colour" }]
+    },
+    "video-audio-ind": {
+      "title": "Visuell indikering av ljud med video",
+      "reference": "6.5.5",
+      "section": "communication",
+      "subsection": "video-comm",
+      "checks": [{ "check": "video-audio-ind" }]
+    },
+    "video-ident": {
+      "title": "Indikering av teckenspråk",
+      "reference": "6.5.6",
+      "section": "communication",
+      "subsection": "video-comm",
+      "checks": [{ "check": "video-ident" }]
+    },
+    "video-only": {
+      "title": "Alternativ för animeringar och filmer",
+      "reference": "9.1.2.1",
+      "section": "media",
+      "contentTypes": ["vid"],
+      "checks": [{ "condition": "video-only" }]
+    },
+    "video-synch": {
+      "title": "Synkronisering mellan ljud och bild",
+      "reference": "6.5.4",
+      "section": "communication",
+      "subsection": "video-comm",
+      "checks": [{ "check": "video-synch" }]
+    },
+    "voice-alt": {
+      "title": "Alternativ till rösttjänster",
+      "reference": "6.4",
+      "section": "communication",
+      "checks": [{ "condition": "voicemail" }, { "condition": "ivr" }]
+    },
+    "ways": {
+      "title": "Flera sätt att hitta sidan",
+      "reference": "9.2.4.5",
+      "section": "general",
+      "checks": [{ "check": "ways" }]
+    },
+    "wcag-conformance": {
+      "title": "Överensstämmelse med WCAG",
+      "reference": "9.6",
+      "section": "conformance",
+      "approvable": false,
+      "checks": [{ "check": "aa-page" }, { "condition": "wcag-conformance" }]
+    }
+  },
+  "conditions": {
+    "a11y-supported-tech": {
+      "precondition": "Sidan använder teknik som saknar tillgänglighetsstöd eller används på ett otillgängligt sätt.",
+      "yes": [
+        { "check": "tech-enabled" },
+        { "check": "tech-disabled" },
+        { "check": "tech-unsupported" },
+        { "check": "sat-audio-ctrl" },
+        { "check": "sat-kbd-trap" },
+        { "check": "sat-flashes" },
+        { "check": "sat-psh" }
+      ]
+    },
+    "alt-versions": {
+      "sources": ["alt-version"],
+      "yes": [
+        { "check": "alt-v-conform" },
+        { "check": "alt-v-equal" },
+        { "check": "alt-v-lang" },
+        { "check": "alt-v-up-to-date" },
+        { "check": "alt-v-access" }
+      ]
+    },
+    "animation": {
+      "precondition": "Det finns animeringar.",
+      "yes": [{ "check": "animation-present" }, { "check": "animation-equal" }]
+    },
+    "audio": {
+      "precondition": "Ljud spelas upp automatiskt och varar i mer än 3 sekunder.",
+      "yes": [{ "check": "audio-ctrl" }]
+    },
+    "audio-desc-alt": {
+      "sources": ["has-audio-desc"],
+      "no": [{ "check": "audio-desc-alt" }]
+    },
+    "audio-desc-conv": {
+      "precondition": "Det finns funktioner för att sända ut, vidaresända, omvandla eller spela in video med synkroniserat ljud.",
+      "yes": [{ "check": "audio-desc-conv" }]
+    },
+    "audio-only": {
+      "precondition": "Det finns förinspelade ljudklipp.",
+      "yes": [{ "check": "audio-alt-present" }, { "check": "audio-alt-equal" }]
+    },
+    "blink": {
+      "precondition": "Det finns innehåll som blinkar under mer än 5 sekunder.",
+      "yes": [{ "check": "psh-blink" }]
+    },
+    "bypass-block": {
+      "precondition": "Det finns andra innehållsblock som återkommer på flera sidor.",
+      "yes": [{ "check": "bypass-block" }]
+    },
+    "bypass-header": {
+      "precondition": "Det finns återkommande innehåll före huvudinnehållet på flera sidor, exempelvis ett sidhuvud.",
+      "yes": [{ "check": "bypass-header" }]
+    },
+    "caller-id": {
+      "precondition": "Programvaran eller telenätet tillhandahåller nummerpresentation eller motsvarande funktioner.",
+      "yes": [{ "check": "caller-id-text" }, { "check": "caller-id-at" }]
+    },
+    "cancel": {
+      "precondition": "Tjänsten tillhandahåller funktioner som utförs med <em>ett</em> finger eller <em>en</em> musknapp.",
+      "yes": [{ "check": "cancel-pointer" }]
+    },
+    "cancel-touch": {
+      "precondition": "Tjänsten tillhandahåller funktioner som utförs med <em>ett</em> finger.",
+      "yes": [{ "check": "cancel-touch" }]
+    },
+    "captcha": {
+      "precondition": "Det finns CAPTCHA i form av bilder.",
+      "yes": [{ "check": "captcha-purpose" }, { "check": "captcha-alt" }]
+    },
+    "caption-conv": {
+      "precondition": "Det finns funktioner för att sända ut, vidaresända, omvandla eller spela in video med synkroniserat ljud.",
+      "yes": [{ "check": "captions-conv" }]
+    },
+    "captions": {
+      "precondition": "Det finns film med relevant ljud.",
+      "yes": [{ "check": "captions-present" }, { "check": "captions-equal" }]
+    },
+    "compound-links": {
+      "precondition": "Det finns länkar som innehåller både bilder och text (exempelvis puffar).",
+      "yes": [{ "check": "compound-link" }]
+    },
+    "content-focus": {
+      "precondition": "Det finns innehåll som visas medan ett element har fokus.",
+      "yes": [
+        { "check": "hide-focus-content" },
+        { "check": "focus-content-visible" }
+      ]
+    },
+    "content-focus-zoom": {
+      "precondition": "Det finns innehåll som visas medan ett element har fokus.",
+      "yes": [{ "check": "hide-focus-content-zoom" }]
+    },
+    "content-hover": {
+      "precondition": "Det finns innehåll som bara visas när pekaren befinner sig över ett element.",
+      "yes": [
+        { "check": "hide-hover-content" },
+        { "check": "hover-content-pointer" },
+        { "check": "hover-content-visible" }
+      ]
+    },
+    "content-hover-zoom": {
+      "precondition": "Det finns innehåll som bara visas när pekaren befinner sig över ett element.",
+      "yes": [
+        { "check": "hide-hover-content-zoom" },
+        { "check": "hover-content-pointer-zoom" }
+      ]
+    },
+    "contrast-graphics": {
+      "precondition": "Det finns diagram eller <i lang=\"en\">infographics</i>.",
+      "yes": [{ "check": "contrast-graphic" }]
+    },
+    "contrast-icons": {
+      "precondition": "Ikoner (bilder) används för att förmedla information.",
+      "yes": [{ "check": "contrast-icon" }]
+    },
+    "contrast-iot": {
+      "precondition": "Det finns bilder av text.",
+      "yes": [
+        { "check": "contrast-iot-large" },
+        { "check": "contrast-iot-normal" }
+      ]
+    },
+    "contrast-link-only": {
+      "precondition": "Det finns länkar som bara indikeras med annan färg än omgivande text.",
+      "yes": [{ "check": "contrast-link-only" }]
+    },
+    "contrast-ui": {
+      "precondition": "Det finns aktiva komponenter med en visuell indikering som är nödvändig för förståelsen.",
+      "yes": [{ "check": "contrast-ui" }]
+    },
+    "disprop-burden": {
+      "precondition": "Aktören åberopar undantag för oskäligt betungande anpassning.",
+      "yes": [{ "check": "stmt-disprop-burden" }]
+    },
+    "dl": {
+      "precondition": "Det finns parvis listinformation (nyckel/värde eller term/beskrivning).",
+      "yes": [{ "check": "dl" }, { "check": "dt" }, { "check": "dd" }]
+    },
+    "doc-product": {
+      "precondition": "Produktdokumentationen består av webbsidor.",
+      "yes": [{ "check": "doc-product-web" }],
+      "no": [{ "check": "doc-product-doc" }]
+    },
+    "doc-support": {
+      "precondition": "Supportdokumentationen består av webbsidor.",
+      "yes": [{ "check": "doc-support-web" }],
+      "no": [{ "check": "doc-support-doc" }]
+    },
+    "edit-repair": {
+      "precondition": "Redigeringsverktyget har en tillgänglighetskontroll som kan upptäcka brister.",
+      "yes": [{ "check": "edit-repair" }]
+    },
+    "edit-templates": {
+      "precondition": "Redigeringsverktyget har stöd för innehållsmallar.",
+      "yes": [{ "check": "edit-templ-acc" }, { "check": "edit-templ-ind" }]
+    },
+    "error-suggestion": {
+      "precondition": "Det finns inmatningsfält med kända korrigeringsförslag för vissa typer av fel.",
+      "yes": [{ "check": "error-suggestion" }]
+    },
+    "flashes": {
+      "precondition": "Det finns innehåll som flimrar mer än 3 gånger under en sekund på en yta som överskrider gränsvärdet.",
+      "yes": [{ "check": "luminance" }, { "check": "saturated-red" }]
+    },
+    "foreign": {
+      "precondition": "Det finns ord, fraser eller andra innehållsdelar med ett annat språk än omgivande text.",
+      "yes": [
+        { "check": "lang-parts-attr" },
+        { "check": "lang-parts-valid" },
+        { "check": "lang-parts-correct" }
+      ]
+    },
+    "hgroup": {
+      "precondition": "Rubriker används för dårrader eller nedryckare (underrubriker).",
+      "yes": [{ "check": "hgroup" }]
+    },
+    "ident-buttons": {
+      "precondition": "Det finns knappar med text i, där knappen eller funktionen förekommer på flera sidor på webbplatsen.",
+      "yes": [{ "check": "button-func" }, { "check": "button-text" }]
+    },
+    "ident-fields": {
+      "precondition": "Det finns inmatningsfält, vallistor, kryssrutor, radiogrupper eller liknande som förekommer på flera sidor på webbplatsen.",
+      "yes": [{ "check": "field-label" }]
+    },
+    "ident-links": {
+      "precondition": "Det finns länkar som förekommer på flera sidor på webbplatsen (med samma länktext eller <abbr>URL</abbr>).",
+      "yes": [{ "check": "link-target" }, { "check": "link-text" }]
+    },
+    "ident-symbols": {
+      "precondition": "Det finns ikoner eller symboler i indikatorer, knappar eller länkar som förekommer på flera sidor på webbplatsen.",
+      "yes": [
+        { "check": "symbol-meaning" },
+        { "check": "symbol-name" },
+        { "check": "symbol-alt" },
+        { "check": "symbol-use" }
+      ]
+    },
+    "img-links": {
+      "precondition": "Det finns länkade bilder.",
+      "yes": [{ "check": "img-link" }]
+    },
+    "info-rel-fields": {
+      "precondition": "Det finns komponener som styr andra komponenter.",
+      "yes": [{ "check": "info-rel-fields" }]
+    },
+    "ivr": {
+      "precondition": "Kommunikationstjänsten har talsvarsfunktioner.",
+      "yes": [{ "check": "ivr" }]
+    },
+    "kbd-navkey": {
+      "precondition": "Det krävs något annat än Tabb/piltangent för att navigera ifrån vissa element.",
+      "yes": [{ "check": "kbd-navkey" }]
+    },
+    "landmarks": {
+      "precondition": "Sidan använder HTML&nbsp;5 och minst ett landmärke är uppmärkt.",
+      "yes": [{ "check": "landmarks" }]
+    },
+    "lang-alt": {
+      "precondition": "Det finns bilder med textalternativ på annat språk än omgivande text.",
+      "yes": [{ "check": "lang-alt" }]
+    },
+    "lang-page": {
+      "sources": ["lang-page-attr"],
+      "yes": [{ "check": "lang-page-valid" }, { "check": "lang-page-correct" }]
+    },
+    "layout-tables": {
+      "precondition": ["Tabeller används för layoutändamål."],
+      "yes": [{ "check": "role-presentation-table" }, { "check": "no-th" }]
+    },
+    "motion": {
+      "precondition": "Det finns innehåll som rör sig under mer än 5 sekunder.",
+      "yes": [{ "check": "psh-motion" }]
+    },
+    "motion-actuation": {
+      "precondition": "Det finns rörelsestyrda funktioner.",
+      "yes": [{ "check": "motion-alt" }, { "check": "motion-disable" }]
+    },
+    "multipoint-gestures": {
+      "precondition": "Det finns funktioner som använder flerpunktsgester.",
+      "yes": [{ "check": "multipoint-gestures" }]
+    },
+    "navigation": {
+      "precondition": "Det finns navigeringsfunktioner som förekommer på flera sidor på webbplatsen.",
+      "yes": [{ "check": "nav-func-order" }, { "check": "nav-link-order" }]
+    },
+    "path-based-gestures": {
+      "precondition": "Det finns funktioner som använder gester som beror på rörelsebanan.",
+      "yes": [{ "check": "path-based-gestures" }]
+    },
+    "player-captions": {
+      "precondition": "Det finns film som har dolda undertexter eller syntolkning och en mediespelare med stöd för dessa.",
+      "yes": [
+        { "check": "caption-controls" },
+        { "check": "audio-desc-controls" }
+      ]
+    },
+    "process-step": {
+      "precondition": "Sidan utgör ett steg i en process.",
+      "yes": [{ "check": "all-steps-conform" }]
+    },
+    "rel-focus": {
+      "precondition": "Det finns element som öppnar en meny, dialogruta eller liknande.",
+      "yes": [{ "check": "focus-next" }, { "check": "focus-close" }]
+    },
+    "resize-text": {
+      "precondition": "Sidan har en egen funktion för att ändra textstorleken.",
+      "yes": [{ "check": "resize-custom" }],
+      "no": [
+        { "check": "resize-ua" },
+        { "check": "resize-mobile" },
+        { "check": "resize-loss" }
+      ]
+    },
+    "rtt-iop-ims": {
+      "precondition": "Tjänsten samverkar med andra system genom <abbr>IMS</abbr> för att implementera <abbr>VOIP</abbr> och har stöd för tvåvägs realtidstext.",
+      "yes": [{ "check": "rtt-iop-ims" }]
+    },
+    "rtt-iop-new": {
+      "precondition": "Tjänsten har stöd för tvåvägs realtidstext enligt en ny standard.",
+      "yes": [
+        { "check": "rtt-iop-new-compliant" },
+        { "check": "rtt-iop-new-support" }
+      ]
+    },
+    "rtt-iop-other": {
+      "precondition": "Tjänsten erbjuder tvåvägs röstkommunikation med andra tekniker än via telenätet eller <abbr>VOIP</abbr> med <abbr>SIP</abbr> och har stöd för tvåvägs realtidstext.",
+      "yes": [
+        { "check": "rtt-iop-other-spec" },
+        { "check": "rtt-iop-other-err" }
+      ]
+    },
+    "scroll": {
+      "precondition": "Det finns innehåll som skrollar automatiskt under mer än 5 sekunder.",
+      "yes": [{ "check": "psh-scroll" }]
+    },
+    "scroll-dir": {
+      "precondition": "Webbsidan är byggd för vertikal skrollning.",
+      "yes": [{ "check": "vs-loss" }, { "check": "vs-scroll" }],
+      "no": [{ "check": "hs-loss" }, { "check": "hs-scroll" }]
+    },
+    "sensory-buttons": {
+      "precondition": "Det finns knappar som bara innehåller symboltecken.",
+      "yes": [{ "check": "sensory-button" }]
+    },
+    "sensory-links": {
+      "precondition": "Det finns länkar som bara består av symboltecken.",
+      "yes": [{ "check": "sensory-link" }]
+    },
+    "sensory-text": {
+      "precondition": "Det finns instruktioner på sidan som behövs för att förstå eller hantera innehållet.",
+      "yes": [{ "check": "sensory-text" }]
+    },
+    "shortcuts": {
+      "precondition": "Det finns snabbtangenter som aktiveras med en omodifierad tangent.",
+      "yes": [{ "check": "shortcuts" }]
+    },
+    "spa": {
+      "precondition": "Sidan är en ”<i lang=\"en\">single-page application</i>”.",
+      "yes": [{ "check": "spa-title" }]
+    },
+    "status-messages": {
+      "precondition": "Sidan presenterar statusmeddelanden.",
+      "yes": [{ "check": "status-messages" }]
+    },
+    "stmt-acc-alt": {
+      "sources": ["stmt-feedback"],
+      "yes": [{ "check": "stmt-acc-alt" }]
+    },
+    "timing": {
+      "precondition": "Det finns tidsbegränsningar, som är mindre än 20&nbsp;timmar.",
+      "yes": [{ "check": "timing" }]
+    },
+    "title-descr": {
+      "sources": ["title-present"],
+      "yes": [{ "check": "title-descr" }]
+    },
+    "update": {
+      "precondition": "Det finns innehåll som uppdateras automatiskt.",
+      "yes": [{ "check": "psh-update" }]
+    },
+    "user-info": {
+      "precondition": "Sidan använder HTML&nbsp;5 och innehåller inmatningsfält som inhämtar information om användaren.",
+      "yes": [
+        { "check": "input-purpose-present" },
+        { "check": "input-purpose-correct" }
+      ]
+    },
+    "validation": {
+      "precondition": "Det finns fält med validering av indata.",
+      "yes": [{ "check": "error-text" }, { "check": "error-field" }]
+    },
+    "video-only": {
+      "precondition": "Det finns förinspelad video <em>utan ljud</em>.",
+      "yes": [{ "check": "video-alt-present" }, { "check": "video-alt-equal" }]
+    },
+    "voicemail": {
+      "precondition": "Kommunikationstjänsten har en röstbrevlåda.",
+      "yes": [{ "check": "voicemail-leave" }, { "check": "voicemail-retrieve" }]
+    },
+    "wcag-conformance": {
+      "sources": ["aa-page"],
+      "yes": [
+        { "condition": "process-step" },
+        { "condition": "a11y-supported-tech" }
+      ],
+      "no": [{ "check": "alt-version" }, { "condition": "alt-versions" }]
+    }
+  },
+  "checks": {
+    "a11y-features": {
+      "texts": [
+        "Det går att aktivera tillgänglighetsfunktioner utan de förmågor vars behov funktionerna ska tillgodose."
+      ],
+      "observation": "[Tillgänglighetsfunktion] går inte att aktivera utan [funktionsförmåga]."
+    },
+    "aa-page": {
+      "global": true,
+      "texts": ["Sidan överensstämmer med WCAG AA."],
+      "sources": [
+        "alt",
+        "alt-media",
+        "audio-only",
+        "video-only",
+        "captions",
+        "audio-desc-alt",
+        "audio-desc-req",
+        "headings",
+        "landmarks",
+        "lists",
+        "info-rel",
+        "info-rel-generic",
+        "tables",
+        "sequence",
+        "sensory-button",
+        "sensory-links",
+        "sensory-text",
+        "orientation",
+        "input-purpose",
+        "use-of-colour",
+        "colour-error",
+        "colour-links",
+        "resize-text",
+        "contrast-iot",
+        "contrast-text",
+        "images-of-text",
+        "reflow",
+        "contrast-focus",
+        "contrast-graphic",
+        "contrast-ui",
+        "content-focus",
+        "text-spacing",
+        "content-hover",
+        "audio-ctrl",
+        "keyboard",
+        "kbd-trap",
+        "shortcuts",
+        "timing-form",
+        "timing-refresh",
+        "pause-stop-hide",
+        "flashes",
+        "bypass",
+        "title",
+        "focus-order",
+        "link-purpose",
+        "ways",
+        "heading-purpose",
+        "label-purpose",
+        "focus-visible",
+        "gestures",
+        "cancel",
+        "cancel-touch",
+        "label-in-name",
+        "motion-actuation",
+        "lang-page",
+        "lang-alt",
+        "lang-parts",
+        "on-focus",
+        "on-input",
+        "navigation",
+        "identification",
+        "error-msg",
+        "label-instr",
+        "error-prevention",
+        "name-role-value",
+        "status-messages"
+      ]
+    },
+    "adjacent-headings": {
+      "texts": [
+        "Det finns innehåll mellan en rubrik och nästa på samma eller högre nivå."
+      ],
+      "exceptions": [
+        "En rubrik kan följas av en rubrik på omedelbart lägre nivå, till exempel en <code>&lt;h2&gt;</code> följd av en <code>&lt;h3&gt;</code>, om en nivå består av flera underavsnitt."
+      ],
+      "observation": "Rubriken ”[Text]” följs av en annan rubrik utan något innehåll emellan."
+    },
+    "all-steps-conform": {
+      "texts": [
+        "Alla steg i processen överensstämmer med WCAG AA eller har en tillgänglig alternativ version."
+      ],
+      "observation": "Sidan är en del av en process där inte alla steg överensstämmer med WCAG AA."
+    },
+    "alt-abstract": {
+      "texts": [
+        "Bilder som förmedlar abstrakta begrepp har textalternativ som förmedlar begreppet, inte beskriver motivet."
+      ],
+      "observation": "Bilden [beskrivning] har ett textalternativ som beskriver motivet i stället för att ge samma information som bilden förmedlar i sammanhanget."
+    },
+    "alt-empty": {
+      "texts": [
+        "Förgrundsbilder som inte förmedlar relevant information har tomma textalternativ eller döljs för hjälpmedel."
+      ],
+      "observation": "Bilden [beskrivning] har ett textalternativ och presenteras för hjälpmedel, trots att den inte förmedlar någon relevant information."
+    },
+    "alt-equal": {
+      "texts": [
+        "Informationsbärande bilders textalternativ förmedlar samma information som bilden i det aktuella sammanhanget."
+      ],
+      "observation": "Bilden [beskrivning] har ett textalternativ som inte ger samma information som bilden förmedlar i sammanhanget."
+    },
+    "alt-media": {
+      "texts": [
+        "Alla ljudklipp, animeringar och filmer har ett identifierande textalternativ."
+      ],
+      "observation": "[Innehåll] har inget textalternativ som beskriver vad det är för personer som inte kan se."
+    },
+    "alt-present": {
+      "texts": ["Informationsbärande bilder har textalternativ."],
+      "observation": "Bilden [beskrivning] saknar textalternativ."
+    },
+    "alt-v-access": {
+      "texts": [
+        "Den alternativa versionen går att nå på ett tillgängligt sätt från den otillgängliga sidan.",
+        "Den otillgängliga sidan går <em>bara</em> att nå från det tillgängliga alternativet.",
+        "Både den otillgängliga sidan och det tillgängliga alternativet går <em>bara</em> att nå från en tillgänglig sida."
+      ],
+      "observation": "Den tillgängliga versionen går inte att nå på ett tillgängligt sätt från den otillgängliga sidan och den otillgängliga sidan är nåbar utan att gå via den tillgängliga."
+    },
+    "alt-v-conform": {
+      "texts": [
+        "De alternativa versionerna av sidan överensstämmer med WCAG&nbsp;AA."
+      ],
+      "observation": "Den alternativa versionen [beskrivning] överensstämmer inte med WCAG AA."
+    },
+    "alt-v-equal": {
+      "texts": [
+        "De alternativa versionerna tillhandahåller samma information och funktion som den otillgängliga sidan."
+      ],
+      "observation": "Den alternativa versionen [beskrivning] saknar [information/funktion]."
+    },
+    "alt-v-lang": {
+      "texts": [
+        "Det finns alternativa versioner på alla språk som den otillgängliga sidan finns på."
+      ],
+      "observation": "Det finns ingen alternativ version på [språk]."
+    },
+    "alt-v-up-to-date": {
+      "texts": [
+        "De alternativa versionerna är lika aktuella som den otillgängliga sidan."
+      ],
+      "observation": "Den alternativa versionen [beskrivning] är inte lika aktuell som den otillgängliga sidan."
+    },
+    "alt-version": {
+      "texts": [
+        "Det finns en alternativ version av sidan (för varje layout vid följsam formgivning)."
+      ],
+      "observation": "Sidan överensstämmer inte med WCAG AA och det finns ingen alternativ version."
+    },
+    "animation-equal": {
+      "texts": [
+        "Textalternativet förmedlar samma information i samma ordning som animeringen."
+      ],
+      "observation": "Textalternativet till [animering] stämmer inte överens med animeringens innehåll."
+    },
+    "animation-present": {
+      "texts": ["Varje animering har ett textalternativ."],
+      "observation": "Det finns inget textalternativ till [animering]."
+    },
+    "attrs": {
+      "texts": ["Det finns inga dubblettattribut."],
+      "observation": "I taggen [tagg] (rad [radnr]) är attributet ”[attributnamn]” angivet flera gånger."
+    },
+    "audio-alt-equal": {
+      "texts": [
+        "Textalternativet förmedlar samma information i samma ordning som ljudklippet."
+      ],
+      "observation": "Transkriptionen av [ljudklipp] stämmer inte överens med ljudinnehållet."
+    },
+    "audio-alt-present": {
+      "texts": [
+        "Varje ljudklipp har ett textalternativ, till exempel en transkription."
+      ],
+      "observation": "Det finns inget textalternativ, exempelvis en transkription, till [ljudklipp]."
+    },
+    "audio-bandwidth": {
+      "texts": ["Frekvensomfångets övre gräns är minst 7&nbsp;kHz."],
+      "observation": "Frekvensomfångets övre gräns är lägre än 7 kHz."
+    },
+    "audio-ctrl": {
+      "texts": [
+        "Ljudet går att pausa eller stoppa.",
+        "Ljudvolymen går att sänka separat."
+      ],
+      "observation": "Ljudet går inte att pausa eller stoppa och ljudvolymen går inte att sänka oberoende av systemets volym."
+    },
+    "audio-desc-alt": {
+      "texts": [
+        "Det finns ett alternativ i textform som förmedlar samma information som filmen, både visuell och audiell, och i samma ordning."
+      ],
+      "observation": "[Film] saknar både syntolkning och transkription."
+    },
+    "audio-desc-controls": {
+      "texts": [
+        "Reglage för syntolkning finns på samma interaktionsnivå som de primära mediereglagen."
+      ],
+      "observation": "Det krävs fler handgrepp för att aktivera syntolkning i mediespelaren än för att starta eller pausa filmen."
+    },
+    "audio-desc-conv": {
+      "texts": [
+        "Syntolkning bevaras vid omvandling så att den kan spelas upp i enlighet med 7.2.1 och 7.2.2."
+      ],
+      "observation": "Funktionen för att [åtgärd] video bevarar inte syntolkning."
+    },
+    "audio-desc-play": {
+      "texts": ["Mediespelaren har en funktion för att spela upp syntolkning."],
+      "observation": "Mediespelaren saknar funktion för att spela upp syntolkning."
+    },
+    "audio-desc-req": {
+      "texts": [
+        "Filmen har syntolkning (ljudbeskrivning) som förmedlar samma information genom tal."
+      ],
+      "observation": "[Film] har inslag som inte går att uppfatta utan synförmåga, men saknar syntolkning (ljudbeskrivning)."
+    },
+    "audio-desc-synch": {
+      "texts": [
+        "Syntolkningen är synkroniserad med det audiovisuella innehållet."
+      ],
+      "observation": "Syntolkningen i [film] är inte synkroniserad med det audiovisuella innehållet."
+    },
+    "biometrics": {
+      "texts": [
+        "Det finns alternativa sätt (biometriska eller inte) för att identifiera eller ge åtkomst, som inte är beroende av ett specifikt biometriskt kännetecken."
+      ],
+      "observation": "Identifiering/åtkomst är bara möjlig med [biometrisk metod]."
+    },
+    "button-func": {
+      "texts": [
+        "Knappar med samma text utför samma funktion på alla sidor där de förekommer."
+      ],
+      "observation": "Knappen ”[text]” utför här [funktion], men på andra sidor [funktion]."
+    },
+    "button-text": {
+      "texts": [
+        "Knappar med samma funktion har samma text på alla sidor där de förekommer."
+      ],
+      "observation": "Knappen för [funktion] heter här ”[text]”, men på andra sidor ”[text]”."
+    },
+    "bypass-block": {
+      "texts": ["Det finns sätt att hoppa förbi återkommande block."],
+      "observation": "[Innehåll] är ett innehållsblock som förekommer på [flera/många] sidor, men det finns inget sätt att hoppa förbi blocket."
+    },
+    "bypass-header": {
+      "texts": [
+        "Det första interaktiva elementet på sidan är en ankarlänk till huvudinnehållet."
+      ],
+      "observation": "Det finns ingen länk för att hoppa förbi sidhuvudet och komma direkt till huvudinnehållet."
+    },
+    "caller-id-at": {
+      "texts": ["Informationen om uppringare finns i maskinläsbar form."],
+      "exceptions": ["Funktionaliteten är stängd."],
+      "observation": "Information om uppringaren är inte maskinläsbar."
+    },
+    "caller-id-text": {
+      "texts": ["Informationen om uppringare finns som text."],
+      "observation": "Information om uppringaren visas inte som text."
+    },
+    "cancel-pointer": {
+      "texts": [
+        "Ingen del av funktionen utförs när man <em>trycker ned</em> ett finger eller en musknapp.",
+        "Funktionen slutförs när man <em>släpper upp</em> musknappen eller <em>lyfter</em> fingret och går att avbryta eller ångra.",
+        "Att lyfta fingret eller släppa upp musknappen innebär en återställning av den förändring som gjordes vid nedtryckning.",
+        "Det är en förutsättning att funktionen utförs vid nedtryckning."
+      ],
+      "observation": "[Funktion] utförs när man tycker ned en musknapp eller ett finger och går inte att avbryta eller ångra."
+    },
+    "cancel-touch": {
+      "texts": [
+        "Ingen del av funktionen utförs när man <em>trycker ned</em> fingret.",
+        "Funktionen slutförs när man <em>lyfter</em> fingret och går att avbryta eller ångra.",
+        "Att lyfta fingret innebär en återställning av den förändring som gjordes vid nedtryckning (tryck-och-håll-ned).",
+        "Det är en förutsättning att funktionen utförs vid nedtryckning."
+      ],
+      "observation": "[Funktion] utförs när man tycker ned ett finger och går inte att avbryta eller ångra."
+    },
+    "captcha-alt": {
+      "texts": [
+        "Det finns alternativa CAPTCHA för andra uppfattningsförmågor än syn."
+      ],
+      "observation": "CAPTCHA-funktionen har inget alternativ för personer som saknar synförmåga."
+    },
+    "captcha-purpose": {
+      "texts": ["Textalternativet beskriver syftet med CAPTCHA:n."],
+      "observation": "Textalternativet för CAPTCHA-funktionen beskriver inte dess syfte."
+    },
+    "caption": {
+      "texts": [
+        "Tabellrubriker är uppmärkta med <code translate=\"no\">&lt;caption&gt;</code> och är första underelementet i sin <code translate=\"no\">&lt;table&gt;</code>."
+      ],
+      "observation": "[Beskrivning] är en tabellrubrik, men är inte uppmärkt som en sådan."
+    },
+    "caption-char": {
+      "texts": [
+        "Mediespelaren har funktioner för att anpassa utseendet på undertexter efter individuella behov."
+      ],
+      "exceptions": ["Gäller inte öppna (”inbrända”) undertexter."],
+      "observation": "Mediespelaren ger inte möjlighet att anpassa utseendet på undertexter."
+    },
+    "caption-controls": {
+      "texts": [
+        "Reglage för undertexter finns på samma interaktionsnivå som de primära mediereglagen."
+      ],
+      "observation": "Det krävs fler handgrepp för att aktivera undertexter i mediespelaren än för att starta eller pausa filmen."
+    },
+    "captions-conv": {
+      "texts": [
+        "Undertexterna bevaras vid omvandling så att de kan spelas upp i enlighet med 7.1.1 och 7.1.2."
+      ],
+      "observation": "Funktionen för att [åtgärd] video bevarar inte undertexter."
+    },
+    "caption-play": {
+      "texts": [
+        "Mediespelaren har en mekanism för att visa och dölja undertexter."
+      ],
+      "observation": "Mediespelaren saknar en funktion för att visa och dölja undertexter."
+    },
+    "caption-synch": {
+      "texts": [
+        "Undertexterna är synkroniserade med filmen, med en förskjutning på högst 100&nbsp;millisekunder."
+      ],
+      "observation": "Undertexterna i [film] har en tidsförskjutning på mer än 100 millisekunder jämfört med ljudet i filmen."
+    },
+    "captions-equal": {
+      "texts": ["Undertexterna förmedlar allt relevant ljudinnehåll i filmen."],
+      "exceptions": ["Syntolkning behöver inte vara textad."],
+      "observation": "Undertexterna i [film] förmedlar inte [ljud]."
+    },
+    "captions-present": {
+      "texts": ["Alla filmer med relevant ljud har undertexter."],
+      "observation": "[Film] saknar undertexter."
+    },
+    "colour-error": {
+      "texts": [
+        "Färg används inte som det <em>enda</em> visuella sättet att särskilja felmeddelanden."
+      ],
+      "observation": "Felmeddelanden indikeras enbart med röd textfärg."
+    },
+    "colour-error-2": {
+      "texts": [
+        "Felmeddelanden särskiljs genom fler än en typ av visuella element utöver färg."
+      ],
+      "observation": "Felmeddelanden indikeras enbart med röd textfärg."
+    },
+    "colour-link": {
+      "texts": ["Färg används inte som det enda sättet att indikera länkar."],
+      "exceptions": [
+        "Områden där <em>allt</em> innehåll är länkar, till exempel menyer.",
+        "Om länken har ett kontrastförhållande på minst 3:1 mot omgivande text."
+      ],
+      "observation": "[Länk] saknar understrykning eller annan indikering utöver färg."
+    },
+    "compound-link": {
+      "texts": [
+        "Länktexten, inklusive alternativtexter för bilder, är bara så lång som behövs för att beskriva syftet."
+      ],
+      "observation": "Länktexten för [beskrivning ] är ”[text]”, som är för långt. Tänk på användare med uppläsande hjälpmedel!"
+    },
+    "contrast-alt": {
+      "texts": [
+        "Alla textalternativ har ett kontrastförhållande på minst 4,5:1 (3:1 för stor text) mot bakgrunden."
+      ],
+      "observation": "Textalternativet för [bild] har otillräcklig kontrast ([N]:1) mot bakgrunden."
+    },
+    "contrast-focus": {
+      "texts": [
+        "Alla fokusmarkeringar har ett kontrastförhållande på minst 3:1 mot intilliggande färger."
+      ],
+      "observation": "Fokusmarkeringen för [beskrivning] har otillräcklig kontrast ([N]:1) mot intilliggande färger."
+    },
+    "contrast-graphic": {
+      "texts": [
+        "Alla informationsbärande delar av diagrammet har ett kontrastförhållande på minst 3:1 mot intilliggande färger."
+      ],
+      "observation": "[Del] i [diagram] har otillräcklig kontrast ([N]:1) mot intilliggande färger."
+    },
+    "contrast-graphic-text": {
+      "texts": [
+        "Eventuell text i diagram har ett kontrastförhållande på minst 4,5:1 (3:1 för stor text) mot intilliggande färger."
+      ],
+      "observation": "[Text] i [diagram] har otillräcklig kontrast ([N]:1) mot intilliggande färger."
+    },
+    "contrast-icon": {
+      "texts": [
+        "De delar av en ikon som är nödvändiga för förståelse har ett kontrastförhållande på minst 3:1 mot intilliggande färger."
+      ],
+      "observation": "Ikonen [beskrivning] har otillräcklig kontrast ([N]:1) mot intilliggande färger."
+    },
+    "contrast-iot-large": {
+      "texts": [
+        "Bilder av text som är minst <span style=\"font-size:18pt\">18&nbsp;punkter</span> (24&nbsp;px) eller <span style=\"font-size:14pt; font-weight:bold\">14&nbsp;punkter och fet</span> (19&nbsp;px) har ett kontrastförhållande på minst 3:1 mot bakgrunden."
+      ],
+      "observation": "Kontrasten för ”[text]” (bild) är otillräcklig ([N]:1) mot bakgrunden."
+    },
+    "contrast-iot-normal": {
+      "texts": [
+        "Bilder av mindre text har ett kontrastförhållande på minst 4,5:1 mot bakgrunden."
+      ],
+      "observation": "Kontrasten för ”[text]” (bild) är otillräcklig ([N]:1) mot bakgrunden."
+    },
+    "contrast-link-large": {
+      "texts": [
+        "Alla länkar som är minst <span style=\"font-size:18pt\">18&nbsp;punkter</span> (24&nbsp;px) eller <span style=\"font-size:14pt; font-weight:bold\">14&nbsp;punkter och fet</span> (19&nbsp;px) har ett kontrastförhållande på minst 3:1 mot bakgrunden."
+      ],
+      "observation": "Kontrasten för länken ”[text]” är otillräcklig ([N]:1) mot bakgrunden."
+    },
+    "contrast-link-normal": {
+      "texts": [
+        "Alla övriga länkar har ett kontrastförhållande på minst 4,5:1 mot bakgrunden."
+      ],
+      "observation": "Kontrasten för länken ”[text]” är otillräcklig ([N]:1) mot bakgrunden."
+    },
+    "contrast-text-large": {
+      "texts": [
+        "Text som är minst <span style=\"font-size:18pt\">18&nbsp;punkter</span> (24&nbsp;px) eller <span style=\"font-size:14pt; font-weight:bold\">14&nbsp;punkter och fet</span> (19&nbsp;px) har ett kontrastförhållande på minst 3:1 mot bakgrunden."
+      ],
+      "observation": "Kontrasten för [beskrivning] är otillräcklig ([N]:1) mot bakgrunden."
+    },
+    "contrast-text-normal": {
+      "texts": [
+        "All övrig text har ett kontrastförhållande på minst 4,5:1 mot bakgrunden."
+      ],
+      "observation": "Kontrasten för [beskrivning] är otillräcklig ([N]:1) mot bakgrunden."
+    },
+    "contrast-ui": {
+      "texts": [
+        "<em>Aktiva</em> komponenter i användargränssnittet har ett kontrastförhållande på minst 3:1 mot intilliggande färger."
+      ],
+      "observation": "Kontrasten för [komponent] är otillräcklig ([N]:1) mot intilliggande färger."
+    },
+    "conv-a11y": {
+      "texts": [
+        "Omvandling bevarar all dokumenterad icke-proprietär information som tillhandahålls för tillgänglighet."
+      ],
+      "observation": "[Tillgänglighetsaspekt] bevaras inte vid omvandling till [format]."
+    },
+    "dd": {
+      "texts": [
+        "Varje element i en parvis lista innehåller minst ett <code>&lt;dd&gt;</code>-element."
+      ],
+      "observation": "Beskrivningslistan [lista] innehåller element utan <dd>."
+    },
+    "dl": {
+      "texts": ["Parvisa listor är uppmärkta med <code>&lt;dl&gt;</code>."],
+      "observation": "[Innehåll] är en beskrivningslista, men är inte uppmärkt som en sådan."
+    },
+    "doc-a11y": {
+      "texts": [
+        "Produktdokumentationen beskriver hur man använder eventuella tillgänglighets- och kompatibilitetsfunktioner."
+      ],
+      "observation": "Produktdokumentationen beskriver inte hur man använder tjänstens tillgänglighets- eller kompatibilitetsfunktioner."
+    },
+    "doc-product-doc": {
+      "texts": [
+        "Dokumentationen uppfyller kraven i kapitel&nbsp;10 i <cite>EN&nbsp;301&nbsp;549</cite>."
+      ],
+      "observation": "Produktdokumentationen uppfyller inte kraven i kapitel 10 i EN 301 549."
+    },
+    "doc-product-web": {
+      "texts": [
+        "Dokumentationen uppfyller kraven i kapitel&nbsp;9 i <cite>EN&nbsp;301&nbsp;549</cite>."
+      ],
+      "observation": "Produktdokumentationen uppfyller inte kraven i kapitel 9 i EN 301 549."
+    },
+    "doc-support-doc": {
+      "texts": [
+        "Dokumentationen uppfyller kraven i kapitel&nbsp;10 i <cite>EN&nbsp;301&nbsp;549</cite>."
+      ],
+      "observation": "Supportdokumentationen uppfyller inte kraven i kapitel 10 i EN 301 549."
+    },
+    "doc-support-web": {
+      "texts": [
+        "Supportdokumentationen uppfyller kraven i kapitel&nbsp;9 i <cite>EN&nbsp;301&nbsp;549</cite>."
+      ],
+      "observation": "Supportdokumentationen uppfyller inte kraven i kapitel 9 i EN 301 549."
+    },
+    "dt": {
+      "texts": [
+        "Varje element i en parvis lista innehåller minst ett <code>&lt;dt&gt;</code>-element."
+      ],
+      "observation": "Beskrivningslistan [lista] innehåller element utan <dt>."
+    },
+    "edit-content-create": {
+      "texts": [
+        "Det går att skapa tillgängligt innehåll med redigeringsverktyget."
+      ],
+      "observation": "Redigeringsverktyget har inte stöd för att skapa innehåll som uppfyller tillgänglighetskraven i EN 301 549: [beskrivning av brister]."
+    },
+    "edit-content-help": {
+      "texts": [
+        "Redigeringsverktyget hjälper användaren att skapa tillgängligt innehåll."
+      ],
+      "observation": "Redigeringsverktyget hjälper inte användaren att skapa innehåll som uppfyller tillgänglighetskraven i EN 301 549."
+    },
+    "edit-conv": {
+      "texts": [
+        "Tillgänglighetsinformation i originalinnehållet bevaras vid omvandling i den mån motsvarande möjligheter finns i målformatet."
+      ],
+      "observation": "Vid omvandling till [format] i [redigeringsverktyg] bevaras inte [tillgänglighetsinformation]."
+    },
+    "edit-repair": {
+      "texts": [
+        "Verktyget åtgärdar automatiskt upptäckta brister.",
+        "Verktyget ger förslag på hur användaren kan åtgärda bristerna."
+      ],
+      "observation": "Redigeringsverktyget ger inga förslag på hur upptäckta brister ska åtgärdas."
+    },
+    "edit-tech": {
+      "texts": [
+        "Redigeringsverktyget uppfyller kraven i avsnitt 11.8.2 till 1..8.5 i den mån utdataformatet medger."
+      ],
+      "observation": "Redigeringsverktyget uppfyller inte kraven 11.8.2 till 11.8.5 i EN 301 549.",
+      "sources": [
+        "edit-content",
+        "edit-transform",
+        "edit-repair",
+        "edit-templates"
+      ]
+    },
+    "edit-templ-acc": {
+      "texts": [
+        "Det finns minst en mall som kan skapa innehåll som uppfyller tillgänglighetskraven."
+      ],
+      "observation": "Redigeringsverktyget erbjuder ingen mall som skapar innehåll som uppfyller tillgänglighetskraven i EN 301 549."
+    },
+    "edit-templ-ind": {
+      "texts": ["Det framgår vilka mallar som är tillgängliga."],
+      "exceptions": ["Alla mallar är tillgängliga."],
+      "observation": "Redigeringsverktyget visar inte vilka mallar som skapar innehåll som uppfyller tillgänglighetskraven i EN 301 549."
+    },
+    "edit-transform": {
+      "texts": [
+        "Tillgänglighetsinformation i originalinnehållet bevaras vid omstrukturering i den mån motsvarande möjligheter finns i det omstrukturerade materialet."
+      ],
+      "observation": "Vid omstrukturering i [redigeringsverktyg] bevaras inte [tillgänglighetsinformation]."
+    },
+    "empty-th": {
+      "texts": ["Alla rubrikceller i tabeller har innehåll."],
+      "observation": "[Beskrivning] är en rubrikcell utan innehåll."
+    },
+    "error-field": {
+      "texts": [
+        "Det framgår i text vilket fält som är felande.",
+        "Alla felande fält har <code translate=\"no\" lang=\"en\">aria-invalid=\"true\"</code>.",
+        "Felmeddelandena är maskinläsbart kopplade till de felande fälten."
+      ],
+      "observation": "Det framgår varken i text eller på ett maskinläsbart sätt vilka fält som är felande vid validering."
+    },
+    "error-prevention": {
+      "texts": [
+        "Åtgärden går att ångra.",
+        "Användaren ges möjlighet att rätta upptäckta inmatningsfel.",
+        "Användaren får förhandsgranska och bekräfta inmatade uppgifter innan transaktionen slutförs."
+      ],
+      "observation": "Sidan innebär [konsekvens], men åtgärden går inte att ångra, det finns ingen förhandsgranskning/bekräftelse och användaren får ingen chans att rätta felaktig inmatning."
+    },
+    "error-suggestion": {
+      "texts": [
+        "Feltexten som visas för användaren när man fyller i ett ogiltigt värde i fältet talar om vad som behöver rättas."
+      ],
+      "observation": "Felmeddelandet för [fält] säger bara ”[text]” trots att det finns kända korrigeringsförslag."
+    },
+    "error-text": {
+      "texts": ["Felmeddelanden visas med text."],
+      "observation": "Valideringsfel för [fält] visas bara genom [metod], inte som text."
+    },
+    "field-label": {
+      "texts": [
+        "Samma ledtext används för fält med samma syfte på alla sidor där det förekommer."
+      ],
+      "observation": "[Fältet/listan/kryssrutan] för [syfte] har här ledtexten ”[ledtext]”, men på andra sidor används ”[ledtext]”."
+    },
+    "focus-close": {
+      "texts": [
+        "När det visade elementet stängs sätts fokus åter till det aktiverande elementet."
+      ],
+      "exceptions": ["Elementet existerar inte längre."],
+      "observation": "När [visat element] stängs sätts inte fokus tillbaka till [aktiverande element]."
+    },
+    "focus-content-visible": {
+      "texts": [
+        "Det visade innehållet förblir synligt tills användaren flyttar fokus, väljer att dölja det, eller tills det inte längre är relevant."
+      ],
+      "observation": "[Innehåll] visas när [element] får fokus, men försvinner efter [X] sekunder."
+    },
+    "focus-next": {
+      "texts": [
+        "Fokus sätts automatiskt till det öppnade elementet när det visas.",
+        "Det öppnade elementet kommer direkt efter det aktiverande elementet i fokusordningen."
+      ],
+      "observation": "[Aktiverande element] öppnar [visat element], men [den/det] är inte nästa element i fokusordningen."
+    },
+    "focus-order": {
+      "texts": [
+        "Fokusordningen avviker inte från den visuella ordningen på ett sätt som gör innehållet svårt att förstå eller använda."
+      ],
+      "observation": "Vid navigering med tangentbord får [element] fokus efter [element]."
+    },
+    "focus-visible": {
+      "texts": ["Alla fokuserbara element har en synlig fokusmarkering."],
+      "exceptions": ["Det finns bara ett fokuserbart element."],
+      "observation": "[Element] saknar synlig fokusmarkering."
+    },
+    "frame-rate": {
+      "texts": [
+        "Bildväxlingsfrekvensen vid videokommunikation är minst 20 bilder per sekund vid ideala nätverksförhållanden."
+      ],
+      "observation": "Bildväxlingsfrekvensen vid videokommunikation är bara [N] bilder per sekund vid ideala nätverksförhållanden."
+    },
+    "func-handle": {
+      "texts": ["Alla funktioner går att hantera med tangentbordet."],
+      "observation": "[Funktion] går inte att hantera med tangentbordet."
+    },
+    "func-nav": {
+      "texts": ["Alla funktioner går att nå med tangentbordet."],
+      "observation": "[Funktion] går inte att nå med tangentbordet."
+    },
+    "has-audio-desc": {
+      "texts": [
+        "Filmen har syntolkning (ljudbeskrivning) som förmedlar samma information genom tal."
+      ],
+      "sources": ["audio-desc-req"]
+    },
+    "heading": {
+      "texts": [
+        "Allt som är visuellt formgivet som en rubrik är uppmärkt med <code>&lt;h1&gt;</code>…<code>&lt;h6&gt;</code>."
+      ],
+      "observation": "”[Text]” ser ut som en rubrik, men är inte uppmärkt som en sådan."
+    },
+    "heading-levels": {
+      "texts": [
+        "Alla rubriker med nivå 2 eller lägre är innehållsmässigt underordnade närmaste rubrik med högre nivå."
+      ],
+      "observation": "”[Text]” är en rubrik med nivå [nivå] och därför underordnad ”[text]” med nivå [nivå], vilket inte ser ut att vara meningen."
+    },
+    "heading-skipped": {
+      "texts": ["Inga rubriknivåer är utelämnade."],
+      "observation": "”[Text]” är en rubrik med nivå [nivå], men det finns ingen överordnad rubrik på nivå [nivå]."
+    },
+    "heading-text": {
+      "texts": [
+        "Alla rubriker beskriver ämnet eller syftet med det innehåll som följer."
+      ],
+      "observation": "Rubriken ”[text]” beskriver inte ämnet eller syftet med det innehåll som följer."
+    },
+    "hgroup": {
+      "texts": [
+        "Rubrikgrupper är uppmärkta med <code translate=\"no\" lang=\"en\">&lt;hgroup&gt;</code>."
+      ],
+      "observation": "Rubriken ”[Text]” används som [dårrad/nedryckare/underrubrik] till ”[Text]”, men rubrikerna är inte uppmärkta som en grupp."
+    },
+    "hide-focus-content": {
+      "texts": [
+        "Det går att dölja det visade innehållet utan att flytta fokus"
+      ],
+      "exceptions": [
+        "Ett meddelande om felaktig inmatning.",
+        "Det visade innehållet skymmer inte annat innehåll."
+      ],
+      "observation": "[Innehåll] visas när [element] får fokus och går inte att dölja utan att flytta fokus."
+    },
+    "hide-focus-content-zoom": {
+      "texts": [
+        "Det går att dölja det visade innehållet vid 200&nbsp% zoom utan att flytta fokus"
+      ],
+      "exceptions": [
+        "Ett meddelande om felaktig inmatning.",
+        "Det visade innehållet skymmer inte annat innehåll."
+      ],
+      "observation": "[Innehåll] visas när [element] får fokus och går inte att dölja utan att flytta fokus vid 200 % zoom."
+    },
+    "hide-hover-content": {
+      "texts": [
+        "Det går att dölja innehåll som visas vid hovring, utan att flytta pekaren."
+      ],
+      "exceptions": [
+        "Ett meddelande om felaktig inmatning.",
+        "Det visade innehållet skymmer inte annat innehåll."
+      ],
+      "observation": "[Innehåll] visas vid hovring och går inte att dölja utan att flytta pekaren."
+    },
+    "hide-hover-content-zoom": {
+      "texts": [
+        "Det går att dölja innehåll som visas vid hovring, vid 200&nbsp;% zoom, utan att flytta pekaren."
+      ],
+      "exceptions": [
+        "Ett meddelande om felaktig inmatning.",
+        "Det visade innehållet skymmer inte annat innehåll."
+      ],
+      "observation": "[Innehåll] visas vid hovring och går inte att dölja utan att flytta pekaren vid 200 % zoom."
+    },
+    "hover-content-pointer": {
+      "texts": [
+        "Det går att föra pekaren över innehåll som visas vid hovring, utan att det försvinner."
+      ],
+      "observation": "[Innehåll] visas vid hovring, men försvinner när man försöker föra pekaren över det."
+    },
+    "hover-content-pointer-zoom": {
+      "texts": [
+        "Det går att föra pekaren över innehåll som visas vid hovring, vid 200&nbsp;% zoom, utan att det försvinner."
+      ],
+      "observation": "[Innehåll] visas vid hovring, men försvinner när man försöker föra pekaren över det vid 200 % zoom."
+    },
+    "hover-content-visible": {
+      "texts": [
+        "Innehåll som visas vid hovring förblir synligt till dess användaren flyttar pekaren, <em>väljer</em> att dölja det, eller tills den visade informationen inte längre är relevant."
+      ],
+      "observation": "[Innehåll] visas vid hovring, men försvinner automatiskt efter [X] sekunder."
+    },
+    "hs-loss": {
+      "texts": [
+        "Ingen information eller funktion går förlorad vid displayhöjder ned till 256 CSS-pixlar."
+      ],
+      "observation": "Vid displayhöjden [höjd] pixlar blir [innehåll] oåtkomligt."
+    },
+    "hs-scroll": {
+      "texts": [
+        "Det krävs inte skrollning i två ledder vid displayhöjder ned till 256 CSS-pixlar."
+      ],
+      "observation": "Vid displayhöjden [höjd] pixlar krävs skrollning både vertikalt och horisontellt."
+    },
+    "ids": {
+      "texts": ["Alla <code><abbr>id</abbr></code>-attribut är unika."],
+      "observation": "ID:t ”[id]” används på mer än ett element."
+    },
+    "images-of-text": {
+      "texts": [
+        "Text, inte bilder av text, används för att förmedla information."
+      ],
+      "observation": "Texten ”[text]” förmedlas som en bild i stället för som text."
+    },
+    "img-fg": {
+      "texts": ["Informationsbärande bilder är förgrundsbilder."],
+      "observation": "Bilden [beskrivning] är en bakgrundsbild trots att den förmedlar relevant information."
+    },
+    "img-link": {
+      "texts": [
+        "Textalternativet för varje länkad bild beskriver syftet med länken."
+      ],
+      "observation": "Den länkade bilden [beskrivning] har textalternativet ”[text]”, som inte beskriver länkens syfte."
+    },
+    "info-rel-fields": {
+      "texts": [
+        "Relationen framgår strukturellt (det styrda fältet är underordnat det kontrollerande).",
+        "Relationen är maskinläsbart angiven.",
+        "Relationen framgår implicit genom att det styrda fältet kommer direkt efter det kontrollerande i källkoden."
+      ],
+      "observation": "Fältet [styrt fält] kontrolleras av [kontrollerande fält], men det framgår varken explicit eller implicit."
+    },
+    "info-rel-generic": {
+      "texts": [
+        "Information, strukturer och relationer förmedlas maskinläsbart.",
+        "Information, strukturer och relationer som inte förmedlas maskinläsbart finns beskrivna i text."
+      ],
+      "observation": "[info/relation] förmedlas visuellt genom [presentation], men inte maskinläsbart."
+    },
+    "input-purpose-correct": {
+      "texts": ["Angivet syfte för inmatningsfält är korrekt."],
+      "observation": "Fältet [beskrivning] inhämtar [uppgift], men det maskinläsbara syftet anger [syfte]."
+    },
+    "input-purpose-present": {
+      "texts": [
+        "Inmatningsfält som inhämtar information om användaren har ett maskinläsbart syfte."
+      ],
+      "observation": "Fältet [beskrivning] saknar maskinläsbart syfte."
+    },
+    "ivr": {
+      "texts": [
+        "Det finns ett sätt att använda talsvarsfunktionerna som inte kräver talförmåga eller hörsel."
+      ],
+      "observation": "[Funktion] går inte att använda utan [talförmåga/hörsel]."
+    },
+    "kbd-hold": {
+      "texts": [
+        "Det krävs inte att man håller ned en tangent under en viss tid."
+      ],
+      "observation": "[Funktion] kräver att man håller ned [tangent] under [X] sekunder."
+    },
+    "kbd-navkey": {
+      "texts": [
+        "Det finns information om hur man navigerar ifrån dessa element."
+      ],
+      "observation": "Det krävs [beskrivning] för att navigera ifrån [element/komponent] med tangentbordet, men användaren informeras inte om detta."
+    },
+    "kbd-seq": {
+      "texts": [
+        "Det krävs inte att man trycker flera tangenter inom en kort tid."
+      ],
+      "observation": "[Funktion] kräver att man trycker [tangenter] inom [X] sekunder."
+    },
+    "kbd-trap": {
+      "texts": [
+        "Det går att navigera ifrån varje fokuserbart element med tangentbordet."
+      ],
+      "observation": "Det går att navigera till [element/komponent] med tangentbordet, men inte därifrån."
+    },
+    "label": {
+      "texts": [
+        "Ledtexter är uppmärkta med <code translate=\"no\" lang=\"en\">&lt;label&gt;</code>."
+      ],
+      "observation": "”[Text]” ser ut att vara en ledtext, men är inte maskinläsbart uppmärkt som en sådan."
+    },
+    "label-in-name": {
+      "texts": [
+        "Interaktiva komponenters maskinläsbara namn innehåller den synliga texten i komponenten."
+      ],
+      "observation": "[Komponentbeskrivning] har den synliga texten ”[text]”, men det maskinläsbara namnet är ”[namn]”."
+    },
+    "label-instr": {
+      "texts": [
+        "Det finns synliga ledtexter eller ifyllnadsanvisningar för alla inmatningsfält eller interaktiva komponenter."
+      ],
+      "observation": "Fältet för [syfte] saknar synlig ledtext eller ifyllnadsanvisning."
+    },
+    "label-purpose": {
+      "texts": ["Alla ledtexter beskriver syftet med det tillhörande fältet."],
+      "observation": "Ledtexten ”[text]” beskriver inte syftet med det tillhörande fältet."
+    },
+    "landmarks": {
+      "texts": [
+        "Alla landmärken på sidan är uppmärkta med motsvarande HTML-elementtyp eller <code translate=\"no\">role</code>-attribut."
+      ],
+      "observation": "Sidan innehåller [en/ett] [landmärke] men [den/det] är inte uppmärkt som [sådan/sådant]."
+    },
+    "lang-alt": {
+      "texts": ["Bildelementet anger språkändringen."],
+      "observation": "Bilden [beskrivning] har ett textalternativ på [språk], men språkändringen är inte maskinläsbart angiven."
+    },
+    "lang-page-attr": {
+      "texts": ["Sidans huvudsakliga språk är maskinläsbart."],
+      "observation": "Det huvudsakliga språket på sidan är inte maskinläsbart."
+    },
+    "lang-page-valid": {
+      "texts": ["Språkkoden är giltig."],
+      "observation": "Sidans språkkod ”[kod]” är inte en giltig språkkod."
+    },
+    "lang-page-correct": {
+      "texts": ["Språkkoden matchar sidinnehållets språk."],
+      "observation": "Sidans primära innehåll är på [svenska], men är angivet som [språk]."
+    },
+    "lang-parts-attr": {
+      "texts": ["Alla språkändringar är maskinläsbart angivna."],
+      "observation": "Sidan innehåller ord på [språk], men språkändringarna är inte maskinläsbart angivna."
+    },
+    "lang-parts-correct": {
+      "texts": ["Språkkoden matchar det uppmärkta innehållets språk."],
+      "observation": "”[innehåll]” är på [språk], men är angivet som [språk]."
+    },
+    "lang-parts-valid": {
+      "texts": ["Språkkoderna är giltiga."],
+      "observation": "Den angivna språkkoden ”[kod]” för [innheåll] är inte en giltig språkkod."
+    },
+    "link-length": {
+      "texts": [
+        "Länktexten är bara så lång som behövs för att beskriva syftet."
+      ],
+      "observation": "Länktexten [text] är mycket lång, vilket gör att syftet med länken inte tydligt framgår, särskilt för personer som använder uppläsande hjälpmedel."
+    },
+    "link-purpose": {
+      "texts": [
+        "Syftet med varje länk framgår utan omgivande sammanhang, eller tillsammans med texten som föregår länken (i samma stycke, lista, tabellcell eller liknande)."
+      ],
+      "observation": "Länktexten ”[text]” beskriver inte länkens syfte för den som inte kan se det omgivande sammanhanget."
+    },
+    "link-target": {
+      "texts": ["Länkar med samma länktext leder till samma mål."],
+      "observation": "Länken ”[länktext]” leder här till [mål], men på andra sidor till [mål]."
+    },
+    "link-text": {
+      "texts": ["Länkar med samma mål har samma länktext."],
+      "observation": "Länken till [mål] heter här ”[länktext]”, men på andra sidor ”[länktext]”."
+    },
+    "lists": {
+      "texts": ["Allt som är uppmärkt som listor är listinformation."],
+      "observation": "[Innehåll] är uppmärkt som en lista, trots att det inte innehåller listinformation."
+    },
+    "luminance": {
+      "texts": ["Luminansskillanden är under tröskelvärdet."],
+      "observation": "[Innehåll] flimrar mer än 3 gånger under en sekund och skillnaden i relativ luminans mellan färgerna överstiger 10 procent."
+    },
+    "markup": {
+      "texts": [
+        "Innehåll är uppmärkt med en semantisk HTML-elementtyp där det finns en lämplig typ att tillgå."
+      ],
+      "observation": "[Innehåll] är [typ], men är inte uppmärkt med [HTML-element]."
+    },
+    "motion-alt": {
+      "texts": [
+        "Funktionerna går att utföra via vanliga användargränssnittskomponenter."
+      ],
+      "observation": "[Funktion] kräver rörelsestyrning och det finns inget tillgängligt alternativ."
+    },
+    "motion-disable": {
+      "texts": ["Rörelsestyrningen går att stänga av."],
+      "observation": "Rörelsestyrningen för [funktion] går inte att stänga av."
+    },
+    "multipoint-gestures": {
+      "texts": [
+        "Funktionerna går att utföra med ett enda finger (oberoende av rörelsebana)."
+      ],
+      "exceptions": ["En flerpunktsgest är en förutsättning för funktionen."],
+      "observation": "[Funktion] kräver att man använder flera fingrar samtidigt och saknar tillgängligt alternativ."
+    },
+    "name-present": {
+      "texts": ["Alla interaktiva komponenter har ett maskinläsbart namn."],
+      "observation": "[Komponentbeskrivning] saknar maskinläsbart namn."
+    },
+    "nav-func-order": {
+      "texts": [
+        "Navigeringsfunktioner kommer i samma inbördes ordning på de sidor där de förkommer."
+      ],
+      "observation": "Navigeringen är inte konsekvent: här kommer [funktion] [före/efter] [funktion]."
+    },
+    "nav-link-order": {
+      "texts": [
+        "Länkar etc. inom varje navigeringsfunktion kommer i samma inbördes ordning."
+      ],
+      "observation": "Navigeringen är inte konsekvent i [funktion]: [länk] kommer [före/efter] [länk]."
+    },
+    "nesting": {
+      "texts": [
+        "Alla element är nästlade i enlighet med HTML-specifikationen."
+      ],
+      "observation": "Ett [föräldratagg]-element innehåller ett [barntagg]-element (rad [radnr]), vilket inte är tillåtet."
+    },
+    "no-redirect": {
+      "texts": ["Sidan omdirigeras inte automatiskt med fördröjning."],
+      "observation": "Sidan omdirigeras automatiskt till [sida] efter [antal] sekunder."
+    },
+    "no-refresh": {
+      "texts": ["Sidan laddar inte om automatiskt efter en viss tid."],
+      "observation": "Sidan laddar om automatiskt efter [antal] sekunder."
+    },
+    "no-th": {
+      "texts": ["Layouttabeller innehåller inte rubrikceller."],
+      "observation": "[Innehåll] är en layouttabell, men innehåller rubrikceller."
+    },
+    "ol": {
+      "texts": [
+        "Listor där elementens ordning påverkar listans betydelse är uppmärkta med <code>&lt;ol&gt;</code> och elementen med <code>&lt;li&gt;</code>."
+      ],
+      "observation": "[Innehåll] är en ordnad lista, men är inte uppmärkt som en sådan."
+    },
+    "on-focus": {
+      "texts": [
+        "Ingen kontextförändring inträffar till följd av att ett element får fokus."
+      ],
+      "observation": "[Kontextförändring] inträffar när [element] får tangentbordsfokus."
+    },
+    "on-input": {
+      "texts": [
+        "Ingen kontextförändring sker till följd av att man ändrar värdet i en komponent."
+      ],
+      "observation": "När man ändrar värdet [i/på] [komponent] [händelsebeskrivning]."
+    },
+    "orientation": {
+      "texts": [
+        "Innehåll och funktion är inte begränsade till en viss orientering (stående eller liggande)."
+      ],
+      "observation": "I [liggande/stående] läge [beskrivning av felet]."
+    },
+    "path-based-gestures": {
+      "texts": [
+        "Funktionerna går att utföra oberoende av rörelsebanan (med en enda pekare)."
+      ],
+      "exceptions": [
+        "Rörelsebanan är en förutsättning för funktionen, till exempel att skriva sin namnteckning."
+      ],
+      "observation": "[Funktion] kräver att man flyttar pekaren i en specifik bana och saknar tillgängligt alternativ."
+    },
+    "pref-colour": {
+      "texts": [
+        "Sidan anpassar sig enligt inställning för ljust eller mörkt visningsläge."
+      ],
+      "observation": "Sidan respekterar inte användarinställningarna för ljust/mörkt visningsläge."
+    },
+    "pref-contrast": {
+      "texts": [
+        "Alla viktiga element på sidan går att särskilja visuellt i högkontrastläge."
+      ],
+      "observation": "Sidan respekterar inte användarinställningarna för kontrast."
+    },
+    "pref-focus-marker": {
+      "texts": ["Sidan respekterar användarinställningar för fokusmarkering."],
+      "observation": "Sidan respekterar inte användarinställningarna för fokusmarkering."
+    },
+    "pref-font": {
+      "texts": ["Sidan respekterar användarinställningar för teckensnitt."],
+      "observation": "Sidan respekterar inte användarinställningarna för teckensnitt."
+    },
+    "pref-font-size": {
+      "texts": ["Sidan respekterar användarinställningar för teckenstorlek."],
+      "observation": "Sidan respekterar inte användarinställningarna för teckenstorlek."
+    },
+    "pref-units": {
+      "texts": ["Sidan respekterar användarinställningar för måttenheter."],
+      "observation": "Sidan respekterar inte användarinställningarna för måttenheter."
+    },
+    "psh-blink": {
+      "texts": ["Det går att pausa, stoppa eller dölja blinkningarna."],
+      "observation": "Det går inte att pausa, stoppa eller dölja [innehåll] som blinkar."
+    },
+    "psh-motion": {
+      "texts": ["Det går att pausa, stoppa eller dölja rörelsen."],
+      "observation": "Det går inte att pausa, stoppa eller dölja [innehåll] som rör sig."
+    },
+    "psh-scroll": {
+      "texts": ["Det går att pausa, stoppa eller dölja skrollningen."],
+      "observation": "Det går inte att pausa, stoppa eller dölja [innehåll] som skrollar automatiskt."
+    },
+    "psh-update": {
+      "texts": ["Det går att pausa, stoppa eller dölja uppdateringarna."],
+      "observation": "Det går inte att pausa, stoppa eller dölja [innehåll] som uppdateras automatiskt."
+    },
+    "rel-labels": {
+      "texts": [
+        "Ledtexter är maskinläsbart kopplade till det tillhörande fältet."
+      ],
+      "observation": "Ledtexten ”[text]” är inte maskinläsbart kopplat till sitt fält.."
+    },
+    "req-opt": {
+      "texts": [
+        "Det framgår av ledtexter eller instruktioner vilka fält som är obligatoriska och/eller frivilliga."
+      ],
+      "exceptions": ["Alla fält är antingen obligatoriska eller frivilliga."],
+      "observation": "Det framgår inte i text vilka fält som är obligatoriska eller frivilliga."
+    },
+    "resize-custom": {
+      "texts": [
+        "All text går att förstora till åtminstone 200&nbsp;% med förstoringsfunktionen."
+      ],
+      "observation": "Texten i [innehåll] går inte att förstora till 200 procent med sidans förstoringsfunktion."
+    },
+    "resize-input": {
+      "texts": [
+        "Text i inmatningsfält går att förstora till åtminstone 200&nbsp;%."
+      ],
+      "observation": "Texten i [fält] går inte att förstora till 200 procent."
+    },
+    "resize-loss": {
+      "texts": [
+        "Inget innehåll och ingen funktion går förlorad vid textstorleken 200&nbsp;%."
+      ],
+      "observation": "När texten förstoras till 200 procent försvinner [innehåll]."
+    },
+    "resize-mobile": {
+      "texts": ["Det går att zooma (till åtminstone 200&nbsp;%) i mobilen."],
+      "observation": "Texten går inte att zooma i mobila enheters webbläsare."
+    },
+    "resize-ua": {
+      "texts": [
+        "All text går att förstora till åtminstone 200&nbsp;% med webbläsarens zoomfunktion."
+      ],
+      "observation": "Texten i [innehåll] går inte att förstora till 200 procent med webbläsarens zoomfunktion."
+    },
+    "resolution": {
+      "texts": [
+        "Bildstorleken vid videokommunikation motsvarar minst QVGA (320×240&nbsp;pixlar)."
+      ],
+      "observation": "Bildstorleken vid videokommunikation är bara [X]×[Y] pixlar."
+    },
+    "role-correct": {
+      "texts": ["Alla roller är korrekt angivna."],
+      "observation": "[Komponentbeskrivning] är en [roll], men har rollen ”[roll]”."
+    },
+    "role-present": {
+      "texts": ["Alla interaktiva komponenter har en roll."],
+      "observation": "[Komponentbeskrivning] saknar maskinläsbar roll."
+    },
+    "role-presentation-table": {
+      "texts": [
+        "Layouttabeller har rollen <code translate=\"no\" lang=\"en\">presentation</code> (eller <code translate=\"no\" lang=\"en\">none</code>)."
+      ],
+      "observation": "[Innehåll] använder en tabell för layoutändamål, men förmedlar inte detta till hjälpmedel.."
+    },
+    "rtt-audio": {
+      "texts": [
+        "Det finns en visuell ljudindikering vid kommunikation via realtidstext."
+      ],
+      "observation": "Det saknas en visuell ljudindikering vid kommunikation via realtidstext."
+    },
+    "rtt-comm": {
+      "texts": ["Det går att kommunicera via realtidstext."],
+      "observation": "Tjänsten har tvåvägs röstkommunikation men saknar stöd för kommunikation genom realtidstext."
+    },
+    "rtt-concurrent": {
+      "texts": [
+        "Det går att kommunicera både med tal och med realtidstext samtidigt via en och samma anslutning."
+      ],
+      "observation": "Det går inte att kommunicera med tal och med realtidstext samtidigt via samma anslutning."
+    },
+    "rtt-dir": {
+      "texts": [
+        "Det går att särskilja avsändarens och mottagarens texter maskinellt."
+      ],
+      "exception": ["Stängd funktionalitet."],
+      "observation": "Det går inte att särskilja avsändarens och mottagarens texter maskinellt vid kommunikation genom realtidstext."
+    },
+    "rtt-display": {
+      "texts": [
+        "Skickad realtidstext skiljer sig visuellt från mottagen text."
+      ],
+      "observation": "Det går inte att se skillnad på skickad och mottagen realtidstext."
+    },
+    "rtt-ident": {
+      "texts": [
+        "Det finns en visuell indikering av vem som kommunicerar med realtidstext om det finns visuell indikering av vem som talar."
+      ],
+      "observation": "Det saknas visuell indikering av vem som kommunicerar med realtidstext."
+    },
+    "rtt-iop-ims": {
+      "texts": [
+        "Tjänsten följer protokollen ETSI TS&nbsp;126&nbsp;114, TS&nbsp;122&nbsp;173 och TS&nbsp;134&nbsp229."
+      ],
+      "observation": "Tjänsten följer inte ETSI [TS 126 114/TS 122 173/TS 134 229] för VOIP genom IMS: [orsak]."
+    },
+    "rtt-iop-new-compliant": {
+      "texts": [
+        "Tjänsten samverkar med en referensterminal för RTT enligt den nya standarden."
+      ],
+      "observation": "Tjänsten följer inte [standard]: [orsak]."
+    },
+    "rtt-iop-new-support": {
+      "texts": [
+        "Standarden stöds av alla andra system för röst- och textkommunikation i samma miljö."
+      ],
+      "observation": "[Standard] stöds inte av [system] som används i samma miljö."
+    },
+    "rtt-iop-other-err": {
+      "texts": [
+        "Specifikationen i föregående kontroll inbegriper en metod för att indikera dataförlust eller förvanskning av överförda tecken."
+      ],
+      "observation": "Den specifikation tjänsten följer för utvyte av realtidstext innehåller ingen metod för att indikera dataförlust eller förvanskning av överförda tecken."
+    },
+    "rtt-iop-other-spec": {
+      "texts": [
+        "Tjänsten samverkar med en referensterminal för RTT enligt en specifikation för utbyte av realtidstext som är offentliggjord och tillgänglig i den miljö där tjänsten används."
+      ],
+      "observation": "Tjänsten följer inte en offentliggjord och tillgänglig specifikation för utbyte av realtidstext."
+    },
+    "rtt-iop-rfc4103": {
+      "texts": [
+        "Tjänsten samverkar med en referensterminal för RTT via <abbr>VOIP</abbr> och <abbr>SIP</abbr> med realtidstext som följer RFC&nbsp;4103."
+      ],
+      "observation": "Tjänsten har inte [full] interoperabilitet med RFC 4103 via VOIP och SIP: [orsak]."
+    },
+    "rtt-iop-v18": {
+      "texts": [
+        "Tjänsten samverkar med en referensterminal för V.18 så som beskrivs i ITU-T&nbsp;V.18 eller någon av dess bilagor."
+      ],
+      "observation": "Tjänsten har inte [full] interoperabilitet med ITU-T V.18: [orsak]."
+    },
+    "rtt-responsiveness": {
+      "texts": [
+        "Inmatad text skickas via nätverket inom 500&nbsp;millisekunder från det att minsta textenheten finns tillgänglig för tjänsten."
+      ],
+      "observation": "Inmatad text skickas inte via nätverket inom 500 millisekunder."
+    },
+    "sat-audio-ctrl": {
+      "texts": [
+        "Det berörda innehållet uppfyller krav 9.1.4.2 (ljudkontroll)."
+      ],
+      "observation": "[Innehåll] har inte tillgänglighetsstöd och uppfyller inte WCAG 1.4.2.",
+      "sources": ["audio-ctrl"]
+    },
+    "sat-flashes": {
+      "texts": ["Det berörda innehållet uppfyller krav 9.2.3.1 (flimmer)."],
+      "observation": "[Innehåll] har inte tillgänglighetsstöd och uppfyller inte WCAG 2.3.1.",
+      "sources": ["flashes"]
+    },
+    "sat-kbd-trap": {
+      "texts": [
+        "Det berörda innehållet uppfyller krav 9.2.1.2 (ingen tangentbordsfälla)."
+      ],
+      "observation": "[Innehåll] har inte tillgänglighetsstöd och uppfyller inte WCAG 2.1.2.",
+      "sources": ["kbd-trap"]
+    },
+    "sat-psh": {
+      "texts": [
+        "Det berörda innehållet uppfyller krav 9.2.2.2 (rörligt innehåll)."
+      ],
+      "observation": "[Innehåll] har inte tillgänglighetsstöd och uppfyller inte WCAG 2.2.2.",
+      "sources": ["pause-stop-hide"]
+    },
+    "saturated-red": {
+      "texts": ["Inget par av övergångar innehåller mättat röd färg."],
+      "observation": "[Innehåll] flimrar mer än 3 gånger under en sekund och minst en av de flimrande färgerna är mättat röd."
+    },
+    "save-src": {
+      "texts": [
+        "Webbsidan har sparats som <code>%dir%\\webbsidor\\%name%.html</code>."
+      ]
+    },
+    "screenshot": {
+      "texts": [
+        "En skärmavbildning har sparats som <code>%dir%\\skärmavbildningar\\%name%.png</code>."
+      ]
+    },
+    "semantics": {
+      "texts": [
+        "HTML används för att beskriva semantisk mening, inte för att styra presentationen."
+      ],
+      "observation": "[Elementtyp] används för innehåll som inte är [korrekt användning]."
+    },
+    "sensory-button": {
+      "texts": ["Syftet med symbolknappar går att uppfatta utan synförmåga."],
+      "observation": "Knappen [beskrivning] saknar läsbart textinnehåll och förmedlar inget syfte till hjälpmedel."
+    },
+    "sensory-link": {
+      "texts": ["Syftet med länkarna går att uppfatta utan synförmåga."],
+      "observation": "Länken [beskrivning] saknar läsbart textinnehåll och förmedlar inget syfte till hjälpmedel."
+    },
+    "sensory-text": {
+      "texts": [
+        "Instruktioner hänvisar inte <em>enbart</em> till komponenters sensoriska kännetecken såsom färg, storlek, placering, orientering eller ljud."
+      ],
+      "observation": "”[Text]” förutsätter att användaren har [funktionsförmåga]."
+    },
+    "sequence": {
+      "texts": ["Innehållet kommer i en begriplig maskinläsbar ordning."],
+      "observation": "Innehållets ordning stämmer inte överens med hur innehållet presenteras: [beskrivning]."
+    },
+    "shortcuts": {
+      "texts": [
+        "Det går att stänga av snabbtangenten.",
+        "Det går att byta ut snabbtangenten så att den använder en eller flera modifierartangenter.",
+        "Snabbtangenten är bara aktiv när komponenten ifråga har fokus."
+      ],
+      "observation": "”[Tangent]” används som snabbtangent och det går inte att stänga av eller byta ut den."
+    },
+    "spa-title": {
+      "texts": [
+        "Sidtiteln uppdateras dynamiskt så att den reflekterar innehållet."
+      ],
+      "observation": "Sidtiteln förblir oförändrad när sidans innehåll ändras."
+    },
+    "spoken-subtitles": {
+      "texts": [
+        "Det går att få undertexterna upplästa i mediespelaren, till exempel via talsyntes eller som separata ljudspår som går att aktivera."
+      ],
+      "exceptions": ["Gäller inte öppna (”inbrända”) undertexter."],
+      "observation": "Mediespelaren ger inte möjlighet att få undertexter upplästa."
+    },
+    "status-messages": {
+      "texts": [
+        "Statusmeddelanden går att identifiera via sin roll, så att de kan presenteras för användaren av hjälpmedel utan att behöva få fokus."
+      ],
+      "observation": "Statusmeddelanden ([exempel]) är inte maskinläsbart identifierade som sådana."
+    },
+    "stmt-acc-alt": {
+      "texts": [
+        "Det går att begära tillgängliggörande (15\u00a0§) via meddelandefunktionen."
+      ],
+      "observation": "Det går inte att framställa en begäran om tillgängliggörande av digital service genom meddelandefunktionen [i/som är länkad från] tillgänglighetsredogörelsen."
+    },
+    "stmt-accessible": {
+      "texts": ["Tillgänglighetsredogörelsen är i ett tillgängligt format."],
+      "observation": "Tillgänglighetsredogörelsen är inte i ett tillgängligt format."
+    },
+    "stmt-available-app": {
+      "texts": [
+        "Tillgänglighetsredogörelsen är åtkomlig i anslutning till den information som är tillgänglig när applikationen laddas ned.",
+        "Tillgänglighetsredogörelsen är åtkomlig på webbplatsen för den ansvariga offentliga aktören."
+      ],
+      "observation": "Tillgänglighetsredogörelsen är inte åtkomlig vare sig i anslutning till den information som är tillgänglig när applikationen laddas ned eller på webbplatsen för den ansvariga offentliga aktören."
+    },
+    "stmt-compliance": {
+      "texts": [
+        "Tillgänglighetsredogörelsen redogör för om webbplatsen helt/delvis/inte uppfyller lagkraven."
+      ],
+      "observation": "Tillgänglighetsredogörelsen redovisar inte om webbplatsen helt, delvis eller inte uppfyller lagkraven."
+    },
+    "stmt-compliance-app": {
+      "texts": [
+        "Tillgänglighetsredogörelsen redogör för om appen helt/delvis/inte uppfyller lagkraven."
+      ],
+      "observation": "Tillgänglighetsredogörelsen redovisar inte om appen helt, delvis eller inte uppfyller lagkraven."
+    },
+    "stmt-current": {
+      "texts": [
+        "Tillgänglighetsredogörelsen speglar webbplatsens aktuella tillgänglighet."
+      ],
+      "observation": "Tillgänglighetsredogörelsen speglar inte webbplatsens aktuella tillgänglighet."
+    },
+    "stmt-current-app": {
+      "texts": [
+        "Tillgänglighetsredogörelsen speglar appens aktuella tillgänglighet."
+      ],
+      "observation": "Tillgänglighetsredogörelsen speglar inte appens aktuella tillgänglighet."
+    },
+    "stmt-disprop-burden": {
+      "texts": [
+        "En beskrivning av innehåll som undantagits på grund av oskäligt betungande anpassning (12\u00a0§) återges med tydlig bedömning i tillgänglighetsredogörelsen."
+      ],
+      "observation": "Tillgänglighetsredogörelsen redovisar inte [vilket innehåll som omfattas av/en tydlig bedömning för] undantag för oskäligt betungande anpassning."
+    },
+    "stmt-enf-info": {
+      "texts": [
+        "Tillgänglighetsredogörelsen informerar om att upplevd bristande tillgänglighet kan anmälas till Digg."
+      ],
+      "observation": "Tillgänglighetsredogörelsen informerar inte om användarens rätt att anmäla upplevd bristande tillgänglighet till Myndigheten för digital förvaltning."
+    },
+    "stmt-enf-link": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller en länk till Digg:s anmälningsfunktion."
+      ],
+      "observation": "Tillgänglighetsredogörelsen innehåller ingen länk till Digg:s anmälningsfunktion (https://www.digg.se/tdosanmalan)."
+    },
+    "stmt-feedback": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller en meddelandefunktion, eller länk till sådan, för att rapportera brister till aktören."
+      ],
+      "observation": "Tillgänglighetsredogörelsen innehåller ingen funktion, eller länk till sådan, för att meddela upplevd bristande tillgänglighet till den ansvariga aktören."
+    },
+    "stmt-method": {
+      "texts": ["Tillgänglighetsredogörelsen beskriver utvärderingsmetoden."],
+      "observation": "Tillgänglighetsredogörelsen beskriver inte utvärderingsmetoden."
+    },
+    "stmt-non-accessible": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller en detaljerad och tydlig förteckning av innehåll som inte är tillgängligt och skälen till varför det inte är tillgängligt."
+      ],
+      "observation": "Tillgänglighetsredogörelsen redovisar inte kända brister detaljerat och tydligt."
+    },
+    "stmt-obvious": {
+      "texts": [
+        "En länk till tillgänglighetsredogörelsen är klart och tydligt presenterad."
+      ],
+      "observation": "Länken till tillgänglighetsredogörelsen är inte klart och tydligt presenterad."
+    },
+    "stmt-out-of-scope": {
+      "texts": [
+        "Tillgänglighetsredogörelsen beskriver tydligt eventuellt otillgängligt innehåll som inte omfattas av lagkraven."
+      ],
+      "observation": "Tillgänglighetsredogörelsen beskriver inte tydligt otillgängligt innehåll som inte omfattas av lagkraven."
+    },
+    "stmt-prep-date": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller datum för bedömning av följsamhet till lagkraven."
+      ],
+      "observation": "Tillgänglighetsredogörelsen innehåller inte datum för bedömning av följsamhet till lagkraven."
+    },
+    "stmt-psb-name": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller namnet på den offentliga aktör som ansvarar för webbplatsen."
+      ],
+      "observation": "Tillgänglighetsredogörelsen innehåller inte den ansvariga offentliga aktörens namn."
+    },
+    "stmt-psb-name-app": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller namnet på den offentliga aktör som ansvarar för appen."
+      ],
+      "observation": "Tillgänglighetsredogörelsen innehåller inte den ansvariga offentliga aktörens namn."
+    },
+    "stmt-reachable": {
+      "texts": [
+        "Tillgänglighetsredogörelsen är nåbar från webbplatsens startsida (eller via sidfoten)."
+      ],
+      "observation": "Tillgänglighetsredogörelsen är inte lätt nåbar från webbplatsens startsida."
+    },
+    "stmt-review-date": {
+      "texts": [
+        "Tillgänglighetsredogörelsen innehåller datum för senaste uppdatering."
+      ],
+      "observation": "Tillgänglighetsredogörelsen innehåller inte datum för senaste uppdatering."
+    },
+    "stmt-service-name": {
+      "texts": ["Tillgänglighetsredogörelsen innehåller webbplatsens namn."],
+      "observation": "Tillgänglighetsredogörelsen innehåller inte webbplatsens namn."
+    },
+    "stmt-service-name-app": {
+      "texts": ["Tillgänglighetsredogörelsen innehåller appens namn."],
+      "observation": "Tillgänglighetsredogörelsen innehåller inte appens namn."
+    },
+    "stmt-start": {
+      "texts": [
+        "Tillgänglighetsredogörelsen är nåbar från webbplatsens startsida (eller via sidfoten)."
+      ],
+      "observation": "Tillgänglighetsredogörelsen är inte lätt nåbar från webbplatsens startsida."
+    },
+    "stmt-version-date-app": {
+      "texts": [
+        "Tillgänglighetsredogörelsen anger version och datum för appen som redogörelsen gäller."
+      ],
+      "observation": "Tillgänglighetsredogörelsen anger inte version eller datum för appen som redogörelsen gäller."
+    },
+    "support-a11y": {
+      "texts": [
+        "Kundtjänst eller support kan ge information om tillgänglighets- och kompatibilitetsfunktioner som tas upp i produktdokumentationen."
+      ],
+      "observation": "[Kundtjänst/support] kan inte ge information om tjänstens tillgänglighets- eller kompatibilitetsfunktioner."
+    },
+    "support-comm": {
+      "texts": [
+        "Kundtjänst eller support tillmötesgår kommunikationsbehov hos personer med funktionsnedsättning, antingen direkt eller via ombud (till exempel teckentolk)."
+      ],
+      "observation": "Personer med [funktionsnedsättning] kan inte kommunicera med [kundtjänst/support]."
+    },
+    "symbol-alt": {
+      "texts": [
+        "Varje ikon eller symbol som är en bild har samma textalternativ på alla sidor."
+      ],
+      "observation": "[Ikon] har här textalternativet ”[alt]”, men på andra sidor används ”[alt]”."
+    },
+    "symbol-meaning": {
+      "texts": ["Varje ikon eller symbol har samma betydelse på alla sidor."],
+      "observation": "[Ikon] används här i betydelsen ”[betydelse]”, men på andra sidor i betydelsen ”[betydelse]”."
+    },
+    "symbol-name": {
+      "texts": [
+        "Varje ikon eller symbol har samma maskinläsbara namn på alla sidor."
+      ],
+      "observation": "[Ikon] har här det maskinläsbara namnet ”[namn]”, men heter på andra sidor ”[namn]”."
+    },
+    "symbol-use": {
+      "texts": [
+        "Varje funktion etc. indikeras med samma ikon eller symbol på alla sidor."
+      ],
+      "observation": "”[Betydelse]” indikeras här med [ikon], men på andra sidor används ”[ikon]”."
+    },
+    "table": {
+      "texts": [
+        "Datatabeller är uppmärkta med <code translate=\"no\">&lt;table&gt;</code>, rader med <code>&lt;tr&gt;</code>, dataceller med <code>&lt;td&gt;</code>."
+      ],
+      "observation": "[Innehåll] är tabellinformation, men är inte uppmärkt som en tabell."
+    },
+    "tags": {
+      "texts": [
+        "Alla element har kompletta start- och sluttaggar där specifikationen kräver det."
+      ],
+      "observation": "Det finns HTML-element som inte har kompletta taggar (till exempel [tagg] på rad [radnr])."
+    },
+    "tech-disabled": {
+      "texts": [
+        "Sidan som helhet uppfyller kraven om tekniken i fråga är avslagen i webbläsaren."
+      ],
+      "observation": "Sidan uppfyller inte tillgänglighetskraven om [teknik] är avstängt i webbläsaren."
+    },
+    "tech-enabled": {
+      "texts": [
+        "Sidan som helhet uppfyller kraven om tekniken i fråga är påslagen i webbläsaren."
+      ],
+      "observation": "Sidan uppfyller inte tillgänglighetskraven om [teknik] är aktiverat i webbläsaren."
+    },
+    "tech-unsupported": {
+      "texts": [
+        "Sidan som helhet uppfyller kraven om tekniken i fråga inte stöds av webbläsaren."
+      ],
+      "observation": "Sidan uppfyller inte tillgänglighetskraven om [teknik] inte stöds av webbläsaren."
+    },
+    "th": {
+      "texts": [
+        "Rubrikceller i tabeller är uppmärkta med <code>&lt;th&gt;</code>."
+      ],
+      "observation": "Rubrikceller i tabellen [beskrivning] är inte korrekt uppmärkta som rubrikceller."
+    },
+    "timing": {
+      "texts": [
+        "Det går att stänga av tidsbegräningen.",
+        "Det går att justera tidsbegräningen till minst 10 gånger ursprungsvärdet.",
+        "Det går att förlänga tidsbegränsningen minst tio gånger, med en förvarning på minst 20&nbsp;sekunder."
+      ],
+      "observation": "Det finns en tidsbegränsning på [N minuter] som inte går att stänga av, justera eller förlänga."
+    },
+    "title-descr": {
+      "texts": ["Titeln beskriver sidans ämne eller syfte"],
+      "observation": "Titeln ”[titel]” beskriver inte sidans ämne eller syfte."
+    },
+    "title-present": {
+      "texts": ["Sidan har en titel"],
+      "observation": "Sidan saknar titel."
+    },
+    "ts-char": {
+      "texts": ["Teckenavståndet går att öka till minst 0,12 gånger graden."],
+      "observation": "Det går inte att öka teckenavståndet till 0,12 gånger graden."
+    },
+    "ts-clip": {
+      "texts": [
+        "Inget innehåll försvinner (klipps av) vid utökade textavstånd."
+      ],
+      "observation": "Delar av innehållet i [element] klipps av vid utökade textavstånd enligt WCAG 1.4.12."
+    },
+    "ts-line": {
+      "texts": ["Radavståndet går att öka till minst 1,5 gånger graden."],
+      "observation": "Det går inte att öka radavståndet till 1,5 gånger graden."
+    },
+    "ts-obscure": {
+      "texts": [
+        "Inget innehåll överlappar eller skymmer annat innehåll vid utökade textavstånd."
+      ],
+      "observation": "Innehållet i [element] lägger sig över [innehåll] vid utökade textavstånd enligt WCAG 1.4.12."
+    },
+    "ts-para": {
+      "texts": ["Styckemellanrummet går att öka till minst 2 gånger graden."],
+      "observation": "Det går inte att öka styckemellanrum till 2 gånger graden."
+    },
+    "ts-word": {
+      "texts": ["Ordmellanrummet går att öka till minst 0,16 gånger graden."],
+      "observation": "Det går inte att öka ordmellanrum till 0,16 gånger graden."
+    },
+    "ul": {
+      "texts": [
+        "Listor där elementens ordning inte påverkar listans betydelse är uppmärkta med <code>&lt;ul&gt;</code> och elementen med <code>&lt;li&gt;</code>."
+      ],
+      "observation": "[Innehåll] är en oordnad lista, men är inte uppmärkt som en sådan."
+    },
+    "use-of-colour": {
+      "texts": [
+        "Färg används inte som det <em>enda</em> visuella sättet att särskilja ett visuellt element."
+      ],
+      "observation": "[innehåll] använder enbart färg för att [syfte]."
+    },
+    "value-present": {
+      "texts": [
+        "Alla värden och tillstånd hos interaktiva komponenter är maskinläsbara."
+      ],
+      "observation": "[Komponentbeskrivning] saknar maskinläsbart värde."
+    },
+    "video-alt-equal": {
+      "texts": [
+        "Transkriptionen/ljudspåret förmedlar samma information i samma ordning som filmen."
+      ],
+      "observation": "[Transkriptionen/Ljudspåret] för [film] motsvarar inte innehållet i filmen."
+    },
+    "video-alt-present": {
+      "texts": [
+        "Filmen har ett textalternativ, till exempel en transkription.",
+        "Filmen har ett ljudspår som beskriver handlingen i filmen."
+      ],
+      "observation": "Det finns varken en transkription av [film] eller ett ljudspår som beskriver handlingen."
+    },
+    "video-audio-ind": {
+      "texts": ["Det finns en visuell ljudindikering vid videosamtal."],
+      "observation": "Det saknas en visuell ljudindikering vid videosamtal."
+    },
+    "video-ident": {
+      "texts": [
+        "Det finns en visuell indikering av vem som kommunicerar med teckenspråk vid videokommunikation."
+      ],
+      "observation": "Det saknas visuell indikering av vem som kommunicerar med teckenspråk vid videokommunikation."
+    },
+    "video-synch": {
+      "texts": [
+        "Tidsförskjutningen mellan ljud och bild överstiger inte 100&nbsp;millisekunder."
+      ],
+      "observation": "Tidsförskjutningen mellan ljud och bild överstiger 100 millisekunder."
+    },
+    "voicemail-leave": {
+      "texts": [
+        "Det finns ett sätt att lämna meddelanden i röstbrevlådan som inte kräver talförmåga (eller hörsel)."
+      ],
+      "observation": "Det går inte att lämna meddelanden i röstbrevlådan utan talförmåga."
+    },
+    "voicemail-retrieve": {
+      "texts": [
+        "Det finns ett sätt att hämta meddelanden i röstbrevlådan som inte kräver hörsel (eller talförmåga)."
+      ],
+      "observation": "Det går inte att hämta meddelanden i röstbrevlådan utan hörsel."
+    },
+    "vs-loss": {
+      "texts": [
+        "Ingen information eller funktion går förlorad vid displaybredder ned till 320 CSS-pixlar."
+      ],
+      "observation": "Vid displaybredden [bredd] pixlar blir [innehåll] oåtkomligt."
+    },
+    "vs-scroll": {
+      "texts": [
+        "Det krävs inte skrollning i två ledder vid displaybredder ned till 320 CSS-pixlar."
+      ],
+      "observation": "Vid displaybredden [bredd] pixlar krävs skrollning både vertikalt och horisontellt."
+    },
+    "ways": {
+      "texts": ["Det finns mer än ett sätt att hitta sidan på webbplatsen."],
+      "observation": "[Metod] är det enda sättet att nå sidan på webbplatsen."
+    }
+  }
+}

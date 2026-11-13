@@ -1,0 +1,14 @@
+{
+  "methods": [
+    "Jämför ordningen på olika navigeringsfunktioner mellan sidorna som ingår i granskningsurvalet."
+  ],
+  "exceptions": [
+    "Om användaren själv kan påverka navigeringsfunktionernas ordning är det förstås godkänt att den förändras."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Alla funktioner eller länkar måste inte finnas på alla sidor, men de funktioner och länkar som är återkommande ska ha samma ordning sinsemellan."
+    }
+  ]
+}

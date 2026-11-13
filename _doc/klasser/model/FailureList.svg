@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 80">
+  <g id="FailureList">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="72"/>
+      <line x1="1" y1="12" x2="110" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">FailureList</text>
+      <text x="5" y="20">clauses(): string</text>
+      <text x="5" y="30">components(): Component</text>
+      <text x="5" y="40">contains(Sample): boolean</text>
+      <text x="5" y="50">fails(string): array</text>
+      <text x="5" y="60">requirements(Sample): array</text>
+      <text x="5" y="70">samples(class): Sample</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>SampleDisplayView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">SampleDisplayView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">SampleDisplayView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-activate"><code lang="en">activate()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-component"><code lang="en">addComponent()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-content-type"
+              ><code lang="en">addContentType()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-add-requirement"
+              ><code lang="en">addRequirement()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-add-section"><code lang="en">addSection()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-subsection"
+              ><code lang="en">addSubsection()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-clear"><code lang="en">clear()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-approve"><code lang="en">setApprove()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-audit-link"
+              ><code lang="en">setAuditLink()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-copyable-requirements"
+              ><code lang="en">setCopyableRequirements()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-copyable-samples"
+              ><code lang="en">setCopyableSamples()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-heading"><code lang="en">setHeading()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-progress"><code lang="en">setProgress()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för listning av krav i ett stickprovsurval. Vyn används för att visa
+        en lista över de krav som ingår i granskningen av ett stickprov.
+        Uppsättningen krav beror dels på vilken typ av stickprov det är (vy i
+        mobil applikation, dokument eller webbsida) och dels vilka typer av
+        innehåll granskaren uppgett att stickprovet innehåller. Krav kan
+        dessutom vara villkors&shy;styrda på dokumentformat eller
+        applikationsplattform.
+      </p>
+
+      <p>
+        Vyn innehåller en enkel filtreringsfunktion som via klasser på ett
+        behållarelement styr synligheten för krav beroende på status (godkänt,
+        underkänt, inte granskat) eller om det finns externa eller interna
+        noteringar.
+      </p>
+
+      <p>
+        Det finns också ett gränssnitt för kopiering av godkända krav från ett
+        annat stickprov.
+      </p>
+
+      <p>
+        För webbsidor och dokument som har en angiven URL genererar vyn en
+        QR-kod, för att underlätta granskning i mobila enheter.
+      </p>
+
+      <p>
+        <code lang="en">SampleDisplayView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/SampleDisplayView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/SampleDisplayView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 410" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--SampleDisplayView-->
+          <use
+            xlink:href="SampleDisplayView.svg#SampleDisplayView"
+            x="140"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="371" y1="11" x2="410" y2="11" class="composition" />
+          <line x1="371" y1="98" x2="410" y2="98" class="composition" />
+          <line x1="371" y1="171" x2="410" y2="171" class="dependency" />
+          <line x1="255" y1="183" x2="255" y2="210" class="inheritance" />
+
+          <g transform="translate(410, 0)">
+            <!--HTMLProgressElement-->
+            <use
+              xlink:href="../HTMLProgressElement.svg#HTMLProgressElement"
+              x="0"
+              y="0"
+              class="external"
+            />
+
+            <!--HTMLUListElement-->
+            <use
+              xlink:href="../HTMLUListElement.svg#HTMLUListElement"
+              x="0"
+              y="87"
+              class="external"
+            />
+
+            <!--QRCodeGenerator-->
+            <use
+              xlink:href="QRCodeGenerator.svg#QRCodeGenerator"
+              x="0"
+              y="160"
+            />
+          </g>
+
+          <g transform="translate(0, 210)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">SampleDisplayView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn lägger till stilmallen
+          <code lang="en">css/sample.css</code> och markerar att sidans innehåll
+          inte ska ha någon breddbegränsning.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SampleDisplayView</span>(<span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt class="readonly"><code lang="en">copyNotes</code></dt>
+          <dd>
+            Anger om användaren markerat kryssrutan för att kopiera kommentarer
+            i kopieringsdialogen.
+          </dd>
+
+          <dt><code lang="en">edit</code></dt>
+          <dd>Länkadress för att redigera stickprovet. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">note</code></dt>
+          <dd>Granskarens notering från urvalet. (Endast skrivning.)</dd>
+
+          <dt class="readonly"><code lang="en">sourceRequirements</code></dt>
+          <dd>
+            En vektor med identiteter för de krav som ska kopieras från ett
+            annat stickprov; speglar vilka val användaren gjort i
+            kopieringsdialogen.
+          </dd>
+
+          <dt class="readonly"><code lang="en">sourceSample</code></dt>
+          <dd>
+            Identiteten för det stickprov som krav ska kopieras från; speglar
+            vilket val användaren gjort i kopieringsdialogen.
+          </dd>
+        </dl>
+      </section>
+
+      <!--activate()-->
+      <section>
+        <h2 id="m-activate"><code lang="en">activate()</code></h2>
+
+        <p>
+          Utökar
+          <a href="ViewBase.html#m-activate"
+            ><code lang="en">ViewBase.activate()</code></a
+          >
+          genom att lägga till händelselyssnare för filtreringsfunktionen och
+          kopieringsdialogen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">activate</code>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addComponent()-->
+      <section>
+        <h2 id="m-add-component"><code lang="en">addComponent()</code></h2>
+
+        <p>Lägger till ett komponentnamn i stickprovsöversikten.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addComponent</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Komponentnamn.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addContentType()-->
+      <section>
+        <h2 id="m-add-content-type"><code lang="en">addContentType()</code></h2>
+
+        <p>Lägger till en innehållstyp i stickprovsöversikten.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addContentType</span>(<span class="var">type</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>Innehållstyp.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addRequirement()-->
+      <section>
+        <h2 id="m-add-requirement"><code lang="en">addRequirement()</code></h2>
+
+        <p>
+          Lägger till ett krav i aktuell avsnittslista. Metoden klonar en mall
+          (<code lang="en" class="html tag">&lt;template&gt;</code>) i
+          källkoden, populerar det resulterande dokumentfragmentet och infogar
+          det sist i avsnittslistan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addRequirement</span>(<span class="var">url</span>, <span class="var">status</span>, <span class="var">title</span>, <span class="var">external</span>, <span class="var">internal</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>Länkadress för att granska kravet.</dd>
+
+          <dt><code lang="en">status</code></dt>
+          <dd>
+            Kravets granskningsstatus:
+            <code lang="en" class="js literal">"pass"</code>,
+            <code lang="en" class="js literal">"fail"</code> eller
+            <code lang="en" class="js literal">"unchecked"</code>. Visas som en
+            ikon i listan.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Kravets titel.</dd>
+
+          <dt><code lang="en">external</code></dt>
+          <dd>
+            Flagga som anger om granskaren lagt till en ”extern” anteckning i
+            kravet. Indikeras i så fall med en ikon.
+          </dd>
+
+          <dt><code lang="en">internal</code></dt>
+          <dd>
+            Flagga som anger om granskaren lagt till en ”intern” anteckning i
+            kravet. Indikeras i så fall med en ikon.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>
+            Det finns inget aktuellt avsnitt, det vill säga
+            <code lang="en">addSection()</code> har inte anropats.
+          </dd>
+        </dl>
+      </section>
+
+      <!--addSection()-->
+      <section>
+        <h2 id="m-add-section"><code lang="en">addSection()</code></h2>
+
+        <p>
+          Lägger till en avsnittslista och gör den till ”aktuellt” avsnitt.
+          Metoden klonar en mall (<code lang="en" class="html tag"
+            >&lt;template&gt;</code
+          >) i källkoden, populerar det resulterande dokumentfragmentet och
+          infogar det före mallelementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addSection</span>(<span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">title</code></dt>
+          <dd>Avsnittsrubrik.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addSubsection()-->
+      <section>
+        <h2 id="m-add-subsection"><code lang="en">addSubsection()</code></h2>
+
+        <p>
+          Lägger till en underavsnittslista och gör den till ”aktuellt” avsnitt.
+          Metoden klonar en mall (<code lang="en" class="html tag"
+            >&lt;template&gt;</code
+          >) i källkoden, populerar det resulterande dokumentfragmentet och
+          infogar det före mallelementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addSubsection</span>(<span class="var">title</span>, <span class="var">level</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">title</code></dt>
+          <dd>Avsnittsrubrik.</dd>
+
+          <dt><code lang="en">level</code></dt>
+          <dd>Rubriknivå (3–6).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--clear()-->
+      <section>
+        <h2 id="m-clear"><code lang="en">clear()</code></h2>
+
+        <p>
+          Raderar tillagda kravavsnitt. Används när man kopierat godkända krav
+          från ett annat stickprov. Att uppdatera befintliga statusar vore
+          mycket krångligt. Det är enklare att radera innehållet på sidan och
+          populera den på nytt.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clear</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setApprove()-->
+      <section>
+        <h2 id="m-set-approve"><code lang="en">setApprove()</code></h2>
+
+        <p>
+          Sätter textinnehåll och värde i knapp för automatiskt godkännande.
+        </p>
+
+        <p>
+          Knappen kan användas för att automatiskt godkänna alla ogranskade krav
+          eller för att ångra (återställa) ett sådant automatgodkännande.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setApprove</span>(<span class="keyword">null</span>)
+<span class="ident">setApprove</span>(<span class="var">text</span>, <span class="var">value</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">text</code></dt>
+          <dd>
+            Textinnehåll (godkänn/ångra). Om värdet är
+            <code lang="en" class="js keyword">null</code> deaktiveras knappen.
+          </dd>
+
+          <dt><code lang="en">value</code></dt>
+          <dd>
+            Knappens värde, som förmedlas till registrerade observatörer när
+            användaren aktiverar knappen.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setAuditLink()-->
+      <section>
+        <h2 id="m-set-audit-link"><code lang="en">setAuditLink()</code></h2>
+
+        <p>
+          Sätter länkadress och textinnehåll i länk för att påbörja eller
+          fortsätta granskningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setAuditLink</span>(<span class="var">url</span>, <span class="var">text</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>
+            Länkadress. Om den angivna sökvägen är
+            <code lang="en" class="js keyword">null</code> är alla krav
+            granskade och metoden tar bort
+            <code class="html attr">href</code>-attributet från länken.
+          </dd>
+
+          <dt><code lang="en">text</code></dt>
+          <dd>Textinnehåll (börja/fortsätt granska).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setCopyableRequirements()-->
+      <section>
+        <h2 id="m-set-copyable-requirements">
+          <code lang="en">setCopyableRequirements()</code>
+        </h2>
+
+        <p>
+          Populerar listan med kopierbara krav i kopieringsdialogen. Varje krav
+          presenteras som en kryssruta som användaren kan markera för att ange
+          att kravet ska ingå i kopieringen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCopyableRequirements</span>(<span class="var">requirements</span>, <span class="var">notes</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">requirements</code></dt>
+          <dd>
+            En vektor med information om de kopierbara kraven. Varje element ska
+            vara ett objekt med fälten
+            <code lang="en">id</code> (kravidentitet),
+            <code lang="en">clause</code> (kravavsnittsnummer) och
+            <code lang="en">title</code> (kravets titel).
+          </dd>
+
+          <dt><code lang="en">notes</code></dt>
+          <dd>
+            En flagga som anger om något av kraven har en extern eller intern
+            notering. I så fall visar dialogen en kryssruta där användaren kan
+            välja att kopiera även kommentarerna.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setCopyableSamples()-->
+      <section>
+        <h2 id="m-set-copyable-samples">
+          <code lang="en">setCopyableSamples()</code>
+        </h2>
+
+        <p>Populerar listan med kopierbara stickprov i kopieringsdialogen.</p>
+
+        <p>
+          Om argumentvektorn är tom avaktiverar metoden knappen som öppnar
+          kopieringsdialogen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCopyableSamples</span>(<span class="var">samples</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">samples</code></dt>
+          <dd>
+            En vektor med information om de kopierbara stickproven. Varje
+            element ska vara ett objekt med fälten
+            <code lang="en">id</code> (stickprovsidentitet) och
+            <code lang="en">name</code> (stickprovets namn).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setHeading()-->
+      <section>
+        <h2 id="m-set-heading"><code lang="en">setHeading()</code></h2>
+
+        <p>
+          Sätter ikon och stickprovsnamn i sidrubriken. Länkar namnet om en
+          adress anges.
+        </p>
+
+        <p>
+          Om en adress anges skapar vyn också en QR-kod av adressen i ett
+          utfällbart avsnitt. Syftet är att underlätta testning av sidan i
+          mobila enhter, som ofta har en funktion för att skanna e+ QR-kod och
+          öppna den kodade URL:en i enhetens webbläsare.
+        </p>
+
+        <p>
+          Koden som genererar QR-koden är öppen källkod, men inte anpassad till
+          användning i moduler. Funktionen gör därför en något omständlig
+          abrovink där skriptet registrerar en händelselyssnare och vyn
+          genererar en händelse när skriptet laddats.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setHeading</span>(<span class="var">type</span>, <span class="var">name</span>)
+<span class="ident">setHeading</span>(<span class="var">type</span>, <span class="var">name</span>), <span class="var">url</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Stickprovstyp: <code lang="en" class="js literal">"document"</code>,
+            <code lang="en" class="js literal">"screen"</code> eller
+            <code lang="en" class="js literal">"webpage"</code>. Visas som en
+            ikon.
+          </dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Stickprovets namn eller titel.</dd>
+
+          <dt class="optional"><code lang="en">url</code></dt>
+          <dd>Länkadress till stickprovet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setProgress()-->
+      <section>
+        <h2 id="m-set-progress"><code lang="en">setProgress()</code></h2>
+
+        <p>
+          Uppdaterar förloppsindikatorn som visar hur stor andel av kraven som
+          är färdiggranskade.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setProgress</span>(<span class="var">value</span>, <span class="var">max</span>, <span class="var">label</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Antal färdiggranskade krav i stickprovet.</dd>
+
+          <dt><code lang="en">max</code></dt>
+          <dd>Totalt antal krav i stickprovet.</dd>
+
+          <dt><code lang="en">label</code></dt>
+          <dd>Ledtext att förmedla till hjälpmedel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../sample.module.html"
+              ><code lang="en">sample.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/SampleDisplayController.html"
+              ><code lang="en">SampleDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="SampleEditView.html"
+              ><code lang="en">SampleEditView</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "methods": [
+    "Leta efter ”text” som inte går att förstora eller som skärmläsaren inte kan läsa upp."
+  ],
+  "exceptions": [
+    "Bilder av text som går att anpassa visuellt efter användarens behov.",
+    "En specifik presentation är en förutsättning, till exempel i logotyper och varumärken, eller skärmavbildningar."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Kravet avser bilder som i stort sett <em>enbart</em> föreställer text. Bilder som <em>innehåller</em> text tillsammans med annat visuellt viktigt innehåll räknas inte som bilder av text."
+    },
+    {
+      "type": "note",
+      "text": "Flödesscheman är exempel på när en bild kan innehålla text, men inte ska räknas som en bild av text."
+    },
+    {
+      "type": "definition",
+      "term": "Anpassa visuellt",
+      "description": "Det går att ändra teckensnitt, textstorlek samt för- och bakgrundsfärg."
+    }
+  ]
+}

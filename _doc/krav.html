@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Krav – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      figure.ecb {
+        width: 38rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Krav</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Krav</h1>
+
+      <p>
+        Modulen används för den faktiska granskningen av krav för ett stickprov,
+        alltså den del av applikationen där granskaren utför det allra mesta
+        arbetet.
+      </p>
+
+      <p>
+        Varje krav består av en eller flera kontroller som granskaren ska ta
+        ställning till om de är underkända eller inte. För varje underkänd
+        kontroll ska granskaren fylla i en observation som förklarar vad som
+        föranlett underkännandet och kan också associera en skärmavbild&shy;ning
+        med observationen.
+      </p>
+
+      <p>
+        Kontrollerna kan vara styrda av villkor. Villkoren och exakt vilka
+        kontroller som ingår i granskningen styrs av konfigurationsfiler.
+        Modulen använder ett par hjälpklasser (<code lang="en"
+          >ConditionTree</code
+        >
+        och <code lang="en">RequirementOrder</code>) för den hanteringen.
+      </p>
+
+      <p>
+        Controllern populerar kravet med kontroller, baserat på konfigurationen,
+        första gången det visas.
+      </p>
+
+      <p>
+        I stort sett all information i vyn är dynamisk och hämtas från
+        konfigurationsfiler.
+      </p>
+
+      <figure aria-hidden="true" class="ecb">
+        <svg viewBox="0 0 380 260" class="ecb uml-diagram">
+          <g transform="translate(20, 0)">
+            <!--RequirementController-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">RequirementController</text>
+              <line x1="-4" y1="22" x2="-60" y2="22" />
+              <line x1="40" y1="22" x2="84" y2="22" />
+              <line x1="14" y1="56" x2="-82" y2="96" />
+              <line x1="18" y1="56" x2="18" y2="96" />
+              <line x1="22" y1="56" x2="118" y2="96" />
+            </g>
+
+            <!--ResourceLoader-->
+            <g>
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">ResourceLoader</text>
+            </g>
+
+            <!--RequirementView-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">RequirementView</text>
+            </g>
+          </g>
+
+          <g transform="translate(20, 100)">
+            <!--ConditionTree-->
+            <g>
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">ConditionTree</text>
+            </g>
+
+            <!--RequirementOrder-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">RequirementOrder</text>
+            </g>
+
+            <g transform="translate(200, 0)">
+              <!--Model-->
+              <g>
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Model</text>
+                <line x1="40" y1="22" x2="96" y2="22" />
+                <line x1="10" y1="56" x2="-182" y2="96" />
+                <line x1="14" y1="56" x2="-82" y2="96" />
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+
+              <!--Requirement-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="uml.svg#entity"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Requirement</text>
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+
+              <!--Check-->
+              <g transform="translate(100, 100)">
+                <use
+                  xlink:href="uml.svg#entity"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Check</text>
+              </g>
+            </g>
+          </g>
+
+          <g transform="translate(20, 200)">
+            <!--AuditCase-->
+            <g>
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">AuditCase</text>
+            </g>
+
+            <!--Audit-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Audit</text>
+            </g>
+
+            <!--Sample-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Sample</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Granskning av krav i ett stickprov, översikt.</figcaption>
+      </figure>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/model/Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="klasser/controller/ConditionTree.html"
+              ><code lang="en">ConditionTree</code></a
+            >
+          </li>
+          <li><a href="klasser/model/check.index.html">Kontrollklasser</a></li>
+          <li>
+            <a href="klasser/model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="klasser/model/Requirement.html"
+              ><code lang="en">Requirement</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/requirement.module.html"
+              ><code lang="en">requirement.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/RequirementOrder.html"
+              ><code lang="en">RequirementOrder</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/RequirementController.html"
+              ><code lang="en">RequirementController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/RequirementView.html"
+              ><code lang="en">RequirementView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/sample.index.html">Stickprovsklasser</a>
+          </li>
+          <li><a href="klasser/model/case.index.html">Ärendeklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="kontroller.html" accesskey="N" rel="next"
+        ><span>Kontroller</span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="stickprov.html" accesskey="F" rel="prev"
+        ><span>Stickprov</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

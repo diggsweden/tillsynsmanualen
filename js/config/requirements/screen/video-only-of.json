@@ -1,0 +1,11 @@
+{
+  "exceptions": [
+    "Filmer som är ett <dfn>mediealternativ till text</dfn> – en filmversion av innehåll som redan finns som text på sidan – och är tydligt märkt som sådant."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Beskrivande ljudspår till en film utan ljud behöver inte ha undertexter eller textalternativ."
+    }
+  ]
+}

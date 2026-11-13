@@ -1,0 +1,24 @@
+{
+  "methods": [
+    "Använd <cite translate=\"no\">WAVE</cite> för att hitta rubriker.",
+    "Använd <cite translate=\"no\" lang=\"en\">Web Developer</cite> för att hitta rubriker.",
+    "Leta visuellt efter innehåll som är formgivet som rubriker."
+  ],
+  "tools": [
+    {
+      "tool": "WAVE",
+      "tab": "Structure"
+    },
+    {
+      "tool": "WebDeveloper",
+      "tab": "Information",
+      "function": "Show Document Outline"
+    }
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Det kan vara värt att anmärka på överdrivet långa rubriktexter, även om det kanske inte går att underkänna kravet. Rubriker som sträcker sig över flera rader är inte bra."
+    }
+  ]
+}

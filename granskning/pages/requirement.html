@@ -1,0 +1,163 @@
+<h1 id="start-of-content"></h1>
+
+<p>Granskning: <a href="#" id="audit"></a></p>
+<p>Stickprov:</p>
+
+<form>
+  <p><progress value="0" max="1"></progress></p>
+
+  <section class="requirement">
+    <section class="checks">
+      <h2>Kontroller</h2>
+
+      <fieldset class="notes">
+        <legend>Anteckningar</legend>
+        <p>
+          <label for="ext-note">
+            Anmärkning att visa i protokollet
+            <textarea
+              name="externalNote"
+              placeholder="Kommentar till aktören"
+              id="ext-note"
+            ></textarea>
+          </label>
+        </p>
+        <p>
+          <label for="int-note">
+            Egen (intern) notering
+            <textarea
+              name="internalNote"
+              placeholder="Visas inte i protokollet"
+              id="int-note"
+            ></textarea>
+          </label>
+        </p>
+      </fieldset>
+
+      <template id="check-template">
+        <fieldset class="check">
+          <legend><span></span></legend>
+          <p>
+            <label>
+              <input type="radio" value="ok" />
+              <svg role="img" aria-label="Godkänt">
+                <use xlink:href="../img/ikoner.svg#ico-like" />
+              </svg>
+            </label>
+
+            <label>
+              <input type="radio" value="fail" />
+              <svg role="img" aria-label="Underkänt">
+                <use xlink:href="../img/ikoner.svg#ico-unlike" />
+              </svg>
+            </label>
+          </p>
+        </fieldset>
+      </template>
+
+      <template id="observation-template">
+        <div class="fail" hidden>
+          <p>
+            <label>
+              Observation
+              <textarea required disabled></textarea>
+            </label>
+          </p>
+
+          <details>
+            <summary>Återanvänd observationer</summary>
+            <p>
+              Klicka på någon av texterna nedan för att kopiera den till
+              observationen ovan.
+            </p>
+          </details>
+
+          <p>
+            <label>
+              Skärmavbildning
+              <input type="text" placeholder="Filnamn" />
+            </label>
+
+            <label>
+              Textalternativ till skärmavbildningen
+              <textarea
+                placeholder="Text som ger likvärdig information som skärmavbildningen för att identifiera var bristen finns"
+              ></textarea>
+            </label>
+          </p>
+        </div>
+      </template>
+
+      <template id="condition-template">
+        <fieldset class="condition">
+          <legend><span></span></legend>
+          <p>
+            <label>
+              <input type="radio" value="yes" />
+              <span>Ja</span>
+            </label>
+
+            <label>
+              <input type="radio" value="no" />
+              <span>Nej</span>
+            </label>
+          </p>
+        </fieldset>
+      </template>
+    </section>
+  </section>
+
+  <aside></aside>
+
+  <h2 class="seq-nav">Spara och fortsätt</h2>
+
+  <p class="seq-nav">
+    <button value="skip" accesskey="o" class="skip">
+      <span>
+        <span>Nästa ogranskade krav</span>
+        <svg aria-hidden="true" class="arrow" viewBox="0 0 16 16">
+          <path d="M0,8 h16 m-6,-8 l6,8 -6,8 m-4,-16 l6,8 -6,8" />
+        </svg>
+      </span>
+      <span>Nästa</span>
+    </button>
+
+    <button value="next" accesskey="n" class="next">
+      <span>
+        <span>Nästa krav</span>
+        <svg aria-hidden="true" class="arrow" viewBox="0 0 16 16">
+          <path d="M0,8 h16 m-6,-8 l6,8 -6,8" />
+        </svg>
+      </span>
+      <span>Nästa</span>
+    </button>
+
+    <button value="up" accesskey="s" class="up">
+      <span>
+        <svg aria-hidden="true" class="list" viewBox="0 0 16 24">
+          <path d="M12.5,1 h3 v22 h-15 v-22 h3" />
+          <path d="M12.5,3 h1 v18 h-11 v-18 h1" />
+          <rect x="4.5" y="0.5" width="7" height="4" />
+          <path d="M4,8 l1,1 2,-3" />
+          <path d="M9,7 h1 m-1,2 h3" />
+          <rect x="4" y="11" width="3" height="3" />
+          <path d="M9,12 h1 m-1,2 h3" />
+          <rect x="4" y="16" width="3" height="3" />
+          <path d="M9,17 h1 m-1,2 h3" />
+        </svg>
+        <span>Kravlistan</span>
+      </span>
+      <span>Upp</span>
+    </button>
+
+    <button value="prev" accesskey="f" class="prev">
+      <span>
+        <svg aria-hidden="true" class="arrow" viewBox="0 0 16 16">
+          <path d="M6,0 l-6,8 6,8 m-6,-8 h16" />
+        </svg>
+        <span>Föregående krav</span>
+      </span>
+      <span>Föregående</span>
+    </button>
+  </p>
+</form>

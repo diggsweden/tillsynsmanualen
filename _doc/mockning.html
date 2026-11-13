@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mockning – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="test.html">Enhetstester</a></li>
+          <li><strong>Mockning</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Mockning</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#f-mock"><code lang="en">mock()</code></a>
+          </li>
+          <li>
+            <a href="#f-app-context"><code lang="en">appContext()</code></a>
+          </li>
+          <li>
+            <a href="#f-breadcrumb-trail"
+              ><code lang="en">breadcrumbTrail()</code></a
+            >
+          </li>
+          <li>
+            <a href="#f-checkbox"><code lang="en">checkbox()</code></a>
+          </li>
+          <li>
+            <a href="#f-confirm-dialog"
+              ><code lang="en">confirmDialog()</code></a
+            >
+          </li>
+          <li>
+            <a href="#f-default-query-selector"
+              ><code lang="en">defaultQuerySelector()</code></a
+            >
+          </li>
+          <li>
+            <a href="#f-dom-token-list"
+              ><code lang="en">domTokenList()</code></a
+            >
+          </li>
+          <li>
+            <a href="#f-element"><code lang="en">element()</code></a>
+          </li>
+          <li>
+            <a href="#f-event-listener-list"
+              ><code lang="en">eventListenerList()</code></a
+            >
+          </li>
+          <li>
+            <a href="#f-eventTarget"><code lang="en">eventTarget()</code></a>
+          </li>
+          <li>
+            <a href="#f-globals"><code lang="en">globals()</code></a>
+          </li>
+          <li>
+            <a href="#f-input"><code lang="en">input()</code></a>
+          </li>
+          <li>
+            <a href="#f-link"><code lang="en">link()</code></a>
+          </li>
+          <li>
+            <a href="#f-model"><code lang="en">model()</code></a>
+          </li>
+          <li>
+            <a href="#f-page-content-loader"
+              ><code lang="en">pageContentLoader()</code></a
+            >
+          </li>
+          <li>
+            <a href="#f-radio-group"><code lang="en">radioGroup()</code></a>
+          </li>
+          <li>
+            <a href="#f-select"><code lang="en">select()</code></a>
+          </li>
+          <li>
+            <a href="#f-table"><code lang="en">table()</code></a>
+          </li>
+          <li>
+            <a href="#f-template"><code lang="en">template()</code></a>
+          </li>
+          <li>
+            <a href="#f-textarea"><code lang="en">textarea()</code></a>
+          </li>
+          <li>
+            <a href="#f-view"><code lang="en">view()</code></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Filen <code lang="en">_tests/mock.js</code> innehåller ett antal
+        funktioner för att mocka vissa ofta förekom&shy;mande klasser och
+        funktioner i syfte att minimera beroenden i testfall.
+      </p>
+
+      <p>
+        Funktionen <code lang="en">mock()</code> skapar ett ombud (<code
+          lang="en"
+          >Proxy</code
+        >) som fasad mot ett befintligt objekt eller som ersättare för ett
+        beroende.
+      </p>
+
+      <p>
+        Funktionen <code lang="en">mock.eventTarget()</code> gör det möjligt att
+        mocka HTML-element och simulera händelser, till exempel musklick eller
+        tangenttryckningar, på dem.
+      </p>
+
+      <p>
+        Många av de övriga funktionerna mockar specifika HTML-elementtyper och
+        används främst i tesfall för vyer. Några mockar
+        <cite>Tillsynsmanualens</cite> egna klasser.
+      </p>
+
+      <p class="tip">
+        Mockfunktionerna importeras och exporteras av
+        <code>_tests/function.js</code>, så det räcker att importera den filen i
+        testfallen.
+      </p>
+
+      <!--mock()-->
+      <section>
+        <h2 id="f-mock"><code lang="en">mock()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett objekt. Funktionen skapar ett ombud
+          <i lang="en">(proxy)</i> som fasad för antingen ett tomt objekt eller
+          ett befinligt objekt där man exempelvis vill förhindra vissa
+          metodanrop. Ombudet loggar också varje anrop till metoder i
+          ersättningsobjektet, så att man kan verifiera dem i efterhand med
+          <a href="forvantningar.html"><code lang="en">expect()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>(<span class="var">dummy</span>)
+<span class="ident">mock</span>(<span class="var">obj</span>, <span class="var">dummy</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">obj</code></dt>
+          <dd>Eventuellt källobjekt att bygga en fasad framför.</dd>
+
+          <dt><code lang="en">dummy</code></dt>
+          <dd>
+            Objekt vars fält och metoder ersätter sina motsvarigheter i
+            källobjektet.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">foo</span> = <span class="fn">mock</span>({
+    <span class="var">bar</span>: <span class="literal">"test"</span>
+}, {
+    <span class="var">quuz</span>: (<span class="var">v</span>) =&gt; <span class="var">foo</span>.<span class="var">bar</span> = <span class="var">v</span>
+});
+
+// använd `foo` …
+<span class="fn">expect</span>(<span class="var">foo</span>.<span class="var">quuz</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">once</span>().<span class="fn">with</span>(<span class="literal">"baz"</span>);
+<span class="fn">expect</span>(<span class="var">foo</span>.<span class="var">bar</span>).<span class="fn">toBe</span>(<span class="literal">"baz"</span>);
+</code></pre>
+      </section>
+
+      <!--mock.appContext()-->
+      <section>
+        <h2 id="f-app-context"><code lang="en">mock.appContext()</code></h2>
+
+        <p>
+          Skapar en ersättare för
+          <a href="klasser/common/AppContext.html">applikationskontexten</a>.
+          Ersättaren har, som standard, <code lang="en">advanced</code> satt
+          till <code lang="en" class="js literal">true</code> och
+          <code lang="en">history</code> och
+          <code lang="en">modified</code> satta till
+          <code lang="en" class="js literal">false</code>. Identifierarna
+          <code lang="en">case</code>, <code lang="en">audit</code> och
+          <code lang="en">sample</code> är
+          <code lang="en" class="js keyword">NaN</code>, medan
+          <code lang="en">error</code>, <code lang="en">page</code>,
+          <code lang="en">requirement</code>, <code lang="en">status</code> och
+          <code lang="en">target</code> är tomma strängar.
+        </p>
+
+        <p>
+          För att simulera andra parametrar, använd fältet
+          <code lang="en">params</code> (se exempel nedan).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">appContext</span>()
+<span class="ident">mock</span>.<span class="ident">appContext</span>(<span class="var">obj</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">obj</code></dt>
+          <dd>Fält med värden som ersätter standardvärdena.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en">// simulera begäran ?page=test&amp;case=42&amp;edit
+<span class="keyword">const</span> <span class="var">context</span> = <span class="var">mock</span>.<span class="fn">appContext</span>({
+    <span class="var">case</span>:   <span class="literal">42</span>,
+    <span class="var">page</span>:   <span class="literal">"test"</span>,
+    <span class="var">params</span>: {
+        <span class="var">edit</span>: <span class="literal">""</span>
+    }
+});</code></pre>
+      </section>
+
+      <!--mock.breadcrumbTrail()-->
+      <section>
+        <h2 id="f-breadcrumb-trail">
+          <code lang="en">mock.breadcrumbTrail()</code>
+        </h2>
+
+        <p>
+          Skapar en ersättare för
+          <a href="klasser/view/BreadcrumbTrail.html">länkstigen</a>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">breadcrumbTrail</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">crumbs</span> = <span class="var">mock</span>.<span class="fn">breadcrumTrail</span>();
+…
+<span class="fn">expect</span>(<span class="var">crumbs</span>.<span class="var">case</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">with</span>(<span class="literal">42</span>, <span class="literal">"2020-1234"</span>);</code></pre>
+      </section>
+
+      <!--mock.checkbox()-->
+      <section>
+        <h2 id="f-checkbox"><code lang="en">mock.checkbox()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag"
+            >&lt;input <span>type=<span>"checkbox"</span></span
+            >&gt;</code
+          >-element. Funktionen specialiserar
+          <code lang="en">mock.element()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">checkbox</span>(<span class="var">checked</span>)
+<span class="ident">mock</span>.<span class="ident">checkbox</span>(<span class="var">checked</span>, <span class="var">obj</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">checked</code></dt>
+          <dd>
+            Flagga som anger om kryssrutan ska ha attributet
+            <code lang="en" class="html attr">checked</code>.
+          </dd>
+
+          <dt class="optional"><code lang="en">obj</code></dt>
+          <dd>
+            Övriga fält; se
+            <a href="#f-element"><code lang="en">mock.element()</code></a
+            >.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.confirmDialog()-->
+      <section>
+        <h2 id="f-confirm-dialog">
+          <code lang="en">mock.confirmDialog()</code>
+        </h2>
+
+        <p>
+          Skapar en ersättare för en modal dialogruta. Funktionen specialiserar
+          <code lang="en">mock.eventTarget()</code>.
+        </p>
+
+        <p>
+          Fältet <code lang="en">returnValue</code> kan sättas till önskat värde
+          som det returnerade löftet från metoden
+          <code lang="en">showModal()</code> ska infrias med.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">confirmDialog</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">confirm</span> = <span class="var">mock</span>.<span class="fn">confirmDialog</span>();
+<span class="var">confirm</span>.<span class="var">returnValue</span> = <span class="literal">"true"</span>;
+…
+<span class="keyword">const</span> <span class="var">result</span> = <span class="keyword">await</span> <span class="var">confirm</span>.<span class="fn">showModal</span>();
+// result="true"</code></pre>
+      </section>
+
+      <!--mock.defaultQuerySelector()-->
+      <section>
+        <h2 id="f-default-query-selector">
+          <code lang="en">mock.defaultQuerySelector()</code>
+        </h2>
+
+        <p>
+          Skapar en ersättare för metoden
+          <code lang="en">querySelector()</code> i ett mockat DOM-dokument i ett
+          vytestfall.
+        </p>
+
+        <p>
+          Vybasklassen <code lang="en">ViewBase</code> anropar
+          <code lang="en">document.querySelector()</code> för att identifiera
+          artikelelementet och statusbehållaren. Ett mockat DOM-dokument behöver
+          därför kunna returnera dem. Om inga andra selektorer används av den
+          testade vyklassen kan denna metod användas.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">defaultQuerySelector</span>(<span class="var">article</span>, <span class="var">status</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">article</code></dt>
+          <dd>
+            Ett mockat
+            <code lang="en" class="html tag">&lt;article&gt;</code>-element.
+          </dd>
+
+          <dt><code lang="en">status</code></dt>
+          <dd>En mockad statusbehållare.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En funktion som returnerar artikelelementet för selektorn
+          <code lang="en" class="js literal"
+            >'main&nbsp;&gt;&nbsp;article[aria-live]'</code
+          >
+          och statusbehållaren för selektorn
+          <code lang="en" class="js literal"
+            >'main&nbsp;&gt;&nbsp;[role="status"]'</code
+          >.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">article</span> = …;
+<span class="keyword">const</span> <span class="var">status</span>  = …;
+
+<span class="keyword">const</span> <span class="var">doc</span> = <span class="var">mock</span>({
+    <span class="var">querySelector</span>: <span class="var">mock</span>.<span class="var">defaultQuerySelector</span>(<span class="var">article</span>, <span class="var">status</span>)
+});</code></pre>
+      </section>
+
+      <!--mock.domTokenList()-->
+      <section>
+        <h2 id="f-dom-token-list">
+          <code lang="en">mock.domTokenList()</code>
+        </h2>
+
+        <p>
+          Skapar en ersättare för en <code lang="en">DOMTokenList()</code>;
+          används vanligen för att ersätta fältet
+          <code lang="en">classList</code> i ett mockat HTML-element i ett
+          vytestfall.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">domTokenList</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">article</span> = {
+    <span class="var">classList</span>: <span class="var">mock</span>.<span class="var">domTokenList</span>(),
+    …
+};</code></pre>
+      </section>
+
+      <!--mock.element()-->
+      <section>
+        <h2 id="f-element"><code lang="en">mock.element()</code></h2>
+
+        <p>Skapar en ersättare för ett HTML-element i ett vytestfall.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">element</span>(<span class="var">tag</span>)
+<span class="ident">mock</span>.<span class="ident">element</span>(<span class="var">tag</span>, <span class="var">dummy</span>)
+<span class="ident">mock</span>.<span class="ident">element</span>(<span class="var">tag</span>, <span class="var">obj</span>, <span class="var">dummy</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">tag</code></dt>
+          <dd>Taggnamn (elementtyp).</dd>
+
+          <dt class="optional"><code lang="en">obj</code></dt>
+          <dd>
+            Fält som ersätter eller kompletterar standardfälten (se nedan).
+          </dd>
+
+          <dt class="optional"><code lang="en">dummy</code></dt>
+          <dd>
+            Metoder som ersätter eller kompletterar standardmetoderna (se
+            nedan).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en">// Mocka &lt;div id="foo" title="test"&gt;
+<span class="keyword">const</span> <span class="var">element</span> = <span class="var">mock</span>.<span class="fn">element</span>(<span class="literal">"div"</span>, {
+    <span class="var">_attrs</span>: {<span class="var">title</span>: <span class="literal">"test"</span>},
+    <span class="var">id</span>:     <span class="literal">"foo"</span>
+}, {}};</code></pre>
+
+        <h3>Standardfält och -metoder</h3>
+
+        <table>
+          <caption>
+            Standardfält i
+            <code lang="en">mock.element()</code
+            >.
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Värde</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">children</code></td>
+              <td>En tom vektor.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">classList</code></td>
+              <td>En mockad <code lang="en">DOMTokenList</code>.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">dataset</code></td>
+              <td>Ett tomt objekt.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">disabled</code></td>
+              <td><code lang="en" class="js literal">false</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">hidden</code></td>
+              <td><code lang="en" class="js literal">false</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">id</code></td>
+              <td><code class="js literal">""</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">innerHTML</code></td>
+              <td><code class="js literal">""</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">innerText</code></td>
+              <td><code class="js literal">""</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">parentNode</code></td>
+              <td>
+                Ett mockobjekt med fältet <code lang="en">children</code> och
+                metoden <code lang="en">insertBefore()</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">tabIndex</code></td>
+              <td><code class="js literal">-1</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">tagName</code></td>
+              <td>Det angivna taggnamnet (med versaler).</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Standardmetoder i
+            <code lang="en">mock.element()</code
+            >.
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Metod</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">addEventListener()</code></td>
+              <td>Gör inget.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">appendChild()</code></td>
+              <td>
+                Tillfogar argumentet till vektorn
+                <code lang="en">children</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">focus()</code></td>
+              <td>Gör inget.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">getAttribute()</code></td>
+              <td>
+                Returnerar angivet fält ur fältet <code lang="en">_attrs</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">hasAttribute()</code></td>
+              <td>
+                Returnerar en flagga som visar om angivet fält finns i fältet
+                <code lang="en">_attrs</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">insertBefore()</code></td>
+              <td>
+                Infogar angiven nod före angivet barn i vektorn
+                <code lang="en">children</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">remove()</code></td>
+              <td>Gör inget.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">removeAttribute</code></td>
+              <td>
+                Tar bort angivet fält ur fältet <code lang="en">_attrs</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">removeChild()</code></td>
+              <td>
+                Tar bort angivet barn ur vektorn
+                <code lang="en">children</code> och returnerar barnet.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">setAttribute</code></td>
+              <td>
+                Sätter angivet fält till angivet värde i fältet
+                <code lang="en">_attrs</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">setAttributeNS</code></td>
+              <td>
+                Sätter angivet fält till angivet värde i fältet
+                <code lang="en">_attrs</code>.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--mock.eventListenerList()-->
+      <section>
+        <h2 id="f-event-listener-list">
+          <code lang="en">mock.eventListenerList()</code>
+        </h2>
+
+        <p>
+          Skapar en ersättare för en <code lang="en">EventListenerList()</code>;
+          används vanligen i vytestfall.
+        </p>
+
+        <p>
+          Ersättaren förmedlar händelselyssnare vid anrop till
+          <code lang="en">add()</code> och implementerar en tom version av
+          <code lang="en">removeAll()</code> (men inte
+          <code lang="en">remove()</code>).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">eventListenerList</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.eventTarget()-->
+      <section>
+        <h2 id="f-event-target"><code lang="en">mock.eventTarget()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett HTML-element i ett vytestfall, som det går
+          att simulera DOM-händelser i. Funktionen specialiserar
+          <code lang="en">mock.element()</code>.
+        </p>
+
+        <p>
+          Metoden mockar ett element och ersätter implementationerna av
+          <code lang="en">addEventListener()</code> och
+          <code lang="en">removeEventListener()</code>.
+        </p>
+
+        <p>
+          Den lägger också till metoden <code lang="en">triggerEvent()</code>
+          för att simulera en DOM-händelse på elementet, och anropar då den
+          lyssnare som registrerats för den angivna händelsen. Argumentet till
+          metoden är ett objekt som ska likna
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Event"
+            rel="external"
+            ><code lang="en">Event</code></a
+          >
+          och åtminstone innehålla fältet <code lang="en">type</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">eventTarget</span>(<span class="var">tag</span>)
+<span class="ident">mock</span>.<span class="ident">eventTarget</span>(<span class="var">tag</span>, <span class="var">dummy</span>)
+<span class="ident">mock</span>.<span class="ident">eventTarget</span>(<span class="var">tag</span>, <span class="var">obj</span>, <span class="var">dummy</span>)</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">button</span> = <span class="var">mock</span>.<span class="fn">eventTarget</span>(<span class="literal">"button"</span>);
+…
+<span class="var">button</span>.<span class="fn">triggerEvent</span>({<span class="var">type</span>: <span class="literal">"click"</span>});</code></pre>
+      </section>
+
+      <!--mock.globals()-->
+      <section>
+        <h2 id="f-globals"><code lang="en">mock.globals()</code></h2>
+
+        <p>
+          Skapar ett objekt med ersättare för globala objekt; används vanligen i
+          <i lang="en">controller</i>-testfall.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">globals</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En objekt med två fält:</p>
+
+        <p>
+          Fältet <code lang="en">history</code> är ett mockobjekt som har
+          metoden <code lang="en">pushState()</code>.
+        </p>
+
+        <p>
+          Fältet <code lang="en">window</code> är ett mockat
+          <i lang="en">event target</i>.
+        </p>
+      </section>
+
+      <!--mock.input()-->
+      <section>
+        <h2 id="f-input"><code lang="en">mock.input()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag">&lt;input&gt;</code>-element.
+          Funktionen specialiserar <code lang="en">mock.element()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">input</span>(<span class="var">type</span>, <span class="var">name</span>)
+<span class="ident">mock</span>.<span class="ident">input</span>(<span class="var">type</span>, <span class="var">name</span>, <span class="var">value</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Värde för attributet <code lang="en" class="html attr">type</code>.
+          </dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>
+            Värde för attributet <code lang="en" class="html attr">name</code>.
+          </dd>
+
+          <dt class="optional"><code lang="en">value</code></dt>
+          <dd>
+            Värde för attributet <code lang="en" class="html attr">value</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.link()-->
+      <section>
+        <h2 id="f-link"><code lang="en">mock.link()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag">&lt;a&gt;</code>-element. Funktionen
+          specialiserar <code lang="en">mock.element()</code>.
+        </p>
+
+        <p>
+          Det returnerade mockelementet har
+          <code lang="en" class="js"
+            ><span class="var">tabIndex</span>=<span class="literal"
+              >0</span
+            ></code
+          >
+          som ett normalt
+          <code lang="en" class="html tag">&lt;a&gt;</code>-element.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">link</span>()
+<span class="ident">mock</span>.<span class="ident">link</span>(<span class="var">href</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">href</code></dt>
+          <dd>
+            Värde för attributet <code lang="en" class="html attr">href</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.model()-->
+      <section>
+        <h2 id="f-model"><code lang="en">mock.model()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett modellobjekt i ett
+          <i lang="en">controller</i>-testfall. Ersättaren har, som standard,
+          <code lang="en">advancedMode</code> satt till
+          <code lang="en" class="js literal">true</code> samt
+          <code lang="en">caseDirectory</code> och
+          <code lang="en">lastPath</code> satta till
+          <code lang="en" class="js keyword">null</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">model</span>(<span class="var">dummy</span>)
+<span class="ident">mock</span>.<span class="ident">model</span>(<span class="var">obj</span>, <span class="var">dummy</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">obj</code></dt>
+          <dd>Fält med värden som ersätter standardvärdena.</dd>
+
+          <dt><code lang="en">dummy</code></dt>
+          <dd>Metoder att implementera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.pageContentLoader()-->
+      <section>
+        <h2 id="f-page-content-loader">
+          <code lang="en">mock.pageContentLoader()</code>
+        </h2>
+
+        <p>
+          Skapar en ersättare för resursladdaren i ett vytestfall, där bara
+          vybasklassens anrop till metoden
+          <code lang="en">pageContent()</code> används.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">pageContentLoader</span>()
+<span class="ident">mock</span>.<span class="ident">pageContentLoader</span>(<span class="var">content</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">content</code></dt>
+          <dd>Sidinnehåll att returnera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En objekt med en asynkron <code lang="en">pageContent()</code>-metod.
+        </p>
+      </section>
+
+      <!--mock.radioGroup()-->
+      <section>
+        <h2 id="f-radio-group"><code lang="en">mock.radioGroup()</code></h2>
+
+        <p>
+          Skapar en ersättare för en <code lang="en">RadioNodeList</code>.
+          Ersättaren har fälten <code lang="en">entries</code>,
+          <code lang="en">name</code> och <code lang="en">value</code>, där
+          <code lang="en">entries</code>
+          innehåller mockade
+          <code lang="en" class="html tag"
+            >&lt;input <span>type=<span>"radio"</span></span
+            >&gt;</code
+          >-element. Den implementerar också
+          <code lang="en">iterable</code>-protokollet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">radioGroup</span>(<span class="var">name</span>, <span class="var">value</span>, <span class="var">value1</span>, … <span class="var">valueN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>
+            Radiogruppens namn och
+            <code lang="en" class="html attr">name</code>-attributet på
+            radioknapperna.
+          </dd>
+
+          <dt><code lang="en">value</code></dt>
+          <dd>Gruppens aktuella värde.</dd>
+
+          <dt><code lang="en">valueN</code></dt>
+          <dd>Värden för radioknapparna i gruppen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En objekt som har fälten <code lang="en">entries</code>,
+          <code lang="en">name</code> och <code lang="en">value</code> och som
+          implementerar <code lang="en">iterable</code>-protokollet.
+        </p>
+      </section>
+
+      <!--mock.select()-->
+      <section>
+        <h2 id="f-select"><code lang="en">mock.select()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag">&lt;select&gt;</code>-element.
+          Funktionen specialiserar <code lang="en">mock.element()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">select</span>(<span class="var">name</span>)
+<span class="ident">mock</span>.<span class="ident">select</span>(<span class="var">name</span>, <span class="var">children</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>
+            Värde för attributet <code lang="en" class="html attr">name</code>.
+          </dd>
+
+          <dt class="optional"><code lang="en">children</code></dt>
+          <dd>Listinnehåll.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.table()-->
+      <section>
+        <h2 id="f-table"><code lang="en">mock.table()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag">&lt;table&gt;</code>-element.
+          Funktionen specialiserar <code lang="en">mock.element()</code>.
+        </p>
+
+        <p>
+          Ersättaren har fälten <code lang="en">caption</code>,
+          <code lang="en">rows</code>, <code lang="en">tBodies</code> och
+          <code lang="en">tHead</code>
+          och implementerar metoderna
+          <code lang="en">createCaption()</code>,
+          <code lang="en">createTBody()</code> och
+          <code lang="en">createTHead()</code>.
+        </p>
+
+        <p>
+          Skapade radgrupper har fältet <code lang="en">rows</code> och
+          implementerar metoden <code lang="en">insertRow()</code>; skapade
+          rader har fältet <code lang="en">cells</code> och implementerar
+          metoden <code lang="en">insertCell()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">table</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.template()-->
+      <section>
+        <h2 id="f-template"><code lang="en">mock.template()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag">&lt;template&gt;</code>-element.
+          Ersättaren har fältet <code lang="en">content</code> som implementerar
+          metoden <code lang="en">cloneNode()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">template</span>(<span class="var">fragment</span>)
+<span class="ident">mock</span>.<span class="ident">template</span>(<span class="var">fragment</span>, <span class="var">parent</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">fragment</code></dt>
+          <dd>
+            Mockat dokumentfragment som
+            <code lang="en">content.cloneNode()</code> ska returnera.
+          </dd>
+
+          <dt class="optional"><code lang="en">parent</code></dt>
+          <dd>
+            Föräldraelement som ska returneras av fältet
+            <code lang="en">parent</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.textarea()-->
+      <section>
+        <h2 id="f-textarea"><code lang="en">mock.textarea()</code></h2>
+
+        <p>
+          Skapar en ersättare för ett
+          <code lang="en" class="html tag">&lt;textarea&gt;</code>-element.
+          Funktionen specialiserar <code lang="en">mock.element()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">textarea</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>
+            Värde för attributet <code lang="en" class="html attr">name</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+      </section>
+
+      <!--mock.view()-->
+      <section>
+        <h2 id="f-view"><code lang="en">mock.view()</code></h2>
+
+        <p>
+          Skapar en ersättare för en vyinstans i ett
+          <i lang="en">controller</i>-testfall.
+        </p>
+
+        <p>
+          Ersättaren har, som standard, <code lang="en">advancedMode</code> satt
+          till <code lang="en" class="js literal">true</code> och implementerar
+          tomma versioner av metoderna <code lang="en">autoFocus()</code>,
+          <code lang="en">hideStatus()</code> och
+          <code lang="en">showSuccess()</code>. Den imple&shy;menterar också
+          metoderna <code lang="en">subscribe()</code> och
+          <code lang="en">unsubscribe()</code>. Om fältet
+          <code lang="en">_logErrors</code> satts till
+          <code lang="en" class="js literal">true</code> skriver metoden
+          <code lang="en">showError()</code> felmeddelandet till konsollen. Den
+          asynkrona metoden <code lang="en">confirm()</code> emulerar en modal
+          bekräftelsedialogruta och returnerar värdet i fältet
+          <code lang="en">_confirm</code>.
+        </p>
+
+        <p>
+          Ersättaren implementerar också en metod för att simulera
+          händelseaviseringar till alla registrerade observatörer. Metoden
+          <code lang="en">notify()</code> anropar observatörerna en gång per
+          angiven händelse i nästa varv i händelseslingan. Se exempel nedan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">mock</span>.<span class="ident">view</span>(<span class="var">dummy</span>)
+<span class="ident">mock</span>.<span class="ident">view</span>(<span class="var">obj</span>, <span class="var">dummy</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">obj</code></dt>
+          <dd>Fält med värden som ersätter standardvärdena.</dd>
+
+          <dt><code lang="en">dummy</code></dt>
+          <dd>Metoder att implementera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Proxy</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">view</span> = <span class="var">mock</span>. <span class="fn">view</span>();
+
+// Avisera två ändringshändelser.
+<span class="var">view</span>.<span class="var">notify</span>(
+    {<span class="var">target</span>: <span class="literal">"foo"</span>, <span class="var">type</span>: <span class="literal">"change"</span>, <span class="var">value</span>: <span class="literal">"foo"</span>},
+    {<span class="var">target</span>: <span class="literal">"bar"</span>, <span class="var">type</span>: <span class="literal">"change"</span>, <span class="var">value</span>: <span class="literal">"bar"</span>}
+);
+
+// Avisera utgångshändelse separat.
+<span class="var">view</span>.<span class="var">notify</span>({<span class="var">action</span>: <span class="literal">"save"</span>, <span class="var">path</span>: <span class="literal">"?test"</span>, <span class="var">type</span>: <span class="literal">"change"</span>});</code></pre>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="testklasser.html" accesskey="N" rel="next"
+        ><span>Testklasser</span></a
+      >
+      <a href="test.html" accesskey="I" class="up"><span>Tester</span></a>
+      <a href="forvantningar.html" accesskey="F" rel="prev"
+        ><span>Förväntningar</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Menubar – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">Menubar</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">Menubar</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#properties"><span>Fält</span></a>
+          </li>
+          <li>
+            <a href="#m-down"><code lang="en">down()</code></a>
+          </li>
+          <li>
+            <a href="#m-handle-left"><code lang="en">handleLeft()</code></a>
+          </li>
+          <li>
+            <a href="#m-left"><code lang="en">left()</code></a>
+          </li>
+          <li>
+            <a href="#m-right"><code lang="en">right()</code></a>
+          </li>
+          <li>
+            <a href="#m-up"><code lang="en">up()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Menubar</code> utökar
+        <a href="Menu.html"><code lang="en">Menu</code></a>
+        och representerar en horisontell menyrad med nedfällbara undermenyer.
+      </p>
+
+      <p>
+        Menyraden implementerar designmönstret
+        <a
+          href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/"
+          lang="en"
+          rel="external"
+          >Menu bar</a
+        >, vilket innebär att hela menyraden utgör ett enda tabbstopp i
+        navigeringssekvensen. Navigering inom menyraden sker med piltangenter.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/menu/Menubar.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/menu/Menubar.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 330" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--Menubar-->
+          <use
+            xlink:href="Menubar.svg#Menubar"
+            x="165"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="230" y1="83" x2="230" y2="110" class="inheritance" />
+
+          <!--MenuItem-->
+          <use xlink:href="MenuItem.svg#MenuItem" x="0" y="110" />
+
+          <g transform="translate(0, 110)">
+            <path d="M101,18 h12 v-8 h-12" class="composition" />
+            <line x1="101" y1="68" x2="140" y2="68" class="composition" />
+          </g>
+
+          <!--Menu-->
+          <use xlink:href="Menu.svg#Menu" x="140" y="110" />
+
+          <g transform="translate(140, 110)">
+            <line x1="0" y1="78" x2="-39" y2="78" class="composition" />
+            <path d="M0,88 h-20 v10 h20" class="composition" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">Menubar</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn sätter rollen <code lang="en">menubar</code> på det
+          underliggande elementet och sätter menyns orientering till
+          horisontell.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Menubar</span>(<span class="var">element</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">element</code></dt>
+          <dd>
+            Det <code class="html tag">&lt;ul&gt;</code>-element som
+            representerar menyraden i DOM-trädet.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">current</code></dt>
+          <dd>
+            Aktivt (fokuserat) menyelement. Vid skrivning hanterar klassen också
+            tabbindex för underliggande element. (Endast det aktiva elementet
+            ingår i navigeringssekvensen.)
+          </dd>
+
+          <dt class="readonly"><code lang="en">id</code></dt>
+          <dd>En unik identifierare för menyraden.</dd>
+        </dl>
+      </section>
+
+      <!--down()-->
+      <section>
+        <h2 id="m-down"><code lang="en">down()</code></h2>
+
+        <p>
+          Öppnar referenselementets undermeny, om det har någon, och sätter
+          fokus till första elementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">down</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Första elementet i undermenyn, eller
+          <code lang="en" class="js keyword">this</code>
+          om referenselementet inte har någon undermeny.
+        </p>
+      </section>
+
+      <!--handleLeft()-->
+      <section>
+        <h2 id="m-handle-left"><code lang="en">handleLeft()</code></h2>
+
+        <p>
+          Hantera navigering med vänsterpil. (Referenselementet är ett element i
+          en undermeny.)
+        </p>
+
+        <ol>
+          <li>Stäng referenselementets undermeny.</li>
+          <li>Sätt föregående element i menyraden som aktivt element.</li>
+          <li>
+            Om det nya aktiva elementet har en undermeny, öppna den, men sätt
+            inte fokus till något underelement.
+          </li>
+        </ol>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">handleLeft</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Elementet före referenselementet i menyraden. Om referenselementet är
+          det första elementet i menyraden börjar metoden om från sista
+          elementet <i lang="en">(wrap around)</i>.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--left()-->
+      <section>
+        <h2 id="m-left"><code lang="en">left()</code></h2>
+
+        <p>
+          Hantera navigering åt vänster från det angivna referenselementet.
+          (Referenselementet är ett element i menyraden.)
+        </p>
+
+        <ol>
+          <li>Stäng referenselementets undermeny.</li>
+          <li>Sätt föregående element i menyraden som aktivt element.</li>
+        </ol>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">left</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Elementet före referenselementet i menyraden. Om referenselementet är
+          det första elementet i menyraden börjar metoden om från sista
+          elementet <i lang="en">(wrap around)</i>.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--right()-->
+      <section>
+        <h2 id="m-right"><code lang="en">right()</code></h2>
+
+        <p>
+          Hantera navigering med högerpil från angivet referenselement.
+          (Referenselementet är ett element i menyraden.)
+        </p>
+
+        <ol>
+          <li>Stäng referenselementets undermeny.</li>
+          <li>Sätt nästa element i menyraden som aktivt element.</li>
+        </ol>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">right</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Elementet efter referenselementet i menyraden. Om referenselementet är
+          det sista elementet i menyraden börjar metoden om från första
+          elementet <i lang="en">(wrap around)</i>.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--up()-->
+      <section>
+        <h2 id="m-up"><code lang="en">up()</code></h2>
+
+        <p>
+          Öppnar referenselementets undermeny, om det har någon, och sätter
+          fokus till sista elementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">up</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Sista elementet i undermenyn, eller
+          <code lang="en" class="js keyword">this</code> om referenselementet
+          inte har någon undermeny.
+        </p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Skillnaden mellan en menyrad och en generell meny ligger främst i
+          tangentbordsinterak&shy;tionen.
+        </p>
+
+        <table>
+          <caption>
+            Tangentbordsinteraktion för menyrad.
+          </caption>
+
+          <colgroup>
+            <col class="key" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd>Tabb</kbd></kbd>
+              </td>
+              <td>Flytta fokus till elementet efter menyraden.</td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>Skift</kbd>+<kbd>Tabb</kbd></kbd>
+              </td>
+              <td>Flytta fokus till elementet före menyraden.</td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>
+                Om elementet som har fokus har en undermeny, öppna undermenyn
+                och sätt fokus till dess första element.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>
+                Om elementet som har fokus har en undermeny, öppna undermenyn
+                och sätt fokus till dess sista element.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>⭢</kbd></kbd>
+              </td>
+              <td>
+                Flytta fokus till nästa element och börja om från vänster efter
+                sista elementet.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>⭠</kbd></kbd>
+              </td>
+              <td>
+                Flytta fokus till föregående element och börja om från höger
+                efter första elementet.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../../meny.html">Menyn</a></li>
+          <li>
+            <a href="Menu.html"><code lang="en">Menu</code></a>
+          </li>
+          <li>
+            <a href="MenuBuilder.html"><code lang="en">MenuBuilder</code></a>
+          </li>
+          <li>
+            <a href="MenuController.html"
+              ><code lang="en">MenuController</code></a
+            >
+          </li>
+          <li>
+            <a href="MenuItem.html"><code lang="en">MenuItem</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

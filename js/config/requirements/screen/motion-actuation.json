@@ -1,0 +1,26 @@
+{
+  "exceptions": [
+    "Rörelsen styr funktioner genom ett gränssnitt med stöd för hjälpmedel.",
+    "Rörelsen är nödvändig för funktionen och ett alternativ skulle förfela syftet med den."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Rörelsestyrning 1",
+      "description": "Funktioner som aktiveras när man rör på den mobila enheten, exempelvis skakar eller vrider den."
+    },
+    {
+      "type": "definition",
+      "term": "Rörelsestyrning 2",
+      "description": "Funktioner som aktiveras av användarens rörelser som enhetens kamera känner av, till exempel att vifta med handen framför skärmen."
+    },
+    {
+      "type": "text",
+      "text": "Ett exempel där rörelsestyrning är nödvändig för funktionen är en stegräknare."
+    },
+    {
+      "type": "note",
+      "text": "Kravet gäller funktioner som styrs av sensorer i själva enheten, inte att användarens fysiska förflyttning registreras med exempelvis GPS eller mobilmaster."
+    }
+  ]
+}

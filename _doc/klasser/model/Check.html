@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Check – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 36rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">Check</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Check</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-controlled-by"><code lang="en">controlledBy()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-screenshot"
+              ><code lang="en">setScreenshot()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-to-json"><code lang="en">toJSON()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-string"><code lang="en">toString()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Check</code> representerar en kontoll i ett krav
+        som ingår i ett stickprov i en granskning i ett granskningsärende. En
+        kontroll kan ha statusen icke tillämplig, ogranskad, godkänd eller
+        underkänd. Om den är underkänd har den en tillhörande observation som
+        beskiver varför den är underkänd och, eventuellt, information om en
+        tillhörande skärmavbildning som illustrerar bristen.
+      </p>
+
+      <p>
+        En kontroll kan också vara inaktiverad, vilket innebär att den ingår i
+        en gren i ett villkor i konfigurationen och den grenen inte är vald (av
+        användaren i ett manuellt villkor eller automatiskt i ett härlett
+        villkor).
+      </p>
+
+      <p>
+        En inaktiverad kontroll är alltid icke tillämplig, men en icke
+        tillämplig kontroll kan vara antingen inaktiverad eller obestämd. Att
+        den är obestämd betyder att den ingår i en gren i ett manuellt villkor
+        som användaren inte tagit ställning till.
+      </p>
+
+      <p>
+        En kontroll som inte ingår i något villkor är alltså alltid tillämplig
+        och aldrig inaktiv. Om den ingår i ett villkor är den tillämplig bara om
+        den ingår i den valda grenen av villkoret. Den är inaktiverad bara om
+        den ingår i den icke valda grenen av villkoret. En kontroll i ett
+        villkor som inte är utvärderat är alltså icke tillämplig och obestämt
+        inaktiverad.
+      </p>
+
+      <p>
+        Denna komplicerade hantering behövs för att skilja mellan kontroller som
+        inte är granskade och kontroller som är irrelevanta på grund av att de
+        ingår i ”fel” gren av ett villkor. Villkor lagras inte i ärendet, så
+        flera statusar behöver sparas i databasen (eller på fil), samtidigt som
+        serialiseringen helst ska vara så utrymmessnål som möjligt eftersom ett
+        typiskt ärende innehåller hundratals kontroller.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/checks.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/checks.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>checks</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>key</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_req</code> / <code>reqID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 360 300" class="class uml-diagram">
+          <defs>
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--Check-->
+          <use xlink:href="Check.svg#Check" x="110" y="0" class="highlight" />
+
+          <!--DerivedCheck-->
+          <use xlink:href="DerivedCheck.svg#DerivedCheck" x="0" y="190" />
+
+          <path d="M50,190 v-19 h90 v-18" class="inheritance" />
+
+          <!--MultipleCheck-->
+          <use xlink:href="MultipleCheck.svg#MultipleCheck" x="120" y="190" />
+
+          <line x1="175" y1="190" x2="175" y2="153" class="inheritance" />
+
+          <!--SingleCheck-->
+          <use xlink:href="SingleCheck.svg#SingleCheck" x="250" y="190" />
+
+          <path d="M300,190 v-19 h-90 v-18" class="inheritance" />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Check</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Om ett dataobjekt anges som argument populerar konstruktorn instansen
+          med informa&shy;tionen i det. Det används vid återskapande av ett
+          objekt när det hämtas från objektdata&shy;basen eller när ett sparat
+          ärende i JSON-format läses in från fil.
+        </p>
+
+        <p>
+          Metoden
+          <a href="m-serialize"><code lang="en">serialize()</code></a>
+          serialiserar kontroller på ett kompakt sätt, varför återskapandet
+          måste göra en omvänd tolkning:
+        </p>
+
+        <ul>
+          <li>
+            Om dataobjektet innehåller fältet <code>dis</code> (<i lang="en"
+              >disabled</i
+            >), sätt <code lang="en">disabled</code> till dess värde och
+            <code lang="en">applicable</code> till inversen.
+          </li>
+
+          <li>
+            Om dataobjektet innehåller fältet <code>na</code>
+            <i lang="en">(not applicable),</i> sätt
+            <code lang="en">applicable</code> till dess invers;
+          </li>
+
+          <li>
+            annars, om dataobjektet innehåller fältet <code>obs</code>
+            <i lang="en">(observation)</i>, sätt observationen och sätt även
+            <code lang="en">disabled</code> till
+            <code lang="en" class="js literal">false</code> och
+            <code lang="en">applicable</code> till
+            <code lang="en" class="js literal">true</code>.
+          </li>
+
+          <li>
+            Om dataobjektet innehåller fälten <code lang="en">path</code> och
+            <code>alt</code>, sätt motsvarande fält i
+            skärmavbildnings&shy;informationen.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Check</span>(<span class="var">reqID</span>)
+<span class="keyword">new</span> <span class="ident">Check</span>(<span class="var">reqID</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">reqID</code></dt>
+          <dd>Identitet för det krav som kontrollen ingår i.</dd>
+
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">applicable</code></dt>
+          <dd>En flagga som anger om kontrollen är tillämplig.</dd>
+
+          <dt class="readonly"><code lang="en">cardinality</code></dt>
+          <dd>Antalet alternativ i kontrollen (alltid 1 i basklassen).</dd>
+
+          <dt><code lang="en">disabled</code></dt>
+          <dd>
+            En flagga som anger om kontrollen är inaktiverad (<code
+              lang="en"
+              class="js literal"
+              >true</code
+            >; ingår i en icke vald gren av ett villkor), aktiverad (<code
+              lang="en"
+              class="js literal"
+              >false</code
+            >; ingår i en vald gren av ett villkor), eller varken eller (<code
+              lang="en"
+              class="js keyword"
+              >undefined</code
+            >).
+          </dd>
+
+          <dt class="readonly"><code lang="en">done</code></dt>
+          <dd>
+            En flagga som anger om kontrollen är färdiggranskad (<code lang="en"
+              >state</code
+            >
+            är antingen <code lang="en" class="js literal">true</code> eller
+            <code lang="en" class="js literal">false</code>).
+          </dd>
+
+          <dt class="readonly"><code lang="en">failed</code></dt>
+          <dd>
+            En flagga som anger om en färdiggranskad kontroll är underkänd
+            (<code lang="en">state</code> är
+            <code lang="en" class="js literal">false</code>).
+          </dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>Kontrollens identitet i konfigurationen.</dd>
+
+          <dt><code lang="en">observation</code></dt>
+          <dd>
+            Text som beskriver granskarens observation som ligger till grund för
+            att kontrollen är underkänd.
+          </dd>
+
+          <dt><code lang="en">screenshot</code></dt>
+          <dd>
+            Ett objekt med information om en skärmavbildning som förtydligar var
+            bristen finns. Objektet består av två fält:
+            <code lang="en">path</code> som är filnamnet eller sökvägen till
+            filen som innehåller avbildningen och <code lang="en">alt</code> som
+            är ett textalternativ till bilden.
+          </dd>
+
+          <dt class="readonly"><code lang="en">state</code></dt>
+          <dd>
+            Kontrollens tillstånd:
+            <code lang="en" class="js literal">true</code> om den är godkänd;
+            <code lang="en" class="js literal">false</code> om den är underkänd;
+            <code lang="en" class="js keyword">undefined</code> om dess
+            tillstånd är obestämt. Måste implementeras av härledda klasser.
+          </dd>
+        </dl>
+      </section>
+
+      <!--controlledBy()-->
+      <section>
+        <h2 id="m-controlled-by"><code lang="en">controlledBy()</code></h2>
+
+        <p>
+          Registrerar en kontroll (i samma krav) som styr ett villkor som den
+          aktuella kontrollen ingår i, och vilket tillstånd den styrande
+          kontrollen ska ha för att den aktuella kontrollen ska vara tillämplig.
+        </p>
+
+        <p>
+          Tänkt att användas för att beräkna tillämpligheten (fältet
+          <code lang="en">applicable</code>) för villkorsstyrda kontroller.
+        </p>
+
+        <p class="note">
+          Metoden används i dagsläget inte. Felet den var avsedd att åtgärda
+          visade sig ha andra orsaker. Det borde dock finnas behov av den, så
+          den får vara kvar tills det är tydligt att den inte behövs.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">controlledBy</span>(<span class="var">check</span>, <span class="var">state</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">check</code></dt>
+          <dd>
+            Den kontroll som styr villkoret som den aktuella kontrollen ingår i.
+          </dd>
+
+          <dt><code lang="en">state</code></dt>
+          <dd>
+            Det tillstånd den styrande kontrollen ska har för att den aktuella
+            kontrollen ska vara tillämplig.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <p>
+          Eftersom en granskning kan innehålla ett stort antal kontroller
+          används ett kompakt format vid serialisering: bara precis så mycket
+          som behövs för att kunna återskapa instansen.
+        </p>
+
+        <ul>
+          <li>
+            Om kontrollen är inaktiverad, sätt fältet <code>dis</code>
+            <i lang="en">(disabled)</i> till
+            <code lang="en" class="js literal">true</code>;
+          </li>
+
+          <li>
+            annars, om kontrollen inte är tillämplig, sätt fältet
+            <code>na</code> <i lang="en">(not applicable)</i> till
+            <code lang="en" class="js literal">true</code>;
+          </li>
+
+          <li>
+            annars, om kontrollen är underkänd, sätt fältet <code>obs</code>
+            <i lang="en">(observation)</i> till angiven observation och sätt
+            också fälten <code lang="en">path</code> och <code>alt</code> om det
+            finns skärmavbildningsinformation;
+          </li>
+
+          <li>
+            annars, om kontrollen är aktiverad, sätt fältet
+            <code>dis</code> till
+            <code lang="en" class="js literal">false</code>.
+          </li>
+
+          <li>
+            annars, om kontrollen är tillämplig, sätt fältet
+            <code>na</code> till <code lang="en" class="js literal">true</code>.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          kontrollinformationen.
+        </p>
+      </section>
+
+      <!--setScreenshot()-->
+      <section>
+        <h2 id="m-set-screenshot"><code lang="en">setScreenshot()</code></h2>
+
+        <p>Sparar information om en tillhörande skärmavbildning.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setScreenshot</span>(<span class="var">path</span>, <span class="var">alt</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>Filnamn eller sökväg för avbildningsfilen.</dd>
+
+          <dt><code lang="en">alt</code></dt>
+          <dd>Textalternativ till avbildningen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--toJSON()-->
+      <section>
+        <h2 id="m-to-json"><code lang="en">toJSON()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett ärende sparas till fil.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toJSON</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          kontrollinformationen.
+        </p>
+      </section>
+
+      <!--toString()-->
+      <section>
+        <h2 id="m-to-string"><code lang="en">toString()</code></h2>
+
+        <p>Omvandlar kravet till en sträng.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toString</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Kontrollens identitet i konfigurationen.</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="CheckFactory.html"><code lang="en">CheckFactory</code></a>
+          </li>
+          <li>
+            <a href="DerivedCheck.html"><code lang="en">DerivedCheck</code></a>
+          </li>
+          <li>
+            <a href="MultipleCheck.html"
+              ><code lang="en">MultipleCheck</code></a
+            >
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li>
+            <a href="SingleCheck.html"><code lang="en">SingleCheck</code></a>
+          </li>
+          <li><a href="check.index.html">Kontrollklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

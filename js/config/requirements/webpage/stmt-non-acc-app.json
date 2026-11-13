@@ -1,0 +1,20 @@
+{
+  "info": [
+    {
+      "type": "note",
+      "text": "Det här kravet handlar om att det ska finnas ett avsnitt som beskriver otillgängligt innehåll och att beskrivningarna ska vara tillräckligt tydliga. Om avsnittet inte beskriver <em>alla</em> brister du hittat underkänner du inte det här, utan vid kravet på aktualitet."
+    },
+    {
+      "type": "text",
+      "text": "Otillgängligt innehåll som inte omfattas av lagkraven kan vara sådant som undantas på grund av tidsgränser eller som är permanent undantaget."
+    },
+    {
+      "type": "text",
+      "text": "Undantag på grund av tidsgränser finns i 2&nbsp;§ förordningen och gäller vissa dokument som offentliggjorts före 2018-09-23, ljud/video som offentliggjorts före 2020-09-23 och arkiverade webbplatser som inte uppdateras efter 2019-09-23."
+    },
+    {
+      "type": "text",
+      "text": "Permanenta undantag finns i 9&nbsp;§ DOS-lagen och gäller direktsändningar av ljud/video, kartor som inte är avsedda för navigering, digital service från tredje part som inte står under aktörens kontroll, reproduktioner av föremål från kulturarvssamlingar och pedagogiskt material i skolverksamhet."
+    }
+  ]
+}

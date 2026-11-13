@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för referenser, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Klasser och attribut. */
+
+  .references {
+  }
+  .references dt {
+    font-weight: bold;
+  }
+  .references dd {
+    margin: 0 0 2.25em 0;
+  }
+  .references a {
+    text-decoration: var(--link-decor);
+  }
+  .references a:hover {
+    text-decoration: underline;
+  }
+}
+
+/**
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Klasser och attribut. */
+
+  .references {
+  }
+  .references a::after {
+    display: block;
+    font-size: smaller;
+    content: '<' attr(href) '>';
+  }
+}

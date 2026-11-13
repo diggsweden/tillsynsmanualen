@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 210">
+  <g id="IDBObjectStore">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="169" height="202"/>
+      <line x1="1" y1="12" x2="170" y2="12"/>
+      <line x1="1" y1="62" x2="170" y2="62"/>
+    </g>
+
+    <g stroke="none">
+      <text x="85" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">IDBObjectStore</text>
+      <text x="5" y="20">+autoIncrement: boolean</text>
+      <text x="5" y="30">+indexNames: DOMStringList</text>
+      <text x="5" y="40">+keyPath: string</text>
+      <text x="5" y="50">+name: string</text>
+      <text x="5" y="60">+transaction: IDBTransaction</text>
+      <text x="5" y="70">add(object [,string]): IDBRequest</text>
+      <text x="5" y="80">clear(): IDBRequest</text>
+      <text x="5" y="90">count([*]): IDBRequest</text>
+      <text x="5" y="100">createIndex(string, string [,object]): IDBIndex</text>
+      <text x="5" y="110">delete(): IDBRequest</text>
+      <text x="5" y="120">deleteIndex(string): void</text>
+      <text x="5" y="130">get(*): IDBRequest</text>
+      <text x="5" y="140">getAll([*] [,number]): IDBRequest</text>
+      <text x="5" y="150">getAllKeys([*] [,number]): IDBRequest</text>
+      <text x="5" y="160">getKey(*): IDBRequest</text>
+      <text x="5" y="170">index(string): IDBIndex</text>
+      <text x="5" y="180">openCursor([*] [,string]): IDBRequest</text>
+      <text x="5" y="190">openKeyCursor([*] [,string]): IDBRequest</text>
+      <text x="5" y="200">put(object [,string]): IDBRequest</text>
+    </g>
+  </g>
+</svg>

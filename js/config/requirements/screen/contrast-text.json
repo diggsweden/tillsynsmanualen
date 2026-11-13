@@ -1,0 +1,31 @@
+{
+  "methods": [
+    "Leta visuellt efter text som inte uppenbart har tillräcklig kontrast mot bakgrunden. Gör en skärmavbildning och använd ett program för att mäta färgvärden."
+  ],
+  "exceptions": [
+    "logotyper",
+    "inaktiva komponenter i användargränssnittet",
+    "text som utgör ren dekoration och inte förmedlar någon relevant information",
+    "text som inte är synlig för någon",
+    "text i bilder med annat signifikant innehåll."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "text"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "action",
+      "text": "Om appen har stöd för mörkt/ljust visningsläge, gör kontrollen i båda lägena."
+    },
+    {
+      "type": "text",
+      "text": "För att ta reda på textstorleken kan du göra en skärmavbildning och använda ett ritprogram med mätverktyg, till exempel <cite>GIMP</cite> för att mäta bokstäverna. Graden (textstorleken) mäts från underslängen på bokstäver som ”g” till överkanten på stapeln i bokstäver som ”l” (gement ”L”)."
+    }
+  ]
+}

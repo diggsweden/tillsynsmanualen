@@ -1,0 +1,57 @@
+{
+  "methods": [
+    "Använd eventuell inställning på sidan för att utöka textavstånden.",
+    "Aktivera tillägget <cite>Textavstånd</cite> om sidan inte har någon egen funktion för att utöka textavstånden."
+  ],
+  "exceptions": [
+    "Innehåll på språk eller skriftsystem där något av textavstånden inte är tillämpligt. Att ändra ordmellanrum förväntas exempelvis inte ha någon effekt på japansk text, som inte har ”ord” på samma sätt som till exempel svenska."
+  ],
+  "tools": [
+    {
+      "tool": "bookmarklet",
+      "file": "TextSpacing",
+      "title": "Textavstånd"
+    },
+    {
+      "tool": "module",
+      "module": "SpacingProperties",
+      "params": {
+        "letterSpacing": "ts-char",
+        "lineHeight": "ts-line",
+        "paragraphSpacing": "ts-para",
+        "wordSpacing": "ts-word"
+      }
+    },
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Computed",
+      "properties": [
+        "margin-top",
+        "margin-bottom",
+        "line-height",
+        "word-spacing",
+        "letter-spacingl",
+        "font-size"
+      ]
+    }
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "För att kontrollera <strong>styckemellanrum</strong>, markera ett stycke (<code>&lt;p&gt;</code>) och jämför egenskapen <code translate=\"no\" lang=\"en\">margin-bottom</code> (eller <code translate=\"no\" lang=\"en\">margin-top</code>) med <code translate=\"no\" lang=\"en\">font-size</code>."
+    },
+    {
+      "type": "text",
+      "text": "För att kontrollera <strong>radavstånd</strong>, jämför egenskapen <code translate=\"no\" lang=\"en\">line-height</code> med <code translate=\"no\" lang=\"en\">font-size</code>."
+    },
+    {
+      "type": "text",
+      "text": "För att kontrollera <strong>ordmellanrum</strong>, jämför egenskapen <code translate=\"no\" lang=\"en\">word-spacing</code> med <code translate=\"no\" lang=\"en\">font-size</code>."
+    },
+    {
+      "type": "text",
+      "text": "För att kontrollera <strong>teckenavstånd</strong>, jämför egenskapen <code translate=\"no\" lang=\"en\">letter-spacing</code> med <code translate=\"no\" lang=\"en\">font-size</code>."
+    }
+  ]
+}

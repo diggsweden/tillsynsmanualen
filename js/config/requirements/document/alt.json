@@ -1,0 +1,34 @@
+{
+  "methods": [
+    "PDF: Kör en tillgänglighetskontroll. Kontrollera att inga informationsbärande bilder saknar textalternativ.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: Kör en tillgänglighetskontroll. Kontrollera att inga informationsbärande bilder saknar textalternativ."
+  ],
+  "examples": {
+    "bad": [
+      "Ett stapeldiagram från en opinionsundersökning har textalternativet ”Väljarbarometer 2022-02-18”.",
+      "En bild som ska uppmuntra till umgänge utomhus för att minska smittspridningen under en pandemi har ett textalternativ som beskriver motivet i bilden: ”Fotografi av en ung kvinna med en termos.”"
+    ],
+    "good": [
+      "Väljarbarometern har textalternativet ”V 8,3 %, S 32 %, MP 3,3 %, C 6,8 %, L 2,1 %, KD 5,7 %, M 21,5 %, SD 18,7 %; övriga 1,6 %”",
+      "Pandemibilden har textalternativet ”Umgås gärna utomhus för att minska smittspridningen.”"
+    ]
+  },
+  "info": [
+    {
+      "type": "note",
+      "text": "Ett textalternativ ska kunna ersätta bilden i sitt sammanhang, såväl för seende som för skärmläsaranvändare. Är texten obegriplig om man inte vet att den är ett textalternativ till en bild är den förmodligen olämplig."
+    },
+    {
+      "type": "text",
+      "text": "Icke-informationsbärande bilder ska ha ett tomt textalternativ eller döljas för hjälpmedel, exempelvis genom att markeras som ”dekorativ” eller som ”artefakt”."
+    },
+    {
+      "type": "note",
+      "text": "Textalternativ som böjar med ”Bild på…”, ”Foto av…” etc. eller avslutas med ”…logotyp” är inte bra, men det är inte en grund för underkännande. I slutändan är det författaren som avgör vilken information bilden är avsedd att förmedla."
+    }
+  ],
+  "instruction": {
+    "id": "wcag-1.1.1",
+    "title": "Textalternativ"
+  }
+}

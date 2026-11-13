@@ -1,0 +1,23 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "Tillstånd är inte detsamma som värden (som regleras av ett annat krav). Ett tillstånd är en egenskap hos en komponent, som kan förändras av vad användaren gör eller av andra yttre omständigheter. Några exempel:"
+    },
+    {
+      "type": "ulist",
+      "items": [
+        "om en kryssruta är ikryssad eller inte ikryssad",
+        "om en komponent är utgråad eller aktiv",
+        "om ett expanderbart område är utfällt eller kollapsat",
+        "om ett fälts värde är giltigt eller ogiltigt",
+        "om en knapp är nedtryckt eller uppsläppt",
+        "om ett alternativ i en lista är valt eller inte valt."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Komponenter som appen själv tillhandahåller kan också ha tillstånd. En kartfunktion kan ha tillstånden ”hämtar data” och ”klar att använda”; en chattfunktion kan ha tillstånd som ”inte ansluten”, ”redo”, ”samtal pågår”, och så vidare."
+    }
+  ]
+}

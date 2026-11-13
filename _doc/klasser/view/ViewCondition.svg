@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 250">
+  <g id="ViewCondition">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="249" height="42"/>
+      <line x1="1" y1="12" x2="250" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="125" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ViewCondition</text>
+      <text x="5" y="20">apply(): void</text>
+      <text x="5" y="30">disconnect(): void</text>
+      <text x="5" y="40">observe(HTMLElement [,HTMLElement] [,HTMLFormElement]): void</text>
+    </g>
+  </g>
+
+  <g id="ViewCondition-no-args">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="42"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ViewCondition</text>
+      <text x="5" y="20">apply(): void</text>
+      <text x="5" y="30">disconnect(): void</text>
+      <text x="5" y="40">observe(…): void</text>
+    </g>
+  </g>
+</svg>

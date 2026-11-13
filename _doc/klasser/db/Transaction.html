@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Transaction – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Databasgränssnitt</a></li>
+          <li><strong lang="en">Transaction</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">Transaction</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-complete"><code lang="en">complete()</code></a>
+          </li>
+          <li>
+            <a href="#m-object-store"><code lang="en">objectStore()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Kapslar in en <code lang="en">IDBTransaction</code>-instans och
+        tillhandahåller ett löftesbaserat alternativ till det
+        händelseorienterade lågnivå-API:et.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/db/Transaction.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/db/Transaction.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 150" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+          </defs>
+
+          <!--Transaction-->
+          <use
+            xlink:href="Transaction.svg#Transaction"
+            x="5"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="70" y1="33" x2="70" y2="60" class="composition" />
+          <line x1="136" y1="16" x2="180" y2="16" class="dependency" />
+
+          <!--IDBTransaction-->
+          <use
+            xlink:href="IDBTransaction.svg#IDBTransaction"
+            x="0"
+            y="60"
+            class="external"
+          />
+
+          <!--ObjectStore-->
+          <use xlink:href="ObjectStore.svg#ObjectStore" x="180" y="0" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">Transaction</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Transaction</span>(<span class="var">tx</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>tx</code></dt>
+          <dd>
+            En <code lang="en">IDBTransaction</code>-instans att kapsla in.
+          </dd>
+        </dl>
+      </section>
+
+      <!--complete()-->
+      <section>
+        <h2 id="m-complete"><code lang="en">complete()</code></h2>
+
+        <p>
+          Inväntar en <code lang="en">complete</code>-händelse från den
+          underliggande transaktionen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">complete</span>(<span class="var">payload</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">payload</code></dt>
+          <dd>Eventuell ”nyttolast” som förmedlas näar löftet infrias.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med eventuell angiven ”nyttolast” när
+          transaktionen slutförs.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">tx</span> = <span class="var">db</span>.<span class="fn">transaction</span>([<span class="literal">"store"</span>]);
+// …
+<span class="keyword">await</span> <span class="var">tx</span>.<span class="fn">complete</span>();</code></pre>
+      </section>
+
+      <!--objectStore()-->
+      <section>
+        <h2 id="m-object-store"><code lang="en">objectStore()</code></h2>
+
+        <p>Returnerar angivet objektlager som ingår i transaktionen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">objectStore</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>Namnet på det önskade objektlagret.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <a href="ObjectStore.html"><code lang="en">ObjectStore</code></a
+          >-instans som kapslar in det
+          <code lang="en">IDBObjectStore</code>-objekt som lågnivå-API:et
+          returnerar.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">tx</span> = <span class="var">db</span>.<span class="fn">transaction</span>([<span class="literal">"store"</span>]);
+<span class="keyword">const</span> <span class="var">store</span> = <span class="var">tx</span>.<span class="fn">objectStore</span>(<span class="literal">"store"</span>);
+<span class="keyword">const</span> <span class="var">result</span> = <span class="var">store</span>.<span class="fn">getAll</span>();
+<span class="keyword">await</span> <span class="var">tx</span>.<span class="fn">complete</span>();</code></pre>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Database.html"><code lang="en">Database</code></a>
+          </li>
+          <li>
+            <a href="ObjectStore.html"><code lang="en">ObjectStore</code></a>
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBTransaction</code></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBRequest</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

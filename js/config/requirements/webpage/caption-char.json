@@ -1,0 +1,12 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "Standarden säger inte exakt vilka egenskaper som ska vara anpassningsbara, men ger som exempel text- och bakgrundsfärg, teckensnitt, textstorlek, transparens för textremsorna (bakgrunden) samt textkontur."
+    }
+  ],
+  "instruction": {
+    "id": "en-7.1-7.2",
+    "title": "Mediespelare"
+  }
+}

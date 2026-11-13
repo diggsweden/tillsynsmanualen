@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ConsentDialog – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 25rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">ConsentDialog</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1 tabindex="-1" id="start-of-content">
+          <code lang="en">ConsentDialog</code>
+        </h1>
+
+        <nav aria-label="Innehåll" class="page-menu">
+          <ul id="content-menu">
+            <li><a href="#ctor">Konstruktor</a></li>
+            <li>
+              <a href="#m-show"><code lang="en">show()</code></a>
+            </li>
+          </ul>
+        </nav>
+
+        <p>
+          Samtyckesdialog för lokal lagring. Dialogen visas om användaren inte
+          gett sitt samtycke till lokal lagring av information i webbläsaren.
+          Den informerar användaren om behovet av tillgång till lokal lagring
+          och frågar efter samtycke.
+        </p>
+
+        <dl class="src">
+          <dt>Källkod</dt>
+          <dd><code>js/view/ConsentDialog.js</code></dd>
+        </dl>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 250 30" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+            </defs>
+
+            <!--ConsentDialog-->
+            <use
+              xlink:href="ConsentDialog.svg#ConsentDialog"
+              x="0"
+              y="0"
+              class="highlight"
+            />
+
+            <line x1="101" y1="11" x2="140" y2="11" class="composition" />
+
+            <!--HTMLDialogElement-->
+            <use
+              xlink:href="../HTMLDialogElement.svg#HTMLDialogElement"
+              x="140"
+              y="0"
+              class="external"
+            />
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">ConsentDialog</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn skapar ett
+          <code lang="en" class="html tag">&lt;dialog&gt;</code>-element,
+          populerar det med informationstexten och två knappar (<samp
+            >”Nej tack”</samp
+          >
+          och <samp>”Godkänn”</samp>) och infogar dialogen i den angivna
+          behållaren.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ConsentDialog</span>(<span class="var">container</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">container</code></dt>
+          <dd>Behållarelement att infoga dialgrutan i.</dd>
+        </dl>
+      </section>
+
+      <!--show()-->
+      <section>
+        <h2 id="m-show"><code lang="en">show()</code></h2>
+
+        <p>Visar dialogrutan modalt.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">show</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med
+          <code lang="en" class="js literal">true</code> om användaren ger sitt
+          samtycke, eller <code lang="en" class="js literal">false</code> om
+          använ&shy;daren avböjer.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "methods": [
+    "Använd skärmläsare eller uppläsningsfunktion och jämför det upplästa namnet med den synliga texten i varje komponent."
+  ],
+  "exceptions": [
+    "Tecken som används symboliskt och inte bokstavligt, till exempel ett ”X” för ”stäng” eller ”ta bort”."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Som ”text i komponenten” räknas till exempel ledtexten till ett inmatningsfält eller texten i en knapp, men inte inmatat eller förifyllt <em>innehåll</em> i ett fält."
+    },
+    {
+      "type": "text",
+      "text": "Detta krav är viktigt för att personer som använder röststyrning ska veta hur de ska hänvisa till komponenten för att kunna interagera med den på ett effektivt sätt."
+    },
+    {
+      "type": "text",
+      "text": "Den synliga texten ska helst vara den <em>första</em> delen av namnet."
+    }
+  ]
+}

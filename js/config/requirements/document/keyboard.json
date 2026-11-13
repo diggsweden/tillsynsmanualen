@@ -1,0 +1,6 @@
+{
+  "methods": ["Pröva att använda alla funktioner med tangentbordet."],
+  "exceptions": [
+    "Funktioner där det har betydelse vilken bana användaren flyttar en pekare, inte bara ändpunkterna där operationen inleds och avslutas."
+  ]
+}

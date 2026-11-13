@@ -1,0 +1,12 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "För att ange att textalternativet för en bild är på engelska: <code translate=\"no\" lang=\"en\">&lt;img&nbsp;alt=\"…\"&nbsp;lang=\"en\"&gt;</code>."
+    },
+    {
+      "type": "note",
+      "text": "Det går inte att märka upp språkändringar för en <em>del</em> av ett <code translate=\"no\">alt</code>-attributvärde, till exempel enstaka ord."
+    }
+  ]
+}

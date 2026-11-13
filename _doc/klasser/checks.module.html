@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>checks.module.js – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="./">Klasser</a></li>
+          <li><strong lang="en">checks.module.js</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">checks.module.js</code>
+      </h1>
+
+      <p>Modul för presentation av kontroller.</p>
+
+      <p>
+        Modulen efterliknar i viss mån initieringsmodulerna i
+        granskningsfunktionen, men eftersom den inte ingår i händelseslingan
+        skiljer den sig från de andra.
+      </p>
+
+      <p>
+        Modulen skapar en instans vardera av
+        <code lang="en">ChecksView</code> och
+        <code lang="en">ChecksController</code>. Sedan öppnar den vyn (vilket
+        hämtar sidans grundinnehåll) och förbereder controllern för sidvisning
+        (vilket populerar vyn med resten av informationen).
+      </p>
+
+      <p>
+        Eftersom sidan inte har någon intern interaktion behövs ingen
+        händelseslinga, utan när förberedelserna är klara är uppgiften över.
+      </p>
+
+      <h2>Se även</h2>
+
+      <ul class="toc">
+        <li>
+          <a href="common/AppContext.html"><code lang="en">AppContext</code></a>
+        </li>
+        <li>
+          <a href="controller/ChecksController.html"
+            ><code lang="en">ChecksController</code></a
+          >
+        </li>
+        <li>
+          <a href="view/ChecksView.html"><code lang="en">ChecksView</code></a>
+        </li>
+        <li>
+          <a href="common/ResourceLoader.html"
+            ><code lang="en">ResourceLoader</code></a
+          >
+        </li>
+      </ul>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

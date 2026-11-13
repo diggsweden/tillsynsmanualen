@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>BreadcrumbTrail – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 16rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">BreadcrumbTrail</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">BreadcrumbTrail</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li><a href="#m-audit">audit()</a></li>
+          <li><a href="#m-case">case()</a></li>
+          <li><a href="#m-completed">completed()</a></li>
+          <li><a href="#m-delete-root">deleteRoot()</a></li>
+          <li><a href="#m-list">list()</a></li>
+          <li><a href="#m-log">log()</a></li>
+          <li><a href="#m-requirement">requirement()</a></li>
+          <li><a href="#m-sample">sample()</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>Länkstig (”brödsmulor”) för granskningssidor.</p>
+
+      <p>
+        Länkstigen ingår i en vy, men populeras av en
+        <i lang="en">controller</i>. Vilka länkar som sätts varierar beroende på
+        vilken sida länkstigen ingår i, men det finns en hierarki: ärende &rarr;
+        granskning &rarr; stickprov &rarr; krav.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/BreadcrumbTrail.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/BreadcrumbTrail.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 160 120" class="class uml-diagram">
+          <!--BreadcrumbTrail-->
+          <use
+            xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">BreadcrumbTrail</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">BreadcrumbTrail</span>()</code></pre>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">current</code></dt>
+          <dt></dt>
+          <dd>Titel för aktuell sida.</dd>
+
+          <dt class="readonly"><code lang="en">links</code></dt>
+          <dt></dt>
+          <dd>
+            Vektor med länkobjekt ({<code lang="en">title</code>,
+            <code>url</code>}).
+          </dd>
+        </dl>
+      </section>
+
+      <!--audit()-->
+      <section>
+        <h2 id="m-audit"><code lang="en">audit()</code></h2>
+
+        <p>Specificerar aktuell granskning.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">audit</span>(<span class="var">id</span>, <span class="var">date</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Granskningsidentitet.</dd>
+
+          <dt><code lang="en">date</code></dt>
+          <dd>Granskningens startdatum.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--case()-->
+      <section>
+        <h2 id="m-case"><code lang="en">case()</code></h2>
+
+        <p>Specificerar aktuellt ärende.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">case</span>(<span class="var">id</span>, <span class="var">caseNumber</span>, <span class="var">org</span>, <span class="var">service</span></code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Ärendeidentitet.</dd>
+
+          <dt><code lang="en">caseNumber</code></dt>
+          <dd>
+            Ärendenummer (kan anges som en instans av
+            <code lang="en">CaseNumber</code> eller som en sträng).
+          </dd>
+
+          <dt><code lang="en">org</code></dt>
+          <dd>Aktörens namn.</dd>
+
+          <dt><code lang="en">service</code></dt>
+          <dd>Tjänstens namn.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--completed()-->
+      <section>
+        <h2 id="m-completed"><code lang="en">completed()</code></h2>
+
+        <p>
+          En asynkron funktion som slutförs när fältet
+          <code lang="en">current</code> sätts.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">completed</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias när länkstigen är klar att visa, det vill säga
+          när fältet <code lang="en">current</code> tilldelas titeln för den
+          aktuella sidan, som är sista elementet i länkstigen.
+        </p>
+      </section>
+
+      <!--deleteRoot()-->
+      <section>
+        <h2 id="m-delete-root"><code lang="en">deleteRoot()</code></h2>
+
+        <p>
+          Tar bort granskningsstartsidan ur länklistan. Används på själva
+          granskningsstartsidan, eftersom den då är aktuell sida och anges som
+          <code lang="en">current</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deleteRoot</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--list()-->
+      <section>
+        <h2 id="m-list"><code lang="en">list()</code></h2>
+
+        <p>
+          Specificerar listningssida. Används för listningsbara entiteter som
+          inte är ärenden: person eller tillsynsplan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">list</span>(<span class="var">type</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>Entitetstyp.</dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Listtitel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--log()-->
+      <section>
+        <h2 id="m-log"><code lang="en">log()</code></h2>
+
+        <p>Specificerar aktuell ärendelogg.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">log</span>(<span class="var">caseID</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">caseID</code></dt>
+          <dd>Ärendeidentitet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--requirement()-->
+      <section>
+        <h2 id="m-requirement"><code lang="en">requirement()</code></h2>
+
+        <p>Specificerar aktuellt krav.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">requirement</span>(<span class="var">key</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Primärnyckel i databasen.</dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Kravets titel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--sample()-->
+      <section>
+        <h2 id="m-sample"><code lang="en">sample()</code></h2>
+
+        <p>Specificerar aktuellt stickprov.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">sample</span>(<span class="var">id</span>, <span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Stickprovsidentitet</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Stickprovets namn eller titel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

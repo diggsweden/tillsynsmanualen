@@ -1,0 +1,12 @@
+{
+  "examples": {
+    "good": [
+      "Länkar/meny",
+      "Sökfunktion",
+      "Webbplatskarta",
+      "Innehållsförteckning",
+      "A–Ö."
+    ]
+  },
+  "exceptions": ["Sidor som utgör steg i eller resultat av en process."]
+}

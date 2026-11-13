@@ -1,0 +1,13 @@
+{
+  "steps": [
+    "Starta ett videosamtal.",
+    "Be motparten indikera teckenspråk.",
+    "Verifiera att tjänsten indikerar visuellt vem som kommunicerar med teckenspråk."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Talarindikeringen kan vara manuell eller automatisk."
+    }
+  ]
+}

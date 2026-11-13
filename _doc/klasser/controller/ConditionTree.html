@@ -1,0 +1,2444 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ConditionTree – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      ol ol,
+      ol ul {
+        margin-left: 1rem;
+      }
+      .flowchart {
+        width: 26rem;
+        fill: var(--text);
+        stroke: var(--text);
+        stroke-width: 1px;
+      }
+      .flowchart circle {
+        fill: none;
+      }
+      .flowchart line {
+        marker-end: url(#arrow);
+      }
+      .flowchart path.condition {
+        fill: none;
+      }
+      .flowchart text {
+        font-size: 10px;
+        stroke: none !important;
+      }
+      .flowchart text.check,
+      .flowchart text.condition {
+        font-size: 12px;
+        text-anchor: middle;
+      }
+      .flowchart .active {
+        stroke: var(--pass);
+        stroke-width: 2px;
+      }
+      .flowchart .inactive {
+        stroke: var(--fail);
+        stroke-dasharray: 2 3;
+      }
+      line.active {
+        marker-end: url(#active-arrow);
+      }
+      text.active,
+      .active text {
+        fill: var(--pass);
+      }
+      marker.active path {
+        fill: var(--pass);
+      }
+      line.inactive {
+        marker-end: url(#inactive-arrow);
+      }
+      text.inactive,
+      .inactive text {
+        fill: var(--fail);
+      }
+      marker.inactive path {
+        fill: var(--fail);
+      }
+      .persistence {
+      }
+      .persistence dd {
+        margin: 0;
+      }
+      .persistence dt {
+        float: left;
+        clear: left;
+      }
+      .persistence dt::after {
+        content: ' = ';
+      }
+      ol.populate,
+      ol.populate ol {
+        margin-bottom: 0;
+        counter-reset: populate;
+      }
+      ol.populate ol {
+        margin-left: 2rem;
+      }
+      ol.populate li {
+        counter-increment: populate;
+      }
+      ol.populate li::marker {
+        content: counters(populate, '.') '. ';
+      }
+      .uml-diagram {
+        width: 38rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">ConditionTree</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ConditionTree</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-apply"><code lang="en">apply()</code></a>
+          </li>
+          <li>
+            <a href="#m-build"><code lang="en">build()</code></a>
+          </li>
+          <li>
+            <a href="#m-get"><code lang="en">get()</code></a>
+          </li>
+          <li>
+            <a href="#m-update"><code lang="en">update()</code></a>
+          </li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Villkorshierarki för granskning av kontroller. Representerar den
+        konkreta hierarkin av villkor och kontroller som implementerar
+        strukturen i en stickprovskonfigurationsfil.
+      </p>
+
+      <p>
+        Villkor kan vara manuella (utvärderas av granskaren) eller härledda
+        (utvärderas automatiskt från tillståndet hos en eller flera styrande
+        kontroller i samma krav). Villkor kan dessutom vara nästlade i
+        godtyckligt antal nivåer.
+      </p>
+
+      <p>
+        Klassen använder två hjälpklasser, härledda från en gemensam basklass,
+        som inte exponeras utanför modulen.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/ConditionTree.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/ConditionTree.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 380 470" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--ConditionTree-->
+          <use
+            xlink:href="ConditionTree.svg#ConditionTree"
+            x="55"
+            y="180"
+            class="highlight"
+          />
+
+          <line x1="166" y1="208" x2="230" y2="208" class="composition" />
+          <line x1="110" y1="253" x2="110" y2="280" class="composition" />
+
+          <g transform="translate(0, 280)">
+            <!--Condition-->
+            <use
+              xlink:href="ConditionTree.svg#Condition"
+              x="35"
+              y="0"
+              class="internal"
+            />
+
+            <path d="M186,48 h20 v-10 h-20" class="composition" />
+            <line x1="186" y1="56" x2="230" y2="56" class="composition" />
+
+            <g transform="translate(0, 140)">
+              <!--DerivedCondition-->
+              <use
+                xlink:href="ConditionTree.svg#DerivedCondition"
+                x="0"
+                y="0"
+                class="internal"
+              />
+
+              <line x1="55" y1="0" x2="55" y2="-27" class="inheritance" />
+
+              <!--ManualCondition-->
+              <use
+                xlink:href="ConditionTree.svg#ManualCondition"
+                x="120"
+                y="0"
+                class="internal"
+              />
+
+              <line x1="170" y1="0" x2="170" y2="-27" class="inheritance" />
+            </g>
+          </g>
+
+          <g transform="translate(230, 0)">
+            <!--Requirement-->
+            <use
+              xlink:href="../model/Requirement.svg#Requirement"
+              x="0"
+              y="0"
+            />
+
+            <!--Check-->
+            <use xlink:href="../model/Check.svg#Check" x="0" y="310" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ConditionTree</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ConditionTree</span>()</code></pre>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">configuration</code></dt>
+          <dd>Stickprovskonfiguration. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">requirement</code></dt>
+          <dd>Aktuellt krav. (Endast skrivning.)</dd>
+        </dl>
+      </section>
+
+      <!--apply()-->
+      <section>
+        <h2 id="m-apply"><code lang="en">apply()</code></h2>
+
+        <p>
+          Initierar villkorstillstånd. Uppdaterar innehållets synlighet för alla
+          toppnivåvillkor. Beräknar manuella villkors initiala tillstånd utifrån
+          de ingående kontrollernas tillämplighet (aktiv gren innehåller
+          tillämpliga kontroller).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">apply</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--build()-->
+      <section>
+        <h2 id="m-build"><code lang="en">build()</code></h2>
+
+        <p>Bygger en struktur för hantering av villkor.</p>
+
+        <p>
+          Villkor medför två problem: manuella villkors tillstånd måste initialt
+          härledas från de ingående kontrollernas tillstånd och både manuella
+          och härledda villkor ska ändra tillståndet för de ingående
+          kontrollerna när villkoret (eller dess källa) ändrar tillstånd.
+        </p>
+
+        <p>
+          För att hålla ordning på dessa beroenden bygger den här metoden en
+          struktur med information om vad som påverkar vad.
+        </p>
+
+        <p>
+          Den registrerar också beroendena mellan härledda villkor och de
+          kontroller som styr dem, så att villkoren kan uppdateras när
+          kontrollerna ändrar tillstånd.
+        </p>
+
+        <p class="note">
+          Fälten <code lang="en">configuration</code> och
+          <code lang="en">requirement</code> måste ha tilldelats värden innan
+          metoden anropas.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">build</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Konfiguration eller krav har inte angivits före anropet.</dd>
+        </dl>
+      </section>
+
+      <!--get()-->
+      <section>
+        <h2 id="m-get"><code lang="en">get()</code></h2>
+
+        <p>Returnerar villkoret med angiven identitet.</p>
+
+        <p>
+          <code lang="en">ConditionTree</code> lagrar alla skapade villkor i ett
+          privat fält. Den här metoden returnerar det skapade villkor som har
+          den angivna identiteten i konfigurationen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">get</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Villkorsidentitet i stickprovskonfigurationen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det skapade villkoret med angiven identitet, eller
+          <code lang="en" class="js keyword">null</code> om det inte finns något
+          villkor med denna identitet.
+        </p>
+      </section>
+
+      <!--update()-->
+      <section>
+        <h2 id="m-update"><code lang="en">update()</code></h2>
+
+        <p>
+          Uppdaterar eventuella villkor som har beroenden till den angivna
+          kontrollen.
+        </p>
+
+        <p>
+          Metoden itererar över alla härledda villkor som har beroenden till den
+          angivna kontrollen och anropar deras
+          <code lang="en">update()</code>-metod.
+        </p>
+
+        <p>
+          Den anropas när en kontroll ändrat värde på grund av att granskaren
+          godkänt eller underkänt kontrollen. Om det inte finns något härlett
+          villkor med beroende till kontrollen gör metoden ingenting.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">update</span>(<span class="var">checkID</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">checkID</code></dt>
+          <dd>Kontrollidentitet i stickprovskonfigurationen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en
+          <code lang="en">Condition</code>-instans vid varje anrop.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">condition</span> <span class="keyword">of</span> <span class="var">tree</span>. <span class="fn">update</span>(<span class="var">checkID</span>)) {
+    <span class="fn">showUpdatedCondition</span>(<span class="var">condition</span>);
+}</code></pre>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          <code lang="en">ConditionTree</code> använder två interna hjäpklasser
+          för att representerar härledda och manuella villkor:
+          <code lang="en">DerivedCondition</code> respektive
+          <code lang="en">ManualCondition</code>. Dessa två klasser är
+          specialiseringar av en gemensam intern basklass:
+          <code lang="en">Condition</code>.
+        </p>
+
+        <p>
+          I likhet med kontroller kan villkor ha varierande tillämplighet
+          (fältet <code lang="en">applicable</code>) och vara aktiverade eller
+          inaktiverade (fältet <code lang="en">disabled</code>).
+        </p>
+
+        <p>
+          Kontroller och villkor sägs vara <dfn>aktiverade</dfn> (<code
+            lang="en"
+            class="js"
+            >disabled=<span class="literal">false</span></code
+          >) när de ingår i den valda (aktiva) grenen av ett villkor. Grenen kan
+          bli vald baserat på en eller flera andra kontroller (härlett villkor)
+          eller på grund av att granskaren utvärderat villkoret och valt
+          ”<samp>Ja</samp>” eller ”<samp>Nej</samp>” på kravgranskningssidan.
+          Kontroller och villkor i den gren som inte är vald sägs vara
+          <dfn>avaktiverade</dfn>
+          (<code lang="en" class="js"
+            >disabled=<span class="literal">true</span></code
+          >). Så länge villkorets tillstånd är obestämt är de varken aktiverade
+          eller avaktiverade (<code lang="en" class="js"
+            >disabled=<span class="keyword">undefined</span></code
+          >). Notera att ett villkor med bara en gren ändå kan ha avaktiverade
+          kontroller. Om ett villkor bara har kontroller i ja-grenen och
+          granskaren väljer ”<samp>Nej</samp>” blir ja-grenens kontroller
+          avaktiverade för att indikera att grenen inte är vald. Det går alltså
+          inte att förlita sig på att det finns aktiverade kontroller som
+          indikerar en vald gren.
+        </p>
+
+        <p>
+          Kontroller och villkor kan också behöva markeras som
+          <dfn>tillämpliga</dfn> eller <dfn>otillämpliga</dfn> (<code lang="en"
+            >applicable</code
+          >
+          satt till <code lang="en" class="js literal">true</code> respektive
+          <code lang="en" class="js literal">false</code>) för att indikera att
+          de tillhör en vald eller icke vald gren i ett överordnat villkor.
+          Detta är nödvändigt för att kunna härleda tillståndet vid initiering
+          från lagrade data, när ett villkor har underordnade villkor, men inga
+          under&shy;ordnade kontroller på den översta nivån (se exemplen nedan).
+        </p>
+
+        <h3>Populering och initiering av villkor</h3>
+
+        <p>
+          När kravgranskningssidan ska presentera ett krav med dess kontroller
+          behöver villkors&shy;strukturen först populeras utifrån
+          konfigurationen och sedan initieras från data i kravets kontroller.
+        </p>
+
+        <p>
+          Persistenslagret innehåller inga villkor; bara kontrollerna sparas i
+          objektdatabasen eller i en ärendefil. Det kräver en grannlaga
+          hantering för att återskapa de val granskaren gjort i sin
+          handläggning.
+        </p>
+
+        <h4>Initiering av härledda villkor</h4>
+
+        <p>
+          Härledda villkor utgör inget större problem i det här avseendet. Deras
+          tillstånd beräknas från tillstånden hos en eller flera kontroller i
+          samma krav. Därefter behöver villkoret bara aktivera innehållet i den
+          valda grenen och avaktivera innehållet i den andra grenen.
+        </p>
+
+        <h4>Initiering av manuella villkor</h4>
+
+        <p>
+          Manuella villkor är svårare. Här måste villkoret undersöka de
+          underordnade kontrollernas och villkorens tillstånd och försöka utröna
+          vilken – om någon – gren som ska vara vald.
+        </p>
+
+        <ol>
+          <li>
+            Om någon gren innehåller ett aktiverat (inaktiverat) element, sätt
+            tillståndet till den (andra) grenen.
+          </li>
+
+          <li>
+            Om det inte finns något aktiverat eller inaktiverat element, men det
+            finns minst ett tillämpligt element, sätt villlkoret som aktivt och
+            tillämpligt. Om villkoret har 1 gren med bara villkor (som är
+            tillämpliga), sätt grenen som vald.
+          </li>
+
+          <li>
+            Om det finns minst ett otillämpligt element men inga tillämpliga,
+            sätt villkoret som otillämpligt. Om villkoret har 1 gren med bara
+            otillämpliga villkor, sätt grenen som icke vald.
+          </li>
+
+          <li>
+            I annat fall är villkorets tillstånd obestämt, det vill säga
+            granskaren inte gjort något val. Ingen gren är då vald.
+          </li>
+        </ol>
+
+        <p>
+          Vid initiering börjar ett manuellt villkor med att initiera sina
+          underordnade villkor, rekursivt. Detta är nödvändigt eftersom deras
+          tillstånd och tillämplighet behövs för att räkna ut det aktuella
+          villkorets egenskaper.
+        </p>
+
+        <h3>Interaktion med villkor</h3>
+
+        <p>
+          Det ligger i sakens natur att ett villkor kan förändras över tid.
+          Eftersom villkoren bara existerar i konfigurationsfiler och inte
+          persisteras i databas eller ärendefil, behöver kontrollernas
+          egenskaper sättas mycket noggrant för att de gjorda valen ska gå att
+          återskapa från lagrade data enligt vad som beskrivits ovan.
+        </p>
+
+        <h4>Interaktion med härledda villkor</h4>
+
+        <p>
+          Granskaren kan inte interagera direkt med ett härlett villkor,
+          eftersom dess värde bestäms av tillståndet hos en eller flera andra
+          kontroller i samma krav. Men om granskaren ändrar tillståndet hos
+          någon av källkontrollerna behöver det härledda villkoret uppdateras.
+          <code lang="en">RequirementController</code> hanterar
+          användargränssnittet, men <code lang="en">ConditionTree</code> behöver
+          ombesörja de praktiska detaljerna.
+        </p>
+
+        <p>
+          Controllern anropar iteratorn
+          <a href="#m-update"><code lang="en">update()</code></a> med den
+          förändrade kontrollens identitet som argument. Metoden itererar över
+          eventuella härledda villkor som har ett beroende till den angivna
+          kontrollen och anropar deras <code lang="en">update()</code>-metod.
+          Iteratorns värde är det uppdate&shy;rade villkoret, så att controllern
+          kan återspegla det via vyn.
+        </p>
+
+        <h4>Interaktion med manuella villkor</h4>
+
+        <p>
+          När granskaren väljer en gren – ”<samp>Ja</samp>” eller
+          ”<samp>Nej</samp>” – i användargränssnittet sätts dess
+          <code lang="en">state</code>-fält till antingen
+          <code lang="en" class="js literal">true</code> (ja-grenen vald) eller
+          <code lang="en" class="js literal">false</code> (nej-grenen vald).
+        </p>
+
+        <p>
+          Villkoret aktiverar – sätter fältet
+          <code lang="en">disabled</code> till
+          <code lang="en" class="js literal">false</code> – alla kontroller och
+          villkor i den valda grenen och till
+          <code lang="en" class="js literal">true</code> (avaktiverar) i den
+          andra. (Notera att en av grenarna kan vara tom.)
+        </p>
+
+        <p>
+          När ett underordnat villkor avaktiveras sätter det sina underordnade
+          kontroller och villkor som otillämpliga. Om villkoret i stället
+          aktiveras initieras det om tillståndet är obestämt.
+        </p>
+
+        <p>
+          När ett underordnat villkor görs tillämpligt sätter det sina
+          underordnade kontroller och villkor som tillämpliga också. Om
+          villkoret görs otillämpligt sätts de underordnade elementens
+          tillämplighet i stället till obestämd.
+        </p>
+
+        <p>
+          Sammantaget ska denna komplexa logik se till att de kontroller som
+          serialiseras sedan går att använda för att återskapa granskarens
+          gjorda val även i en komplex hierarki.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <p>
+          Figur 2 visar en villkorshierarki med ett överordnat villkor (1) som
+          har en ja-gren med ett villkor (2) och en nej-gren med ett annat
+          villkor (3). Villkor 2 har en ja-gren med kontrollen A och en nej-gren
+          med kontrollen B. Villkor 3 har bara en nej-gren som består av ett
+          villkor (4), som i sin tur har bara en ja-gren med kontrollen C.
+        </p>
+
+        <p>
+          Alla villkor i exemplet är manuella, eftersom manuella villkor har den
+          mest komplexa logiken för interaktion, persistens och populering.
+        </p>
+
+        <figure>
+          <svg
+            viewBox="0 0 260 190"
+            class="flowchart"
+            role="img"
+            aria-label="Visuell illustration av villkorshierarkin"
+          >
+            <defs>
+              <marker
+                id="active-arrow"
+                class="active"
+                markerWidth="4"
+                markerHeight="4"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="4"
+                refY="2"
+                viewBox="0 0 4 4"
+              >
+                <path d="M0.5,0 4,2 0.5,4 Z" />
+              </marker>
+
+              <marker
+                id="arrow"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M1,0 8,4 1,8 Z" />
+              </marker>
+
+              <marker
+                id="inactive-arrow"
+                class="inactive"
+                markerWidth="4"
+                markerHeight="4"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="4"
+                refY="2"
+                viewBox="0 0 4 4"
+              >
+                <path d="M0.5,0 4,2 0.5,4 Z" />
+              </marker>
+
+              <symbol id="check" viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="9.5" />
+              </symbol>
+
+              <symbol id="condition">
+                <path d="M0.5,24.5 l25,-25 25,25 -25,25 z" class="condition" />
+              </symbol>
+            </defs>
+
+            <!--Villkor 1-->
+            <g>
+              <use xlink:href="#condition" x="0" y="0" width="50" height="50" />
+              <text x="25" y="28" class="condition">1</text>
+
+              <line x1="25.5" y1="50" x2="25.5" y2="79" />
+              <text x="30" y="60">ja</text>
+
+              <line x1="50" y1="25.5" x2="119" y2="25.5" />
+              <text x="55" y="22">nej</text>
+            </g>
+
+            <!--Villkor 2-->
+            <g transform="translate(0, 80)">
+              <use xlink:href="#condition" x="0" y="0" width="50" height="50" />
+              <text x="25" y="28" class="condition">2</text>
+
+              <line x1="25.5" y1="50" x2="25.5" y2="79" />
+              <text x="30" y="60">ja</text>
+
+              <line x1="50" y1="25.5" x2="80" y2="25.5" />
+              <text x="55" y="22">nej</text>
+
+              <!--Kontroll A-->
+              <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+              <text x="25" y="93" class="check">A</text>
+
+              <!--Kontroll B-->
+              <use xlink:href="#check" x="80" y="15.5" width="20" height="20" />
+              <text x="90" y="28.5" class="check">B</text>
+            </g>
+
+            <!--Villkor 3-->
+            <g transform="translate(120, 0)">
+              <use xlink:href="#condition" x="0" y="0" width="50" height="50" />
+              <text x="25" y="28" class="condition">3</text>
+
+              <line x1="50" y1="25.5" x2="80" y2="25.5" />
+              <text x="55" y="22">nej</text>
+
+              <!--Villkor 4-->
+              <g transform="translate(80, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                />
+                <text x="25" y="28" class="condition">4</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                <text x="30" y="60">ja</text>
+
+                <!--Kontroll C-->
+                <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+                <text x="25" y="93" class="check">C</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>Exemplens villkorshierarki.</figcaption>
+        </figure>
+
+        <p>
+          Vi börjar med ett ogranskat krav, det vill säga granskaren har ännu
+          inte gjort några val. Det enda som är synligt är villkor 1 med dess
+          text. Från detta utgångsläge testar vi sju olika scenarier för att se
+          vad som händer och hur resultatet serialiseras i databasen.
+        </p>
+
+        <p class="note">
+          Notera att varje exempel börjar från detta utgångsläge; de är alltså
+          inte fortsättningar på föregående exempel.
+        </p>
+
+        <p>
+          Varje exempel beskriver en interaktion (vilka val granskaren gör), hur
+          kontrollerna persisteras vid spara och hur villkorsstrukturen
+          populeras om sidan visas på nytt med persisterade data.
+        </p>
+
+        <section>
+          <h4>Exempel 1</h4>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Ja i villkor 1."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="active" />
+                <text x="30" y="60" class="active">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="inactive" />
+                <text x="55" y="22" class="inactive">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                <text x="30" y="60">ja</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" />
+                <text x="55" y="22">nej</text>
+
+                <!--Kontroll A-->
+                <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+                <text x="25" y="93" class="check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                />
+                <text x="90" y="28.5" class="check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" />
+                <text x="55" y="22">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  />
+                  <text x="25" y="28" class="condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                  <text x="30" y="60">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                  />
+                  <text x="25" y="93" class="check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 1.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Ja</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;2 och gör det tillämpligt.</li>
+                <li>Detta medför att kontrollerna A och B blir tillämpliga.</li>
+                <li>Avaktivera villkor 3.</li>
+                <li>Detta medför att villkor&nbsp;4 blir otillämpligt.</li>
+                <li>
+                  Detta medför att kontroll&nbsp;C får obestämd tillämplighet.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">false</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">false</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd><code lang="en" class="js">{}</code></dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>Återskapa kontroll&nbsp;A som tillämplig.</li>
+                    <li>Återskapa kontroll&nbsp;B som tillämplig.</li>
+                    <li>
+                      Eftersom varken A eller B är aktiverad får villkor&nbsp;2
+                      ett obestämt tillstånd, men eftersom kontrollerna är
+                      tillämpliga blir också villkoret det.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>Återskapa kontroll&nbsp;C som obestämd.</li>
+                        <li>
+                          Sätt villkor&nbsp;4:s tillstånd till obestämt, i
+                          avsaknad av annan information.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Sätt villkor&nbsp;3:s tillstånd till obestämt, i avsaknad
+                      av annan information.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;2 är tillämpligt måste ja-grenen i
+              villkor&nbsp;1 vara vald.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h4>Exempel 2</h4>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Ja i villkor 1 och Ja i villkor 2."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="active" />
+                <text x="30" y="60" class="active">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="inactive" />
+                <text x="55" y="22" class="inactive">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="active" />
+                <text x="30" y="60" class="active">ja</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" class="inactive" />
+                <text x="55" y="22" class="inactive">nej</text>
+
+                <!--Kontroll A-->
+                <use
+                  xlink:href="#check"
+                  x="15"
+                  y="80"
+                  width="20"
+                  height="20"
+                  class="active"
+                />
+                <text x="25" y="93" class="active check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                  class="inactive"
+                />
+                <text x="90" y="28.5" class="inactive check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" />
+                <text x="55" y="22">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  />
+                  <text x="25" y="28" class="condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                  <text x="30" y="60">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                  />
+                  <text x="25" y="93" class="check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 2.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Ja</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;2 och gör det tillämpligt.</li>
+                <li>Detta medför att kontrollerna A och B blir tillämpliga.</li>
+                <li>Avaktivera villkor&nbsp;3.</li>
+                <li>Detta medför att villkor&nbsp;4 blir otillämpligt.</li>
+                <li>
+                  Detta medför att kontroll&nbsp;C får obestämd tillämplighet.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Ja</samp>” i villkor&nbsp;2.
+              <ul>
+                <li>Aktivera kontroll&nbsp;A.</li>
+                <li>Avaktivera kontroll&nbsp;B.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{dis: <span class="literal">false</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{dis: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd><code lang="en" class="js">{}</code></dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>
+                      Återskapa kontroll&nbsp;A som aktiverad och tillämplig.
+                    </li>
+                    <li>
+                      Återskapa kontroll&nbsp;B som inaktiverad och otillämplig.
+                    </li>
+                    <li>
+                      Eftersom A är aktiverad måste ja-grenen i villkor 2 vara
+                      vald; sätt villkorets tillstånd till ”ja” och gör det
+                      aktiverat och tillämpligt.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>Återskapa kontroll&nbsp;C som obestämd.</li>
+                        <li>
+                          Sätt villkor&nbsp;4:s tillstånd till obestämt, i
+                          avsaknad av annan information.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Sätt villkor&nbsp;3:s tillstånd till obestämt, i avsaknad
+                      av annan information.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;2 är aktiverat måste ja-grenen i
+              villkor&nbsp;1 vara vald.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h4>Exempel 3</h4>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Ja i villkor 1, Nej i villkor 2 och godkänner kontroll B."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="active" />
+                <text x="30" y="60" class="active">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="inactive" />
+                <text x="55" y="22" class="inactive">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="inactive" />
+                <text x="30" y="60" class="inactive">ja</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+
+                <!--Kontroll A-->
+                <use
+                  xlink:href="#check"
+                  x="15"
+                  y="80"
+                  width="20"
+                  height="20"
+                  class="inactive"
+                />
+                <text x="25" y="93" class="inactive check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                  class="active"
+                />
+                <text x="90" y="28.5" class="active check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" />
+                <text x="55" y="22">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  />
+                  <text x="25" y="28" class="condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                  <text x="30" y="60">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                  />
+                  <text x="25" y="93" class="check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 3.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Ja</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;2 och gör det tillämpligt.</li>
+                <li>Detta medför att kontrollerna A och B blir tillämpliga.</li>
+                <li>Avaktivera villkor&nbsp;3.</li>
+                <li>Detta medför att villkor&nbsp;4 blir otillämpligt.</li>
+                <li>
+                  Detta medför att kontroll&nbsp;C får obestämd tillämplighet.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;2.
+              <ul>
+                <li>Aktivera kontroll&nbsp;B.</li>
+                <li>Avaktivera kontroll&nbsp;A.</li>
+              </ul>
+            </li>
+
+            <li>Granskaren godkänner kontroll&nbsp;B.</li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{dis: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{ok: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd><code lang="en" class="js">{}</code></dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>
+                      Återskapa kontroll&nbsp;A som avaktiverad och otillämplig.
+                    </li>
+                    <li>
+                      Återskapa kontroll&nbsp;B som aktiverad, tillämplig och
+                      godkänd.
+                    </li>
+                    <li>
+                      Eftersom&nbsp;A är avaktiverad måste nej-grenen i
+                      villkor&nbsp;2 vara vald; sätt villkorets tillstånd till
+                      ”nej” och gör det aktiverat och tillämpligt.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>Återskapa kontroll&nbsp;C som obestämd.</li>
+                        <li>
+                          Sätt villkor&nbsp;4:s tillstånd till obestämt, i
+                          avsaknad av annan information.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Sätt villkor&nbsp;3:s tillstånd till obestämt, i avsaknad
+                      av annan information.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;2 är aktiverat måste ja-grenen i
+              villkor&nbsp;1 vara vald.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h4>Exempel 4</h4>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Nej i villkor 1 och Ja i villkor 3."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="inactive" />
+                <text x="30" y="60" class="inactive">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                <text x="30" y="60">ja</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" />
+                <text x="55" y="22">nej</text>
+
+                <!--Kontroll A-->
+                <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+                <text x="25" y="93" class="check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                />
+                <text x="90" y="28.5" class="check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" class="inactive" />
+                <text x="55" y="22" class="inactive">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                    class="inactive"
+                  />
+                  <text x="25" y="28" class="inactive condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                  <text x="30" y="60">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                  />
+                  <text x="25" y="93" class="check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 4.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;3.</li>
+                <li>
+                  Detta medför att villkor&nbsp;4 initieras (utan resultat,
+                  eftersom kontroll&nbsp;C är obestämd).
+                </li>
+                <li>Avaktivera villkor&nbsp;2.</li>
+                <li>
+                  Detta medför att kontrollerna A och B blir otillämpliga.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Ja</samp>” i villkor&nbsp;3.
+              <ul>
+                <li>Avaktivera villkor&nbsp;4.</li>
+                <li>Detta medför att kontroll&nbsp;C blir otillämplig.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>Återskapa kontroll&nbsp;A som otillämplig.</li>
+                    <li>Återskapa kontroll&nbsp;B som otillämplig.</li>
+                    <li>
+                      Eftersom allt innehåll är otillämpligt blir
+                      kontroll&nbsp;2 otillämplig.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>Återskapa kontroll&nbsp;C som otillämplig.</li>
+                        <li>
+                          Eftersom C är otillämplig blir villkor&nbsp;4
+                          otillämpligt.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Eftersom villkor&nbsp;4 är otillämpligt och villkor&nbsp;3
+                      har en enda gren med bara villkor, måste den icke
+                      existerande ja-grenen vara ”vald”; sätt villkor&nbsp;3:s
+                      tillstånd till ”ja” och gör det aktiverat och tillämpligt.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;3 är aktiverat måste nej-grenen vara vald i
+              kontroll&nbsp;1.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h5>Exempel 5</h5>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Nej i villkor 1 och 3."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="inactive" />
+                <text x="30" y="60" class="inactive">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                <text x="30" y="60">ja</text>
+
+                <line x1="50" y1="25.5" x2="80" y2="25.5" />
+                <text x="55" y="22">nej</text>
+
+                <!--Kontroll A-->
+                <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+                <text x="25" y="93" class="check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                />
+                <text x="90" y="28.5" class="check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                    class="active"
+                  />
+                  <text x="25" y="28" class="active condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                  <text x="30" y="60">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                  />
+                  <text x="25" y="93" class="check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 5.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;3.</li>
+                <li>Detta medför att villkor&nbsp;4 initieras.</li>
+                <li>
+                  Eftersom kontroll&nbsp;C har obestämt tillstånd får även
+                  villkor&nbsp;4 det.
+                </li>
+                <li>Avaktivera villkor&nbsp;2.</li>
+                <li>
+                  Detta medför att kontrollerna A och B blir otillämpliga.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;3.
+              <ul>
+                <li>Aktivera villkor&nbsp;4.</li>
+                <li>Detta medför att villkor&nbsp;4 blir tillämpligt.</li>
+                <li>Detta medför att kontroll&nbsp;C blir tillämplig.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">false</span>}</code
+              >
+            </dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>Återskapa kontroll&nbsp;A som otillämplig.</li>
+                    <li>Återskapa kontroll&nbsp;B som otillämplig.</li>
+                    <li>
+                      Eftersom allt innehåll är otillämpligt blir
+                      kontroll&nbsp;2 otillämplig.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>Återskapa kontroll&nbsp;C som tillämplig.</li>
+                        <li>
+                          Eftersom C är tillämplig, aktivera villkor&nbsp;4 och
+                          gör det tillämpligt.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Eftersom villkor&nbsp;4 är aktiverat måste nej-grenen vara
+                      vald i villkor&nbsp;3. Aktivera det och gör det
+                      tillämpligt.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;3 är aktiverat måste nej-grenen vara vald i
+              kontroll&nbsp;1.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h5>Exempel 6</h5>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Nej i villkor 1, 3 och 4."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="inactive" />
+                <text x="30" y="60" class="inactive">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                <text x="30" y="60">ja</text>
+
+                <line x1="50" y1="25.5" x2="80" y2="25.5" />
+                <text x="55" y="22">nej</text>
+
+                <!--Kontroll A-->
+                <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+                <text x="25" y="93" class="check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                />
+                <text x="90" y="28.5" class="check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                    class="active"
+                  />
+                  <text x="25" y="28" class="active condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" class="inactive" />
+                  <text x="30" y="60" class="inactive">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                    class="inactive"
+                  />
+                  <text x="25" y="93" class="inactive check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 6.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;3.</li>
+                <li>Detta medför att villkor&nbsp;4 initieras.</li>
+                <li>
+                  Eftersom kontroll&nbsp;C har obestämt tillstånd får även
+                  villkor&nbsp;4 det.
+                </li>
+                <li>Avaktivera villkor&nbsp;2.</li>
+                <li>
+                  Detta medför att kontrollerna A och B blir otillämpliga.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;3.
+              <ul>
+                <li>Aktivera villkor&nbsp;4.</li>
+                <li>Detta medför att villkor&nbsp;4 blir tillämpligt.</li>
+                <li>Detta medför att kontroll&nbsp;C blir tillämplig.</li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;4.
+              <ul>
+                <li>Avaktivera kontroll&nbsp;C.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{dis: <span class="literal">true</span>}</code
+              >
+            </dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>Återskapa kontroll&nbsp;A som otillämplig.</li>
+                    <li>Återskapa kontroll&nbsp;B som otillämplig.</li>
+                    <li>
+                      Eftersom allt innehåll är otillämpligt blir
+                      kontroll&nbsp;2 otillämplig.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>Återskapa kontroll&nbsp;C som avaktiverad.</li>
+                        <li>
+                          Eftersom C är avaktiverad måste den icke existerande
+                          nej-grenen vara vald i villkor&nbsp;4. Aktivera det
+                          och gör det tillämpligt.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Eftersom villkor&nbsp;4 är aktiverat måste nej-grenen vara
+                      vald i villkor&nbsp;3. Aktivera det och gör det
+                      tillämpligt.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;3 är aktiverat måste nej-grenen vara vald i
+              kontroll&nbsp;1.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h5>Exempel 7</h5>
+
+          <figure>
+            <svg
+              viewBox="0 0 260 190"
+              class="flowchart"
+              role="img"
+              aria-label="Granskaren väljer Nej i villkor 1 och 3, sedna Ja i villkor 4."
+            >
+              <!--Villkor 1-->
+              <g>
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">1</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" class="inactive" />
+                <text x="30" y="60" class="inactive">ja</text>
+
+                <line x1="50" y1="25" x2="119" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+              </g>
+
+              <!--Villkor 2-->
+              <g transform="translate(0, 80)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="inactive"
+                />
+                <text x="25" y="28" class="inactive condition">2</text>
+
+                <line x1="25.5" y1="50" x2="25.5" y2="79" />
+                <text x="30" y="60">ja</text>
+
+                <line x1="50" y1="25.5" x2="80" y2="25.5" />
+                <text x="55" y="22">nej</text>
+
+                <!--Kontroll A-->
+                <use xlink:href="#check" x="15" y="80" width="20" height="20" />
+                <text x="25" y="93" class="check">A</text>
+
+                <!--Kontroll B-->
+                <use
+                  xlink:href="#check"
+                  x="80"
+                  y="15.5"
+                  width="20"
+                  height="20"
+                />
+                <text x="90" y="28.5" class="check">B</text>
+              </g>
+
+              <!--Villkor 3-->
+              <g transform="translate(120, 0)">
+                <use
+                  xlink:href="#condition"
+                  x="0"
+                  y="0"
+                  width="50"
+                  height="50"
+                  class="active"
+                />
+                <text x="25" y="28" class="active condition">3</text>
+
+                <line x1="50" y1="25" x2="80" y2="25" class="active" />
+                <text x="55" y="22" class="active">nej</text>
+
+                <!--Villkor 4-->
+                <g transform="translate(80, 0)">
+                  <use
+                    xlink:href="#condition"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                    class="active"
+                  />
+                  <text x="25" y="28" class="active condition">4</text>
+
+                  <line x1="25.5" y1="50" x2="25.5" y2="79" class="active" />
+                  <text x="30" y="60" class="active">ja</text>
+
+                  <!--Kontroll C-->
+                  <use
+                    xlink:href="#check"
+                    x="15"
+                    y="80"
+                    width="20"
+                    height="20"
+                    class="active"
+                  />
+                  <text x="25" y="93" class="active check">C</text>
+                </g>
+              </g>
+            </svg>
+
+            <figcaption>Val i exempel 7.</figcaption>
+          </figure>
+
+          <h5>Interaktion</h5>
+
+          <ol>
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;1.
+              <ul>
+                <li>Aktivera villkor&nbsp;3.</li>
+                <li>Detta medför att villkor&nbsp;4 initieras.</li>
+                <li>
+                  Eftersom kontroll&nbsp;C har obestämt tillstånd får även
+                  villkor&nbsp;4 det.
+                </li>
+                <li>Avaktivera villkor&nbsp;2.</li>
+                <li>
+                  Detta medför att kontrollerna A och B blir otillämpliga.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Nej</samp>” i villkor&nbsp;3.
+              <ul>
+                <li>Aktivera villkor&nbsp;4.</li>
+                <li>Detta medför att villkor&nbsp;4 blir tillämpligt.</li>
+                <li>Detta medför att kontroll&nbsp;C blir tillämplig.</li>
+              </ul>
+            </li>
+
+            <li>
+              Granskaren väljer ”<samp>Ja</samp>” i villkor&nbsp;4.
+              <ul>
+                <li>Aktivera kontroll&nbsp;C.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h5>Persistens</h5>
+
+          <dl class="persistence">
+            <dt>A</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>B</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{na: <span class="literal">true</span>}</code
+              >
+            </dd>
+
+            <dt>C</dt>
+            <dd>
+              <code lang="en" class="js"
+                >{dis: <span class="literal">false</span>}</code
+              >
+            </dd>
+          </dl>
+
+          <h5>Populering</h5>
+
+          <ol class="populate">
+            <li>
+              Sätt villkor&nbsp;1 som aktiverat, eftersom det inte är
+              underordnat något annat villkor.
+            </li>
+
+            <li>
+              Initiera villkor&nbsp;1.
+              <ol>
+                <li>
+                  Initiera villkor&nbsp;2.
+                  <ol>
+                    <li>Återskapa kontroll&nbsp;A som otillämplig.</li>
+                    <li>Återskapa kontroll&nbsp;B som otillämplig.</li>
+                    <li>
+                      Eftersom allt innehåll är otillämpligt blir
+                      kontroll&nbsp;2 otillämplig.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  Initiera villkor&nbsp;3.
+                  <ol>
+                    <li>
+                      Initiera villkor&nbsp;4.
+                      <ol>
+                        <li>
+                          Återskapa kontroll&nbsp;C som tillämplig och
+                          aktiverad.
+                        </li>
+                        <li>
+                          Eftersom C är aktiverad måste ja-grenen vara vald i
+                          villkor&nbsp;4. Aktivera det och gör det tillämpligt.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Eftersom villkor&nbsp;4 är aktiverat måste nej-grenen vara
+                      vald i villkor&nbsp;3. Aktivera det och gör det
+                      tillämpligt.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Eftersom villkor&nbsp;3 är aktiverat måste nej-grenen vara vald i
+              kontroll&nbsp;1.
+            </li>
+          </ol>
+        </section>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../model/check.index.html">Kontrollklasser</a></li>
+          <li>
+            <a href="../model/Requirement.html"
+              ><code lang="en">Requirement</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/RequirementController.html"
+              ><code lang="en">RequirementController</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

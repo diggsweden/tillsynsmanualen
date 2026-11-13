@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Menu – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">Menu</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Menu</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#properties"><span>Fält</span></a>
+          </li>
+          <li>
+            <a href="#m-add"><code lang="en">add()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-observer"><code lang="en">addObserver()</code></a>
+          </li>
+          <li>
+            <a href="#m-close-all"><code lang="en">closeall()</code></a>
+          </li>
+          <li>
+            <a href="#m-down"><code lang="en">down()</code></a>
+          </li>
+          <li>
+            <a href="#m-handle-left"><code lang="en">handleLeft()</code></a>
+          </li>
+          <li>
+            <a href="#m-left"><code lang="en">left()</code></a>
+          </li>
+          <li>
+            <a href="#m-match-next-item"
+              ><code lang="en">matchNextItem()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-next-item"><code lang="en">nextItem()</code></a>
+          </li>
+          <li>
+            <a href="#m-previous-item"><code lang="en">previousItem()</code></a>
+          </li>
+          <li>
+            <a href="#m-right"><code lang="en">right()</code></a>
+          </li>
+          <li>
+            <a href="#m-up"><code lang="en">up()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Menu</code> representerar en meny som innehåller
+        menyelement <i lang="en">(items)</i>. En undermeny har ett menyelement
+        som förälder. Menyer implementeras med ett listelement (<code
+          class="html tag"
+          >&lt;ul&gt;</code
+        >) som underliggande element.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/menu/Menu.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/menu/Menu.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 220" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--MenuItem-->
+          <use xlink:href="MenuItem.svg#MenuItem" x="0" y="0" />
+
+          <path d="M101,18 h12 v-8 h-12" class="composition" />
+          <line x1="101" y1="68" x2="140" y2="68" class="composition" />
+
+          <!--Menu-->
+          <use xlink:href="Menu.svg#Menu" x="140" y="0" class="highlight" />
+          <g transform="translate(140, 0)">
+            <line x1="0" y1="78" x2="-39" y2="78" class="composition" />
+            <path d="M0,88 h-20 v10 h20" class="composition" />
+          </g>
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Menu</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn sätter
+          <code lang="en" class="html attr">role=<span>"menu"</span></code>
+          och eventuellt
+          <code lang="en" class="html attr">aria-label</code>–attribut på det
+          underliggande elementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Menu</span>(<span class="var">element</span>)
+<span class="keyword">new</span> <span class="ident">Menu</span>(<span class="var">element</span>, <span class="var">label</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">element</code></dt>
+          <dd>
+            Det <code class="html tag">&lt;ul&gt;</code>-element som
+            representerar menyn i DOM-trädet.
+          </dd>
+
+          <dt class="optional"><code lang="en">label</code></dt>
+          <dd>Etikett som förmedlas till hjälpmedel.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">current</code></dt>
+          <dd>Aktivt (fokuserat) menyelement.</dd>
+
+          <dt class="readonly"><code lang="en">firstItem</code></dt>
+          <dd>Det första elementet i menyn.</dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>
+            Det underliggande HTML-elementets
+            <code class="html attr">id</code>-attribut.
+          </dd>
+
+          <dt><code lang="en">labelledBy</code></dt>
+          <dd>Identitet för ett element som beskriver menyn.</dd>
+
+          <dt class="readonly"><code lang="en">lastItem</code></dt>
+          <dd>Det sista elementet i menyn.</dd>
+
+          <dt class="readonly"><code lang="en">orientation</code></dt>
+          <dd>
+            Menyns orientering (<code lang="en" class="js literal"
+              >"vertical"</code
+            >
+            eller
+            <code lang="en" class="js literal">"horizontal"</code>).
+          </dd>
+
+          <dt><code lang="en">parentItem</code></dt>
+          <dd>Överordnat menyelement.</dd>
+
+          <dt><code lang="en">parentMenu</code></dt>
+          <dd>Överordnad meny.</dd>
+
+          <dt class="readonly"><code lang="en">root</code></dt>
+          <dd>
+            Den översta menyn i hierarkin. Om menyn <em>är</em> den översta i
+            hierarkin är värdet <code lang="en" class="js keyword">this</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--add()-->
+      <section>
+        <h2 id="m-add"><code lang="en">add()</code></h2>
+
+        <p>Lägger till ett menyelement i menyn.</p>
+
+        <p>
+          Sätter första tillagda elementet som aktivt element om menyn är en
+          toppmeny.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">add</span>(<span class="var">item</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">item</code></dt>
+          <dd>Menyelement att lägga till.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addObserver()-->
+      <section>
+        <h2 id="m-add-observer"><code lang="en">addObserver()</code></h2>
+
+        <p>Registrerar en observatör på menyn.</p>
+
+        <p>
+          Lägger till händelselyssnare på menyelementet och meddelar alla
+          registrerade observa&shy;törer när händelser inträffar. Observatörer
+          anropas med ett argument: ett objekt med information om händelsen (se
+          nedan).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addObserver</span>(<span class="var">observer</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">observer</code></dt>
+          <dd>Observatör att registrera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Händelser</h3>
+
+        <dl class="events">
+          <dt><code lang="en">click</code></dt>
+          <dd>Meddelas när användaren klickat med mus (eller motsvarande).</dd>
+
+          <dt><code lang="en">close</code></dt>
+          <dd>Meddelas när en meny och dess undermenyer stängs.</dd>
+
+          <dt><code lang="en">key</code></dt>
+          <dd>
+            Meddelas när användaren tryckt en tangent (eller motsvarande).
+          </dd>
+        </dl>
+
+        <table>
+          <caption>
+            Händelseinformation till observatörer
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Innehåll</th>
+              <th scope="col">Händelsetyper</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">source</code></td>
+              <td>Menyinstansen där händelsen inträffade.</td>
+              <td>Alla.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">target</code></td>
+              <td>Det menyelement, om något, som händelsen inträffade på.</td>
+              <td><code>click</code>, <code>key</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">type</code></td>
+              <td>Händelsetyp.</td>
+              <td>Alla.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--closeAll()-->
+      <section>
+        <h2 id="m-close-all"><code lang="en">closeAll()</code></h2>
+
+        <p>Stänger alla underordnade menyer.</p>
+
+        <p>
+          Meddelar observatörer om att menyn stängts (händelsetypen
+          <code lang="en">close</code>).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">closeAll</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element som representerar menyns nya aktiva element.
+        </p>
+      </section>
+
+      <!--down()-->
+      <section>
+        <h2 id="m-down"><code lang="en">down()</code></h2>
+
+        <p>Returnerar menyelement nedanför det angivna referenselementet.</p>
+
+        <p>
+          I en vanlig meny är <code lang="en">down()</code> detsamma som
+          <a href="#m-next-item"><code lang="en">nextItem()</code></a
+          >. Härledda klasser kan dock differentiera dem.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">down</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Nästa <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element efter referenselementet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--handleLeft()-->
+      <section>
+        <h2 id="m-handle-left"><code lang="en">handleLeft()</code></h2>
+
+        <p>Hantera navigering med vänsterpil.</p>
+
+        <p>
+          I en undermeny till en vertikal meny stängs undermenyn som innehåller
+          referenselementet. I en meny under ett element i en horisontell
+          menyrad överlåter basklassen åt menyraden att hantera händelsen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">handleLeft</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det överordnade
+          <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-elementet om referenselementet finns i en undermeny. Returvärdet
+          från
+          <a href="Menubar.html#m-handle-left"
+            ><code lang="en">handleLeft()</code> i menyraden</a
+          >
+          om referenselementet finns i en meny under ett menyradselement.
+        </p>
+      </section>
+
+      <!--left()-->
+      <section>
+        <h2 id="m-left"><code lang="en">left()</code></h2>
+
+        <p>
+          Hantera navigering med åt vänster från det angivna referenselementet.
+        </p>
+
+        <p>
+          I en vanlig meny är <code lang="en">left()</code> detsamma som
+          <a href="#m-handle-left"><code lang="en">handleLeft()</code></a
+          >. Härledda klasser kan dock differentiera dem.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">left</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-elementet som representerar det nya aktiva elementet i meny.
+        </p>
+      </section>
+
+      <!--matchNextItem()-->
+      <section>
+        <h2 id="m-match-next-item"><code lang="en">matchNextItem()</code></h2>
+
+        <p>
+          Returnerar nästa menyelement vars textinnehåll börjar med angivet
+          tecken.
+        </p>
+
+        <p>
+          När användaren trycker på en tangent som representerar ett skrivbart
+          tecken ska menyn sätta fokus till nästa element (från det angivna
+          referenselementet) som börjar med detta tecken. Den här metoden
+          returnerar det elementet, om det finns.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">matchNextItem</span>(<span class="var">ref</span>, <span class="var">char</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+
+          <dt><code>char</code></dt>
+          <dd>Tecken att matcha.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det matchande
+          <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-elementet, eller
+          <code class="js" lang="en"
+            ><span class="keyword">undefined</span></code
+          >
+          om inget element börjar med angivet tecken.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--nextItem()-->
+      <section>
+        <h2 id="m-next-item"><code lang="en">nextItem()</code></h2>
+
+        <p>Returnerar nästa menyelement efter det angivna referenselementet.</p>
+
+        <p>
+          Om referenselementet är det sista elementet i menyn, börja om med det
+          första elementet <i lang="en">(wrap around)</i>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">nextItem</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Nästa <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element i förhållande till referenselementet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--previousItem()-->
+      <section>
+        <h2 id="m-previous-item"><code lang="en">previousItem()</code></h2>
+
+        <p>Returnerar menyelementet före det angivna referenselementet.</p>
+
+        <p>
+          Om referenselementet är det förta elementet i menyn, börja om med det
+          sista elementet <i lang="en">(wrap around)</i>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">previousItem</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Föregående <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element i förhållande till referenselementet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--right()-->
+      <section>
+        <h2 id="m-right"><code lang="en">right()</code></h2>
+
+        <p>Hantera navigering med högerpil från angivet referenselement:</p>
+
+        <ul>
+          <li>
+            Om referenselementet har en undermeny, öppna den och fokusera första
+            elementet.
+          </li>
+
+          <li>
+            I annat fall, om rotmenyn är horisontellt orienterad, stäng alla
+            över- och underordnade menyer, navigera till följande element i
+            rotmenyn och öppna dess undermeny (utan att fokusera den).
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">right</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element som representerar första elementet i en undermeny eller
+          nästa rotelement.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--up()-->
+      <section>
+        <h2 id="m-up"><code lang="en">up()</code></h2>
+
+        <p>Returnerar menyelement ovanför det angivna referenselementet.</p>
+
+        <p>
+          I en vanlig meny är <code lang="en">up()</code> detsamma som
+          <a href="#m-previous-item"><code lang="en">previousItem()</code></a
+          >. Härledda klasser kan dock differentiera dem.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">up</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Föregående <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element från referenselementet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          En meny lägger till händelselyssnare för musklick och
+          tangettryckningar på det underliggande listelementet. Andra objekt kan
+          registrera sig som observatörer på menyn och blir då aviserade varje
+          gång en klick- eller tangenthändelse inträffar. Om någon anropad
+          observatör returnerar <code lang="en">true</code> anses händelsen
+          hanterad och menyn stoppar fortsatt propagering av den. Notera att
+          <em>alla</em> observatörer aviseras för varje händelse.
+        </p>
+
+        <p>
+          Designmönstret
+          <a
+            href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/"
+            hreflang="en"
+            rel="external"
+            lang="en"
+            rel="external"
+            >Menu</a
+          >
+          för med sig krav på tangentbordsinteraktion, varav några orsakar en
+          del komplexitet för en menyklass som ska fungera både som horisontell
+          (menyrad) och vertikal (undermeny).
+        </p>
+
+        <table>
+          <caption>
+            Tangentbordsinteraktion för undermeny.
+          </caption>
+
+          <colgroup>
+            <col class="key" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Enter</kbd></kbd>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Om elementet som har fokus har en undermeny, öppna
+                    under&shy;menyn och sätt fokus till dess första element.
+                  </li>
+                  <li>
+                    I annat fall, aktivera elementet och stäng hela menyn.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>mellanslag</kbd></kbd>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Om elementet som har fokus har en undermeny, öppna
+                    under&shy;menyn och sätt fokus till dess första element.
+                  </li>
+                  <li>
+                    I annat fall, aktivera elementet och stäng hela menyn.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>
+                Flytta fokus till nästa element och börja om från början efter
+                sista elementet.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>
+                Flytta fokus till föregående element och börja om nedifrån efter
+                första elementet.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭢</kbd></kbd>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Om elementet som har fokus har en undermeny, öppna
+                    under&shy;menyn och sätt fokus till dess första element.
+                  </li>
+                  <li>
+                    I annat fall, om menyn är underordnad en menyrad:
+                    <ol>
+                      <li>Stäng undermenyn och alla överordnade menyer.</li>
+                      <li>Sätt fokus till nästa elment i menyraden.</li>
+                      <li>
+                        Öppna dess undermeny, utan att flytta fokus in i den.
+                      </li>
+                    </ol>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭠</kbd></kbd>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Om elementet som har fokus finns i en undermeny, stäng
+                    under&shy;menyn och sätt fokus till föräldraelementet.
+                  </li>
+                  <li>
+                    Om elementet som har fokus finns i en undermeny till ett
+                    element i en menyrad:
+                    <ol>
+                      <li>Stäng undermenyn och alla överordnade menyer.</li>
+                      <li>Sätt fokus till föregående elment i menyraden.</li>
+                      <li>
+                        Öppna dess undermeny, utan att flytta fokus in i den.
+                      </li>
+                    </ol>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Esc</kbd></kbd>
+              </td>
+              <td>
+                Stäng menyn där fokus finns och sätt fokus till dess
+                föräldraelement.
+              </td>
+            </tr>
+
+            <tr>
+              <td>skrivbart tecken</td>
+              <td>
+                Sätt fokus till nästa element i aktuell meny som börjar med
+                detta skrivbara tecken.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../../meny.html">Menyn</a></li>
+          <li>
+            <a href="Menubar.html"><code lang="en">Menubar</code></a>
+          </li>
+          <li>
+            <a href="MenuBuilder.html"><code lang="en">MenuBuilder</code></a>
+          </li>
+          <li>
+            <a href="MenuItem.html"><code lang="en">MenuItem</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

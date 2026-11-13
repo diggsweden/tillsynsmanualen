@@ -1,0 +1,1156 @@
+{
+  "clauses": {
+    "5.2": {
+      "title": "Aktivering av tillgänglighetsfunktioner",
+      "expectations": [
+        "Det går att aktivera dokumenterade tillgänglighetsfunktioner för att möta ett specifikt behov utan att det krävs ett handhavande som inte stödjer behovet."
+      ],
+      "principles": "POUR",
+      "guideline": "165"
+    },
+    "5.3": {
+      "title": "Biometri",
+      "expectations": [
+        "Webbplatser som använder biometriska kännetecken är inte beroende av ett specifikt biometriskt kännetecken som enda sätt att identifiera användaren för att ge åtkomst till tjänsten."
+      ],
+      "principles": "O",
+      "guideline": "166"
+    },
+    "5.4": {
+      "title": "Omvandling",
+      "expectations": [
+        "Funktioner som omvandlar information eller kommunikation bevarar all dokumenterad icke-proprietär information som tillhandahålls för tillgänglighet, i den mån sådan information ryms i och stöds av målformatet."
+      ],
+      "principles": "PUR",
+      "guideline": "167"
+    },
+    "6.1": {
+      "title": "Bandbredd för tal",
+      "expectations": [
+        "Om webbsidan erbjuder tvåvägs röstkommunikation är frekvensomfångets övre gräns minst 7 kHz."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.2.1.1": {
+      "title": "Kommunikation via realtidstext",
+      "expectations": [
+        "Om webbsidan erbjuder tvåvägs röstkommunikation går det även att kommunicera via RTT (Real-Time Text), utom om detta skulle kräva ändringar av hårdvara."
+      ],
+      "principles": "PO",
+      "guideline": "169"
+    },
+    "6.2.1.2": {
+      "title": "Samtidig röst- och textkommunikation",
+      "expectations": [
+        "Om webbsidan erbjuder tvåvägs röstkommunikation och RTT går det att kommunicera via röst och RTT samtidigt via en enda anslutning."
+      ],
+      "principles": "PO",
+      "guideline": "169"
+    },
+    "6.2.2.1": {
+      "title": "Visuellt särskiljbar visning av realtidstext",
+      "expectations": [
+        "Om webbsidan har en funktion för realtidstext går det att särskilja avsändarens och mottagarens RTT-text visuellt."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.2.2.2": {
+      "title": "Maskinellt särskiljbar visning av realtidstext",
+      "expectations": [
+        "Om webbsidan har en funktion för realtidstext går det att särskilja avsändarens och mottagarens RTT-text maskinellt."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.2.2.3": {
+      "title": "Talarindikering för realtidstext",
+      "expectations": [
+        "Om webbsidan har en funktion för realtidstext och indikerar vem som talar med röst ska den även indikera vem som skriver via realtidstext."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.2.2.4": {
+      "title": "Visuell ljudindikering för realtidstext",
+      "expectations": [
+        "Om webbsidan har en funktion för realtidstext ska den tillhandahålla visuell indikering i realtid av ljudaktivitet."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.2.3": {
+      "title": "Interoperabilitet",
+      "expectations": [
+        "Webbsidor med realtidstext har interoperabilitet med följande sätt (om tillämpligt):",
+        "via PSTN med IKT ansluten enligt ITU-T V.18",
+        "över VoIP med SIP, enligt RFC 4103",
+        "IMS",
+        "annat relevant och applicerbart protokoll med stöd för att indikera förlorade och förvanskade tecken i uppkopplingen."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.2.4": {
+      "title": "Responstid för realtidstext",
+      "expectations": [
+        "Om webbsidan har en funktion för realtidstext sänds inmatad text till nätverket inom 500 millisekunder."
+      ],
+      "principles": "P",
+      "guideline": "169"
+    },
+    "6.3": {
+      "title": "Nummerpresentation",
+      "expectations": [
+        "Om webbsidan erbjuder nummerpresentation eller liknande funktioner är den uppringandes identitet tillgänglig som text och även maskinläsbar (utom vid stängd funktionalitet)."
+      ],
+      "principles": "POUR",
+      "guideline": "169"
+    },
+    "6.4": {
+      "title": "Alternativ till röststyrda tjänster",
+      "expectations": [
+        "Om sidan erbjuder tvåvägs röstkommunikation och även erbjuder röstbrevlåda, talsvar eller röststyrda menyer erbjuder den också sätt att komma åt informationen och använda tjänsterna utan hörsel- och talförmåga."
+      ],
+      "principles": "POU",
+      "guideline": "169"
+    },
+    "6.5.2": {
+      "title": "Upplösning vid videosamtal",
+      "expectations": [
+        "Om webbsidan erbjuder tvåvägs videokommunikation är högsta möjliga upplösning i videosamtalet minst QVGA (320×240 pixlar)."
+      ],
+      "principles": "PU",
+      "guideline": "169"
+    },
+    "6.5.3": {
+      "title": "Bildväxlingsfrekvens vid videosamtal",
+      "expectations": [
+        "Om webbsidan erbjuder tvåvägs videokommunikation är högsta möjliga bildväxlingsfrekvens minst 20 bilder/s."
+      ],
+      "principles": "PU",
+      "guideline": "169"
+    },
+    "6.5.4": {
+      "title": "Synkronisering mellan ljud och bild",
+      "expectations": [
+        "Om webbsidan erbjuder tvåväga videokommunikation överstiger fördröjningen mellan ljud och bild inte 100 millisekunder."
+      ],
+      "principles": "PU"
+    },
+    "6.5.5": {
+      "title": "Visuell ljudindikering med video",
+      "expectations": [
+        "Om webbsidan erbjuder tvåvägs videokommunikation tillhandahåller den visuell indikering i realtid av ljudaktivitet,"
+      ],
+      "principles": "PU"
+    },
+    "6.5.6": {
+      "title": "Talarindikering för teckenspråk",
+      "expectations": [
+        "Om webbsidan har talarindikering för röstanvändare tillhandahåller den indikering för teckenspråksanvändning i realtid."
+      ],
+      "principles": "PU"
+    },
+    "7.1.1": {
+      "title": "Visa undertexter",
+      "expectations": [
+        "På webbsidor som visar video med ljud finns ett sätt att visa undertexter."
+      ],
+      "principles": "PU",
+      "guideline": "117"
+    },
+    "7.1.2": {
+      "title": "Synkroniserade undertexter",
+      "expectations": [
+        "När webbsidan visar undertexter för video är de synkroniserade med ljudet med en fördröjning som inte överstiger 100 millisekunder."
+      ],
+      "principles": "P",
+      "guideline": "117"
+    },
+    "7.1.3": {
+      "title": "Bevara undertexter vid omvandling",
+      "expectations": [
+        "Om webbsidan vidaresänder, omvandlar eller spelar in video med synkroniserat ljud bevaras textningsinformationen."
+      ],
+      "principles": "PU",
+      "guideline": "167"
+    },
+    "7.1.4": {
+      "title": "Anpassa undertexter",
+      "expectations": [
+        "Om webbsidan visar undertexter tillhandahåller den ett sätt för användaren att anpassa visningsegenskaperna för undertexterna, om de inte är ”inbrända” i filmen."
+      ],
+      "principles": "P"
+    },
+    "7.1.5": {
+      "title": "Upplästa undertexter",
+      "expectations": [
+        "Om webbsidan visar video med ljud tillhandahåller den ett sätt att få undertexterna upplästa, utom då texten inte är maskinläsbar (”inbränd”)."
+      ],
+      "principles": "PU"
+    },
+    "7.2.1": {
+      "title": "Visa syntolkning",
+      "expectations": [
+        "Videospelare har en funktion för att aktivera syntolkning."
+      ],
+      "principles": "PU",
+      "guideline": "120"
+    },
+    "7.2.2": {
+      "title": "Synkroniserad syntolkning",
+      "expectations": [
+        "När webbsidan spelar upp syntolkning är denna synkroniserad med det audiovisuella innehållet."
+      ],
+      "principles": "P",
+      "guideline": "120"
+    },
+    "7.2.3": {
+      "title": "Bevara syntolkning vid omvandling",
+      "expectations": [
+        "Om webbsidan vidaresänder, omvandlar eller spelar in video med synkroniserat ljud bevaras syntolkningsinformationen."
+      ],
+      "principles": "PU",
+      "guideline": "167"
+    },
+    "7.3": {
+      "title": "Reglage för undertexter och syntolkning",
+      "expectations": [
+        "Reglage för undertexter och syntolkning finnas på samma interaktionsnivå som de primära mediekontrollerna."
+      ],
+      "principles": "PO",
+      "guideline": "117"
+    },
+    "9.1.1.1": {
+      "title": "Textalternativ",
+      "expectations": [
+        "Bilder som förmedlar relevant information har textalternativ som förmedlar samma information i sammanhanget.",
+        "Icke informationsbärande bilder är dolda för hjälpmedel.",
+        "Allt övrigt innehåll som inte är text har textalternativ som åtminstone identifierar innehållet."
+      ],
+      "principles": "P",
+      "guideline": "115"
+    },
+    "9.1.2.1": {
+      "title": "Förinspelat ljud och ljudlös video",
+      "expectations": [
+        "För ljudspår finns en transkription eller motsvarande.",
+        "För animeringar och ljudlös video finns antingen en textversion eller ett ljudspår med samma information."
+      ],
+      "principles": "P",
+      "guideline": "116"
+    },
+    "9.1.2.2": {
+      "title": "Undertexter för förinspelad video",
+      "expectations": [
+        "Förinspelad video med ljud har undertexter för hörselskadade, det vill säga som återger allt relevant ljud, inte bara dialogen."
+      ],
+      "principles": "P",
+      "guideline": "117"
+    },
+    "9.1.2.3": {
+      "title": "Textalternativ eller syntolkning",
+      "expectations": [
+        "Det finns textversioner eller syntolkningar (ljudbeskrivningar) av all förinspelad video. (Detta räcker inte för att uppfylla lagkraven, eftersom krav 9.1.2.5 är mer långtgående.)"
+      ],
+      "principles": "P",
+      "guideline": "118"
+    },
+    "9.1.2.4": {
+      "title": "Undertexter för direktsänd video",
+      "expectations": [
+        "Direktsänd video med ljud har undertexter för hörselskadade. (Inte ett lagkrav.)"
+      ],
+      "principles": "",
+      "guideline": "119"
+    },
+    "9.1.2.5": {
+      "title": "Syntolkning",
+      "expectations": [
+        "Det finns syntolkning (ljudbeskrivningar) av all förinspelad video."
+      ],
+      "principles": "P",
+      "guideline": "120"
+    },
+    "9.1.3.1": {
+      "title": "Information och relationer",
+      "expectations": [
+        "Information, struktur och relationer som förmedlas genom presentation är maskinläsbara eller förmedlas som text."
+      ],
+      "principles": "P",
+      "guideline": "121"
+    },
+    "9.1.3.2": {
+      "title": "Innehållets ordning",
+      "expectations": [
+        "Allt innehåll kommer i en meningsfull logisk ordning oavsett på vilket sätt användaren tar del av innehållet."
+      ],
+      "principles": "P",
+      "guideline": "122"
+    },
+    "9.1.3.3": {
+      "title": "Sensoriska kännetecken",
+      "expectations": [
+        "Hänvisningar till komponenter och innehåll är inte enbart beroende av sensoriska kännetecken som färg, form, storlek, placering, orientering eller ljud."
+      ],
+      "principles": "P",
+      "guideline": "123"
+    },
+    "9.1.3.4": {
+      "title": "Skärmorientering",
+      "expectations": [
+        "Innehållet är inte begränsat, med avseende på presentation och hantering, till en enda orientering av den använda enheten."
+      ],
+      "principles": "PO",
+      "guideline": "153"
+    },
+    "9.1.3.5": {
+      "title": "Syfte med inmatningsfält",
+      "expectations": [
+        "Syftet med inmatningsfält som inhämtar information om användaren förmedlas maskinläsbart och kan uppfattas av hjälpmedel."
+      ],
+      "principles": "PO",
+      "guideline": "154"
+    },
+    "9.1.4.1": {
+      "title": "Användning av färg",
+      "expectations": [
+        "Färg används inte som det enda visuella sättet att förmedla information eller särskilja ett visuellt element."
+      ],
+      "principles": "P",
+      "guideline": "124"
+    },
+    "9.1.4.2": {
+      "title": "Volymkontroll",
+      "expectations": [
+        "Ljud som spelas upp automatiskt går att pausa, stoppa eller sänka volymen på utan att påverka systemets ljudvolym."
+      ],
+      "principles": "P",
+      "guideline": "125"
+    },
+    "9.1.4.3": {
+      "title": "Kontrast för text",
+      "expectations": [
+        "Text har ett kontrastförhållande på minst 4,5:1 mot bakgrunden.",
+        "För stor text (18 punkter, eller 14 punkter fetstil) är kravet 3:1."
+      ],
+      "principles": "P",
+      "guideline": "126"
+    },
+    "9.1.4.4": {
+      "title": "Förstoring av text",
+      "expectations": [
+        "Det går att förstora texten till 200 procent utan att någon information eller funktion går förlorad."
+      ],
+      "principles": "P",
+      "guideline": "127"
+    },
+    "9.1.4.5": {
+      "title": "Bilder av text",
+      "expectations": [
+        "Där det är tekniskt möjligt används text istället för bilder av text."
+      ],
+      "principles": "P",
+      "guideline": "128"
+    },
+    "9.1.4.10": {
+      "title": "Flexibel layout",
+      "expectations": [
+        "Vertikalt skrollande layout: layouten fungerar utan skrollning i två dimensioner vid bredden 320 CSS-pixlar.",
+        "Horisontellt skrollande layout: layouten fungerar utan skrollning i två dimensioner vid höjden 256 CSS-pixlar"
+      ],
+      "principles": "P",
+      "guideline": "91"
+    },
+    "9.1.4.11": {
+      "title": "Kontrast för annat än text",
+      "expectations": [
+        "Komponenter och grafiska element som förmedlar information har ett kontrastförhållande på minst 3:1 mot intilliggande färger."
+      ],
+      "principles": "P",
+      "guideline": "156"
+    },
+    "9.1.4.12": {
+      "title": "Utökade textavstånd",
+      "expectations": [
+        "Det går att öka avståndet mellan tecken, ord, rader och stycken utan att information eller funktion går förlorad, till minst de gränser som beskrivs i WCAG 1.4.12."
+      ],
+      "principles": "PO",
+      "guideline": "157"
+    },
+    "9.1.4.13": {
+      "title": "Uppdykande innehåll",
+      "expectations": [
+        "Innehåll som visas vid fokus eller hovring är möjligt att avvisa utan att flytta muspekaren eller tangentbordsfokus, i de fall det uppdykande innehållet skymmer eller ersätter annat innehåll och inte meddelar inmatningsfel.",
+        "Innehåll som visas vid hovring är möjligt att hovra över.",
+        "Innehåll som visas vid fokus eller hovring är beständigt till dess att hover eller fokus förflyttas, innehållet inte längre är giltigt eller användaren avfärdar det."
+      ],
+      "principles": "PO",
+      "guideline": "158"
+    },
+    "9.2.1.1": {
+      "title": "Hanterbart med tangentbord",
+      "expectations": [
+        "Alla funktioner på sidan går att nå och hantera med enbart tangentbord."
+      ],
+      "principles": "O",
+      "guideline": "129"
+    },
+    "9.2.1.2": {
+      "title": "Ingen tangentbordsfälla",
+      "expectations": [
+        "Om tangentbordsfokus kan flyttas till en komponent kan fokus också flyttas bort från samma komponent via tangentbord."
+      ],
+      "principles": "O",
+      "guideline": "130"
+    },
+    "9.2.1.4": {
+      "title": "En-knapps snabbtangenter",
+      "expectations": [
+        "Snabbkommandon som utförs med en enda omodifierad tangent (d.v.s. tangenter för bokstäver, siffror, skiljetecken eller symboler) går att stänga av, eller",
+        "går att anpassa genom att en modifierartangent (t.ex. Ctrl, Alt) läggs till, eller",
+        "är aktiva enbart när komponenten som använder kommandot har fokus."
+      ],
+      "principles": "O",
+      "guideline": "68"
+    },
+    "9.2.2.1": {
+      "title": "Tidsgränser",
+      "expectations": [
+        "Tidsgränser för användarens interaktion med sidan som är kortare än 20 timmar går att stänga av, anpassa eller utöka."
+      ],
+      "principles": "O",
+      "guideline": "131"
+    },
+    "9.2.2.2": {
+      "title": "Rörligt innehåll",
+      "expectations": [
+        "Inget innehåll rör sig, blinkar, skrollar eller uppdateras automatiskt.",
+        "Om sådant innehåll finns kan användaren pausa, stoppa eller dölja det."
+      ],
+      "principles": "O",
+      "guideline": "132"
+    },
+    "9.2.3.1": {
+      "title": "Flimmer",
+      "expectations": [
+        "Ingen del av innehållet flimrar mer än 3 gånger under en sekund inom 25 procent av 10 grader av synfältet om någon övergång innebär en markant skillnad i relativ luminans eller om någon färg i övergången är mättat röd."
+      ],
+      "principles": "O",
+      "guideline": "133"
+    },
+    "9.2.4.1": {
+      "title": "Hoppa förbi återkommande innehåll",
+      "expectations": [
+        "Det finns ”skipplänkar” för att hoppa förbi grupper av innehåll som återkommer på flera sidor på webbplatsen."
+      ],
+      "principles": "O",
+      "guideline": "75"
+    },
+    "9.2.4.2": {
+      "title": "Sidtitel",
+      "expectations": [
+        "Sidan har en titel som beskriver dess ämne eller syfte."
+      ],
+      "principles": "O",
+      "guideline": "135"
+    },
+    "9.2.4.3": {
+      "title": "Logisk fokusordning",
+      "expectations": [
+        "Allt innehåll som användaren kan navigera till via tangentbord kommer i en logisk navigeringsordning."
+      ],
+      "principles": "O",
+      "guideline": "136"
+    },
+    "9.2.4.4": {
+      "title": "Beskrivande länktexter",
+      "expectations": [
+        "Syftet med varje länk framgår av länktexten, åtminstone tillsammans med dess maskinläsbara sammanhang."
+      ],
+      "principles": "O",
+      "guideline": "5"
+    },
+    "9.2.4.5": {
+      "title": "Flera sätt att hitta sidan",
+      "expectations": [
+        "Det finns mer än ett sätt att hitta en sida inom webbplatsen."
+      ],
+      "principles": "O",
+      "guideline": "32"
+    },
+    "9.2.4.6": {
+      "title": "Beskrivande rubriker och ledtexter",
+      "expectations": [
+        "Rubriker beskriver ämnet eller syftet med det avsnitt som följer.",
+        "Ledtexter beskriver syftet med det tillhörande inmatningsfältet."
+      ],
+      "principles": "O",
+      "guideline": "61"
+    },
+    "9.2.4.7": {
+      "title": "Synlig fokusmarkering",
+      "expectations": [
+        "Det är synligt vilket element på sidan som har tangentbordsfokus."
+      ],
+      "principles": "O",
+      "guideline": "140"
+    },
+    "9.2.5.1": {
+      "title": "Pekargester",
+      "expectations": [
+        "Alla funktioner som kräver flera fingrar/pekare eller gester som beror på pekarens bana går att utföra med en enda pekare och en rörelse som inte beror på pekarens rörelsebana."
+      ],
+      "principles": "O",
+      "guideline": "160"
+    },
+    "9.2.5.2": {
+      "title": "Avbryta klick",
+      "expectations": [
+        "Funktioner som är hanterbara med muspekare eller finger slutförs när fingret lyfts, inte när det trycks ned."
+      ],
+      "principles": "O",
+      "guideline": "161"
+    },
+    "9.2.5.3": {
+      "title": "Etiketter i namn",
+      "expectations": [
+        "Komponenter med en ledtext/etikett som innehåller text eller bild av text har ett namn som innehåller den synliga texten."
+      ],
+      "principles": "O",
+      "guideline": "162"
+    },
+    "9.2.5.4": {
+      "title": "Rörelsestyrning",
+      "expectations": [
+        "Funktioner som utförs genom att röra inmatningsenheten eller genom rörelser hos användaren är också hanterbara via användargränssnittskomponenter.",
+        "Rörelsekänslighet går att stänga av för att undvika oavsiktlig aktivering."
+      ],
+      "principles": "O",
+      "guideline": "163"
+    },
+    "9.3.1.1": {
+      "title": "Sidans språk",
+      "expectations": [
+        "Innehållets huvudsakliga språk är maskinläsbart angivet och kan uppfattas av hjälpmedel."
+      ],
+      "principles": "U",
+      "guideline": "141"
+    },
+    "9.3.1.2": {
+      "title": "Språkförändringar i innehållet",
+      "expectations": [
+        "Språkförändringar är maskinläsbart angivna för ord eller avsnitt på annat språk än omgivande text."
+      ],
+      "principles": "U",
+      "guideline": "142"
+    },
+    "9.3.2.1": {
+      "title": "Oväntat beteende vid fokus",
+      "expectations": [
+        "Ingen kontextförändring sker för att ett element får fokus."
+      ],
+      "principles": "U",
+      "guideline": "143"
+    },
+    "9.3.2.2": {
+      "title": "Oväntat beteende vid inmatning",
+      "expectations": [
+        "Att ändra värdet i en komponent eller ett fält orsakar inte en kontextförändring om inte användaren förvarnats om detta."
+      ],
+      "principles": "U",
+      "guideline": "144"
+    },
+    "9.3.2.3": {
+      "title": "Konsekvent navigering",
+      "expectations": [
+        "Navigeringsfunktioner som återkommer på flera sidor inom webbplatsen presenteras i samma inbördes ordning."
+      ],
+      "principles": "U",
+      "guideline": "131"
+    },
+    "9.3.2.4": {
+      "title": "Konsekvent benämning",
+      "expectations": [
+        "Komponenter som har samma funktion på flera sidor inom webbplatsen identifieras konsekvent med exempelvis ledtext, namn eller textalternativ."
+      ],
+      "principles": "U",
+      "guideline": "146"
+    },
+    "9.3.3.1": {
+      "title": "Felmeddelanden",
+      "expectations": [
+        "När inmatningsfel upptäcks automatiskt av webbsidor framgår det vilket fält som är felande och felet beskrivs för användaren i text."
+      ],
+      "principles": "U",
+      "guideline": "2"
+    },
+    "9.3.3.2": {
+      "title": "Ledtexter och instruktioner",
+      "expectations": [
+        "Det finns ledtexter/etiketter eller instruktioner när innehåll kräver inmatning från användaren.",
+        "Om ett särskilt format för indata förväntas framgår det tydligt av ledtexten.",
+        "Det framgår tydligt vilka fält som är obligatoriska eller valfria, om båda finns.",
+        "Ledtexter är visuellt placerade så att det inte uppstår några tvetydigheter om vilket fält de tillhör.",
+        "Grupper av sammanhörande fält omsluts av en fältgrupp med en beskrivande etikett."
+      ],
+      "principles": "U",
+      "guideline": "55"
+    },
+    "9.3.3.3": {
+      "title": "Korrigeringsförslag",
+      "expectations": [
+        "Om ett inmatningsfel upptäcks automatiskt och det finns kända korrigeringsförslag presenteras de för användaren."
+      ],
+      "principles": "U",
+      "guideline": "149"
+    },
+    "9.3.3.4": {
+      "title": "Förhindra allvarliga konsekvenser",
+      "expectations": [
+        "Funktioner som innebär att användaren ingår rättsliga åtaganden, utför ekonomiska transaktioner eller ändrar eller raderar sina egna data går att ångra, eller",
+        "kontrollera: data kontrolleras för inmatningsfel och kan korrigeras av användaren, eller",
+        "bekräfta: information kan förhandsgranskas, bekräftas och korrigeras innan handlingen slutförs."
+      ],
+      "principles": "U",
+      "guideline": "150"
+    },
+    "9.4.1.1": {
+      "title": "Robust källkod",
+      "expectations": [
+        "Inga obligatoriska start- eller sluttaggar är utelämnade.",
+        "Element är nästlade i enlighet med HTML-specifikationen.",
+        "Element har inga dubblettattribut.",
+        "Varje id-attribut är unikt."
+      ],
+      "principles": "R",
+      "guideline": "84"
+    },
+    "9.4.1.2": {
+      "title": "Namn, roll, värde",
+      "expectations": [
+        "Alla användargränssnittskomponenter ska ha ett maskinläsbart namn och en roll.",
+        "Komponenters tillstånd, egenskaper och värden som kan sättas av användaren ska kunna sättas maskinellt.",
+        "Meddelanden om ändringar i dessa komponenter ska vara maskinläsbara och förmedlas till hjälpmedel."
+      ],
+      "principles": "R",
+      "guideline": "152"
+    },
+    "9.4.1.3": {
+      "title": "Statusmeddelanden",
+      "expectations": [
+        "Statusmeddelanden identifieras maskinläsbart så att hjälpmedel kan förmedla dem till användaren utan att meddelandet har fått fokus."
+      ],
+      "principles": "POUR",
+      "guideline": "164"
+    },
+    "9.6": {
+      "title": "Överensstämmelse med WCAG",
+      "expectations": [
+        "Webbsidan uppfyller 9.1-9.4 i EN-standarden, eller så finns det en alternativ version på nivå AA enligt definitionen i WCAG 2.1.",
+        "Ingen del av sidan är undantagen från fullgörandet.",
+        "Om sidan är ett steg i en process uppfyller alla steg kraven.",
+        "Endast teknik med stöd för hjälpmedel ingår i åberopat fullgörande.",
+        "Inget innehåll på sidan är underkänt för kraven 9.1.4.2, 9.2.1.2, 9.2.2.2 eller 9.2.3.1."
+      ],
+      "principles": "POUR"
+    },
+    "10.1.1.1": {
+      "title": "Textalternativ",
+      "expectations": [
+        "Bilder som förmedlar relevant information har textalternativ som förmedlar samma information i sammanhanget.",
+        "Icke informationsbärande bilder är dolda för hjälpmedel.",
+        "Allt övrigt innehåll som inte är text har textalternativ som åtminstone identifierar innehållet."
+      ],
+      "principles": "P"
+    },
+    "10.1.2.1": {
+      "title": "Förinspelat ljud och ljudlös video",
+      "expectations": [
+        "För ljudspår finns en transkription eller motsvarande.",
+        "För animeringar och ljudlös video finns antingen en textversion eller ett ljudspår med samma information."
+      ],
+      "principles": "P"
+    },
+    "10.1.2.2": {
+      "title": "Undertexter för förinspelad video",
+      "expectations": [
+        "Förinspelad video med ljud har undertexter för hörselskadade, det vill säga som återger allt relevant ljud, inte bara dialogen."
+      ],
+      "principles": "P"
+    },
+    "10.1.2.3": {
+      "title": "Textalternativ eller syntolkning",
+      "expectations": [
+        "Det finns textversioner eller syntolkningar (ljudbeskrivningar) av all förinspelad video. (Detta räcker inte för att uppfylla lagkraven, eftersom krav 10.1.2.5 är mer långtgående.)"
+      ],
+      "principles": "P"
+    },
+    "10.1.2.4": {
+      "title": "Undertexter för direktsänd video",
+      "expectations": [
+        "Direktsänd video med ljud har undertexter för hörselskadade. (Inte ett lagkrav.)"
+      ],
+      "principles": ""
+    },
+    "10.1.2.5": {
+      "title": "Syntolkning",
+      "expectations": [
+        "Det finns syntolkning (ljudbeskrivningar) av all förinspelad video."
+      ],
+      "principles": "P"
+    },
+    "10.1.3.1": {
+      "title": "Information och relationer",
+      "expectations": [
+        "Information, struktur och relationer som förmedlas genom presentation är maskinläsbara eller förmedlas som text."
+      ],
+      "principles": "P"
+    },
+    "10.1.3.2": {
+      "title": "Innehållets ordning",
+      "expectations": [
+        "Allt innehåll kommer i en meningsfull logisk ordning oavsett på vilket sätt användaren tar del av innehållet."
+      ],
+      "principles": "P"
+    },
+    "10.1.3.3": {
+      "title": "Sensoriska kännetecken",
+      "expectations": [
+        "Hänvisningar till komponenter och innehåll är inte enbart beroende av sensoriska kännetecken som färg, form, storlek, placering, orientering eller ljud."
+      ],
+      "principles": "P"
+    },
+    "10.1.3.4": {
+      "title": "Skärmorientering",
+      "expectations": [
+        "Innehållet är inte begränsat, med avseende på presentation och hantering, till en enda orientering av den använda enheten."
+      ],
+      "principles": "PO"
+    },
+    "10.1.3.5": {
+      "title": "Syfte med inmatningsfält",
+      "expectations": [
+        "Syftet med inmatningsfält som inhämtar information om användaren förmedlas maskinläsbart och kan uppfattas av hjälpmedel."
+      ],
+      "principles": "PO"
+    },
+    "10.1.4.1": {
+      "title": "Användning av färg",
+      "expectations": [
+        "Färg används inte som det enda visuella sättet att förmedla information eller särskilja ett visuellt element."
+      ],
+      "principles": "P"
+    },
+    "10.1.4.2": {
+      "title": "Volymkontroll",
+      "expectations": [
+        "Ljud som spelas upp automatiskt går att pausa, stoppa eller sänka volymen på utan att påverka systemets ljudvolym."
+      ],
+      "principles": "P"
+    },
+    "10.1.4.3": {
+      "title": "Kontrast för text",
+      "expectations": [
+        "Text har ett kontrastförhållande på minst 4,5:1 mot bakgrunden.",
+        "För stor text (18 punkter, eller 14 punkter fetstil) är kravet 3:1."
+      ],
+      "principles": "P"
+    },
+    "10.1.4.4": {
+      "title": "Förstoring av text",
+      "expectations": [
+        "Det går att förstora texten till 200 procent utan att någon information eller funktion går förlorad."
+      ],
+      "principles": "P"
+    },
+    "10.1.4.5": {
+      "title": "Bilder av text",
+      "expectations": [
+        "Där det är tekniskt möjligt används text istället för bilder av text."
+      ],
+      "principles": "P"
+    },
+    "10.1.4.10": {
+      "title": "Omforma flöde",
+      "expectations": [
+        "Vertikalt skrollande layout: layouten fungerar utan skrollning i två dimensioner vid bredden 320 CSS-pixlar.",
+        "Horisontellt skrollande layout: layouten fungerar utan skrollning i två dimensioner vid höjden 256 CSS-pixlar"
+      ],
+      "principles": "P"
+    },
+    "10.1.4.11": {
+      "title": "Kontrast för annat än text",
+      "expectations": [
+        "Komponenter och grafiska element som förmedlar information har ett kontrastförhållande på minst 3:1 mot intilliggande färger."
+      ],
+      "principles": "P"
+    },
+    "10.1.4.12": {
+      "title": "Utökade textavstånd",
+      "expectations": [
+        "Det går att öka avståndet mellan tecken, ord, rader och stycken utan att information eller funktion går förlorad, till minst de gränser som beskrivs i WCAG 1.4.12."
+      ],
+      "principles": "PO"
+    },
+    "10.1.4.13": {
+      "title": "Uppdykande innehåll",
+      "expectations": [
+        "Innehåll som visas vid fokus eller hovring är möjligt att avvisa utan att flytta muspekaren eller tangentbordsfokus, i de fall det uppdykande innehållet skymmer eller ersätter annat innehåll och inte meddelar inmatningsfel.",
+        "Innehåll som visas vid hovring är möjligt att hovra över.",
+        "Innehåll som visas vid fokus eller hovring är beständigt till dess att hover eller fokus förflyttas, innehållet inte längre är giltigt eller användaren avfärdar det."
+      ],
+      "principles": "PO"
+    },
+    "10.2.1.1": {
+      "title": "Hanterbart med tangentbord",
+      "expectations": [
+        "Alla funktioner på sidan går att nå och hantera med enbart tangentbord."
+      ],
+      "principles": "O"
+    },
+    "10.2.1.2": {
+      "title": "Ingen tangentbordsfälla",
+      "expectations": [
+        "Om tangentbordsfokus kan flyttas till en komponent kan fokus också flyttas bort från samma komponent via tangentbord."
+      ],
+      "principles": "O"
+    },
+    "10.2.1.4": {
+      "title": "En-knapps snabbtangenter",
+      "expectations": [
+        "Snabbkommandon som utförs med en enda omodifierad tangent (d.v.s. tangenter för bokstäver, siffror, skiljetecken eller symboler) går att stänga av, eller",
+        "går att anpassa genom att en modifierartangent (t.ex. Ctrl, Alt) läggs till, eller",
+        "är aktiva enbart när komponenten som använder kommandot har fokus."
+      ],
+      "principles": "O"
+    },
+    "10.2.2.1": {
+      "title": "Tidsgränser",
+      "expectations": [
+        "Tidsgränser för användarens interaktion med dokumentet som är kortare än 20 timmar går att stänga av, anpassa eller utöka."
+      ],
+      "principles": "O"
+    },
+    "10.2.2.2": {
+      "title": "Rörligt innehåll",
+      "expectations": [
+        "Inget innehåll rör sig, blinkar, skrollar eller uppdateras automatiskt.",
+        "Om sådant innehåll finns kan användaren pausa, stoppa eller dölja det."
+      ],
+      "principles": "O"
+    },
+    "10.2.3.1": {
+      "title": "Flimmer",
+      "expectations": [
+        "Ingen del av innehållet flimrar mer än 3 gånger under en sekund inom 25 procent av 10 grader av synfältet om någon övergång innebär en markant skillnad i relativ luminans eller om någon färg i övergången är mättat röd."
+      ],
+      "principles": "O"
+    },
+    "10.2.4.2": {
+      "title": "Dokumenttitel",
+      "expectations": [
+        "Dokumentet har en titel som beskriver dess ämne eller syfte."
+      ],
+      "principles": "O"
+    },
+    "10.2.4.3": {
+      "title": "Logisk fokusordning",
+      "expectations": [
+        "Allt innehåll som användaren kan navigera till via tangentbord kommer i en logisk navigeringsordning."
+      ],
+      "principles": "O"
+    },
+    "10.2.4.4": {
+      "title": "Beskrivande länktexter",
+      "expectations": [
+        "Syftet med varje länk framgår av länktexten, åtminstone tillsammans med dess maskinläsbara sammanhang."
+      ],
+      "principles": "O"
+    },
+    "10.2.4.6": {
+      "title": "Beskrivande rubriker och ledtexter",
+      "expectations": [
+        "Rubriker beskriver ämnet eller syftet med det avsnitt som följer.",
+        "Ledtexter beskriver syftet med det tillhörande inmatningsfältet."
+      ],
+      "principles": "O"
+    },
+    "10.2.4.7": {
+      "title": "Synlig fokusmarkering",
+      "expectations": [
+        "Det är synligt vilket element i dokumentet som har tangentbordsfokus."
+      ],
+      "principles": "O"
+    },
+    "10.2.5.1": {
+      "title": "Pekargester",
+      "expectations": [
+        "Alla funktioner som kräver flera fingrar/pekare eller gester som beror på pekarens bana går att utföra med en enda pekare och en rörelse som inte beror på pekarens rörelsebana."
+      ],
+      "principles": "O"
+    },
+    "10.2.5.2": {
+      "title": "Avbryta klick",
+      "expectations": [
+        "Funktioner som är hanterbara med muspekare eller finger slutförs när fingret lyfts, inte när det trycks ned."
+      ],
+      "principles": "O"
+    },
+    "10.2.5.3": {
+      "title": "Etiketter i namn",
+      "expectations": [
+        "Komponenter med en ledtext/etikett som innehåller text eller bild av text har ett namn som innehåller den synliga texten."
+      ],
+      "principles": "O"
+    },
+    "10.2.5.4": {
+      "title": "Rörelsestyrning",
+      "expectations": [
+        "Funktioner som utförs genom att röra inmatningsenheten eller genom rörelser hos användaren är också hanterbara via användargränssnittskomponenter.",
+        "Rörelsekänslighet går att stänga av för att undvika oavsiktlig aktivering."
+      ],
+      "principles": "O"
+    },
+    "10.3.1.1": {
+      "title": "Språk",
+      "expectations": [
+        "Innehållets huvudsakliga språk är maskinläsbart angivet och kan uppfattas av hjälpmedel."
+      ],
+      "principles": "U"
+    },
+    "10.3.1.2": {
+      "title": "Språkförändringar i innehållet",
+      "expectations": [
+        "Språkförändringar är maskinläsbart angivna för ord eller avsnitt på annat språk än omgivande text."
+      ],
+      "principles": "U"
+    },
+    "10.3.2.1": {
+      "title": "Oväntat beteende vid fokus",
+      "expectations": [
+        "Ingen kontextförändring sker för att ett element får fokus."
+      ],
+      "principles": "U"
+    },
+    "10.3.2.2": {
+      "title": "Oväntat beteende vid inmatning",
+      "expectations": [
+        "Att ändra värdet i en komponent eller ett fält orsakar inte en kontextförändring om inte användaren förvarnats om detta."
+      ],
+      "principles": "U"
+    },
+    "10.3.3.1": {
+      "title": "Felmeddelanden",
+      "expectations": [
+        "När inmatningsfel upptäcks automatiskt framgår det vilket fält som är felande och felet beskrivs för användaren i text."
+      ],
+      "principles": "U"
+    },
+    "10.3.3.2": {
+      "title": "Ledtexter och instruktioner",
+      "expectations": [
+        "Det finns ledtexter/etiketter eller instruktioner när innehåll kräver inmatning från användaren.",
+        "Om ett särskilt format för indata förväntas framgår det tydligt av ledtexten.",
+        "Det framgår tydligt vilka fält som är obligatoriska eller valfria, om båda finns.",
+        "Ledtexter är visuellt placerade så att det inte uppstår några tvetydigheter om vilket fält de tillhör.",
+        "Grupper av sammanhörande fält omsluts av en fältgrupp med en beskrivande etikett."
+      ],
+      "principles": "U"
+    },
+    "10.3.3.3": {
+      "title": "Korrigeringsförslag",
+      "expectations": [
+        "Om ett inmatningsfel upptäcks automatiskt och det finns kända korrigeringsförslag presenteras de för användaren."
+      ],
+      "principles": "U"
+    },
+    "10.3.3.4": {
+      "title": "Förhindra allvarliga konsekvenser",
+      "expectations": [
+        "Funktioner som innebär att användaren ingår rättsliga åtaganden, utför ekonomiska transaktioner eller ändrar eller raderar sina egna data går att ångra, eller",
+        "kontrollera: data kontrolleras för inmatningsfel och kan korrigeras av användaren, eller",
+        "bekräfta: information kan förhandsgranskas, bekräftas och korrigeras innan handlingen slutförs."
+      ],
+      "principles": "U"
+    },
+    "10.4.1.1": {
+      "title": "Tolkningsbar",
+      "expectations": [
+        "För dokument skapade med märkspråk som exponeras och är tillgängligt för hjälpmedel:",
+        "Inga obligatoriska start- eller sluttaggar är utelämnade.",
+        "Element är nästlade i enlighet med HTML-specifikationen.",
+        "Element har inga dubblettattribut.",
+        "Varje id-attribut är unikt."
+      ],
+      "principles": "R"
+    },
+    "10.4.1.2": {
+      "title": "Namn, roll, värde",
+      "expectations": [
+        "Alla användargränssnittskomponenter ska ha ett maskinläsbart namn och en roll.",
+        "Komponenters tillstånd, egenskaper och värden som kan sättas av användaren ska kunna sättas maskinellt.",
+        "Meddelanden om ändringar i dessa komponenter ska vara maskinläsbara och förmedlas till hjälpmedel."
+      ],
+      "principles": "R"
+    },
+    "10.4.1.3": {
+      "title": "Statusmeddelanden",
+      "expectations": [
+        "Statusmeddelanden identifieras maskinläsbart så att hjälpmedel kan förmedla dem till användaren utan att meddelandet har fått fokus."
+      ],
+      "principles": "POUR"
+    },
+    "11.7": {
+      "title": "Användarinställningar",
+      "expectations": [
+        "Det finns ett sätt att använda webbsidan som tillämpar användarens plattformsinställningar för färger, kontrast, teckensnitt, teckenstorlek, måttenheter och fokusmarkör."
+      ],
+      "important": "I nuläget kontrollerar Digg enbart färger, kontrast och teckenstorlek. Det kan föreligga brister för övriga punkter även om kravet inte är underkänt.",
+      "principles": "POUR",
+      "guideline": "170"
+    },
+    "11.8.1": {
+      "title": "Redigeringsverktyg",
+      "expectations": [
+        "Redigeringsverktyg uppfyller kraven på tillgänglighet i avsnitt 11.8.2–11.8.5."
+      ],
+      "principles": "POUR",
+      "guideline": "171"
+    },
+    "11.8.2": {
+      "title": "Skapa tillgängligt innehåll med redigeringsverktyg",
+      "expectations": [
+        "Redigeringsverktyget gör det möjligt, och hjälper till, att redigera innehåll som uppfyller kraven i avsnitt 9 i EN 301 549."
+      ],
+      "principles": "POUR",
+      "guideline": "171"
+    },
+    "11.8.3": {
+      "title": "Bevara tillgänglighet vid omvandling i redigeringsverktyg",
+      "expectations": [
+        "Omvandling av redigerbart innehåll bevarar tillgängligshetsinformationen i det nya formatet om det stödjer likvärdiga mekanismer."
+      ],
+      "principles": "POUR",
+      "guideline": "171"
+    },
+    "11.8.4": {
+      "title": "Åtgärdsförslag i redigeringsverktyg",
+      "expectations": [
+        "När verktyget upptäcker innehåll som inte uppfyller kraven i avsnitt 9 i EN 301 549 erbjuder det förslag på hur bristen kan åtgärdas."
+      ],
+      "principles": "POUR",
+      "guideline": "171"
+    },
+    "11.8.5": {
+      "title": "Mallar i redigeringsverktyg",
+      "expectations": [
+        "Minst en mall i ett mallbaserat redigeringsverktyg uppfyller kraven i avsnitt 9 i EN 301 549 och identifieras som sådan."
+      ],
+      "principles": "POUR",
+      "guideline": "171"
+    },
+    "12.1.1": {
+      "title": "Tillgänglighetsfunktioner i produktdokumentation",
+      "expectations": [
+        "Produktdokumentation som tillhandahålls med webbplatsen, separat eller integrerat, räknar upp och förklarar hur man använder webbplatsens tillgänglighets- och kompatibilitetsfunktioner."
+      ],
+      "principles": "POUR",
+      "guideline": "172"
+    },
+    "12.1.2": {
+      "title": "Tillgänglig produktdokumentation",
+      "expectations": [
+        "Produktdokumentation som tillhandahålls med webbplatsen finns i minst ett tillgängligt format enligt avsnitt 9 (webbsidor) eller 10 (dokument) i EN 301 549."
+      ],
+      "principles": "POUR",
+      "guideline": "172"
+    },
+    "12.2.2": {
+      "title": "Information om tillgänglighetsfunktioner",
+      "expectations": [
+        "Supporttjänster erbjuder information om de tillgänglighets- och kompatibilitetsfunktioner som ingår i produktdokumentationen."
+      ],
+      "principles": "POUR",
+      "guideline": "173"
+    },
+    "12.2.3": {
+      "title": "Effektiv kommunikation",
+      "expectations": [
+        "Supporttjänster tillmötesgår kommunikationsbehov hos användare med funktionsnedsättning, antingen direkt eller via en hänvisningspunkt."
+      ],
+      "principles": "POUR",
+      "guideline": "173"
+    },
+    "12.2.4": {
+      "title": "Tillgänglig supportdokumentation",
+      "expectations": [
+        "Dokumentation som tillhandahålls genom supporttjänster erbjuds  i minst ett tillgängligt format enligt avsnitt 9 (webbsidor) eller 10 (dokument) i EN 301 549."
+      ],
+      "principles": "POUR",
+      "guideline": "173"
+    },
+    "SFS2018:1937 13 § 1 st": {
+      "title": "Tillgänglighetsredogörelse",
+      "expectations": [
+        "En offentlig aktör tillhandahåller en tillgänglighetsredogörelse för digital service."
+      ]
+    },
+    "SFS2018:1937 13 § 3 st": {
+      "title": "Oskäligt betungande anpassning",
+      "expectations": [
+        "En bedömning om oskäligt betungande anpassning återges i tillgänglighetsredogörelsen."
+      ]
+    },
+    "MDFFS2019:2 6 § 1 st 1 p": {
+      "title": "Tillgänglighetsredogörelse: namn och tjänst",
+      "expectations": [
+        "Tillgänglighetsredogörelsen innehåller namnet på den offentliga aktören och den webbplats som redogörelsen avser."
+      ]
+    },
+    "MDFFS2019:2 6 § 1 st 2 p": {
+      "title": "Tillgänglighetsredogörelse: följsamhet",
+      "expectations": [
+        "Det framgår av tillgänglighetsredogörelsen i vilken utsträckning webbplatsen uppfyller de tekniska tillgänglighetskraven. Redogörelsen anger om webbplatsen som helhet antingen ”helt”, ”delvis” eller ”inte” uppfyller kraven."
+      ]
+    },
+    "MDFFS2019:2 6 § 1 st 3 p": {
+      "title": "Tillgänglighetsredogörelse: otillgängligt innehåll",
+      "expectations": [
+        "Tillgänglighetsredogörelsen innehåller en förteckning över de delar av innehållet som inte är tillgängliga och de skäl som ligger till grund för att de inte är tillgängliga."
+      ]
+    },
+    "MDFFS2019:2 6 § 1 st 4 p": {
+      "title": "Tillgänglighetsredogörelse: datum och metod",
+      "expectations": [
+        "Tillgänglighetsredogörelsen innehåller datum för när bedömningen som ligger till grund för redogörelsen utfördes och vilken metod som använts för att göra bedömningen samt datum när redogörelsen senast uppdaterades."
+      ]
+    },
+    "MDFFS2019:2 6 § 1 st 5 p": {
+      "title": "Tillgänglighetsredogörelse: meddelandefunktion",
+      "expectations": [
+        "Tillgänglighetsredogörelsen innehåller en funktion, eller en länk till en funktion, för att meddela aktören om bristande tillgänglighet enligt 13 § andra stycket DOS-lagen eller för att framställa en sådan begäran om tillgängliggörande som avses i 15 § samma lag.."
+      ]
+    },
+    "MDFFS2019:2 6 § 1 st 6 p": {
+      "title": "Tillgänglighetsredogörelse: anmälningsfunktion",
+      "expectations": [
+        "Tillgänglighetsredogörelsen informerar om att upplevd brist avseende tillgänglighet kan anmälas till Myndigheten för digital förvaltning och tillhandahåller en länk till den anmälningsfunktion som myndigheten tillhandahåller."
+      ]
+    },
+    "MDFFS2019:2 6 § 2 st": {
+      "title": "Tillgänglighetsredogörelse: aktualitet",
+      "expectations": [
+        "Tillgänglighetsredogörelsen speglar webbplatsens aktuella tillgänglighet."
+      ]
+    },
+    "MDFFS2019:2 6 § 3 st": {
+      "title": "Tillgänglighetsredogörelse: länk",
+      "expectations": [
+        "En länk till tillgänglighetsredogörelsen är klart och tydligt presenterad och finns på webbplatsens hemsida eller finns på alla sidor."
+      ]
+    }
+  }
+}

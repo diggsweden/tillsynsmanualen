@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>FileStorage – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 35rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Hjälpklasser</a></li>
+          <li><strong lang="en">FileStorage</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">FileStorage</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-save-to-csv-file"
+              ><code lang="en">saveToCSVFile()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-save-to-html-file"
+              ><code lang="en">saveToHTMLFile()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-save-to-json-file"
+              ><code lang="en">saveToJSONFile()</code></a
+            >
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">FileStorage</code> hanterar skrivning av
+        information till filsystemet.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/FileStorage.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/common/FileStorage.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 350 180" class="class uml-diagram">
+          <defs>
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+          </defs>
+
+          <!--FileStorage-->
+          <use
+            xlink:href="FileStorage.svg#FileStorage"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <!--Blob-->
+          <line x1="85" y1="43" x2="85" y2="70" class="dependency" />
+          <use xlink:href="../Blob.svg#Blob" x="35" y="70" class="external" />
+
+          <!--URL-->
+          <line x1="171" y1="21" x2="210" y2="21" class="dependency" />
+          <use xlink:href="../URL.svg#URL" x="210" y="0" class="external" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">FileStorage</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">FileStorage</span>()</code></pre>
+      </section>
+
+      <!--saveToCSVFile-->
+      <section>
+        <h2 id="m-save-to-csv-file"><code lang="en">saveToCSVFile()</code></h2>
+
+        <p>
+          Sparar en vektor med datarader som en CSV-fil (kommaseparerade
+          värden). Används för att spara en komprimerad version av ett
+          granskningsprotokoll som mottagaren kan öppna och bearbeta i ett
+          kalkylprogram, till exempel <cite lang="en">Microsoft Excel</cite>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">saveToCSVFile</span>(<span class="var">filename</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">filename</code></dt>
+          <dd>Förslag på filnamn.</dd>
+
+          <dt><code lang="en">data</code></dt>
+          <dd>En vektor med rader att skriva till filen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--saveToHTMLFile-->
+      <section>
+        <h2 id="m-save-to-html-file">
+          <code lang="en">saveToHTMLFile()</code>
+        </h2>
+
+        <p>
+          Sparar ett DOM-dokument som en HTML-fil. Används för att spara
+          gransknings&shy;protokoll, påpekanden och förelägganden så att de kan
+          bifogas till ett e-postmeddelande.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">saveToHTMLFile</span>(<span class="var">filename</span>, <span class="var">dataDoc</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">filename</code></dt>
+          <dd>Förslag på filnamn.</dd>
+
+          <dt><code lang="en">dataDoc</code></dt>
+          <dd>Det DOM-dokument som ska serialiseras.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--saveToJSONFile-->
+      <section>
+        <h2 id="m-save-to-json-file">
+          <code lang="en">saveToJSONFile()</code>
+        </h2>
+
+        <p>
+          Sparar ett JavaScript-objekt som en JSON-fil. Används för att spara
+          ett granskningsärende så att det blir åtkomligt för andra användare,
+          och för att skydda mot dataförlust vid oav&shy;siktlig (eller
+          avsiktlig) radering av objektdatabasen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">saveToHTMLFile</span>(<span class="var">filename</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">filename</code></dt>
+          <dd>Förslag på filnamn.</dd>
+
+          <dt><code lang="en">data</code></dt>
+          <dd>Det objekt som ska serialiseras.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Klassen tillhandahåller tre asynkrona metoder för att skriva data till
+          fillsystemet i olika format:
+        </p>
+
+        <ul>
+          <li>CSV – granskningsprotokoll/åtgärdslistor</li>
+          <li>HTML – granskningsprotokoll, påpekanden, förelägganden</li>
+          <li>JSON – ärenden.</li>
+        </ul>
+
+        <p>Alla tre metoderna fungerar enligt samma princip:</p>
+
+        <ol>
+          <li>
+            Omvandla data som ska sparas till en <code lang="en">Blob</code>.
+          </li>
+          <li>Skapa en temporär data-URL för blobben.</li>
+          <li>
+            Infoga en osynlig länk till data-URL:en i webbsidan, med ett
+            <code lang="en" class="html attr">download</code>-attribut som
+            innehåller det föreslagna filnamnet.
+          </li>
+          <li>Simulera ett klick på länken.</li>
+          <li>Frigör resurserna som allokerats för data-URL:en.</li>
+        </ol>
+
+        <p>
+          En länk med ett
+          <code lang="en" class="html attr">download</code>-attribut öppnar i
+          moderna webbläsare en filvalsdialog för att spara länkmålet i
+          filsystemet. Applikationen har ingen kontroll över vad som händer
+          sedan och vet alltså inte om användaren valt att spara filen eller
+          avbrutit sparaoperationen. Den vet inte heller om användaren sparat
+          filen under det föreslagna filnamnet eller valt ett annat.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../db/">Databasgränssnitt</a></li>
+          <li>
+            <a href="SettingStorage.html"
+              ><code lang="en">SettingStorage</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "examples": {
+    "neutral": [
+      "Ett sökfält har en sammanhörande lista med förslag som visas strax nedanför fältet och uppdateras efterhand som användaren skriver in tecken. Elementen i listan är valbara.",
+      "En webbsida ersätter en horisontell menyrad med en ”hamburgermeny” i mobilläge. När användaren trycker på menyknappen blir en vertikal meny synlig.",
+      "Ett komplext formulär är indelat i avsnitt som presenteras som paneler med tillhörande tabbflikar."
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Om relationen mellan elementen inte går att representera i HTML, till exempel genom nästling, behöver den förmedlas med ARIA-attribut eller liknande. Exempel:"
+    },
+    {
+      "type": "ulist",
+      "items": [
+        "Ett enkelt sökfält har en <code translate=\"no\" lang=\"en\">&lt;datalist&gt;</code> för förslagen och kopplar förslagslistan med attributet <code translate=\"no\" lang=\"en\">list</code> på fältet.",
+        "Ett annat sökfält använder <code translate=\"no\" lang=\"en\">aria-owns</code> för att förmedla att dess mer komplexa förslagslista hör ihop med fältet.",
+        "En menyknapp använder <code translate=\"no\" lang=\"en\">aria-controls</code> för att indikera att menyn (en lista) hör ihop med knappen.",
+        "Tabbflikar använder <code translate=\"no\" lang=\"en\">aria-controls</code> för att tala om vilken panel som hör ihop med en tabbflik."
+      ]
+    }
+  ]
+}

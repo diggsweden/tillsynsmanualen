@@ -1,0 +1,27 @@
+{
+  "methods": [
+    "Leta efter länkar som bara består av symboltecken.",
+    "Om du är osäker på om en lösning fungerar, testa helst med skärmläsare."
+  ],
+  "examples": {
+    "bad": [
+      "En länk representerar en varukorg med koden <code translate=\"no\">&lt;a href=\"#\"&gt;&lt;i class=\"fa fa-shopping-cart\"&gt;&lt;/i&gt;&lt;/a&gt;</code>, vilket semantiskt indikerar 0 kursiva tecken. Ingen information förmedlas till hjälpmedel och länken saknar innehåll."
+    ],
+    "better": [
+      "Ikonen döljs för hjälpmedel och länkens syfte förmedlas med ARIA: <code translate=\"no\">&lt;a href=\"#\" aria-label=\"Varukorg\"&gt;&lt;i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"&gt;&lt;/i&gt;&lt;/a&gt;</code>."
+    ],
+    "good": [
+      "Länken visar ikon och text med ett semantiskt neutralt element: <code translate=\"no\">&lt;a href=\"#\"&gt;&lt;span class=\"fa fa-shopping-cart\"&gt;&lt;/span&gt;Varukorg&lt;/a&gt;</code>."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Accessibility"
+    },
+    {
+      "tool": "external",
+      "text": "Skärmläsare"
+    }
+  ]
+}

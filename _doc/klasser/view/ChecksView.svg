@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 70">
+  <g id="ChecksView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="129" height="62"/>
+      <line x1="1" y1="12" x2="130" y2="12"/>
+      <line x1="1" y1="32" x2="130" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="65" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ChecksView</text>
+      <text x="5" y="20">+heading: string</text>
+      <text x="5" y="30">+requirementCount: number</text>
+      <text x="5" y="40">hideProgress(): void</text>
+      <text x="5" y="50">open(): promise</text>
+      <text x="5" y="60">section(string): Section</text>
+    </g>
+  </g>
+
+  <g id="CheckContainer">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="229" height="102"/>
+      <line x1="1" y1="12" x2="230" y2="12"/>
+      <line x1="1" y1="52" x2="230" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="115" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CheckContainer</text>
+      <text x="5" y="20">#_container: HTMLElement</text>
+      <text x="5" y="30">#_doc: Document</text>
+      <text x="5" y="40">#_level: number</text>
+      <text x="5" y="50">#_needHeading: boolean</text>
+      <text x="5" y="60">check(string[], string[]): void</text>
+      <text x="5" y="70">condition(string, boolean): void</text>
+      <text x="5" y="80">#_add(string, object, string): HTMLElement</text>
+      <text x="5" y="90">#_element(HTMLElement, string, object, string): HTMLElement</text>
+      <text x="5" y="100">#_text(HTMLElemen, string): Text</text>
+    </g>
+  </g>
+
+  <g id="ConditionSection">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="22"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ConditionSection</text>
+      <text x="5" y="20">#_needHeading: boolean</text>
+    </g>
+  </g>
+
+  <g id="RequirementSection">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="119" height="82"/>
+      <line x1="1" y1="12" x2="120" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="60" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">RequirementSection</text>
+      <text x="5" y="20">clause(string): void</text>
+      <text x="5" y="30">dos(string): string</text>
+      <text x="5" y="40">exceptions(string[]): void</text>
+      <text x="5" y="50">instruction(string, string): void</text>
+      <text x="5" y="60">mdffs(string): void</text>
+      <text x="5" y="70">methods(string[]): void</text>
+      <text x="5" y="80">steps(string[]): void</text>
+    </g>
+  </g>
+
+  <g id="Section">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="179" height="32"/>
+      <line x1="1" y1="12" x2="180" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="90" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Section</text>
+      <text x="5" y="20">requirement(string, string): RequirementSection</text>
+      <text x="5" y="30">section(string): Section</text>
+    </g>
+  </g>
+</svg>

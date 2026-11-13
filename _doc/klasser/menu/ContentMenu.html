@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ContentMenu – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">ContentMenu</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ContentMenu</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#properties"><span>Fält</span></a>
+          </li>
+          <li>
+            <a href="#m-add"><code lang="en">add()</code></a>
+          </li>
+          <li>
+            <a href="#m-down"><code lang="en">down()</code></a>
+          </li>
+          <li>
+            <a href="#m-handle-left"><code lang="en">handleLeft()</code></a>
+          </li>
+          <li>
+            <a href="#m-up"><code lang="en">up()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">ContentMenu</code> utökar
+        <a href="Menu.html"><code lang="en">Menu</code></a>
+        och representerar en innehållsmeny med ankarlänkar till asvnitt på
+        sidan. Den indikerar visuellt det ”aktuella” elementet baserat på
+        skroll&shy;positionen.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/menu/ContentMenu.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/menu/ContentMenu.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 310" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--ContentMenu-->
+          <use
+            xlink:href="ContentMenu.svg#ContentMenu"
+            x="165"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="230" y1="63" x2="230" y2="89" class="inheritance" />
+
+          <!--MenuItem-->
+          <use xlink:href="MenuItem.svg#MenuItem" x="0" y="90" />
+
+          <g transform="translate(0, 90)">
+            <path d="M101,18 h12 v-8 h-12" class="composition" />
+            <line x1="101" y1="68" x2="140" y2="68" class="composition" />
+          </g>
+
+          <!--Menu-->
+          <use xlink:href="Menu.svg#Menu" x="140" y="90" />
+
+          <g transform="translate(140, 90)">
+            <line x1="0" y1="78" x2="-39" y2="78" class="composition" />
+            <path d="M0,88 h-20 v10 h20" class="composition" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ContentMenu</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn registrerar en händelselyssnare för skrollning, för att
+          uppdatera vilket element i menyn som är ”aktuellt”.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ContentMenu</span>(<span class="var">element</span>)
+<span class="keyword">new</span> <span class="ident">ContentMenu</span>(<span class="var">element</span>, <span class="var">label</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">element</code></dt>
+          <dd>
+            Det <code class="html tag">&lt;ul&gt;</code>-element som
+            representerar menyn i DOM-trädet.
+          </dd>
+
+          <dt class="optional"><code lang="en">label</code></dt>
+          <dd>
+            Etikett som förmedlas till hjälpmedel (”Innehåll”, om inget annat
+            anges).
+          </dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">current</code></dt>
+          <dd>
+            Aktivt (fokuserat) menyelement. Vid skrivning hanterar klassen också
+            tabbindex för underliggande element. (Endast det aktiva elementet
+            ingår i navigeringssekvensen.)
+          </dd>
+        </dl>
+      </section>
+
+      <!--add()-->
+      <section>
+        <h2 id="m-add"><code lang="en">add()</code></h2>
+
+        <p>Lägger till ett menyelement i menyn.</p>
+
+        <p>
+          Metoden sparar offset för menyelementets målelement. Dessa offset
+          används sedan för att räkna ut vilket menyelement som är ”aktivt” vid
+          en viss skrollposition.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">add</span>(<span class="var">item</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">item</code></dt>
+          <dd>Menyelement att lägga till.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--down()-->
+      <section>
+        <h2 id="m-down"><code lang="en">down()</code></h2>
+
+        <p>Returnerar menyelement nedanför det angivna referenselementet.</p>
+
+        <p>Uppdaterar menyns ”aktiva” elemeent vid navigering.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">down</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Nästa <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element efter referenselementet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--handleLeft()-->
+      <section>
+        <h2 id="m-handle-left"><code lang="en">handleLeft()</code></h2>
+
+        <p>Hantera navigering med vänsterpil.</p>
+
+        <p>
+          En innehållsmeny är vertikal och har inga undermenyer, så metoden, som
+          ersätter basklassmetoden, gör ingenting.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">handleLeft</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Referenselementet.</p>
+      </section>
+
+      <!--up()-->
+      <section>
+        <h2 id="m-up"><code lang="en">up()</code></h2>
+
+        <p>Returnerar menyelement ovanför det angivna referenselementet.</p>
+
+        <p>Uppdaterar menyns ”aktiva” elemeent vid navigering.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">up</span>(<span class="var">ref</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>ref</code></dt>
+          <dd>Referenselement.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Föregående <a href="MenuItem.html"><code lang="en">MenuItem</code></a
+          >-element från referenselementet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Referenselementet ingår inte i menyn.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          En innehållsmeny är en vanlig meny utan undermenyer, som består av
+          länkar till avsnitt inom sidan. Det ”aktiva” elementet indikeras
+          visuellt och denna indikering uppdateras så snart skrolllpositionen i
+          dokumentet förändras.
+        </p>
+
+        <p>
+          Algoritmen för att beräkna ”aktuellt” element är rudimentär och inte
+          alls optimal. Den söker det sista elementet i menyn vars målelement,
+          eller målelementets efterföljande innehåll, är synligt i fönstret med
+          den aktuella skrollpositionen.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../../meny.html">Menyn</a></li>
+          <li>
+            <a href="Menu.html"><code lang="en">Menu</code></a>
+          </li>
+          <li>
+            <a href="MenuBuilder.html"><code lang="en">MenuBuilder</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

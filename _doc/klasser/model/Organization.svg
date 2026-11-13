@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <g id="Organization">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="112"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="92" x2="100" y2="92"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Organization</text>
+      <text x="5" y="20">+abbreviation: string</text>
+      <text x="5" y="30">+address: string</text>
+      <text x="5" y="40">+email: string</text>
+      <text x="5" y="50">+name: string</text>
+      <text x="5" y="60">
+        <tspan>+registrationNumber:</tspan>
+        <tspan x="15" dy="10">RegistrationNumber</tspan>
+      </text>
+      <text x="5" y="80">
+        <tspan>+telephone:</tspan>
+        <tspan x="15" dy="10">TelephoneNumber</tspan>
+      </text>
+      <text x="5" y="100">serialize(): object</text>
+      <text x="5" y="110">toJSON(): object</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+{
+  "steps": [
+    "Testa att åtminstone tangentbordet, skärmläsaren och zoomfunktionen fungerar med vyn.",
+    "Testa tillbakagesterna i Talkback eller VoiceOver, samt motsvarande tangentbordskommando (<kbd><kbd>Escape</kbd></kbd>).",
+    "Om en vy i iOS kan spela upp ljud eller film, eller innehåller en mediespelare, kontrollera att det går att starta och pausa uppspelningen genom att dubbeltrycka med två fingrar (med VoiceOver påslaget).",
+    "Om vyn spelar in eller upp ljud, kontrollera att skärmläsarljudet inte flyttas till telefonens samtalshögtalare så att det blir svårt att höra."
+  ],
+  "exceptions": ["Störningar som sker på användarens uttryckliga begäran."],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Vid tangentbordsanvändning: Om <kbd><kbd>Escape</kbd></kbd> inte fungerar som det ska, kontrollera att omkopplaren är inställd på rätt tangentbord (<samp>Android</samp>/<samp>iOS</samp>)."
+    },
+    {
+      "type": "tip",
+      "text": "Stäng-/tillbakagest i VoiceOver: dra med två fingrar höger, vänster, höger (som ett ’Z’)."
+    },
+    {
+      "type": "tip",
+      "text": "Stäng-/tillbakagest i TalkBack: dra med ett finger nedåt, vänster (som ett spegelvänt ’L’)."
+    },
+    {
+      "type": "warning",
+      "text": "Om du inte verkar kunna nå vissa objekt eller information när du sveper med skärmläsaren: I <cite lang=en translate=no>VoiceOver</cite> finns så kallade <span lang=en>”Custom actions”</span>. Att såna åtgärder finns kan indikeras genom att skärmläsaren säger ”<samp>åtgärder tillgängliga</samp>”. Om det inte verkar gå att komma åt objekt eller utföra vissa handlingar med skärmläsaren, kontrollera om det går genom att svepa uppåt eller neråt när ett objekt har Voiceover-fokus och välja en <span lang=en>”custom action”</span>. Det går även att komma åt åtgärderna med rotorn."
+    }
+  ]
+}

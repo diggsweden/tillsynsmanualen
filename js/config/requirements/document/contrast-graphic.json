@@ -1,0 +1,45 @@
+{
+  "steps": [
+    "Bedöm vilken eller vilka delar som är nödvändiga för förståelsen av varje bild. Exempel kan vara en figurs yttre form eller symboler inuti en figur.",
+    "Låtsas att du bara kan uppfatta dessa aspekter av bilden. Har de tillräcklig kontrast mot intilliggande färger för att vara möjliga att uppfatta?"
+  ],
+  "exceptions": [
+    "En specifik presentation krävs för att inte helt förändra informationen eller funktionen och det finns inget tillgängligt sätt att åstadkomma samma funktion.",
+    "Det finns text i bilden som förmedlar samma information (och uppfyller kontrastkraven i 1.4.3).",
+    "Informationen är tillgänglig i ett alternativt format, till exempel som en datatabell nära (eller länkad i anslutning till) ett diagram.",
+    "Fotografier av människor eller miljöer.",
+    "Färggradienter som representerar mätvärden (färgdiagram/<i lang=\"en\">heat maps</i>)).",
+    "Grafik som är rent dekorativ.",
+    "Logotyper, varumärken, flaggor."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphics"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Exempel på informationsbärande delar i ett diagram är tårtbitar i ett cirkeldiagram eller tätt liggande staplar i ett stapeldiagram. Linjer och kurvor ska ha tillräcklig kontrast mot bakgrunden, men behöver normalt inte uppfylla kontrastkraven mot andra linjer och kurvor."
+    },
+    {
+      "type": "text",
+      "text": "Om bakgrunden är en gradient, ett fotografi eller något annat som inte har en enhetlig färg, försök avgöra om den informationsbärande delen skulle vara urskiljbar om de färger som ger otillräcklig kontrast ersattes med förgrundsfärgen. Exempel:"
+    },
+    {
+      "type": "figure",
+      "caption": "Bakgrundsfärg med otillräcklig kontrast ersatt av förgrundsfärgen. Går symbolen att känna igen som ett frågetecken?",
+      "content": [
+        {
+          "type": "image",
+          "path": "gradientkontrast.svg",
+          "alt": "Demonstration av kontrast för gradienter"
+        }
+      ]
+    }
+  ]
+}

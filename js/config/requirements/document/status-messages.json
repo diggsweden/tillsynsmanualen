@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Testa helst med en skärmläsare och verifiera att statusmeddelandet läses upp utan att du behöver flytta fokus till det."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Statusmeddelande",
+      "description": "En förändring av dokumentinnehållet som inte innebär en kontextförändring och som förmedlar information till användaren om resultatet av en åtgärd, om vänteläge, om förloppet hos en process eller om förekomsten av felmeddelanden."
+    },
+    {
+      "type": "definition",
+      "term": "Kontextförändring",
+      "description": "En betydande förändring av dokumentets innehåll som kan förvirra användare som inte kan uppfatta hela sidan samtidigt, om de inte är förberedda på den. Exempel: att öppna ett separat program för att visa ett dokument, att öppna ett nytt fönster eller en ny tabbflik i webbläsaren, att flytta fokus till ett annat element eller att förändra innehållet på ett sätt som förändrar dokumentets betydelse."
+    }
+  ]
+}

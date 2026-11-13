@@ -1,0 +1,8 @@
+{
+  "methods": [
+    "Leta efter innehåll i vyn där hierarkisk position är viktig. Använd skärmläsaren för att kontrollera om det går att förstå hierarkin."
+  ],
+  "examples": {
+    "neutral": ["Trädvyer.", "Expanderbara menyer."]
+  }
+}

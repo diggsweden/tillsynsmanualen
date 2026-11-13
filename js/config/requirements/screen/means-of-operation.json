@@ -1,0 +1,12 @@
+{
+  "methods": [
+    "Kontrollera att det finns alternativa sätt att aktivera kontrollerna, som inte kräver finmotorisk kontroll eller muskelstyrka."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Reglage",
+      "description": "en del av användargränssnittet som används för att aktivera, stänga av eller anpassa en funktion."
+    }
+  ]
+}

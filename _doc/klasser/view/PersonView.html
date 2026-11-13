@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>PersonView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">PersonView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">PersonView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-disable-remove"
+              ><code lang="en">disableRemove()</code></a
+            >
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för redigering av personuppifter. Vyn består av ett formulär med
+        inmatningsfält och två knappar: <samp>Spara</samp> och
+        <samp>Ta bort</samp>.
+      </p>
+
+      <p>
+        <code lang="en">PersonView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/PersonView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/PersonView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 300" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--PersonView-->
+          <use
+            xlink:href="PersonView.svg#PersonView"
+            x="205"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="255" y1="63" x2="255" y2="100" class="inheritance" />
+
+          <g transform="translate(0, 100)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">PersonView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">PersonView</span>(<span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">email</code></dt>
+          <dd>E-postadress.</dd>
+
+          <dt><code lang="en">familyNmae</code></dt>
+          <dd>Efternamn.</dd>
+
+          <dt><code lang="en">givenNmae</code></dt>
+          <dd>Förnamn.</dd>
+
+          <dt><code lang="en">roles</code></dt>
+          <dd>Roller.</dd>
+
+          <dt><code lang="en">telephone</code></dt>
+          <dd>Telefonnummer</dd>
+        </dl>
+      </section>
+
+      <!--disableRemove()-->
+      <section>
+        <h2 id="m-disable-remove"><code lang="en">disableRemove()</code></h2>
+
+        <p>Avaktiverar <samp>Ta bort</samp>-knappen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">disableRemove</code>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../person.module.html"
+              ><code lang="en">person.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/PersonController.html"
+              ><code lang="en">PersonController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

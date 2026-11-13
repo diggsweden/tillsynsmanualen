@@ -1,0 +1,28 @@
+{
+  "methods": [
+    "Taggad PDF: Välj <samp>Tillgänglighet|Läsordning</samp>. Markera radioknappen ”<samp>Ordning för sidinnehåll</samp>”. Kontrollera taggordningen och att sidans olika element ligger i en logisk läsordning. Gör detta för samtliga sidor.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: Visa markeringsfönstret och kontrollera att ordningen är meningsfull.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: Välj <samp>Start|Sök|Gå till…|Tabell</samp> och navigera igenom alla tabeller i dokumentet. För varje tabell, klicka i första cellen och tabba igenom hela tabellen för att se att läsriktningen är korrekt."
+  ],
+  "examples": {
+    "bad": [
+      "Ett dokument innehåller flera artiklar i en spalt. Till varje artikel finns en faktaruta i en spalt bredvid. Innehållsordningen går ”kolumnvis”, inte ”radvis”, alltså alla artiklar först och sedan alla faktarutor i stället för artikel, faktaruta, artikel, faktaruta …."
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Det anses inte inverka på betydelsen i vilken ordning vissa delar av sidan kommer, exempelvis om A kommer före eller efter B. Det som påverkar är om delar som visuellt utgör en enhet inte är en sammanhållen enhet i koden, så att delar av olika enheter kommer om vartannat."
+    },
+    {
+      "type": "tip",
+      "filters": ["doc", "docx", "ppt", "pptx", "xls", "xlsx"],
+      "text": "Visa markeringsfönstret: <samp>Start|Markera|Markeringsfönster…</samp>."
+    },
+    {
+      "type": "note",
+      "filters": ["doc", "docx", "ppt", "pptx", "xls", "xlsx"],
+      "text": "Observera att markeringsfönstret visar objekten i fallande ordning, alltså att det första elementet i läsordningen visas längst ned i listan."
+    }
+  ]
+}

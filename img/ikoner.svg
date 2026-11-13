@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="ico-add" viewBox="0 0 24 24">
+      <path d="M2,10 h8 v-8 h4 v8 h8 v4 h-8 v8 h-4 v-8 h-8 z"/>
+    </symbol>
+
+    <symbol id="ico-autopass" fill="none" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="60" stroke-width="10"/>
+      <path d="M48,60 c7,7 17,7 24,0" stroke-width="10"/>
+      <path d="M88,60 c7,7 17,7 24,0" stroke-width="10"/>
+      <path d="M60,100 h40" stroke-width="10"/>
+    </symbol>
+
+    <symbol id="ico-cancel" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11"/>
+      <path d="M8,16 l8,-8 m-8,0 l8,8"/>
+    </symbol>
+
+    <symbol id="ico-case" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <use xlink:href="#ico-document"/>
+      <path d="M8,19 h8 m-8,-4 h8 m-8,-4 h8"/>
+    </symbol>
+
+    <symbol id="ico-new" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="18" cy="18" r="5"/>
+      <path d="M16,18 h4 m-2,-2 v4" fill="none"/>
+    </symbol>
+
+    <symbol id="ico-check" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="20" height="20" rx="6" ry="6" fill="none" stroke-width="1"/>
+      <path d="M2,12 l6,6 h2 l12,-14 h-3 l-10,11 -3,-3 z"
+            stroke="none"/>
+    </symbol>
+
+    <symbol id="ico-close" fill="none" stroke-width="2" viewbox="0 0 24 24">
+      <path d="M4,4 l16,16 m-16,0 l16,-16"/>
+    </symbol>
+
+    <symbol id="ico-component" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M2,12 l5,-9 h10 l5,9 -5,9 h-10 z"/>
+    </symbol>
+
+    <symbol id="ico-copy" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M19,21 v2 h-18 v-19 h5
+              M17,1 l6,6 v13 h-16 v-19 z v6 h6"/>
+    </symbol>
+
+    <symbol id="ico-delete" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
+      <path d="M2,3 h21 m-14.5,0 c0,-2 2,-2 2,-2 h4 c2,0 2,2 2,2"/>
+      <path d="M4,5 v14 c0,2 2,4 4,4 h9 c2,0 4,-2 4,-4 v-14"/>
+      <path d="M8.5,8 v11 m4,-11 v11 m4,-11 v11"/>
+    </symbol>
+
+    <symbol id="ico-document" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M14,1 l6,6 v16 h-16 v-22 z v6 h6"/>
+    </symbol>
+
+    <symbol id="ico-download" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M1,17 v4 c0,2 2,2 2,2 h18 c2,0 2,-2 2,-2 v-4
+              m-11,-16 v16
+              m-5,-5 l5,5 5,-5"/>
+    </symbol>
+
+    <symbol id="ico-edit" viewBox="0 0 240 240">
+      <g transform="rotate(45 120,120)">
+        <path d="M100,199 l20,40 20,-40 z
+                m0,-110 v100 h40 v-100 z
+                m0,-10 c0,-15 10,-30 20,-30 10,0 20,15 20,30 z"/>
+      </g>
+    </symbol>
+
+    <symbol id="ico-face" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="60" fill="none" stroke-width="10"/>
+      <circle cx="60" cy="60" r="10" stroke="none"/>
+      <circle cx="100" cy="60" r="10" stroke="none"/>
+    </symbol>
+
+    <symbol id="ico-fail" viewBox="0 0 160 160">
+      <use xlink:href="#ico-face"/>
+      <path d="M55,100 c10,-10 40,-10 50,0" fill="none" stroke-width="10"/>
+    </symbol>
+
+    <symbol id="ico-folder" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M1,7 c0,-2 1,-2 3,-2 0,-3 1,-4 2,-4 h6
+                c2,0 2,4 2,4 h6 c1,0 3,0 3,2 v14
+                c0,2 -1,2 -3,2 h-16 c-1,0 -3,0 -3,-2 z"/>
+    </symbol>
+
+    <symbol id="ico-injunction" font-size="14" viewBox="0 0 24 24">
+      <use xlink:href="#ico-document"/>
+      <text x="10" y="18" text-anchor="middle">§</text>
+    </symbol>
+
+    <symbol id="ico-like" stroke="none" viewBox="0 0 32 32">
+      <path d="M9,16 h2
+              s1,-6 4,-8
+              v-3
+              a2,2 0 0,1 4,0
+              s1,3 0,5
+              l-2,4
+              h10
+              a2,2 0 0,1 0,4 2,2 0 0,1 -1,4 2,2 0 0,1 -1,4
+              c2,4 -4,6 -16,2
+              z"/>
+    </symbol>
+
+    <symbol id="ico-unlike" stroke="none" viewBox="0 0 32 32">
+      <g transform="rotate(180 16,16)">
+        <use xlink:href="#ico-like"/>
+      </g>
+    </symbol>
+
+    <symbol id="ico-log" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M4,5 c0,-2 2,-4 4,-4
+               h10
+               c2,0 4,2 4,4
+               v14
+               c0,2 -2,4 -4,4
+               h-10
+               c-2,0 -4,-2 -4,-4 z"/>
+      <path stroke-width="3" stroke-linecap="round"
+            d="M2,6 h6 m-6,6 h6 m-6,6 h6"/>
+    </symbol>
+
+    <symbol id="ico-monitor" fill-rule="evenodd" stroke="none" viewBox="0 0 240 240">
+      <g transform="rotate(-45 120,120)">
+        <path d="M50,80 c0,-35 35,-70 70,-70 s70,35 70,70
+                  -35,70 -70,70 -70,-35 -70,-70 z
+                  M70,80 c0,-25 25,-50 50,-50 s50,25 50,50
+                  -25,50 -50,50 -50,-25 -50,-50 z"/>
+        <path d="M110,150 v80 c0,5 5,10 10,10 s10,-5 10,-10 v-80 z"/>
+      </g>
+    </symbol>
+
+    <symbol id="ico-more" stroke-width="3" viewBox="0 0 24 24">
+      <path d="M4,12 h16 m-8,-8 v16" fill="none" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="ico-note" viewBox="0 0 24 24">
+      <path d="M1,5 c0,-2 2,-4 4,-4 h14 c2,0 4,2 4,4 v9 c0,2 -2,4 -4,4 h-9
+               l-3,5 v-5 h-2 c-2,0 -4,-2 -4,-4 z"
+            fill="none"
+            stroke-width="2"/>
+    </symbol>
+
+    <symbol id="ico-pass" viewBox="0 0 160 160">
+      <use xlink:href="#ico-face"/>
+      <path d="M55,90 c10,10 40,10 50,0" fill="none" stroke-width="10"/>
+    </symbol>
+
+    <symbol id="ico-person" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M2,23 c0,-4 5,-8 10,-8 5,0 10,4 10,8 z"/>
+    </symbol>
+
+    <symbol id="ico-remark" viewBox="0 0 24 24">
+      <path d="M1,22 l11,-21 11,21 z m11-16 v10"
+            fill="none"
+            stroke-width="2" 
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <circle cx="12" cy="19" r="1" stroke="none"/>
+    </symbol>
+
+    <symbol id="ico-remarks" font-size="14" viewBox="0 0 24 24">
+      <use xlink:href="#ico-document"/>
+      <text x="10" y="20" text-anchor="middle">!</text>
+    </symbol>
+
+    <symbol id="ico-sample" viewBox="0 0 240 240">
+      <g transform="rotate(45 120,120)">
+        <path d="M100,80 v100 l20,60 20,-60 v-100"
+              fill="none"
+              stroke-width="10"
+              stroke-linejoin="round"/>
+        <path d="M80,70 h80" fill="none" stroke-width="20" stroke-linecap="round"/>
+        <path d="M100,60 v-40 c0,-10 10,-20 20,-20 10,0 20,10 20,20 v40 z"/>
+      </g>
+    </symbol>
+
+    <symbol id="ico-save" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M2,21 v-20 h15 l4,4 v16 z
+                M5,21 v-8 h13 v8
+                M7,0 v9 h9 v-9
+                M13,3 v3"/>
+    </symbol>
+
+    <symbol id="ico-screen" fill-rule="evenodd" stroke="none" viewBox="0 0 24 24">
+      <path d="M5,3 c0,-2 1,-3 3,-3
+               h10  c2,0 3,1 3,3
+               v18 c0,2 -1,3 -3,3
+               h-10 c-2,0 -3,-1 -3,-3 z
+               M7,4 c0,-2 0,-2 2,-2
+               h8 c2,0 2,0 2,2
+               v12 c0,2 0,2 -2,2
+               h-8 c-2,0 -2,0 -2,-2 z"/>
+    </symbol>
+
+    <symbol id="ico-skip" stroke="none" viewBox="0 0 24 24">
+      <path d="M4,6 l10,6 -10,6 z m8,0 l10,6 -10,6 z"/>
+    </symbol>
+
+    <symbol id="ico-start" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="none" stroke-width="2"/>
+      <path d="M8,6 l10,6 -10,6 z"/>
+    </symbol>
+
+    <symbol id="ico-status-done" viewBox="0 0 24 24">
+      <path d="M2,14 c2,0 6,8 6,9 h2 c0,-2 12,-23 14,-23 h-2
+                c-4,0 -12,16 -13,18 0,0 -2,-4 -6,-4 z"/>
+    </symbol>
+
+    <symbol id="ico-status-ready" viewBox="0 0 24 24">
+      <path d="M4,4 l16,8 -16,8 z"/>
+    </symbol>
+
+    <symbol id="ico-status-started" viewBox="0 0 24 24">
+      <path d="M4,4 h7 v16 h-7 z m10,0 h7 v16 h-7 z"/>
+    </symbol>
+
+    <symbol id="ico-timer" viewBox="0 0 240 240">
+      <rect x="99" y="5" width="40" height="20" rx="5" ry="5" stroke="none"/>
+      <rect x="109" y="24" width="20" height="20" stroke="none"/>
+      <rect x="170" y="43" width="20" height="20" rx="5" ry="5" stroke="none"
+            transform="rotate(30 180 53)"/>
+      <circle cx="119" cy="139" r="90" fill="none" stroke-width="20"/>
+      <circle cx="119" cy="139" r="15" stroke="none"/>
+      <rect x="114" y="65" width="10" height="100" stroke="none"/>
+    </symbol>
+
+    <symbol id="ico-unchecked" viewBox="0 0 160 160">
+      <use xlink:href="#ico-face"/>
+      <path d="M60,100 h40" fill="none" stroke-width="10"/>
+    </symbol>
+
+    <symbol id="ico-upload" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M1,17 v4 c0,2 2,2 2,2 h18 c2,0 2,-2 2,-2 v-4
+              m-11,0 v-16
+              m-5,5 l5,-5 5,5"/>
+    </symbol>
+
+    <symbol id="ico-webpage" fill="none" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11"/>
+      <ellipse cx="12" cy="12" rx="5" ry="11"/>
+      <path d="M3,8 h18 m0,8 h-18"/>
+    </symbol>
+  </defs>
+</svg>

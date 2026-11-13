@@ -1,0 +1,27 @@
+{
+  "methods": [
+    "Spela filmen med undertexterna synliga och kontrollera att allt relevant ljud återges i undertexterna, eller som synlig text i själva filmen."
+  ],
+  "exceptions": [
+    "Filmer som är ett <dfn>mediealternativ till text</dfn> – en filmversion av innehåll som redan finns som text i dokumentet – och är tydligt märkt som sådant."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Undertexter",
+      "description": "Textalternativ till filmens ljudinnehåll, som visas synkroniserat med bildinnehållet. Ska förmedla allt relevant ljud, inte bara dialogen."
+    },
+    {
+      "type": "text",
+      "text": "Undertexter kan vara <dfn>öppna</dfn> (”inbrända” i filmen) eller <dfn>dolda</dfn> (separata från filmen och möjliga att visa eller dölja i en mediespelare). Båda varianterna uppfyller kravet på undertexter, även om dolda undertexter ger bättre användbarhet och tillgänglighet."
+    },
+    {
+      "type": "text",
+      "text": "För att undertexter ska vara <em>textalternativ</em> till ljudinnehållet ska de vara på samma språk som talet i filmen. Man får givetvis ha textremsor med översättning också, men de utgör inte textalternativ i <cite>WCAG</cite>:s och lagens bemärkelse."
+    },
+    {
+      "type": "note",
+      "text": "Undertexter behöver inte nödvändigtvis presenteras i <em>underkant</em> av filmen. Det kan till exempel vara en transkription av ett tal som visas bredvid filmytan, bara presentationen är synkroniserad med filmen."
+    }
+  ]
+}

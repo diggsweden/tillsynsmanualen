@@ -1,0 +1,60 @@
+{
+  "methods": [
+    "Leta efter innehåll som <em>borde vara</em> uppmärkt som rubriker och efter innehåll som <em>är</em> uppmärkt som rubriker."
+  ],
+  "tools": [
+    {
+      "tool": "WAVE",
+      "tab": "Structure"
+    },
+    {
+      "tool": "WebDeveloper",
+      "tab": "Information",
+      "item": "View Document Outline"
+    }
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Ju högre siffra, desto lägre rubriknivå. <code>&lt;h1&gt;</code> är den högsta nivån; <code>&lt;h6&gt;</code> den lägsta."
+    },
+    {
+      "type": "definition",
+      "term": "Dårrad",
+      "description": "En rad (oftast med mindre grad) ovanför en rubrik, som ska ”dåra” läsaren att fortsätta."
+    },
+    {
+      "type": "definition",
+      "term": "Nedryckare",
+      "description": "En rad (oftast med mindre grad) nedanför en rubrik, som ska ”rycka ned” blicken till innehållet som följer. Kallas också <dfn>underrubrik</dfn>."
+    },
+    {
+      "type": "text",
+      "text": "<span style='display:block; max-width:14em; margin:0 auto 2.25em'><span style='display:block; font-size:1.1em; font-weight:bold; text-align:right'>Dårrad</span> <span style='display:block; font-size:2em; font-weight:bold'>Exempelrubrik</span> <span style='display:block; font-size:1.1em; font-weight:bold'>Nedryckare</span></span>"
+    },
+    {
+      "type": "text",
+      "text": "Exemplet ovan bör märkas upp med <code translate=\"no\" lang=\"en\">&lt;hgroup&gt;</code>, där ”<samp>Dårrad</samp>” och ”<samp>Nedryckare</samp>” är <code>&lt;p&gt;</code>-element och ”<samp>Exempelrubrik</samp>” är en rubrik (till exempel <code>&lt;h1&gt;</code>)."
+    },
+    {
+      "type": "text",
+      "text": "Det är inget krav att <code>&lt;h1&gt;</code> måste vara första rubriken på sidan, till exempel om huvudrubriken ligger efter ett sidhuvud med så pass komplext innehåll att det har rubriker."
+    },
+    {
+      "type": "text",
+      "text": "När ett avsnitt består av flera underavsnitt kan det första underavsnittets rubrik komma direkt efter avsnittsrubriken. Exemeplvis kan H2-rubriken ”Däggdjur” följas av H3-rubriken ”Rovdjur” om det längre ned finns ett annat underavsnitt med H3-rubriken ”Växtätare”. På samma sätt skulle ”Rovdjur” kunna följas av H4-rubriken ”På land” om det finns ett senare under-underavsnitt med H4-rubriken ”I vatten”."
+    },
+    {
+      "type": "text",
+      "text": "Däremot är det inte korrekt att H2-rubriken ”Huggorm” följs av H3-rubriken ”En missförstådd art” som nedryckare i ett avsnitt som inte har några andra rubriker."
+    },
+    {
+      "type": "note",
+      "text": "Ett alternativ till att använda olika rubriknivåer är att genomgående använda <code>&lt;h1&gt;</code> och beskriva strukturen genom att nästla sektionerande element (<code translate=\"no\" lan=\"en\">&lt;article&gt;</code>, <code translate=\"no\" lan=\"en\">&lt;aside&gt;</code>, <code translate=\"no\" lan=\"en\">&lt;section&gt;</code>)."
+    },
+    {
+      "type": "note",
+      "text": "Rubriker inuti vissa element ingår inte i den totala rubrikstrukturen. Det gäller <code translate=\"no\" lang=\"en\">&lt;blockquote&gt;</code>, <code translate=\"no\" lang=\"en\">&lt;details&gt;</code>, <code translate=\"no\" lang=\"en\">&lt;dialog&gt;</code>, <code translate=\"no\" lang=\"en\">&lt;figure&gt;</code> och <code translate=\"no\" lang=\"en\">&lt;td&gt;</code>."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "steps": [
+    "Anslut en referensterminal för RTT till tjänsten.",
+    "Kontrollera att det går att kommunicera med referensterminalen genom realtidstext."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Realtidstext (RTT)",
+      "description": "Text som förmedlas till mottagaren direkt när den skrivs in av avsändaren. Används till exempel av personer som är döva eller har nedsatt hörsel och har svårt att uppfatta tal, eller personer som saknar talförmåga. <em>Inte</em> detsamma som en chattfunktion, där man vanligen skickar ett helt meddelande åt gången."
+    },
+    {
+      "type": "definition",
+      "term": "Referensterminal för RTT",
+      "description": "En specialtillverkad terminal för testning av enheter med RTT-stöd för att bekräfta funktion och interoperabilitet. Referensterminaler tillhandahålls vanligen av ett standardiseringsinstitut eller motsvarande."
+    },
+    {
+      "type": "text",
+      "text": "Det finns ett undantag för kravet om det innebär att man behöver ändra designen för att lägga till hårdvara för inmatning eller visning av text. Det torde inte vara tillämpligt för webbtjänster, som används med datorutrustning som har bildskärm och tangentbord (fysiskt eller virtuellt)."
+    }
+  ]
+}

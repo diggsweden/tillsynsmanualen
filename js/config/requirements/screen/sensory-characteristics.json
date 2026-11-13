@@ -1,0 +1,13 @@
+{
+  "methods": [
+    "Ögna igenom textinnehållet och leta efter hänvisningar som förutsätter en specifik funktionsförmåga."
+  ],
+  "examples": {
+    "bad": [
+      "”Den runda knappen”",
+      "”Den gröna rutan”",
+      "”Det bredaste fältet”",
+      "”Menyn till vänster”."
+    ]
+  }
+}

@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>CaseDisplayView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">CaseDisplayView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">CaseDisplayView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-activate"><code lang="en">activate()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-audit"><code lang="en">addAudit()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-document"><code lang="en">addDocument()</code></a>
+          </li>
+          <li>
+            <a href="#m-close"><code lang="en">close()</code></a>
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för presentation av ärendeinformation. Visar information om den
+        ansvariga aktören och om ärendet. Vyn innehåller en lista med alla
+        granskningar i ärendet och en lista med de dokument som hör till
+        granskningarna (protokolll, påpekanden och förelägganden). Dokumenten
+        kan visas på skärmen (utom CSV-protokoll) eller sparas som filer.
+      </p>
+
+      <p>
+        Nedanför granskningslistan finns en länk för att skapa och påbörja en ny
+        granskning.
+      </p>
+
+      <p>
+        Via länkar ger vyn också åtkomst till ärendeloggen och till en sida för
+        att redigera ärendet. Dessutom finns en knapp för att spara hela ärendet
+        som en JSON-fil.
+      </p>
+
+      <p>
+        <code lang="en">CaseDisplayView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/CaseDisplayView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/CaseDisplayView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 390" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--CaseDisplayView-->
+          <use
+            xlink:href="CaseDisplayView.svg#CaseDisplayView"
+            x="175"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="255" y1="153" x2="255" y2="190" class="inheritance" />
+
+          <g transform="translate(0, 190)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">CaseDisplayView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn lägger till stilmallen
+          <code lang="en">css/case.css</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">CaseDisplayView</span>(<span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">addr</code></dt>
+          <dd>Aktörens postadress. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">create</code></dt>
+          <dd>Länkadress för ny granskning. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">edit</code></dt>
+          <dd>Länkadress för att redigera stickprovet. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">email</code></dt>
+          <dd>Aktörens e-postadress. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">heading</code></dt>
+          <dd>Sidrubrik. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">log</code></dt>
+          <dd>Länkadress för ärendelogg. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">logSize</code></dt>
+          <dd>Antal noteringar i ärendeloggen. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">org</code></dt>
+          <dd>Aktörens organisationsnamn. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">regNo</code></dt>
+          <dd>Aktörens organisationsnummer. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">supervisor</code></dt>
+          <dd>Tillsynsansvarig för ärendet. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">tel</code></dt>
+          <dd>Aktörens telefonnummer. (Endast skrivning.)</dd>
+        </dl>
+      </section>
+
+      <!--activate()-->
+      <section>
+        <h2 id="m-activate"><code lang="en">activate()</code></h2>
+
+        <p>
+          Utökar basklassmetoden genom att lägga till händelselyssnare för de
+          genererade dokumentlänkarna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">activate</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addAudit()-->
+      <section>
+        <h2 id="m-add-audit"><code lang="en">addAudit()</code></h2>
+
+        <p>
+          Lägger till en länk till en granskning. Metoden klonar en mall (<code
+            lang="en"
+            class="html tag"
+            >&lt;template&gt;</code
+          >) i källkoden, populerar det resulterande dokumentfragmentet och
+          infogar det sist i listan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addAudit</span>(<span class="var">editURL</span>, <span class="var">sampleURL</span>, <span class="var">columns</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">editURL</code></dt>
+          <dd>Länkadress för redigering av granskningen.</dd>
+
+          <dt><code lang="en">sampleURL</code></dt>
+          <dd>Länkadress för visning av granskningen (urvalslista).</dd>
+
+          <dt><code lang="en">columns</code></dt>
+          <dd>Innehållskolumner.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--close()-->
+      <section>
+        <h2 id="m-close"><code lang="en">close()</code></h2>
+
+        <p>Kopplar ifrån rutnätet när vyn stängs.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">close</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Utökar basklassmetoden genom att koppla rutnätet till listan med
+          granskningar. Det gör hela listan till ett enda tabbstopp i
+          navigeringssekvensen; intern navigering inom listan sker med
+          piltangenter.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">open</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när sidinnehållet laddats.</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../case.module.html"
+              ><code lang="en">case.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/CaseDisplayController.html"
+              ><code lang="en">CaseDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="CaseEditView.html"><code lang="en">CaseEditView</code></a>
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

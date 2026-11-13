@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>InaccessibilityMetric – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      math + math {
+        margin-top: 1.5em;
+      }
+      table {
+        width: 100%;
+      }
+      col.fps {
+        width: 2em;
+      }
+      col.notes {
+        width: 3em;
+      }
+      col.param {
+        width: 4em;
+      }
+      col.value {
+        width: 6em;
+      }
+      td:lang(en) {
+        font-style: italic;
+      }
+
+      math[display='block'] {
+        font-size: 120%;
+      }
+      math + math,
+      picture + picture {
+        margin-top: 1.5em;
+      }
+      picture.block {
+        display: block;
+        text-align: center;
+      }
+      picture.inline {
+        vertical-align: sub;
+      }
+      .eq-params {
+        table-layout: fixed;
+      }
+      .eq-params tr > *:last-child {
+        text-align: center;
+      }
+      .no-math math {
+        display: none;
+      }
+
+      .uml-diagram {
+        width: 28rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">InaccessibilityMetric</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">InaccessibilityMetric</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-compliance"><code lang="en">compliance()</code></a>
+          </li>
+          <li>
+            <a href="#m-impact"><code lang="en">impact()</code></a>
+          </li>
+          <li>
+            <a href="#m-score"><code lang="en">score()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">InaccessibilityMetric</code> beräknar ett
+        mätetal för otillgänglighet som används i granskningsprotokoll.
+      </p>
+
+      <p>
+        Modulen innehåller också två hjälpklasser,
+        <code lang="en">Methodology</code> och
+        <code lang="en">Requirement</code>, som inte exponeras externt.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/InaccessibilityMetric.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/common/InaccessibilityMetric.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 280 140" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--InaccessibilityMetric-->
+          <use
+            xlink:href="InaccessibilityMetric.svg#InaccessibilityMetric"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="80" y1="42" x2="80" y2="90" class="composition" />
+
+          <!--Methodology-->
+          <use
+            xlink:href="InaccessibilityMetric.svg#Methodology"
+            x="25"
+            y="90"
+            class="internal"
+          />
+
+          <line x1="136" y1="101" x2="175" y2="101" class="composition" />
+
+          <!--Requirement-->
+          <use
+            xlink:href="InaccessibilityMetric.svg#Requirement"
+            x="175"
+            y="70"
+            class="internal"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">InaccessibilityMetric</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">InaccessibilityMetric</span>()</code></pre>
+      </section>
+
+      <!--compliance()-->
+      <section>
+        <h2 id="m-compliance"><code lang="en">compliance()</code></h2>
+
+        <p>
+          Beräknar överensstämmelsenivån med DOS-lagens tillgänglighetskrav för
+          angivet mätetal. Mätetalet förutsätts vara beräknat med metoden
+          <code lang="en">score()</code> i denna klass och därmed ligga inom
+          intervallet [0,&nbsp;500].
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">compliance</span>(<span class="var">score</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">score</code></dt>
+          <dd>Mätetal.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <ul>
+          <li>
+            Om mätetalet &lt; 10:
+            <code lang="en" class="js literal">"full"</code>.
+          </li>
+          <li>
+            Om 10 ≤ mätetalet &lt; 80:
+            <code lang="en" class="js literal">"partial"</code>.
+          </li>
+          <li>
+            Om mätetalet ≥ 80: <code lang="en" class="js literal">"none"</code>.
+          </li>
+        </ul>
+
+        <p>
+          Värdena matchar CSS-klasser som används i protokollvyn för att
+          färgsätta element beroende på överensstämmelsenivån.
+        </p>
+      </section>
+
+      <!--impact()-->
+      <section>
+        <h2 id="m-impact"><code lang="en">impact()</code></h2>
+
+        <p>
+          Beräknar ett kravs inverkan på det totala mätetalet för
+          otillgänglighet. Inverkan beräknas som
+
+          <picture hidden class="inline">
+            <source
+              media="screen and (prefers-color-scheme:dark)"
+              srcset="impact.dark.png"
+            />
+            <img src="impact.light.png" alt="Iρ=Fρ·ω(ρ)" />
+          </picture>
+
+          <math>
+            <msub>
+              <mi>I</mi>
+              <mi>ρ</mi>
+            </msub>
+
+            <mo>=</mo>
+
+            <msub>
+              <mi>F</mi>
+              <mi>ρ</mi>
+            </msub>
+
+            <mo>&#x2062;</mo>
+
+            <mrow>
+              <mi>ω</mi>
+
+              <mo>&#x2061;</mo>
+
+              <mrow>
+                <mo>(</mo>
+                <mi>ρ</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow> </math
+          >, där F<sub>ρ</sub> är antalet sidor som underkänts för kravet och
+          ω(ρ) är kravets vikt:
+
+          <math display="block">
+            <mrow>
+              <mi>ω</mi>
+
+              <mo>&#x2061;</mo>
+
+              <mrow>
+                <mo>(</mo>
+                <mi>ρ</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+
+            <mo>=</mo>
+
+            <msub>
+              <mi>λ</mi>
+              <mi>ρ</mi>
+            </msub>
+
+            <mo>&#x2062;</mo>
+
+            <msub>
+              <mi>ν</mi>
+              <mi>ρ</mi>
+            </msub>
+
+            <mo>&#x2062;</mo>
+
+            <msqrt>
+              <mrow>
+                <msubsup>
+                  <mi>φ</mi>
+                  <mi>ρ</mi>
+                  <mtext>′</mtext>
+                </msubsup>
+
+                <mo>+</mo>
+
+                <mi>m</mi>
+
+                <mo>&#x2062;</mo>
+
+                <msubsup>
+                  <mi>φ</mi>
+                  <mi>ρ</mi>
+                  <mtext>″</mtext>
+                </msubsup>
+              </mrow>
+            </msqrt>
+          </math>
+
+          <picture hidden class="block">
+            <source
+              media="screen and (prefers-color-scheme:dark)"
+              srcset="weight.dark.png"
+            />
+            <img src="weight.light.png" alt="ω(ρ)=λρ·νρ·√(φ′ρ+mφ″ρ)" />
+          </picture>
+        </p>
+
+        <p>
+          Om en användningssituation anges beräknas inverkan per krav för bara
+          den angivna användningssituationen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">impact</span>(<span class="var">pages</span>, <span class="var">data</span>)
+<span class="ident">impact</span>(<span class="var">pages</span>, <span class="var">data</span>, <span class="var">fps</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">page</code></dt>
+          <dd>Totalt antal granskade sidor.</dd>
+
+          <dt><code lang="en">data</code></dt>
+          <dd>
+            Antal underkända sidor per WCAG-kriterium. Ett associativt objekt
+            med kriterie&shy;nummer (till exempel <samp>"1.2.3"</samp>) som
+            nycklar och antalet underkända sidor för kriteriet som värde.
+          </dd>
+
+          <dt class="optional"><code lang="en">fps</code></dt>
+          <dd>
+            Användningssituation
+            <i lang="en">(functional performance statement)</i>. Se
+            beskrivningen nedan.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett associativt objekt med inverkan per underkänt krav.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">data</span> = {<span class="literal">"1.1.1"</span>: <span class="literal">7</span>, <span class="literal">"1.2.1"</span>: <span class="literal">0</span>, …};
+<span class="var">console</span>.<span class="fn">log</span>(<span class="var">metric</span>.<span class="fn">impact</span>(<span class="literal">30</span>, <span class="var">data</span>));
+// {1.1.1: 7.62, 1.3.1: 12.46, …}</code></pre>
+      </section>
+
+      <!--score()-->
+      <section>
+        <h2 id="m-score"><code lang="en">score()</code></h2>
+
+        <p>
+          Beräknar mätetalet för otillgänglighet för en datamängd. Det ideala
+          värdet är 0 (noll). Maximalt värde – om alla WCAG-kriterier är
+          underkända på samtliga granskade sidor – är 500. Se beskrivningen
+          nedan för information om hur värdet beräknas.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">score</span>(<span class="var">pages</span>, <span class="var">data</span>)
+<span class="ident">score</span>(<span class="var">pages</span>, <span class="var">data</span>, <span class="var">fps</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">page</code></dt>
+          <dd>Totalt antal granskade sidor.</dd>
+
+          <dt><code lang="en">data</code></dt>
+          <dd>
+            Antal underkända sidor per WCAG-kriterium. Ett associativt objekt
+            med kriterie&shy;nummer (till exempel <samp>"1.2.3"</samp>) som
+            nycklar och antalet underkända sidor för kriteriet som värde.
+          </dd>
+
+          <dt class="optional"><code lang="en">fps</code></dt>
+          <dd>
+            Användningssituation
+            <i lang="en">(functional performance statement)</i>. Se
+            beskrivningen nedan.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Den beräknade otillgängligheten som ett decimaltal i intervallet
+          [0,&nbsp;500].
+        </p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Mätetalet ska ge ett grovt numeriskt värde på otillgängligheten för
+          ett stickprovsurval av webbsidor. Det väger in ett antal faktorer:
+        </p>
+
+        <ul>
+          <li>hur många WCAG-kriterier som är underkända på varje sida</li>
+          <li>om ett underkänt kriterium är på nivå A eller A&zwnj;A</li>
+          <li>
+            om ett underkänt kriterium är något av de fyra som klassas som
+            ”hindrande” i WCAG (1.4.2, 2.1.2, 2.2.2, 2.3.1)
+          </li>
+          <li>
+            hur många ”användningssituationer”
+            <i lang="en">(functional performance statements)</i> i
+            <cite>EN&nbsp;301&nbsp;549</cite> ett underkänt kriterium är mappat
+            mot
+          </li>
+          <li>om den mappningen är primär eller sekundär.</li>
+        </ul>
+
+        <p>
+          Mappningen av användningssituationer i
+          <cite>EN&nbsp;301&nbsp;549</cite> är lite märklig såtillvida att vissa
+          kriterier är mappade till många situationer utan att nödvändigtvis
+          orsaka stora problem för användare, medan andra kriterier som helt kan
+          utestänga användare om de inte uppfylls är mappade mot bara någon
+          enstaka situation. Ett linjärt beroende mot antalet mappade
+          situationer riskerar alltså att snedvrida resultatet. Därför använder
+          vi en kvadratrot i formeln för att dämpa inverkan något.
+        </p>
+
+        <p>
+          Formeln för att beräkna mätetalet innehåller ett antal konstanter.
+          Några av dessa har värden som är satta mer eller mindre ”på känn”.
+          Erfarenheten från praktisk användning tycks ändå visa att de valda
+          värdena fungerar bra.
+        </p>
+
+        <figure>
+          <!--Huvudekvationen-->
+          <math display="block">
+            <mi>δ</mi>
+
+            <mo>=</mo>
+
+            <msub>
+              <mi>c</mi>
+              <mi>δ</mi>
+            </msub>
+
+            <mo>&#x2062;</mo>
+
+            <mfrac>
+              <mrow>
+                <msub>
+                  <mi>r</mi>
+                  <mtext>t</mtext>
+                </msub>
+
+                <mo>&#x2062;</mo>
+
+                <mstyle displaystyle="true">
+                  <munder>
+                    <mo movablelimits="true">∑</mo>
+                    <mrow>
+                      <mi>ρ</mi>
+                      <mo>&#x220a;</mo>
+                      <mi>&#x211d;</mi>
+                    </mrow>
+                  </munder>
+                </mstyle>
+
+                <msub>
+                  <mi>f</mi>
+                  <mtext>ρ</mtext>
+                </msub>
+
+                <mo>&#x2062;</mo>
+
+                <mrow>
+                  <mi>ω</mi>
+                  <mo>&#x2061;</mo>
+                  <mo stretchy="false">(</mo>
+                  <mi>ρ</mi>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+
+              <mrow>
+                <msub>
+                  <mi>r</mi>
+                  <mtext>e</mtext>
+                </msub>
+
+                <mo>&#x2062;</mo>
+
+                <mi>σ</mi>
+
+                <mo>&#x2062;</mo>
+
+                <mstyle displaystyle="true">
+                  <munder>
+                    <mo movablelimits="true">∑</mo>
+                    <mrow>
+                      <mi>ρ</mi>
+                      <mo>&#x220a;</mo>
+                      <mi>&#x211d;</mi>
+                    </mrow>
+                  </munder>
+                </mstyle>
+
+                <mo>&#x2062;</mo>
+
+                <mrow>
+                  <mi>ω</mi>
+                  <mo>&#x2061;</mo>
+                  <mo stretchy="false">(</mo>
+                  <mi>ρ</mi>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+            </mfrac>
+
+            <mtext>,</mtext>
+          </math>
+
+          <!--Viktningsfunktionen-->
+          <math display="block">
+            <mrow>
+              <mi>ω</mi>
+              <mo>&#x2061;</mo>
+              <mo>(</mo>
+              <mi>ρ</mi>
+              <mo>)</mo>
+            </mrow>
+
+            <mo>=</mo>
+
+            <msub>
+              <mi>λ</mi>
+              <mtext>ρ</mtext>
+            </msub>
+
+            <mo>&#x2062;</mo>
+
+            <msub>
+              <mi>ν</mi>
+              <mtext>ρ</mtext>
+            </msub>
+
+            <mo>&#x2062;</mo>
+
+            <msqrt>
+              <msubsup>
+                <mi>φ</mi>
+                <mi>ρ</mi>
+                <mtext>′</mtext>
+              </msubsup>
+
+              <mo>+</mo>
+
+              <mi>m</mi>
+
+              <msubsup>
+                <mi>φ</mi>
+                <mi>ρ</mi>
+                <mtext>″</mtext>
+              </msubsup>
+            </msqrt>
+          </math>
+
+          <picture hidden class="block">
+            <source
+              media="screen and (prefers-color-scheme:dark)"
+              srcset="metric.dark.png"
+            />
+            <img src="metric.light.png" alt="δ=cδ·rt·∑(fρ·ω(ρ))/re/σ/∑(ω(ρ))" />
+          </picture>
+
+          <picture hidden class="block">
+            <source
+              media="screen and (prefers-color-scheme:dark)"
+              srcset="weight.dark.png"
+            />
+            <img src="weight.light.png" alt="ω(ρ)=λρ·νρ·√(φ′ρ+mφ″ρ)" />
+          </picture>
+
+          <figcaption>Beräkning av mätetal för otillgänglighet.</figcaption>
+        </figure>
+
+        <table class="eq-params">
+          <caption>
+            Parametrar och konstanter i mätetalsformeln.
+          </caption>
+
+          <colgroup>
+            <col class="param" />
+            <col />
+            <col class="value" />
+            <col class="notes" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Namn</th>
+              <th scope="col">Beskrivning</th>
+              <th scope="col">Värde</th>
+              <th scope="col">Not</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>δ</td>
+              <td>Mätetal för otillgänglighet.</td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>c<sub>δ</sub></td>
+              <td>Maximalt mätetal; godtycklig skalfaktor.</td>
+              <td>500</td>
+              <td>1</td>
+            </tr>
+
+            <tr>
+              <td>r<sub>t</sub></td>
+              <td>Totalt antal krav i granskningsmetodiken.</td>
+              <td>50</td>
+              <td>2</td>
+            </tr>
+
+            <tr>
+              <td>r<sub>e</sub></td>
+              <td>
+                Antal granskade krav (0 &lt; r<sub>e</sub> ≤ r<sub>t</sub>).
+              </td>
+              <td>50</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>σ</td>
+              <td>Antal granskade sidor.</td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>ρ</td>
+              <td>Representerar ett krav (kriterium).</td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>&#x211d;</td>
+              <td>Mängden krav i granskningsmetodiken.</td>
+              <td>&#x211d;<sub>A</sub> &#x222a; &#x211d;<sub>A&zwnj;A</sub></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>ω(ρ)</td>
+              <td>Viktningsfunktion.</td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>f<sub>ρ</sub></td>
+              <td>Antal underkända sidor för krav <var>ρ</var>.</td>
+              <td>0 ≤ f<sub>ρ</sub> ≤ σ</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>λ<sub>ρ</sub></td>
+              <td>Viktning för A&zwnj;A-kriterier i WCAG.</td>
+              <td>0,75</td>
+              <td>3</td>
+            </tr>
+
+            <tr>
+              <td>ν<sub>ρ</sub></td>
+              <td>Viktning för kriterier som inte är ”hindrande”.</td>
+              <td>0,9</td>
+              <td>4</td>
+            </tr>
+
+            <tr>
+              <td>φ′<sub>ρ</sub></td>
+              <td>Antal primärt mappade FPS för krav <var>ρ</var>.</td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>m</td>
+              <td>Viktning för sekundärt mappade FPS.</td>
+              <td>0,5</td>
+              <td>5</td>
+            </tr>
+
+            <tr>
+              <td>φ″<sub>ρ</sub></td>
+              <td>Antal sekundärt mappade FPS för krav <var>ρ</var>.</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ol class="footnotes">
+          <li>
+            Vi vill undvika en skala som kan tolkas som ”procent”, exempelvis
+            100 eller 1&nbsp;000.
+          </li>
+          <li>
+            Alla kriterier på nivåerna A och A&zwnj;A i
+            <cite><abbr>WCAG</abbr>&nbsp;2.1</cite>.
+          </li>
+          <li>A-kriterier har vikten 1.</li>
+          <li>”Hindrande” kriterier har vikten 1.</li>
+          <li>Primärt mappade FPS har vikten 1.</li>
+        </ol>
+
+        <h3>Användningssituationer</h3>
+
+        <p>
+          Mätetalet försöker att ta hänsyn till allvarlighetsgraden hos de
+          underkända kriterierna, inte bara antalet. Därför finns mappningen
+          mellan kriterier och användningssituationer, eller funktionsprestanda,
+          (kallas <i lang="en">”functional performance statements”</i> i
+          <cite>EN&nbsp;301&nbsp;549</cite>) med i formeln.
+        </p>
+
+        <p>
+          <code lang="en">InaccessibilityMetric</code> kan räkna ut mätetalet
+          för otillgänglighet för en specifik användningssituation. Den kan även
+          beräkna inverkan per krav för en specifik använd&shy;ningssituation.
+          Parametern <code>fps</code> som används ska då ha någon av koderna i
+          nedanstående tabell.
+        </p>
+
+        <table>
+          <caption>
+            Koder för användningssituationer.
+          </caption>
+
+          <colgroup>
+            <col class="fps" />
+            <col class="en" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Kod</th>
+              <th scope="col">FPS</th>
+              <th scope="col">Förklaring</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>WH</code></td>
+              <td lang="en">without vision</td>
+              <td>utan synförmåga</td>
+            </tr>
+
+            <tr>
+              <td><code>LH</code></td>
+              <td lang="en">limited vision</td>
+              <td>nedsatt synförmåga</td>
+            </tr>
+
+            <tr>
+              <td><code>WPC</code></td>
+              <td lang="en">without perception of colour</td>
+              <td>utan förmåga att uppfatta färger</td>
+            </tr>
+
+            <tr>
+              <td><code>WH</code></td>
+              <td lang="en">without hearing</td>
+              <td>utan hörsel</td>
+            </tr>
+
+            <tr>
+              <td><code>LH</code></td>
+              <td lang="en">limited hearing</td>
+              <td>nedsatt hörsel</td>
+            </tr>
+
+            <tr>
+              <td><code>WVC</code></td>
+              <td lang="en">with no or limited vocal capability</td>
+              <td>nedsatt hörsel</td>
+            </tr>
+
+            <tr>
+              <td><code>LMS</code></td>
+              <td lang="en">limited manipulation or strength</td>
+              <td>nedsatt rörlighet eller muskelstyrka</td>
+            </tr>
+
+            <tr>
+              <td><code>LR</code></td>
+              <td lang="en">limited reach</td>
+              <td>begränsad räckvidd</td>
+            </tr>
+
+            <tr>
+              <td><code>PST</code></td>
+              <td lang="en">minimize photosensitive seizure triggers</td>
+              <td>känslighet för flimmer</td>
+            </tr>
+
+            <tr>
+              <td><code>LC</code></td>
+              <td lang="en">limited cognition</td>
+              <td>nedsatt kognitiv förmåga</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a
+              href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf"
+              hreflang="en"
+              rel="external"
+              ><cite>EN&nbsp;301&nbsp;549</cite></a
+            >
+          </li>
+          <li>
+            <a href="../view/ProtocolView.html"
+              ><code lang="en">ProtocolView</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script>
+      if ('undefined' === typeof MathMLElement) {
+        document.body.classList.add('no-math');
+        document
+          .querySelectorAll('picture[hidden]')
+          .forEach((pic) => (pic.hidden = false));
+      }
+    </script>
+  </body>
+</html>

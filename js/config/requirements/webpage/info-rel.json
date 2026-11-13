@@ -1,0 +1,212 @@
+{
+  "methods": [
+    "Kontrollera att det som <cite translate=\"no\">WAVE</cite> visar som ”strukturella element” används korrekt. Sök i källkoden eller <cite>Inspektören</cite> efter elementtyper som ofta används felaktigt, till exempel <code>&lt;br&gt;</code> och <code translate=\"no\">&lt;strong&gt;</code>."
+  ],
+  "tools": [
+    {
+      "tool": "WAVE",
+      "tab": "Details",
+      "section": "Strucutral Elements"
+    }
+  ],
+  "info": [
+    {
+      "type": "details",
+      "summary": "Semantiska HTML-element",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Element", "Betydelser"],
+          "rows": [
+            [
+              "<code>&lt;a&gt;</code>",
+              "Med <code>href</code>-attribut: länk, annars ankare."
+            ],
+            ["<code>&lt;abbr&gt;</code>", "Förkortning."],
+            [
+              "<code translate=\"no\">&lt;area</code>",
+              "Klickbar yta i en bildkarta."
+            ],
+            [
+              "<code translate=\"no\">&lt;address&gt;</code>",
+              "Kontaktinformation till innehållsansvarig."
+            ],
+            [
+              "<code translate=\"no\">&lt;audio&gt;</code>",
+              "Inbäddat ljudklipp."
+            ],
+            [
+              "<code>&lt;b&gt;</code>",
+              "Visuellt avvikande, men inte betonad text som läses utan ändring av röst: nyckelord, framhävda produktnamn etc."
+            ],
+            [
+              "<code>&lt;br&gt;</code>",
+              "Radbrytning som är en faktisk del av innehållet, till exempel i en postadress eller en dikt (används ofta felaktigt)."
+            ],
+            [
+              "<code translate=\"no\">&lt;blockquote&gt;</code>",
+              "Fristående citat (används felaktigt för att skapa indrag)."
+            ],
+            [
+              "<code translate=\"no\">&lt;canvas&gt;</code>",
+              "Rityta som används av skript."
+            ],
+            [
+              "<code translate=\"no\">&lt;cite&gt;</code>",
+              "Hänvisning i form av namn eller titel på ett kreativt verk (bok, skulptur, tavla, tidning etc.). <em>Inte citat!</em>"
+            ],
+            [
+              "<code translate=\"no\">&lt;code&gt;</code>",
+              "Fragment av datorkod. Även filnamn och liknande."
+            ],
+            [
+              "<code translate=\"no\">&lt;data&gt;</code>",
+              "Maskinläsbart värde."
+            ],
+            [
+              "<code translate=\"no\">&lt;del&gt;</code>",
+              "Spåra ändringar: borttaget innehåll."
+            ],
+            [
+              "<code translate=\"no\">&lt;details&gt;</code>",
+              "Utfällbart avsnitt; detaljinformation."
+            ],
+            [
+              "<code>&lt;dfn&gt;</code>",
+              "Definierande instans av en term: första förekomsten av en term på en sida eller i ett avsnitt, där betydelsen förklaras."
+            ],
+            ["<code translate=\"no\">&lt;dialog&gt;</code>", "Dialogruta."],
+            [
+              "<code>&lt;em&gt;</code>",
+              "Semantisk emfas (betoning). <em>Inte kursivstil!</em>"
+            ],
+            [
+              "<code translate=\"no\">&lt;embed&gt;</code>",
+              "Inbäddat innehåll (föråldrad teknik)."
+            ],
+            [
+              "<code translate=\"no\">&lt;figure&gt;</code>",
+              "Fristående innehåll som kan hänvisas till som en enhet, till exempel bild, ekvation, tabell."
+            ],
+            [
+              "<code>&lt;hr&gt;</code>",
+              "Tematiskt avbrott på styckenivå (används felaktigt för att åstadkomma kantlinje)."
+            ],
+            [
+              "<code>&lt;i&gt;</code>",
+              "Visuellt avvikande, men inte betonad, text som läses med en annan röst: fraser på annat språk, taxonomi, tekniska termer med mera."
+            ],
+            [
+              "<code translate=\"no\">&lt;iframe&gt;</code>",
+              "Inbäddat externt innehåll."
+            ],
+            [
+              "<code translate=\"no\">&lt;ins&gt;</code>",
+              "Spåra ändringar: tillagt innehåll."
+            ],
+            ["<code>&lt;img&gt;</code>", "Inbäddad bild."],
+            [
+              "<code>&lt;kbd&gt;</code>",
+              "Användarinmatning (via tangentbord, menyval, röststyrning etc.)."
+            ],
+            [
+              "<code translate=\"no\">&lt;map&gt;</code>",
+              "Bildkarta: mappar klickbara ytor i en bild till länkar."
+            ],
+            [
+              "<code translate=\"no\">&lt;mark&gt;</code>",
+              "Markerad text med relevans i annan kontext, till exempel sökordet i ett sökresultat."
+            ],
+            [
+              "<code translate=\"no\">&lt;math&gt;</code>",
+              "Matematiskt uttryck (MathML)."
+            ],
+            [
+              "<code translate=\"no\">&lt;noscript&gt;</code>",
+              "Innehåll att visa om webbläsaren inte stödjer eller tillåter JavaScript."
+            ],
+            [
+              "<code translate=\"no\">&lt;object&gt;</code>",
+              "Inbäddat externt innehåll."
+            ],
+            [
+              "<code>&lt;p&gt;</code>",
+              "Textstycke, strof i en dikt, del av ett formulär."
+            ],
+            [
+              "<code translate=\"no\">&lt;picture&gt;</code>",
+              "Behållare för att visa en av flera bilder beroende på skärmstorlek, stöd för filformat etc."
+            ],
+            [
+              "<code translate=\"no\">&lt;pre&gt;</code>",
+              "Förformaterad text, till exempel programkod."
+            ],
+            ["<code>&lt;q&gt;</code>", "Kort inbäddat citat i en mening."],
+            [
+              "<code>&lt;s&gt;</code>",
+              "Innehåll som inte längre är korrekt eller relevant."
+            ],
+            [
+              "<code translate=\"no\">&lt;samp&gt;</code>",
+              "Exempel på eller återgivning av utmatning från ett program eller datorsystem, till exempel texten i en knapp eller ett menyalternativ."
+            ],
+            ["<code translate=\"no\">&lt;script&gt;</code>", "JavaScript-kod."],
+            [
+              "<code translate=\"no\">&lt;small&gt;</code>",
+              "Finstilt, till exempel juridisk text, friskrivning <i lang=\"en\">(disclaimer)</i> eller tillskrivning <i lang=\"en\">(attribution)</i>."
+            ],
+            [
+              "<code translate=\"no\">&lt;source&gt;</code>",
+              "Källa, till exempel bild, ljudklipp eller videofilm."
+            ],
+            [
+              "<code translate=\"no\">&lt;strong&gt;</code>",
+              "Viktigt, allvarligt eller brådskande innehåll. ”Viktigt” betyder viktigare än omgivande text, till exempel aktuellt element i en meny. <em>Inte fetstil!</em>"
+            ],
+            [
+              "<code translate=\"no\">&lt;sub&gt;</code>",
+              "Subskript (nedsänkt text) i till exempel kemiska eller matematiska formler."
+            ],
+            [
+              "<code translate=\"no\">&lt;summary&gt;</code>",
+              "Synlig sammanfattning av utfällbart avsnitt."
+            ],
+            [
+              "<code translate=\"no\">&lt;sup&gt;</code>",
+              "Superskript (upphöjd text)."
+            ],
+            ["<code>&lt;svg&gt;</code>", "Vektorgrafik."],
+            [
+              "<code translate=\"no\">&lt;template&gt;</code>",
+              "Osynlig kod som ett skript använder som mall för att skapa innehåll."
+            ],
+            [
+              "<code translate=\"no\">&lt;time&gt;</code>",
+              "Datum och/eller klockslag."
+            ],
+            [
+              "<code translate=\"no\">&lt;track&gt;</code>",
+              "”Spår” till ljudklipp eller video, till exempel undertexter."
+            ],
+            [
+              "<code>&lt;u&gt;</code>",
+              "Indikerar annotering, till exempel felstavade ord."
+            ],
+            [
+              "<code translate=\"no\">&lt;var&gt;</code>",
+              "Variabel eller platshållare i exempel, som ska ersättas vid faktisk användning."
+            ],
+            [
+              "<code translate=\"no\">&lt;video&gt;</code>",
+              "Inbäddad videofilm."
+            ],
+            [
+              "<code>&lt;wbr&gt;</code>",
+              "Lämplig plats för radbrytning i långa textsträngar utan blanktecken."
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

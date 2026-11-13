@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>NVDA – Tillsynsmanual – DIGG</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../../css/audit.css" />
+
+    <style>
+      table {
+        width: 100%;
+        caption-side: top;
+        table-layout: fixed;
+      }
+      caption {
+        margin: 3rem 0 0.75rem;
+        font-size: 150%;
+        font-weight: normal;
+        color: var(--heading);
+      }
+      tr:nth-child(even) {
+        background-color: var(--alt-bg);
+      }
+      td {
+        padding-top: 0.1em;
+        padding-top: 0.1em;
+      }
+      th {
+        white-space: nowrap;
+      }
+      col.cmd {
+        width: 16em;
+      }
+      .desktop .laptop,
+      .laptop .desktop {
+        width: 0;
+      }
+      .desktop tr > *:nth-child(3),
+      .laptop tr > *:nth-child(2) {
+        visibility: hidden;
+      }
+      fieldset.radio-group {
+        justify-content: flex-start;
+        align-items: baseline;
+        column-gap: 0.5em;
+        border: 0;
+        padding: 0;
+      }
+      .radio-group p {
+        margin: 0;
+      }
+      .webpage tr > *:nth-child(n + 2) {
+        visibility: visible;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 id="start-of-content"><cite>NVDA</cite></h1>
+
+      <p class="tip">
+        När du startar <cite>NVDA</cite> får du välja vilken tangent som ska
+        vara specialtangent. Standardvalet är
+        <kbd><kbd translate="no" lang="en">Insert</kbd></kbd> om man har ett
+        fullstort tangentbord. För bärbara datorer, som ofta saknar den
+        tangenten, använder man vanligen
+        <kbd><kbd>Skiftlås</kbd></kbd>
+        (<kbd><kbd translate="no" lang="en">Caps&nbsp;Lock</kbd></kbd
+        >).
+      </p>
+
+      <p>
+        Specialtangenten betecknas med <kbd><kbd>NVDA</kbd></kbd> i tabellerna
+        nedan.
+      </p>
+
+      <form>
+        <fieldset class="radio-group">
+          <legend><span>Tangentbord</span></legend>
+          <p>
+            <label class="radio">
+              <input type="radio" name="layout" value="desktop" />
+              Stationär
+            </label>
+          </p>
+
+          <p>
+            <label class="radio">
+              <input type="radio" name="layout" value="laptop" />
+              Bärbar
+            </label>
+          </p>
+        </fieldset>
+      </form>
+
+      <table>
+        <caption>
+          Styra
+          <cite>NVDA</cite>
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Starta/stoppa uppläsning</td>
+            <td>
+              <kbd><kbd>Ctrl</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Ctrl</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Pausa uppläsning</td>
+            <td>
+              <kbd><kbd>Skift</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td><cite>NVDA</cite>-menyn</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>N</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>N</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Växla läge (tal/pip/tyst)</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>S</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>S</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Inmatningshjälp av/på</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>1</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>1</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Släpp igenom nästa tangent</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F2</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F2</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Viloläge av/på</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>S</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>Z</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Avsluta <cite>NVDA</cite></td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Q</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Q</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Rapportera systeminformation
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Datum och tid</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F12</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F12</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Batteristatus</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>B</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>B</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Text i urklipp</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>C</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>C</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Navigering
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Rapportera fokus</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Tabb</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Tabb</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera titeln</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>T</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>T</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera aktivt fönster</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>B</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>B</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera statusraden</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd translate="no" lang="en">End</kbd></kbd>
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd>Skift</kbd
+                ><kbd translate="no" lang="en">+End</kbd></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Läs upp allt</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>⭣</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>A</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Läs aktuell rad</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>L</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Läs aktuell textmarkering</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>S</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera textformatering</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Navigering i tabeller
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Föregående kolumn</td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭠</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭠</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa kolumn</td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭢</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭢</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Föregående rad</td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa rad</td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭣</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>⭣</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Objektnavigering
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Rapportera aktuellt objekt</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-5</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>O</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Behållare</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-8</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Föregående objekt</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-4</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>⭠</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa objekt</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-6</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>⭢</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>In i behållare (första objektet)</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-2</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>⭣</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Flytta till objektet som har fokus</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-Minus</kbd></kbd>
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd translate="no" lang="en"
+                  >Backspace</kbd
+                ></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Aktivera aktuellt objekt</td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd translate="no" lang="en"
+                  >Num-Enter</kbd
+                ></kbd
+              >
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd translate="no" lang="en">Enter</kbd></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Flytta fokus eller insättningspunkt till aktuell
+              granskningsposition
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>Num-Minus</kbd></kbd>
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd translate="no" lang="en"
+                  >Backspace</kbd
+                ></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera granskingsposition</td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd translate="no" lang="en"
+                  >Num-Delete</kbd
+                ></kbd
+              >
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd translate="no" lang="en">Delete</kbd></kbd
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Granska text
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Rapportera aktuell rad granskningen</td>
+            <td>
+              <kbd><kbd>Num-8</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>.</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Första raden i granskningen</td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>Num-7</kbd></kbd>
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd translate="no" lang="en"
+                  >Home</kbd
+                ></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Föregående rad i granskningen</td>
+            <td>
+              <kbd><kbd>Num-7</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa rad i granskningen</td>
+            <td>
+              <kbd><kbd>Num-9</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>⭣</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Sista raden i granskningen</td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>Num-9</kbd></kbd>
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd translate="no" lang="en"
+                  >End</kbd
+                ></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera aktuellt ord granskningen</td>
+            <td>
+              <kbd><kbd>Num-5</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd>.</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Föregående ord i granskningen</td>
+            <td>
+              <kbd><kbd>Num-4</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd>⭡</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa ord i granskningen</td>
+            <td>
+              <kbd><kbd>Num-6</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd>⭣</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Början av granskningsraden</td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>Num-1</kbd></kbd>
+            </td>
+            <td>
+              <kbd
+                ><kbd>NVDA</kbd>+<kbd translate="no" lang="en">Home</kbd></kbd
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Slutet av granskningsraden</td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>Num-3</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd translate="no" lang="en">End</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rapportera aktuellt tecken granskningen</td>
+            <td>
+              <kbd><kbd>Num-2</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>.</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Föregående tecken i granskningen</td>
+            <td>
+              <kbd><kbd>Num-1</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>⭠</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa tecken i granskningen</td>
+            <td>
+              <kbd><kbd>Num-3</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>⭢</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Läs upp allt med granskning</td>
+            <td>
+              <kbd><kbd>Num-Plus</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>A</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Kopiera från granskningsmarkören</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F9</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F9</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Kopiera till granskningsmarkören</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F10</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F10</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Nästa granskningsläge</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-7</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>PgUp</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Föregående granskningsläge</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Num-1</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>PgDn</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Läsläge
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd desktop" />
+          <col class="cmd laptop" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Kommando <span>stationär</span></th>
+            <th scope="col">Kommando <span>bärbar</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Växla läs-/formulärläge</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Mellanslag</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Mellanslag</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Gå ur formulärläge</td>
+            <td>
+              <kbd><kbd>Esc</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Esc</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Uppdatera läsdokumentet</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F5</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F5</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Sök</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd>F</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Ctrl</kbd>+<kbd>F</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Sök nästa</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F3</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>F3</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Sök föregående</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>F3</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>Skift</kbd>+<kbd>F3</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Öppna lång bildbeskrivning</td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>D</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>NVDA</kbd>+<kbd>D</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="webpage">
+        <caption>
+          Navigering på webbsidor
+        </caption>
+
+        <colgroup>
+          <col />
+          <col class="cmd" />
+          <col class="cmd" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Funktion</th>
+            <th scope="col">Nästa</th>
+            <th scope="col">Föregående</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Landmärke</td>
+            <td>
+              <kbd><kbd>D</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>D</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rubrik</td>
+            <td>
+              <kbd><kbd>H</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>H</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Rubriknivå 1–6</td>
+            <td>
+              <kbd><kbd>1</kbd>…<kbd>6</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>1</kbd>…<kbd>6</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Lista</td>
+            <td>
+              <kbd><kbd>L</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>L</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Listelement</td>
+            <td>
+              <kbd><kbd>I</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>I</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Tabell</td>
+            <td>
+              <kbd><kbd>T</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>T</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Länk</td>
+            <td>
+              <kbd><kbd>K</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>K</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Obesökt änk</td>
+            <td>
+              <kbd><kbd>U</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>U</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Besökt länk</td>
+            <td>
+              <kbd><kbd>V</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>V</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Olänkad text</td>
+            <td>
+              <kbd><kbd>N</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>N</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Formulärfält</td>
+            <td>
+              <kbd><kbd>F</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>F</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Inmatningsfält</td>
+            <td>
+              <kbd><kbd>E</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>E</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Stavfel</td>
+            <td>
+              <kbd><kbd>W</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>W</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Knapp</td>
+            <td>
+              <kbd><kbd>B</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>B</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Kryssruta</td>
+            <td>
+              <kbd><kbd>X</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>X</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Combobox</td>
+            <td>
+              <kbd><kbd>C</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>C</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Radioknapp</td>
+            <td>
+              <kbd><kbd>R</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>R</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Blockcitat</td>
+            <td>
+              <kbd><kbd>Q</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>Q</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Separator</td>
+            <td>
+              <kbd><kbd>S</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>S</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Ram <i lang="en">(frame)</i></td>
+            <td>
+              <kbd><kbd>M</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>M</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Bild</td>
+            <td>
+              <kbd><kbd>G</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>G</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Inbäddat objekt</td>
+            <td>
+              <kbd><kbd>O</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>O</kbd></kbd>
+            </td>
+          </tr>
+          <tr>
+            <td>Annotering</td>
+            <td>
+              <kbd><kbd>A</kbd></kbd>
+            </td>
+            <td>
+              <kbd><kbd>Skift</kbd>+<kbd>A</kbd></kbd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        För att gå till början av behållare som listor och tabeller, tryck
+        <kbd><kbd>Skift</kbd>+<kbd>,</kbd></kbd
+        >. För att gå till slutet av en sådan behållare, tryck
+        <kbd><kbd>,</kbd></kbd> (komma).
+      </p>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="../../start/tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="../../start/webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+    <script src="../../js/nvda.js" type="module"></script>
+  </body>
+</html>

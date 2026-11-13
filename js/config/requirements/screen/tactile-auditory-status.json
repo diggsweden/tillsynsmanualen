@@ -1,0 +1,12 @@
+{
+  "steps": [
+    "Kontrollera att det finns ett sätt att läsa av alla omkopplare med känseln utan att ändra omkopplarens läge.",
+    "Kontrollera att det finns ett sätt att läsa av alla omkopplare med hörseln utan att ändra omkopplarens läge."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Ett sätt att utföra kontrollerna är att använda skärmläsaren. Det ger direkt information om avläsningsmöjlighet med hörsel, men också indirekt om taktil avläsning eftersom skärmläsare vanligen driver en ansluten punktskriftsdisplay."
+    }
+  ]
+}

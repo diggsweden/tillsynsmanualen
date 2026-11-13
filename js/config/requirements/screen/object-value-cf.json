@@ -1,0 +1,22 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "Värden är inte detsamma som tillstånd (som regleras av ett annat krav). Appen kan sätta en komponents värde, men i många fall kan också användaren ändra värdet. Några exempel:"
+    },
+    {
+      "type": "ulist",
+      "items": [
+        "ett inmatningsfälts värde är den text som står i fältet",
+        "ett listelement eller en radioknapp har ett fast värde; listans eller radiogruppens värde är värdet för det valda alternativet",
+        "en kryssruta har ett fast värde, och dess tillstånd (ikryssad eller inte) avgör om värdet är relevant",
+        "en knapp kan ha ett värde, som förmedlas till appen när användaren trycker på knappen",
+        "en kartfunktions värde kan vara ett par koordinater som beskriver en markerad position."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Värden kan vara beräknade och inte ändringsbara för användaren. Ett exempel kan vara totalsumman i en varukorg, vars värde beräknas utifrån priserna och kvantiteterna för de produkter användaren lagt till."
+    }
+  ]
+}

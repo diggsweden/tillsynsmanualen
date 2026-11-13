@@ -1,0 +1,12 @@
+{
+  "info": [
+    {
+      "type": "warning",
+      "text": "Ikonknappar: Skärmläsaren kan i vissa fall ”gissa” vad en ikon föreställer. Knappens maskinläsbara namn läses upp <em>innan</em> skärmläsaren läser upp knappens roll. Skärmläsarens gissning om vad ikonen föreställer läses upp <em>efter</em> rollen. En sådan ”gissning” är inte ett maskinläsbart namn."
+    },
+    {
+      "type": "warning",
+      "text": "Om du inte verkar kunna nå vissa objekt eller information när du sveper med skärmläsaren: I <cite lang=en translate=no>VoiceOver</cite> finns så kallade <span lang=en>”Custom actions”</span>. Att såna åtgärder finns kan indikeras genom att skärmläsaren säger ”<samp>åtgärder tillgängliga</samp>”. Om det inte verkar gå att komma åt objekt eller utföra vissa handlingar med skärmläsaren, kontrollera om det går genom att svepa uppåt eller neråt när ett objekt har Voiceover-fokus och välja en <span lang=en>”custom action”</span>. Det går även att komma åt åtgärderna med rotorn."
+    }
+  ]
+}

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>MultipleCheck – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 14rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">MultipleCheck</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">MultipleCheck</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-fail"><code lang="en">fail()</code></a>
+          </li>
+          <li>
+            <a href="#m-fails"><code lang="en">fails()</code></a>
+          </li>
+          <li>
+            <a href="#m-serialize"><code lang="en">serialize()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">MultipleCheck</code> utökar basklassen
+        <code lang="en">Check</code> och representerar en ”multipel” kontoll i
+        ett krav som ingår i ett stickprov i en granskning i ett
+        granskningsärende.
+      </p>
+
+      <p>
+        En multipel kontroll består av två eller fler alternativa påståenden. Om
+        något alternativ är godkänt är kontrollen godkänd. Bara om alla
+        alternativ är underkända blir alltså kontrollen som helhet underkänd och
+        kan ha en tillhörande observation.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/checks.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/checks.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>checks</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>key</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_req</code> / <code>reqID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 140 250" class="class uml-diagram">
+          <defs>
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--MultipleCheck-->
+          <use
+            xlink:href="MultipleCheck.svg#MultipleCheck"
+            x="10"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="65" y1="63" x2="65" y2="90" class="inheritance" />
+
+          <!--Check-->
+          <use xlink:href="Check.svg#Check" x="0" y="90" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">MultipleCheck</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Om ett dataobjekt anges som argument populerar konstruktorn instansen
+          med informa&shy;tionen i det. Det används vid återskapande av ett
+          objekt när det hämtas från objektdata&shy;basen eller när ett sparat
+          ärende i JSON-format läses in från fil.
+        </p>
+
+        <p>
+          Förutom den återställning som
+          <a href="Check.html#ctor">basklasskonstruktorn</a> utför:
+        </p>
+
+        <ul>
+          <li>
+            Om dataobjektet innehåller fältet <code lang="en">ok</code>, sätt
+            <code lang="en">applicable</code> till
+            <code lang="en" class="js literal">true</code>,
+            <code lang="en">disabled</code> till
+            <code lang="en" class="js literal">false</code> och alla
+            delkontroller till godkända;
+          </li>
+
+          <li>
+            annars, om dataobjektet innehåller fältet <code>m</code>
+            <i lang="en">(mask)</i>, använd värdet som en bitmask där varje bit
+            som är 1 motsvarar en underkänd delkontroll och varje bit som är 0
+            en godkänd samt sätt <code lang="en">applicable</code> till
+            <code lang="en" class="js literal">true</code> och
+            <code lang="en">disabled</code> till
+            <code lang="en" class="js literal">false</code>;
+          </li>
+
+          <li>
+            annars, om dataobjektet innehåller fältet <code>obs</code>
+            <i lang="en">(observation)</i>, sätt alla delkontroller till
+            underkända.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">MultipleCheck</span>(<span class="var">reqID</span>, <span class="var">count</span>)
+<span class="keyword">new</span> <span class="ident">MultipleCheck</span>(<span class="var">reqID</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">reqID</code></dt>
+          <dd>Identitet för det krav som kontrollen ingår i.</dd>
+
+          <dt class="optional"><code lang="en">count</code></dt>
+          <dd>Antal alternativ i kontrollen.</dd>
+
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Antalet alternativ är &lt;2 eller &gt;32.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt class="readonly"><code lang="en">cardinality</code></dt>
+          <dd>Antalet alternativ i kontrollen.</dd>
+
+          <dt class="readonly"><code lang="en">state</code></dt>
+          <dd>
+            En flagga som anger om kontrollen är godkänd (<code
+              lang="en"
+              class="js literal"
+              >true</code
+            >) eller underkänd (<code lang="en" class="js literal">false</code
+            >). Om kontrollen inte är granskad eller inte är tillämplig har
+            flaggan värdet <code lang="en" class="js keyword">undefined</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--fail()-->
+      <section>
+        <h2 id="m-fail"><code lang="en">fail()</code></h2>
+
+        <p>Underkänner eller godkänner ett alternativ i kontrollen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">fail</span>(<code class="var">index</code>, <code class="var">flag</code>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">index</code></dt>
+          <dd>Index (0-baserat) för alternativet.</dd>
+
+          <dt><code lang="en">flag</code></dt>
+          <dd>
+            Underkänn (<code lang="en" class="js literal">true</code>) eller
+            godkänn (<code lang="en" class="js literal">false</code>).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="excpetions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Inget alternativ med angivet index finns i kontrollen.</dd>
+        </dl>
+      </section>
+
+      <!--fails()-->
+      <section>
+        <h2 id="m-fails"><code lang="en">fails()</code></h2>
+
+        <p>Kontrollerar om angivet alternativ är underkänt eller godkänt.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">fails</span>(<code class="var">index</code>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">index</code></dt>
+          <dd>Index (0-baserat) för alternativet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om det angivna
+          alternativet är underkänt, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="excpetions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Inget alternativ med angivet index finns i kontrollen.</dd>
+        </dl>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <p>
+          Eftersom en granskning kan innehålla ett stort antal kontroller
+          används ett kompakt format vid serialisering: bara precis så mycket
+          som behövs för att kunna återskapa instansen.
+        </p>
+
+        <p>
+          Lägg till i det objekt som
+          <a href="Check.html#m-serialize">basklassmetoden</a> serialiserat:
+        </p>
+
+        <ul>
+          <li>
+            Fältet <code>n</code> med kontrollens kardinalitet (antalet
+            delkontroller).
+          </li>
+
+          <li>
+            Fältet <code lang="en">ok</code> med värdet
+            <code lang="en" class="js literal">true</code> om alla delkontroller
+            är godkända;
+          </li>
+
+          <li>
+            annars, om några, men inte alla, delkontroller är underkända, fältet
+            <code>m</code> <i lang="en">(mask)</i> som en bitmask där varje
+            underkänd delkontroll representeras av en bit med värdet 1 och varje
+            godkänd delkontroll av en bit med värdet 0.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          kontrollinformationen.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Check.html"><code lang="en">Check</code></a>
+          </li>
+          <li>
+            <a href="CheckFactory.html"><code lang="en">CheckFactory</code></a>
+          </li>
+          <li>
+            <a href="DerivedCheck.html"><code lang="en">DerivedCheck</code></a>
+          </li>
+          <li>
+            <a href="MultipleCheck.html"
+              ><code lang="en">MultipleCheck</code></a
+            >
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li>
+            <a href="SingleCheck.html"><code lang="en">SingleCheck</code></a>
+          </li>
+          <li><a href="check.index.html">Kontrollklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

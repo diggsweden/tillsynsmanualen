@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>AutoContentMenu – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 37rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">AudtoContentMenu</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">AutoContentMenu</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-build"><code lang="en">build()</code></a>
+          </li>
+          <li>
+            <a href="#m-remove"><code lang="en">remove()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Skapar en menyknapp med en innehållsmeny som innehåller länkar till alla
+        <code class="html tag">&lt;h2&gt;</code>-rubriker som har ett
+        <code class="html attr">id</code>-attribut.
+      </p>
+
+      <p>
+        <code lang="en">AutoContentMenu</code> används av vybasklassen
+        <code lang="en">ViewBase</code> om en härledd klass sätter fältet
+        <code lang="en" class="js"
+          ><span class="var">_autoMenu</span>=<span class="literal"
+            >true</span
+          ></code
+        >.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/AutoContentMenu.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/AutoContentMenu.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 370 380" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--AutoContentMenu-->
+          <use
+            xlink:href="AutoContentMenu.svg#AutoContentMenu"
+            x="40"
+            y="0"
+            class="highlight"
+          />
+
+          <path d="M40,16 h-30 v334" class="dependency" />
+          <path d="M40,24 h-10 v296" class="dependency" />
+          <line x1="90" y1="33" x2="90" y2="150" class="dependency" />
+          <path d="M201,16 h70 v44" class="dependency" />
+
+          <!--ContentMenu-->
+          <use
+            xlink:href="../menu/ContentMenu.svg#ContentMenu"
+            x="205"
+            y="60"
+          />
+
+          <line x1="270" y1="123" x2="270" y2="150" class="inheritance" />
+
+          <!--MenuItem-->
+          <use xlink:href="../menu/MenuItem.svg#MenuItem" x="40" y="150" />
+
+          <!--MenuButton-->
+          <use xlink:href="../menu/MenuButton.svg#MenuButton" x="20" y="320" />
+
+          <line x1="121" y1="331" x2="180" y2="331" class="composition" />
+
+          <!--MenuController-->
+          <use
+            xlink:href="../menu/MenuController.svg#MenuController"
+            x="0"
+            y="350"
+          />
+
+          <line x1="101" y1="361" x2="180" y2="361" class="composition" />
+
+          <!--Menu-->
+          <use xlink:href="../menu/Menu.svg#Menu" x="180" y="150" />
+
+          <line x1="180" y1="228" x2="141" y2="228" class="composition" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">AutoContentMenu</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">AutoContentMenu</span>()</code></pre>
+      </section>
+
+      <!--build()-->
+      <section>
+        <h2 id="m-build"><code lang="en">build()</code></h2>
+
+        <p>
+          Skapar en innethållsmeny (<code lang="en">ContentMenu</code>) och
+          populerar den med ett menyalternativ (<code lang="en">MenuItem</code>)
+          för varje <code class="html tag">&lt;h2&gt;</code>-element på sidan
+          som har ett <code class="html attr">id</code>-attribut.
+        </p>
+
+        <p>
+          Metoden skapar sedan en menyknapp (<code lang="en">MenuButton</code>)
+          som visar innehållsmenyn i smala vyer och en menycontroller (<code
+            lang="en"
+            >MenuController</code
+          >) som hanterar interaktionen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">build</span>(<span class="var">sibling</span>, <span class="var">container</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sibling</code></dt>
+          <dd>
+            HTML-element i DOM-trädet som innehållsmenyn ska infogas före.
+          </dd>
+
+          <dt><code lang="en">container</code></dt>
+          <dd>
+            Behållarelement i DOM-trädet att leta efter
+            <code class="html tag">&lt;h2&gt;</code>-element i.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--remove()-->
+      <section>
+        <h2 id="m-remove"><code lang="en">remove()</code></h2>
+
+        <p>Tar bort den skapade innehållsmenyn ur DOM-trädet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">remove</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../menu/ContentMenu.html"
+              ><code lang="en">ContentMenu</code></a
+            >
+          </li>
+          <li>
+            <a href="../menu/MenuButton.html"
+              ><code lang="en">MenuButton</code></a
+            >
+          </li>
+          <li>
+            <a href="../menu/MenuController.html"
+              ><code lang="en">MenuController</code></a
+            >
+          </li>
+          <li>
+            <a href="../menu/MenuItem.html"><code lang="en">MenuItem</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

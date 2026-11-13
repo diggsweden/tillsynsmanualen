@@ -1,0 +1,15 @@
+{
+  "exceptions": [
+    "Om syftet med fältet är uppenbart för seende krävs ingen synlig ledtext, exempelvis för ett ensamt sökfält med en beskrivande knapp. Fältet behöver dock en dold ledtext eller ett maskinläsbart namn för att förmedla information till hjälpmedel (se 4.1.2)."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "En platshållare är inte ett godtagbart alternativ till en ledtext."
+    }
+  ],
+  "instruction": {
+    "id": "wcag-3.3.2",
+    "title": "Ledtexter, instruktioner"
+  }
+}

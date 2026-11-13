@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>SampleEditView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 60rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">SampleEditView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">SampleEditView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-activate"><code lang="en">activate()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-component"><code lang="en">addComponent()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-connection"
+              ><code lang="en">addConnection()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-clear-component-fields"
+              ><code lang="en">clearComponentFields()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-clear-component-list"
+              ><code lang="en">clearComponentList()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-clear-connection-list"
+              ><code lang="en">clearConnectionList()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-close"><code lang="en">close()</code></a>
+          </li>
+          <li>
+            <a href="#m-confirm-components"
+              ><code lang="en">confirmComponents()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-deactivate"><code lang="en">deactivate()</code></a>
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-category"><code lang="en">setCategory()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-component-content-types"
+              ><code lang="en">setComponentContentTypes()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-counter"><code lang="en">setCounter()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-navigation"
+              ><code lang="en">setNavigation()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-progress"><code lang="en">setProgress()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-sample-content-types"
+              ><code lang="en">setSampleContentTypes()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-show-component-status"
+              ><code lang="en">showComponentStatus()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-show-error"><code lang="en">showError()</code></a>
+          </li>
+          <li>
+            <a href="#m-test-component-validity"
+              ><code lang="en">testComponentValidity()</code></a
+            >
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för urval eller redigering av stickprov. Vyn används för att fylla i
+        information om ett stickprovsurval i en granskning. Användaren fyller i
+        grunduppgifter om urvalet och kan markera vilka tidigare identifierade
+        komponenter som ingår samt en modal dialogruta för att lägga till nya
+        komponenter.
+      </p>
+
+      <p>Samma vy används också för att redigera ett befintligt stickprov.</p>
+
+      <p>
+        <code lang="en">SampleEditView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/SampleEditView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/SampleEditView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 600 600" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--SampleEditView-->
+          <use
+            xlink:href="SampleEditView.svg#SampleEditView"
+            x="160"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="351" y1="31" x2="390" y2="31" class="composition" />
+          <line x1="351" y1="121" x2="390" y2="121" class="composition" />
+          <line x1="351" y1="201" x2="390" y2="201" class="composition" />
+          <line x1="255" y1="373" x2="255" y2="400" class="inheritance" />
+
+          <g transform="translate(390, 0)">
+            <!--Dropdown-->
+            <use xlink:href="Dropdown.svg#Dropdown" x="0" y="0" />
+
+            <line x1="65" y1="63" x2="65" y2="80" class="composition" />
+
+            <!--Listbox-->
+            <use xlink:href="Listbox.svg#Listbox" x="0" y="80" />
+
+            <!--ViewCondition-->
+            <use
+              xlink:href="ViewCondition.svg#ViewCondition-no-args"
+              x="0"
+              y="180"
+            />
+          </g>
+
+          <g transform="translate(0, 400)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">SampleEditView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SampleEditView</span>(
+    <span class="var">page</span>,
+    <span class="var">title</span>,
+    <span class="var">confirmID</span>,
+    <span class="var">breadcrumbs</span>,
+    <span class="var">listeners</span>,
+    <span class="var">loader</span>,
+    <span class="var">listbox</span>,
+    <span class="var">dropdown</span>
+)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">page</code></dt>
+          <dd>Namn på innehållsfragmentfil att ladda.</dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Sidtitel.</dd>
+
+          <dt><code lang="en">confirmID</code></dt>
+          <dd>Identitet för bekräftelsedialog.</dd>
+
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+
+          <dt><code lang="en">listbox</code></dt>
+          <dd>Listruta för stickprovets innehållstyper.</dd>
+
+          <dt><code lang="en">dropdown</code></dt>
+          <dd>Rullgardinslista för komponenters innehållstyper.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">component</code></dt>
+          <dd>Komponentnamn.</dd>
+
+          <dt class="readonly"><code lang="en">components</code></dt>
+          <dd>
+            Information om markerade komponenter när bekräftelsedialogen vid
+            spara stängts. Värdet är en vektor av objekt med fälten
+            <code lang="en">id</code> (komponentidentitet) och
+            <code lang="en">inc</code> (flagga som anger om komponenten
+            markerats eller inte).
+          </dd>
+
+          <dt class="readonly"><code lang="en">confirmOnSave</code></dt>
+          <dd>
+            Returnerar <code lang="en" class="js literal">true</code> om
+            kryssrutan för att fortsätta bekräfta komponenter vid spara är
+            ikryssad; annars <code lang="en" class="js literal">false</code>.
+          </dd>
+
+          <dt><code lang="en">contentTypes</code></dt>
+          <dd>Innehållstyper för komponent. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">default</code></dt>
+          <dd>Förvalsmarkering vid tillägg av komponent.</dd>
+
+          <dt><code lang="en">defaultEdit</code></dt>
+          <dd>Förvalsmarkering vid redigering av komponent.</dd>
+
+          <dt><code lang="en">deleteAction</code></dt>
+          <dd>Åtgärdssökväg för Ta bort-knappen. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">follows</code></dt>
+          <dd>Föregående stickprov i en process.</dd>
+
+          <dt><code lang="en">format</code></dt>
+          <dd>Dokumentformat.</dd>
+
+          <dt><code lang="en">heading</code></dt>
+          <dd>Sidrubrik. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Namn eller titel för stickprovet.</dd>
+
+          <dt><code lang="en">note</code></dt>
+          <dd>Granskarens notering.</dd>
+
+          <dt><code lang="en">predecessors</code></dt>
+          <dd>
+            Befintliga stickprovsnamn i samma kategori, det vill säga
+            potentiella ”föregångare” i en process. (Endast skrivning.)
+          </dd>
+
+          <dt><code lang="en">service</code></dt>
+          <dd>
+            Typ av digital service:
+            <code lang="en" class="js literal">"app"</code> eller
+            <code lang="en" class="js literal">"website"</code>.
+          </dd>
+
+          <dt><code lang="en">serviceType</code></dt>
+          <dd>Typ av tjänst (i urvalskategorin ”<code>service</code>”).</dd>
+
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Typ av stickprov:
+            <code lang="en" class="js literal">"component"</code>,
+            <code lang="en" class="js literal">"document"</code>,
+            <code lang="en" class="js literal">"screen"</code> eller
+            <code lang="en" class="js literal">"webpage"</code>.
+          </dd>
+
+          <dt><code lang="en">url</code></dt>
+          <dd>URL för dokument eller webbsida.</dd>
+        </dl>
+      </section>
+
+      <!--activate()-->
+      <section>
+        <h2 id="m-activate"><code lang="en">activate()</code></h2>
+
+        <p>
+          Utökar basklassmetoden med att koppla listruta och rullgardinslista
+          samt att lägga till händelselyssnare för komponentfälten.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">activate</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addComponent()-->
+      <section>
+        <h2 id="m-add-component"><code lang="en">addComponent()</code></h2>
+
+        <p>
+          Lägger till en kryssruta för en definierad komponent i granskningen.
+          Metoden klonar en mall (<code lang="en" class="html tag"
+            >&lt;template&gt;</code
+          >) i källkoden, populerar det resulterande dokumentfragmentet och
+          infogar det sist i komponentlistan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addComponent</span>(<span class="var">id</span>, <span class="var">name</span>, <span class="var">included</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Komponentidentitet.</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Komponentnamn.</dd>
+
+          <dt><code lang="en">included</code></dt>
+          <dd>Flagga som anger om komponenten ingår i aktuellt stickprov.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addConnection()-->
+      <section>
+        <h2 id="m-add-connection"><code lang="en">addConnection()</code></h2>
+
+        <p>
+          Lägger till en kryssruta för en möjlig koppling mellan ett stickprov
+          och aktuell komponent. Metoden klonar en mall (<code
+            lang="en"
+            class="html tag"
+            >&lt;template&gt;</code
+          >) i källkoden, populerar det resulterande dokumentfragmentet och
+          infogar det sist i kopplingslistan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addConnection</span>(<span class="var">id</span>, <span class="var">name</span>, <span class="var">included</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Stickprovsidentitet.</dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Stickprovsnamn.</dd>
+
+          <dt><code lang="en">included</code></dt>
+          <dd>Flagga som anger om aktuell komponent ingår i stickprovet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--clearComponentFields()-->
+      <section>
+        <h2 id="m-clear-component-fields">
+          <code lang="en">clearComponentFields()</code>
+        </h2>
+
+        <p>
+          Återställer formulärfälten för tillägg av komponent. När användaren
+          lagt till en komponent återställs fälten för att underlätta tillägg av
+          fler komponenter.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clearComponentFields</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--clearComponentList()-->
+      <section>
+        <h2 id="m-clear-component-list">
+          <code lang="en">clearComponentList()</code>
+        </h2>
+
+        <p>
+          Raderar innehållet i listan med definierade komponenter. Används när
+          listan behöver populeras om, till exempel när användaren ändrar
+          stickprovstyp.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clearComponentList</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--clearConnectionList()-->
+      <section>
+        <h2 id="m-clear-connection-list">
+          <code lang="en">clearConnectionList()</code>
+        </h2>
+
+        <p>
+          Raderar innehållet i listan med kopplingar. Används när listan behöver
+          populeras om, till exempel när användaren ändrar stickprovstyp.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clearConnectionList</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--close()-->
+      <section>
+        <h2 id="m-close"><code lang="en">close()</code></h2>
+
+        <p>
+          Utökar basklassmetoden med att radera eventuella formgivningsklasser
+          som vyn satt på artikelelementet för att styra synligheten för fält
+          som bara ska visas för vissa stickprovs&shy;typer.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">close</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--confirmComponents()-->
+      <section>
+        <h2 id="m-confirm-components">
+          <code lang="en">confirmComponents()</code>
+        </h2>
+
+        <p>
+          Visar en modal dialogruta med en omkopplare (kryssruta) för varje
+          komponent i stickprovet. Omkopplarnas lägen representerar om den
+          associerade komponenten ingår i stickprovet. Användaren kan ändra
+          kopplingarna och även bocka ur en kryssruta för att slippa se denna
+          dialogruta i fortsättningen.
+        </p>
+
+        <p>
+          Om användaren stänger dialogrutan med <samp>Spara</samp>-knappen blir
+          omkopplarinställningarna åtkomliga genom fältet
+          <code lang="en">components</code> och kryssrutans värde genom fältet
+          <code lang="en">confirmOnSave</code>. Stänger användaren dialogrutan
+          med <samp>Avbryt</samp>-knappen påverkas inte vare sig
+          komponent&shy;kopplingar eller bekräftelseinställning.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">confirmComponents</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om användaren stänger
+          dialogrutan med <samp>Spara</samp>;
+          <code lang="en" class="js literal">false</code> om användaren stänger
+          dialogrutan med <samp>Avbryt</samp>.
+        </p>
+      </section>
+
+      <!--deactivate()-->
+      <section>
+        <h2 id="m-deactivate"><code lang="en">deactivate()</code></h2>
+
+        <p>
+          Utökar basklassmetoden med att koppla ifrån listrutan och
+          rullgardinslistan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deactivate</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Utökar basklassmetoden med att sätta formgivningsklasser på
+          artikelelementet för att styra synligheten på fält som bara ska visas
+          för vissa stickprovstyper. Metoden aktiverar eller avaktiverar också
+          de fält som ska vara obligatoriska om de är synliga.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">open</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när sidinnehållet laddats.</p>
+      </section>
+
+      <!--setCategory()-->
+      <section>
+        <h2 id="m-set-category"><code lang="en">setCategory()</code></h2>
+
+        <p>Populerar vyn med kategorispecifikt innehåll vid urval.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCategory</span>(<span class="var">type</span>, <span class="var">category</span>)
+<span class="ident">setCategory</span>(<span class="var">type</span>, <span class="var">category</span>, <span class="var">config</span>)
+<span class="ident">setCategory</span>(<span class="var">type</span>, <span class="var">category</span>, <span class="var">config</span>, <span class="var">random</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Typ av digital service:
+            <code lang="en" class="js literal">"app"</code> eller
+            <code lang="en" class="js literal">"website"</code>.
+          </dd>
+
+          <dt><code lang="en">category</code></dt>
+          <dd>Urvalskategori.</dd>
+
+          <dt class="optional"><code lang="en">config</code></dt>
+          <dd>Konfigurationsparametrar.</dd>
+
+          <dt class="optional"><code lang="en">random</code></dt>
+          <dd>Återstående slumpmässigt urval.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setComponentContentTypes()-->
+      <section>
+        <h2 id="m-set-component-content-types">
+          <code lang="en">setComponentContentTypes()</code>
+        </h2>
+
+        <p>
+          Populerar om listelementet med innehållstyper för komponenter och
+          kopplar rullgardins&shy;listan till listelementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setComponentContentTypes</span>(<span class="var">info</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">info</code></dt>
+          <dd>
+            En vektor där varje element är en vektor med tre element: identitet,
+            namn och valdmarkeringsflagga för en innehållstyp.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setCounter()-->
+      <section>
+        <h2 id="m-set-counter"><code lang="en">setCounter()</code></h2>
+
+        <p>Uppdaterar antalet tillagda stickprov i aktuell urvalskategori.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCounter</span>(<span class="var">count</span>, <span class="var">text</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">count</code></dt>
+          <dd>Antal tillagda stickprov i kategorin.</dd>
+
+          <dt><code lang="en">text</code></dt>
+          <dd>Beskrivande text, till exempel ”tillagda sidor”.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setNavigation()-->
+      <section>
+        <h2 id="m-set-navigation"><code lang="en">setNavigation()</code></h2>
+
+        <p>Sätter sökvägar i navigeringslänkar och -knappar vid urval.</p>
+
+        <p>
+          Navigeringslänkarna är länkarna längst upp i vyn, som ger användaren
+          möjlighet att hoppa till föregående eller nästa urvalskategori utan
+          att lägga till något stickprov i aktuell kategori.
+        </p>
+
+        <p>
+          Navigeringsknapparna är knapparna <samp>Nytt urval</samp>,
+          <samp>Granskning</samp> och <samp>Nästa</samp> längst ned i vyn, som
+          lägger till ett stickprov utifrån innehållet i formuläret.
+          <samp>Nytt urval</samp>-knappen laddar om formuläret för samma
+          kategori, <samp>Nästa</samp>-knappen byter till nästa kategori i
+          urvalsordningen och <samp>Granskning</samp>-knappen återgår till
+          granskningsöversikten..
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setNavigation</span>(<span class="var">nav</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">nav</code></dt>
+          <dd>
+            Ett objekt med fälten <code lang="en">previous</code>,
+            <code lang="en">next</code>, <code lang="en">audit</code> och
+            <code lang="en">more</code>. De två förstnämnda har fälten
+            <code lang="en">title</code> och <code lang="en">url</code>, medan
+            <code lang="en">more</code> och <code lang="en">audit</code> bara
+            har fältet <code lang="en">url</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setProgress()-->
+      <section>
+        <h2 id="m-set-progress"><code lang="en">setProgress()</code></h2>
+
+        <p>
+          Uppdaterar förloppsindikatorn som visar hur stor andel av
+          urvalskategorierna som stick&shy;prov lagts till i.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setProgress</span>(<span class="var">value</span>, <span class="var">max</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Antal kategorier som innehåller stickprov.</dd>
+
+          <dt><code lang="en">max</code></dt>
+          <dd>Totalt antal urvalskategorier.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSampleContentTypes()-->
+      <section>
+        <h2 id="m-set-sample-content-types">
+          <code lang="en">setSampleContentTypes()</code>
+        </h2>
+
+        <p>
+          Populerar om listelementet med innehållstyper för stickprovet och
+          kopplar listrutan till listelementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setSampleContentTypes</span>(<span class="var">info</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">info</code></dt>
+          <dd>
+            En vektor där varje element är en vektor med tre element: identitet,
+            namn och valdmarkeringsflagga för en innehållstyp.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--showComponentStatus()-->
+      <section>
+        <h2 id="m-show-component-status">
+          <code lang="en">showComponentStatus()</code>
+        </h2>
+
+        <p>Visar ett statusmeddelande i komponentdialogen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showComponentStatus</span>(<span class="var">message</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">message</code></dt>
+          <dd>Meddelande att visa i statusbehållaren.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--showError()-->
+      <section>
+        <h2 id="m-show-error"><code lang="en">showError()</code></h2>
+
+        <p>
+          Utökar basklassmetoden genom att även beordra webbläsaren att visa
+          sina valideringsfel i formuläret (till exempel med ”pratbubblor” i
+          dagens webbläsare).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showError</span>(<span class="var">message</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">message</code></dt>
+          <dd>Felmeddelande att visa i statusbehållaren.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--testComponentValidity()-->
+      <section>
+        <h2 id="m-test-component-validity">
+          <code lang="en">testComponentValidity()</code>
+        </h2>
+
+        <p>Visar eventuellt felmeddelande för komponentnamnsfältet.</p>
+
+        <p>
+          När användaren ändrat innehållet i fältet verifierar controllern att
+          namnet är unikt inom granskningen och sätter ett eget felmeddelande
+          <i lang="en">(custom validity)</i> på fältet om så inte är fallet.
+        </p>
+
+        <p>
+          När användaren sedan trycker på <samp>Lägg till</samp>-knappen anropas
+          denna metod för att synliggöra det eventuella felmeddelandet och för
+          att förmedla giltigheten till anroparen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">testComponentValidity</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om fältet har ett
+          giltigt innehåll, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../sample.module.html"
+              ><code lang="en">sample.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="SampleDisplayView.html"
+              ><code lang="en">SampleDisplayView</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/SampleEditController.html"
+              ><code lang="en">SampleEditController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+          <li>
+            <a href="ViewCondition.html"
+              ><code lang="en">ViewCondition</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

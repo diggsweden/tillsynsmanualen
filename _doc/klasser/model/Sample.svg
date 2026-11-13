@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 290">
+  <g id="Sample-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="282"/>
+      <line x1="1" y1="12"  x2="100" y2="12"/>
+      <line x1="1" y1="162" x2="100" y2="162"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Sample</text>
+      <text x="5" y="20">+auditID</text>
+      <text x="5" y="30">+category</text>
+      <text x="5" y="40">+contentTypes</text>
+      <text x="5" y="50">+done</text>
+      <text x="5" y="60">+failed</text>
+      <text x="5" y="70">+follows</text>
+      <text x="5" y="80">+hasExternalNotes</text>
+      <text x="5" y="90">+hasRequirements</text>
+      <text x="5" y="100">+id</text>
+      <text x="5" y="110">+mode</text>
+      <text x="5" y="120">+name</text>
+      <text x="5" y="130">+note</text>
+      <text x="5" y="140">+partial</text>
+      <text x="5" y="150">+service</text>
+      <text x="5" y="160">+started</text>
+      <text x="5" y="170">addContentType()</text>
+      <text x="5" y="180">contains()</text>
+      <text x="5" y="190">deleteContentType()</text>
+      <text x="5" y="200">failures()</text>
+      <text x="5" y="210">nextRequirement()</text>
+      <text x="5" y="220">progress()</text>
+      <text x="5" y="230">requirement()</text>
+      <text x="5" y="240">requirements()</text>
+      <text x="5" y="250">serialize()</text>
+      <text x="5" y="260">setRequirement()</text>
+      <text x="5" y="270">toJSON()</text>
+      <text x="5" y="280">toString()</text>
+    </g>
+  </g>
+
+  <g id="Sample">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="282"/>
+      <line x1="1" y1="12"  x2="140" y2="12"/>
+      <line x1="1" y1="162" x2="140" y2="162"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Sample</text>
+      <text x="5" y="20">+auditID: number</text>
+      <text x="5" y="30">+category: string</text>
+      <text x="5" y="40">+contentTypes: string[]</text>
+      <text x="5" y="50">+done: boolean</text>
+      <text x="5" y="60">+failed: boolean</text>
+      <text x="5" y="70">+follows: string</text>
+      <text x="5" y="80">+hasExternalNotes: boolean</text>
+      <text x="5" y="90">+hasRequirements: boolean</text>
+      <text x="5" y="100">+id: number</text>
+      <text x="5" y="110">+mode: string</text>
+      <text x="5" y="120">+name: string</text>
+      <text x="5" y="130">+note: string</text>
+      <text x="5" y="140">+partial: string</text>
+      <text x="5" y="150">+service: string</text>
+      <text x="5" y="160">+started: boolean</text>
+      <text x="5" y="170">addContentType(string): void</text>
+      <text x="5" y="180">contains(...string): boolean</text>
+      <text x="5" y="190">deleteContentType(string): boolean</text>
+      <text x="5" y="200">failures(set): set</text>
+      <text x="5" y="210">nextRequirement(): Requirement</text>
+      <text x="5" y="220">progress(): number[]</text>
+      <text x="5" y="230">requirement(string): Requirement</text>
+      <text x="5" y="240">requirements([boolean]): iterator</text>
+      <text x="5" y="250">serialize(): object</text>
+      <text x="5" y="260">setRequirement(Requirement): void</text>
+      <text x="5" y="270">toJSON(): object</text>
+      <text x="5" y="280">toString(): string</text>
+    </g>
+  </g>
+</svg>

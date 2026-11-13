@@ -1,0 +1,24 @@
+{
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Accessibility"
+    }
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Identifierande textalternativ",
+      "description": "Ett textalternativ som åtminstone förklarar vad innehållet är, för innehåll där det inte är praktiskt möjligt att ge ett alternativ som är helt ekvivalent."
+    },
+    {
+      "type": "text",
+      "text": "För en enkel GIF-animering är textalternativet <code translate=\"no\">&lt;img&gt;</code>-elementets <code translate=\"no\">alt</code>-attribut."
+    },
+    {
+      "type": "text",
+      "text": "Ljudklipp och videofilmer kan tillhandahålla ett textalternativ med attributet <code translate=\"no\" lang=\"en\">aria-label</code> eller <code translate=\"no\" lang=\"en\">aria-labelledby</code>. Filmer som bäddas in med hjälp av ett <code translate=\"no\" lang=\"en\">&lt;iframe&gt;</code>-element kan alternativt använda ett <code translate=\"no\" lang=\"en\">title</code>-attribut på elementet."
+    }
+  ]
+}

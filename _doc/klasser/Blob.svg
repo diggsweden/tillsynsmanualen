@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80">
+  <g id="Blob">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="72"/>
+      <line x1="1" y1="12"  x2="100" y2="12"/>
+      <line x1="1" y1="32"  x2="100" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Blob</text>
+      <text x="5" y="20">+size: number</text>
+      <text x="5" y="30">+size: number</text>
+      <text x="5" y="40">arrayBuffer(): promise</text>
+      <text x="5" y="50">slice(…): Blob</text>
+      <text x="5" y="60">stream(): ReadableStream</text>
+      <text x="5" y="70">text(): promise</text>
+    </g>
+  </g>
+</svg>

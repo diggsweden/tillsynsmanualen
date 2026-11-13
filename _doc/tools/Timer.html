@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Timer – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      .class.uml-diagram {
+        width: 29rem;
+      }
+      figure.ecb {
+        width: 23rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">Timer</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Timer</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#params">Parametrar</a></li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#c-button">Start-/stoppknapp</a></li>
+          <li><a href="#c-display">Display</a></li>
+          <li><a href="#c-timer">Tidur</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <cite lang="en">Timer</cite> är ett verktyg för att kontrollera korta
+        tidsgränser som används i flera kriterier i <cite>WCAG</cite>; till
+        exempel att vissa kontroller ska vara uppfyllda om något pågår i ett
+        angivet antal sekunder.
+      </p>
+
+      <!--Parametrar-->
+      <section>
+        <h2 id="params">Parametrar i granskningskonfigurationen</h2>
+
+        <pre class="json"><code lang="en">{
+    <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+    <span class="key">"module"</span>: <span class="value">"Timer"</span>,
+    <span class="key">"params"</span>: {
+        <span class="key">duration</span>: <span class="value"><var>varaktighet</var></span>
+   }
+}</code></pre>
+
+        <dl class="properties">
+          <dt><code lang="en">duration</code></dt>
+          <dd>Mätperiodens varaktighet i millisekunder.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Verktyget består av tre klasser: en start- och stoppknapp, en
+          resultatdisplay och ett tidur.
+        </p>
+
+        <figure aria-hidden="true" class="ecb">
+          <svg viewBox="0 0 230 160" class="ecb uml-diagram">
+            <g transform="translate(12, 0)">
+              <!--TimerButton-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">TimerButton</text>
+                <line x1="40" y1="22" x2="84" y2="22" />
+                <line x1="18" y1="56" x2="66" y2="96" />
+              </g>
+
+              <!--TimerDisplay-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">TimerDisplay</text>
+                <line x1="18" y1="56" x2="-30" y2="96" />
+              </g>
+            </g>
+
+            <g transform="translate(12, 100)">
+              <!--Timer-->
+              <g transform="translate(50, 0)">
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Timer</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption><code lang="en">Timer</code>, översikt.</figcaption>
+        </figure>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 290 130" class="class uml-diagram">
+            <defs>
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <g>
+              <!--TimerButton-->
+              <g transform="translate(0, 10)">
+                <rect x="0.5" y="0.5" width="120" height="22" />
+                <text x="60" y="10" class="class">TimerButton</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">appendTo(HTMLElement): void</text>
+
+                <line x1="121" y1="11" x2="160" y2="11" class="dependency" />
+                <line x1="60" y1="23" x2="60" y2="60" class="dependency" />
+              </g>
+
+              <!--TimerDisplay-->
+              <g transform="translate(160, 0)">
+                <rect x="0.5" y="0.5" width="120" height="42" />
+                <text x="60" y="10" class="class">TimerDisplay</text>
+                <line x1="1" y1="12" x2="120" y2="12" />
+                <text x="5" y="20">appendTo(HTMLElement): void</text>
+                <text x="5" y="30">clear(): void</text>
+                <text x="5" y="40">update(Timer): void</text>
+
+                <path d="M60,43 v53 h-109" class="dependency" />
+              </g>
+            </g>
+
+            <!--Timer-->
+            <g transform="translate(10, 70)">
+              <rect x="0.5" y="0.5" width="100" height="52" />
+              <text x="50" y="10" class="class">Timer</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+              <text x="5" y="20">+elapsed: number</text>
+              <text x="5" y="30">+expired: boolean</text>
+              <line x1="1" y1="32" x2="100" y2="32" />
+              <text x="5" y="40">start(): promise</text>
+              <text x="5" y="50">stop(): boolean</text>
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Timer</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Start-/stoppknapp-->
+      <section>
+        <h2 id="c-button"><code lang="en">TimerButton</code></h2>
+
+        <p>
+          Klassen <code lang="en">TimerButton</code> representerar den start-
+          och stoppknapp som användaren interagerar med.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn skapar knappelementet, utan att infoga det i DOM-trädet.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">TimerButton</span>(<span class="var">doc</span>, <span class="var">timer</span>, <span class="var">display</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">doc</code></dt>
+          <dd>DOM-dokument.</dd>
+
+          <dt><code lang="en">timer</code></dt>
+          <dd>Tidur; en instans av klassen <code lang="en">Timer</code>.</dd>
+
+          <dt><code lang="en">display</code></dt>
+          <dd>
+            Resultatdisplay; en instans av klassen
+            <code lang="en">TimerDisplay</code>.
+          </dd>
+        </dl>
+
+        <h3><code lang="en">appendTo()</code></h3>
+
+        <p>Infogar start- och stoppknappen i DOM-trädet.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">appendTo</span>(<span class="var">parent</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållarelement att infoga knappen i.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Display-->
+      <section>
+        <h2 id="c-display"><code lang="en">TimerDisplay</code></h2>
+
+        <p>
+          Klassen <code lang="en">TimerDisplay</code> representerar
+          resultatdisplayen som visar den förflutna tiden (i millisekunder) när
+          tiduret stoppas. Displayen har en visuell indikering av om tiduret
+          stoppats av användaren innan tidsgränsen löpt ut eller om det stoppats
+          automatiskt efter den angivna tidsgränsen.
+        </p>
+
+        <p>Displayen visar även en indikator medan tiduret är igång.</p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn skapar ett
+          <code lang="en" class="html tag">&lt;output&gt;</code>-element som ska
+          uppdateras med resultatet när det är tillgängligt.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">TimerDisplay</span>(<span class="var">doc</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">doc</code></dt>
+          <dd>DOM-dokument.</dd>
+        </dl>
+
+        <h3><code lang="en">appendTo()</code></h3>
+
+        <p>Infogar displayen i DOM-trädet.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">appendTo</span>(<span class="var">parent</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållarelement att infoga displayen i.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">clear()</code></h3>
+
+        <p>
+          Rensar displayen och visar en indikator på att tiduret har startats.
+          Indikatorn är en horison&shy;tell ellips (”<samp>…</samp>”)
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clear</span>()</code></pre>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">update()</code></h3>
+
+        <p>
+          Uppdaterar displayen med den förflutna tiden när tiduret stoppats.
+          Tiden visas i milli&shy;sekunder och elementet åsätts en klass som ger
+          en färgindikering på om tiduret stoppats på grund av att tidsgränsen
+          löpt ut (rött) eller om användaren stoppat det för att den aktivitet
+          man vill mäta har upphört (grönt).
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">update</span>(<span class="var">timer</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">timer</code></dt>
+          <dd>Tiduret som stoppats.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Tidur-->
+      <section>
+        <h2 id="c-timer"><code lang="en">Timer</code></h2>
+
+        <p>
+          Klassen <code lang="en">Timer</code> är ett enkelt tidur som startas
+          manuellt och stoppas antingen manuellt eller automatiskt efter en
+          angiven varaktighet (tidsgräns).
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Timer</span>(<span class="var">duration</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">duration</code></dt>
+          <dd>
+            Varaktighet (tidsgräns) i millisekunder, efter vilken tiduret
+            stoppas automatiskt om inte användaren dessförinnan stoppat det
+            manuellt.
+          </dd>
+        </dl>
+
+        <h3>Fält</h3>
+
+        <dl class="properties">
+          <dt><code lang="en">elapsed</code></dt>
+          <dd>
+            Den förflutna tiden, i millisekunder, från att tiduret startades
+            tills det stoppades (manuellt eller automatiskt).
+          </dd>
+
+          <dt><code lang="en">expired</code></dt>
+          <dd>
+            En flagga som indikerar om tiduret stoppades automatiskt efter den
+            angivna tidsgränsen (<code lang="en" class="js literal">true</code>)
+            eller om det stoppades manuellt av användaren (<code
+              lang="en"
+              class="js literal"
+              >false</code
+            >).
+          </dd>
+        </dl>
+
+        <h3><code lang="en">start()</code></h3>
+
+        <p>Startar tiduret.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">start</span>()</code></pre>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          Ett löfte som infrias när tiduret stoppats, manuellt eller
+          automatiskt.
+        </p>
+
+        <h3><code lang="en">stop()</code></h3>
+
+        <p>Stoppar tiduret manuellt.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">stop</span>()</code></pre>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om tiduret var igång
+          och stoppades, annars <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

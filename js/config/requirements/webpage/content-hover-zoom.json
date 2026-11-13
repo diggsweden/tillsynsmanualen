@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "Förstora texten till 200&nbsp;procent innan du utför kontrollerna."
+  ],
+  "exceptions": [
+    "Innehåll som visas helt under webbläsarens kontroll, till exempel <i lang=\"en\">tooltips</i> via HTML-attributet <code translate=\"no\" lang=\"en\">title</code>."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Hovra",
+      "description": "(uttalas /hå:vra/); att hålla muspekaren stilla över något innehåll."
+    }
+  ]
+}

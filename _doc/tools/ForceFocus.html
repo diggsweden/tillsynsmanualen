@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ForceFocus – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">ForceFocus</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ForceFocus</code>
+      </h1>
+
+      <p>
+        <code lang="en">ForceFocus</code> är ett
+        <i lang="en">bookmarklet</i> som kan underlätta kontroller som kräver
+        tangentbords&shy;navigering på webbplatser som har dålig fokusmarkering
+        (eller döljer den helt).
+      </p>
+
+      <h2>Installation</h2>
+
+      <p>
+        Användaren installerar bokmärket genom att kopiera skriptkoden
+        (”länkadressen”) och klistra in den i ett nytt bokmärke. I många
+        webbläsare kan man också dra verktygslänken till bokmärkesraden för att
+        installera den.
+      </p>
+
+      <p class="warning">
+        En alltför strikt <abbr>CSP</abbr> (<a
+          href="https://en.wikipedia.org/wiki/Content_Security_Policy"
+          hreflang="en"
+          rel="external"
+          ><i lang="en">content security policy</i></a
+        >) på en server kan förhindra att ett <i lang="en">bookmarklet</i> går
+        att exekevera.
+      </p>
+
+      <h2>Funktion</h2>
+
+      <p>
+        Verktyget injicerar CSS-kod på sidan för att definiera en tydlig
+        fokusmarkering. Verktyget injicerar koden även på externa dokument som
+        bäddats in med <code lang="en" class="html tag">&lt;iframe&gt;</code>.
+      </p>
+
+      <p>
+        Verktyget tar bort den injicerade CSS-koden om det exekveras en andra
+        gång på samma sida, vilket innebär att man inte behöver ladda om sidan
+        för att återställa den.
+      </p>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

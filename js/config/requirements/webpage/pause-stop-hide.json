@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Ladda (om) sidan och titta efter saker som rör sig, exempelvis animeringar."
+  ],
+  "exceptions": [
+    "Förloppsindikator, indikator på att sidan fortfarande laddas."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Timer",
+      "params": {
+        "duration": 5000
+      }
+    }
+  ]
+}

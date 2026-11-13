@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Konfiguration och mallar – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      dl.dir,
+      dl.dir dl {
+        display: grid;
+        grid-template-columns: 9em 1fr;
+        column-gap: 1em;
+        row-gap: 0.75em;
+        align-items: start;
+      }
+      dl.dir dl {
+        grid-template-columns: 6em 1fr;
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Konfiguration och mallar</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Konfiguration och mallar</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#app-struct"><span>Applikationsstrukturen</span></a>
+          </li>
+          <li>
+            <a href="#menu"><span>Menyn</span></a>
+          </li>
+          <li>
+            <a href="#audit-pages"><span>Granskningsidor</span></a>
+          </li>
+          <li>
+            <a href="#audit-req"><span>Krav &amp; kontroller</span></a>
+          </li>
+          <li>
+            <a href="#req"><span>Granskningskonfiguration</span></a>
+          </li>
+          <li>
+            <a href="#protocol"><span>Granskningsprotokoll</span></a>
+          </li>
+          <li>
+            <a href="#rem-inj"><span>Påpekande &amp; föreläggande</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Information som sannolikt behöver ändras förhållandevis ofta styrs av
+        konfigurationsfiler i stället för att vara hårdkodad i skripten. Det gör
+        att en stor del av normal förvaltning kan utföras av personer som inte
+        är utvecklare eller behärskar JavaScript.
+      </p>
+
+      <p>
+        Så mycket som möjligt av sidinnehållet i granskningsfunktionen styrs på
+        liknande grund via mallar, så att det räcker med HTML-kompetens för att
+        ändra många delar av innehållet.
+      </p>
+
+      <section>
+        <h2 id="app-struct">Applikationsstrukturen</h2>
+
+        <p>
+          Filen <code lang="en">js/config/app-config.json</code> mappar
+          begäransparametrar till initieringsmoduler och används av växeln
+          (klassen <code lang="en">Router</code>).
+        </p>
+
+        <p>
+          En begäran av en sida i granskningsfunktionen sker mot
+          <code>granskning/granska.html?page=<var>sida</var></code>
+          följt av sidspecifika parametrar. Sidtypen <var>sida</var> mappas av
+          växeln, med hjälp av denna konfigurationsfil, till en sökväg till en
+          skriptmodul. Fördelaren (klassen <code lang="en">Dispatcher</code>)
+          importerar modulen och anropar dess defaultfunktion som förväntas
+          instansiera vy och <i lang="en">controller</i>.
+        </p>
+
+        <p>
+          Fillen består av ett objekt med begäransparameternamn som nycklar och
+          modulsökvägar som värden:
+        </p>
+
+        <pre class="json"><code>{
+    <span class="key">"<var>sida</var>"</span>: <span class="value">"js/<var>modulnamn</var>.module.js"</span>,
+    …
+}</code></pre>
+      </section>
+
+      <section>
+        <h2 id="menu">Menyn</h2>
+
+        <p>
+          Filen <code lang="en">js/config/menu.json</code> används av klassen
+          <code lang="en">MenuBuilder</code> för att konstruera navigeringsmenyn
+          på varje sida i <cite>Tillsynsmanualen</cite>.
+        </p>
+
+        <p>
+          Filen består av ett objekt med ett enda fält,
+          <code lang="en">menu</code>, som är en vektor av objekt.
+        </p>
+
+        <p>
+          Varje objekt (menyelement) har fältet <code lang="en">label</code> som
+          är den synliga texten i menyalternativet. Om elementet har en
+          undermeny innehåller objektet fältet <code lang="en">content</code>:
+          en vektor med underordnade objekt av samma typ. Om elementet är en
+          lövnod har det i stället fältet <code lang="en">url</code> med sidans
+          relativa sökväg från webbplatsens rotkatalog.
+        </p>
+
+        <pre class="json"><code>{
+    <span class="key">"menu"</span>: [
+       {
+           <span class="key">"label"</span>: <span class="value">"<var>menyalternativ</var>"</span>,
+           <span class="key">"content"</span>: [
+               {
+                   <span class="key">"label"</span>: <span class="value">"<var>menyalternativ</var>"</span>,
+                   <span class="key">"url"</span>: <span class="value">"<var>relativ-sökväg</var>"</span>
+               },
+               …
+           ]
+       },
+       …
+    ]
+}</code></pre>
+      </section>
+
+      <section>
+        <h2 id="audit-pages">Granskningsfunktionens sidor</h2>
+
+        <p>
+          Granskningsfunktionen använder sig av en enda sidmall
+          (<code>granskning/granska.html</code>). Varje vyklass injicerar ett
+          sidfragment i den mallen. Dessa fragment finns under
+          <code>granskning/pages/</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="audit-req">Krav och kontroller</h2>
+
+        <p>
+          I katalogen <code lang="en">js/config/requirements/</code> finns
+          kravkonfigurationerna för olika stickprovstyper:
+        </p>
+
+        <ul>
+          <li>
+            komponenter i mobila applikationer (öppen/stängd funktionalitet)
+          </li>
+          <li>vyer i mobila applikationer (öppen/stängd funktionalitet)</li>
+          <li>komponenter i webbsidor</li>
+          <li>webbsidor</li>
+          <li>dokument.</li>
+        </ul>
+
+        <p>
+          Därutöver finns tre underkataloger – <code lang="en">document/</code>,
+          <code lang="en">screen/</code> och <code lang="en">webpage/</code> –
+          med totalt över 300 konfigurationsfiler för enskilda krav.
+        </p>
+
+        <p class="note">
+          Definitioner av innehållstyper måste vara identiska i de filer som
+          skiljer mellan öppen och stängd funktionalitet.
+        </p>
+
+        <section>
+          <h3>Stickprovskonfiguration</h3>
+
+          <p>
+            Dessa filer (<code><var>stickprovstyp</var>.json</code>) består av
+            fem olika delar:
+          </p>
+
+          <ol>
+            <li>Innehållstyper (<code lang="en">contentTypes</code>)</li>
+            <li>Avsnittsindelning (<code lang="en">sections</code>)</li>
+            <li>Kravinformation (<code lang="en">requirements</code>)</li>
+            <li>Villkor (<code lang="en">conditions</code>)</li>
+            <li>Kontroller (<code lang="en">checks</code>).</li>
+          </ol>
+
+          <div class="warning">
+            <h4>Ta inte bort innehållstyper, krav eller kontroller!</h4>
+
+            <p>
+              Dessa identiteter sparas i ärendet och tar du bort dem ur
+              konfigurationen går gamla ärenden inte att visa.
+            </p>
+
+            <p>
+              Du kan ta bort kopplingar till innehållstyper från filter, krav
+              från avsnitt eller kontroller från krav och villkor, men radera
+              inte definitionerna.
+            </p>
+
+            <p>
+              Undvik även betydelseförändringar av kontrolltexter (utöver
+              triviala rättningar av stavfel). Skapa hellre en ny kontroll, för
+              att bevara lydelsen i befintliga ärenden.
+            </p>
+          </div>
+
+          <section>
+            <h4>Innehållstyper</h4>
+
+            <p>
+              <code lang="en">contentTypes</code> är en vektor med objekt som
+              definierar de innehållstyper som ska finnas för en stickprovstyp.
+              Granskaren markerar tillämpliga innehållstyper för varje stickprov
+              vid urvalet.
+            </p>
+
+            <p>
+              Varje objekt i vektorn ska ha en unik identitet och en titel, och
+              kan också ha en förvals&shy;markering. Identiteten används för
+              villkorsstyrning av avsnitt och krav (se respektive avsnitt
+              nedan), titeln är det som visas för användaren och
+              förvalsmarkeringen styr om typen är markerad som standard för nya
+              stickprov.
+            </p>
+
+            <p>
+              För att bibehålla bakåtkompatibilitet vid förändringar bör du
+              sätta ett slutdatum (<code>end</code>) i stället för att radera en
+              innehållstyp. När du lägger till en ny innehållstyp kan du sätta
+              ett startdatum (<code>begin</code>) för att förhindra att den
+              visas vid redigering av tidigare skapade ärenden. Ange datum som
+              millisekunder sedan <span lang="en">Epoch</span> (den
+              1&nbsp;januari 1970 klockan 0:00:00,000 UTC).
+            </p>
+
+            <pre class="json"><code><span class="key">"contentTypes"</span>: [
+    {<span class="key">"id"</span>: <span class="value">"<var>id</var>"</span>, <span class="key">"title"</span>: <span class="value">"<var>titel</var>"</span>, <span class="key">"default"</span>: <span class="value">true</span>},
+    {<span class="key">"id"</span>: <span class="value">"<var>id</var>"</span>, <span class="key">"title"</span>: <span class="value">"<var>titel</var>"</span>},
+    {<span class="key">"id"</span>: <span class="value">"<var>id</var>"</span>, <span class="key">"title"</span>: <span class="value">"<var>titel</var>"</span>, <span class="key">"end"</span>: <span class="value">1546300800000</span>},
+    {<span class="key">"id"</span>: <span class="value">"<var>id</var>"</span>, <span class="key">"title"</span>: <span class="value">"<var>titel</var>"</span>, <span class="key">"begin"</span>: <span class="value">1546300800000</span>},
+    …
+]</code></pre>
+          </section>
+
+          <section>
+            <h4>Villkorsstyrning</h4>
+
+            <p>
+              Avsnitt och krav kan vara villkorsstyrda utifrån ett antal olika
+              parametrar, som alltså styr om avsnittet ska visas på
+              stickprovsöversikten eller om kravet ska ingå i granskningen.
+              Villkorsparametrarna är, om inte annat anges, vektorer där
+              villkoret är uppfyllt om <em>något</em> av vektorelementen matchar
+              för ett givet stickprov. Följande kan villkorsstyras:
+            </p>
+
+            <ul>
+              <li>
+                visningsläge (<code lang="en">modes</code>);
+                <code lang="en" class="js literal">"simplified"</code> matchar
+                förenklat läge, medan
+                <code lang="en" class="js literal">"advanced"</code>
+                matchar avancerat läge
+              </li>
+
+              <li>innehållstyper (<code lang="en">contentTypes</code>)</li>
+
+              <li>
+                urvalskategori (<code lang="en">categories</code>); ett avsnitt
+                med villkoret
+                <code lang="en">"categories": ["statement"]</code> visas till
+                exempel bara för tillgänglighetsredogörelser (se klassen
+                <a href="klasser/model/Audit.html"
+                  ><code lang="en">Audit</code></a
+                >
+                för en komplett förteckning)
+              </li>
+
+              <li>
+                plattform för mobila applikationer (<code lang="en"
+                  >platforms</code
+                >); det operativsystem som anges för den digitala servicen i
+                ärendet (omvandlat till gemener), till exempel
+                ”<code>ios</code>” eller ”<code>android</code>”
+              </li>
+
+              <li>filtyp för dokument (<code lang="en">formats</code>).</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Avsnittsindelning</h4>
+
+            <p>
+              <code lang="en">sections</code> är en vektor med objekt som styr
+              hur kravlistningen presenteras på stickprovs&shy;översikten. Den
+              definierar avsnitt och underavsnitt och anger vilka krav som ska
+              listas under varje avsnitt.
+            </p>
+
+            <p>
+              Ett avsnitt kan alltså vara villkorsstyrt. Det innebär att
+              avsnittet och de ingående kraven bara presenteras om stickprovet
+              matchar villkoren. Granskaren får inte ens se kraven i dolda
+              avsnitt, vilket gör granskningen betydligt effektivare än i den
+              första versionen av manualen där man ofta behövde skrolla förbi
+              irrelevanta krav (med risken att skrolla förbi något krav som
+              faktiskt var relevant).
+            </p>
+
+            <pre class="json"><code><span class="key">"sections"</span>: [
+    {
+        <span class="key">"id"</span>: <span class="value">"<var>unik-identitet</var>"</span>,
+        <span class="key">"title"</span>: <span class="value">"<var>titel i kravlistningen</var>"</span>,
+        <span class="key">"modes"</span>: [<span class="value">"advanced"</span>],
+        <span class="key">"contentTypes"</span>: [<span class="value">"<var>innehållstyps-id</var>"</span>, …],
+        <span class="key">"categories"</span>: [<span class="value">"<var>urvalskategori</var>"</span>, …],
+        <span class="key">"platforms"</span>: [<span class="value">"<var>operativsystem</var>"</span>, …],
+        <span class="key">"formats"</span>: [<span class="value">"<var>filtyp</var>"</span>, …],
+        <span class="key">"requirements"</span>: [<span class="value">"<var>krav-id</var>"</span>, …],
+        <span class="key">"sections"</span>: [<var>underavsnitt</var>, …]
+    },
+    …
+]</code></pre>
+          </section>
+
+          <section>
+            <h4>Kravinformation</h4>
+
+            <p>
+              <code lang="en">requirements</code> är ett objekt med objekt som
+              definierar krav. Ett krav är kopplat till ett specifikt avsnitt i
+              <cite>EN&nbsp;301&nbsp;549</cite> eller en paragraf i
+              <cite>DOS-lagen</cite> eller föreskriften. (Ett krav kan också
+              vara ett pseudokrav som inte är kopplat till något formellt krav,
+              utan bara är en åtgärdspunkt i granskningen, till exempel att
+              spara en skärmavbildning.)
+            </p>
+
+            <p>
+              I kravinformationen ingår det avsnitt och eventuella underavsnitt
+              som kravet ska visas under. De är alltså referenser till
+              identiteter i avsnittet <code lang="en">sections</code>. Syftet
+              med detta är att krav i gamla ärenden ska kunna visas i det
+              avsnitt de tillhörde, även om kravet tagits bort ur avsnittet
+              sedan dess. Om avsnittet tagits bort visas kravet under
+              pseudoavsnittet ”<samp>Övrigt</samp>”.
+            </p>
+
+            <p>
+              Krav kan villkorsstyras, precis som avsnitt. Villkorsstyrda krav
+              visas bara om stickprovet matchar villkoren.
+            </p>
+
+            <p>
+              Referensen hänvisar till ett kravavsnitt i
+              <cite>EN&nbsp;301&nbsp;549</cite> (”9.1.2.3”) eller till en (del
+              av en) paragraf i
+              <cite>DOS-lagen</cite> (”SFS2018:1937&nbsp;13&nbsp;§”) eller
+              föreskriften
+              (”MDFFS2019:2&nbsp;6&nbsp;§&nbsp;1&nbsp;st&nbsp;3&nbsp;p").
+            </p>
+
+            <p>
+              Fältet <code lang="en">checks</code> är en vektor med objekt som
+              hänvisar till antingen en kontroll eller ett villkor.
+            </p>
+
+            <pre class="json"><code><span class="key">"requirements"</span>: {
+    <span class="key">"<var>krav-id</var>"</span>: {
+        <span class="key">"pseudo"</span>: <var><span class="value">true</span> om pseduo-krav</var>,
+        <span class="key">"title"</span>: <span class="value">"<var>visningstitel</var>"</span>,
+        <span class="key">"reference"</span>: <span class="value">"<var>kravhänvisning</var>"</span>,
+        <span class="key">"section"</span>: <span class="value">"<var>avsnitts-id</var>"</span>,
+        <span class="key">"subsection"</span>: <span class="value">"<var>underavsnitts-id</var>"</span>,
+        <span class="key">"contentTypes"</span>: [<span class="value">"<var>innehållstyps-id</var>"</span>, …],
+        <span class="key">"categories"</span>: [<span class="value">"<var>urvalskategori</var>"</span>, …],
+        <span class="key">"platforms"</span>: [<span class="value">"<var>operativsystem</var>"</span>, …],
+        <span class="key">"formats"</span>: [<span class="value">"<var>filtyp</var>"</span>, …],
+        <span class="key">"approvable"</span>: <span class="value">false</span>,
+        <span class="key">"checks"</span>: [
+            {<span class="key">"check"</span>: <span class="value">"<var>kontroll-id</var>"</span>},
+            {<span class="key">"condition"</span>: <span class="value">"<var>villkors-id</var>"</span>},
+            …
+        ]
+    },
+    …
+}</code></pre>
+          </section>
+
+          <section>
+            <h4>Villkor</h4>
+
+            <p>
+              <code lang="en">conditions</code> är ett objekt med objekt som
+              beskriver villkor i granskningen. (Det har alltså inget att göra
+              med ovannämnda villkorsstyrning av avsnitt och krav.) Ett konkret
+              villkor visas för granskaren som manuellt väljer
+              <samp>Ja</samp> eller <samp>Nej</samp>. De kontroller eller
+              undervillkor som definierats för respektive gren –
+              <code lang="en">yes</code> eller <code lang="en">no</code>, om de
+              finns – blir då synliga.
+            </p>
+
+            <p>
+              Ett villkor kan också vara härlett från en eller flera kontroller
+              och utvärderas då med automatik och visar innehållet i den gren
+              som motsvarar utfallet.
+            </p>
+
+            <p class="note">
+              Ett villkor innehåller alltså <em>antingen</em>
+              <code lang="en">precondition</code> <em>eller</em>
+              <code lang="en">sources</code>; inte båda.
+            </p>
+
+            <p class="note">
+              Observera att ett <em>villkor</em> är härlett från
+              <em>kontroller</em> i samma <em>krav</em>, till skillnad från en
+              härledd <em>kontroll</em> som härleds från <em>krav</em> i samma
+              <em>stickprov</em>.
+            </p>
+
+            <pre class="json"><code><span class="key">"conditions"</span>: {
+    <span class="key">"<var>villkors-id</var>"</span>: {
+        <span class="key">"precondition"</span>: <span class="value">"<var>villkorstext</var>"</span>,
+        <span class="key">"sources"</span>: [<span class="value">"<var>kontroll-id</var>"</span>, …],
+        <span class="key">"yes"</span>: [
+            {<span class="key">"check"</span>: <span class="value">"<var>kontroll-id</var>"</span>},
+            {<span class="key">"condition"</span>: <span class="value">"<var>villkors-id</var>"</span>},
+            …
+        ],
+        <span class="key">"no"</span>: [
+            {<span class="key">"check"</span>: <span class="value">"<var>kontroll-id</var>"</span>},
+            {<span class="key">"condition"</span>: <span class="value">"<var>villkors-id</var>"</span>},
+            …
+        ]
+    },
+    …
+}</code></pre>
+          </section>
+
+          <section>
+            <h4>Kontroller</h4>
+
+            <p>
+              <code lang="en">checks</code> är ett objekt med objekt som
+              definierar de kontroller som är den finaste nivån i
+              granskningskedjan.
+            </p>
+
+            <p>
+              En enkel (singulär) manuell kontroll består av en kontrolltext och
+              en observation som tillhandahålls som standardtext om granskaren
+              underkänner kontrollen.
+            </p>
+
+            <p>
+              En multipel manuell kontroll är mycket lik den enkla kontrollen,
+              men har flera kontroll&shy;texter som presenteras som individuella
+              kontroller. Om granskaren underkänner <em>alla</em> alternativ
+              blir kontrollen underkänd och observationen blir synlig.
+            </p>
+
+            <p>
+              En kontroll kan också ha undantag som visas tillsammans med
+              kontrollen.
+            </p>
+
+            <p>
+              En härledd kontroll visas som en manuell kontroll, men går inte
+              att redigera. Den har en kontrolltext och refererar till ett eller
+              flera krav. Om <em>alla</em> krav är uppfyllda blir den härledda
+              kontrollen godkänd. Är något krav underkänt blir också den
+              härledda kontrollen under&shy;känd. Om kontrollen är angiven som
+              ”global” omfattar den de angivna kraven även i separata
+              komponenter som ingår i stickprovet. En härledd kontroll utan
+              standardobser&shy;vation används enbart för att styra ett härlett
+              villkor och medverkar inte vid kravets beräkning av status.
+            </p>
+
+            <p class="note">
+              Observera att en <em>kontroll</em> är härledd från <em>krav</em> i
+              samma <em>stickprov</em>, till skillnad från ett härlett
+              <em>villkor</em> som härleds från <em>kontroller</em> i samma
+              <em>krav</em>.
+            </p>
+
+            <pre class="json"><code><span class="key">"checks"</span>: {
+    <span class="key">"<var>singulär-id</var>"</span>: {
+        <span class="key">"texts"</span>: [<span class="value">"<var>kontrolltext</var>"</span>],
+        <span class="key">"exceptions"</span>: [<span class="value">"<var>undtantgstext</var>"</span>, …],
+        <span class="key">"observation"</span>: <span class="value">"<var>standardobservation</var>"</span>
+    },
+    <span class="key">"<var>multipel-id</var>"</span>: {
+        <span class="key">"texts"</span>: [
+            <span class="value">"<var>delkontrolltext</var>"</span>,
+            …
+        ],
+        <span class="key">"exceptions"</span>: [<span class="value">"<var>undtantgstext</var>"</span>, …],
+        <span class="key">"observation"</span>: <span class="value">"<var>standardobservation</var>"</span>
+    },
+    <span class="key">"<var>härledd-id</var>"</span>: {
+        <span class="key">"global"</span>: <var><span class="value">true</span> om ”global” kontroll</var>,
+        <span class="key">"texts"</span>: [<span class="value">"<var>kontrolltext</var>"</span>],
+        <span class="key">"observation"</span>: <span class="value">"<var>eventuell standardobservation</var>"</span>
+        <span class="key">"sources"</span>: [<span class="value">"<var>krav-id</var>"</span>, …]
+    },
+    …
+}</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h3 id="req">Granskningskonfiguration</h3>
+
+          <p>
+            Dessa filer (<code><var>krav-id</var>.json</code>) konfigurerar
+            vilken information som ska visas tillsammans med kontrollerna vid
+            granskning av ett krav.
+          </p>
+
+          <p>
+            I de fall där det inte är tämligen uppenbart hur man kontrollerar
+            ett krav kan gransknings&shy;konfigurationen beskriva metoder.
+            Alternativa metoder beskrivs med fältet
+            <code lang="en">methods</code>, medan steg-för-steg–beskrivningar
+            beskrivs med fältet <code lang="en">steps</code>. Båda fälten är
+            strängvektorer. <code lang="en">methods</code> används i första
+            hand, annars <code lang="en">steps</code> om den finns.
+          </p>
+
+          <p>
+            Fältet <code lang="en">exceptions</code> (strängvektor) beskriver
+            eventuella undantag från kravet.
+          </p>
+
+          <p>
+            Fältet <code lang="en">examples</code> beskriver exempel som
+            illustrerar kravet eller metoden. Det är ett objekt med upp till
+            fyra olika nycklar för olika typer av exempel (dåligt, bättre, bra
+            eller neutralt). Värdet för varje nyckel är en strängvektor.
+          </p>
+
+          <p>
+            Kravkonfigurationen kan också innehålla relaterad information av
+            olika slag:
+          </p>
+
+          <ul>
+            <li>användbara verktygsmoduler</li>
+            <li>länkar till relevant information</li>
+            <li>åtgärdsrutor</li>
+            <li>definitioner av termer</li>
+            <li>utfällbara avsnitt med information</li>
+            <li>figurer</li>
+            <li>bilder</li>
+            <li>informationsrutor</li>
+            <li>tabeller</li>
+            <li>brödtextstycken</li>
+            <li>tipsrutor</li>
+            <li>numrerade listor</li>
+            <li>punktlistor</li>
+            <li>varningsrutor</li>
+            <li>tillämpningsanvisning</li>
+            <li>en referens till det kravavsnitt som kravet gäller.</li>
+          </ul>
+
+          <figure>
+            <p class="action">
+              Åtgärdsruta – uppmaning till granskaren att göra något.
+            </p>
+
+            <p class="note">
+              Informationsruta – viktig upplysning till granskaren.
+            </p>
+
+            <p class="tip">Tipsruta – tips till granskaren.</p>
+
+            <p class="warning">Varningsruta – varningar till granskaren.</p>
+
+            <figcaption>Exempel på de olika typerna av rutor.</figcaption>
+          </figure>
+
+          <pre class="json"><code>{
+    <span class="key">"methods"</span>: [<span class="value">"<var>metod</var>"</span>, …],
+    <span class="key">"steps"</span>: [<span class="value">"<var>steg</var></span>, …],
+    <span class="key">"exceptions"</span>: [<span class="value">"<var>undtantag</var>"</span>, …],
+    <span class="key">"examples"</span>: {
+        <span class="key">"bad"</span>: [<span class="value">"<var>exempel</var>"</span>, …],
+        <span class="key">"better"</span>: [<span class="value">"<var>exempel</var>"</span>, …],
+        <span class="key">"good"</span>: [<span class="value">"<var>exempel</var>"</span>, …],
+        <span class="key">"neutral"</span>: [<span class="value">"<var>exempel</var>"</span>, …]
+    },
+    <span class="key">"tools"</span>: [
+        {
+            <span class="key">"tool"</span>: <span class="value">"bookmarklet"</span>,
+            <span class="key">"title"</span>: <span class="value">"<var>titel</var>"</span>,
+            <span class="key">"file"</span>: <span class="value">"<var>filnamn-utan-katalog-och-ändelse</var>"</span>
+        },
+        {
+            <span class="key">"tool"</span>: <span class="value">"DevTool"</span>,
+            <span class="key">"tab"</span>: <span class="value">"<var>fliknamn</var>"</span>,
+            <span class="key">"pane"</span>: <span class="value">"<var>panelnamn</var>"</span>,
+            <span class="key">"properties"</span>: [<span class="value">"<var>css-egenskap</var>"</span>, …],
+            <span class="key">"function"</span>: <span class="value">"<var>funktionsnamn</var>"</span>,
+            <span class="key">"help"</span>: <span class="value">"<var>instruktioner</var>"</span>
+        },
+        {
+            <span class="key">"tool"</span>: <span class="value">"external"</span>,
+            <span class="key">"text"</span>: <span class="value">"<var>beskrivning</var>"</span>
+        },
+        {
+            <span class="key">"tool"</span>: <span class="value">"module"</span>,
+            <span class="key">"module"</span>: <span class="value">"<var>filnamn-utan-katalog-och-ändelse</var>"</span>,
+            <span class="key">"params"</span>: {<var>parametrar</var>}
+        },
+        {
+            <span class="key">"tool"</span>: <span class="value">"WAVE"</span>,
+            <span class="key">"tab"</span>: <span class="value">"<var>fliknamn</var>"</span>,
+            <span class="key">"absent"</span>: {
+                <span class="key">"tab"</span>: <span class="value">"<var>fliknamn</var>"</span>,
+                <span class="key">"section"</span>: <span class="value">"<var>avsnitt</var>"</span>,
+                <span class="key">"text"</span>: <span class="value">"<var>text</var>"</span>,
+                <span class="key">"texts"</span>: [<span class="value">"<var>text</var>"</span>, …],
+                <span class="key">"icon"</span>: {
+                    <span class="key">"src"</span>: <span class="value">"<var>filnamn</var>"</span>,
+                    <span class="key">"alt"</span>: <span class="value">"<var>textalternativ</var>"</span>
+                }
+            },
+            <span class="key">"present"</span>: {
+                <span class="key">"tab"</span>: <span class="value">"<var>fliknamn</var>"</span>,
+                <span class="key">"section"</span>: <span class="value">"<var>avsnitt</var>"</span>,
+                <span class="key">"text"</span>: <span class="value">"<var>text</var>"</span>,
+                <span class="key">"texts"</span>: [<span class="value">"<var>text</var>"</span>, …],
+                <span class="key">"icon"</span>: {
+                    <span class="key">"src"</span>: <span class="value">"<var>filnamn</var>"</span>,
+                    <span class="key">"alt"</span>: <span class="value">"<var>textalternativ</var>"</span>
+                }
+            }
+        },
+        {
+            <span class="key">"tool"</span>: <span class="value">"WebDeveloper"</span>,
+            <span class="key">"tab"</span>: <span class="value">"<var>fliknamn</var>"</span>,
+            <span class="key">"function"</span>: <span class="value">"<var>funktionsnamn</var>"</span>
+        },
+        …
+    ],
+    <span class="key">"links"</span>: [
+        {
+            <span class="key">"url"</span>: <span class="value">"<var>länkadress</var>"</span>,
+            <span class="key">"title"</span>: <span class="value">"<var>länktext</var>"</span>
+        },
+        …
+    ],
+    <span class="key">"info"</span>: [
+        {
+            <span class="key">"type"</span>: <span class="value">"action"</span>,
+            <span class="key">"text"</span>: <span class="value">"<var>åtgärds-html</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"definition"</span>,
+            <span class="key">"term"</span>: <span class="value">"<var>term-att-definiera</var>"</span>,
+            <span class="key">"description"</span>: <span class="value">"<var>beskrivning</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"details"</span>,
+            <span class="key">"summary"</span>: <span class="value">"<var>sammanfattning</var>"</span>,
+            <span class="key">"content"</span>: [
+                <var>info-innehåll</var>
+            ]
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"figure"</span>,
+            <span class="key">"content"</span>: [
+                <var>info-innehåll</var>
+            ],
+            <span class="key">"caption"</span>: <span class="value">"<var>figurtext</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"image"</span>,
+            <span class="key">"path"</span>: <span class="value">"<var>bildsökväg</var>"</span>,
+            <span class="key">"alt"</span>: <span class="value">"<var>textalternativ</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"note"</span>,
+            <span class="key">"text"</span>: <span class="value">"<var>informations-html</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"olist"</span>,
+            <span class="key">"items"</span>: [<span class="value">"<var>element</var>"</span>, …]
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"table"</span>,
+            <span class="key">"headers"</span>: [<span class="value">"<var>rubrikcell</var>"</span>, …],
+            <span class="key">"rows"</span>: [
+                [<span class="value">"<var>datacell</var>"</span>, … ],
+                …
+            ]
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"text"</span>,
+            <span class="key">"text"</span>: <span class="value">"<var>brödtext-html</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"tip"</span>,
+            <span class="key">"text"</span>: <span class="value">"<var>tips-html</var>"</span>
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"ulist"</span>,
+            <span class="key">"items"</span>: [<span class="value">"<var>element</var>"</span>, …]
+        },
+        {
+            <span class="key">"type"</span>: <span class="value">"warning"</span>,
+            <span class="key">"text"</span>: <span class="value">"<var>varnings-html</var>"</span>
+        },
+    ],
+    <span class="key">"instruction"</span>: {
+        <span class="key">"id"</span>: <span class="value">"<var>tillämpningsanvisnings-id</var>"</span>,
+        <span class="key">"title"</span>: <span class="value">"<var>länktext</var>"</span>
+    },
+    <span class="key">"reference"</span>: <span class="value">"<var>kravavsnitt</var>"</span>
+}</code></pre>
+        </section>
+      </section>
+
+      <section>
+        <h2 id="protocol">Granskningsprotokoll</h2>
+
+        <p>
+          I katalogen <code>granskning/templates</code> finns HTML-mallarna för
+          granskningsprotokoll; en för mobila applikationer
+          (<code>protocol-app.html</code>) och en för webbplatser
+          (<code>protocol-website.html</code>).
+        </p>
+
+        <p>
+          Klassen
+          <a href="klasser/view/ProtocolView.html"
+            ><code lang="en">ProtocolView</code></a
+          >
+          läser in mallen och tillhörande konfigurationsfil (se nedan) och
+          populerar mallen med information om granskningen och dess utfall.
+        </p>
+
+        <p>
+          I katalogen <code lang="en">js/config/protocols/</code> finns
+          konfigurationsfilerna med den fasta information som ska skrivas ut i
+          protokollet för varje underkänt krav.
+        </p>
+
+        <p>
+          Det finns en konfigurationsfil för mobila applikationer
+          (<code>app.json</code>) och en för webbplatser
+          (<code>website.json</code>).
+        </p>
+
+        <p>
+          Fälten <code>title</code> och <code>expectations</code> är
+          obligatoriska.
+        </p>
+
+        <p>
+          Kravavsnittsnummer är avsnittnummer i
+          <cite>EN&nbsp;301&nbsp;549</cite> eller paragrafhänvisning till
+          <cite>DOS-lagen</cite> (<code>SFS2018:1937&nbsp;13&nbsp;§</code>)
+          eller föreskriften
+          (<code>MDFFS2019:2&nbsp;6&nbsp;§&nbsp;1&nbsp;st&nbsp;3&nbsp;p</code>).
+        </p>
+
+        <p>
+          Fältet <code lang="en">guideline</code> kan användas för att hänvisa
+          till en riktlinje i
+          <a href="https://webbriktlinjer.se/" rel="external"
+            ><cite>Vägledning för webbutveckling</cite></a
+          >, till exempel <code lang="en">"guideline":&nbsp;115</code>.
+        </p>
+
+        <pre class="json"><code>{
+    <span class="key">"clauses"</span>: [
+        <span class="key">"<var>kravavsnittsnummer</var>"</span>: {
+            <span class="key">"title"</span>: <span class="value">"<var>rubrik</var>"</span>,
+            <span class="key">"expectations"</span>: [<span class="value">"<var>förväntning</var>"</span>, …],
+            <span class="key">"important"</span>: <span class="value">"<var>not</var>"</span>,
+            <span class="key">"guideline"</span>: <span class="value"><var>riktlinjenummer</var></span>
+        },
+        …
+    ]
+}</code></pre>
+      </section>
+
+      <section>
+        <h2 id="rem-inj">Påpekande och föreläggande</h2>
+
+        <p>
+          I katalogen <code>granskning/templates</code> finns HTML-mallarna för
+          påpekanden och förelägganden; dels för mobila applikationer (<code
+            >remarks-app.html</code
+          >
+          och <code>injunction-app.html</code>), dels för webbplatser (<code
+            >remarks-website.html</code
+          >
+          och <code>injunction-website.html</code>).
+        </p>
+
+        <p>
+          Klassen
+          <a href="klasser/view/RemarksView.html"
+            ><code lang="en">RemarksView</code></a
+          >
+          läser in mallen och tillhörande konfigurationsfil (se nedan) och
+          populerar mallen med information om ärendet och de konstaterade
+          bristerna.
+        </p>
+
+        <p>
+          I katalogen <code lang="en">js/config/remarks/</code> finns
+          konfigurationsfilerna med den fasta information som ska skrivas ut i
+          protokollet för varje underkänt krav.
+        </p>
+
+        <p>
+          Det finns en konfigurationsfil för mobila applikationer
+          (<code>app.json</code>) och en för webbplatser
+          (<code>website.json</code>).
+        </p>
+
+        <p>
+          Kravavsnittsnummer är avsnittnummer i
+          <cite>EN&nbsp;301&nbsp;549</cite> eller paragrafhänvisning till
+          <cite>DOS-lagen</cite> (<code>SFS2018:1937&nbsp;13&nbsp;§</code>)
+          eller föreskriften
+          (<code>MDFFS2019:2&nbsp;6&nbsp;§&nbsp;1&nbsp;st&nbsp;3&nbsp;p</code>).
+        </p>
+
+        <pre class="json"><code>{
+    <span class="key">"<var>kravavsnittsnummer</var>"</span>: <span class="value">"<var>åtgärdsbeskrivning</var>"</span>
+    …
+}</code></pre>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="meny.html" accesskey="N" rel="next"><span>Menyn</span></a>
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="struktur.html" accesskey="F" rel="prev"
+        ><span>Filstruktur</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

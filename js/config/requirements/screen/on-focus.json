@@ -1,0 +1,13 @@
+{
+  "steps": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet.",
+    "Sätt fokus genom att trycka på fokuserbara element, utom sådana som förväntas ändra kontexten (till exempel länkar och knappar)."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Kontextförändring",
+      "description": "En större förändring av innehållet som kan förvirra användare som inte kan överblicka hela innehållet samtidigt, om den sker utan förvarning. Exempel: en ny app öppnas; en ny vy öppnas; ett formulär skickas in; fokus flyttas till en annan komponent."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "methods": [
+    "Kontrollera om <cite translate=\"no\">WAVE</cite> varnar för bristande kontraster.",
+    "Leta visuellt efter text som inte uppenbart har tillräcklig kontrast mot bakgrunden."
+  ],
+  "exceptions": [
+    "logotyper",
+    "inaktiva komponenter i användargränssnittet",
+    "text som utgör ren dekoration och inte förmedlar någon relevant information",
+    "text som inte är synlig för någon",
+    "text i bilder med annat signifikant innehåll."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Style"
+    },
+    {
+      "tool": "DevTool",
+      "tab": "CSS Overview"
+    },
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "text"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "action",
+      "text": "Om webbsidan har stöd för mörkt/ljust visningsläge, gör kontrollen i båda lägena."
+    },
+    {
+      "type": "note",
+      "text": "Kontrast för bilder av text hanteras i en annan kontroll (förutsatt att du markerat innehållstypen ”Bilder”)."
+    },
+    {
+      "type": "text",
+      "text": "För att ta reda på textstorleken använder du enklast <cite>Inspektören</cite>. Markera elementet som innehåller texten och använd fliken <samp>Beräknad</samp> eller <samp translate=\"no\" lang=\"en\">Computed</samp>. Filtrera på ”<kbd>font-size</kbd>”. Du kan behöva kryssa i <samp>Webbläsarstilar</samp> eller <samp translate=\"no\" lang=\"en\">Show all</samp> om storleken satts för ett överordnat element."
+    },
+    {
+      "type": "text",
+      "text": "Att kontrollera om texten är fet kan vara mer komplicerat. Börja med att undersöka det beräknade värdet på egenskapen <code translate=\"no\" lang=\"no\">font-weight</code> enligt ovan. Om den är minst 700 har man <em>försökt</em> att göra texten fet, men om det använda teckensnittet inte innehåller några feta glyfer blir resultatet ändå inte fetstil. Om värdet är under 700 kan texten ändå vara fet om teckensnittet bara består av feta glyfer."
+    },
+    {
+      "type": "text",
+      "text": "För att utröna vilket teckensnitt som används räcker det inte med att granska egenskapen <code translate=\"no\" lang=\"en\">font-size</code>. I stället behöver du kontrollera vilket teckensnitt som <em>faktiskt</em> används. I <cite translate=\"no\" lang=\"en\">Chrome</cite> visas det längst ned på fliken <samp translate=\no\" lang=\"en\">Computed</samp> i <cite>Inspektören</cite>, under ”<samp translate=\"no\" lang=\"en\">Rendered fonts</samp>”. I <cite translate=\"no\" lang=\"en\">Firefox</cite> visas det på fliken <samp>Typsnitt</samp> under ”<samp>Typsnitt som används</samp>”."
+    },
+    {
+      "type": "text",
+      "text": "Teckensnitt med bara feta glyfer kan ha ord som ”<span translate=\no\" lang=\"en\">Bold</span>”, ”<span translate=\no\" lang=\"en\">Black</span>” eller ”<span translate=\no\" lang=\"en\">Heavy</span>” i namnet. Om namnet innehåller ”<span translate=\no\" lang=\"en\">Light</span>” innehåller teckensnittet troligen inga feta glyfer och webbläsarens försök till artificiell fetstil blir sällan lyckat. Det gäller i viss mån även för ”normala” teckensnitt där ord som ”<span translate=\no\" lang=\"en\">Regular</span>”,  ”<span translate=\no\" lang=\"en\">Roman</span>” eller ”<span translate=\no\" lang=\"en\">Book</span>” ingår i namnet."
+    },
+    {
+      "type": "text",
+      "text": "Om du är osäker på om texten är fet eller inte kan du prova att ändra <code translate=\"no\" lang=\"en\">font-weight</code> och se om det gör någon visuell skillnad. Om den egenskpen visas på fliken <samp>Regler</samp>/<samp translate=\"no\" lang=\"en\">Styles</samp> kan du klicka på värdet och ändra det. I annat fall klickar du på <samp>element</samp> eller <samp translate=\"no\" lang=\"en\">element.style</samp> överst på fliken, fyller i <kbd translate=\"no\" lang=\"en\">font-weight</kbd> före kolontecknet, trycker <kbd><kbd>Tabb</kbd></kbd> och fyller i värdet. Pröva med <kbd>400</kbd> (normal) och <kbd>700</kbd> (fet) och se om utseendet förändras."
+    }
+  ]
+}

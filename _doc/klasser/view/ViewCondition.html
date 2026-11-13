@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ViewCondition – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 26rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">ViewCondition</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ViewBase</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-apply"><code lang="en">apply()</code></a>
+          </li>
+          <li>
+            <a href="#m-disconnect"><code lang="en">disconnect()</code></a>
+          </li>
+          <li>
+            <a href="#m-observe"><code lang="en">observe()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>Hjälpklass för villkorsstyrd presentation i formulärvyer.</p>
+
+      <p>
+        Villkoren anges med <code>data</code>-attribut och går att styra via
+        klasser (vanligen på ett överordnat element) och via värden på
+        formulärfält.
+      </p>
+
+      <p>De egenskaper som klassen kan styra dynamiskt är</p>
+
+      <ul>
+        <li>
+          om elementet ska döljas visuellt (<code lang="en">hidden</code>)
+        </li>
+        <li>om elementet ska avaktiveras (<code lang="en">disabled</code>)</li>
+        <li>
+          om elementet ska vara obligatoriskt (<code lang="en">required</code>).
+        </li>
+      </ul>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/ViewCondition.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/ViewCondition.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 260 130" class="class uml-diagram">
+          <defs>
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+          </defs>
+
+          <!--ViewCondition-->
+          <use
+            xlink:href="ViewCondition.svg#ViewCondition"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="125" y1="43" x2="125" y2="80" class="dependency" />
+
+          <!--MutationObserver-->
+          <use
+            xlink:href="../MutationObserver.svg#MutationObserver"
+            x="70"
+            y="80"
+            class="external"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ViewCondition</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ViewCondition</span>()
+<span class="keyword">new</span> <span class="ident">ViewCondition</span>(<span class="var">obs</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">obs</code></dt>
+          <dd>
+            Observatörsklass vid enhetstester. Om parametern utelämnas används
+            <code lang="en">MutationObserver</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--apply()-->
+      <section>
+        <h2 id="m-apply"><code lang="en">apply()</code></h2>
+
+        <p>Forcerad tillämpning av villkoren.</p>
+
+        <p>
+          Metoden används till exempel när en vy sätter ett fältvärde, som styr
+          något villkor, utan att det utlöser en
+          <code lang="en">change</code>-händelse som observatören kan reagera
+          på.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">apply</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--disconnect()-->
+      <section>
+        <h2 id="m-disconnect"><code lang="en">disconnect()</code></h2>
+
+        <p>Frigör observatörer och händelselyssnare.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">disconnect</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--observe()-->
+      <section>
+        <h2 id="m-observe"><code lang="en">observe()</code></h2>
+
+        <p>Börjar observera förändringar som påverkar villkoren.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">observe</span>(<span class="var">container</span>)
+<span class="ident">observe</span>(<span class="var">container</span>, <span class="var">classRef</span>)
+<span class="ident">observe</span>(<span class="var">container</span>, <span class="var">classRef</span>, <span class="var">form</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">container</code></dt>
+          <dd>
+            Det behållarelement i vilket klassen söker efter villkorsstyrda
+            element. Om något villkor är fältvärdesstyrt måste antingen
+            behållaren vara ett <code lang="en">&lt;form&gt;</code>-element som
+            innehåller de refererade fälten, eller också måste formuläret anges
+            i tredje parametern.
+          </dd>
+
+          <dt class="optional"><code lang="en">classRef</code></dt>
+          <dd>
+            Det element vars <code lang="en">class</code>-attribut styr villkor.
+            Kan utelämnas om inget villkor är klasstyrt.
+          </dd>
+
+          <dt class="optional"><code lang="en">form</code></dt>
+          <dd>
+            Det formulär som innehåller fält vars värden styr villkor, om det
+            inte är samma som behållaren i första parametern.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Klassen hanterar villkorsstyrning av underordnade element i en
+          behållare – vanligen ett formulär – som har ett eller flera av
+          följande attribut:
+        </p>
+
+        <dl>
+          <dt><code lang="en">data-disabled</code></dt>
+          <dd>Styr elementets <code lang="en">disabled</code>-attribut.</dd>
+
+          <dt><code lang="en">data-hidden</code></dt>
+          <dd>Styr elementets <code lang="en">hidden</code>-attribut.</dd>
+
+          <dt><code lang="en">data-required</code></dt>
+          <dd>Styr elementets <code lang="en">required</code>-attribut.</dd>
+        </dl>
+
+        <p>
+          Attributens värden är en semikolonseparerad lista av villkor som styr
+          målattributet. Det finns två villkorstyper:
+        </p>
+
+        <dl>
+          <dt><code lang="en">class</code></dt>
+          <dd>
+            Ett klasstyrt villkor påverkas av
+            <code lang="en">class</code>-attributets värden i ett refererat
+            element – vanligen en överordnad behållare.
+          </dd>
+
+          <dt>
+            <code lang="en">field:<var lang="sv">namn</var></code>
+          </dt>
+          <dd>
+            Ett fältvärdesstyrt villkor påverkas av värdet i ett refererat
+            formulärfält.
+          </dd>
+        </dl>
+
+        <p class="note">
+          Villkorslistan kan innehålla flera fältvärdesstyrda villkor, men högst
+          ett klasstyrt.
+        </p>
+
+        <p>
+          Varje villkor består av ett eller flera alternativ, åtskilda av ’/’.
+          Alternativen är i sin tur kommaseparerade listor av värden. Villkoret
+          är uppfyllt om <em>samtliga</em> kommaseparerade värden i
+          <em>något</em> alternativ matchar.
+        </p>
+
+        <p>
+          En operator mellan villkorstypen och villkorslistan styr matchningen:
+        </p>
+
+        <dl>
+          <dt>’<code>=</code>’</dt>
+          <dd>Jämförelse med likhet.</dd>
+
+          <dt>’<code>!=</code>’</dt>
+          <dd>Jämförelse med olikhet.</dd>
+        </dl>
+
+        <p class="note">
+          Det är inte meningsfullt att ha flera kommaseparerade värden per
+          alternativ med ’<code>=</code>’ för fältvärdesstyrda villkor, eftersom
+          ett fält bara kan ha ett värde. (Klassen har inte stöd för
+          <code lang="en">&lt;select&gt;</code>-element med attributet
+          <code lang="en">multiple</code>.) Det är knappst heller meningsfullt
+          att ha flera alternativ med operatorn ’<code>!=</code>’, då ett sådant
+          villkor alltid är uppfyllt. (Villkoret ”<code lang="en"
+            >field:type!=A/B</code
+          >” är uppfyllt om <code lang="en">type.value</code> är ”A” (skilt från
+          ”B”), ”B” (skilt från ”A”) eller något annat (skilt från ”A” och ”B”).
+        </p>
+
+        <p>
+          Slutligen kan hela villkoret negeras med ett inledande utropstecken
+          (’!’).
+        </p>
+
+        <p>
+          När metoden <code lang="en">observe()</code> anropas identiferar den
+          alla underordnade element till den angivna behållaren som har minst
+          ett av attributen <code lang="en">data-disabled</code>,
+          <code lang="en">data-hidden</code> eller
+          <code lang="en">data-required</code>. Den tolkar och tillämpar
+          villkoren, det vill säga de villkorsstyrda elementen blir
+          avaktiverade, dolda eller obligatoriska när metoden körs.
+        </p>
+
+        <p>
+          Om något villkor är klasstyrt skapar metoden en
+          <code lang="en">MutationObserver</code> som bevakar det refererade
+          elementets <code lang="en">class</code>-attribut. Så snart det
+          förändras genom att en klass läggs till eller tas bort uppdateras de
+          klasstyrda villkoren.
+        </p>
+
+        <p>
+          Om något villkor är fältvärdesstyrt registrerar metoden en lyssnare
+          för <code lang="en">change</code>-händelser på det angivna formuläret
+          eller behållaren. När något värde i formuläret förändras uppdateras
+          samtliga villkor.
+        </p>
+
+        <p>
+          Metoden skapar också en annan
+          <code lang="en">MutationObserver</code> som bevakar behållaren och
+          reagerar om noder läggs till eller tas bort, eller om något element
+          får eller mister ett villkorsstyrt attribut, eller om något
+          villkorstyrt attributvärde förändras.
+        </p>
+
+        <p class="note">
+          Om värdet på ett formulärfält förändras av vyn, inte av användaren,
+          utlöser det ingen <code lang="en">change</code>-händelse. Vyn kan då
+          anropa metoden <code lang="en">apply()</code> för att forcera en
+          uppdatering av alla villkor.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <p>
+          Villkoret <code lang="en">data-hidden="class:A"</code> döljer det
+          villkorsstyrda elementet om det refererade elementet har klassen
+          <var>A</var>. (Det kan ha andra klasser också.)
+        </p>
+
+        <p>
+          Villkoret <code lang="en">data-hidden="class=A/B"</code> döljer det
+          villkorsstyrda elementet om det refererade elementet har klass
+          <var>A</var> och/eller <var>B</var>.
+        </p>
+
+        <p>
+          Villkoret <code lang="en">data-hidden="class!=A"</code> döljer det
+          villkorsstyrda elementet om det refererade elemetet saknar klassen
+          <var>A</var>.
+        </p>
+
+        <p>
+          Villkoret <code lang="en">data-hidden="class!=A,B"</code> döljer det
+          villkorsstyrda elementet om det refererade elemetet saknar både
+          klassen <var>A</var> och klassen <var>B</var> .
+        </p>
+
+        <p>
+          Villkoret <code lang="en">data-disabled="field:foo=A/B"</code>
+          avaktiverar det villkorsstyrda elementet om formulärfältet
+          <var>foo</var> har värdet ”A” eller ”B”.
+        </p>
+
+        <p>
+          Villkoret <code lang="en">data-disabled="field:foo!=A,B"</code>
+          avaktiverar det villkorsstyrda elementet om värdet i formulärfältet
+          <var>foo</var> varken är ”A” eller ”B”.
+        </p>
+
+        <p>
+          Det mer komplexa negerade villkoret
+          <code lang="en"
+            >data-required="!class!=A;field:foo=B/C;field:bar!=D,E"</code
+          >
+          gör det villkorsstyrda elementet obligatoriskt om <em>inte</em>
+        </p>
+
+        <ul>
+          <li>
+            det refererade elementet saknar klassen <var>A</var>, <em>och</em>
+          </li>
+          <li>
+            fältet <var>foo</var>:s värde är antingen ”B” eller ”C”,
+            <em>och</em>
+          </li>
+          <li>fältet <var>bar</var>:s värde är varken ”D” eller ”E”.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "methods": [
+    "Skriv in text i inmatningsfält. Med mus och tangentbord: markera och avmarkera kryssrutor, gör val i listor eller radiogrupper."
+  ],
+  "exceptions": ["Användaren informeras om beteendet före användning."],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Kontextförändring",
+      "description": "En större förändring av innehållet som kan förvirra användare som inte kan överblicka hela sidan samtidigt, om den sker utan förvarning. Exempel: nytt program öppnas, förflyttning av fokus, förändring av innehållet som påverkar dokumentets betydelse"
+    }
+  ]
+}

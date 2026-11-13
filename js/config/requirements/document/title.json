@@ -1,0 +1,6 @@
+{
+  "methods": [
+    "PDF: öppna dokumentegenskaper i <cite translate=\"no\" lang=\"en\">Acrobat</cite> (<kbd><kbd>Ctrl</kbd>+<kbd>D</kbd></kbd>). Gå till fliken ”<samp>Inledande vy</samp>”. Kontrollera att ”<samp>Dokumenttitel</samp>” är vald i fältet ”Visa”.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: gå till <samp>Arkiv|Info</samp> och kontrollera att en titel finns angiven under <samp>Egenskaper</samp>."
+  ]
+}

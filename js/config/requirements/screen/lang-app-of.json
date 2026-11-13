@@ -1,0 +1,11 @@
+{
+  "methods": [
+    "Använd skärmläsaren och kontrollera att den läser upp innehållet på rätt språk."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Notera att Android inte upptäcker språk automatiskt innan version 13."
+    }
+  ]
+}

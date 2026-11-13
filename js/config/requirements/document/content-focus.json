@@ -1,0 +1,12 @@
+{
+  "steps": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet.",
+    "Sätt fokus genom att klicka med musen på fokuserbara element, utom sådana som förväntas ändra kontexten (till exempel länkar och knappar)."
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Prova att dölja det visade innehållet genom att trycka <kbd><kbd translate=\"no\" lang=\"en\">Escape</kbd></kbd>."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "steps": [
+    "Anslut en referensterminal för RTT till tjänsten.",
+    "Vänta tills systemets status är fungerande (anslutningen aktiv och terminalerna i relevant RTT-läge) och de två terminalerna kommunicerar med varandra.",
+    "Sänd ett kort textmeddelande från tjänsten.",
+    "Invänta att referensterminalen svarar med ett kort textmeddelande.",
+    "Kontrollera att det maskinellt går att särsklija vilken text som sänts respektive tagits emot."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Realtidstext (RTT)",
+      "description": "Text som förmedlas till mottagaren direkt när den skrivs in av avsändaren. Används till exempel av personer som är döva eller har nedsatt hörsel och har svårt att uppfatta tal, eller personer som saknar talförmåga. <em>Inte</em> detsamma som en chattfunktion, där man vanligen skickar ett helt meddelande åt gången."
+    },
+    {
+      "type": "definition",
+      "term": "Referensterminal för RTT",
+      "description": "En specialtillverkad terminal för testning av enheter med RTT-stöd för att bekräfta funktion och interoperabilitet. Referensterminaler tillhandahålls vanligen av ett standardiseringsinstitut eller motsvarande."
+    },
+    {
+      "type": "definition",
+      "term": "Öppen funktionalitet",
+      "description": "Tjänsten kommunicerar med tillgänglighets-API:et så att hjälpmedel kan hämta information från den."
+    }
+  ]
+}

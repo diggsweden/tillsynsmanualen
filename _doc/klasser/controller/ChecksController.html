@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ChecksController – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 48rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">ChecksController</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ChecksController</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-prepare"><code lang="en">prepare()</code></a>
+          </li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p><i lang="en">Controller</i> för presentation av kontroller.</p>
+
+      <p>
+        Den här controllern ingår i strikt mening inte i granskningsfunktionen,
+        men den använder dess konfigurationsfiler för att presentera för
+        intresserade hur granskningen går till i detalj.
+      </p>
+
+      <p>
+        <code lang="en">ChecksController</code> ärver från
+        <code lang="en">ControllerBase</code> och implementerar bara metoden
+        <code lang="en">prepare()</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/ChecksController.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/ChecksController.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 480 500" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--ChecksController-->
+          <use
+            xlink:href="ChecksController.svg#ChecksController"
+            x="160"
+            y="20"
+            class="highlight"
+          />
+
+          <line x1="160" y1="31" x2="121" y2="31" class="composition" />
+          <line x1="235" y1="43" x2="235" y2="80" class="inheritance" />
+
+          <!--ResourceLoader-->
+          <use
+            xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+            x="0"
+            y="0"
+          />
+
+          <g transform="translate(0, 80)">
+            <!--ControllerBase-->
+            <use xlink:href="ControllerBase.svg#ControllerBase" x="170" y="0" />
+
+            <line x1="170" y1="16" x2="121" y2="16" class="composition" />
+            <line x1="301" y1="16" x2="350" y2="16" class="composition" />
+            <line x1="235" y1="33" x2="235" y2="60" class="composition" />
+
+            <!--AppContext-->
+            <use
+              xlink:href="../common/AppContext.svg#AppContext"
+              x="40"
+              y="0"
+            />
+
+            <!--Model-->
+            <use xlink:href="../model/Model.svg#Model" x="160" y="60" />
+
+            <!--ChecksView-->
+            <use xlink:href="../view/ChecksView.svg#ChecksView" x="350" y="0" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ChecksController</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ChecksController</span>(<span class="var">model</span>, <span class="var">view</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>
+            Modellobjekt (används bara av basklassen för att hämta vissa
+            inställningar)..
+          </dd>
+
+          <dt><code lang="en">view</code></dt>
+          <dd>Vyinstans.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--prepare()-->
+      <section>
+        <h2 id="m-prepare"><code lang="en">prepare()</code></h2>
+
+        <p>
+          Förbereder sidvisning genom att hämta kravkonfigurationen för den
+          angivna stickprovstypen och sedan populera vyn.
+        </p>
+
+        <p>
+          Stickprovstypen anges av parametern <code lang="en">type</code> i
+          sidbegäran. Om den utelämnats är standardvärdet
+          <code lang="en" class="js literal">"webpage"</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">prepare</span>(<span class="var">context</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när förberedelserna är klara.</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Controllern hämtar först kravkonfigurationen för den angivna
+          stickprovstypen.
+        </p>
+
+        <p>
+          För varje granskningsavsnitt i konfigurationen lägger den till ett
+          avsnitt i vyn, som den populerar med ingående krav och eventuella
+          underavsnitt.
+        </p>
+
+        <p>
+          För varje krav hämtar controllern detaljkonfigurationen från servern
+          och visar eventuella metoder, undantag och tillämpningsanvisning från
+          den. Därefter renderar den alla kontroller och villkor i kravet.
+        </p>
+
+        <p>
+          Det krävs många asynkrona hämtningar av filer för att populera hela
+          sidan. Därför visas en förloppsindikator som uppdateras efterhand som
+          krav renderas. När alla krav är renderade döljs förloppsindikatorn.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../checks.module.html"
+              ><code lang="en">checks.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="ControllerBase.html"
+              ><code lang="en">ControllerBase</code></a
+            >
+          </li>
+          <li>
+            <a href="../view/ChecksView.html"
+              ><code lang="en">ChecksView</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

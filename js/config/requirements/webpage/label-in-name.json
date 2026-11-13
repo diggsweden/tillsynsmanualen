@@ -1,0 +1,33 @@
+{
+  "methods": [
+    "Jämför det maskinläsbara namnet i <cite>Inspektören</cite> med den synliga texten i komponenten."
+  ],
+  "exceptions": [
+    "Tecken som används symboliskt och inte bokstavligt, till exempel ett ”X” för ”stäng” eller ”ta bort”."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements",
+      "pane": "Accessibility"
+    }
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Som ”text i komponenten” räknas till exempel ledtexten till ett inmatningsfält eller texten i en knapp, men inte inmatat eller förifyllt <em>innehåll</em> i ett fält."
+    },
+    {
+      "type": "text",
+      "text": "Detta krav är viktigt för att personer som använder röststyrning ska veta hur de ska hänvisa till komponenten för att kunna interagera med den på ett effektivt sätt."
+    },
+    {
+      "type": "text",
+      "text": "Den synliga texten ska helst vara den <em>första</em> delen av namnet."
+    },
+    {
+      "type": "tip",
+      "text": "I <cite translate=\"no\" lang=\"en\">Chrome</cite> kan du kryssa i ”<samp lang=\"en\">Enable full-page accessibility tree</samp>” i <samp lang=\"en\">Accessibility</samp>-panelen för att kunna se hela tillgänglighetsträdet på samma sätt som elementträdet."
+    }
+  ]
+}

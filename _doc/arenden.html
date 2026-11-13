@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ärenden – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      section {
+        max-width: 40em;
+      }
+
+      figure.cases {
+        width: 58rem;
+        margin-left: 0;
+      }
+      figure.log {
+        width: 28rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Ärenden</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Ärenden</h1>
+
+      <p>
+        Modulen används för redigering och presentation av ärenden:
+        granskningsärenden i det förenklade visningsläget och anmälnings- eller
+        övervakningsärenden i det avancerade.
+      </p>
+
+      <p>
+        Ett ärende innehåller noll eller flera granskningar. Om en granskning är
+        färdiggranskad kan granskningsfunktionen generera ett
+        granskningsprotokoll. I en slutförd granskning i ett tillsynsärende kan
+        användaren ”skapa” påpekanden och förelägganden.
+      </p>
+
+      <p>
+        Inget av dessa ”dokument” existerar i sinnevärlden. De genereras i
+        flykten av de tillhörande dokumentvyerna när användaren väljer att visa
+        eller spara dem. Att ”skapa” ett påpekande eller föreläggande innebär
+        bara att man sparar ett skapandedatum och ett åtgärdsdatum. Innehållet
+        genereras från granskningen när det behövs.
+      </p>
+
+      <figure aria-hidden="true" class="ecb cases">
+        <svg viewBox="0 0 580 460" class="ecb uml-diagram cases">
+          <g transform="translate(20, 0)">
+            <!--CaseDisplayController-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">CaseDisplayController</text>
+              <line x1="40" y1="22" x2="84" y2="22" />
+              <line x1="10" y1="56" x2="-82" y2="196" />
+              <line x1="14" y1="56" x2="-52" y2="296" />
+              <line x1="18" y1="56" x2="18" y2="196" />
+              <line x1="22" y1="56" x2="118" y2="196" />
+              <line x1="26" y1="56" x2="218" y2="196" />
+              <polyline points="26,56 250,150 314,296" />
+            </g>
+
+            <!--CaseDisplayView-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">CaseDisplayView</text>
+            </g>
+          </g>
+
+          <g transform="translate(20, 100)">
+            <!--CaseEditController-->
+            <g transform="translate(400, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">CaseEditController</text>
+              <line x1="40" y1="22" x2="84" y2="22" />
+              <line x1="18" y1="56" x2="18" y2="196" />
+            </g>
+
+            <!--CaseEditView-->
+            <g transform="translate(500, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">CaseEditView</text>
+              <line x1="18" y1="56" x2="18" y2="96" />
+
+              <!--TabList-->
+              <g transform="translate(0, 100)">
+                <use
+                  xlink:href="uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">TabList</text>
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+
+              <!--KeyMap-->
+              <g transform="translate(0, 200)">
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">KeyMap</text>
+              </g>
+            </g>
+          </g>
+
+          <g transform="translate(20, 200)">
+            <!--CSVProtocolView-->
+            <g>
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">CSVAuditView</text>
+              <line x1="18" y1="56" x2="46" y2="96" />
+            </g>
+
+            <!--CSVProtocolView-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">CSVProtocolView</text>
+              <line x1="18" y1="56" x2="302" y2="96" />
+              <line x1="18" y1="56" x2="-50" y2="96" />
+            </g>
+
+            <!--ProtocolView-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">ProtocolView</text>
+              <line x1="10" y1="56" x2="-144" y2="96" />
+              <line x1="14" y1="56" x2="-82" y2="196" />
+              <line x1="18" y1="56" x2="18" y2="196" />
+              <line x1="22" y1="56" x2="114" y2="96" />
+              <line x1="26" y1="56" x2="206" y2="96" />
+            </g>
+
+            <!--RemarksView-->
+            <g transform="translate(300, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">RemarksView</text>
+              <line x1="14" y1="56" x2="-240" y2="96" />
+              <line x1="18" y1="56" x2="18" y2="96" />
+              <line x1="22" y1="56" x2="110" y2="96" />
+            </g>
+          </g>
+
+          <g transform="translate(20, 300)">
+            <!--FileStorage-->
+            <g transform="translate(30, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">FileStorage</text>
+            </g>
+
+            <!--ResourceLoader-->
+            <g transform="translate(300, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">ResourceLoader</text>
+            </g>
+
+            <!--Model-->
+            <g transform="translate(400, 0)">
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Model</text>
+              <line x1="14" y1="56" x2="-82" y2="96" />
+              <line x1="18" y1="56" x2="18" y2="96" />
+              <line x1="22" y1="56" x2="118" y2="96" />
+            </g>
+          </g>
+
+          <g transform="translate(20, 400)">
+            <!--SVGChart-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">SVGChart</text>
+            </g>
+
+            <!--InaccessibilityMetric-->
+            <g transform="translate(200, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">InaccessibilityMetric</text>
+            </g>
+
+            <!--AuditCase-->
+            <g transform="translate(300, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">AuditCase</text>
+            </g>
+
+            <!--Person-->
+            <g transform="translate(400, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Person</text>
+            </g>
+
+            <!--Schedule-->
+            <g transform="translate(500, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Schedule</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Visning och redigering av ärenden, översikt.</figcaption>
+      </figure>
+
+      <section>
+        <h2>Ärendelogg</h2>
+
+        <p>
+          Ärendeloggen innehåller noteringar om händelser i ärendet. Vissa
+          noteringar skapas auto&shy;matiskt, till exempel när en granskning
+          påbörjas eller avslutas. Andra kan granskaren skapa manuellt,
+          exempelvis noteringar om kontakter med den granskade aktören.
+        </p>
+
+        <figure aria-hidden="true" class="ecb log">
+          <svg viewBox="0 0 280 360" class="ecb uml-diagram log">
+            <g transform="translate(25, 0)">
+              <!--LogEditController-->
+              <g>
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">LogEditController</text>
+                <line x1="40" y1="22" x2="184" y2="22" />
+                <line x1="18" y1="56" x2="66" y2="196" />
+              </g>
+
+              <!--LogEditView-->
+              <g transform="translate(200, 0)">
+                <use
+                  xlink:href="uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">LogEditView</text>
+              </g>
+            </g>
+
+            <g transform="translate(25, 100)">
+              <!--LogListController-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">LogListController</text>
+                <line x1="40" y1="22" x2="84" y2="22" />
+                <line x1="18" y1="56" x2="-30" y2="96" />
+              </g>
+
+              <!--LogListView-->
+              <g transform="translate(200, 0)">
+                <use
+                  xlink:href="uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">LogListView</text>
+              </g>
+            </g>
+
+            <g transform="translate(25, 200)">
+              <!--Model-->
+              <g transform="translate(50, 0)">
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Model</text>
+                <line x1="16" y1="56" x2="-32" y2="96" />
+                <line x1="20" y1="56" x2="69" y2="96" />
+              </g>
+            </g>
+
+            <g transform="translate(25, 300)">
+              <!--AuditCase-->
+              <g>
+                <use
+                  xlink:href="uml.svg#entity"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">AuditCase</text>
+              </g>
+
+              <!--LogEntry-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="uml.svg#entity"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">LogEntry</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>Ärendelogg, översikt.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/case.module.html"
+              ><code lang="en">case.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/CaseDisplayController.html"
+              ><code lang="en">CaseDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/CaseDisplayView.html"
+              ><code lang="en">CaseDisplayView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/CaseEditController.html"
+              ><code lang="en">CaseEditController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/CaseEditView.html"
+              ><code lang="en">CaseEditView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/CSVAuditView.html"
+              ><code lang="en">CSVAuditView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/CSVProtocolView.html"
+              ><code lang="en">CSVProtocolView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/common/FileStorage.html"
+              ><code lang="en">CSVProtocolView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/InaccessibilityMetric.html"
+              ><code lang="en">InaccessibilityMetric</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/common/KeyMap.html"
+              ><code lang="en">CSVProtocolView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/log.module.html"
+              ><code lang="en">log.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/LogEditController.html"
+              ><code lang="en">LogEditController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/LogEditView.html"
+              ><code lang="en">LogEditView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/LogEntry.html"
+              ><code lang="en">LogEntry</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/LogListController.html"
+              ><code lang="en">LogListController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/LogListView.html"
+              ><code lang="en">LogListView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="klasser/model/Person.html"
+              ><code lang="en">Person</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/ProtocolView.html"
+              ><code lang="en">ProtocolView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/RemarksView.html"
+              ><code lang="en">RemarksView</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Schedule.html"
+              ><code lang="en">Schedule</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/SVGChart.html"
+              ><code lang="en">SVGChart</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/TabList.html"
+              ><code lang="en">TabList</code></a
+            >
+          </li>
+          <li><a href="klasser/model/case.index.html">Ärendeklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="granskningar.html" accesskey="N" rel="next"
+        ><span>Granskningar</span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="lista.html" accesskey="F" rel="prev"
+        ><span>Lista information</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

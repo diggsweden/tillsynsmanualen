@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style type="text/css"><![CDATA[
+      path {fill:none; stroke:#cc6; stroke-width:2px}
+    ]]></style>
+  </defs>
+
+  <path d="M7,1 h16 v14 h-16 z M6,9 h-5 v14 h16 v-9"/>
+</svg>
+

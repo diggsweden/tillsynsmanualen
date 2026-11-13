@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60">
+  <g id="LogListView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="179" height="52"/>
+      <line x1="1" y1="12" x2="180" y2="12"/>
+      <line x1="1" y1="32" x2="180" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="90" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">LogListView</text>
+      <text x="5" y="20">+create: string</text>
+      <text x="5" y="30">+heading: string</text>
+      <text x="5" y="40">addEntry(string, string, string, date, string): void</text>
+      <text x="5" y="50">open(): promise</text>
+    </g>
+  </g>
+</svg>

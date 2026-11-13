@@ -1,0 +1,30 @@
+{
+  "methods": [
+    "Leta efter innehåll som <em>borde vara</em> uppmärkt som listor och efter innehåll som <em>är</em> uppmärkt som listor."
+  ],
+  "tools": [
+    {
+      "tool": "WAVE",
+      "present": {
+        "tab": "Details",
+        "section": "Structural Elements",
+        "texts": ["Ordered list", "Unordered list"],
+        "icon": {
+          "src": "wave-list.png",
+          "alt": "tre rader med punkt och streck mot blå bakgrund"
+        }
+      }
+    },
+    {
+      "tool": "DevTool",
+      "tab": "Elements"
+    }
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Lista",
+      "description": "En sekvens av element av samma ”typ”."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "methods": [
+    "Öppna en ”misstänkt” sida med ett formulär i slutet av arbetsdagen. Låt datorn vara igång under natten och slutför och försök skicka in formuläret nästa morgon."
+  ],
+  "exceptions": [
+    "Realtidshändelser",
+    "Tidsbegränsningen är nödvändig och att utöka den skulle förfela syftet med aktiviteten (exempelvis ett prov)."
+  ],
+  "examples": {
+    "bad": ["Servern använder sessioner som blir ogiltiga efter 20–30 minuter."]
+  }
+}

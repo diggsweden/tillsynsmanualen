@@ -1,0 +1,13 @@
+{
+  "examples": {
+    "neutral": [
+      "En funktion för att spara innehållet i ett annat dokumentformat."
+    ]
+  },
+  "info": [
+    {
+      "type": "note",
+      "text": "Kravet gäller bara i den mån tillgänglighetsinformationen ryms i och stöds av målformatet."
+    }
+  ]
+}

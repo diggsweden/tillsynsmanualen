@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+  <g id="FileReader">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="119" height="92"/>
+      <line x1="1" y1="12" x2="120" y2="12"/>
+      <line x1="1" y1="42" x2="120" y2="42"/>
+    </g>
+
+    <g stroke="none">
+      <text x="80" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">FileReader</text>
+      <text x="5" y="20">+error: DOMError</text>
+      <text x="5" y="30">+readyState: number</text>
+      <text x="5" y="40">+result: *</text>
+      <text x="5" y="50">abort(): void</text>
+      <text x="5" y="60">readAsArrayBuffer(Blob): void</text>
+      <text x="5" y="70">readAsBinaryString(Blob): void</text>
+      <text x="5" y="80">readAsDataURL(Blob): void</text>
+      <text x="5" y="90">readAsText(Blob [,string]): void</text>
+    </g>
+  </g>
+</svg>

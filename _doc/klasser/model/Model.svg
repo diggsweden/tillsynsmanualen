@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 360">
+  <g id="Model">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="149" height="352"/>
+      <line x1="1" y1="12"  x2="150" y2="12"/>
+      <line x1="1" y1="52"  x2="150" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="75" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Model</text>
+      <text x="5" y="20">+advancedMode: boolean</text>
+      <text x="5" y="30">+caseDirectory: string</text>
+      <text x="5" y="40">+confirmComponents: boolean</text>
+      <text x="5" y="50">+lastPath: string</text>
+      <text x="5" y="60">allCases(): AuditCase[]</text>
+      <text x="5" y="70">allPeople(): Person[]</text>
+      <text x="5" y="80">allSchedules(): Schedule[]</text>
+      <text x="5" y="90">close(): void</text>
+      <text x="5" y="100">deleteAudit(number): void</text>
+      <text x="5" y="110">deleteCase(number): void</text>
+      <text x="5" y="120">deleteLogEntry(number): void</text>
+      <text x="5" y="130">deletePerson(number): void</text>
+      <text x="5" y="140">deleteRequirement(number): void</text>
+      <text x="5" y="150">deleteRequirements(number): void</text>
+      <text x="5" y="160">deleteSample(number): void</text>
+      <text x="5" y="170">deleteSchedule(number): void</text>
+      <text x="5" y="180">getAudit(number [,boolean]): Audit</text>
+      <text x="5" y="190">getCase(number): AuditCase</text>
+      <text x="5" y="200">getLogEntry(number): LogEntry</text>
+      <text x="5" y="210">getPerson(number): Person</text>
+      <text x="5" y="220">getRequirement(number): Requirement</text>
+      <text x="5" y="230">getSample(number): Sample</text>
+      <text x="5" y="240">getSchedule(number): Schedule</text>
+      <text x="5" y="250">peopleByRole(string): Person[]</text>
+      <text x="5" y="260">populate(AuditCase): void</text>
+      <text x="5" y="270">setAudit(Audit): void</text>
+      <text x="5" y="280">setAuditSamples(Audit): void</text>
+      <text x="5" y="290">setCase(AuditCase): void</text>
+      <text x="5" y="300">setLogEntry(LogEntry): void</text>
+      <text x="5" y="310">setPerson(Person): void</text>
+      <text x="5" y="320">setRequirement(Requirement): void</text>
+      <text x="5" y="330">setSampel(Sampel): void</text>
+      <text x="5" y="340">setSchedule(Schedule): void</text>
+      <text x="5" y="350">unserialize(object): AuditCase</text>
+    </g>
+  </g>
+</svg>

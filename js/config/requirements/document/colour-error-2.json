@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Framkalla valideringsfel och kontrollera att någon visuell indikering utöver färg skiljer felmeddelanden från omgivande text."
+  ],
+  "examples": {
+    "bad": ["Felmeddelanden indikeras enbart genom röd textfärg."],
+    "good": [
+      "Förutom röd textfärg markeras felmeddelanden med en varningsikon."
+    ]
+  },
+  "info": [
+    {
+      "type": "note",
+      "text": "Fler än en typ av visuella element utöver färg menas att du kan uppfatta att det är ett felmeddelande på fler sätt än enbart färgen. Exempelvis en ram, en ikon, annan bakgrundsfärg eller andra visuella element."
+    }
+  ]
+}

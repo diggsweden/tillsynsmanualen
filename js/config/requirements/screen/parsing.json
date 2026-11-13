@@ -1,0 +1,34 @@
+{
+  "methods": ["Validera webbsidan."],
+  "links": [
+    {
+      "url": "https://validator.w3.org/nu/",
+      "title": "Validator"
+    }
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Leta efter följande felmeddelanden i valideringsresultatet:"
+    },
+    {
+      "type": "ulist",
+      "items": [
+        "<samp translate=\"no\" lang=\"en\">Stray end tag <var>tag</var></samp> (starttagg saknas)",
+        "<samp translate=\"no\" lang=\"en\">Unclosed element <var>tag</var></samp> (sluttagg saknas)",
+        "<samp translate=\"no\" lang=\"en\">Element <var>tag</var> not allowed as a child of <var>tag</var> in this context</samp> (otillåten nästling)",
+        "<samp translate=\"no\" lang=\"en\">No <var>tag</var> element in scope but a <var>tag</var> end tag seen</samp> (otillåten nästling)",
+        "<samp translate=\"no\" lang=\"en\">Duplicate attribute <var>attr</var></samp> (dubblettattribut)",
+        "<samp translate=\"no\" lang=\"en\">Duplicate ID <var><abbr>id</abbr></var></samp> (icke-unikt <abbr>id</abbr>)"
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Använd knappen <samp translate=\"no\" lang=\"en\">Message Filtering</samp> för att gruppera felmeddelanden så att de blir enklare att hitta."
+    },
+    {
+      "type": "note",
+      "text": "Vi bör anmärka på <em>alla</em> valideringsfel, men bara ovanstående ger rättslig grund för underkännande."
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lagring – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Persistent lagring</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Persistent lagring</h1>
+
+      <p>
+        De statiska delarna av <cite>Tillsynsmanualen</cite> använder ingen
+        lagring – inte ens kakor. Det är bara granskningsfunktionen som lagrar
+        information. (Startsidan kan i vissa fall tillfälligt sätta en
+        sessionskaka för att kunna förmedla en parameter vidare till
+        granskningsfunk&shy;tionen.)
+      </p>
+
+      <p>
+        Granskningsfunktionen begär användarens samtycke till att lagra
+        information; se
+        <a href="klasser/consent.module.html"
+          ><code lang="en">consent.module.js</code></a
+        >
+        för närmare detaljer.
+      </p>
+
+      <p>
+        Granskningsfunktionen lagrar några få inställningar i webbläsarens
+        lokala lagringsutrymme (<code lang="en">localStorage</code>), men
+        använder främst webbläsarens objektdatabas (<code lang="en"
+          >indexedDB</code
+        >) för att lagra den information som används i granskningsärenden.
+      </p>
+
+      <p>
+        Objektdatabasens händelseorienterade API är omständligt att använda och
+        leder till svårförvaltad kod. Därför använder
+        <cite>Tillsynsmanualen</cite> ett litet hemmasnickrat löftesbaserat
+        gränssnitt som är mer välintegrerat i den asynkrona kod som
+        applikationen i övrigt använder. Gränssnittet mappar direkt mot API:et
+        och gör inga anspråk på att förenkla hanteringen i övrigt.
+      </p>
+
+      <p>Tre typer av lagring förekommer i granskningsfunktionen:</p>
+
+      <ul>
+        <li>inställningar (nyckel/värde, <i lang="en">web storage</i>)</li>
+        <li>granskningsdata (objekt, <code lang="en">IndexedDB</code>)</li>
+        <li>ärendepersistens (filsystemet).</li>
+      </ul>
+
+      <p>
+        Dessa tre lagringstyper hanteras av en uppsättning klasser, varav
+        ovannämnda databasgränssnitt står för de flesta.
+      </p>
+
+      <h2>Lagringsklasser</h2>
+
+      <ul class="toc">
+        <li>
+          <a href="klasser/common/SettingStorage.html"
+            ><code lang="en">SettingStorage</code></a
+          >
+        </li>
+        <li><a href="klasser/db/">Databasgränssnitt</a></li>
+        <li>
+          <a href="klasser/common/FileStorage.html"
+            ><code lang="en">FileStorage</code></a
+          >
+        </li>
+      </ul>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="modell.html" accesskey="N" rel="next"><span>Modellen</span></a>
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="begaran.html" accesskey="F" rel="prev"
+        ><span>Begäranshantering</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

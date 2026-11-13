@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Filstruktur – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      dl.dir,
+      dl.dir dl {
+        display: grid;
+        grid-template-columns: 9em 1fr;
+        column-gap: 1em;
+        row-gap: 0.75em;
+        align-items: start;
+      }
+      dl.dir dl {
+        grid-template-columns: 6em 1fr;
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Filstruktur</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Filstruktur</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#css"><span>Stilmallar</span></a>
+          </li>
+          <li>
+            <a href="#js"><span>JavaScript</span></a>
+          </li>
+          <li>
+            <a href="#audit"><span>Granskningsinformation</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <dl class="dir">
+        <dt><code>_doc/</code></dt>
+        <dd>Denna förvaltningsdokumentation.</dd>
+
+        <dt><code>_tests/</code></dt>
+        <dd>Testfall och enhetstestklasser.</dd>
+
+        <dt><code>_utils/</code></dt>
+        <dd>Hjälpverktyg vid förvaltning.</dd>
+
+        <dt><code>css/</code></dt>
+        <dd>Stilmallar och bakgrundsbilder.</dd>
+
+        <dt><code>granskning/</code></dt>
+        <dd>
+          Granskningsrelaterade sidor, inklusive granskningsfunktionens
+          sidfragment och mallar.
+        </dd>
+
+        <dt><code>img/</code></dt>
+        <dd>Förgrundsbilder.</dd>
+
+        <dt><code>js/</code></dt>
+        <dd>JavaScript och konfigurationsfiler.</dd>
+
+        <dt><code>start/</code></dt>
+        <dd>
+          Sidor som inte passar in i någon annan kategori: information om
+          manualen, ordlista, tillgänglighetsredogörelse, webbplats&shy;karta.
+        </dd>
+
+        <dt><code>tillsyn/</code></dt>
+        <dd>
+          Information om tillsyn, övervakning och anmälningar; proces&shy;ser,
+          rättslig grund och juridiska referenser.
+        </dd>
+
+        <dt>
+          <code>accessibility-<wbr />statement.xml</code>
+        </dt>
+        <dd>
+          Maskinläsbar version av tillgänglighetsredogörelsen att använda i
+          tjänsten
+          <a href="https://trg.digg.se/" rel="external"
+            ><cite>Skapa tillgänglighetsredogörelse</cite></a
+          >
+          vid uppdateringar.
+        </dd>
+
+        <dt><code>index.html</code></dt>
+        <dd><cite>Tillsynsmanualens</cite> startsida.</dd>
+
+        <dt><code>manual.spec</code></dt>
+        <dd>
+          Specifikationsfil för att bygga <abbr>rpm</abbr>-paket vid leverans
+          till produktionsmiljö.
+        </dd>
+      </dl>
+
+      <p>
+        Kataloger vars namn börjar med ett understreck ingår inte i den publika
+        <cite>Tillsynsmanualen</cite>, utan är till för utvecklare och
+        förvaltare. De ska inte ingå i leveranser till produktionsmiljö, men kan
+        mycket väl levereras till testmiljöer.
+      </p>
+
+      <p>
+        Den här dokumentationen nämner inte mer om de kataloger som bara
+        innehåller statiska webbsidor (<code>start/</code> och
+        <code>tillsyn/</code>) eller annat självförklarande innehåll
+        (<code>img/</code>).
+      </p>
+
+      <section>
+        <h2 id="css">Stilmallar (<code>css/</code>)</h2>
+
+        <p>
+          <cite>Tillsynsmanualen</cite> har en allmän stilmall
+          (<code>manual.css</code>) som alla sidor använder och en som används
+          generellt i granskningsfunktionen (<code>audit.css</code>). Övriga är
+          små stilmallar med ett fåtal regler som används på en eller ett par
+          sidor.
+        </p>
+
+        <p>
+          Stilmallarna använder mediefrågor och används därför oavsett medium,
+          eftersom de flesta reglerna är mediegemensamma. Mediefrågor används
+          också i någon omfattning för följ&shy;sam formgivning, men
+          <cite>Tillsynsmanualen</cite> har en enkel design som inte kräver så
+          många specialregler.
+        </p>
+
+        <p>
+          För bildskärm används mediefrågor för att tillhandahålla lämpliga
+          färger för mörkt och ljust visningsläge. Det ljusa läget använder
+          färger från DIGG:s grafiska profil, men eftersom profilen har få
+          färger med tillgänglig kontrast är det ljusa läget väldigt monokromt.
+          Det mörka läget använder inte heller så många färger. Eftersom DIGG
+          för närvarande (augusti 2022) inte begränsas av någon grafisk profil
+          för mörkt visningsläge har färgerna här ofta bättre kontrast än i det
+          ljusa läget. Accentfärgerna i mörkt läge har generellt låg saturation.
+        </p>
+
+        <dl class="dir">
+          <dt><code lang="en">img/</code></dt>
+          <dd>
+            Bakgrundsbilder som refereras från stilmallarna. Består av två
+            underkataloger (<code lang="en">dark/</code> och
+            <code lang="en">light/</code>) med bilder för mörkt respektive ljust
+            visningsläge.
+          </dd>
+
+          <dt><code lang="en">audit.css</code></dt>
+          <dd>
+            Gemensam stillmall för
+            <a href="../granskning/granska.html?page=start"
+              >granskningsfunktionen</a
+            >, som sätter generell form för formulärelement och ofta använda
+            klasser.
+          </dd>
+
+          <dt><code lang="en">case.css</code></dt>
+          <dd>
+            Specifik stillmall vid presentation av ärendeinformation i
+            <a href="../granskning/granska.html?page=start"
+              >granskningsfunktionen</a
+            >.
+          </dd>
+
+          <dt><code lang="en">checks.css</code></dt>
+          <dd>
+            Specifik stillmall som används av sidan
+            <code>granska/kontroller.html</code> som genererar
+            sammanställ&shy;ningar av kontroller per stickprovstyp (webbsidor,
+            dokument och mobila applikationer).
+          </dd>
+
+          <dt><code lang="en">glossary.css</code></dt>
+          <dd>
+            Specifik stillmall som används av
+            <a href="../start/ordlista.html">ordlistan</a>
+            (<code>start/ordlista.html</code>).
+          </dd>
+
+          <dt><code lang="en">legal.css</code></dt>
+          <dd>
+            Specifik stillmall som används för sidan om
+            <a href="../tillsyn/juridik.html">rättslig grund</a>
+            (<code>tillsyn/juridik.html</code>).
+          </dd>
+
+          <dt><code lang="en">manual.css</code></dt>
+          <dd>
+            Den generella stilmallen för <cite>Tillsynsmanualen</cite>, som
+            definierar standardutseendet för de flesta elementtyper som finns
+            (förutom formulärelement) och generella klasser som används på hela
+            webbplatsen.
+          </dd>
+
+          <dt><code lang="en">monitoring.css</code></dt>
+          <dd>
+            Specifik stillmall som används för sidan om
+            <a href="../tillsyn/overvakning.html">övervakning</a>
+            (<code>tillsyn/overvakning.html</code>).
+          </dd>
+
+          <dt><code lang="en">processes.css</code></dt>
+          <dd>
+            Specifik stillmall som används för formgivning av processdiagrammen
+            på ett par av sidorna under <code>tillsyn/</code>.
+          </dd>
+
+          <dt><code lang="en">references.css</code></dt>
+          <dd>
+            Specifik stillmall som används för sidan med hänvisningar till
+            <a href="../tillsyn/referenser.html">lagar och standarder</a>
+            (<code>tillsyn/referenser.html</code>).
+          </dd>
+
+          <dt><code lang="en">requirement.css</code></dt>
+          <dd>
+            Specifik stillmall som används för sidan där granskaren utför alla
+            kontroller i granskningsfunktionen.
+          </dd>
+
+          <dt><code lang="en">sample.css</code></dt>
+          <dd>
+            Specifik stillmall som används för kravlistningssidan för ett
+            stickprov i granskningsfunktionen.
+          </dd>
+
+          <dt><code lang="en">sitemap.css</code></dt>
+          <dd>
+            Specifik stillmall som används för
+            <a href="../start/webbplatskarta.html">webbplatskartan</a>
+            (<code>start/webbplatskarta.html</code>).
+          </dd>
+
+          <dt><code lang="en">start.css</code></dt>
+          <dd>
+            Specifik stillmall som används av <cite>Tillsynsmanualens</cite>
+            <a href="../">startsida</a> (<code>index.html</code>).
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2 id="js">JavaScript (<code>js/</code>)</h2>
+
+        <p>
+          Under katalogen <code>js/</code> ligger alla skript och alla
+          konfigurationsfiler; de senare är i JSON-format. På översta nivån
+          finns växeln och fördelaren, modulinitieringsskript och några
+          ströskript som ger lite extra funktion till vissa sidor.
+        </p>
+
+        <p>
+          Alla skript är
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"
+            hreflang="en"
+            rel="external"
+            >moduler</a
+          >
+          och de flesta klasser använder
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields"
+            hreflang="en"
+            rel="external"
+            >privata fält och metoder</a
+          >.
+        </p>
+
+        <p class="note">
+          Modulfilerna använder filändelsen <code>.js</code>, inte den
+          rekommenderade <code>.mjs</code>, eftersom den senare kräver manuell
+          konfigurering på servern för att levereras med rätt MIME-typ.
+        </p>
+
+        <p>Det finns också ett antal underkataloger med klasser.</p>
+
+        <dl class="dir">
+          <dt><code lang="en">common/</code></dt>
+          <dd>
+            Diverse gemensamma klasser som används av olika andra klasser.
+          </dd>
+
+          <dt><code lang="en">config/</code></dt>
+          <dd>
+            <dl>
+              <dt><code lang="en">protocols/</code></dt>
+              <dd>Konfigurationsfiler för gransknings&shy;protokoll.</dd>
+
+              <dt><code lang="en">remarks/</code></dt>
+              <dd>Konfigurationsfiler för påpekanden och förelägganden.</dd>
+
+              <dt><code lang="en">requirements/</code></dt>
+              <dd>
+                Konfigurationsfiler för krav per stick&shy;provstyp, och
+                underkataloger med kravinformation per typ.
+              </dd>
+
+              <dt><code lang="en">sample/</code></dt>
+              <dd>
+                Konfigurationsfiler för urval per kategori enligt kommissionens
+                genomförande&shy;beslut.
+              </dd>
+            </dl>
+          </dd>
+
+          <dt><code lang="en">controller/</code></dt>
+          <dd>
+            MVC-controllerklasser för de olika ”sidorna” i
+            gransknings&shy;funktionen.
+          </dd>
+
+          <dt><code lang="en">db/</code></dt>
+          <dd>
+            Klasser som tillhandahåller ett gränssnitt mot webbläsarens
+            objektdatabas (<code>indexedDB</code>).
+          </dd>
+
+          <dt><code lang="en">menu/</code></dt>
+          <dd>Klasser som implementerar navigeringsmenyn på alla sidor.</dd>
+
+          <dt><code lang="en">model/</code></dt>
+          <dd>
+            MVC-modellklasser för de olika modellentiteterna i
+            gransknings&shy;funktionen.
+          </dd>
+
+          <dt><code lang="en">tools/</code></dt>
+          <dd>Modulverktyg som kan användas från kravgranskningssidorna.</dd>
+
+          <dt><code lang="en">view/</code></dt>
+          <dd>MVC-vyklasser för de olika ”sidorna” i granskningsfunktionen.</dd>
+
+          <dt><code lang="en">audit.module.js</code></dt>
+          <dd>Modulinstantiering för att skapa, redigera och visa urval.</dd>
+
+          <dt><code lang="en">case.module.js</code></dt>
+          <dd>Modulinstantiering för att skapa, redigera och visa ärenden.</dd>
+
+          <dt><code lang="en">checks.module.js</code></dt>
+          <dd>
+            Modulinstantiering för sidan som visar sammanställningar av
+            kontroller för en viss stickprovstyp. Sidan ingår inte i
+            gransk&shy;ningsfunktionen, men använder dess konfigurationsfiler.
+          </dd>
+
+          <dt><code lang="en">consent.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att fråga om samtycke till lokal lagring.
+          </dd>
+
+          <dt><code lang="en">directory.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att redigera information om
+            ärende&shy;katalog.
+          </dd>
+
+          <dt><code lang="en">Dispatcher.js</code></dt>
+          <dd>Fördelarklassen.</dd>
+
+          <dt><code lang="en">gridmenu.module.js</code></dt>
+          <dd>
+            Instantiering av innehållsmenyn som används i
+            <a href="../start/ordlista.html">ordlistan</a>.
+          </dd>
+
+          <dt><code lang="en">list.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att lista ärenden, personer eller
+            tillsyns&shy;planer.
+          </dd>
+
+          <dt><code lang="en">log.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att skapa, redigera och lista noteringar i en
+            ärendelogg.
+          </dd>
+
+          <dt><code lang="en">monitoring.module.js</code></dt>
+          <dd>
+            Huvudhändelseslingan i granskningsfunktionen, som växlar och
+            fördelar begäran, importerar moduler, instantierar vy och
+            <i lang="en">controller</i> samt laddar vyinnehåll och delegerar
+            interaktion till controllern tills användaren navigerar till en
+            annan ”sida”.
+          </dd>
+
+          <dt><code lang="en">nvda.js</code></dt>
+          <dd>
+            Ett litet skript för att växla synlighet mellan två olika
+            tangent&shy;bordslayouter i lathunden för NVDA.
+          </dd>
+
+          <dt><code lang="en">person.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att skapa och redigera personinforma&shy;tion
+            (handläggare och tillsynsansvariga).
+          </dd>
+
+          <dt><code lang="en">preferences.module.js</code></dt>
+          <dd>
+            Sätter klasser för att tillåta stilmallar att formge teckensnitt och
+            fokusmarkör, om inte användaren valt att låta sina
+            webbläsarinställningar få företräde.
+          </dd>
+
+          <dt><code lang="en">protocol.module.js</code></dt>
+          <dd>
+            Modul som populerar ett granskningsprotokoll med en mall och
+            därefter populerar mallen med data från en granskning..
+          </dd>
+
+          <dt><code lang="en">requirement.module.js</code></dt>
+          <dd>Modulinstantiering för att granska ett krav i ett stickprov.</dd>
+
+          <dt><code lang="en">Router.js</code></dt>
+          <dd>Växelklassen.</dd>
+
+          <dt><code lang="en">sample.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att redigera och visa ett stickprov i ett
+            urval.
+          </dd>
+
+          <dt><code lang="en">schedule.module.js</code></dt>
+          <dd>Modulinstantiering för att skapa och redigera tillsynsplaner.</dd>
+
+          <dt><code lang="en">settings.module.js</code></dt>
+          <dd>
+            Modulinstantiering för sidan där användaren kan göra
+            <a href="../start/installningar.html">inställningar</a> för vad
+            <cite>Tillsynsmanualen</cite> får formge.
+          </dd>
+
+          <dt><code lang="en">start.js</code></dt>
+          <dd>
+            Ser till att en eventuell <code>mode</code>-parameter till
+            startsidan förmed&shy;las via länken till granskningsfunktionen.
+            Parametern styr om funktionen ska visa det ”förenklade” gränssnittet
+            eller det ”avancerade” för DIGG:s granskare.
+          </dd>
+
+          <dt><code lang="en">start.module.js</code></dt>
+          <dd>
+            Modulinstantiering för att visa granskningsfunktionens
+            <a href="../granskning/granska.html?page=start">välkomstsida</a>.
+          </dd>
+
+          <dt><code lang="en">trace.js</code></dt>
+          <dd>
+            En funktion för att växla synlighet för spårbarhetsinformation på
+            sidan med
+            <a href="../granskning/tillampning.html">tillämpningsanvisningar</a
+            >.
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2 id="audit">Granskningsinformation (<code>granskning/</code>)</h2>
+
+        <p>
+          I katalogen <code>granskning/</code> finns, förutom några statiska
+          sidor, den
+          <a href="../granskning/granska.html?page=start"
+            >granskningsfunktion</a
+          >
+          som utgör hjärtat i <cite>Tillsynsmanualen</cite>.
+        </p>
+
+        <dl class="dir">
+          <dt><code>lathundar/</code></dt>
+          <dd>
+            Diverse lathundar som en granskare kan ha nytta av i arbetet, till
+            exempel tangentbordskommandon för skärmläsare och mobila
+            operativsystem.
+          </dd>
+
+          <dt><code lang="en">pages/</code></dt>
+          <dd>
+            Partiella HTML-sidor (”sidfragment”) som hämtas av vyklasser och
+            injiceras i granskningsfunktionssidan.
+          </dd>
+
+          <dt><code lang="en">templates/</code></dt>
+          <dd>
+            Mallsidor (HTML) för granskningsprotokoll, påpekanden och
+            förelägganden. Alla mallar finns i två versioner: en för
+            webb&shy;platser och en för mobila applikationer.
+          </dd>
+
+          <dt><code>appar.html</code></dt>
+          <dd>
+            Hänvisningssida för dem som följer länkar till den första versionen
+            av <cite>Tillsynsmanualen</cite>.
+          </dd>
+
+          <dt><code>dokument.html</code></dt>
+          <dd>
+            Hänvisningssida för dem som följer länkar till den första versionen
+            av <cite>Tillsynsmanualen</cite>.
+          </dd>
+
+          <dt><code>dokumentera.html</code></dt>
+          <dd>
+            Hänvisningssida för dem som följer länkar till den första versionen
+            av <cite>Tillsynsmanualen</cite>.
+          </dd>
+
+          <dt><code>granska.html</code></dt>
+          <dd>
+            Granskningsfunktionen. Sidan är en mall med länkar till diverse
+            skript som populerar den utifrån begäransparametrar eller data i
+            webbläsarens lokala lagringsutrymme.
+          </dd>
+
+          <dt><code>kontroller.html</code></dt>
+          <dd>
+            En dynamisk sida som sammanställer de krav och kontroller som ingår
+            i granskningen för en viss stickprovstyp (webbsida, dokument eller
+            vy i en mobil applikation). Ingår inte i gransk&shy;ningsfunktionen,
+            men använder dess konfigurationsfiler.
+          </dd>
+
+          <dt><code>protokoll.html</code></dt>
+          <dd>
+            Granskningsprotkoll. Sidan är en ”stubbe” som bara laddar en
+            skriptmodul. Skriptet hämtar den angivna granskningen och ärendet
+            den ingår i, och instantierar sedan en protokollvy som populerar
+            dokumentet från en mall. Vyn populerar därefter mallen med data från
+            den angivna granskningen.
+          </dd>
+
+          <dt><code>tillampning.html</code></dt>
+          <dd>
+            Tillämpningsanvisningar med motiveringar till DIGG:s
+            ställ&shy;ningstaganden när det gäller tolkningar av omdiskuterade
+            krav i <cite>EN&nbsp;301&nbsp;549</cite> och <cite>WCAG</cite>.
+            Eftersom de har juridisk signifi&shy;kans finns spårbarhet genom
+            <code>&lt;del&gt;</code> och <code>&lt;ins&gt;</code>-element. Ett
+            skript (<code>js/trace.js</code>) ger användaren möjlighet att visa
+            eller dölja spårbarhetsinformationen.
+          </dd>
+
+          <dt><code>webbsidor.html</code></dt>
+          <dd>
+            Hänvisningssida för dem som följer länkar till den första versionen
+            av <cite>Tillsynsmanualen</cite>.
+          </dd>
+        </dl>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="konfiguration.html" accesskey="N" rel="next"
+        ><span>Konfiguration</span></a
+      >
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="oversikt.html" accesskey="F" rel="prev"><span>Översikt</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

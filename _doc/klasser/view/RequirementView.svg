@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 480">
+  <g id="RequirementView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="239" height="472"/>
+      <line x1="1" y1="12" x2="240" y2="12"/>
+      <line x1="1" y1="52" x2="240" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="120" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">RequirementView</text>
+      <text x="5" y="20">+externalNote: string</text>
+      <text x="5" y="30">+heading: string</text>
+      <text x="5" y="40">+internalNote: string</text>
+      <text x="5" y="50">+readOnly: boolean</text>
+      <text x="5" y="60">action(string): void</text>
+      <text x="5" y="70">addFilter(string): void</text>
+      <text x="5" y="80">bookmarklet(string, string): void</text>
+      <text x="5" y="90">check(string, array[], string[], string, HTMLElement, boolean): void</text>
+      <text x="5" y="100">condition(string, boolean, string, HTMLElement): void</text>
+      <text x="5" y="110">createDetails(string): ContentContainer</text>
+      <text x="5" y="120">createFigure(): ContentContainer</text>
+      <text x="5" y="130">createWAVE(): WAVEContainer</text>
+      <text x="5" y="140">definition(string, string): void</text>
+      <text x="5" y="150">devTool(string, string, string[], string, string): void</text>
+      <text x="5" y="160">examples(object): void</text>
+      <text x="5" y="170">exceptions(string[]): void</text>
+      <text x="5" y="180">externalTool(string): void</text>
+      <text x="5" y="190">group(string, boolean, HTMLElement): HTMLElement</text>
+      <text x="5" y="200">image(string, string): void</text>
+      <text x="5" y="210">instruction(string, string): void</text>
+      <text x="5" y="220">link(string, string): void</text>
+      <text x="5" y="230">methods(string[]): void</text>
+      <text x="5" y="240">moduleTool(object, Model [,object]): void</text>
+      <text x="5" y="250">note(string): void</text>
+      <text x="5" y="260">oList(string[]): void</text>
+      <text x="5" y="270">open(): promise</text>
+      <text x="5" y="280">popFilter(string): void</text>
+      <text x="5" y="290">pushFilter(string): void</text>
+      <text x="5" y="300">reference(string): void</text>
+      <text x="5" y="310">removeExternalNote(): void</text>
+      <text x="5" y="320">setCheck(string, boolean): void</text>
+      <text x="5" y="330">setNext(string, string): void</text>
+      <text x="5" y="340">setPrevious(string, string): void</text>
+      <text x="5" y="350">setProgress(number, number, string): void</text>
+      <text x="5" y="360">setSample(string, string): void</text>
+      <text x="5" y="370">setSampleInfo(string [, string]): void</text>
+      <text x="5" y="380">setSkip(string, string): void</text>
+      <text x="5" y="390">showFail(string, boolean): void</text>
+      <text x="5" y="400">showGroup(string, boolean): void</text>
+      <text x="5" y="410">steps(string[]): void</text>
+      <text x="5" y="420">table(string[], string[][] [,string]): void</text>
+      <text x="5" y="430">text(string): void</text>
+      <text x="5" y="440">tip(string): void</text>
+      <text x="5" y="450">uList(string[]): void</text>
+      <text x="5" y="460">warning(string): void</text>
+      <text x="5" y="470">webDeveloper(string [,string]): void</text>
+    </g>
+  </g>
+
+  <g id="ContentContainer">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="129" height="162"/>
+      <line x1="1" y1="12" x2="130" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="65" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ContentContainer</text>
+      <text x="5" y="20">action(string): void</text>
+      <text x="5" y="30">caption(string): void</text>
+      <text x="5" y="40">definition(string, string): void</text>
+      <text x="5" y="50">details(string): ContentContainer</text>
+      <text x="5" y="60">figure(): ContentContainer</text>
+      <text x="5" y="70">image(string, string): void</text>
+      <text x="5" y="80">note(string): void</text>
+      <text x="5" y="90">oList(string[]): void</text>
+      <text x="5" y="100">popFilter(string): void</text>
+      <text x="5" y="110">pushFilter(string): void</text>
+      <text x="5" y="120">table(string[], string[], string): void</text>
+      <text x="5" y="130">text(string): void</text>
+      <text x="5" y="140">tip(string): void</text>
+      <text x="5" y="150">uList(string[]): void</text>
+      <text x="5" y="160">warning(string): void</text>
+    </g>
+  </g>
+
+  <g id="WAVEContainer">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="42"/>
+      <line x1="1" y1="12" x2="110" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">WAVEContainer</text>
+      <text x="5" y="20">absent(…): WAVEContainer</text>
+      <text x="5" y="30">present(…): WAVEContainer</text>
+      <text x="5" y="40">tab(string): WAVEContainer</text>
+    </g>
+  </g>
+</svg>

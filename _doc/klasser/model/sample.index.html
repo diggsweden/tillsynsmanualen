@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stickprovsklasser – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 48rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong>Stickprovsklasser</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Stickprovsklasser</h1>
+
+      <p>
+        Klassen <code lang="en">Sample</code> representerar ett stickprov i
+        urvalet i en granskning. Det ingår i en <dfn>kategori</dfn> motsvarande
+        någon av de typer av stickprov som definieras i kommissionens
+        genomföran&shy;debeslut
+        <a
+          href="https://eur-lex.europa.eu/legal-content/SV/TXT/HTML/?uri=CELEX:32018D1524"
+          rel="external"
+          >(EU)&nbsp;2018/1524</a
+        >
+        om övervakning av digital offentlig service.
+      </p>
+
+      <p>
+        Beslutet nämner tre olika typer av stickprov: webbsidor, dokument och
+        vyer i mobila applikationer. Dessa motsvaras av de subklasserna
+        <code lang="en">Webpage</code>,
+        <code lang="en">NonWebDocument</code> och
+        <code lang="en">AppScreen</code>.
+      </p>
+
+      <p>
+        <cite>Tillsynsmanualen</cite> använder även en fjärde typ:
+        <code lang="en">Component</code>. En komponent är inte ett
+        själv&shy;ständigt stickprov, utan en avgränsad del av en webbsida eller
+        vy som används på flera olika webbsidor eller vyer. Att granska en sådan
+        komponent separat innebär en tidsvinst vid granskningen, då den granskas
+        bara en gång i stället för att granskas på varje ställe där den
+        förekommer. Det ger också möjlighet att rapportera brister på ett mer
+        överskådligt sätt i granskningsprotokollet. Begreppet ”komponent” är
+        alltså specifikt för <cite>Tillsynsmanua&shy;len</cite> och bör inte
+        användas i kommunikationen med aktörer.
+      </p>
+
+      <p class="note">
+        Det är granskaren som identifierar komponenter i samband med
+        stickprovs&shy;urvalet, ur betraktarens perspektiv. Det en granskare ser
+        som en komponent behöver inte nödvädigtvis ses som en komponent av den
+        ansvariga aktören och det som för aktören är komponenter kanske inte
+        identifieras som sådana av granskaren.
+      </p>
+
+      <p>
+        Eftersom webbsidor och vyer kan innehålla komponenter ses de som en egen
+        undergrupp av stickprov, med en gemensam basklass (<code lang="en"
+          >CompositeSample</code
+        >) härledd från <code lang="en">Sample</code>.
+      </p>
+
+      <p>
+        Fabriksklassen <code lang="en">SampleFactory</code> återskapar en
+        instans av en stickprovsklass från ett dataobjekt som hämtats från
+        databasen eller lästs in från en JSON-fil.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/sample.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/sample.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>samples</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>id</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_audit</code> / <code>auditID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 480 640" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <g transform="translate(150, 0)">
+            <!--Audit-->
+            <g transform="translate(0, 0)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">Audit</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <line x1="50" y1="23" x2="50" y2="49" class="composition" />
+
+            <!--Sample-->
+            <use xlink:href="Sample.svg#Sample-no-details" x="0" y="50" />
+
+            <line x1="101" y1="138" x2="150" y2="138" class="composition" />
+
+            <!--Requirement-->
+            <g transform="translate(150, 127)" class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">Requirement</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+          </g>
+
+          <g transform="translate(0, 380)">
+            <!--Component-->
+            <use xlink:href="Component.svg#Component-no-details" x="0" y="0" />
+
+            <path d="M50,0 v-24 h120 v-23" class="inheritance" />
+
+            <!--NonWebDocument-->
+            <use
+              xlink:href="NonWebDocument.svg#NonWebDocument-no-details"
+              x="150"
+              y="0"
+            />
+
+            <line x1="200" y1="0" x2="200" y2="-47" class="inheritance" />
+
+            <!--CompositeSample-->
+            <use
+              xlink:href="CompositeSample.svg#CompositeSample-no-details"
+              x="300"
+              y="0"
+            />
+
+            <path d="M350,0 v-24 h-120 v-23" class="inheritance" />
+          </g>
+
+          <g transform="translate(240, 520)">
+            <!--AppScreen-->
+            <use xlink:href="AppScreen.svg#AppScreen-no-details" x="0" y="0" />
+
+            <line x1="85" y1="0" x2="85" y2="-26" class="inheritance" />
+
+            <!--Webpage-->
+            <use xlink:href="Webpage.svg#Webpage-no-details" x="120" y="0" />
+
+            <line x1="135" y1="0" x2="135" y2="-26" class="inheritance" />
+          </g>
+
+          <!--SampleFactory-->
+          <use
+            xlink:href="SampleFactory.svg#SampleFactory-no-details"
+            x="150"
+            y="610"
+          />
+
+          <path d="M175,610 v-79 h-125 v-78" class="dependency" />
+          <line x1="200" y1="610" x2="200" y2="433" class="dependency" />
+          <path d="M216,610 v-23 h74 v-12" class="dependency" />
+          <path d="M232,610 v-12 h178 v-33" class="dependency" />
+        </svg>
+
+        <figcaption>Klassdiagram för stickprovsklasser.</figcaption>
+      </figure>
+
+      <!--Se även-->
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="AppScreen.html"><code lang="en">AppScreen</code></a>
+          </li>
+          <li>
+            <a href="Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="Component.html"><code lang="en">Component</code></a>
+          </li>
+          <li>
+            <a href="CompositeSample.html"
+              ><code lang="en">CompositeSample</code></a
+            >
+          </li>
+          <li>
+            <a href="NonWebDocument.html"
+              ><code lang="en">NonWebDocument</code></a
+            >
+          </li>
+          <li>
+            <a href="Sample.html"><code lang="en">Sample</code></a>
+          </li>
+          <li>
+            <a href="SampleFactory.html"
+              ><code lang="en">SampleFactory</code></a
+            >
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li>
+            <a href="Webpage.html"><code lang="en">Webpage</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

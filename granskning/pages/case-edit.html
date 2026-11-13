@@ -1,0 +1,308 @@
+<h1 id="start-of-content">Redigera ärende</h1>
+
+<p aria-hidden="true" class="req">
+  Obligatoriska fält har tjock kantlinje och ledtexten är <em>betonad</em> och
+  följs av en asterisk&nbsp;(<samp>*</samp>).
+</p>
+
+<form action="?page=list&amp;type=case" autocomplete="off">
+  <!--Tabbflikar-->
+  <div role="tablist" aria-label="Flikar">
+    <button
+      type="button"
+      role="tab"
+      tabindex="0"
+      aria-selected="true"
+      aria-controls="fs-case"
+      id="btn-case"
+    >
+      Ärende
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      tabindex="-1"
+      aria-selected="false"
+      aria-controls="fs-org"
+      id="btn-org"
+    >
+      Aktör
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      tabindex="-1"
+      aria-selected="false"
+      aria-controls="fs-service"
+      id="btn-service"
+    >
+      Tjänst
+    </button>
+  </div>
+
+  <!--Ärendeinformation-->
+  <fieldset
+    role="tabpanel"
+    aria-labelledby="btn-case"
+    data-visible="true"
+    id="fs-case"
+  >
+    <legend>Ärende</legend>
+
+    <p class="multiple">
+      <span>
+        <label>
+          <em>Ärendenummer</em>
+          <input
+            name="caseNumber"
+            type="text"
+            inputmode="tel"
+            required
+            placeholder="å&zwnj;å&zwnj;å&zwnj;å-n&zwnj;n&zwnj;n&zwnj;n"
+            pattern="^20[2-9]\d-?\d+$"
+            title="Fyll i som till exempel ”2020-9999”."
+            class="dno"
+          />
+        </label>
+      </span>
+
+      <span data-hidden="class!=advanced">
+        <label class="radio">
+          <input name="caseType" type="radio" checked value="monitoring" />
+          Övervakning
+        </label>
+
+        <label class="radio">
+          <input name="caseType" type="radio" value="complaint" />
+          Anmälning
+        </label>
+
+        <label class="radio">
+          <input name="caseType" type="radio" value="audit" />
+          Generell granskning
+        </label>
+      </span>
+    </p>
+
+    <p data-hidden="field:caseType!=monitoring">
+      <label>
+        <em>Tillsynsplan</em>
+        <select
+          name="schedule"
+          data-required="field:caseType=monitoring"
+          class="req-monitoring"
+        >
+          <option value="">(välj)</option>
+        </select>
+      </label>
+    </p>
+
+    <p class="multiple" data-hidden="field:caseType!=complaint">
+      <label>
+        <em>Beslutsdatum</em>
+        <input
+          name="date"
+          type="date"
+          data-disabled="field:caseType!=complaint"
+          data-required="field:caseType=complaint"
+          min="2020-01-01"
+          class="req-complaint"
+        />
+      </label>
+
+      <label>
+        <em>Beslutat av</em>
+        <select
+          name="supervisor"
+          data-disabled="field:caseType!=complaint"
+          data-required="field:caseType=complaint"
+          class="req-complaint"
+        >
+          <option value="">(välj)</option>
+        </select>
+      </label>
+    </p>
+  </fieldset>
+
+  <!-- Aktör-->
+  <fieldset
+    role="tabpanel"
+    aria-labelledby="btn-org"
+    data-visible="false"
+    id="fs-org"
+  >
+    <legend>Aktör</legend>
+
+    <p class="multiple fixed-last">
+      <label>
+        <em>Namn</em>
+        <input name="org" type="text" required />
+      </label>
+
+      <label class="abbr" data-hidden="field:caseType=audit">
+        Förkortning
+        <input name="abbr" type="text" class="abbr" />
+      </label>
+    </p>
+
+    <p data-hidden="field:caseType=audit">
+      <label>
+        <em>Organisationsnummer</em>
+        <input
+          name="regNo"
+          type="text"
+          inputmode="tel"
+          data-required="field:caseType!=audit"
+          placeholder="nnnnnn-nnnn"
+          maxlength="11"
+          pattern="^[1-9]\d{5}-?\d+$"
+          title="Fyll i som till exempel ”55&zwnj;66&zwnj;77-88&zwnj;99”."
+          class="luhn regno req-monitoring req-complaint"
+        />
+      </label>
+    </p>
+
+    <p>
+      <label>
+        E-postadress
+        <input name="email" type="email" />
+      </label>
+    </p>
+
+    <p>
+      <label>
+        Telefonnummer
+        <input
+          name="tel"
+          type="tel"
+          pattern="^0\d{1,3}(\s*-)?(\s*\d{2,3}){2,3}$"
+          title="Fyll i som till exempel ”012-345 67 89”."
+        />
+      </label>
+    </p>
+
+    <p>
+      <label>
+        Postadress
+        <textarea name="addr"></textarea>
+      </label>
+    </p>
+  </fieldset>
+
+  <!--Digital service-->
+  <fieldset
+    role="tabpanel"
+    aria-labelledby="btn-service"
+    data-visible="false"
+    id="fs-service"
+  >
+    <legend>Digital service</legend>
+
+    <p>
+      <label class="radio">
+        <input name="serviceType" type="radio" value="website" checked />
+        Webbplats
+      </label>
+
+      <label class="radio">
+        <input name="serviceType" type="radio" value="app" />
+        Mobil applikation
+      </label>
+    </p>
+
+    <p>
+      <label>
+        <em>Tjänstens namn</em>
+        <input name="service" type="text" required />
+      </label>
+    </p>
+
+    <p data-hidden="field:serviceType!=website">
+      <label class="radio">
+        <input name="access" type="radio" value="public" checked />
+        Publik
+      </label>
+
+      <label class="radio">
+        <input name="access" type="radio" value="extranet" />
+        Extranät
+      </label>
+
+      <label class="radio">
+        <input name="access" type="radio" value="intranet" />
+        Intranät
+      </label>
+    </p>
+
+    <p data-hidden="field:serviceType!=app">
+      <label>
+        <em>Operativsystem</em>
+        <input
+          name="appOS"
+          type="text"
+          data-disabled="field:serviceType!=app"
+          data-required="field:serviceType=app"
+          list="service-os-list"
+          class="req-app"
+        />
+        <datalist id="service-os-list">
+          <option>Android</option>
+          <option>iOS</option>
+        </datalist>
+      </label>
+    </p>
+
+    <p>
+      <label class="cb">
+        <input name="auth" type="checkbox" role="switch" />
+        Kräver inloggning
+      </label>
+    </p>
+  </fieldset>
+
+  <p>
+    <button accesskey="s" value="save">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-save" />
+      </svg>
+      Spara
+    </button>
+
+    <button
+      formaction="?page=list&type=case"
+      formnovalidate
+      value="delete"
+      class="button"
+    >
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-delete" />
+      </svg>
+      Ta bort
+    </button>
+  </p>
+</form>
+
+<dialog
+  role="alertdialog"
+  aria-atomic="true"
+  ,
+  aria-labelledby="confirm-label"
+  aria-modal="true"
+  id="confirm-dialog"
+>
+  <h2 id="confirmm-label">Bekräfta borttag</h2>
+  <p class="prompt"></p>
+
+  <p>
+    <button data-handler="confirm" type="button" value="false">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-cancel" />
+      </svg>
+      Avbryt
+    </button>
+
+    <button data-handler="confirm" type="button" value="true">OK</button>
+  </p>
+</dialog>

@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>FlashThreshold – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .class.uml-diagram {
+        width: 56rem;
+      }
+      figure.ecb {
+        width: 28rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">FlashThreshold</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">FlashThreshold</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#params">Parametrar</a></li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#c-controller" lang="en">Controller</a></li>
+          <li><a href="#c-form">Formulär</a></li>
+          <li><a href="#c-luminance">Luminanskontroll</a></li>
+          <li><a href="#c-saturation">Rödmättnadskontroll</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <cite lang="en">FlashThreshold</cite> är ett verktyg för att verifiera
+        överensstämmelse med kriterium
+        <a
+          href="https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold"
+          hreflang="en"
+          rel="external"
+          >2.3.1 <span lang="en">(Three Flashes or Below Threshold)</span></a
+        >
+        i <cite>WCAG</cite>. Det beräknar skillnaden i relativ luminans mellan
+        två färger och rödmättnaden hos båda färgerna. Verktyget visar om
+        resultaten överskrider gränsvärdena i <cite>WCAG</cite> och kan även
+        automatiskt underkänna eller godkänna motsvarande kontroller i
+        granskningssidan.
+      </p>
+
+      <p class="warning">
+        De matematiska uttrycken som används i denna dokumentation visas inte
+        som avsett i webbläsare som saknar stöd för MathML.
+      </p>
+
+      <!--Parametrar-->
+      <section>
+        <h2 id="params">Parametrar i granskningskonfigurationen</h2>
+
+        <pre class="json"><code lang="en">{
+    <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+    <span class="key">"module"</span>: <span class="value">"FlashThreshold"</span>,
+    <span class="key">"params"</span>: {
+        <span class="key">"luminance"</span>: <span class="value">"<var>id</var>"</span>,
+        <span class="key">"red"</span>:       <span class="value">"<var>id</var>"</span>
+   }
+}</code></pre>
+
+        <dl class="properties">
+          <dt><code lang="en">luminance</code></dt>
+          <dd>
+            Identitet i
+            <a href="../konfiguration.html#audit-req">kravkonfigurationen</a>
+            för den kontroll som verifierar att skillnaden i relativ luminans
+            mellan två färger i en övergång inte överskrider gränsvärdet
+            (≥10&nbsp;% av det högsta luminansvärdet, om den mörkare färgens
+            relativa luminans är &lt;0,8).
+          </dd>
+
+          <dt><code lang="en">red</code></dt>
+          <dd>
+            Identitet i
+            <a href="../konfiguration.html#audit-req">kravkonfigurationen</a>
+            för den kontroll som verifierar att ingen av färgerna i en övergång
+            är mättat röd.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Verktyget består av fyra klasser: en <i lang="en">controller</i>, en
+          vy och två klasser som räknar ut och verifierar skillnader i relativ
+          luminans respektive rödmättnad.
+        </p>
+
+        <figure aria-hidden="true" class="ecb">
+          <svg viewBox="0 0 280 160" class="ecb uml-diagram">
+            <g transform="translate(25, 0)">
+              <!--Controller-->
+              <g transform="translate(50, 0)">
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Controller</text>
+                <line x1="40" y1="22" x2="84" y2="22" />
+                <line x1="16" y1="56" x2="-32" y2="96" />
+                <line x1="20" y1="56" x2="68" y2="96" />
+              </g>
+
+              <!--FlashThresholdForm-->
+              <g transform="translate(150, 0)">
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">FlashThresholdForm</text>
+              </g>
+            </g>
+
+            <g transform="translate(25, 100)">
+              <!--LuminanceChecker-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">LuminanceChecker</text>
+              </g>
+
+              <!--SaturationChecker-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">SaturationChecker</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            <code lang="en">FlashThreshold</code>, översikt.
+          </figcaption>
+        </figure>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 560 120" class="class uml-diagram">
+            <defs>
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <g>
+              <!--Controller-->
+              <g transform="translate(190, 10)">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">Controller</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+
+                <line x1="0" y1="11" x2="-39" y2="11" class="dependency" />
+                <line x1="101" y1="11" x2="140" y2="11" class="dependency" />
+                <line x1="20" y1="23" x2="20" y2="60" class="dependency" />
+                <line x1="80" y1="23" x2="80" y2="60" class="dependency" />
+              </g>
+
+              <!--RequirementController-->
+              <g transform="translate(0, 5)" class="external">
+                <rect x="0.5" y="0.5" width="150" height="32" />
+                <text x="75" y="10" class="class">RequirementController</text>
+                <line x1="1" y1="12" x2="150" y2="12" />
+                <text x="5" y="20">prepare(AppContext): promise</text>
+                <text x="5" y="30">setCheck(string, boolean): void</text>
+              </g>
+
+              <!--FlashThresholdForm-->
+              <g transform="translate(330, 0)">
+                <rect x="0.5" y="0.5" width="220" height="42" />
+                <text x="110" y="10" class="class">FlashThresholdForm</text>
+                <line x1="1" y1="12" x2="220" y2="12" />
+                <text x="5" y="20">addObserver(callback): void</text>
+                <text x="5" y="30">
+                  updateLuminance(number, number, number, boolean): void
+                </text>
+                <text x="5" y="40">
+                  updateSaturation(number, number, number, boolean): void
+                </text>
+              </g>
+            </g>
+
+            <g transform="translate(240, 70)">
+              <!--LuminanceChecker-->
+              <g transform="translate(-160, 0)">
+                <rect x="0.5" y="0.5" width="150" height="42" />
+                <text x="75" y="10" class="class">LuminanceChecker</text>
+                <line x1="1" y1="12" x2="150" y2="12" />
+                <text x="5" y="20">conformance(number, number): boolean</text>
+                <text x="5" y="30">delta(number, number): number</text>
+                <text x="5" y="40">luminance(object): number</text>
+              </g>
+
+              <!--SaturationChecker-->
+              <g transform="translate(10, 0)">
+                <rect x="0.5" y="0.5" width="190" height="42" />
+                <text x="95" y="10" class="class">SaturationChecker</text>
+                <line x1="1" y1="12" x2="190" y2="12" />
+                <text x="5" y="20">
+                  conformance(number, number, number): boolean
+                </text>
+                <text x="5" y="30">delta(object, object): number</text>
+                <text x="5" y="40">saturation(object): number</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">FlashThreshold</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Controller-->
+      <section>
+        <h2 id="c-controller"><code lang="en">Controller</code></h2>
+
+        <p>
+          Controllern samordnar helt enkelt de andra klasserna. Den registrerar
+          en observatör på vyn (formuläret) och hanterar aviseringar.
+        </p>
+
+        <p>
+          När granskaren uppdaterar något av de två färgvärdena använder
+          controllern klasserna <code lang="en">LuminanceChecker</code> och
+          <code lang="en">SaturationChecker</code> för att beräkna skillnaderna
+          i relativ luminans respektive rödmättnad.
+        </p>
+
+        <p>
+          Därefter uppdaterar den resultatfälten i vyn. Om kontrollparametrar
+          angivts i konfigura&shy;tionen anropar den sedan granskningssidans
+          <i lang="en">controller</i> (<code>RequirementController</code>) för
+          att antingen godkänna eller underkänna de angivna kontrollerna.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>Konstruktorn sparar bara referenser till argumenten.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Controller</span>(<span class="var">luminance</span>, <span class="var">saturation</span>, <span class="var">ui</span>, <span class="var">options</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">luminance</code></dt>
+          <dd>
+            Analysverktyg för relativ luminans; en instans av
+            <code lang="en">LuminanceChecker</code>.
+          </dd>
+
+          <dt><code lang="en">saturation</code></dt>
+          <dd>
+            Analysverktyg för rödmättnad; en instans av
+            <code lang="en">SaturationChecker</code>.
+          </dd>
+
+          <dt><code lang="en">ui</code></dt>
+          <dd>
+            Användargränssnitt (vy); en instans av
+            <code lang="en">FlashThresholdForm</code>.
+          </dd>
+
+          <dt><code lang="en">options</code></dt>
+          <dd>
+            Parametrar: granskningssidans <i lang="en">controller</i>,
+            modellobjektet (används inte av det här verktyget) och parametrarna
+            från granskningskonfigurationen.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Formulär-->
+      <section>
+        <h2 id="c-form"><code lang="en">FlashThresholdForm</code></h2>
+
+        <p>
+          <code lang="en">FlashThresholdForm</code> är verktygets grafiska
+          användargränssnitt. Det består av två inmatningsfält
+          (”<samp>Färg&nbsp;1</samp>” och ”<samp>Färg&nbsp;2</samp>”) och
+          resultatfält för luminans och rödmättnad.
+        </p>
+
+        <p>
+          Inmatningsfälten är av typen
+          <code lang="en" class="html tag"
+            >&lt;input&nbsp;<span>type=<span>"color"</span></span
+            >&gt;</code
+          >
+          och presentationen varierar mycket mellan webbläsarna. De returnerar i
+          alla fall en färgspecifikation i tre- eller sexställigt hexadecimalt
+          format, till exempel ”<code>#5a6751</code>”.
+        </p>
+
+        <p>
+          Resultatfälten är
+          <code lang="en" class="html tag">&lt;output&gt;</code>-element.
+        </p>
+
+        <p class="note">
+          Granskningssidan som verktyget visas i utgörs av ett stort formulär.
+          HTML-specifikationen medger inte nästlade formulär, men erbjuder ett
+          något krystat sätt att kringgå den begränsningen genom att låta ett
+          fält som strukturellt ingår i formulär A identifiera sig,
+          funktionellt, som medlem i formulär B. Vyn skapar ett tomt, dolt
+          formulär och skapar sedan elementen i huvudformuläret och låter dem
+          hänvisa till det formulär de egentligen tillhör. Detta gör att en
+          <kbd><kbd lang="en">Enter</kbd></kbd
+          >-tryckning i ett av verktygets fält inte orsakar inskick av hela
+          granskningssidan.
+        </p>
+
+        <p>
+          Vyn registrerar händelselyssnare på inmatningsfälten och aviserar
+          registrerade observa&shy;törer (controllern) när användaren ändrar ett
+          färgvärde.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn registrerar händelselyssnare på behållarelementet för
+          validering och avisering. Den lägger till en instruktionstext i
+          behållaren följt av ett dolt, tomt formulär. Därefter skapar
+          konstruktorn de två färginmatningsfälten och de två resultatfälten,
+          som alltså strukturellt är underordnade ett helt annat formulär än de
+          funktionellt tillhör.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">FlashThresholdForm</span>(<span class="var">parent</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållarelement att infoga användargränssnittet i.</dd>
+        </dl>
+
+        <h3><code lang="en">addObserver()</code></h3>
+
+        <p>
+          Registrerar en observatör på vyn. Registrerade observatörer anropas
+          varje gång använda&shy;ren ändrar värde i ett inmatningsfält.
+          Händelselyssnaren konverterar hexadecimalvärdet från färgvalselementet
+          till ett RGB-objekt som förväntas av analysklasserna.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addObserver</span>(<span class="var">observer</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">observer</code></dt>
+          <dd>
+            En funktion som ska anropas vid avisering om händelser i
+            användargränssnittet. Funktionen anropas med en objektparameter med
+            fälten <code>rgb1</code> och <code>rgb2</code>, som vart och ett är
+            ett sRGB-objekt med fälten <code>r</code>, <code>g</code> och
+            <code>b</code> (numeriska värden i intervallet [0,1]).
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">updateLuminance()</code></h3>
+
+        <p>
+          Uppdaterar resultatfälten för relativ luminans med angivna och
+          beräknade värden.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">updateLuminance</span>(<span class="var">lum1</span>, <span class="var">lum2</span>, <span class="var">delta</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">lum1</code></dt>
+          <dd>Relativ luminans för den första färgen i en övergång.</dd>
+
+          <dt><code lang="en">lum2</code></dt>
+          <dd>Relativ luminans för den andra färgen i en övergång.</dd>
+
+          <dt><code lang="en">delta</code></dt>
+          <dd>Den beräknade relativa skillnaden i relativ luminans (ΔL).</dd>
+
+          <dt><code lang="en">conforming</code></dt>
+          <dd>
+            En flagga som anger om resultatet uppfyller den del av kriterium
+            2.3.1 i <cite>WCAG</cite> som avser relativ luminans.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">updateSaturation()</code></h3>
+
+        <p>
+          Uppdaterar resultatfälten för rödmättnad med angivna och beräknade
+          värden.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">updateSaturation</span>(<span class="var">sat1</span>, <span class="var">sat2</span>, <span class="var">delta</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">lum1</code></dt>
+          <dd>Rödmättnad för den första färgen i en övergång.</dd>
+
+          <dt><code lang="en">lum2</code></dt>
+          <dd>Rödmättnad för den andra färgen i en övergång.</dd>
+
+          <dt><code lang="en">delta</code></dt>
+          <dd>Den beräknade relativa skillnaden i rödmättnad (ΔS).</dd>
+
+          <dt><code lang="en">conforming</code></dt>
+          <dd>
+            En flagga som anger om resultatet uppfyller den del av kriterium
+            2.3.1 i <cite>WCAG</cite> som avser rödmättnad.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Luminanskontroll-->
+      <section>
+        <h2 id="c-luminance"><code lang="en">LuminanceChecker</code></h2>
+
+        <p>
+          Beräknar och utvärderar skillnader i relativ luminans mellan två
+          färger i en övergång.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">LuminanceChecker</span>()</code></pre>
+
+        <h3><code lang="en">conformance()</code></h3>
+
+        <p>
+          Avgör om skillnaden mellan två relativa luminansvärden ligger under
+          det gränsvärde som anges i kritierium 2.3.1 i <cite>WCAG</cite>:
+          10&nbsp;% av det största av de två värdena, förutsatt att det lägsta
+          värdet är &lt;0,80.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">conformance</span>(<span class="var">l1</span>, <span class="var">l2</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>l1</code></dt>
+          <dd>Relativ luminans för den första färgen i en övergång.</dd>
+
+          <dt><code>l2</code></dt>
+          <dd>Relativ luminans för den andra färgen i en övergång.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om värdena uppfyller
+          kriterium 2.3.1 i <code>WCAG</code>, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+
+        <h3><code lang="en">delta()</code></h3>
+
+        <p>
+          Beräknar den relativa skillnaden mellan två relativa luminansvärden,
+          enligt formeln
+          <math>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <msub>
+                  <mi>L</mi>
+                  <mi>max</mi>
+                </msub>
+                <mo>&minus;</mo>
+                <msub>
+                  <mi>L</mi>
+                  <mi>min</mi>
+                </msub>
+              </mrow>
+              <mo>)</mo>
+              <mo>/</mo>
+              <msub>
+                <mi>L</mi>
+                <mi>max</mi>
+              </msub>
+            </mrow> </math
+          >.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">delta</span>(<span class="var">l1</span>, <span class="var">l2</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>l1</code></dt>
+          <dd>Relativ luminans för den första färgen i en övergång.</dd>
+
+          <dt><code>l2</code></dt>
+          <dd>Relativ luminans för den andra färgen i en övergång.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Den beräknade relativa skillnaden mellan de två värdena.</p>
+
+        <h3><code lang="en">luminance()</code></h3>
+
+        <p>
+          Beräknar den relativa luminansen för en färg enligt den formel som
+          anges i definitionen av
+          <a
+            href="https://www.w3.org/TR/WCAG21/#dfn-relative-luminance"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >relative luminance</a
+          >
+          i <cite>WCAG</cite>&nbsp;2.1.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">delta</span>(<span class="var">l1</span>, <span class="var">l2</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>l1</code></dt>
+          <dd>Relativ luminans för den första färgen i en övergång.</dd>
+
+          <dt><code>l2</code></dt>
+          <dd>Relativ luminans för den andra färgen i en övergång.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Den beräknade relativa skillnaden mellan de två värdena.</p>
+      </section>
+
+      <!--Rödmättnadskontroll-->
+      <section>
+        <h2 id="c-saturation"><code lang="en">SaturationChecker</code></h2>
+
+        <p>
+          Beräknar och utvärderar skillnader i rödmättnad mellan två färger i en
+          övergång.
+        </p>
+
+        <p>
+          Klassen hanterar sRGB-värden, som beräknas enligt algoritmen som
+          beskrivs i definitionen av
+          <a
+            href="https://www.w3.org/TR/WCAG21/#dfn-relative-luminance"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >relative luminance</a
+          >
+          i <cite>WCAG</cite>&nbsp;2.1.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SaturationChecker</span>()</code></pre>
+
+        <h3><code lang="en">conformance()</code></h3>
+
+        <p>
+          Avgör om skillnaden i rödmättnad mellan två färger ligger under det
+          gränsvärde som anges i kritierium 2.3.1 i <cite>WCAG</cite>.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">conformance</span>(<span class="var">s1</span>, <span class="var">s2</span>, <span class="var">delta</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>s1</code></dt>
+          <dd>Rödmättnad för den första färgen i en övergång.</dd>
+
+          <dt><code>s2</code></dt>
+          <dd>Rödmättnad för den andra färgen i en övergång.</dd>
+
+          <dt><code>delta</code></dt>
+          <dd>Skillnaden i rödmättnad mellan de två färgerna.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om värdena uppfyller
+          kriterium 2.3.1 i <code>WCAG</code>, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+
+        <h3><code lang="en">delta()</code></h3>
+
+        <p>
+          Beräknar skillnaden i rödmättnad mellan två färger. Metoden beräknar
+          <math>
+            <mrow>
+              <mi>max</mi>
+              <mo>&#x2061;</mo>
+              <mo>(</mo>
+              <mrow>
+                <mi>R</mi>
+                <mo>&minus;</mo>
+                <mi>G</mi>
+                <mo>&minus;</mo>
+                <mi>B</mi>
+                <mo>,</mo>
+                <mn>0</mn>
+              </mrow>
+              <mo>)</mo>
+              <mo>&#x2062;</mo>
+              <mn>320</mn>
+            </mrow>
+          </math>
+          för de två värden och returnerar absolutbeloppet av differensen.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">delta</span>(<span class="var">rgb1</span>, <span class="var">rgb2</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>rgb1</code></dt>
+          <dd>sRGB-värde för den första färgen i en övergång.</dd>
+
+          <dt><code>rgb2</code></dt>
+          <dd>sRGB-värde för den andra färgen i en övergång.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Skillnaden i rödmättnad mellan de två färgerna.</p>
+
+        <h3><code lang="en">saturation()</code></h3>
+
+        <p>
+          Beräknar rödmättnaden för em färg. metoden beräknar
+          <math>
+            <mrow>
+              <mi>R</mi>
+              <mo>/</mo>
+              <mo>(</mo>
+              <mrow>
+                <mi>R</mi>
+                <mo>+</mo>
+                <mi>G</mi>
+                <mo>+</mo>
+                <mi>B</mi>
+              </mrow>
+              <mo>)</mo>
+            </mrow> </math
+          >.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">delta</span>(<span class="var">rgb</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>rgb</code></dt>
+          <dd>sRGB-värde för färgen.</dd>
+        </dl>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Flashbox.html"><code lang="en">Flashbox</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för processdiagram.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Grundläggande formgivning av HTML-element. */
+
+  circle {
+    fill: var(--fill);
+  }
+  line,
+  polyline {
+    fill: none;
+    stroke: var(--stroke);
+    stroke-width: 1px;
+    marker-end: url('#arrow');
+  }
+  rect {
+    stroke: var(--stroke);
+    stroke-width: 1px;
+  }
+  text {
+    font: 10px sans-serif;
+    fill: var(--text);
+    stroke: none;
+    text-anchor: middle;
+  }
+  marker path {
+    fill: var(--fill);
+    stroke: none;
+  }
+
+  /* Klasser och attribut. */
+
+  .conditional {
+    stroke-dasharray: 4, 3;
+  }
+  body.font text {
+    font-family: Calibri, sans-serif;
+  }
+  .highlight {
+    fill: var(--highlight);
+  }
+  text.left {
+    text-anchor: start;
+  }
+  text.long {
+    font-size: 9px;
+  }
+  text.long tspan.long {
+    font-size: 8px;
+  }
+  text.legend {
+    font-size: 8px;
+    text-anchor: start;
+  }
+  .opaque {
+    fill: var(--bg);
+  }
+  path.resource {
+    fill: var(--bg);
+    stroke: var(--stroke);
+    stroke-width: 1px;
+  }
+  text.right {
+    text-anchor: end;
+  }
+  circle.ring {
+    fill: none;
+    stroke: var(--stroke);
+    stroke-width: 1px;
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: light) {
+  /* Egna egenskaper. */
+
+  svg {
+    --highlight: var(--light-accent-1);
+  }
+}
+
+/*
+ * Bildskärm, mörkt visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  /* Egna egenskaper. */
+
+  svg {
+    --highlight: var(--accent-2);
+  }
+
+  .highlight + text {
+    fill: var(--text-neg);
+  }
+}
+
+/*
+ * Formgivning för uskrift.
+ * ------------------------
+ */
+@media print {
+  /* Egna egenskaper. */
+
+  svg {
+    --highlight: #ccc;
+  }
+
+  svg {
+    page-break-inside: avoid;
+  }
+}

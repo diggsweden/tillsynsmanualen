@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 80">
+  <g id="ConditionTree">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="72"/>
+      <line x1="1" y1="12" x2="110" y2="12"/>
+      <line x1="1" y1="32" x2="110" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ConditionTree</text>
+      <text x="5" y="20">+configuration: object</text>
+      <text x="5" y="30">+requirement: Requirement</text>
+      <text x="5" y="40">apply(): void</text>
+      <text x="5" y="50">build(): void</text>
+      <text x="5" y="60">get(string): Condition</text>
+      <text x="5" y="70">update(string): iterator</text>
+    </g>
+  </g>
+
+  <g id="Condition">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="149" height="112"/>
+      <line x1="1" y1="12" x2="150" y2="12"/>
+      <line x1="1" y1="52" x2="150" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="75" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Condition</text>
+      <text x="5" y="20">+applicable: boolean</text>
+      <text x="5" y="30">+disabled: boolean</text>
+      <text x="5" y="40">+id: string</text>
+      <text x="5" y="50">+parent: Condition</text>
+      <text x="5" y="60">addCheck(string, Check): void</text>
+      <text x="5" y="70">addCondition(branch, Condition): void</text>
+      <text x="5" y="80">checks(string): iterator</text>
+      <text x="5" y="90">conditions(string): iterator</text>
+      <text x="5" y="100">hasBranch(string): boolean</text>
+      <text x="5" y="110">hasChecks(string): boolean</text>
+    </g>
+  </g>
+
+  <g id="DerivedCondition">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="42"/>
+      <line x1="1" y1="12" x2="110" y2="12"/>
+      <line x1="1" y1="22" x2="110" y2="22"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">DerivedCondition</text>
+      <text x="5" y="20">+state: boolean</text>
+      <text x="5" y="30">dependsOn(Check): void</text>
+      <text x="5" y="40">update(): void</text>
+    </g>
+  </g>
+
+  <g id="ManualCondition">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="32"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="22" x2="100" y2="22"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ManualCondition</text>
+      <text x="5" y="20">+state: boolean</text>
+      <text x="5" y="30">update(): void</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Model – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 40rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">Model</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Model</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-all-cases"><code lang="en">allCases()</code></a>
+          </li>
+          <li>
+            <a href="#m-all-people"><code lang="en">allPeople()</code></a>
+          </li>
+          <li>
+            <a href="#m-all-schedules"><code lang="en">allSchedules()</code></a>
+          </li>
+          <li>
+            <a href="#m-close"><code lang="en">close()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-audit"><code lang="en">deleteAudit()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-case"><code lang="en">deleteCase()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-log-entry"
+              ><code lang="en">deleteLogEntry()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-delete-person"><code lang="en">deletePerson()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-requirement"
+              ><code lang="en">deleteRequiremnt()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-delete-requirements"
+              ><code lang="en">deleteRequiremnts()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-delete-sample"><code lang="en">deleteSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-schedule"
+              ><code lang="en">deleteSchedule()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-get-audit"><code lang="en">getAudit()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-case"><code lang="en">getCase()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-log-entry"><code lang="en">getLogEntry()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-person"><code lang="en">getPerson()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-requirement"
+              ><code lang="en">getRequirement()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-get-sample"><code lang="en">getSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-get-schedule"><code lang="en">getSchedule()</code></a>
+          </li>
+          <li>
+            <a href="#m-people-by-role"
+              ><code lang="en">peopleByRole()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-populate"><code lang="en">populate()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-audit"><code lang="en">setAudit()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-audit-samples"
+              ><code lang="en">setAuditSamples()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-case"><code lang="en">setCase()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-log-entry"><code lang="en">setLogEntry()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-person"><code lang="en">setPerson()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-requirement"
+              ><code lang="en">setRequirement()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-sample"><code lang="en">setSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-schedule"><code lang="en">setSchedule()</code></a>
+          </li>
+          <li>
+            <a href="#m-unserialize"><code lang="en">unserialize()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Model</code> utgör modellen i applikationen och
+        representerar de data som applikationen hanterar. Data kan vara flyktiga
+        (leva bara medan webbläsarsessionen är öppen) eller permanenta – lagrade
+        i webbläsarens lagringsutrymme (<code lang="en">localStorage</code>)
+        eller objektdatabas (<code lang="en">indexedDB</code>).
+      </p>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 400 360" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--Model-->
+          <use xlink:href="Model.svg#Model" x="0" y="0" class="highlight" />
+
+          <line x1="151" y1="21" x2="190" y2="21" class="composition" />
+          <line x1="151" y1="116" x2="190" y2="116" class="composition" />
+
+          <!--SettingStorage-->
+          <use
+            xlink:href="../common/SettingStorage.svg#SettingStorage"
+            x="190"
+            y="0"
+          />
+
+          <!--Database-->
+          <use xlink:href="../db/Database.svg#Database" x="190" y="90" />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Model</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Model</span>(<span class="var">database</span>, <span class="var">settings</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">database</code></dt>
+          <dd>Gränssnitt mot objektdatabasen.</dd>
+
+          <dt><code lang="en">settings</code></dt>
+          <dd>Gränssnitt mot lagringsutrymmet för inställningar.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">advancedMode</code></dt>
+          <dd>
+            Flagga som anger om applikationen ska använda det avancerade
+            visningsläget (<code lang="en" class="js literal">true</code>) eller
+            det förenklade (<code lang="en" class="js literal">false</code>).
+            Flaggan hämtas och sparas i inställningslagret.
+          </dd>
+
+          <dt><code lang="en">caseDirectory</code></dt>
+          <dd>
+            Sökväg till ärendekatalogen under vilken granskningsärenden sparas i
+            filsystemet. Värdet hämtas och sparas i inställningslagret.
+          </dd>
+
+          <dt><code lang="en">confirmComponents</code></dt>
+          <dd>
+            Flagga som anger om applikationen ska visa en dialogruta där
+            granskaren får bekräfta komponentkopplingar vid spara nytt urval.
+            (Standardvärdet, om ej satt, är
+            <code lang="en" class="js literal">true</code>.)
+          </dd>
+
+          <dt><code lang="en">lastPath</code></dt>
+          <dd>
+            Frågeparametrar från senast sparade sidbegäran i
+            granskningsfunktioneen. Värdet hämtas och sparas i
+            inställningslagret.
+          </dd>
+        </dl>
+      </section>
+
+      <!--allCases()-->
+      <section>
+        <h2 id="m-all-cases"><code lang="en">allCases()</code></h2>
+
+        <p>
+          Hämtar alla ärenden i databasen. De hämtade ärendena populeras inte
+          med granskningar.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">allCases</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en vektor med ärendeinstanser, sorterad på
+          ärendenummer i stigande ordning.
+        </p>
+      </section>
+
+      <!--allPeople()-->
+      <section>
+        <h2 id="m-all-people"><code lang="en">allPeople()</code></h2>
+
+        <p>Hämtar alla personer i databasen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">allPeople</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en vektor med personinstanser, sorterad på
+          efternamn och förnamn.
+        </p>
+      </section>
+
+      <!--allSchedules()-->
+      <section>
+        <h2 id="m-all-schedules"><code lang="en">allSchedules()</code></h2>
+
+        <p>Hämtar alla tillsynsplaner i databasen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">allSchedules</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en vektor med tillsynsplaninstanser,
+          sorterad på tillsynsperiodernas startdatum.
+        </p>
+      </section>
+
+      <!--close()-->
+      <section>
+        <h2 id="m-close"><code lang="en">close()</code></h2>
+
+        <p>Stänger anslutningen till objektdatabasen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">close</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--deleteAudit()-->
+      <section>
+        <h2 id="m-delete-audit"><code lang="en">deleteAudit()</code></h2>
+
+        <p>
+          Raderar angiven granskning ur databasen, tillsammans med de ingående
+          stickproven, kraven och kontrollerna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteAudit</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Granskningens identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deleteCase()-->
+      <section>
+        <h2 id="m-delete-case"><code lang="en">deleteCase()</code></h2>
+
+        <p>
+          Raderar angivet ärende ur databasen, tillsammans med de ingående
+          loggnoteringarna, granskningarna, stickproven, kraven och
+          kontrollerna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteCase</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Ärendets identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deleteLogEntry()-->
+      <section>
+        <h2 id="m-delete-log-entry"><code lang="en">deleteLogEntry()</code></h2>
+
+        <p>Raderar angiven loggnotering ur databasen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteLogEntry</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Loggnoteringens identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deletePerson()-->
+      <section>
+        <h2 id="m-delete-person"><code lang="en">deletePerson()</code></h2>
+
+        <p>Raderar angiven person ur databasen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deletePerson</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deleteRequirement()-->
+      <section>
+        <h2 id="m-delete-requirement">
+          <code lang="en">deleteRequirement()</code>
+        </h2>
+
+        <p>
+          Raderar angivet krav ur databasen, tillsammans med de ingående
+          kontrollerna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteRequirement</span>(<span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Kravets primärnyckel i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deleteRequirements()-->
+      <section>
+        <h2 id="m-delete-requirements">
+          <code lang="en">deleteRequirements()</code>
+        </h2>
+
+        <p>
+          Raderar alla krav för angivet stickprov ur databasen, tillsammans med
+          de ingående kontrollerna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteRequirements</span>(<span class="var">sampleID</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sampleID</code></dt>
+          <dd>Stickprovets identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deleteSample()-->
+      <section>
+        <h2 id="m-delete-sample"><code lang="en">deleteSample()</code></h2>
+
+        <p>
+          Raderar angivet stickprov ur databasen, tillsammans med de ingående
+          kraven och kontrollerna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteSample</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Stickprovets identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--deleteSchedule()-->
+      <section>
+        <h2 id="m-delete-schedule"><code lang="en">deleteSchedule()</code></h2>
+
+        <p>Raderar angiven tillsynsplan ur databasen.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">deleteSchedule</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Tillsynsplanens identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getAudit()-->
+      <section>
+        <h2 id="m-get-audit"><code lang="en">getAudit()</code></h2>
+
+        <p>
+          Hämtar en granskning och de ingående stickproven (men inte deras krav
+          och kontroller, som standard).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getAudit</span>(<span class="var">id</span>)
+<span class="keyword">await</span> <span class="ident">getAudit</span>(<span class="var">id</span>, <span class="var">recursive</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Granskningens identitet i databasen.</dd>
+
+          <dt class="optional"><code lang="en">recursive</code></dt>
+          <dd>
+            Om <code lang="en" class="js literal">true</code> populeras
+            stickproven med krav och kraven med kontroller. Standardvärdet är
+            <code lang="en" class="js literal">false</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en <code lang="en">Audit</code>-instans som
+          representerar granskningen, eller
+          <code lang="en" class="js keyword">null</code> om ingen granskning med
+          angiven identitet finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getCase()-->
+      <section>
+        <h2 id="m-get-case"><code lang="en">getCase()</code></h2>
+
+        <p>
+          Hämtar ett ärende och de ingående granskningarna (men inte deras
+          stickprov, krav och kontroller) samt noteringarna i ärendeloggen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getCase</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Ärendets identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en instans av
+          <code lang="en">AuditCase</code> eller dess subklasser, som
+          representerar ärendet, eller
+          <code lang="en" class="js keyword">null</code> om inget ärende med
+          angiven identitet finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getLogEntry()-->
+      <section>
+        <h2 id="m-get-log-entry"><code lang="en">getLogEntry()</code></h2>
+
+        <p>Hämtar en loggnotering.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getLogEntry</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Loggnoteringens identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en <code lang="en">LogEntry</code>-instans
+          som representerar loggnoteringen, eller
+          <code lang="en" class="js keyword">null</code> om ingen notering med
+          angiven identitet finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getPerson()-->
+      <section>
+        <h2 id="m-get-person"><code lang="en">getPerson()</code></h2>
+
+        <p>Hämtar en person.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getPerson</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Identitet i databsaen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en <code lang="en">Person</code>-instans som
+          representerar personen, eller
+          <code lang="en" class="js keyword">null</code> om ingen person med
+          angiven identitet finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getRequirement()-->
+      <section>
+        <h2 id="m-get-requirement"><code lang="en">getRequirement()</code></h2>
+
+        <p>Hämtar ett krav och de ingående kontrollerna.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getRequirement</span>(<span class="var">key</span>, <span class="var">sample</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Kravets primärnyckel i databasen</dd>
+
+          <dt><code lang="en">sample</code></dt>
+          <dd>Det stickprov som kravet ingår i.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en
+          <code lang="en">Requirement</code>-instans som representerar kravet,
+          eller <code lang="en" class="js keyword">null</code> om inget krav med
+          angiven nyckel finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getSample()-->
+      <section>
+        <h2 id="m-get-sample"><code lang="en">getSample()</code></h2>
+
+        <p>Hämtar ett stickprov och de ingående kraven.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getSample</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Stickprovets identitet i databasen</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en instans av en subklass till
+          <code lang="en">Sample</code> som representerar stickprovet, eller
+          <code lang="en" class="js keyword">null</code> om inget stickprov med
+          angiven identitet finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--getSchedule()-->
+      <section>
+        <h2 id="m-get-schedule"><code lang="en">getSchedule()</code></h2>
+
+        <p>Hämtar en tillsynsplan.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">getSchedule</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Tillsynsplanens identitet i databasen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en <code lang="en">Schedule</code>-instans
+          som representerar tillsynsplanen, eller
+          <code lang="en" class="js keyword">null</code> om ingen tillsynsplan
+          med angiven identitet finns i databasen.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--peopleByRole()-->
+      <section>
+        <h2 id="m-people-by-role"><code lang="en">peopleByRole()</code></h2>
+
+        <p>Hämtar alla personer med angiven roll.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">peopleByRole</span>(<span class="var">role</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">role</code></dt>
+          <dd>Roll att söka efter.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en vektor med
+          <code lang="en">Person</code>-instanser som representerar personerna.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--populate()-->
+      <section>
+        <h2 id="m-populate"><code lang="en">populate()</code></h2>
+
+        <p>
+          Populerar ett ärende med alla uppgifter. Används när man vill spara
+          ett komplett ärende som JSON-fil.
+        </p>
+
+        <p>
+          Metoden utgår från att ärendet är populerat med granskningar och
+          populerar varje granskning med stickprov. Varje stickprov populeras
+          med krav, som i sin tur populeras med kontroller.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">populate</span>(<span class="var">aCase</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende att populera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när ärendet är populerat.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setAudit()-->
+      <section>
+        <h2 id="m-set-audit"><code lang="en">setAudit()</code></h2>
+
+        <p>Sparar en granskning (men inte ingående stickprov).</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setAudit</span>(<span class="var">audit</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setAuditSamples()-->
+      <section>
+        <h2 id="m-set-audit-samples">
+          <code lang="en">setAuditSamples()</code>
+        </h2>
+
+        <p>
+          Sparar alla stickprov i en granskning (men inte ingående krav).
+          Anropas när användaren tagit bort en komponent, vilket föranlett att
+          övriga stickprov i samma granskning kan ha uppdaterats med att ta bort
+          en referens till komponenten.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setAuditSamples</span>(<span class="var">audit</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning vars stickprov ska sparas.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setCase()-->
+      <section>
+        <h2 id="m-set-case"><code lang="en">setCase()</code></h2>
+
+        <p>Sparar ett ärende (men inte ingående granskningar).</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setCase</span>(<span class="var">aCase</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setLogEntry()-->
+      <section>
+        <h2 id="m-set-log-entry"><code lang="en">setLogEntry()</code></h2>
+
+        <p>Sparar en loggnotering.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setLogEntry</span>(<span class="var">entry</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">entry</code></dt>
+          <dd>Loggnotering att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setPerson()-->
+      <section>
+        <h2 id="m-set-person"><code lang="en">setPerson()</code></h2>
+
+        <p>Sparar en person.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setPerson</span>(<span class="var">person</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">person</code></dt>
+          <dd>Person att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setRequirement()-->
+      <section>
+        <h2 id="m-set-requirement"><code lang="en">setRequirement()</code></h2>
+
+        <p>Sparar ett krav och alla ingående kontroller.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setRequirement</span>(<span class="var">requirement</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">requirement</code></dt>
+          <dd>Krav att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setSample()-->
+      <section>
+        <h2 id="m-set-sample"><code lang="en">setSample()</code></h2>
+
+        <p>Sparar ett stickprov (men inte ingående kontroller).</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setSample</span>(<span class="var">sample</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sample</code></dt>
+          <dd>Stickprov att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--setSchedule()-->
+      <section>
+        <h2 id="m-set-schedule"><code lang="en">setSchedule()</code></h2>
+
+        <p>Sparar en tillsynsplan.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">setSchedule</span>(<span class="var">schedule</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">schedule</code></dt>
+          <dd>Tillsynsplan att spara.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när transaktionen slutförts.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--unserialize()-->
+      <section>
+        <h2 id="m-unserialize"><code lang="en">unserialize()</code></h2>
+
+        <p>
+          Återskapar ett ärende från en JSON-fil och populerar databasen med
+          uppgifterna (inklusive loggnoteringar, granskningar, stickprov, krav
+          och kontroller).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">unserialize</span>(<span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">data</code></dt>
+          <dd>Dataobjekt att återskapa ärendet ifrån.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en instans av
+          <code lang="en">AuditCase</code> eller dess subklasser, som
+          representerar ärendet.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">Error</code></dt>
+          <dd>Databastransaktionen misslyckades.</dd>
+        </dl>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="../db/Database.html"><code lang="en">Database</code></a>
+          </li>
+          <li>
+            <a href="LogEntry.html"><code lang="en">LogEntry</code></a>
+          </li>
+          <li>
+            <a href="Person.html"><code lang="en">Person</code></a>
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li><a href="sample.index.html">Stickprovsklasser</a></li>
+          <li>
+            <a href="../common/SettingsStorage.html"
+              ><code lang="en">SettingsStorage</code></a
+            >
+          </li>
+          <li>
+            <a href="Schedule.html"><code lang="en">Schedule</code></a>
+          </li>
+          <li><a href="case.index.html">Ärendeklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

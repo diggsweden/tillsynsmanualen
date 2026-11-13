@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flashbox – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">Flashbox</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">Flashbox</code>
+      </h1>
+
+      <p>
+        <code lang="en">Flashbox</code> är ett <i lang="en">bookmarklet</i> som
+        kan hjälpa till att avgöra om den sammanlagda flimrande ytan på en
+        webbsida överstiger gränsvärdet i
+        <a
+          href="https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold"
+          hreflang="en"
+          rel="external"
+          >2.3.1 <span lang="en">(Three Flashes or Below Threshold)</span></a
+        >
+        i <cite>WCAG</cite>. Kriteriet stipulerar att den sammanlagda flimrande
+        ytan inte får överstiga 0,006 steradianer inom 10° av synfältet vid
+        normalt betraktningsavstånd. Vinkeln motsvarar ungefär 25&nbsp;% av ett
+        synfält på 10° på skärmen, vilket i sin tur kan representeras av en
+        rektangel om 341×256 pixlar på en skärm med upplösningen 1024x768 pixlar
+        eller högre.
+      </p>
+
+      <h2>Installation</h2>
+
+      <p>
+        Användaren installerar bokmärket genom att kopiera skriptkoden
+        (”länkadressen”) och klistra in den i ett nytt bokmärke. I många
+        webbläsare kan man också dra verktygslänken till bokmärkesraden för att
+        installera den.
+      </p>
+
+      <p class="warning">
+        En alltför strikt <abbr>CSP</abbr> (<a
+          href="https://en.wikipedia.org/wiki/Content_Security_Policy"
+          hreflang="en"
+          rel="external"
+          ><i lang="en">content security policy</i></a
+        >) på en server kan förhindra att ett <i lang="en">bookmarklet</i> går
+        att exekevera.
+      </p>
+
+      <h2>Funktion</h2>
+
+      <p>
+        Verktyget skapar en rektangel med storleken 341x256 pixlar som
+        granskaren kan flytta genom att dra den, med <kbd><kbd>Ctrl</kbd></kbd
+        >-tangenten och den primära musknappen nedtryckta, tills den täcker en
+        så stor del av det flimrande området som möjligt.
+      </p>
+
+      <p>
+        Därefter markerar granskaren de ytor som flimrar genom att rita
+        rektanglar med den primära musknappen nedtryckt. Verktyget räknar ut den
+        sammanlagda ytan av dessa rektanglar och visar markeringarnas andel av
+        hela rektangelns yta (i procent). Om andelen överstiger 25&nbsp;%
+        markeras den med röd färg för att indikera att gränsvärdet är
+        överskridet och att övriga kontroller för kriterium 2.3.1 ska tillämpas
+        (då verktyget
+        <a href="FlashThreshold.html"><code lang="en">FlashThreshold</code></a>
+        kan vara behjälpligt).
+      </p>
+
+      <p>Granskaren stänger verktyget genom att klicka på andelsindikatorn.</p>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="FlashThreshold.html"
+              ><code lang="en">FlashThreshold</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

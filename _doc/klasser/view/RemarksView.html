@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>RemarksView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 39rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">RemarksView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">RemarksView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-save"><code lang="en">save()</code></a>
+          </li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för att generera ett påpekande eller ett föreläggande från en
+        granskning.
+      </p>
+
+      <p class="note">
+        <code lang="en">RemarksView</code> ärver <em>inte</em> från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/RemarksView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/RemarksView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 390 420" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--RemarksView-->
+          <use
+            xlink:href="RemarksView.svg#RemarksView"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="171" y1="8" x2="210" y2="8" class="composition" />
+          <path d="M171,16 h20 v45 h20" class="composition" />
+          <path d="M171,24 h10 v107 h30" class="composition" />
+          <line x1="85" y1="33" x2="85" y2="60" class="composition" />
+
+          <g transform="translate(210, 0)">
+            <!--Document-->
+            <use
+              xlink:href="../Document.svg#Document"
+              x="0"
+              y="0"
+              class="external"
+            />
+
+            <!--FileStorage-->
+            <use
+              xlink:href="../common/FileStorage.svg#FileStorage"
+              x="0"
+              y="40"
+            />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="0"
+              y="100"
+            />
+          </g>
+
+          <!--Model-->
+          <use xlink:href="../model/Model.svg#Model" x="10" y="60" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">RemarksView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">RemarksView</span>(<span class="var">model</span>, <span class="var">filesystem</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjekt.</dd>
+
+          <dt><code lang="en">filesystem</code></dt>
+          <dd>Fillagring.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--open-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Öppnar en ny webbläsarvy och genererar ett påpekande eller ett
+          föreläggande i dess DOM-dokument.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">open</span>(<span class="var">aCase</span>, <span class="var">audit</span>, <span class="var">created</span>, <span class="var">type</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende.</dd>
+
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning</dd>
+
+          <dt><code lang="en">created</code></dt>
+          <dd>Dokumentets skapandedatum.</dd>
+
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Typ av dokument att generera:
+            <code lang="en" class="js literal">"remarks"</code> (påpekande)
+            eller
+            <code lang="en" class="js literal">"injunction"</code>
+            (föreläggande).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--save-->
+      <section>
+        <h2 id="m-save"><code lang="en">save()</code></h2>
+
+        <p>
+          Skapar ett nytt DOM-dokument och genererar ett påpekande eller ett
+          föreläggande i det. Öppnar sedan en filvalsdialog för att spara
+          dokumentet i filsystemet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">save</span>(<span class="var">aCase</span>, <span class="var">audit</span>, <span class="var">created</span>, <span class="var">type</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende.</dd>
+
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning</dd>
+
+          <dt><code lang="en">created</code></dt>
+          <dd>Dokumentets skapandedatum.</dd>
+
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Typ av dokument att generera:
+            <code lang="en" class="js literal">"remarks"</code> (påpekande)
+            eller
+            <code lang="en" class="js literal">"injunction"</code>
+            (föreläggande).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Metoderna <code lang="en">open()</code> och
+          <code lang="en">save()</code> gör precis samma saker när de väl skapat
+          ett DOM-dokument att populera. Detta gör
+          <code lang="en">open()</code> genom att anropa
+          <code lang="en">window.open()</code> för att skapa en ny tabbflik
+          (eller ett nytt webbläsarfönster, beroende på webbläsare och
+          användar&shy;inställningar). <code lang="en">save()</code> gör det
+          genom att anropa <code lang="en">createHTMLDocument()</code> i det
+          aktuella dokumentents DOM-implementation.
+        </p>
+
+        <p>
+          Klassen hämtar ett malldokument via resursladdaren. Mallarna ligger
+          under <code>granskning/templates/</code> och heter
+          <code lang="en">injunction-app.html</code>,
+          <code lang="en">injunction-website.html</code>,
+          <code lang="en">remarks-app.html</code> respektive
+          <code lang="en">remarks-website.html</code>.
+        </p>
+
+        <p>
+          Nästa steg är att populera brödtexten med data från granskningen.
+          Element med bestäm&shy;da identiteter eller klasser fylls med
+          innehåll.
+        </p>
+
+        <p>
+          Sedan populerar klassen en lista med åtgärder som aktören ska utföra,
+          baserat på de underkända kraven i granskningen. Dessa översätts till
+          åtgärdspunkter med hjälp av en konfigurationsfil. Filerna finns under
+          <code>js/confg/remarks/</code> och heter
+          <code>config-app.json</code> respektive
+          <code>config-website.json</code>.
+        </p>
+
+        <p>
+          TIll sist genererar klassen en sammanställning av de relevanta
+          noteringarna från ärendeloggen.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../model/Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="../model/AuditCase.html"
+              ><code lang="en">AuditCase</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/AuditDisplayController.html"
+              ><code lang="en">AuditDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/CaseDisplayController.html"
+              ><code lang="en">CaseDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="../commont/FileStorage.html"
+              ><code lang="en">FileStorage</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

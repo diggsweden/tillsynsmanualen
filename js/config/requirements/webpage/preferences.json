@@ -1,0 +1,58 @@
+{
+  "methods": [
+    "Ändra inställningar i webbläsaren och/eller operativsystemet för att kontrollera att webbsidan respekterar dem."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Sidan får erbjuda alternativa värden för de olika inställningarna, så länge det finns ett läge som respekterar användarens inställningar."
+    },
+    {
+      "type": "text",
+      "text": "Testmetod för ”färger”:"
+    },
+    {
+      "type": "olist",
+      "items": [
+        "Tryck <kbd><kbd>F12</kbd></kbd> för att öppna Inspektören.",
+        "Emulera ljust respektive mörkt visningsläge (se nedan).",
+        "Kontrollera att webbsidan anpassar sig enligt det emulerade visningsläget."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Emulera visningsläge i <cite translate=\"no\" lang=\"en\">Chrome</cite>: välj fliken <samp lang=\"en\">Elements</samp> och underfliken <samp lang=\"en\">Styles</samp>. Klicka på <img src=\"../img/mode-chrome.png\" alt=\"monitorikonen\"> och välj <samp lang=\"en\">light</samp> eller <samp lang=\"en\">dark</samp> för <samp lang=\"en\">prefers-color-scheme</samp>."
+    },
+    {
+      "type": "tip",
+      "text": "Emulera visningsläge i <cite translate=\"no\" lang=\"en\">Firefox</cite>: välj fliken <samp>Inspektör</samp> och underfliken <samp>Regler</samp>. Klicka på en av <img src=\"../img/mode-firefox.png\" alt=\"sol/måne-ikonerna\">."
+    },
+    {
+      "type": "text",
+      "text": "Testmetod för ”kontrast”:"
+    },
+    {
+      "type": "olist",
+      "items": [
+        "Öppna samma sida i två flikar eller fönster i <cite translate=\"no\" lang=\"en\">Chrome</cite>.",
+        "Tryck <kbd><kbd>F12</kbd></kbd> för att öppna Inspektören i ena fliken/fönstret.",
+        "Tryck <kbd><kbd>Esc</kbd></kbd> för att visa ”byrålådor” och välj <samp lang=\"en\">Rendering</samp>.",
+        "Skrolla ned till <samp lang=\"en\">Emulate CSS media feature forced colors</samp> och välj <samp lang=\"en\">active</samp> för att emulera högkontrastläge.",
+        "Jämför med originalsidan och kontrollera att alla interaktiva komponenter och <em>viktiga</em> visuellt framhävda element (till exempel felmeddelanden) går att känna igen som sådana på den emulerade sidan.",
+        "Återställ emuleringen till <samp lang=\"en\">none</samp> och tryck <kbd><kbd>Esc</kbd></kbd> för att dölja ”byrålådor”."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Lägg till ”byrålådan” <samp lang=\"en\">Rendering</samp> i Inspektören i <cite translate=\"no\" lang=\"en\">Chrome</cite>: Tryck <kbd><kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd>P</kbd></kbd> och skriv ”<kbd lang=\"en\">Rendering</kbd>”. Välj alternativet med knappen <samp lang=\"en\">Drawer</samp>."
+    },
+    {
+      "type": "text",
+      "text": "Testmetod för ”textstorlek”: Ändra textstorleken i webbläsarinställningarna och kontrollera att brödtextens storlek i huvudinnehållet blir större/mindre."
+    },
+    {
+      "type": "tip",
+      "text": "Ändra textstorlek i <cite translate=\"no\" lang=\"en\">Chrome</cite>: <samp>Inställningar</samp> / <samp>Utseende</samp> / <samp>Fontstorlek</samp>."
+    }
+  ]
+}

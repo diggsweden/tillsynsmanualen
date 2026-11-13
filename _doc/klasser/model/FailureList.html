@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>FailureList – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">FailureList</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">FailureList</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-clauses"><code lang="en">clauses()</code></a>
+          </li>
+          <li>
+            <a href="#m-components"><code lang="en">components()</code></a>
+          </li>
+          <li>
+            <a href="#m-contains"><code lang="en">contains()</code></a>
+          </li>
+          <li>
+            <a href="#m-fails"><code lang="en">fails()</code></a>
+          </li>
+          <li>
+            <a href="#m-requirements"><code lang="en">requirements()</code></a>
+          </li>
+          <li>
+            <a href="#m-samples"><code lang="en">samples()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">FailureList</code> är en hjälpklass som används
+        vid generering av granskningsproto&shy;koll. Den ordnar underkända krav
+        i en bestämd ordning och tillhandahåller iteratorer för att uppfylla de
+        behov som ställs vid protokollgenerering.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/FailureList.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/FailureList.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 410" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--FailureList-->
+          <use
+            xlink:href="FailureList.svg#FailureList"
+            x="105"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="120" y1="73" x2="120" y2="100" class="composition" />
+          <line x1="200" y1="73" x2="200" y2="100" class="composition" />
+
+          <!--Sample-->
+          <use xlink:href="Sample.svg#Sample" x="0" y="100" />
+
+          <line x1="0" y1="188" x2="-39" y2="188" class="composition" />
+
+          <!--Requirement-->
+          <use xlink:href="Requirement.svg#Requirement" x="180" y="100" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">FailureList</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">FailureList</span>(<span class="var">audit</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning.</dd>
+        </dl>
+      </section>
+
+      <!--clauses()-->
+      <section>
+        <h2 id="m-clauses"><code lang="en">clauses()</code></h2>
+
+        <p>
+          Itererar över underkända avsnittsnummer i
+          <cite>EN&nbsp;301&nbsp;549</cite> eller DOS-lagen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clauses</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en vektor vid varje anrop. Vektorn har
+          fyra element: bristidentitet, kravavsnittsnummer, kravvektor och
+          stickprovs- eller komponent-id.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> [<span class="var">id</span>, <span class="var">clause</span>, <span class="var">requirements</span>, <span class="var">sampleID</span>] <span class="keyword">of</span> <span class="var">list</span>.<span class="fn">clauses</span>()) {…} </code></pre>
+      </section>
+
+      <!--components()-->
+      <section>
+        <h2 id="m-components"><code lang="en">components()</code></h2>
+
+        <p>Itererar över granskade komponenter med brister.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">components</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en
+          <a href="Component.html"><code lang="en">Component</code></a
+          >-instans vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">component</span> <span class="keyword">of</span> <span class="var">list</span>.<span class="fn">components</span>()) {…} </code></pre>
+      </section>
+
+      <!--contains()-->
+      <section>
+        <h2 id="m-contains"><code lang="en">contains()</code></h2>
+
+        <p>
+          Returnerar om listan innehåller angivet stickprov, det vill säga om
+          stickprovet har brister.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">contains</span>(<span class="var">sample</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sample</code></dt>
+          <dd>Stickprov eller komponent att leta efter.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code class="js keyword" lang="en">true</code> om stickprovet ingår i
+          listan, annars <code class="js keyword" lang="en">false</code>.
+        </p>
+      </section>
+
+      <!--fails()-->
+      <section>
+        <h2 id="m-fails"><code lang="en">fails()</code></h2>
+
+        <p>Itererar över underkända krav för angivet avsnitt.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">fails</span>(<span class="var">clause</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">clause</code></dt>
+          <dd>
+            Kravavsnittsnummer i <cite>EN&nbsp;301&nbsp;549</cite>,
+            <cite>DOS-lagen</cite> eller tillhörande förordning och
+            föreskrifter. Exempel: ”9.1.4.3”, ”SFS2018:1937 13 § 3 st”.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en vektor med en
+          <a href="Sample.html"><code lang="en">Sample</code></a
+          >-instans och en
+          <a href="Requirement.html"><code lang="en">Requirement</code></a
+          >-instans vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> [<span class="var">sample</span>, <span class="var">requirement</span>] <span class="keyword">of</span> <span class="var">list</span>.<span class="fn">fails</span>(<span class="var">clause</span>)) {…} </code></pre>
+      </section>
+
+      <!--requirements()-->
+      <section>
+        <h2 id="m-requirements"><code lang="en">requirements()</code></h2>
+
+        <p>Itererar över underkända krav i ett stickprov eller en komponent.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">requirements</span>(<span class="var">sample</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sample</code></dt>
+          <dd>
+            Ett stickprov (<a href="AppScreen.html"
+              ><code lang="en">AppScreen</code></a
+            >,
+            <a href="NonWebDocument.html"
+              ><code lang="en">NonWebDocument</code></a
+            >
+            eller <a href="Webpage.html"><code lang="en">Webpage</code></a
+            >) eller en komponent (<a href="Component.html"
+              ><code lang="en">Component</code></a
+            >).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en vektor med en bristidentitet (heltal)
+          och en
+          <a href="Requirement.html"><code lang="en">Requirement</code></a
+          >-instans vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> [<span class="var">id</span>, <span class="var">requirement</span>] <span class="keyword">of</span> <span class="var">list</span>.<span class="fn">requirements</span>(<span class="var">sample</span>)) {…} </code></pre>
+      </section>
+
+      <!--samples()-->
+      <section>
+        <h2 id="m-samples"><code lang="en">samples()</code></h2>
+
+        <p>
+          Itererar över granskade stickprov, av en given klass, med brister.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">samples</span>(<span class="var">sampleClass</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sampleClass</code></dt>
+          <dd>Stickprovsklass.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en instans av angiven
+          <code lang="en">Sample</code>-subklass (<a href="AppScreen.html"
+            ><code lang="en">AppScreen</code></a
+          >,
+          <a href="NonWebDocument.html"
+            ><code lang="en">NonWebDocument</code></a
+          >
+          eller <a href="Webpage.html"><code lang="en">Webpage</code></a
+          >) vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">sample</span> <span class="keyword">of</span> <span class="var">list</span>.<span class="fn">samples</span>(<span class="var">Webpage</span>) {…} </code></pre>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../view/CSVProtocolView.html"
+              ><code lang="en">CSVProtocolView</code></a
+            >
+          </li>
+          <li>
+            <a href="../view/ProtocolView.html"
+              ><code lang="en">ProtocolView</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

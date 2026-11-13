@@ -1,0 +1,16 @@
+{
+  "methods": [
+    "Använd en skärmläsare och navigera igenom hela innehållet. Jämför med den visuella ordningen."
+  ],
+  "examples": {
+    "bad": [
+      "En sida visar artiklar i en spalt och puffar i en spalt bredvid. Innehållsordningen går ”radvis”, inte ”kolumnvis”, alltså artikel, puff, artikel, puff … i stället för alla artiklar först och sedan alla puffar."
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Det anses inte inverka på betydelsen i vilken ordning vissa delar av sidan kommer, exempelvis om navigeringen kommer före eller efter huvudinnehållet. Det som påverkar är om delar som visuellt utgör en enhet inte är en sammanhållen enhet i koden, så att delar av olika enheter kommer om vartannat."
+    }
+  ]
+}

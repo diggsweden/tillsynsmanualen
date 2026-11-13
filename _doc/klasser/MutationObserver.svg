@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 50">
+  <g id="MutationObserver">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="109" height="42"/>
+      <line x1="1" y1="12"  x2="110" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="55" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">MutationObserver</text>
+      <text x="5" y="20">disconnect(): void</text>
+      <text x="5" y="30">observe(Node, object): void</text>
+      <text x="5" y="40">takeRecords(): void</text>
+    </g>
+  </g>
+</svg>

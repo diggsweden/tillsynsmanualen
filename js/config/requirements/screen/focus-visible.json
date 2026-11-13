@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet och säkerställ att det hela tiden går att se vilket element som har fokus."
+  ],
+  "exceptions": [
+    "Det är tillåtet att inte visa en synlig fokusmarkering förrän tangentbordet använts. När markeringen en gång visats måste den dock förbli synlig."
+  ],
+  "examples": {
+    "good": [
+      "Länkar och knappar kan ha en fokusmarkering i form av en ram runt elementet eller en tydligt avvikande bakgrundsfärg.",
+      "För inmatningsfält är det tillräckligt att visa en inmatningsmarkör eller att <em>allt</em> innehåll i fältet blir markerat när fältet får fokus."
+    ]
+  },
+  "info": [
+    {
+      "type": "action",
+      "text": "Spara en skärmavbildning för att kunna mäta kontrasten."
+    }
+  ]
+}

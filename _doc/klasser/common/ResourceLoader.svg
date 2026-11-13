@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 70">
+  <g id="ResourceLoader">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="119" height="62"/>
+      <line x1="1" y1="12"  x2="120" y2="12"/>
+    </g>
+
+    <g stroke="none">
+      <text x="60" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ResourceLoader</text>
+      <text x="5" y="20">configuration(string): promise</text>
+      <text x="5" y="30">loadModule(string): promise</text>
+      <text x="5" y="40">pageContent(string): promise</text>
+      <text x="5" y="50">pageTemplate(string): promise</text>
+      <text x="5" y="60">resource(string): promise</text>
+    </g>
+  </g>
+</svg>

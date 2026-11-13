@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240">
+  <g id="CaseEditView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="159" height="232"/>
+      <line x1="1" y1="12"  x2="160" y2="12"/>
+      <line x1="1" y1="192" x2="160" y2="192"/>
+    </g>
+
+    <g stroke="none">
+      <text x="80" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CaseEditView</text>
+      <text x="5" y="20">+abbr: string</text>
+      <text x="5" y="30">+access: string</text>
+      <text x="5" y="40">+addr: string</text>
+      <text x="5" y="50">+appOS: string</text>
+      <text x="5" y="60">+auth: boolean</text>
+      <text x="5" y="70">+caseNumber: string</text>
+      <text x="5" y="80">+caseType: string</text>
+      <text x="5" y="90">+date: date</text>
+      <text x="5" y="100">+email: string</text>
+      <text x="5" y="110">+org: string</text>
+      <text x="5" y="120">+regNo: string</text>
+      <text x="5" y="130">+schedule: string</text>
+      <text x="5" y="140">+schedules: object[]</text>
+      <text x="5" y="150">+service: string</text>
+      <text x="5" y="160">+serviceType: string</text>
+      <text x="5" y="170">+supervisor: string</text>
+      <text x="5" y="180">+supervisors: object[]</text>
+      <text x="5" y="190">+tel: string</text>
+      <text x="5" y="200">activate(): void</text>
+      <text x="5" y="210">close(): void</text>
+      <text x="5" y="220">disableMonitoring(): void</text>
+      <text x="5" y="230">disableRemove(): void</text>
+    </g>
+  </g>
+</svg>

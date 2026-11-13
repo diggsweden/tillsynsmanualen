@@ -1,0 +1,1903 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>RequirementView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">RequirementView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">RequirementView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-action"><code lang="en">action()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-filter"><code lang="en">addFilter()</code></a>
+          </li>
+          <li>
+            <a href="#m-bookmarklet"><code lang="en">bookmarklet()</code></a>
+          </li>
+          <li>
+            <a href="#m-check"><code lang="en">check()</code></a>
+          </li>
+          <li>
+            <a href="#m-condition"><code lang="en">condition()</code></a>
+          </li>
+          <li>
+            <a href="#m-create-details"
+              ><code lang="en">createDetails()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-create-figure"><code lang="en">createFigure()</code></a>
+          </li>
+          <li>
+            <a href="#m-create-wave"><code lang="en">createWAVE()</code></a>
+          </li>
+          <li>
+            <a href="#m-definition"><code lang="en">definition()</code></a>
+          </li>
+          <li>
+            <a href="#m-examples"><code lang="en">examples()</code></a>
+          </li>
+          <li>
+            <a href="#m-exceptions"><code lang="en">exceptions()</code></a>
+          </li>
+          <li>
+            <a href="#m-external-tool"><code lang="en">externalTool()</code></a>
+          </li>
+          <li>
+            <a href="#m-group"><code lang="en">group()</code></a>
+          </li>
+          <li>
+            <a href="#m-image"><code lang="en">image()</code></a>
+          </li>
+          <li>
+            <a href="#m-link"><code lang="en">link()</code></a>
+          </li>
+          <li>
+            <a href="#m-methods"><code lang="en">methods()</code></a>
+          </li>
+          <li>
+            <a href="#m-module-tool"><code lang="en">moduleTool()</code></a>
+          </li>
+          <li>
+            <a href="#m-note"><code lang="en">note()</code></a>
+          </li>
+          <li>
+            <a href="#m-olist"><code lang="en">oList()</code></a>
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-pop-filter"><code lang="en">popFilter()</code></a>
+          </li>
+          <li>
+            <a href="#m-push-filter"><code lang="en">pushFilter()</code></a>
+          </li>
+          <li>
+            <a href="#m-reference"><code lang="en">reference()</code></a>
+          </li>
+          <li>
+            <a href="#m-remove-external-note"
+              ><code lang="en">removeExternalNote()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-check"><code lang="en">setCheck()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-next"><code lang="en">setNext()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-previous"><code lang="en">setPrevious()()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-progress"><code lang="en">setProgress()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-sample"><code lang="en">setSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-sample-info"
+              ><code lang="en">setSampleInfo()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-skip"><code lang="en">setSkip()</code></a>
+          </li>
+          <li>
+            <a href="#m-show-fail"><code lang="en">showFail()</code></a>
+          </li>
+          <li>
+            <a href="#m-show-group"><code lang="en">showGroup()</code></a>
+          </li>
+          <li>
+            <a href="#m-steps"><code lang="en">steps()</code></a>
+          </li>
+          <li>
+            <a href="#m-table"><code lang="en">table()</code></a>
+          </li>
+          <li>
+            <a href="#m-text"><code lang="en">text()</code></a>
+          </li>
+          <li>
+            <a href="#m-tip"><code lang="en">tip()</code></a>
+          </li>
+          <li>
+            <a href="#m-ulist"><code lang="en">uList()</code></a>
+          </li>
+          <li>
+            <a href="#m-warning"><code lang="en">warning()</code></a>
+          </li>
+          <li>
+            <a href="#m-web-developer"><code lang="en">webDeveloper()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för granskning av krav i ett stickprov. Innehållet populeras till
+        stor del dynamiskt, baserat på en kravkonfiguration och en
+        granskningskonfiguration.
+      </p>
+
+      <p>
+        Vyn består i grova drag av två huvuddelar. Granskningsdelen innehåller
+        metodbeskriv&shy;ningar, undantag, exempel samt villkor och kontroller.
+        Informationsdelen innehåller verktyg, länkar, relaterad information och
+        tillämpningsanvisningar.
+      </p>
+
+      <p>
+        Längst ned finns en rad med navigeringsknappar för att gå till nästa
+        ogranskade krav, nästa krav, kravöversikten (stickprovet) och föregående
+        krav.
+      </p>
+
+      <p>
+        Till följd av informationsdelens rekursiva natur använder vyn ett par
+        hjälpklasser, vars namn inte exponeras utanför modulen.
+      </p>
+
+      <p>
+        <code lang="en">RequirementView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/RequirementView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/RequirementView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 700" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--RequirementView-->
+          <use
+            xlink:href="RequirementView.svg#RequirementView"
+            x="165"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="285" y1="473" x2="285" y2="500" class="inheritance" />
+          <line x1="165" y1="76" x2="131" y2="76" class="dependency" />
+          <line x1="165" y1="201" x2="131" y2="201" class="dependency" />
+
+          <!--ContentContainer-->
+          <use
+            xlink:href="RequirementView.svg#ContentContainer"
+            x="0"
+            y="0"
+            class="internal"
+          />
+
+          <!--WAVEContainer-->
+          <use
+            xlink:href="RequirementView.svg#WAVEContainer"
+            x="20"
+            y="180"
+            class="internal"
+          />
+
+          <g transform="translate(0, 500)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">RequirementView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn lägger till stilmallen
+          <code lang="en">css/requirement.css</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">RequirementView</span>(<span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">externalNote</code></dt>
+          <dd>Extern antckning. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">heading</code></dt>
+          <dd>Sidrubrik. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">internalNote</code></dt>
+          <dd>Intern anteckning. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">readOnly</code></dt>
+          <dd>
+            Flagga som anger om vyn är i skrivskyddat läge på grund av att
+            granskningen är avslutad. (Endast skrivning.)
+          </dd>
+        </dl>
+      </section>
+
+      <!--action()-->
+      <section>
+        <h2 id="m-action"><code lang="en">action()</code></h2>
+
+        <p>Lägger till en åtgärdsruta i relaterat innehåll.</p>
+
+        <p class="action">
+          Exempel på en åtgärdsruta. Används för uppmaningar till granskaren att
+          vidta en viss åtgärd.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">action</span>(<span class="var">html</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">html</code></dt>
+          <dd>
+            Rutans innehåll, som kan innehålla HTML-element som är tillåtna i
+            ett <code class="html tag">&lt;p&gt;</code>-element.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addFilter()-->
+      <section>
+        <h2 id="m-add-filter"><code lang="en">addFilter()</code></h2>
+
+        <p>
+          Lägger till en filterklass på artikelelementet för att reglera
+          synligheten på villkorsstyrt innehåll, till exempel metoder eller
+          information som bara är relevant för PDF-dokument eller iOS.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addFilter</span>(<span class="var">name</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>CSS-klassnamn att lägga till.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--bookmarklet()-->
+      <section>
+        <h2 id="m-bookmarklet"><code lang="en">bookmarklet()</code></h2>
+
+        <p>
+          Lägger till en <i lang="en">bookmarklet</i> i relaterat innehåll,
+          tillsammans med en kort installations&shy;beskrivning.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">bookmarklet</span>(<span class="var">title</span>, <span class="var">code</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">title</code></dt>
+          <dd>Bokmärkets namn (den synliga länktexten).</dd>
+
+          <dt><code lang="en">code</code></dt>
+          <dd>JavaScript-kod.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--check()-->
+      <section>
+        <h2 id="m-check"><code lang="en">check()</code></h2>
+
+        <p>
+          Lägger till en kontroll att utföra i granskningen. Metoden klonar en
+          mall (<code lang="en" class="html tag">&lt;template&gt;</code>) i
+          källkoden, populerar det resulterande dokumentfragmentet och infogar
+          det.
+        </p>
+
+        <p>
+          En kontroll består av två radioknappar per alternativ
+          (godkänd/underkänd), en eventuell lista med undantag samt en textruta
+          där granskaren fyller i sin observation vid under&shy;kännande.
+        </p>
+
+        <p>
+          Om granskaren underkänt samma kontroll i andra stickprov i samma
+          granskning går observationstexterna att återanvända.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">check</span>(<span class="var">id</span>, <span class="var">states</span>, <span class="var">exceptions</span>, <span class="var">observation</span>, <span class="var">reusable</span>, <span class="var">path</span>, <span class="var">alt</span>)
+<span class="ident">check</span>(<span class="var">id</span>, <span class="var">states</span>, <span class="var">exceptions</span>, <span class="var">observation</span>, <span class="var">reusable</span>, <span class="var">path</span>, <span class="var">alt</span>, <span class="var">group</span>)
+<span class="ident">check</span>(<span class="var">id</span>, <span class="var">states</span>, <span class="var">exceptions</span>, <span class="var">observation</span>, <span class="var">reusable</span>, <span class="var">path</span>, <span class="var">alt</span>, <span class="var">group</span>, <span class="var">derived</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Kontrollidentitet i konfigurationen.</dd>
+
+          <dt><code lang="en">states</code></dt>
+          <dd>
+            Vektor vars element är vektorer med två element: tillstånd och
+            ledtext. Tillståndet kan vara
+            <code lang="en" class="js literal">true</code> (godkänd),
+            <code lang="en" class="js literal">false</code> (underkänd) eller
+            <code lang="en" class="js keyword">undefined</code> (inte granskad).
+            Ledtexten kan innehålla HTML.
+          </dd>
+
+          <dt><code lang="en">exceptions</code></dt>
+          <dd>Vektor med undantag på kontrollnivå (kan vara tom).</dd>
+
+          <dt><code lang="en">observation</code></dt>
+          <dd>Observationstext att populera textrutan med.</dd>
+
+          <dt><code lang="en">reusable</code></dt>
+          <dd>Återanvändbara observationstexter.</dd>
+
+          <dt><code lang="en">path</code></dt>
+          <dd>Sökväg till skärmavbildning.</dd>
+
+          <dt><code lang="en">alt</code></dt>
+          <dd>Textalternativ till skärmavbildning.</dd>
+
+          <dt class="optional"><code lang="en">group</code></dt>
+          <dd>Gruppbehållare för kontroller som ingår i ett villkor.</dd>
+
+          <dt class="optional"><code lang="en">derived</code></dt>
+          <dd>
+            Anges som <code lang="en" class="js literal">true</code> om det är
+            en härledd kontroll, vars värde inte sätts direkt av användaren utan
+            beräknas utifrån ett annat krav.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--condition()-->
+      <section>
+        <h2 id="m-condition"><code lang="en">condition()</code></h2>
+
+        <p>
+          Lägger till ett villkor att utvärdera i granskningen. Metoden klonar
+          en mall (<code lang="en" class="html tag">&lt;template&gt;</code>) i
+          källkoden, populerar det resulterande dokumentfragmentet och infogar
+          det.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">condition</span>(<span class="var">id</span>, <span class="var">state</span>)
+<span class="ident">condition</span>(<span class="var">id</span>, <span class="var">state</span>, <span class="var">text</span>)
+<span class="ident">condition</span>(<span class="var">id</span>, <span class="var">state</span>, <span class="var">text</span>, <span class="var">parent</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Villkorsidentitet i konfigurationen.</dd>
+
+          <dt><code lang="en">state</code></dt>
+          <dd>
+            Villkorets tillstånd; kan vara
+            <code lang="en" class="js literal">true</code> (uppfyllt),
+            <code lang="en" class="js literal">false</code> (inte uppfyllt)
+            eller <code lang="en" class="js keyword">undefined</code> (inte
+            utvärderat).
+          </dd>
+
+          <dt class="optional"><code lang="en">text</code></dt>
+          <dd>Villkorstext, som kan innehålla HTML.</dd>
+
+          <dt class="optional">parent</dt>
+          <dd>Föräldrabehållare vid nästlade villkor.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--createDetails()-->
+      <section>
+        <h2 id="m-create-details"><code lang="en">createDetails()</code></h2>
+
+        <p>
+          Lägger till ett utfällbart avsnitt (<code lang="en" class="html tag"
+            >&lt;details&gt;</code
+          >) i relaterat innehåll.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">createDetails</span>(<span class="var">summary</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">summary</code></dt>
+          <dd>
+            Det utfällbara avsnittets synliga sammanfattning (<code
+              lang="en"
+              class="html tag"
+              >&lt;summary&gt;</code
+            >); kan innehålla HTML.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <code lang="en">ContentContainer</code>-instans att populera med
+          innehåll.
+        </p>
+      </section>
+
+      <!--createFigure()-->
+      <section>
+        <h2 id="m-create-figure"><code lang="en">createFigure()</code></h2>
+
+        <p>
+          Lägger till en figurbehållare (<code lang="en" class="html tag"
+            >&lt;figure&gt;</code
+          >) i relaterat innehåll.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">createFigure</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <code lang="en">ContentContainer</code>-instans att populera med
+          innehåll.
+        </p>
+      </section>
+
+      <!--createWAVE()-->
+      <section>
+        <h2 id="m-create-wave"><code lang="en">createWAVE()</code></h2>
+
+        <p>
+          Lägger till en behållare för information om verktyget
+          <cite lang="en">WAVE</cite> i relaterat innehåll.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">createWAVE</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En <code lang="en">WAVEContainer</code>-instans att populera med
+          innehåll.
+        </p>
+      </section>
+
+      <!--definition()-->
+      <section>
+        <h2 id="m-definition"><code lang="en">definition()</code></h2>
+
+        <p>
+          Lägger till en definition i relaterat innehåll. En definition består
+          av ett stycke med ett
+          <code class="html tag">&lt;dfn&gt;</code>-element (definierande
+          instans) följt av ett kolon (<samp>:</samp>) och förklaringen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">definition</span>(<span class="var">term</span>, <span class="var">description</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">term</code></dt>
+          <dd>Term att definiera.</dd>
+
+          <dt><code lang="en">description</code></dt>
+          <dd>Förklaring av termen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--devTool()-->
+      <section>
+        <h2 id="m-dev-tool"><code lang="en">devTool()</code></h2>
+
+        <p>
+          Lägger till information i relaterat innehåll om en funktion i
+          <cite>Inspektören</cite> (webbläsarens utvecklarverktyg) som kan
+          underlätta granskningen av det aktuella kravet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">devTool</span>(<span class="var">tab</span>)
+<span class="ident">devTool</span>(<span class="var">tab</span>, <span class="var">panel</span>)
+<span class="ident">devTool</span>(<span class="var">tab</span>, <span class="var">panel</span>, <span class="var">properties</span>)
+<span class="ident">devTool</span>(<span class="var">tab</span>, <span class="var">panel</span>, <span class="var">properties</span>, <span class="var">func</span>)
+<span class="ident">devTool</span>(<span class="var">tab</span>, <span class="var">panel</span>, <span class="var">properties</span>, <span class="var">func</span>, <span class="var">help</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">tab</code></dt>
+          <dd>Tabbfliksnamn.</dd>
+
+          <dt class="optional"><code lang="en">panel</code></dt>
+          <dd>Panelnamn.</dd>
+
+          <dt class="optional"><code lang="en">properties</code></dt>
+          <dd>Vektor med CSS-egenskaper.</dd>
+
+          <dt class="optional"><code lang="en">func</code></dt>
+          <dd>
+            Funktionsbeteckning. Den enda kända funktionen är ”<samp lang="en"
+              >Device</samp
+            >” (mobilemulator); för andra funktioner skrivs det angivna namnet
+            ut som det är.
+          </dd>
+
+          <dt class="optional"><code lang="en">help</code></dt>
+          <dd>Hjälptext; kan innehålla HTML.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--examples()-->
+      <section>
+        <h2 id="m-examples"><code lang="en">examples()</code></h2>
+
+        <p>
+          Lägger till en lista med exempel i granskningsdelen. Metoden skapar en
+          oordnad lista och itererar över fälten i det angivna objektet. För
+          varje fält skapar metoden ett listelement med fältnamnet som
+          CSS-klass.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">examples</span>(<span class="var">obj</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">obj</code></dt>
+          <dd>
+            Objekt med olika typer av exempel. Varje fält ska vara en vektor med
+            strängar, som får innehålla HTML.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Exempel</h3>
+
+        <pre class="js"><code><span class="var">examples</span>({
+    <span class="ident">bad</span>:  [<span class="literal">"Dåligt"</span>, <span class="literal">"Uselt"</span>],
+    <span class="ident">good</span>: [<span class="literal">"Bra"</span>, <span class="literal">"Ypperligt"</span>]
+});</code></pre>
+
+        <p>Anropet ovan genererar följande listelement:</p>
+
+        <pre class="html"><code><span>&lt;ul&gt;</span>
+  <span>&lt;li <span>class=<span>"bad"</span></span>&gt;</span>Dåligt<span>&lt;/li&gt;</span>
+  <span>&lt;li <span>class=<span>"bad"</span></span>&gt;</span>Uselt<span>&lt;/li&gt;</span>
+  <span>&lt;li <span>class=<span>"good"</span></span>&gt;</span>Bra<span>&lt;/li&gt;</span>
+  <span>&lt;li <span>class=<span>"good"</span></span>&gt;</span>Ypperligt<span>&lt;/li&gt;</span>
+<span>&lt;/ul&gt;</span></code></pre>
+      </section>
+
+      <!--exceptions()-->
+      <section>
+        <h2 id="m-exceptions"><code lang="en">exceptions()</code></h2>
+
+        <p>
+          Lägger till en lista med undantag i granskningsdelen. Används för
+          undantag på kravnivå; för undantag på kontrollnivå, se metoden
+          <a href="m-check"><code lang="en">check()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">exceptions</span>(<span class="var">texts</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">texts</code></dt>
+          <dd>Vektor med undantag, som får innehålla HTML.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--externalTool()-->
+      <section>
+        <h2 id="m-external-tool"><code lang="en">externalTool()</code></h2>
+
+        <p>
+          Lägger till en hänvisning till ett externt verktyg i relaterat
+          innehåll, till exempel ”<samp>Skärmläsare</samp>”.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">externalTool</span>(<span class="var">text</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">text</code></dt>
+          <dd>Text att visa.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--group()-->
+      <section>
+        <h2 id="m-group"><code lang="en">group()</code></h2>
+
+        <p>
+          Lägger till en villkorsgrupp, det vill säga en behållare för
+          kontroller som hör till en ”gren” i ett villkor.
+        </p>
+
+        <p>Ett villkor kan ha en eller två grenar (”ja” och/eller ”nej”).</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">group</span>(<span class="var">id</span> <span class="var">visible</span>)
+<span class="ident">group</span>(<span class="var">id</span> <span class="var">visible</span>, <span class="var">parent</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Gruppidentitet.</dd>
+
+          <dt><code lang="en">visible</code></dt>
+          <dd>Flagga som anger om gruppen ska vara synlig initialt.</dd>
+
+          <dt class="optional"><code lang="en">parent</code></dt>
+          <dd>Föräldraelement vid nästlade villkor.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Gruppens skapade behållarelement.</p>
+      </section>
+
+      <!--image()-->
+      <section>
+        <h2 id="m-image"><code lang="en">image()</code></h2>
+
+        <p>Lägger till en bild i relaterat innehåll.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">image</span>(<span class="var">path</span>, <span class="var">alt</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>
+            Sökväg, relativt granskningssidan
+            (<code>granskning/granska.html</code>).
+          </dd>
+
+          <dt><code lang="en">alt</code></dt>
+          <dd>Textekvivalent (”alt-text”).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--instruction()-->
+      <section>
+        <h2 id="m-instruction"><code lang="en">instruction()</code></h2>
+
+        <p>
+          Länkar till en tillämpningsanvisning i relaterat innehåll. Länken
+          läggs till under rubriken ”<samp>Tillämpning</samp>”.
+        </p>
+
+        <p>
+          En tillämpningsanvisning är en beskrivning av en tolkning som
+          tillsynsmyndigheten gjort av ett lagrum eller ett kravavsnitt i
+          <cite>EN&nbsp;301&nbsp;549</cite> eller <cite>WCAG</cite>, där
+          tolkningen kan anses kontroversiell eller kräva motivering.
+        </p>
+
+        <p>
+          Metoden lägger till en länk till ett specifikt avsnitt på sidan
+          ”<samp>Tillämpningsanvisningar</samp>”
+          (<code>granskning/tillampning.html</code>).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">instruction</span>(<span class="var">id</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>
+            Fragmentidentifierare för avsnittet på sidan
+            <code>granskning/tillampning.html</code>.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Länktext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--link()-->
+      <section>
+        <h2 id="m-link"><code lang="en">link()</code></h2>
+
+        <p>
+          Lägger till en länk i relaterat innehåll. Länken läggs till under
+          rubriken ”<samp>Länkar</samp>”.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">link</span>(<span class="var">url</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>Länkadress.</dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Länktext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--methods()-->
+      <section>
+        <h2 id="m-methods"><code lang="en">methods()</code></h2>
+
+        <p>
+          Lägger till metodbeskrivningar i granskningsdelen. Används för en
+          eller flera alternativa metoder som beskrivs i löpande text. Jämför
+          <a href="m-steps"><code lang="en">steps()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">methods</span>(<span class="var">texts</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">texts</code></dt>
+          <dd>Vektor med metodbeskrivningar.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--moduleTool()-->
+      <section>
+        <h2 id="m-module-tool"><code lang="en">moduleTool()</code></h2>
+
+        <p>
+          Lägger till en verktygsmodul i relaterat innehåll. En
+          <a href="../../verktyg.html">verktygsmodul</a> är en fristående
+          JavaScript-modul som importerats dynamiskt och vars defaultexport
+          infogar verktyget i DOM-trädet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">moduleTool</span>(<span class="var">module</span>, <span class="var">model</span>)
+<span class="ident">moduleTool</span>(<span class="var">module</span>, <span class="var">model</span>, <span class="var">params</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">module</code></dt>
+          <dd>Verktygsmodul.</dd>
+
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjektet.</dd>
+
+          <dt><code lang="en">params</code></dt>
+          <dd>Parameterobjekt från granskningskonfigurationen.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--note()-->
+      <section>
+        <h2 id="m-note"><code lang="en">note()</code></h2>
+
+        <p>Lägger till en notera-ruta i relaterat innehåll.</p>
+
+        <p class="note">
+          Exempel på en notera-ruta. Används för viktig information till
+          granskaren.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">note</span>(<span class="var">html</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">html</code></dt>
+          <dd>
+            Rutans innehåll, som kan innehålla HTML-element som är tillåtna i
+            ett <code class="html tag">&lt;p&gt;</code>-element.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Identifierar elementet för relaterat innehåll (<code
+            lang="en"
+            class="html tag"
+            >&lt;aside&gt;</code
+          >) när sidinnehållet laddas.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">open</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när sidinnehållet laddats.</p>
+      </section>
+
+      <!--popFilter()-->
+      <section>
+        <h2 id="m-pop-filter"><code lang="en">popFilter()</code></h2>
+
+        <p>
+          Tar (eventuellt) bort en filterklass som lagts till på
+          artikelelementet med metoden
+          <a href="m-push-filter"><code lang="en">pushFilter()</code></a
+          >.
+        </p>
+
+        <p>
+          Eftersom innehåll kan läggas till rekursivt går det inte att lägga
+          till och ta bort filterklasser hur som helst. I stället behöver vyn
+          hålla reda på hur många gånger ett filter lagts till och tagits bort.
+          Vid tillägg ökas en räknare och vid borttag minskas räkaren. När
+          värdet når noll tas filterklassen bort.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">popFilter</span>(<span class="var">filter</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">filter</code></dt>
+          <dd>Filterklass att ta bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--pushFilter()-->
+      <section>
+        <h2 id="m-push-filter"><code lang="en">pushFilter()</code></h2>
+
+        <p>
+          Lägger till en filterklass på artikelelementet. Filterklasser reglerar
+          synligheten för innehåll som bara är relevant för vissa typer av
+          stickprov eller digital service.
+        </p>
+
+        <p>
+          Se även <a href="m-pop-filter"><code lang="en">popFilter()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">pushFilter</span>(<span class="var">filter</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">filter</code></dt>
+          <dd>Filterklass att lägga till.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--reference()-->
+      <section>
+        <h2 id="m-reference"><code lang="en">reference()</code></h2>
+
+        <p>
+          Lägger till en kravavsnittsreferens i relaterat innehåll. Referensen
+          blir en länk till <cite>EN&nbsp;301&nbsp;549</cite> (sida),
+          <cite>WCAG</cite> (kriterium) eller <cite>föreskriften</cite>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">reference</span>(<span class="var">clause</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">clause</code></dt>
+          <dd>
+            Kravavsnitt. Kan vara ett avsnittsnummer från
+            <cite>EN&nbsp;301&nbsp;549</cite> (”<samp>11.4.1.3.1</samp>”) eller
+            en hänvisning till DIGG:s DOS-föreskrifter (”<samp
+              >6&nbsp;§ 1&nbsp;st 3&nbsp;p MDFFS2019:2</samp
+            >”).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--removeExternalNote()-->
+      <section>
+        <h2 id="m-remove-external-note">
+          <code lang="en">removeExternalNote()</code>
+        </h2>
+
+        <p>
+          Tar bort textrutan för extern notering. Används för pseudo-krav, som
+          inte förmedlas i granskningsprotokollet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">removeExternalNote</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setCheck()-->
+      <section>
+        <h2 id="m-set-check"><code lang="en">setCheck()</code></h2>
+
+        <p>
+          Sätter angiven singelkontrolls tillstånd. Används när en kontroll
+          styrs externt, från en verktygsmodul.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCheck</span>(<span class="var">id</span>, <span class="var">state</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Kontrollidentitet.</dd>
+
+          <dt><code lang="en">state</code></dt>
+          <dd>
+            Tillstånd att sätta;
+            <code lang="en" class="js literal">true</code>=godkänd,
+            <code lang="en" class="js literal">false</code>=underkänd.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setNext()-->
+      <section>
+        <h2 id="m-set-next"><code lang="en">setNext()</code></h2>
+
+        <p>
+          Sätter sökväg och textinnehåll för navigeringsknappen till nästa krav.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setNext</span>(<span class="var">url</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>
+            Sökväg. Om värdet är
+            <code lang="en" class="js keyword">null</code> deaktiveras knappen.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Textinnehåll (kravtitel).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setPrevious()-->
+      <section>
+        <h2 id="m-set-previous"><code lang="en">setPrevious()</code></h2>
+
+        <p>
+          Sätter sökväg och textinnehåll för navigeringsknappen till föregående
+          krav.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setPrevious</span>(<span class="var">url</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>
+            Sökväg. Om värdet är
+            <code lang="en" class="js keyword">null</code> deaktiveras knappen.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Textinnehåll (kravtitel).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setProgress()-->
+      <section>
+        <h2 id="m-set-progress"><code lang="en">setProgress()</code></h2>
+
+        <p>Uppdaterar förloppsindikatorn.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setProgress</span>(<span class="var">value</span>, <span class="var">max</span>, <span class="var">label</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Antalet färdiggranskade krav i stickprovet.</dd>
+
+          <dt><code lang="en">value</code></dt>
+          <dd>Totalt antal krav i stickprovet.</dd>
+
+          <dt><code lang="en">label</code></dt>
+          <dd>Ledtext att förmedla till hjälpmedel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSample()-->
+      <section>
+        <h2 id="m-set-sample"><code lang="en">setSample()</code></h2>
+
+        <p>
+          Sätter sökväg och textinnehåll för navigeringsknappen till
+          kravöversikten (stickprovet).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setSample</span>(<span class="var">url</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>Sökväg.</dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Textinnehåll (kravtitel).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSampleInfo()-->
+      <section>
+        <h2 id="m-set-sample-info"><code lang="en">setSampleInfo()</code></h2>
+
+        <p>
+          Visar stickprovets namn, eventuellt länkat till webbsidan eller
+          dokumentet. Informationen presenteras efter sidrubriken.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setSampleInfo</span>(<span class="var">title</span>
+<span class="ident">setSampleInfo</span>(<span class="var">title</span>, <span class="var">url</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">title</code></dt>
+          <dd>Stickprovets namn</dd>
+
+          <dt class="optional"><code lang="en">url</code></dt>
+          <dd>Länkadress till webbsida eller dokument.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSkip()-->
+      <section>
+        <h2 id="m-set-skip"><code lang="en">setSkip()</code></h2>
+
+        <p>
+          Sätter sökväg och textinnehåll för navigeringsknappen till nästa
+          ogranskade krav.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setSkip</span>(<span class="var">url</span>, <span class="var">title</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>
+            Sökväg. Om värdet är
+            <code lang="en" class="js keyword">null</code> deaktiveras knappen.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Textinnehåll (kravtitel).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--showFail()-->
+      <section>
+        <h2 id="m-show-fail"><code lang="en">showFail()</code></h2>
+
+        <p>Visar eller döljer observationsfältet för en kontroll.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showFail</span>(<span class="var">chkID</span>, <span class="var">visible</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">chkID</code></dt>
+          <dd>Kontrollidentitet i konfigurationen.</dd>
+
+          <dt><code lang="en">visible</code></dt>
+          <dd>
+            Flagga som anger om kontrollen är underkänd, det vill säga om
+            observationsfältet ska vara synligt.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--showGroup()-->
+      <section>
+        <h2 id="m-show-group"><code lang="en">showGroup()</code></h2>
+
+        <p>
+          Visar eller döljer en villkorsgrupp – en behållare med kontroller för
+          en ”gren” i ett villkor.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showGroup</span>(<span class="var">grpID</span>, <span class="var">visible</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">grpID</code></dt>
+          <dd>Gruppidentitet.</dd>
+
+          <dt><code lang="en">visible</code></dt>
+          <dd>Flagga som anger om gruppen ska vara synlig.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--steps()-->
+      <section>
+        <h2 id="m-steps"><code lang="en">steps()</code></h2>
+
+        <p>
+          Lägger till en stegvis metodbeskrivning i granskningsdelen. Används
+          för en metod som beskrivs med en ordnad lista av steg. Jämför
+          <a href="m-methods"><code lang="en">methods()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">steps</span>(<span class="var">texts</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">texts</code></dt>
+          <dd>Vektor med metodsteg.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--table()-->
+      <section>
+        <h2 id="m-table"><code lang="en">table()</code></h2>
+
+        <p>
+          Lägger till en enkel tabell i relaterat innehåll. Tabellen måste ha
+          kolumnrubriker, kan inte ha radrubriker eller flera radgrupper, och
+          måste ha samma antal celler i alla rader.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">table</span>(<span class="var">headers</span>, <span class="var">rows</span>)
+<span class="ident">table</span>(<span class="var">headers</span>, <span class="var">rows</span>, <span class="var">caption</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">headers</code></dt>
+          <dd>Vektor med kolumnrubriker.</dd>
+
+          <dt><code lang="en">rows</code></dt>
+          <dd>
+            Vektor med datarader. Varje rad är en strängvektor med ett element
+            per kolumn.
+          </dd>
+
+          <dt class="optional"><code lang="en">caption</code></dt>
+          <dd>Tabellbeskrivning (”bildtext”).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--text()-->
+      <section>
+        <h2 id="m-text"><code lang="en">text()</code></h2>
+
+        <p>
+          Lägger till ett textstycke utan särskild formgivning i relaterat
+          innehåll.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">text</span>(<span class="var">html</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">html</code></dt>
+          <dd>
+            Styckets innehåll, som kan innehålla HTML-element som är tillåtna i
+            ett <code class="html tag">&lt;p&gt;</code>-element.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--tip()-->
+      <section>
+        <h2 id="m-tip"><code lang="en">tip()</code></h2>
+
+        <p>Lägger till en tipsruta i relaterat innehåll.</p>
+
+        <p class="tip">
+          Exempel på en tipsruta. Används för tips och råd till granskaren.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">tip</span>(<span class="var">html</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">html</code></dt>
+          <dd>
+            Rutans innehåll, som kan innehålla HTML-element som är tillåtna i
+            ett <code class="html tag">&lt;p&gt;</code>-element.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--uList()-->
+      <section>
+        <h2 id="m-ulist"><code lang="en">uList()</code></h2>
+
+        <p>Lägger till en punktlista i relaterat innehåll.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">uList</span>(<span class="var">items</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">items</code></dt>
+          <dd>Listelement, som kan innehålla HTML.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--warning()-->
+      <section>
+        <h2 id="m-warning"><code lang="en">warning()</code></h2>
+
+        <p>Lägger till en varningsruta i relaterat innehåll.</p>
+
+        <p class="warning">
+          Exempel på en varningsruta. Används för varningar till granskaren.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">warning</span>(<span class="var">html</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">html</code></dt>
+          <dd>
+            Rutans innehåll, som kan innehålla HTML-element som är tillåtna i
+            ett <code class="html tag">&lt;p&gt;</code>-element.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--webDeveloper()-->
+      <section>
+        <h2 id="m-web-developer"><code lang="en">webDeveloper()</code></h2>
+
+        <p>
+          Lägger till verktygsinformation om
+          <cite lang="en">Web Developer Toolbar</cite> i relaterat innehåll.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">webDeveloper</span>(<span class="var">tab</span>)
+<span class="ident">webDeveloper</span>(<span class="var">tab</span>, <span class="var">func</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">tab</code></dt>
+          <dd>Tabbfliksnamn.</dd>
+
+          <dt class="optional"><code lang="en">func</code></dt>
+          <dd>Funktionsnamn.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../requirement.module.html"
+              ><code lang="en">requirement.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/RequirementController.html"
+              ><code lang="en">RequirementController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

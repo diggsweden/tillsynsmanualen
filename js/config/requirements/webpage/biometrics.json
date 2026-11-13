@@ -1,0 +1,16 @@
+{
+  "examples": {
+    "neutral": [
+      "Ansiktsigenkänning",
+      "Fingeravtryck",
+      "Näthinneavläsning",
+      "Röstigenkänning."
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Biometriska metoder mäter elektroniskt delar av kroppen (fingeravtryck, näthinna, ansikte) eller funktionsförmåga (till exempel röst) och utestänger personer som saknar funktionsförmågan eller kroppsdelen, eller som inte kan placera en kroppsdel där avläsningsverktyget kräver."
+    }
+  ]
+}

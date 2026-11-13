@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 300">
+  <g id="Requirement">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="302"/>
+      <line x1="1" y1="12"  x2="140" y2="12"/>
+      <line x1="1" y1="192" x2="140" y2="192"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Requirement</text>
+      <text x="5" y="20">+approvable: boolean</text>
+      <text x="5" y="30">+approved: boolean</text>
+      <text x="5" y="40">+categories: string[]</text>
+      <text x="5" y="50">+clause: string</text>
+      <text x="5" y="60">+contentTypes: string[]</text>
+      <text x="5" y="70">+dependencies: callback</text>
+      <text x="5" y="80">+done: boolean</text>
+      <text x="5" y="90">+externalNote: string</text>
+      <text x="5" y="100">+failed: boolean</text>
+      <text x="5" y="110">+formats: string[]</text>
+      <text x="5" y="120">+hasChecks: boolean</text>
+      <text x="5" y="130">+id: string</text>
+      <text x="5" y="140">+internalNote: string</text>
+      <text x="5" y="150">+key: string</text>
+      <text x="5" y="160">+modes: string[]</text>
+      <text x="5" y="170">+sampleID: number</text>
+      <text x="5" y="180">+state: string</text>
+      <text x="5" y="190">+title: string</text>
+      <text x="5" y="200">check(string): Check</text>
+      <text x="5" y="210">checks(): iterator</text>
+      <text x="5" y="220">matchCategory(string): boolean</text>
+      <text x="5" y="230">matchContentTypes(string[]): boolean</text>
+      <text x="5" y="240">matchFormat(string): boolean</text>
+      <text x="5" y="250">matchMode(string): boolean</text>
+      <text x="5" y="260">matchPlatform(string): boolean</text>
+      <text x="5" y="270">serialize(): object</text>
+      <text x="5" y="280">setCheck(Check): void</text>
+      <text x="5" y="290">toJSON(): object</text>
+      <text x="5" y="300">toString(): string</text>
+    </g>
+  </g>
+</svg>

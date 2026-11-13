@@ -1,0 +1,6 @@
+{
+  "methods": [
+    "Använd vyns talfunktion: lyssna till alla objekt och kontrollera att objekttyper förmedlas korrekt (till exempel rubriker, listor, tabeller).",
+    "Kontrollera att text som visuellt är indelad i stycken även är indelad maskinläsbart, så att talfunktionen inte läser upp stora textmassor utan avbrott."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "info": [
+    {
+      "type": "definition",
+      "term": "Tillgänglighetsfunktion",
+      "description": "En funktion som är inbyggd i vyn för att tillgodose specifika behov hos användare."
+    },
+    {
+      "type": "definition",
+      "term": "Kompatibilitetsfunktion",
+      "description": "En funktion som ser till att vyn är kompatibel med hjälpmedel för personer med funktionsnedsättning."
+    }
+  ]
+}

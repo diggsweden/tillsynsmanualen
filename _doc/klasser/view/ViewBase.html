@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ViewBase – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      table {
+        width: 100%;
+      }
+      col.field {
+        width: 4em;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">ViewBase</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ViewBase</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-activate"><code lang="en">activate()</code></a>
+          </li>
+          <li>
+            <a href="#m-auto-focus"><code lang="en">autoFocus()</code></a>
+          </li>
+          <li>
+            <a href="#m-close"><code lang="en">close()</code></a>
+          </li>
+          <li>
+            <a href="#m-confirm"><code lang="en">confirm()</code></a>
+          </li>
+          <li>
+            <a href="#m-deactivate"><code lang="en">deactivate()</code></a>
+          </li>
+          <li>
+            <a href="#m-hide-status"><code lang="en">hideStatus()</code></a>
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-show-error"><code lang="en">showError()</code></a>
+          </li>
+          <li>
+            <a href="#m-show-status"><code lang="en">showStatus()</code></a>
+          </li>
+          <li>
+            <a href="#m-show-success"><code lang="en">showSuccess()</code></a>
+          </li>
+          <li>
+            <a href="#m-subscribe"><code lang="en">subscribe()</code></a>
+          </li>
+          <li>
+            <a href="#m-unsubscribe"><code lang="en">unsubscribe()</code></a>
+          </li>
+          <li>
+            <a href="#m--add-styles"><code lang="en">_addStyles()</code></a>
+          </li>
+          <li>
+            <a href="#m--element"><code lang="en">_element()</code></a>
+          </li>
+          <li>
+            <a href="#m--notify-action"
+              ><code lang="en">_notifyAction()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m--notify-observers"
+              ><code lang="en">_notifyObservers()</code></a
+            >
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>Basklass för vyer, med gemensamma funktioner för vyklasser.</p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/ViewBase.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/ViewBase.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 200" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--ViewBase-->
+          <use
+            xlink:href="ViewBase.svg#ViewBase"
+            x="190"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+          <path d="M190,38 h-20 v98 h-20" class="composition" />
+          <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+          <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+          <!--ResourceLoader-->
+          <use
+            xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+            x="30"
+            y="0"
+          />
+
+          <!--BreadcrumbTrail-->
+          <use xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail" x="0" y="80" />
+
+          <g transform="translate(360, 0)">
+            <!--EventListenerList-->
+            <use
+              xlink:href="../common/EventListenerList.svg#EventListenerList"
+              x="0"
+              y="0"
+            />
+
+            <!--AutoContentMenu-->
+            <use
+              xlink:href="AutoContentMenu.svg#AutoContentMenu"
+              x="0"
+              y="80"
+            />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ViewBase</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ViewBase</span>(<span class="var">page</span>, <span class="var">title</span>, <span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">page</code></dt>
+          <dd>
+            Namnet på den innehållsfragmentfil som vyn ska ladda in när den
+            öppnas (utan sökväg och filändelse).
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Dokumenttitel.</dd>
+
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">action</code></dt>
+          <dd>
+            Åtgärdssökväg (<code lang="en">action</code>-attributvärde) för ett
+            formulär i det laddade sidfragmentet.
+          </dd>
+
+          <dt><code lang="en">advancedMode</code></dt>
+          <dd>
+            Flagga som anger om vyn ska använda det avancerade eller det
+            förenklade visningsläget.
+          </dd>
+
+          <dt class="readonly"><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstigen.</dd>
+
+          <dt><code lang="en">busy</code></dt>
+          <dd>
+            Sätter eller tar bort attributet
+            <code lang="en" class="html attr">aria-busy</code> på
+            <code lang="en" class="html tag">&lt;body&gt;</code>-elementet.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Dokumenttitel.</dd>
+
+          <dt class="readonly"><code lang="en">_article</code></dt>
+          <dd>
+            För subklasser:
+            <code lang="en" class="html tag">&lt;article&gt;</code>-elementet
+            som populerats med det laddade sidfragmentet.
+          </dd>
+
+          <dt><code lang="en">_autoMenu</code></dt>
+          <dd>
+            Sätts av subklasser: flagga som anger om basklassen ska skapa en
+            automatisk innehållsmeny när sidfragmentet laddats.
+          </dd>
+
+          <dt><code lang="en">_confirmID</code></dt>
+          <dd>
+            Sätts av subklasser: identitet för modal dialogruta som används av
+            metoden <code lang="en">confirm()</code>.
+          </dd>
+
+          <dt class="readonly"><code lang="en">_doc</code></dt>
+          <dd>För subklasser: DOM-dokumentet.</dd>
+
+          <dt class="readonly"><code lang="en">_form</code></dt>
+          <dd>
+            För subklasser: eventuellt formulärelement i det laddade
+            sidfragmentet.
+          </dd>
+
+          <dt class="readonly"><code lang="en">_listeners</code></dt>
+          <dd>För subklasser: händelselyssnarlista.</dd>
+
+          <dt><code lang="en">_wide</code></dt>
+          <dd>
+            Sätts av subklasser: flagga för att ta bort maxbredden på
+            <code lang="en" class="html tag">&lt;main&gt;</code>-elementet om
+            det laddede sidfragmentet har brett innehåll.
+          </dd>
+        </dl>
+      </section>
+
+      <!--activate()-->
+      <section>
+        <h2 id="m-activate"><code lang="en">activate()</code></h2>
+
+        <p>
+          Gör vyn ”aktiv” genom att lyssna efter händelser och meddela
+          registrerade observatörer när det inträffar vissa händelser.
+        </p>
+
+        <p>Metoden lägger till lyssnare för följande element och händelser:</p>
+
+        <ul>
+          <li>
+            klick på knappar (<code lang="en" class="html tag"
+              >&lt;button <span>type=<span>"button"</span></span
+              >&gt;</code
+            >)
+          </li>
+          <li>klick på länkar till andra sidor inom granskningsfunktionen</li>
+          <li>
+            klick eller <kbd><kbd lang="en">Enter</kbd></kbd
+            >-tryckning på statusbehållaren om den har klassen
+            <code lang="en">closable</code> (hanteras internt av vyn och
+            meddelas inte till observatörer)
+          </li>
+          <li>inskick <i lang="en">(submit)</i> av formulär</li>
+          <li>ändringar av värden i formulärfält.</li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">activate</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--autoFocus()-->
+      <section>
+        <h2 id="m-auto-focus"><code lang="en">autoFocus()</code></h2>
+
+        <p>
+          Metoden sätter fokus till det element som har den angivna identiteten.
+          Används med begäransparametern ”<code lang="en">target</code>”, då
+          fragmentidentiferare (<code><var>url</var>#<var>id</var></code
+          >) inte fungerar i en
+          <abbr lang="en" title="Single Page Application">SPA</abbr>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="js"><code lang="en"><span class="ident">autoFocus</span>()
+<span class="ident">autoFocus</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">id</code></dt>
+          <dd>
+            Identitet för ett specifikt element som ska få fokus (troligen från
+            en parameter i sökvägen).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--close()-->
+      <section>
+        <h2 id="m-close"><code lang="en">close()</code></h2>
+
+        <p>Stänger vyn:</p>
+
+        <ol>
+          <li>inaktiverar vyn (tar bort händelselyssnare)</li>
+          <li>tonar bort innehållet</li>
+          <li>visar statusmeddelandet ”<samp>Laddar…</samp>”</li>
+          <li>tar bort eventuell automatisk innehållsmeny</li>
+          <li>tar bort länkstigen</li>
+          <li>tar bort eventuella tillagda stilmallar</li>
+          <li>
+            återställer maxbredden för
+            <code lang="en" class="html tag">&lt;main&gt;</code>.
+          </li>
+        </ol>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">close</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--confirm()-->
+      <section>
+        <h2 id="m-confirm"><code lang="en">confirm()</code></h2>
+
+        <p>Visar och hanterar en modal bekräftelsedialogruta.</p>
+
+        <p>
+          Dialogrutan måste existera i det laddade sidfragmentet och dess
+          identitet måste ha satts av subklassen i det ”skyddade” fältet
+          <code lang="en">_confirmID</code>.
+        </p>
+
+        <p>
+          Dialogrutan ska innehålla ett element med klassen
+          <code lang="en">prompt</code> och två knappar: en OK-knapp med värdet
+          <code lang="en" class="js literal">"true"</code> och en Avbryt-knapp
+          med värdet <code lang="en" class="js literal">"false"</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">confirm</span>(<span class="var">prompt</span>)
+<span class="keyword">await</span> <span class="ident">confirm</span>(<span class="var">prompt</span>, <span class="var">trigger</span>)
+<span class="keyword">await</span> <span class="ident">confirm</span>(<span class="var">prompt</span>, <span class="var">trigger</span>, <span class="var">texts</span>)
+<span class="keyword">await</span> <span class="ident">confirm</span>(<span class="var">prompt</span>, <span class="var">trigger</span>, <span class="var">texts</span>, <span class="var">icons</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">prompt</code></dt>
+          <dd>Meddelande som användaren ska bekräfta.</dd>
+
+          <dt class="optional"><code lang="en">trigger</code></dt>
+          <dd>
+            Element (knapp) som initierat dialogrutan och ska få fokus när
+            dialgorutan stängs.
+          </dd>
+
+          <dt class="optional"><code lang="en">texts</code></dt>
+          <dd>
+            Strängvektor med alternativa knapptexter som ska ersätta texterna i
+            mallelementet. Metoden ersätter textinnehållet i den sista
+            underordnade noden i varje knapp med motsvarande alternativ. När
+            dialogrutan stängs återställs knapptexterna.
+          </dd>
+
+          <dt class="optional"><code lang="en">icons</code></dt>
+          <dd>
+            Flagga som kan anges som
+            <code lang="en" class="js literal">false</code> för att dölja
+            eventuella ikoner i dialogens knappar.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med resultatet när användaren stänger
+          dialogrutan. Om användaren bekräftat är resultatet
+          <code lang="en" class="js literal">true</code>, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--deactivate()-->
+      <section>
+        <h2 id="m-deactivate"><code lang="en">deactivate()</code></h2>
+
+        <p>Gör vyn ”inaktiv” genom att sluta lyssna efter händelser.</p>
+
+        <p>Metoden tar bort alla tillagda händelselyssnare.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">deactivate</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--hideStatus()-->
+      <section>
+        <h2 id="m-hide-status"><code lang="en">hideStatus()</code></h2>
+
+        <p>Döljer ett eventuellt synligt statusmeddelare.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">hideStatus</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>Öppnar vyn och hämtar innehållet:</p>
+
+        <ol>
+          <li>
+            Lägg till
+            <code lang="en" class="html tag">&lt;link&gt;</code>-element för
+            eventuella stilmllar som en subklass specificerat genom
+            <code lang="en">_addStyles()</code>.
+          </li>
+          <li>
+            Ta bort maxbredden på
+            <code lang="en" class="html tag">&lt;main&gt;</code>-elementet om
+            subklassen satt
+            <code lang="en" class="js"
+              >_wide=<span class="literal">true</span></code
+            >.
+          </li>
+          <li>Hämta sidfragmentet med resursladdaren.</li>
+          <li>Lägg till länkstigen, om den är komplett.</li>
+          <li>Sätt dokumenttiteln.</li>
+          <li>Dölj statusmeddelandet om att sidan laddar.</li>
+          <li>
+            Populera
+            <code lang="en" class="html tag">&lt;article&gt;</code>-elementet
+            med det hämtade sidfragmentets innehåll.
+          </li>
+          <li>Identifiera eventuellt formulär i sidfragmentet.</li>
+          <li>
+            Försätt sidan i antingen avancerat eller förenklat visningsläge,
+            beroende på flaggan i fältet <code lang="en">advancedMode</code>.
+          </li>
+          <li>
+            Om subklassen satt flaggan i fältet
+            <code lang="en">_autoMenu</code>, skapa en automatiskt
+            innehållsmeny.
+          </li>
+          <li>
+            Ta bort upptagetmarkeringen (attributet
+            <code lang="en" class="html attr">aria-busy</code> på
+            <code lang="en" class="html tag">&lt;body&gt;</code>-elementet).
+          </li>
+          <li>Tona fram sidinnehållet.</li>
+        </ol>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">open</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias när vyn hämtat sidfragmentet och populerat
+          artikelelementet med dess innehåll.
+        </p>
+      </section>
+
+      <!--showError()-->
+      <section>
+        <h2 id="m-show-error"><code lang="en">showError()</code></h2>
+
+        <p>Visar ett felmeddelande i statusbehållaren.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showError</span>(<span class="var">message</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">message</code></dt>
+          <dd>Felmeddelande att visa.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--showStatus()-->
+      <section>
+        <h2 id="m-show-status"><code lang="en">showStatus()</code></h2>
+
+        <p>Visar ett statusmeddelande i statusbehållaren.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showStatus</span>(<span class="var">message</span>)
+<span class="ident">showStatus</span>(<span class="var">message</span>, <span class="var">type</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">message</code></dt>
+          <dd>Statusmeddelande att visa.</dd>
+
+          <dt class="optional"><code lang="en">type</code></dt>
+          <dd>Klassnamn för statusbehållaren.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--showSuccess()-->
+      <section>
+        <h2 id="m-show-success"><code lang="en">showSuccess()</code></h2>
+
+        <p>Visar ett kvittensmeddelande i statusbehållaren.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">showSuccess</span>(<span class="var">message</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">message</code></dt>
+          <dd>Kvittensmeddelande att visa.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--subscribe()-->
+      <section>
+        <h2 id="m-subscribe"><code lang="en">subscribe()</code></h2>
+
+        <p>Prenumerera på händelseaviseringar från vyn.</p>
+
+        <p>
+          När händelser inträffar och vyn är ”aktiv” (se
+          <a href="#m-activate"><code lang="en">activate()</code></a
+          >) meddelar vyn alla registrerade observatörer.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">subscribe</span>(<span class="var">notify</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">notify</code></dt>
+          <dd>Funktion att anropa vid avisering.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Händelseinformation</h3>
+
+        <p>
+          De registrerade funktionerna anropas med ett händelseobjekt, vars
+          innehåll beror på vilken typ av händelse som inträffat.
+        </p>
+
+        <table>
+          <caption>
+            Händelseinformation vid klick på länkar till sidor i
+            granskningsfunktionen.
+          </caption>
+
+          <colgroup>
+            <col class="field" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Värde</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">path</code></td>
+              <td>Frågeparametrarna från den klickade länken.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">type</code></td>
+              <td><code lang="en" class="js literal">"link"</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Händelseinformation vid ändring av värde i formulärfält.
+          </caption>
+
+          <colgroup>
+            <col class="field" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Värde</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">state</code></td>
+              <td>
+                Tillstånd (<code lang="en" class="js literal">true</code>/<code
+                  lang="en"
+                  class="js literal"
+                  >false</code
+                >) för kryssrutor och radioknappar, annars
+                <code lang="en" class="js keyword">undefined</code>.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">target</code></td>
+              <td>Elementets namn eller identitet.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">type</code></td>
+              <td><code lang="en" class="js literal">"change"</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">value</code></td>
+              <td>
+                Fältets värde (datum för datumfält och numeriskt för numeriska
+                fält).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Händelseinformation vid knapptryckning.
+          </caption>
+
+          <colgroup>
+            <col class="field" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Värde</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">action</code></td>
+              <td>
+                Värdet i knappens
+                <code lang="en" class="html attr">value</code>-attribut.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">path</code></td>
+              <td><code lang="en" class="js keyword">null</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">trigger</code></td>
+              <td>
+                Det klickade
+                <code lang="en" class="html tag">&lt;button&gt;</code
+                >-elementet.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">type</code></td>
+              <td><code lang="en" class="js literal">"form"</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Händelseinformation vid inskick av formulär.
+          </caption>
+
+          <colgroup>
+            <col class="field" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Värde</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">action</code></td>
+              <td>
+                Värdet i den aktiverande knappens
+                <code lang="en" class="html attr">value</code>-attribut.
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">path</code></td>
+              <td>
+                Åtgärdssökväg i den aktiverande knappen (<code
+                  lang="en"
+                  class="html attr"
+                  >formaction</code
+                >) eller i formuläret (<code lang="en" class="html attr"
+                  >action</code
+                >).
+              </td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">trigger</code></td>
+              <td>Den aktiverande knappen.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">type</code></td>
+              <td><code lang="en" class="js literal">"form"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--unsubscribe()-->
+      <section>
+        <h2 id="m-unsubscribe"><code lang="en">unsubscribe()</code></h2>
+
+        <p>Ta bort prenumeration på händelseaviseringar från vyn.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">unsubscribe</span>(<span class="var">notify</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">notify</code></dt>
+          <dd>Aviseringsfunktion att ta bort.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--_addStyles()-->
+      <section>
+        <h2 id="m--add-styles"><code lang="en">_addStyles()</code></h2>
+
+        <p>Lägg till sidspecifika stilmallar.</p>
+
+        <p class="note">
+          Detta är en ”skyddad” metod som bara är avsedd att anropas från
+          subklasser.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">_addStyles</span>(<span class="var">name1</span>, …, <span class="var">nameN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">nameN</code></dt>
+          <dd>Namn (utan sökväg och filändelse) på stilmall att lägga till.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--_element()-->
+      <section>
+        <h2 id="m--element"><code lang="en">_element()</code></h2>
+
+        <p>Skapa en elementnod i DOM-trädet.</p>
+
+        <p class="note">
+          Detta är en ”skyddad” metod som bara är avsedd att anropas från
+          subklasser.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">_element</span>(<span class="var">parent</span>, <span class="var">tag</span>)
+<span class="ident">_element</span>(<span class="var">parent</span>, <span class="var">tag</span>, <span class="var">attributes</span>)
+<span class="ident">_element</span>(<span class="var">parent</span>, <span class="var">tag</span>, <span class="var">attributes</span>, <span class="var">text</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>
+            Föräldraelement att lägga till det skapade elementet i, eller
+            <code lang="en" class="js keyword">null</code>.
+          </dd>
+
+          <dt><code lang="en">tag</code></dt>
+          <dd>Taggnamn att skapa.</dd>
+
+          <dt class="optional"><code lang="en">attributes</code></dt>
+          <dd>
+            Objekt med attributnamn och -värden att sätta på det skapade
+            elementet (med <code lang="en">setAttribute()</code>).
+          </dd>
+
+          <dt class="optional"><code lang="en">text</code></dt>
+          <dd>Textinnehåll i elementet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den skapade elementnoden.</p>
+      </section>
+
+      <!--_notifyAction()-->
+      <section>
+        <h2 id="m--notify-action"><code lang="en">_notifyAction()</code></h2>
+
+        <p>
+          Anropa alla registrerade observatörer om aktivering av en
+          funktionsknapp (<code lang="en" class="html tag"
+            >&lt;button <span>type=<span>"button"</span></span></code
+          >). Metoden anropar i sin tur
+          <a href="#m--notify-observers"
+            ><code lang="en">_notifyObservers</code></a
+          >.
+        </p>
+
+        <p class="note">
+          Detta är en ”skyddad” metod som bara är avsedd att anropas från
+          subklasser.
+        </p>
+
+        <p class="note">
+          Basklassen
+          <a href="ViewBase.html"><code lang="en">ViewBase</code></a> hanterar
+          funktionsknappar som existerar i DOM-trädet när metoden
+          <a href="ViewBase.html#m-activate"
+            ><code lang="en">activate()</code></a
+          >
+          anropas. Subklasser behöver bara anropa den här metoden om de lägger
+          till händelsehanterare på knappar som infogas i DOM-trädet
+          <em>efter</em> aktivering av vyn.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">_notifyAction</span>(<span class="var">event</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">event</code></dt>
+          <dd>Händelseinformation från DOM.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--_notifyObservers()-->
+      <section>
+        <h2 id="m--notify-observers">
+          <code lang="en">_notifyObservers()</code>
+        </h2>
+
+        <p>Anropa alla registrerade observatörer.</p>
+
+        <p class="note">
+          Detta är en ”skyddad” metod som bara är avsedd att anropas från
+          subklasser.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">_notifyObservers</span>(<span class="var">info</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">info</code></dt>
+          <dd>
+            Objekt med händelseinformation att använda som argument i anropen.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="AutoContentMenu.html"
+              ><code lang="en">AutoContentMenu</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

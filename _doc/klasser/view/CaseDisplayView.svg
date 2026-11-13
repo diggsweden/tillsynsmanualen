@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <g id="CaseDisplayView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="159" height="152"/>
+      <line x1="1" y1="12"  x2="160" y2="12"/>
+      <line x1="1" y1="122" x2="160" y2="122"/>
+    </g>
+
+    <g stroke="none">
+      <text x="80" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">CaseDisplayView</text>
+      <text x="5" y="20">+addr: string</text>
+      <text x="5" y="30">+create: string</text>
+      <text x="5" y="40">+edit: string</text>
+      <text x="5" y="50">+email: string</text>
+      <text x="5" y="60">+heading: string</text>
+      <text x="5" y="70">+log: string</text>
+      <text x="5" y="80">+logSize: number</text>
+      <text x="5" y="90">+org: string</text>
+      <text x="5" y="100">+regNo: string</text>
+      <text x="5" y="110">+supervisor: string</text>
+      <text x="5" y="120">+tel: string</text>
+      <text x="5" y="130">activate(): void</text>
+      <text x="5" y="140">addAudit(string, string, string[]): void</text>
+      <text x="5" y="150">addDocument(string, string, string[]): void</text>
+    </g>
+  </g>
+</svg>

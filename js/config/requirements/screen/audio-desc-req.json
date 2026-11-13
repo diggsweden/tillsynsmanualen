@@ -1,0 +1,34 @@
+{
+  "methods": [
+    "Spela filmen och kontrollera att allt relevant visuellt innehåll förmedlas av en berättarröst."
+  ],
+  "examples": {
+    "bad": [
+      "En film som gör reklam för en e-tjänst har en berättarröst som återger det visuella innehållet. Filmen avslutas med en textskylt som visar webbadressen till tjänsten, men den läses inte upp.",
+      "En inspelad intervju med en myndighetschef angående misstänkta oegentligheter har onödig syntolkning som i detalj beskriver den intervjuade chefens klädsel."
+    ],
+    "good": [
+      "Textskyltar som visas i bild blir också upplästa av en berättarröst.",
+      "Varje medverkande i en film presenterar sig själv, eller blir presenterad av någon annan, samtidigt som namnet visas i bild.",
+      "Relevanta visuella inslag i handlingen återges av en berättarröst under pauser i dialogen, med låg eller ingen bakgrundsmusik."
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Med <dfn>relevanta inslag</dfn> menas inslag i handlingen som är nödvändiga för att förstå det som kommer efteråt, eller för att förstå filmens budskap. Det är nästan lika illa att beskriva sådant som inte är relevant som att inte beskriva det som är vikitgt."
+    },
+    {
+      "type": "text",
+      "text": "Eftersom många mediespelare saknar stöd för att mixa flera ljudspår tillhandahålls syntolkning ofta i en separat film där syntolkningen ligger i det ordinarie ljudspåret. Om inte båda filmerna finns på samma sida ska det åtminstone finnas en tydlig länk till den syntolkade versionen i anslutning till den otillgängliga filmen."
+    },
+    {
+      "type": "note",
+      "text": "Om alla relevanta inslag förmedlas av en röst – så kallad <dfn>verbalisering</dfn> – behövs ingen separat syntolkning."
+    },
+    {
+      "type": "tip",
+      "text": "Funktioner i mediespelare för att aktivera syntolkning använder ofta förkortningen <abbr>AD</abbr> <i translate=\"no\" lang=\"en\">(audio description)</i> eller symbolen <img src=\"../img/audio-descr.png\" alt=\"Ett öga och tre koncentriska cirkelsegment som symboliserar ljudvågor\" style=\"vertical-align:middle\">."
+    }
+  ]
+}

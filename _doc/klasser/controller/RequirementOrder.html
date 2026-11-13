@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>RequirementOrder – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 28rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">RequirementOrder</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">RequirementOrder</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-iterator"><code lang="en">[@@iterator]()</code></a>
+          </li>
+          <li>
+            <a href="#m-build"><code lang="en">build()</code></a>
+          </li>
+          <li>
+            <a href="#m-next"><code lang="en">next()</code></a>
+          </li>
+          <li>
+            <a href="#m-previous"><code lang="en">previous()</code></a>
+          </li>
+          <li>
+            <a href="#m-section"><code lang="en">section()</code></a>
+          </li>
+          <li>
+            <a href="#m-sectionless"><code lang="en">sectionless()</code></a>
+          </li>
+          <li>
+            <a href="#m-skip"><code lang="en">skip()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>Hjälpklass för hantering av kravordningen i ett stickprov.</p>
+
+      <p>
+        Vilka krav som ingår i ett stickprov styrs av konfigurationsfiler. Dessa
+        har villkorsstyrning på flera nivåer och villkorens utfall kan förändras
+        genom redigering av stickprovet (till exempel tillägg eller borttag av
+        innehållstyper).
+      </p>
+
+      <p>
+        Ett befintligt stickprov kan vara populerat med en tidigare
+        konfiguration än den nu aktu&shy;ella, till exempel när man laddat upp
+        ett gammalt ärende från fil och konfigurationen ändrats sedan ärendet
+        skapades.
+      </p>
+
+      <p>
+        Den inbördes ordningen mellan kraven behöver vara konsekvent i flera
+        olika situationer – därav behovet av denna hjälpklass.
+      </p>
+
+      <p>
+        <code lang="en">RequirementOrder</code> sköter också om populeringen av
+        krav i ett tomt stickprov, eftersom den processen hör intimt ihop med
+        såväl kravordning som konfiguration.
+      </p>
+
+      <p class="note">
+        Ett stickprov populeras med <em>samtliga</em> krav från konfigurationen,
+        oavsett villkor, för att eliminera behovet av komplicerade
+        ompopuleringar vid redigering.
+        <code lang="en">RequirementOrder</code> hjälper till att hantera de krav
+        som faktiskt <em>ingår</em> i gransk&shy;ningen vid ett givet tillfälle,
+        med hänsyn taget till villkor för urvalskategori, innehållstyper,
+        dokumentformat, applikationsplattform och öppen/stängd funktionalitet
+        för skärmläsare..
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/RequirementOrder.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/RequirementOrder.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 280 280" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <g>
+            <!--RequirementOrder-->
+            <g transform="translate(10, 0)">
+              <g class="highlight">
+                <rect x="0.5" y="0.5" width="100" height="82" />
+                <text x="50" y="10" class="class">RequirementOrder</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">[@@iterator](): iterable</text>
+                <text x="5" y="30">build(Sample): object</text>
+                <text x="5" y="40">next(string): string</text>
+                <text x="5" y="50">previous(string): string</text>
+                <text x="5" y="60">section(object): iterator</text>
+                <text x="5" y="70">sectionless(): iterator</text>
+                <text x="5" y="80">skip(string): string</text>
+              </g>
+
+              <line x1="101" y1="41" x2="130" y2="41" class="composition" />
+              <line x1="50" y1="83" x2="50" y2="110" class="composition" />
+            </g>
+
+            <!--ResourceLoader-->
+            <g transform="translate(0, 110)">
+              <rect x="0.5" y="0.5" width="120" height="62" />
+              <text x="60" y="10" class="class">ResourceLoader</text>
+              <line x1="1" y1="12" x2="120" y2="12" />
+              <text x="5" y="20">configuration(string): promise</text>
+              <text x="5" y="30">loadModule(string): promise</text>
+              <text x="5" y="40">pageContent(string): promise</text>
+              <text x="5" y="50">pageTemplate(string): promise</text>
+              <text x="5" y="60">resource(string): promise</text>
+            </g>
+          </g>
+
+          <!--Sample-->
+          <g transform="translate(140, 0)">
+            <rect x="0.5" y="0.5" width="130" height="272" />
+            <text x="65" y="10" class="class">Sample</text>
+            <line x1="1" y1="12" x2="130" y2="12" />
+            <text x="5" y="20">+auditID: number</text>
+            <text x="5" y="30">+category: string</text>
+            <text x="5" y="40">+contentTypes: string[]</text>
+            <text x="5" y="50">+done: boolean</text>
+            <text x="5" y="60">+failed: boolean</text>
+            <text x="5" y="70">+follows: string</text>
+            <text x="5" y="80">+hasExternalNotes: boolean</text>
+            <text x="5" y="90">+hasRequirements: boolean</text>
+            <text x="5" y="100">+id: number</text>
+            <text x="5" y="110">+mode: string</text>
+            <text x="5" y="120">+name: string</text>
+            <text x="5" y="130">+note: string</text>
+            <text x="5" y="140">+service: string</text>
+            <text x="5" y="150">+started: boolean</text>
+            <line x1="1" y1="152" x2="130" y2="152" />
+            <text x="5" y="160">addContentType(string): void</text>
+            <text x="5" y="170">contains(...string): boolean</text>
+            <text x="5" y="180">deleteContentType(string): boolean</text>
+            <text x="5" y="190">failures(set): set</text>
+            <text x="5" y="200">nextRequirement(): Requirement</text>
+            <text x="5" y="210">progress(): number[]</text>
+            <text x="5" y="220">requirement(string): Requirement</text>
+            <text x="5" y="230">requirements([boolean]): iterator</text>
+            <text x="5" y="240">serialize(): object</text>
+            <text x="5" y="250">setRequirement(Requirement): void</text>
+            <text x="5" y="260">toJSON(): object</text>
+            <text x="5" y="270">toString(): string</text>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">RequirementOrder</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">RequirementOrder</span>(<span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--[@@iterator]()-->
+      <section>
+        <h2 id="m-iterator"><code lang="en">[@@iterator]()</code></h2>
+
+        <p>
+          <code lang="en">RequirementOrder</code> är itererbar och itererar över
+          alla kravidentiter som ingår i stickprovet.
+        </p>
+
+        <p class="note">
+          Det är meningslöst att använda iteratorn innan ordningen byggts upp
+          med <code lang="en">build()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en">[<span class="var">Symbol</span>.<span class="var">iterator</span>]()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En generator som itererar över alla kravidentiteter som ingår i
+          granskningen.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">order</span> = <span class="keyword">new</span> <span class="var">RequirementOrder</span>(<span class="keyword">new</span> <span class="var">ResourceLoader</span>());
+<span class="keyword">await</span> <span class="var">order</span>.<span class="var">build</span>(<span class="var">sample</span>);
+<span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">id</span> <span class="keyword">of</span> <span class="var">order</span>) {
+    // console.log(id);
+}</code></pre>
+      </section>
+
+      <!--build()-->
+      <section>
+        <h2 id="m-build"><code lang="en">build()</code></h2>
+
+        <p>
+          Hämtar den relevanta kravkonfigurationen för det angivna stickprovet
+          och bygger krav&shy;ordningen utifrån den. Om stickprovet inte är
+          populerat med krav populerar metoden det.
+        </p>
+
+        <h3>Syntax</h3>
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">build</span>(<span class="var">sample</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sample</code></dt>
+          <dd>
+            Stickprov att bygga kravordningen för och, eventuellt, populera med
+            krav.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med den hämtade kravkonfigurationen.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Det gick inte att hämta kravkonfigurationen.</dd>
+        </dl>
+      </section>
+
+      <!--next()-->
+      <section>
+        <h2 id="m-next"><code lang="en">next()</code></h2>
+
+        <p>
+          Returnerar den kravidentitet som följer efter den angivna
+          referensidentiteten i ordningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">next</span>(<span class="var">reference</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">reference</code></dt>
+          <dd>Kravidentitet att utgå ifrån.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Nästa kravidentitet i ordningen, eller
+          <code lang="en" class="js keyword">null</code> om referensidentiteten
+          är den sista.
+        </p>
+      </section>
+
+      <!--previous()-->
+      <section>
+        <h2 id="m-previous"><code lang="en">previous()</code></h2>
+
+        <p>
+          Returnerar den kravidentitet som kommer före den angivna
+          referensidentiteten i ordningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">previous</span>(<span class="var">reference</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">reference</code></dt>
+          <dd>Kravidentitet att utgå ifrån.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Föregående kravidentitet i ordningen, eller
+          <code lang="en" class="js keyword">null</code> om referensidentiteten
+          är den första.
+        </p>
+      </section>
+
+      <!--section()-->
+      <section>
+        <h2 id="m-section"><code lang="en">section()</code></h2>
+
+        <p>
+          Itererar över kravidentiter, i angivet konfigurationsavsnitt, som
+          ingår i granskningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">section</span>(<span class="var">secCfg</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">secCfg</code></dt>
+          <dd>Avsnittskonfiguration.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En generator som ger de kravidentiteter i avsnittet som ingår i
+          granskningen.
+        </p>
+      </section>
+
+      <!--sectionless()-->
+      <section>
+        <h2 id="m-sectionless"><code lang="en">sectionless()</code></h2>
+
+        <p>
+          Itererar över avsnittslösa kravidentiter som ingår i granskningen.
+        </p>
+
+        <p>
+          Om ett stickprov innehåller ett krav som inte längre tillhör något
+          avsnitt i konfigurationen blr dessa krav avsnittslösa. De presenteras
+          i pseudo-avsnittet "<samp>Övrigt</samp>", efter de normala avsnitten.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">sectionless</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          En generator som ger de kravidentiteter som ingår i granskningen, men
+          inte tillhör något granskningsavsnitt i konfigurationen.
+        </p>
+      </section>
+
+      <!--skip()-->
+      <section>
+        <h2 id="m-skip"><code lang="en">skip()</code></h2>
+
+        <p>
+          Returnerar identiteten för nästa ogranskade krav efter den angivna
+          referensidentiteten i ordningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">skip</span>(<span class="var">reference</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">reference</code></dt>
+          <dd>Kravidentitet att utgå ifrån.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Identiteten för nästa krav i ordningen som inte är färdiggranskat,
+          eller <code lang="en" class="js keyword">null</code> det inte finns
+          något sådant.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../model/Requirement.html"
+              ><code lang="en">Requirement</code></a
+            >
+          </li>
+          <li>
+            <a href="RequirementController.html"
+              ><code lang="en">RequirementController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="SampleDisplayController.html"
+              ><code lang="en">SampleDisplayController</code></a
+            >
+          </li>
+          <li><a href="../model/sample.index.html">Stickprovsklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

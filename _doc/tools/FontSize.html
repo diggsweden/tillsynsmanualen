@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>FontSize – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      .class.uml-diagram {
+        width: 31rem;
+      }
+      figure.ecb {
+        width: 23rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">FontSize</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">FontSize</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#params">Parametrar</a></li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#c-controller" lang="en">Controller</a></li>
+          <li><a href="#c-form">Formulär</a></li>
+          <li><a href="#c-analyzer">Storlekskontroll</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <code lang="en">FontSize</code> är ett verktyg för att beräkna den
+        effektiva förstoringsgraden för text.
+      </p>
+
+      <p class="warning">
+        De matematiska uttrycken som används i denna dokumentation visas inte
+        som avsett i webbläsare som saknar stöd för MathML.
+      </p>
+
+      <!--Parametrar-->
+      <section>
+        <h2 id="params">Parametrar i granskningskonfigurationen</h2>
+
+        <pre class="json"><code lang="en">{
+    <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+    <span class="key">"module"</span>: <span class="value">"FontSize"</span>
+}</code></pre>
+
+        <p>Verktyget har inga parametrar.</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Verktyget jämför den beräknade textstorleken vid en viss förstoring
+          med den beräknade storleken vid 100&nbsp;% zoom och räknar ut den
+          faktiska förstoringsgraden.
+        </p>
+
+        <p>
+          En webbplats med följsam formgivning kan ha olika inställningar för
+          textstorlek vid olika brytpunkter. Kritierum
+          <a
+            href="https://www.w3.org/TR/WCAG21/#resize-text"
+            hreflang="en"
+            rel="external"
+            >1.4.4 <code>Resize text</code></a
+          >
+          i <cite>WCAG</cite> ställer krav på att texten ska gå att förstora
+          till minst 200&nbsp;procent utan hjälpmedel. Ibland kan det vara svårt
+          att avgöra om texten verkligen är dubbelt så stor som i utgångsläget
+          och då är detta verktyg användbart.
+        </p>
+
+        <p>
+          Man börjar med att ta reda på den beräknade textstorleken för ett
+          visst element vid 100&nbsp;% zoom. Därefter ökar man zoomnivån
+          successivt och verifierar okulärt att texten blir större i motsvarande
+          grad. Om texten förefaller bli <em>mindre</em> vid någon brytpunkt tar
+          man reda på den beräknade storleken och fyller i den tillsammans med
+          den aktuella zoomnivån, varvid verktyget räknar ut den effektiva
+          förstoringsgraden och visar om den uppfyller 1.4.4 eller inte.
+        </p>
+
+        <figure aria-hidden="true" class="ecb">
+          <svg viewBox="0 0 230 160" class="ecb uml-diagram">
+            <g transform="translate(15, 0)">
+              <!--Controller-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">Controller</text>
+                <line x1="40" y1="22" x2="84" y2="22" />
+                <line x1="18" y1="56" x2="18" y2="96" />
+              </g>
+
+              <!--FontSizeForm-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">FontSizeForm</text>
+              </g>
+            </g>
+
+            <g transform="translate(15, 100)">
+              <!--ResizeChecker-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">ResizeChecker</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption><code lang="en">FontSize</code>, översikt.</figcaption>
+        </figure>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 310 100" class="class uml-diagram">
+            <defs>
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+            </defs>
+
+            <g transform="translate(45, 0)">
+              <!--Controller-->
+              <g>
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">Controller</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+
+                <line x1="101" y1="11" x2="140" y2="11" class="dependency" />
+                <line x1="50" y1="23" x2="50" y2="60" class="dependency" />
+              </g>
+
+              <!--ContrastForm-->
+              <g transform="translate(140, 0)">
+                <g>
+                  <rect x="0.5" y="0.5" width="120" height="32" />
+                  <text x="60" y="10" class="class">ContrastForm</text>
+                  <line x1="1" y1="12" x2="120" y2="12" />
+                  <text x="5" y="20">addObserver(callback): void</text>
+                  <text x="5" y="30">update(number, boolean): void</text>
+                </g>
+              </g>
+            </g>
+
+            <!--ResizeChecker-->
+            <g transform="translate(0, 60)">
+              <rect x="0.5" y="0.5" width="180" height="32" />
+              <text x="90" y="10" class="class">ResizeChecker</text>
+              <line x1="1" y1="12" x2="180" y2="12" />
+              <text x="5" y="20">
+                conforming(number, number, number): boolean
+              </text>
+              <text x="5" y="30">effectiveSize(number, number): number</text>
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">FontSize</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Controller-->
+      <section>
+        <h2 id="c-controller"><code lang="en">Controller</code></h2>
+
+        <p>
+          Controllern samordnar helt enkelt de andra klasserna. Den registrerar
+          en observatör på vyn (formuläret) och hanterar aviseringar.
+        </p>
+
+        <p>
+          När granskaren ändrar värden i formuläret använder controllern klassen
+          <code lang="en">ResizeChecker</code> för att beräkna den effektiva
+          textstorleken och om den uppfyller kriterium 1.4.4 i
+          <cite>WCAG</cite>.
+        </p>
+
+        <p>Därefter uppdaterar den resultatfältet i vyn.</p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn sparar bara referenser till argumenten och registrerar en
+          observatör på vyn (formuläret).
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Controller</span>(<span class="var">analyzer</span>, <span class="var">ui</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">analyzer</code></dt>
+          <dd>
+            Analysverktyg för kontrastförhållande; en instans av
+            <code lang="en">ResizeChecker</code>.
+          </dd>
+
+          <dt><code lang="en">ui</code></dt>
+          <dd>
+            Användargränssnitt (vy); en instans av
+            <code lang="en">FontSizeForm</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Formulär-->
+      <section>
+        <h2 id="c-form"><code lang="en">FontSizeForm</code></h2>
+
+        <p>
+          <code lang="en">ContrastForm</code> är verktygets grafiska
+          användargränssnitt. Det har tre inmatningsfält (”<samp
+            >Normal storlek</samp
+          >”, ”<samp>Storlek vid zoom</samp>” och ”<samp>Förstoring</samp>”)
+          samt ett resultatfält.
+        </p>
+
+        <p class="note">
+          Granskningssidan som verktyget visas i utgörs av ett stort formulär.
+          HTML-specifikationen medger inte nästlade formulär, men erbjuder ett
+          något krystat sätt att kringgå den begränsningen genom att låta ett
+          fält som strukturellt ingår i formulär A identifiera sig,
+          funktionellt, som medlem i formulär B. Vyn skapar ett tomt, dolt
+          formulär och skapar sedan elementen i huvudformuläret och låter dem
+          hänvisa till det formulär de egentligen tillhör. Detta gör att en
+          <kbd><kbd lang="en">Enter</kbd></kbd
+          >-tryckning i ett av verktygets fält inte orsakar inskick av hela
+          granskningssidan.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn registrerar händelselyssnare på behållarelementet för
+          validering och avisering. Den lägger till en instruktionstext och
+          skapar sedan ett dolt, tomt formulär och därefter inmatningsfälten och
+          resultatfältet som alltså strukturellt är underordnade ett helt annat
+          formulär än de funktionellt tillhör.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">FontSizeForm</span>(<span class="var">parent</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållarelement att infoga användargränssnittet i.</dd>
+        </dl>
+
+        <h3><code lang="en">addObserver()</code></h3>
+
+        <p>
+          Registrerar en observatör på vyn. Registrerade observatörer anropas
+          varje gång användaren ändrar värde i ett inmatningsfält.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">addObserver</span>(<span class="var">observer</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">observer</code></dt>
+          <dd>
+            En funktion som ska anropas vid avisering om händelser i
+            användargränssnittet. Funktionen anropas med en objektparameter med
+            fälten <code>normal</code>, <code>zoomed</code> och
+            <code>zoom</code>. De två första är textstorlekar i pixlar och det
+            sista är förstoringsgraden i procent (heltal).
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">update()</code></h3>
+
+        <p>
+          Uppdaterar resultatfältet med effektiv förstoringsgrad och huruvida
+          det är godkänt eller underkänt för kriterium 1.4.4 i
+          <cite>WCAG</cite>.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">update</span>(<span class="var">magnification</span>, <span class="var">conforming</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">magnification</code></dt>
+          <dd>Effektiv förstoring i procent.</dd>
+
+          <dt><code lang="en">conformaing</code></dt>
+          <dd>
+            En flagga som anger om den effektiva förstoringen uppfyller
+            kriterium 1.4.4 i <cite>WCAG</cite> eller inte.
+          </dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Storlekskontroll-->
+      <section>
+        <h2 id="c-analyzer"><code lang="en">ResizeChecker</code></h2>
+
+        <p>
+          Beräknar och utvärderar den effektiva förstoringsgraden som
+          <math>
+            <mrow>
+              <mrow>
+                <msub>
+                  <mi>τ</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>&#x2062;</mo>
+                <mi>ζ</mi>
+              </mrow>
+              <mo>/</mo>
+              <msub>
+                <mi>τ</mi>
+                <mn>0</mn>
+              </msub>
+            </mrow> </math
+          >, där <var>τ<sub>m</sub></var> är den beräknade textstorleken vid
+          förstoring, <var>τ<sub>0</sub></var> är den beräknade textstorleken
+          vid 1× förstoring och <var>ζ</var> är förstoringsgraden.
+        </p>
+
+        <h3>Konstruktor</h3>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyowrd">new</span> <span class="ident">ResizeChecker</span>()</code></pre>
+
+        <h3><code lang="en">conforming()</code></h3>
+
+        <p>
+          Avgör om den effektiva förstoringsgraden uppfyller kriterium 1.4.4 i
+          <cite>WCAG</cite>.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">conforming</span>(<span class="var">normal</span>, <span class="var">zoomed</span>, <span class="var">zoom</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>normal</code></dt>
+          <dd>Beräknad textstorlek vid 1× förstoring (100&nbsp;% zoom).</dd>
+
+          <dt><code>zoomed</code></dt>
+          <dd>Beräknad textstorlek vid aktuell zoomnivå.</dd>
+
+          <dt><code>zoom</code></dt>
+          <dd>Zoomnivå i procent.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om den effektiva
+          förstoringen uppfyller kriterium 1.4.4 i <cite>WCAG</cite>, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+
+        <h3><code lang="en">effectiveSize()</code></h3>
+
+        <p>
+          Beräknar den effektiva textstorleken utifrån beräknad storlek och
+          zoomnivå:
+          <math>
+            <mrow>
+              <msub>
+                <mi>τ</mi>
+                <mi>e</mi>
+              </msub>
+              <mo>=</mo>
+              <mrow>
+                <msub>
+                  <mi>τ</mi>
+                  <mi>c</mi>
+                </msub>
+                <mo>&#x2062;</mo>
+                <mi>ζ</mi>
+              </mrow>
+            </mrow> </math
+          >.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">effectiveSize</span>(<span class="var">computed</span>, <span class="var">zoom</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code>computed</code></dt>
+          <dd>Beräknad textstorlek vid aktuell zoomnivå.</dd>
+
+          <dt><code>zoom</code></dt>
+          <dd>Zoomnivå i procent.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>
+          Den effektiva textstorleken, i samma måttenhet som den angivna
+          beräknade storleken..
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

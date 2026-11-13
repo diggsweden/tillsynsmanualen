@@ -1,0 +1,44 @@
+{
+  "methods": [
+    "PDF: Gör en tillgänglighetskontroll och se till att inga varningar finns angående rubriker.",
+    "PDF: Välj <samp>Tillgänglighet|Läsordning</samp> och markera radioknappen <samp>Strukturtyper</samp>. Kontrollera att samtliga rubriker är korrekt uppmärkta, inklusive rubriknivå. Gör detta för varje sida där rubriker förekommer.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: kontrollera att rubrikstrukturen i navigeringsfönstret är densamma som de rubriker du ser i dokumentet."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Ju högre siffra, desto lägre rubriknivå. Rubrik&nbsp;1 eller <code>&lt;H1&gt;</code> är den högsta nivån; Rubrik&nbsp;2 eller <code>&lt;H2&gt;</code> är lägre."
+    },
+    {
+      "type": "text",
+      "text": "En rubrik med lägre nivå får inte användas som dårrad eller nedryckare till en annan rubrik."
+    },
+    {
+      "type": "definition",
+      "term": "Dårrad",
+      "description": "En rad (oftast med mindre grad) ovanför en rubrik, som ska ”dåra” läsaren att fortsätta."
+    },
+    {
+      "type": "definition",
+      "term": "Nedryckare",
+      "description": "En rad (oftast med mindre grad) nedanför en rubrik, som ska ”rycka ned” blicken till innehållet som följer. Kallas också <dfn>underrubrik</dfn>."
+    },
+    {
+      "type": "text",
+      "text": "<span style='display:block; max-width:14em; margin:0 auto 2.25em'><span style='display:block; font-size:1.1em; font-weight:bold; text-align:right'>Dårrad</span> <span style='display:block; font-size:2em; font-weight:bold'>Exempelrubrik</span> <span style='display:block; font-size:1.1em; font-weight:bold'>Nedryckare</span></span>"
+    },
+    {
+      "type": "text",
+      "text": "När ett avsnitt består av flera underavsnitt kan det första underavsnittets rubrik komma direkt efter avsnittsrubriken. Exemeplvis kan H2-rubriken ”Däggdjur” följas av H3-rubriken ”Rovdjur” om det längre ned finns ett annat underavsnitt med H3-rubriken ”Växtätare”. På samma sätt skulle ”Rovdjur” kunna följas av H4-rubriken ”På land” om det finns ett senare under-underavsnitt med H4-rubriken ”I vatten”."
+    },
+    {
+      "type": "text",
+      "text": "Däremot är det inte korrekt att H2-rubriken ”Huggorm” följs av H3-rubriken ”En missförstådd art” som nedryckare i ett avsnitt som inte har några andra rubriker."
+    },
+    {
+      "type": "tip",
+      "filters": ["doc", "docx", "ppt", "pptx", "xls", "xlsx"],
+      "text": "Visa navigeringsfönstret: kryssa för <samp>Navigeringsfönstret</samp> på fliken <samp>Visa</samp>."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "methods": [
+    "Jämför ikoner och benämningar mellan sidorna som ingår i granskningsurvalet."
+  ],
+  "exceptions": [
+    "Pagineringslänkar kan anses vara konsekventa även om en länk med texten ”<samp>2</samp>” leder till olika mål i olika sammanhang. Benämningen är konsekvent i sin betydelse."
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Kravet gäller bara konsekvent användning på <em>olika</em> sidor på webbplatsen. Det går inte att underkänna inkonsekvent benämning som förekommmer <em>inom</em> en och samma sida med detta kriterium."
+    }
+  ]
+}

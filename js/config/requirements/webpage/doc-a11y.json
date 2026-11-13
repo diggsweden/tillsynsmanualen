@@ -1,0 +1,18 @@
+{
+  "info": [
+    {
+      "type": "text",
+      "text": "Tillgänglighetsredogörelsen och hjälpsidor räknas som produktdokumentation, men dokumentationen kan också vara fristående från tjänsten."
+    },
+    {
+      "type": "definition",
+      "term": "Tillgänglighetsfunktion",
+      "description": "En funktion som är inbyggd i tjänsten för att tillgodose specifika behov hos användare."
+    },
+    {
+      "type": "definition",
+      "term": "Kompatibilitetsfunktion",
+      "description": "En funktion som ser till att tjänsten är kompatibel med hjälpmedel för personer med funktionsnedsättning."
+    }
+  ]
+}

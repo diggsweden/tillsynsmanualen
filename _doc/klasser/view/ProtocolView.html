@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ProtocolView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 38rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">ProtocolView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ProtocolView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-save"><code lang="en">save()</code></a>
+          </li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>Vy för att generera ett granskningsprotokoll från en granskning.</p>
+
+      <p class="note">
+        <code lang="en">ProtocolView</code> ärver <em>inte</em> från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/ProtocolView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/ProtocolView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 380 530" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--ProtocolView-->
+          <use
+            xlink:href="ProtocolView.svg#ProtocolView-tall"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <line x1="141" y1="8" x2="200" y2="8" class="composition" />
+          <path d="M141,16 h50 v45 h10" class="composition" />
+          <path d="M141,24 h40 v107 h20" class="composition" />
+          <path d="M141,32 h30 v169 h30" class="composition" />
+          <path d="M141,40 h20 v216 h40" class="composition" />
+          <line x1="55" y1="49" x2="55" y2="80" class="composition" />
+          <line x1="130" y1="49" x2="130" y2="170" class="composition" />
+
+          <g transform="translate(200, 0)">
+            <!--Document-->
+            <use
+              xlink:href="../Document.svg#Document"
+              x="0"
+              y="0"
+              class="external"
+            />
+
+            <!--FileStorage-->
+            <use
+              xlink:href="../common/FileStorage.svg#FileStorage"
+              x="0"
+              y="40"
+            />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="0"
+              y="100"
+            />
+
+            <!--InaccessibilityMetric-->
+            <use
+              xlink:href="../model/InaccessibilityMetric.svg#InaccessibilityMetric"
+              x="0"
+              y="180"
+            />
+
+            <!--SVGChart-->
+            <use xlink:href="SVGChart.svg#SVGChart" x="0" y="240" />
+          </g>
+
+          <!--FailureList-->
+          <use xlink:href="../model/FailureList.svg#FailureList" x="0" y="80" />
+
+          <!--Model-->
+          <use xlink:href="../model/Model.svg#Model" x="0" y="170" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ProtocolView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ProtocolView</span>(<span class="var">model</span>, <span class="var">metric</span>, <span class="var">chart</span>, <span class="var">filesystem</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjekt.</dd>
+
+          <dt><code lang="en">metric</code></dt>
+          <dd>Mätetal för otillgänglighet.</dd>
+
+          <dt><code lang="en">chart</code></dt>
+          <dd>Diagramgenerator.</dd>
+
+          <dt><code lang="en">filesystem</code></dt>
+          <dd>Fillagring.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--open-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Öppnar en ny webbläsarvy och genererar ett granskningsprotokoll i dess
+          DOM-dokument.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">open</span>(<span class="var">aCase</span>, <span class="var">audit</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende.</dd>
+
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--save-->
+      <section>
+        <h2 id="m-save"><code lang="en">save()</code></h2>
+
+        <p>
+          Skapar ett nytt DOM-dokument och genererar ett granskningsprotokoll i
+          det. Öppnar sedan en filvalsdialog för att spara dokumentet i
+          filsystemet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">save</span>(<span class="var">aCase</span>, <span class="var">audit</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende.</dd>
+
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Metoderna <code lang="en">open()</code> och
+          <code lang="en">save()</code> gör precis samma saker när de väl skapat
+          ett DOM-dokument att populera. Detta gör
+          <code lang="en">open()</code> genom att anropa
+          <code lang="en">window.open()</code> för att skapa en ny tabbflik
+          (eller ett nytt webbläsarfönster, beroende på webbläsare och
+          användar&shy;inställningar). <code lang="en">save()</code> gör det
+          genom att anropa <code lang="en">createHTMLDocument()</code> i det
+          aktuella dokumentents DOM-implementation.
+        </p>
+
+        <p>
+          Klassen hämtar ett malldokument via resursladdaren. Mallarna ligger
+          under <code>granskning/templates/</code> och heter
+          <code lang="en">protocol-app.html</code> respektive
+          <code lang="en">protocol-website.html</code>.
+        </p>
+
+        <p>
+          Klassen hämtar också en konfigurationsfil som innehåller det
+          förväntade resultatet för varje krav. Filterna finns under
+          <code>js/config/protocols/</code> och heter
+          <code>app.json</code> respektive <code>website.json</code>.
+        </p>
+
+        <p>
+          Nästa steg är att populera sidhuvudet i mallen med information om
+          ärendet och granskningen. För ett tillsynsärende genererar klassen en
+          ingress som redovisar den rättsliga grunden för tillsynen.
+        </p>
+
+        <p>
+          Därefter genererar klassen en innehållsförteckning med de komponenter,
+          sidor/vyer och dokument som ingår i granskningen samt alla underkända
+          krav. Kraven listas per princip enligt mappningen i bilaga&nbsp;A i
+          <cite>EN&nbsp;301&nbsp;549</cite>.
+        </p>
+
+        <p>
+          Sedan populerar klassen en sammanfattning som innehåller information
+          om den grans&shy;kade digitala servicen och sammanfattar resultatet
+          som ett mätetal för otillgängligheten med hjälp av klassen
+          <code lang="en">InaccessibilityMetric</code>.
+        </p>
+
+        <p>
+          Så kommer huvuddelen av protokollet som redovisar brist för brist och
+          listar vilka stickprov som underkänts för varje krav.
+        </p>
+
+        <p>
+          Om den granskade digitala servicen är en webbplats följer sedan en
+          avslutning. Den inleds med en sammanställning över mätetalen för
+          otillgänglighet per granskad sida. Sedan följer två stapeldiagram: ett
+          som visar otillgängligheten per användningssituation och ett som visar
+          varje underkänt kravs relativa inverkan på det totala mätetalet.
+          Diagrammen genere&shy;ras med hjälp av klassen
+          <code lang="en">SVGChart</code> som injicerar SVG-element i
+          dokumentet.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../model/Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="../model/AuditCase.html"
+              ><code lang="en">AuditCase</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/AuditDisplayController.html"
+              ><code lang="en">AuditDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/CaseDisplayController.html"
+              ><code lang="en">CaseDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/FailureList.html"
+              ><code lang="en">FailureList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/FileStorage.html"
+              ><code lang="en">FileStorage</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/InaccessibilityMetric.html"
+              ><code lang="en">InaccessibilityMetric</code></a
+            >
+          </li>
+          <li>
+            <a href="SVGChart.html"><code lang="en">SVGChart</code></a>
+          </li>
+          <li>
+            <a href="../model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

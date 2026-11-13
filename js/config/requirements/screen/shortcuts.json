@@ -1,0 +1,10 @@
+{
+  "methods": ["Tryck på alla tangenter som genererar ett tecken, en efter en."],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Omodifierad tangent",
+      "description": "En tangent (bokstav, siffra, symbol) utan Ctrl, Skift, Alt eller andra modifierartangenter."
+    }
+  ]
+}

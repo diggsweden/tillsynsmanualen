@@ -1,0 +1,11 @@
+{
+  "exceptions": ["Om korrigeringsförslag skulle förfela syftet med fältet."],
+  "examples": {
+    "bad": [
+      "Ett fält accepterar bara heltalsvärden mellan 1 och 10. Om man skriver in andra tecken än siffror eller fyller i ett numeriskt värde som är mindre än 1 eller större än 10 visas felmeddelandet ”Ogiltigt värde”."
+    ],
+    "good": [
+      "Ett fält accepterar bara heltalsvärden mellan 1 och 10. Om man skriver in andra tecken än siffror visas felmeddelandet ”Fyll i siffror”. Om man fyller i ett numeriskt värde som är mindre än 1 eller större än 10 visas felmeddelandet ”Fyll i ett värde mellan 1 och 10”."
+    ]
+  }
+}

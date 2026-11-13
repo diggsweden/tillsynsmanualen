@@ -1,0 +1,130 @@
+{
+  "menu": [
+    {
+      "label": "Start",
+      "content": [
+        {
+          "label": "Startsida",
+          "url": ""
+        },
+        {
+          "label": "Om manualen",
+          "url": "start/om.html"
+        },
+        {
+          "label": "Ordlista",
+          "url": "start/ordlista.html"
+        },
+        {
+          "label": "Inställningar",
+          "url": "start/installningar.html"
+        }
+      ]
+    },
+    {
+      "label": "Granskning",
+      "content": [
+        {
+          "label": "Välkommen",
+          "url": "granskning/granska.html?page=start"
+        },
+        {
+          "label": "Ärenden",
+          "url": "granskning/granska.html?page=list&type=case"
+        },
+        {
+          "label": "Underlag",
+          "content": [
+            {
+              "label": "Personer",
+              "url": "granskning/granska.html?page=list&type=person"
+            },
+            {
+              "label": "Ärendekatalog",
+              "url": "granskning/granska.html?page=directory"
+            },
+            {
+              "label": "Tillsynsplaner",
+              "url": "granskning/granska.html?page=list&type=schedule"
+            }
+          ]
+        },
+        {
+          "label": "Lathundar",
+          "content": [
+            {
+              "label": "NVDA",
+              "url": "granskning/lathundar/nvda.html"
+            },
+            {
+              "label": "Tangentkommandon, Android",
+              "url": "granskning/lathundar/tangentkommandon-android.html"
+            },
+            {
+              "label": "TalkBack",
+              "url": "granskning/lathundar/talkback.html"
+            },
+            {
+              "label": "Tangentkommandon, iOS",
+              "url": "granskning/lathundar/tangentkommandon-ios.html"
+            },
+            {
+              "label": "VoiceOver",
+              "url": "granskning/lathundar/voiceover.html"
+            }
+          ]
+        },
+        {
+          "label": "Kontroller",
+          "content": [
+            {
+              "label": "Webbsidor",
+              "url": "granskning/kontroller.html?type=webpage"
+            },
+            {
+              "label": "Dokument",
+              "url": "granskning/kontroller.html?type=document"
+            },
+            {
+              "label": "Mobila applikationer (öppen funktionalitet)",
+              "url": "granskning/kontroller.html?type=screen"
+            },
+            {
+              "label": "Mobila applikationer (stängd funktionalitet)",
+              "url": "granskning/kontroller.html?type=screen&closed"
+            }
+          ]
+        },
+        {
+          "label": "Tillämpningsanvisningar",
+          "url": "granskning/tillampning.html"
+        }
+      ]
+    },
+    {
+      "label": "Tillsyn",
+      "content": [
+        {
+          "label": "Tillsynsprocess",
+          "url": "tillsyn/process.html"
+        },
+        {
+          "label": "Övervakning",
+          "url": "tillsyn/overvakning.html"
+        },
+        {
+          "label": "Anmälningar",
+          "url": "tillsyn/anmalningar.html"
+        },
+        {
+          "label": "Rättslig grund",
+          "url": "tillsyn/juridik.html"
+        },
+        {
+          "label": "Referenser",
+          "url": "tillsyn/referenser.html"
+        }
+      ]
+    }
+  ]
+}

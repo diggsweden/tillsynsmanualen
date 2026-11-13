@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 80">
+  <g id="Component-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="72"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="62" x2="100" y2="62"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Component</text>
+      <text x="5" y="20">+closed</text>
+      <text x="5" y="30">+default</text>
+      <text x="5" y="40">+parentType</text>
+      <text x="5" y="50">+platform</text>
+      <text x="5" y="60">+type</text>
+      <text x="5" y="70">serialize()</text>
+    </g>
+  </g>
+
+  <g id="Component">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="129" height="72"/>
+      <line x1="1" y1="12" x2="130" y2="12"/>
+      <line x1="1" y1="62" x2="130" y2="62"/>
+    </g>
+
+    <g stroke="none">
+      <text x="65" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Component</text>
+      <text x="5" y="20">+closed: boolean</text>
+      <text x="5" y="30">+default: boolean</text>
+      <text x="5" y="40">+parentType: string</text>
+      <text x="5" y="50">+platform: string</text>
+      <text x="5" y="60">+type: string</text>
+      <text x="5" y="70">serialize(): object</text>
+    </g>
+  </g>
+</svg>

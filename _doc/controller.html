@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basklass för controllers – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li>
+            <strong>Basklass för <i lang="en">controllers</i></strong>
+          </li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        Basklass för <i lang="en">controllers</i>
+      </h1>
+
+      <p>
+        Alla <i lang="en">controller</i>-klasser i granskningsfunktionen är
+        härledda från basklassen <code lang="en">ControllerBase</code>, som
+        hanterar de gemensamma, grundläggande funktionerna.
+      </p>
+
+      <p>
+        Controllerns uppgift är att hantera interaktionen med användaren så att
+        vyn presenterar aktuell information från modellen och så att modellen
+        uppdateras om användaren ändrar värden i vyn.
+      </p>
+
+      <p>
+        En <i lang="en">controller</i> aktiveras av fördelaren i två steg: först
+        ett föreberedande steg där den kan göra de initieringar som behövs,
+        sedan det hanterande steget där den reagerar på vy&shy;händelser.
+      </p>
+
+      <p>
+        Basklassen har inget att erbjuda i förberedelsesteget, eftersom det är
+        unikt för varje ”sida”. Subklasser behöver alltså alltid implementera
+        metoden <code lang="en">prepare()</code>.
+      </p>
+
+      <p>
+        Hanteringssteget kan basklassen dock implementera nästan helt själv.
+        Subklasser behöver sällan ersätta eller utöka metoden
+        <code lang="en">handle()</code>.
+      </p>
+
+      <p>
+        För att hantera händelser som spara och ta bort registrerar subklasser
+        åtgärdshanterare i basklassen, som ser till att rätt hanterare blir
+        anropad när användaren aktiverar respektive knappar i vyn.
+      </p>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/controller/ControllerBase.html"
+              ><code lang="en">ControllerBase</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/ViewBase.html"
+              ><code lang="en">ViewBase</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="start.html" accesskey="N" rel="next"><span>Startsidan</span></a>
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="vykomponenter.html" accesskey="F" rel="prev"
+        ><span>Vykomponenter</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

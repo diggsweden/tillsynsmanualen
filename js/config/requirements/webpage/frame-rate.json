@@ -1,0 +1,8 @@
+{
+  "steps": [
+    "Säkerställ ideala nätverksförhållanden.",
+    "Starta ett videosamtal och spela in skärmen med en videokamera.",
+    "Starta tidtagning i en klocka som visar hundradels sekunder och håll klockan så att urtavlan syns tydligt i bild i kommunikationstjänsten under några sekunder.",
+    "Använd ett videoredigeringsprogram för att granska enskilda bilder i inspelningen och kontrollera att det inte skiljer mer än 0,05 sekunder på den filmade urtavlan mellan två på varandra följande bilder."
+  ]
+}

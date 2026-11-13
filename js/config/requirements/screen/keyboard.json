@@ -1,0 +1,32 @@
+{
+  "methods": ["Pröva att använda alla funktioner med tangentbordet."],
+  "exceptions": [
+    "Funktioner där det har betydelse vilken bana användaren flyttar en pekare, inte bara ändpunkterna där operationen inleds och avslutas."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Informationen nedan gäller om vyn har stängd funktionalitet för tangentbord."
+    },
+    {
+      "type": "text",
+      "text": "Sätt att använda funktioner utan synförmåga är till exempel via ljud (inklusive uppläsning) eller känsel såsom punktskrift för användare med dövblindhet."
+    },
+    {
+      "type": "text",
+      "text": "Exempel på funktioner som kräver visuell information kan vara ifyllnadsanvisningar och beskrivningar, uppmaningar vid transaktioner, verifiering av inmatning, felmeddelanden eller innehåll som inte är text."
+    },
+    {
+      "type": "text",
+      "text": "Ljudinformation som går att korrelera med information som presenteras på skärmen är till exempel struktur och relationer som förmedlas visuellt."
+    },
+    {
+      "type": "text",
+      "text": "Användaren bör kunna få den senast upplästa informationen upprepad utan att behöva lyssna om från innehållets början."
+    },
+    {
+      "type": "text",
+      "text": "Likvärdig information för video kan vara syntolkning eller en uppläst transkription av filmens innehåll."
+    }
+  ]
+}

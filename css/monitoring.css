@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för övervakningsinformation, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Klasser och attribut. */
+
+  ol[type='a'] {
+    padding-left: 1em;
+  }
+
+  .monitoring {
+  }
+  .monitoring td {
+    border: solid var(--border);
+  }
+  .monitoring td.count {
+    text-align: right;
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Klasser och attribut. */
+
+  .monitoring {
+  }
+  .monitoring td {
+    border-width: 1px;
+  }
+  .monitoring th {
+    border-bottom-width: 2px;
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Klasser och attribut. */
+
+  .monitoring {
+  }
+  .monitoring td {
+    border-width: 0.5pt;
+  }
+  .monitoring th {
+    border-bottom-width: 1pt;
+  }
+}

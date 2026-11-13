@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 90">
+  <g id="Menubar">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="129" height="82"/>
+      <line x1="1" y1="12" x2="130" y2="12"/>
+      <line x1="1" y1="32" x2="130" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="65" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Menubar</text>
+      <text x="5" y="20">+current: MenuItem</text>
+      <text x="5" y="30">+id: string</text>
+      <text x="5" y="40">down(MenuItem): MenuItem</text>
+      <text x="5" y="50">handleLeft(MenuItem): MenuItem</text>
+      <text x="5" y="60">left(MenuItem): MenuItem</text>
+      <text x="5" y="70">right(MenuItem): MenuItem</text>
+      <text x="5" y="80">up(MenuItem): MenuItem</text>
+    </g>
+  </g>
+</svg>

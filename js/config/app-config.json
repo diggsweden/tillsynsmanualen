@@ -1,0 +1,13 @@
+{
+  "audit": "js/audit.module.js",
+  "case": "js/case.module.js",
+  "checks": "js/checks.module.js",
+  "directory": "js/directory.module.js",
+  "list": "js/list.module.js",
+  "log": "js/log.module.js",
+  "person": "js/person.module.js",
+  "requirement": "js/requirement.module.js",
+  "sample": "js/sample.module.js",
+  "schedule": "js/schedule.module.js",
+  "start": "js/start.module.js"
+}

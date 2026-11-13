@@ -1,0 +1,13 @@
+{
+  "methods": [
+    "PDF: Gör en tillgänglighetskontroll och se till att inga varningar finns angående listor.",
+    "<span translate=\"no\" lang=\"en\">Microsoft Office</span>: ställ markören i listan och kontrollera att ikonen för punktlista eller numrerad lista är markerad på fliken <samp>Start</samp>."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Lista",
+      "description": "En sekvens av element av samma ”typ”."
+    }
+  ]
+}

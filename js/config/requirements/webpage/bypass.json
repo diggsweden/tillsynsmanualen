@@ -1,0 +1,19 @@
+{
+  "methods": [
+    "Navigera genom fokuserbara element med tangentbordet tills du hittar skipplänkar eller har passerat de ställen där de borde vara för att göra nytta."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Exempel på återkommande innehållsblock är innehållsmenyer, återkopplingsfunktioner, kontaktuppgifter och annonser."
+    },
+    {
+      "type": "note",
+      "text": "Om sidan innehåller landmärken eller rubriker är det inte nödvändigt att ha skipplänkar för block som inte innehåller flera fokuserbara element."
+    }
+  ],
+  "instruction": {
+    "id": "wcag-2-4-1",
+    "title": "Skipplänkar"
+  }
+}

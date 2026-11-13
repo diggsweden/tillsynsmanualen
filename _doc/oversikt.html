@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Översikt – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      dd {
+        margin: 0 0 2.25em;
+      }
+      dt {
+        float: left;
+        margin-right: 0.25em;
+        font-weight: bolder;
+      }
+      ol.bullets li {
+        list-style-type: disc;
+      }
+      .uml-diagram {
+        width: 40em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Översikt</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Översikt</h1>
+
+      <p>
+        <cite>Tillsynsmanualen</cite> är i grunden en vanlig statisk webbplats
+        som inte är märkvärdig när det gäller förvaltning. Det är en handfull
+        webbsidor i några få kataloger och en meny som injiceras med JavaScript.
+      </p>
+
+      <p>
+        Webbplatsen innehåller dock en JavaScript-baserad granskningsfunktion
+        som är lite mer komplex och är orsaken till att den här dokumentationen
+        finns.
+      </p>
+
+      <section>
+        <h2>Arkitektur</h2>
+
+        <p>
+          Granskningsfunktionen är konstruerad enligt en variant av det
+          etablerade arkitektur&shy;mönstret
+          <a
+            href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller"
+            hreflang="en"
+            rel="external"
+            >MVC</a
+          >
+          <i lang="en">(model–view–controller)</i>.
+        </p>
+
+        <p>
+          För varje sida i funktionen finns en <i lang="en">controller</i> och
+          en vy. Modellen är gemensam för hela funktionen.
+        </p>
+
+        <dl>
+          <dt>Modellen</dt>
+          <dd>
+            representerar de data som funktionen hanterar, till exempel ärenden
+            och granskningar, samt användarinställningar. Informationen lagras
+            lokalt i webbläsarens objektdatabas (<code translate="no"
+              >indexedDB</code
+            >) och lokala lagringsutrymme (<code translate="no" lang="en"
+              >localStorage</code
+            >).
+          </dd>
+
+          <dt>Vyn</dt>
+          <dd>
+            presenterar modellinformation för användaren, vanligen i form av ett
+            interaktivt formulär. Vyn hanterar den direkta interatktionen med
+            användaren, men delegerar de konkreta åtgärderna till controllern.
+          </dd>
+
+          <dt>Controllern</dt>
+          <dd>
+            populerar vyn med modelldata, hanterar åtgärder utifrån
+            användar&shy;interaktionen och uppdaterar modellen.
+          </dd>
+        </dl>
+
+        <p>
+          Modellen och vyn känner inte till varandra, utan controllern hanterar
+          hela informa&shy;tionsflödet mellan de två.
+        </p>
+
+        <p>
+          Granskningsfunktionen är en
+          <a
+            href="https://en.wikipedia.org/wiki/Single-page_application"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >single-page application</a
+          >
+          som bygger på ett enkelt egenkonstruerat ”ramverk”. Det består av en
+          konfigurationsstyrd växel <i lang="en">(router)</i> och en fördelare
+          <i lang="en">(dispatcher)</i> som tillsammans växlar och fördelar
+          varje begäran genom att instantiera den
+          <i lang="en">controller</i> och den vy som kan hantera begäran.
+          Instantieringen sker genom att fördelaren dynamiskt importerar en
+          modul som bestäms av växeln.
+        </p>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 400 260" class="ecb uml-diagram">
+            <g transform="translate(12, 0)">
+              <!--Aktör-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="uml.svg#actor"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="12" y="52">användare</text>
+              </g>
+
+              <!--Vy-->
+              <g>
+                <use
+                  xlink:href="uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">vy</text>
+                <line x1="42" y1="22" x2="96" y2="22" />
+                <line x1="18" y1="58" x2="18" y2="96" />
+              </g>
+            </g>
+
+            <g transform="translate(12, 100)">
+              <!--Controller-->
+              <g>
+                <use
+                  xlink:href="uml.svg#controller"
+                  x=""
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">controller</text>
+                <line x1="40" y1="22" x2="96" y2="22" />
+                <line x1="18" y1="58" x2="18" y2="96" />
+                <line x1="22" y1="58" x2="118" y2="96" />
+              </g>
+
+              <!--Modell-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">modell</text>
+                <line x1="40" y1="22" x2="96" y2="22" />
+              </g>
+
+              <!--Ärende-->
+              <g transform="translate(200, 0)">
+                <use
+                  xlink:href="uml.svg#entity"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">ärende</text>
+                <line x1="40" y1="22" x2="96" y2="22" />
+              </g>
+
+              <!--Lagring-->
+              <g transform="translate(300, 0)">
+                <use
+                  xlink:href="uml.svg#storage"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">lagring</text>
+              </g>
+            </g>
+
+            <g transform="translate(12, 200)">
+              <!--Fördelare-->
+              <g>
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">fördelare</text>
+              </g>
+
+              <!--Växel-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">växel</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>Arkitekturell översikt.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Kompetensområden</h2>
+
+        <p>
+          Förvaltning av <cite>Tillsynsmanualen</cite> kräver kompetens inom
+          följande områden (i fallande viktighetsordning):
+        </p>
+
+        <ol class="bullets">
+          <li>JSON</li>
+          <li>ECMAScript 2017 eller senare</li>
+          <li>Granskning av digital service</li>
+          <li>Tillsyn</li>
+          <li>Asynkron programmering</li>
+          <li>Testdriven utveckling</li>
+          <li>Tillgänglig webbutveckling</li>
+          <li>Designmönstret MVC</li>
+          <li>DOM och HTML DOM</li>
+          <li lang="en">Fetch API</li>
+          <li lang="en">IndexedDB</li>
+          <li lang="en">Web Storage API</li>
+          <li lang="en">History API</li>
+          <li lang="en">Console API</li>
+          <li lang="en">File API</li>
+          <li>HTML 5</li>
+          <li>ARIA 1.1</li>
+          <li>CSS 3</li>
+          <li lang="en">CSS @media queries</li>
+          <li>SVG 1.1</li>
+          <li lang="en">HTML drag and drop API</li>
+          <li lang="en">Clipboard API</li>
+          <li lang="en">EyeDropper API</li>
+          <li lang="en">Web Audio API</li>
+          <li>PuTTy (SSH-klient)</li>
+          <li>PSFTP (SFTP-klient)</li>
+          <li>Linux</li>
+          <li>rpm-paket och <code>rpmbuild(8)</code></li>
+        </ol>
+
+        <p>
+          Det är också nödvändigt med goda insikter i följande standarder och
+          rättsakter:
+        </p>
+
+        <ol class="bullets">
+          <li><cite>EN 301 549</cite> version 3.2.1</li>
+          <li><cite>WCAG</cite> 2.1</li>
+          <li><cite>(EU) 2016/2102</cite> (Webbtillgänglighetsdirektivet)</li>
+          <li>
+            <cite>(EU) 2018/1523</cite> (genomförandebeslut om
+            tillgänglighetsutlåtanden)
+          </li>
+          <li>
+            <cite>(EU) 2018/1524</cite> (genomförandebeslut om övervakning)
+          </li>
+          <li>
+            <cite
+              >Lag (2018:1937) om tillgänglighet till digital offentlig
+              service</cite
+            >
+          </li>
+          <li>
+            <cite
+              >Förordning (2018:1938) om tillgänglighet till digital offentlig
+              service</cite
+            >
+          </li>
+          <li>
+            <cite
+              >Myndigheten för digital förvaltnings föreskrifter om
+              tillgänglighet till digital offentlig service</cite
+            >
+            (MDFFS&nbsp;2019:2)
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="struktur.html" accesskey="N" rel="next"><span>Struktur</span></a>
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a rel="prev"></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

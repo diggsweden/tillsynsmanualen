@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "Prova röstfunktionen. Om ljudet låter dovt och ”burkigt”, försök inhämta information om frekvensomfång från leverantören.",
+    "Spela upp en 7 kHz-ton med tongeneratorn nedan och kontrollera att en mottagare med fullgod hörsel uppfattar tonen."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Oscillator",
+      "params": {
+        "frequency": 7000
+      }
+    }
+  ]
+}

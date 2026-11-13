@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>MenuButton – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">MenuButton</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">MenuButton</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">MenuButton</code> är en knapp som är kopplad
+        till en meny. Den används i små vyer där det inte finns plats att ha
+        menyn synlig hela tiden. Varje tryck på knappen växlar mellan att visa
+        och dölja menyn.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/menu/MenuButton.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/menu/MenuButton.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 220" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--MenuButton-->
+          <use
+            xlink:href="MenuButton.svg#MenuButton"
+            x="0"
+            y="95"
+            class="highlight"
+          />
+
+          <line x1="101" y1="106" x2="140" y2="106" class="composition" />
+
+          <!--Menu-->
+          <use xlink:href="Menu.svg#Menu" x="140" y="0" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">MenuButton</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn skapar ett
+          <code lang="en" class="html tag">&lt;button&gt;</code>-element och
+          infogar det först i det angivna föräldraelementet. Den registrerar
+          också instansen som en observatör på menyn.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">MenuButton</span>(<span class="var">parent</span>, <span class="var">label</span>, <span class="var">menu</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>
+            Det överordnade element i DOM-trädet som knappen ska infogas i.
+          </dd>
+
+          <dt><code lang="en">label</code></dt>
+          <dd>Texten som ska visas i knappen.</dd>
+
+          <dt><code lang="en">menu</code></dt>
+          <dd>Den meny som knappen ska visa och dölja.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          När användaren klickar på knappen växlar den synlighet på den kopplade
+          menyn. Den hanterar också tangentbordsinteraktion.
+        </p>
+
+        <table>
+          <caption>
+            Tangentbordsinteraktion för menyknapp.
+          </caption>
+
+          <colgroup>
+            <col class="key" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>Öppna menyn och sätt fokus till dess första element.</td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>Öppna menyn och sätt fokus till dess sista element.</td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Enter</kbd></kbd>
+              </td>
+              <td>
+                Öppna menyn om den är stängd, eller stäng den om den är öppen.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <kbd><kbd>mellanslag</kbd></kbd>
+              </td>
+              <td>
+                Öppna menyn om den är stängd, eller stäng den om den är öppen.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../../meny.html">Menyn</a></li>
+          <li>
+            <a href="Menu.html"><code lang="en">Menu</code></a>
+          </li>
+          <li>
+            <a href="MenuBuilder.html"><code lang="en">MenuBuilder</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

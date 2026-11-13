@@ -1,0 +1,14 @@
+{
+  "steps": [
+    "Om värdena är justerbara, ställ in maximal fördröjning och lägsta möjliga repetitionsfrekvens.",
+    "Kontrollera att det går att hålla en tangent på skärmtangentbordet nedtryckt i minst 2 sekunder innan den börjar repetera.",
+    "Kontrollera att repetitionstakten är minst 2 sekunder per tecken."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Tangentrepetition",
+      "description": "en funktion som snabbt repeterar den tryckta tangenten, efter en initial fördröjning, så länge den hålls nedtryckt. Kan orsaka problem för användare med nedsatt rörlighet eller finmotorik, särskilt om fördröjningen och frekvensen inte är reglerbara. Förutom i vissa typer av spel är funktionen sällan särskilt användbar."
+    }
+  ]
+}

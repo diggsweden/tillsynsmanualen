@@ -1,0 +1,63 @@
+<h1 id="start-of-content">Skapa granskning</h1>
+
+<p aria-hidden="true" class="req">
+  Obligatoriska fält har tjock kantlinje och ledtexten är <em>betonad</em> och
+  följs av en asterisk&nbsp;(<samp>*</samp>).
+</p>
+
+<form autocomplete="off">
+  <p>
+    <label>
+      Kopiera från
+      <select name="source">
+        <option value="">(kopiera inte)</option>
+      </select>
+    </label>
+  </p>
+
+  <p data-hidden="class!=app">
+    <label>
+      <em>Version</em>
+      <input name="version" type="text" data-required="class=app" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      <em>Granskare</em>
+      <select name="officer" required>
+        <option value="">(välj)</option>
+      </select>
+    </label>
+  </p>
+
+  <p>
+    <button value="start" accesskey="s">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-start" />
+      </svg>
+      Starta
+    </button>
+  </p>
+</form>
+
+<dialog
+  role="dialog"
+  aria-atomic="true"
+  ,
+  aria-labelledby="prepare-label"
+  aria-modal="true"
+  id="prepare-dialog"
+>
+  <h2 id="prepare-label">Förberedelser</h2>
+  <p>Skapa katalogstruktur för granskningen:</p>
+  <pre><span class="dir"></span>
+  <span class="year"></span>
+    <span class="case"></span>
+      <strong class="audit"></strong>
+        <strong>Dokument</strong>
+        <strong>Skärmbilder</strong>
+        <strong>Webbsidor</strong></pre>
+
+  <p><button data-handler="prepare" type="button">OK</button></p>
+</dialog>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Inställningar – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="../css/audit.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>
+        Manual för tillsyn enligt lagen om tillgänglighet till digital offentlig
+        service
+      </p>
+
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Inställningar</h1>
+
+      <div role="status"></div>
+
+      <p>
+        Manualen anpassar sig automatiskt efter de flesta inställningar du gör i
+        din webbläsare, till exempel textstorlek och ljust eller mörkt
+        visningsläge. I några fall finns det ingen bra teknisk lösning för att
+        respektera inställningarna för personer med specifika behov och
+        samtidigt erbjuda formgivning för den som inte ändrat några
+        inställningar. Här får du därför möjlighet att tala om att du vill att
+        manualen ska använda dina inställningar.
+      </p>
+
+      <p class="warning">
+        Dina inställningar sparas i webbläsarens lokala lagringsutrymme.
+      </p>
+
+      <p>Kryssa i de inställningar du vill tillåta manualen att hantera:</p>
+      <form>
+        <p>
+          <label class="cb">
+            <input type="checkbox" role="switch" />
+            Markering för tangentbordsfokus
+          </label>
+        </p>
+
+        <p>
+          <label class="cb">
+            <input type="checkbox" role="switch" />
+            Teckensnitt
+          </label>
+        </p>
+
+        <p>
+          <button>Förhandsgranska</button>
+          <button>Spara inställningarna</button>
+        </p>
+      </form>
+
+      <section hidden id="delete">
+        <h2>Återkalla samtycke till lokal lagring</h2>
+
+        <p>
+          Du kan återkalla ditt samtycke till lokal lagring från
+          <span id="consent"></span> och permanent radera all information som
+          manualen lagrat i din webbläsares lokala lagringsutrymme och
+          objektdatabas.
+        </p>
+
+        <form id="recall-consent">
+          <p>
+            <label class="cb">
+              <input type="checkbox" required />
+              Jag vill återkalla mitt samtycke och radera all lagrad information
+            </label>
+          </p>
+
+          <p><button>Återkalla och radera</button></p>
+        </form>
+
+        <dialog
+          aria-atomic="true"
+          ,
+          aria-labelledby="confirm-label"
+          aria-modal="true"
+          class="confirm"
+          id="confirm-dialog"
+        >
+          <h2 id="confirmm-label">Bekräfta radering</h2>
+          <p class="prompt">
+            Informationen går inte att återställa. Är du helt säker på att du
+            vill radera alla uppgifter?
+          </p>
+
+          <p>
+            <button type="button" value="false">
+              <svg aria-hidden="true">
+                <use xlink:href="../img/ikoner.svg#ico-cancel" />
+              </svg>
+              Avbryt
+            </button>
+
+            <button type="button" value="true">OK</button>
+          </p>
+        </dialog>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning (DIGG)</p>
+        <p>
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;info&#x40;digg.se"
+            ><span>info&#x40;digg.se</span></a
+          >
+        </p>
+        <p>
+          <a href="tel:+46-771-114400"><span>0771-11 44 00</span></a>
+        </p>
+      </address>
+
+      <ul>
+        <li><a href="tillganglighet.html">Tillgänglighet</a></li>
+        <li><a href="webbplatskarta.html">Webbplatskarta</a></li>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+    <script src="../js/settings.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "examples": {
+    "bad": [
+      "En sida för att söka jobb har en WYSIWYG-editor där användaren kan skapa och fomrge sitt CV. Formateringsfunktionerna använder layouttabeller och genererar HTML-element för presentationssyfte (exempelvis <code translate=\"no\" lang=\"en\">&lt;strong&gt;</code> för funktionen ”fetstil” och <code translate=\"no\" lang=\"en\">&lt;blockquote&gt;</code> för att skapa indrag<F12>)."
+    ],
+    "good": [
+      "En onlinetjänst för att redigera videofilmer varnar om användaren skapar textplattor med otillräcklig kontrast. (Redigeringsverktyget behöver dock <em>inte</em> ha en funktion för att skapa undertexter; det kan skötas av andra tjänster.)"
+    ]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "Med <dfn>tillgängligt innehåll</dfn> avses här innehåll som uppfyller kraven i <cite>EN&nbsp;301&nbsp;549</cite>, kapitel&nbsp;9 (för webbinnehåll) eller kapitel&nbsp;10 (för verktyg som skapar dokument)."
+    }
+  ]
+}

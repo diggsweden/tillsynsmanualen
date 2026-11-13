@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>GridMenu – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      table {
+        width: 100%;
+      }
+      col.keys {
+        width: 6em;
+      }
+
+      .uml-diagram {
+        width: 28rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">GridMenu</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">GridMenu</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#kbd">Tangenter</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        En meny med ankarlänkar presenterade som ett rutnät med rader och
+        kolumner.
+      </p>
+
+      <p>
+        Klassen är mycket specialiserad och används bara i
+        <a href="../start/ordlista.html">ordlistan</a> för att ge snabb åtkomst
+        till de ord som börjar med en given bokstav. Den förutsätter till
+        exempel att alla länkar i behållaren har en unik initial.
+      </p>
+
+      <p class="note">
+        <code lang="en">GridMenu</code> ingår inte i granskningsfunktionen.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/GridMenu.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 280 80" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--GridMenu-->
+          <use
+            xlink:href="GridMenu.svg#GridMenu"
+            x="0"
+            y="20"
+            class="highlight"
+          />
+
+          <path d="M101,27 h20 v-16 h20" class="composition" />
+          <path d="M101,34 h20 v22 h20" class="composition" />
+
+          <g transform="translate(140, 0)">
+            <!--HTMLElement-->
+            <use
+              xlink:href="../HTMLElement.svg#HTMLElement"
+              x="0"
+              y="0"
+              class="external"
+            />
+
+            <!--KeyMap-->
+            <use xlink:href="KeyMap.svg#KeyMap" x="0" y="40" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">GridMenu</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn kopplar rutnätet till det underliggande HTML-elementet i
+          DOM-trädet, registrerar händelselyssnare och sätter upp
+          tangentmappningen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">GridMenu</span>(<span class="var">container</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">container</code></dt>
+          <dd>HTML-element som innehåller ankarlänkar.</dd>
+        </dl>
+      </section>
+
+      <!--Tangenter-->
+      <section>
+        <h2 id="kbd">Tangenter</h2>
+
+        <table>
+          <caption>
+            Tangentmappning för
+            <code lang="en">Grid</code
+            >.
+          </caption>
+
+          <colgroup>
+            <col class="keys" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>Fokuserar samma kolumn i nästa rad.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>Fokuserar samma kolumn i föregående rad.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭠</kbd></kbd>
+              </td>
+              <td>Fokuserar föregående kolumn i samma rad.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭢</kbd></kbd>
+              </td>
+              <td>Fokuserar nästa kolumn i samma rad.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Home</kbd></kbd>
+              </td>
+              <td>Fokuserar första kolumnen i samma rad.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd lang="en">End</kbd></kbd>
+              </td>
+              <td>Fokuserar sista kolumnen i samma rad.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Ctrl</kbd>+<kbd lang="en">Home</kbd></kbd>
+              </td>
+              <td>Fokuserar första cellen i rutnätet.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Ctrl</kbd>+<kbd lang="en">End</kbd></kbd>
+              </td>
+              <td>Fokuserar sista cellen i rutnätet.</td>
+            </tr>
+
+            <tr>
+              <td>skrivbart tecken</td>
+              <td>
+                Fokuserar den ankarlänk vars textinnehåll börjar med det tecken
+                som tangenten representerar.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../common/KeyMap.html"><code lang="en">KeyMap</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

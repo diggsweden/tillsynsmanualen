@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Lyssna på ljudklippet och läs samtidigt transkriptionen, och kontrollera att de stämmer överens. Om det hörs flera röster, kontrollera att det framgår vem som säger vad."
+  ],
+  "exceptions": [
+    "Ljudklipp som är ett <dfn>mediealternativ till text</dfn> – en ljudversion av innehåll som redan finns som text på sidan – och är tydligt märkt som sådant."
+  ],
+  "examples": {
+    "neutral": ["Inspelade poddsändningar."]
+  },
+  "info": [
+    {
+      "type": "text",
+      "text": "En transkription kan antingen finnas på samma sida som ljudklippet, eller länkad i anslutning till det."
+    }
+  ]
+}

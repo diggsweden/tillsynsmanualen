@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för tillsynsärende, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Klasser och attribut. */
+
+  .buttons {
+    margin-top: 4.5em;
+  }
+  .buttons a,
+  .buttons button {
+    min-width: 9em;
+  }
+
+  .doc ul.listing li span:last-of-type {
+    text-align: right;
+  }
+
+  .info dl {
+  }
+  .info dt {
+    color: var(--heading);
+    font-size: smaller;
+  }
+  .info dd {
+    margin: 0 0 0.75em;
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Klasser och attribut. */
+
+  .doc ul.listing {
+    grid-template-columns: 1em 12em 6em 2em;
+  }
+  a.doc[href] {
+    text-decoration: underline;
+  }
+  a.doc[href]::after {
+    display: inline-block;
+    width: 1.25em;
+    height: 1em;
+    background: var(--target-icon) no-repeat right top/1em;
+    content: '' / 'öppnas i ny vy';
+  }
+  .doc ul.listing button {
+    margin-left: 0.5rem;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    padding: 0 0.25rem;
+  }
+  .doc ul.listing button span {
+    position: absolute;
+    left: -999em;
+  }
+  .doc ul.listing button svg {
+    margin: 0;
+  }
+}
+
+/*
+ * Formgivning för bredare vyer.
+ * -----------------------------
+ */
+@media screen and (min-width: 30em) {
+  /* Klasser och attribut. */
+
+  .info dl,
+  dl.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 0.75em;
+  }
+}
+
+/*
+ * Formgivning för breda vyer.
+ * ---------------------------
+ */
+@media screen and (min-width: 60em) {
+  /* Formgivning av HTML-element. */
+
+  main {
+    max-width: none;
+  }
+  article {
+    display: grid;
+    grid-template: 'head head' 'org case' 'audits audits' 'docs docs' 'btn btn' / 40rem 1fr;
+  }
+  article.simplified {
+    grid-template: 'head head' 'org org' 'audits audits' 'docs docs' 'btn btn' / 40rem 1fr;
+  }
+  h1 {
+    grid-area: head;
+  }
+
+  /* Klasser och attribut. */
+
+  .audits {
+    grid-area: audits;
+  }
+  .buttons {
+    grid-area: btn;
+  }
+  .case {
+    grid-area: case;
+  }
+  .case dl {
+    display: block;
+    grid-area: case;
+  }
+  .case dl dd {
+    margin: 0 0 0.75em;
+  }
+  .case h2 {
+    margin-top: 0;
+  }
+  .docs {
+    grid-area: docs;
+  }
+  .org {
+    grid-area: org;
+  }
+  .org dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 0.75em;
+  }
+  article.external .org dl {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .org dl dd {
+    margin: 0;
+  }
+  .org h2 {
+    margin-top: 0;
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Klasser och attribut. */
+
+  .info dl,
+  dl.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1em;
+  }
+  .doc ul.listing button {
+    display: none;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "methods": [
+    "Kontrollera att information, struktur och relationer som presenteras visuellt, exempelvis med färg, form eller teckensnitt, antingen är maskinläsbara eller finns beskrivna i text."
+  ],
+  "examples": {
+    "bad": [
+      "Ett visuellt synligt element, som är relevant för användare med hjälpmedel, är dolt med aria-hidden vilket gör att hjälpmedel inte får samma information.",
+      "Ett aktivt filter indikeras enbart genom en färgändring.",
+      "I en pagineringslista markeras den aktuella sidan enbart genom med fetstil."
+    ],
+    "good": [
+      "En förklaring av att asterisker indikerar obligatoriska fält i ett formulär är dold med aria-hidden, liksom själva asteriskerna. Obligatoriska fält har attributet required eller aria-required för att förmedla samma sak till hjälpmedel.",
+      "En knapp har både en ikon och text, för att underlätta för personer med lässvårigheter. Ikonen är dold för hjälpmedel för att undvika dubbeluppläsning."
+    ]
+  }
+}

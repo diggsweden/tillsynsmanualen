@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 50">
+  <g id="Webpage-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="42"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="32" x2="100" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Webpage</text>
+      <text x="5" y="20">+type</text>
+      <text x="5" y="30">+url</text>
+      <text x="5" y="40">serialize()</text>
+    </g>
+  </g>
+
+  <g id="Webpage">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="42"/>
+      <line x1="1" y1="12" x2="140" y2="12"/>
+      <line x1="1" y1="32" x2="140" y2="32"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Webpage</text>
+      <text x="5" y="20">+type: string</text>
+      <text x="5" y="30">+url: string</text>
+      <text x="5" y="40">serialize(): object</text>
+    </g>
+  </g>
+</svg>

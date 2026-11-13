@@ -1,0 +1,13 @@
+{
+  "steps": [
+    "Lämna obligatoriska fält tomma.",
+    "Fyll i fler eller färre tecken än tillåtet i fält med sådana begränsningar.",
+    "Fyll i bokstäver i numeriska fält.",
+    "Fyll i en formellt oriktig e-postadress (utan ”@”).",
+    "Fyll i för låga eller för höga värden i numeriska fält.",
+    "Fyll i datum på ogiltigt format.",
+    "Fyll i ogiltiga datum (till exempel 31 april eller månad 13).",
+    "Fyll i ogiltiga värden i fält som kräver vissa värden eller format.",
+    "Kontrollera med skärmläsaren att felmeddelandet läses upp."
+  ]
+}

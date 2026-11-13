@@ -1,0 +1,58 @@
+<h1 id="start-of-content" class="listing">Lista</h1>
+
+<ul class="listing"></ul>
+<template id="listing-template">
+  <li>
+    <svg aria-hidden="true">
+      <use xlink:href="../img/ikoner.svg" />
+    </svg>
+    <a></a>
+  </li>
+</template>
+
+<p class="buttons">
+  <a href="#" id="create">
+    <svg aria-hidden="true">
+      <use xlink:href="../img/ikoner.svg" />
+      <use xlink:href="../img/ikoner.svg#ico-new" class="new" />
+    </svg>
+    <span>Ny</span>
+  </a>
+
+  <template id="upload-template">
+    <label aria-hidden="true">
+      <span>Välj fil att läsa in</span>
+      <input type="file" tabindex="-1" accept=".json,application/json" />
+    </label>
+
+    <button type="button">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-upload" />
+      </svg>
+      Läs in fil
+    </button>
+  </template>
+</p>
+
+<dialog
+  role="alertdialog"
+  aria-atomic="true"
+  ,
+  aria-labelledby="confirm-label"
+  aria-modal="true"
+  id="confirm-dialog"
+>
+  <h2 id="confirmm-label">Bekräfta borttag</h2>
+  <p class="prompt"></p>
+
+  <p>
+    <button data-handler="confirm" type="button" value="false">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-cancel" />
+      </svg>
+      Avbryt
+    </button>
+
+    <button data-handler="confirm" type="button" value="true">OK</button>
+  </p>
+</dialog>

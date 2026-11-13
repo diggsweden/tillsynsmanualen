@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 60">
+  <g id="MonitoringCase-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="52"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="42" x2="100" y2="42"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">MonitoringCase</text>
+      <text x="5" y="20">+monitoring</text>
+      <text x="5" y="30">+schedule</text>
+      <text x="5" y="40">+sections</text>
+      <text x="5" y="50">serialize()</text>
+    </g>
+  </g>
+
+  <g id="MonitoringCase">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="52"/>
+      <line x1="1" y1="12" x2="140" y2="12"/>
+      <line x1="1" y1="42" x2="140" y2="42"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">MonitoringCase</text>
+      <text x="5" y="20">+monitoring: boolean</text>
+      <text x="5" y="30">+schedule: Schedule</text>
+      <text x="5" y="40">+sections: number[][]</text>
+      <text x="5" y="50">serialize(): object</text>
+    </g>
+  </g>
+</svg>

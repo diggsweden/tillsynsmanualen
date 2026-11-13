@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element i dokumentet med tangentbordet. Aktivera alla funktioner som visar/döljer innehåll etc."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Modala dialogrutor är inget brott mot detta krav om det finns knappar för att stänga dialogrutan eller om den går att stänga med <kbd><kbd translate=\"no\" lang=\"en\">Escape</kbd></kbd> (och användaren får veta det)."
+    },
+    {
+      "type": "text",
+      "text": "En datumväljare där man måste tabba igenom en hel månads dagar för att komma till elementet efter datumväljaren är inget brott mot detta krav (även om det är dålig användbarhet). Tangentbordsfälla innebär att det över huvud taget inte <em>går</em> att navigera ifrån komponenten med tangentbordet."
+    }
+  ]
+}

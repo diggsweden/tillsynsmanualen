@@ -1,0 +1,19 @@
+{
+  "methods": [
+    "Håll muspekaren över tabbfliken i webbläsaren. Titeln visas som ett <i lang='en'>tooltip</i>.",
+    "Använd <cite>Inspektören</cite> och kontrollera <code translate='no' lang='en'>&lt;title&gt;</code> i <code translate='no' lang='en'>&lt;head&gt;</code>."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements"
+    }
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "<i lang=\"en\">Single-page application</i>",
+      "description": "En webbsida där innehållet förändras med JavaScript i stället för att man navigerar mellan olika sidor."
+    }
+  ]
+}

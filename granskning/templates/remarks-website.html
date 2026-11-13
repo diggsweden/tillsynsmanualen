@@ -1,0 +1,1156 @@
+<head>
+  <meta charset="utf-8" />
+
+  <title>Påpekande</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0,user-scalable=yes"
+  />
+  <meta name="format-detection" content="telephone=no" />
+
+  <style media="all">
+    html {
+      background-color: var(--bg);
+      color: var(--text);
+      font: 100%/1.5 var(--fonts);
+    }
+    *:focus {
+      outline: 0;
+    }
+    *:focus-visible {
+      outline: var(--focus);
+      outline-offset: 0.25em;
+      transition: outline-offset 0.2s;
+    }
+    a {
+      color: var(--link);
+    }
+    cite,
+    dfn {
+      font-style: normal;
+    }
+    dl,
+    ol,
+    p,
+    table,
+    ul {
+      margin: 0 0 2.25em;
+    }
+    h1,
+    h2,
+    h3 {
+      color: var(--heading);
+    }
+    h1 {
+      margin: 1.5rem 0;
+      font-size: 200%;
+      font-weight: normal;
+    }
+    h2 {
+      margin: 3rem 0 0.75rem;
+      font-size: 150%;
+      font-weight: normal;
+    }
+    h3 {
+      margin: 1.5rem 0 0.75rem;
+      font-size: 120%;
+      font-weight: bold;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+    }
+    header svg {
+      width: 18em;
+      height: 3em;
+    }
+    main > dl:first-of-type dd {
+      margin: 0;
+    }
+    main > dl:first-of-type dt {
+      float: left;
+      margin-right: 0.5em;
+    }
+    main > dl:first-of-type dt::after {
+      content: ':';
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    caption {
+      margin: 3rem 0 0.75rem;
+      font-size: 150%;
+      font-weight: normal;
+      text-align: left;
+    }
+    col.date {
+      width: 12em;
+    }
+    td,
+    th {
+      padding: 0.1em 0;
+      text-align: left;
+      vertical-align: top;
+    }
+    td:nth-child(n + 2),
+    th:nth-child(n + 2) {
+      padding-left: 0.5em;
+    }
+    th,
+    tbody > tr:last-child td {
+      border-bottom: solid var(--border);
+    }
+    ul li {
+      margin-bottom: 0.75em;
+    }
+    .em > :first-child {
+      margin-top: 0;
+    }
+    .em > :last-child {
+      margin-bottom: 0;
+    }
+    .logo-d1 {
+      fill: #e77d6c;
+    }
+    .logo-d2 {
+      fill: #eea08d;
+    }
+    .logo-i1 {
+      fill: #5f514b;
+    }
+    .logo-i2 {
+      fill: #1a1919;
+    }
+    .logo-i3 {
+      fill: #887a73;
+    }
+    .logo-g11 {
+      fill: #eca26f;
+    }
+    .logo-g12 {
+      fill: #e48142;
+    }
+    .logo-g21 {
+      fill: #717e6b;
+    }
+    .logo-g22 {
+      fill: #485d49;
+    }
+    .logo-text {
+      fill: #485d49;
+    }
+    #fails {
+      list-style-type: decimal;
+    }
+    #sample-summary {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 0.5em;
+    }
+  </style>
+
+  <style media="screen and (prefers-color-scheme:light)">
+    :root {
+      --bg: #fff;
+      --border: #968f8b;
+      --focus: 3px dotted var(--text);
+      --heading: #695f59;
+      --invert: var(--bg);
+      --link: var(--text);
+      --subdued: #595959;
+      --text: #2b2a29;
+    }
+  </style>
+
+  <style media="screen and (prefers-color-scheme:dark)">
+    :root {
+      --bg: #111;
+      --border: #a0a0a0;
+      --focus: 0.25em dotted #e08f5f;
+      --heading: #bbb;
+      --invert: var(--bg);
+      --link: #cc6;
+      --subdued: #a0a0a0;
+      --text: #ddd;
+    }
+    .logo-d1,
+    .logo-d2,
+    .logo-i1,
+    .logo-i2,
+    .logo-i3,
+    .logo-g11,
+    .logo-g12,
+    .logo-g21,
+    .logo-g22,
+    .logo-text {
+      fill: #fff;
+    }
+  </style>
+
+  <style media="screen">
+    :root {
+      --fonts:
+        BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif;
+    }
+    h1,
+    h2,
+    h3 {
+      --fonts: Helvetica, Arial, sans-serif;
+    }
+    body {
+      min-width: 18rem;
+      max-width: 40em;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    header {
+      margin-bottom: 1.5rem;
+    }
+    th {
+      border-bottom-width: 2px;
+    }
+    tbody > tr:last-child td {
+      border-bottom-width: 1px;
+    }
+    .em {
+      border: 1px solid var(--border);
+      padding: 0.25em;
+    }
+  </style>
+
+  <style media="print">
+    @page {
+      margin: 25mm 35mm;
+    }
+    :root {
+      --fonts: 'Crimson Text', serif;
+      --bg: transparent;
+      --border: #666;
+      --invert: #fff;
+      --link: var(--text);
+      --subdued: #ccc;
+      --text: #000;
+    }
+    h1,
+    h2,
+    h3 {
+      --fonts: Ubuntu, Helvetica, Arial, sans-serif;
+    }
+    html {
+      font: 12pt/1.2 var(--fonts);
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    a:link,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1,
+    h2 {
+      page-break-after: avoid;
+      font-family: var(--fonts);
+    }
+    h1 {
+      font-size: 24pt;
+    }
+    h2 {
+      font-size: 14pt;
+    }
+    h3 {
+      font-size: 14pt;
+    }
+    header {
+      margin-bottom: 2.25em;
+    }
+    table {
+      page-break-inside: avoid;
+    }
+    thead tr:last-child td,
+    thead tr:last-child th {
+      border-bottom-width: 1pt;
+    }
+    tbody tr:last-child td,
+    tbody tr:last-child th {
+      border-top-width: 0.5pt;
+    }
+    th {
+      border-bottom-width: 1pt;
+    }
+    tbody > tr:last-child td {
+      border-bottom-width: 0.5pt;
+    }
+    .em {
+      page-break-inside: avoid;
+      border: 0.5pt solid var(--border);
+      padding: 0.25em;
+    }
+    #sample-summary {
+      page-break-inside: avoid;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <svg
+      role="img"
+      aria-labelledby="digg-logo digg-logo-sv digg-logo-en"
+      viewBox="0 0 3612 602"
+    >
+      <defs>
+        <symbol id="digg-logo-d1" viewBox="0 0 1696 555">
+          <path
+            d="M419,255 443,231 443,222
+                    C443,208 442,195 439,182
+                    L367,255 419,255
+                    M425,136
+                    C423.458928,131.6194 421.791565,127.284256 420,123
+                    L332,211 332,255 340,255 434,161
+                    C431.528197,152.485864 428.522239,144.135979 425,136
+                    M388,76 309,155
+                    C315,162 320,170 324,179
+                    325.165203,182.281525 326.16644,185.618982 327,189
+                    L410,106
+                    C403.52684,95.3967881 396.1672,85.360916 388,76
+                    M346,39 265,120
+                    C277,125 287,132 297,141 L375,63
+                    366.033488,54.1897963 356.331637,46.1606781 346,39
+                    M308,18
+                    C303.064224,16.1465142 298.060712,14.4786768 293,13
+                    L195,112 L222,112 C230,112 237,112 245,114
+                    L330,29
+                    C322.862858,24.9534134 315.519554,21.2817613 308,18
+                    M226,1 L116,112 168,112 273,7
+                    C258,3 242,1 226,1
+                    M147,1 37,112 89,112 200,1 147,1
+                    M68,1 L0,69 0,112 10,112 121,1 68,1"
+          />
+          <polyline points="0,0 0,42 42,0 0,0" />
+          <polyline
+            points="55,407 166,407 166,366 129,366 129,329
+                              166,329 166,255 129,255 129,292 55,292 55,407"
+          />
+        </symbol>
+        <symbol id="digg-logo-d2" viewBox="0 0 1696 555">
+          <polygon points="203 292 240 292 240 255 203 255" />
+          <path
+            d="M443,255 277,255 277,292 240,292 240,366 327,366 323,376
+                    C311.666554,402.531742 290.531742,423.666554 264,435
+                    C251,441 237,444 221,444
+                    L0,444 0,554 221,554
+                    C280.038477,554.81043 336.812047,531.305449 378,489
+                    411.072492,455.529563 432.765085,412.494257 440,366
+                    L443,333 443,255"
+          />
+        </symbol>
+
+        <symbol id="digg-logo-i1" viewBox="0 0 1696 555">
+          <polyline points="675,554 708,554 708,521 675,554" />
+          <path
+            d="M707,444 596,555 649,555 708,496 708,444 707,444
+                    M653,444 629,444 518,555 570,555 681,444 653,444
+                    M586,444 550,444 487,508 487,555 492,555 603,444 586,444
+                    M487,444 487,482 524,444 487,444"
+          />
+          <polygon points="487,111 708,111 708,1 487,1" />
+        </symbol>
+        <symbol id="digg-logo-i2" viewBox="0 0 1696 555">
+          <path class="i2" d="M55,444 55,443 55,444 Z" />
+        </symbol>
+        <symbol id="digg-logo-i3" viewBox="0 0 1696 555">
+          <path
+            d="M468,329 505,329 505,292 468,292 468,329 Z
+                    M653,329 653,148 542,148 542,329 505,329 505,366 542,366
+                    L542,444 653,444 653,366 616,366 616,329 653,329 653,329 Z
+                    M686,292 723,292 723,255 686,255 686,292 Z"
+          />
+        </symbol>
+
+        <symbol id="digg-logo-g11" viewBox="0 0 1696 555">
+          <path
+            d="M1034,14 1034,112
+                    C1050,112 1063,117 1073,128
+                    1084,139 1090,152 1090,167
+                    L1090,195 1200,195 1200,167
+                    C1200.51188,123.107607 1183.19034,80.8863552 1152,50
+                    1120.65515,18.7632533 1078.25167,1.15502796 1034,1
+                    L1034,14
+                    M1090,255 1090,388
+                    C1090,404 1084,417 1073,427
+                    1062.94468,437.864635 1048.80368,444.02866 1034,444
+                    L924,444 C908,444 895,438 885,427
+                    C874.135365,416.944679 867.97134,402.80368 868,388
+                    L868,255 758,255 758,388
+                    C757.096799,432.259682 774.457674,474.938499 806,506
+                    837.50674,536.870456 879.890507,554.11131 924,554
+                    L1034,554
+                    C1078.25968,554.903201 1120.9385,537.542326 1152,506
+                    1182.87046,474.49326 1200.11131,432.109493 1200,388
+                    L1200,255 1090,255"
+          />
+        </symbol>
+        <symbol id="digg-logo-g12" viewBox="0 0 1696 555">
+          <polyline
+            points="1053,366 1053,255 1016,255 1016,292 979,292
+                              979,255 905,255 905,329 979,329 979,366
+                              1053,366"
+          />
+          <path
+            d="M867,256 868,254 868,202 815,256 867,256
+                    M1011,112 1034,88 1034,36 959,112 1011,112
+                    M868,167
+                    C868,152 874,139 885,128
+                    895,117 908,112 924,112 L933,112 L1034,10
+                    L1034,1 991,1 758,234 758,255 789,256 868,176 868,167
+                    M924,1 912,1 758,155 758,208 965,1 924,1
+                    M859,14
+                    C819.540892,31.0717994 788.071799,62.5408923 771,102
+                    767.799726,109.128156 765.125904,116.481164 763,124
+                    L881,6
+                    C873.474316,8.10463045 866.11974,10.7790217 859,14"
+          />
+        </symbol>
+
+        <symbol id="digg-logo-g21" viewBox="0 0 1696 555">
+          <path
+            d="M1419,554 1419,444
+                    C1403,444 1390,438 1379,427
+                    1368.50381,416.771371 1362.71167,402.653046 1363,388
+                    L1363,167
+                    C1363,152 1369,139 1379,128
+                    1390,117 1403,112 1419,112
+                    L1529,112
+                    C1545,112 1558,117 1568,128
+                    1579,139 1585,152 1585,167
+                    L1585,195 1695,195 1695,167
+                    C1695.51188,123.107607 1678.19034,80.8863552 1647,50
+                    1615.65515,18.7632533 1573.25167,1.15502796 1529,1
+                    L1419,1
+                    C1374.59183,0.358699405 1331.89123,18.0903054 1301,50
+                    1270.281,81.1996556 1253.04369,123.215601 1253,167
+                    L1253,388
+                    C1251.977,432.281765 1269.35648,475.006309 1301,506
+                    1332.50674,536.870456 1374.89051,554.11131 1419,554"
+          />
+        </symbol>
+        <symbol id="digg-logo-g22" viewBox="0 0 1696 555">
+          <polyline
+            points="1400,255 1400,292 1474,292 1474,329 1437,329
+                              1437,366 1548,366 1548,255 1400,255"
+          />
+          <path
+            d="M1594,541
+                    C1633.57577,524.100314 1665.10031,492.575768 1682,453
+                    1684.83083,446.175773 1687.17013,439.157882 1689,432
+                    L1573,548
+                    C1580.15321,546.154269 1587.17,543.81534 1594,541
+                    M1695,388 1695,348 1489,554 1542,554 1695,401 1695,388
+                    M1695,270 1585,380 1585,388
+                    C1585,404 1579,417 1568,427
+                    1557.94468,437.864635 1543.80368,444.02866 1529,444
+                    L1521,444 1419,546 1419,554 1463,554 1695,322 1695,270
+                    M1443,444 1419,468 1419,520 1495,444 1443,444
+                    M1631,256 1585,302 1585,354 1683,256 1631,256
+                    M1585,256 1585,276 1605,256 1585,256"
+          />
+        </symbol>
+
+        <symbol id="A" viewBox="0 0 111 142">
+          <path
+            d="M53,65 l2,-4 1,4
+                    c4,11 8,21 12,32
+                    h-27 c4,-11 8,-21 12,-32 z
+                    M97,107 l-10,-27
+                    c-4,-8 -7,-16 -11,-24 -4,-7 -7,-15 -10,-22
+                    v-1 h-24 v1
+                    c-3,7 -7,15 -10,22 -3,8 -7,16 -10,24
+                    -8,19 -15,39 -22,59
+                    l-1,1 h28 l3,-12 4,-10 h39 l4,10 4,12 h28 l-1,-1
+                    c-4,-11 -7,-21 -11,-32 z"
+          />
+        </symbol>
+
+        <symbol id="a" viewBox="0 0 63 117">
+          <path
+            d="M39,85 c3,0 5,-1 8,-1
+                    v-13 h-3 c-1,0 -3,0 -4,0
+                    h-4 l-4,1 -2,2 -1,4
+                    c0,2 1,4 3,5 l7,2 z
+                    M38,36 l12,1 8,5 4,8 1,10 v35
+                    c-8,1 -17,2 -25,2
+                    l-11,-1 c-3,0 -5,-1 -8,-3 -2,-1 -4,-3 -5,-6
+                    l-2,-9 3,-9 5,-5
+                    c2,-2 5,-3 8,-3 6,-1 13,-1 19,0
+                    v-2 l-2,-7
+                    c-2,-2 -5,-2 -9,-2 -5,0 -11,1 -16,2
+                    l-2,-13 c3,-1 5,-2 8,-2 4,-1 8,-1 12,-1 z"
+          />
+        </symbol>
+
+        <symbol id="c" viewBox="0 0 65 117">
+          <path
+            d="M17,67 l2,-12
+                    c3,-8 9,-14 16,-17
+                    l12,-2
+                    c6,0 12,1 17,3
+                    l-4,13
+                    c-2,0 -3,-1 -5,-1
+                    l-6,-1
+                    c-5,0 -9,2 -11,5 -3,3 -4,7 -4,12
+                    0,5 1,9 3,12 3,3 7,4 12,4 4,0 9,-1 13,-2
+                    l3,14 -8,2
+                    c-8,1 -15,1 -23,-2 -4,-1 -7,-3 -10,-6
+                    l-5,-10 z"
+          />
+        </symbol>
+
+        <symbol id="D" viewBox="0 0 123 142">
+          <path
+            d="M55,119 v-64
+                    c3,-1 5,-1 8,-1 12,0 20,3 25,8
+                    6,6 8,14 8,25 0,10 -3,18 -8,24
+                    -5,5 -14,8 -25,8 z
+                    M46,141 l15,1
+                    c10,0 18,-1 26,-4 14,-3 26,-13 32,-27
+                    2,-7 4,-15 4,-24 0,-10 -2,-18 -4,-25
+                    -3,-7 -8,-13 -13,-17 -5,-5 -12,-8 -19,-10
+                    -8,-2 -16,-3 -25,-3 -11,0 -21,1 -32,3
+                    h-1 v104 h1
+                    c5,1 11,2 16,2 z"
+          />
+        </symbol>
+
+        <symbol id="E" viewBox="0 0 105 142">
+          <path
+            d="M105,118 h-50 v-23 h41 v-21 h-41 v-19 h47 v-22
+                    h-73 v107 h76 z"
+          />
+        </symbol>
+
+        <symbol id="e" viewBox="0 0 73 117">
+          <path
+            d="M57,61 l-1,-4
+                    c0,-1 -1,-3 -2,-4
+                    l-3,-3 -5,-1 -5,1
+                    c-3,1 -4,4 -5,7 0,1 -1,3 -1,4 z
+                    M18,67
+                    c0,-5 0,-10 2,-14
+                    l6,-9 9,-6
+                    c4,-2 7,-2 11,-2 8,0 15,2 20,7 5,5 7,13 7,23
+                    v6 h-38
+                    c0,4 2,6 5,8 2,2 6,3 11,3 5,0 11,0 16,-2
+                    l2,13 -3,1
+                    c-4,1 -7,2 -11,2
+                    l-6,1 c-6,0 -10,-1 -14,-3 -4,-1 -7,-3 -10,-6
+                    l-6,-10 z"
+          />
+        </symbol>
+
+        <symbol id="F" viewBox="0 0 101 142">
+          <path d="M55,55 h46 v-22 h-72 v107 h26 v-43 h41 v-22 h-41 z" />
+        </symbol>
+
+        <symbol id="f" viewBox="0 0 58 117">
+          <path
+            d="M44,9 c5,0 10,1 14,3
+                    l-3,13 -5,-1 -5,-1 -5,1 -3,3 -2,3 v7 h20 v14 h-20 v45
+                    h-17 v-62
+                    c0,-22 17,-25 26,-25 z"
+          />
+        </symbol>
+
+        <symbol id="G" viewBox="0 0 115 142">
+          <path
+            d="M89,119 l-3,1 h-7
+                    c-5,0 -9,-1 -12,-3 -4,-1 -7,-3 -9,-6
+                    l-5,-11 -2,-13
+                    c0,-11 2,-19 7,-25 5,-5 12,-8 23,-8
+                    l13,1 11,5 h1 l8,-21 h-1
+                    c-3,-2 -7,-4 -11,-5 -8,-2 -16,-3 -24,-3
+                    -8,0 -15,1 -21,3 -14,5 -24,15 -29,29
+                    -2,7 -4,15 -4,24 0,8 1,16 4,23
+                    5,13 15,23 28,28 6,3 13,4 21,4
+                    13,0 26,-1 38,-5
+                    v-54 h-26 z"
+          />
+        </symbol>
+
+        <symbol id="g" viewBox="0 0 64 117">
+          <path
+            d="M27,65 c0,9 4,14 11,14 3,0 6,-1 9,-2
+                    v-27 h-3
+                    c-1,0 3,-1 -4,-1 -4,0 -8,2 -10,5 -2,3 -3,6 -3,11 z
+                    M64,89 c0,9 -3,17 -8,21
+                    -5,5 -12,7 -22,7 -4,0 -7,0 -11,-1
+                    l-10,-2 3,-14
+                    c3,1 6,2 8,2
+                    l10,1 c5,0 8,-1 10,-3 2,-2 3,-5 3,-8
+                    h-12 c-8,0 -14,-2 -18,-7 -5,-5 -7,-12 -7,-20
+                    l2,-12 c3,-7 8,-12 15,-15
+                    l13,-2 c4,0 9,0 13,1
+                    l6,1 c2,0 3,1 5,1 z"
+          />
+        </symbol>
+
+        <symbol id="H" viewBox="0 0 116 142">
+          <path
+            d="M53,96 h37 v44 h26 v-107 h-26 v40 h-37 v-40
+                    h-26 v107 h26 v-44 z"
+          />
+        </symbol>
+
+        <symbol id="I" viewBox="0 0 50 142">
+          <path d="M24,140 h26 v-107 h-26 z" />
+        </symbol>
+
+        <symbol id="i" viewBox="0 0 36 117">
+          <path
+            d="M18,96 h17 v-59 h-17 z
+                    M36,20 c0,3 0,6 -2,7 -2,2 -5,3 -7,3
+                    -3,0 -5,-1 -7,-3 -2,-1 -3,-4 -3,-7
+                    0,-3 1,-5 3,-7 2,-2 4,-3 7,-3
+                    2,0 5,1 7,3 2,2 2,4 2,7 z"
+          />
+        </symbol>
+
+        <symbol id="L" viewBox="0 0 90 142">
+          <path d="M42,33 h-26 v107 h72 v-22 h-46 z" />
+        </symbol>
+
+        <symbol id="l" viewBox="0 0 46 117">
+          <path
+            d="M44,97 l-12,-1 -7,-4 -4,-7 -1,-8 v-65 l17,-3 v68
+                    l2,4 2,2 5,1 z"
+          />
+        </symbol>
+
+        <symbol id="M" viewBox="0 0 127 142">
+          <path
+            d="M126,113 l-2,-28
+                    c-1,-9 -1,-18 -2,-27
+                    l-3,-24 v-1 h-23 l-1,1 -6,12
+                    c-3,5 -5,11 -8,16 -2,6 -5,12 -7,18
+                    l-6,14 -6,-14
+                    c-3,-6 -5,-12 -8,-18 -3,-5 -5,-11 -8,-16
+                    l-6,-12 v-1 h-24 v1
+                    c-2,7 -2,15 -3,24 -1,9 -2,18 -3,27 -1,18 -2,36 -3,54
+                    v1 h25 v-1 l2,-33
+                    c0,-11 1,-21 2,-32
+                    l4,10 6,16
+                    c2,5 5,9 7,14
+                    l5,12 v1 h18 v-1
+                    c6,-14 12,-28 19,-42
+                    l4,-10
+                    c1,11 2,21 2,32
+                    l1,33 v1 h25 v-1 z"
+          />
+        </symbol>
+
+        <symbol id="m" viewBox="0 0 101 117">
+          <path
+            d="M52,65 l-2,-11
+                    c-1,-2 -4,-4 -7,-4 -2,0 -5,0 -7,1
+                    v45 h-16 v-57
+                    c8,-2 16,-3 24,-3 4,0 8,0 10,2
+                    l7,3 8,-4 9,-1 11,2
+                    c3,1 6,3 7,5 2,3 4,6 4,9
+                    l1,11 v33 h-17 v-31
+                    c0,-5 0,-11 -2,-11 -2,-2 -3,-4 -7,-4
+                    l-3,1 -4,2 1,5 v38 h-17 z"
+          />
+        </symbol>
+
+        <symbol id="N" viewBox="0 0 109 142">
+          <path
+            d="M109,33 h-26 v59
+                    c-3,-4 -6,-9 -9,-13 -3,-6 -9,-12 -13,-18
+                    -4,-5 -8,-10 -12,-15
+                    l-11,-12 -1,-1 h-20 v107 h25 v-66 l23,30
+                    c8,12 15,24 22,36
+                    h22 z"
+          />
+        </symbol>
+
+        <symbol id="n" viewBox="0 0 69 117">
+          <path
+            d="M18,39 c8,-2 17,-3 25,-3
+                    l12,2 c6,2 11,8 12,14
+                    l2,11 v33 h-17 v-31 l-2,-11
+                    c-1,-2 -4,-4 -8,-4 -2,0 -5,0 -7,1
+                    v45 h-17 z"
+          />
+        </symbol>
+
+        <symbol id="o" viewBox="0 0 68 117">
+          <path
+            d="M50,67 c0,-6 -1,-10 -3,-13 -2,-2 -5,-4 -8,-4
+                    -4,0 -7,2 -9,4 -2,2 -3,7 -3,13 0,5 1,9 3,12
+                    2,3 5,4 9,4 3,0 6,-1 8,-4 2,-3 3,-7 3,-12 z
+                    M68,67 l-3,12 -5,10 -9,7 -12,2 -12,-2
+                    c-4,-2 -7,-4 -9,-7 -3,-3 -5,-6 -6,-10
+                    -2,-4 -2,-8 -2,-12 0,-5 0,-9 2,-13
+                    1,-4 3,-7 6,-10 2,-2 5,-5 9,-6
+                    4,-2 7,-2 12,-2 4,0 8,0 11,2
+                    7,3 12,9 15,16 2,4 3,8 3,10 z"
+          />
+        </symbol>
+
+        <symbol id="R" viewBox="0 0 113 142">
+          <path
+            d="M80,67 c0,5 -2,9 -5,11 -4,2 -10,3 -19,3
+                    h-5 v-26 h2
+                    c2,0 3,-1 5,-1 7,0 13,1 17,3 3,2 5,6 5,10 z
+                    M113,138 c-2,-3 -4,-7 -6,-11
+                    l-7,-12
+                    c-2,-3 -5,-6 -7,-10
+                    l-6,-8
+                    c6,-3 11,-6 14,-11 4,-5 5,-11 5,-18
+                    0,-13 -4,-22 -13,-27 -8,-6 -21,-9 -36,-9
+                    -10,0 -21,1 -31,3
+                    h-1 v105 h26 v-38 h10
+                    c2,3 3,5 5,8 4,6 8,13 12,19
+                    l6,11 h29 z"
+          />
+        </symbol>
+
+        <symbol id="r" viewBox="0 0 56 117">
+          <path
+            d="M53,52 c-4,-1 -8,-2 -12,-2 -2,0 -5,0 -7,1
+                    v45 h-17 v-56 l11,-3
+                    c6,-1 11,-1 17,-1 2,0 5,1 7,1
+                    l4,1 z"
+          />
+        </symbol>
+
+        <symbol id="V" viewBox="0 0 117 142">
+          <path
+            d="M117,33 h-27 v1
+                    c-8,25 -17,50 -27,74
+                    l-5,-14 -8,-20
+                    c-2,-7 -5,-13 -7,-20
+                    l-6,-20 -1,-1 h-28 v2 l8,22
+                    c3,9 7,18 10,27
+                    l12,28
+                    c4,9 8,19 12,28
+                    h25 c17,-34 31,-69 42,-105 z"
+          />
+        </symbol>
+
+        <symbol id="v" viewBox="0 0 71 117">
+          <path
+            d="M34,96 c-9,-19 -17,-39 -22,-59
+                    h17 c3,13 8,26 13,39 4,-13 8,-26 12,-39
+                    h17 c-6,20 -14,40 -23,59 z"
+          />
+        </symbol>
+
+        <symbol id="T" viewBox="0 0 102 142">
+          <path d="M71,140 v-84 h31 v-23 h-89 v23 h32 v84 z" />
+        </symbol>
+
+        <symbol id="t" viewBox="0 0 58 117">
+          <path
+            d="M19,23 l17,-3 v17 h20 v14 h-20 v21
+                    c0,3 0,6 2,8 1,2 3,3 7,3 4,0 7,0 11,-1
+                    l2,13 -7,2
+                    c-7,1 -14,1 -20,-1
+                    l-7,-5 -4,-8 -1,-11 z"
+          />
+        </symbol>
+
+        <symbol id="Y" viewBox="0 0 116 142">
+          <path
+            d="M52,140 h26 v-41
+                    c7,-10 13,-21 19,-31 6,-11 12,-22 18,-33
+                    l1,-2 h-29 v1
+                    c-3,7 -7,14 -11,21 -4,7 -7,13 -11,20
+                    -4,-7 -7,-13 -11,-20
+                    l-10,-21 v-1 h-30 l1,2
+                    c5,11 11,22 17,33 6,11 13,21 20,32 z"
+          />
+        </symbol>
+
+        <symbol id="y" viewBox="0 0 68 117">
+          <path
+            d="M67,37 l-10,32
+                    c-4,10 -8,20 -12,29
+                    l-5,9 -5,5 c-2,1 -4,3 -6,4
+                    l-9,1 c-4,0 -8,1 -12,-2
+                    l3,-14 c3,1 5,2 8,2 3,0 6,-1 7,-3
+                    2,-1 3,-3 4,-6 -9,-18 -16,-37 -22,-57
+                    h18 c2,7 4,11 6,20 1,3 2,7 3,10
+                    l3,9 c1,-3 3,-6 4,-9 3,-10 6,-20 8,-30 z"
+          />
+        </symbol>
+
+        <symbol id="OE" viewBox="0 0 123 142">
+          <path
+            d="M44,22 c2,2 5,3 8,3 4,0 7,-1 9,-3
+                    3,-3 4,-6 4,-10 0,-3 -1,-7 -4,-9
+                    -2,-2 -5,-3 -9,-3 -3,0 -6,1 -8,3
+                    -3,2 -4,6 -4,9 0,4 1,7, 4,10 z
+                    M77,22 c2,2 5,3 8,3 4,0 7,-1 9,-3
+                    3,-3 4,-6 4,-10 0,-3 -1,-7 -4,-9
+                    -2,-2 -5,-3 -9,-3 -3,0 -6,1 -8,3
+                    -3,2 -4,6 -4,9 0,4 1,7, 4,10 z
+                    M81,117 c-3,2 -7,2 -11,2 -4,0 -8,0 -11,-2
+                    -3,-1 -6,-3 -8,-6 -3,-3 -5,-7 -6,-11
+                    l -2,-13 2,-14
+                    c1,-4 3,-7 6,-10 2,-3 5,-5 8,-7
+                    l11,-2 11,2
+                    c4,2 7,4 9,7
+                    l5,10 2,14 -2,13 -5,11
+                    c-2,3 -6,5 -9,6 z
+                    M119,111 c3,-7 4,-15 4,-24 0,-9 -1,-18 -4,-24
+                    -2,-7 -6,-13 -11,-18 -5,-5 -11,-8 -17,-11
+                    -13,-5 -28,-5 -41,0 -14,5 -24,15 -29,29
+                    -3,6 -4,14 -4,24 0,9 1,17 4,24
+                    3,7 7,13 11,17 5,5 11,9 17,11
+                    l21,3
+                    c8,0 15,-1 21,-3 13,-5 23,-15 28,-28 z"
+          />
+        </symbol>
+
+        <symbol id="digg-name-sv" viewBox="0 0 1816 478">
+          <use xlink:href="#M" x="19" y="0" width="127" height="142" />
+          <use xlink:href="#Y" x="146" y="0" width="116" height="142" />
+          <use xlink:href="#N" x="262" y="0" width="109" height="142" />
+          <use xlink:href="#D" x="371" y="0" width="123" height="142" />
+          <use xlink:href="#I" x="494" y="0" width="50" height="142" />
+          <use xlink:href="#G" x="544" y="0" width="115" height="142" />
+          <use xlink:href="#H" x="659" y="0" width="116" height="142" />
+          <use xlink:href="#E" x="775" y="0" width="105" height="142" />
+          <use xlink:href="#T" x="880" y="0" width="102" height="142" />
+          <use xlink:href="#E" x="973" y="0" width="105" height="142" />
+          <use xlink:href="#N" x="1083" y="0" width="109" height="142" />
+
+          <use xlink:href="#F" x="1236" y="0" width="101" height="142" />
+          <use xlink:href="#OE" x="1337" y="0" width="123" height="142" />
+          <use xlink:href="#R" x="1460" y="0" width="113" height="142" />
+
+          <use xlink:href="#D" x="0" y="169" width="123" height="142" />
+          <use xlink:href="#I" x="123" y="169" width="50" height="142" />
+          <use xlink:href="#G" x="173" y="169" width="115" height="142" />
+          <use xlink:href="#I" x="290" y="169" width="50" height="142" />
+          <use xlink:href="#T" x="347" y="169" width="102" height="142" />
+          <use xlink:href="#A" x="447" y="169" width="111" height="142" />
+          <use xlink:href="#L" x="559" y="169" width="90" height="142" />
+
+          <use xlink:href="#F" x="680" y="169" width="101" height="142" />
+          <use xlink:href="#OE" x="781" y="169" width="123" height="142" />
+          <use xlink:href="#R" x="904" y="169" width="113" height="142" />
+          <use xlink:href="#V" x="1017" y="169" width="117" height="142" />
+          <use xlink:href="#A" x="1131" y="169" width="111" height="142" />
+          <use xlink:href="#L" x="1242" y="169" width="90" height="142" />
+          <use xlink:href="#T" x="1320" y="169" width="102" height="142" />
+          <use xlink:href="#N" x="1425" y="169" width="109" height="142" />
+          <use xlink:href="#I" x="1539" y="169" width="50" height="142" />
+          <use xlink:href="#N" x="1600" y="169" width="109" height="142" />
+          <use xlink:href="#G" x="1708" y="169" width="115" height="142" />
+        </symbol>
+
+        <symbol id="digg-name-en" viewBox="0 0 1816 478">
+          <use xlink:href="#A" x="16" y="356" width="87" height="102" />
+          <use xlink:href="#g" x="99" y="360" width="64" height="117" />
+          <use xlink:href="#e" x="162" y="360" width="73" height="117" />
+          <use xlink:href="#n" x="236" y="360" width="69" height="117" />
+          <use xlink:href="#c" x="305" y="360" width="65" height="117" />
+          <use xlink:href="#y" x="371" y="360" width="68" height="117" />
+
+          <use xlink:href="#f" x="466" y="360" width="58" height="117" />
+          <use xlink:href="#o" x="524" y="360" width="68" height="117" />
+          <use xlink:href="#r" x="592" y="360" width="56" height="117" />
+
+          <use xlink:href="#D" x="674" y="354" width="89" height="104" />
+          <use xlink:href="#i" x="763" y="360" width="36" height="117" />
+          <use xlink:href="#g" x="806" y="360" width="64" height="117" />
+          <use xlink:href="#i" x="872" y="360" width="36" height="117" />
+          <use xlink:href="#t" x="908" y="360" width="58" height="117" />
+          <use xlink:href="#a" x="966" y="360" width="63" height="117" />
+          <use xlink:href="#l" x="1029" y="360" width="46" height="117" />
+
+          <use xlink:href="#G" x="1099" y="354" width="89" height="104" />
+          <use xlink:href="#o" x="1193" y="360" width="68" height="117" />
+          <use xlink:href="#v" x="1260" y="360" width="71" height="117" />
+          <use xlink:href="#e" x="1324" y="360" width="73" height="117" />
+          <use xlink:href="#r" x="1398" y="360" width="56" height="117" />
+          <use xlink:href="#n" x="1450" y="360" width="69" height="117" />
+          <use xlink:href="#m" x="1519" y="360" width="101" height="117" />
+          <use xlink:href="#e" x="1620" y="360" width="73" height="117" />
+          <use xlink:href="#n" x="1693" y="360" width="69" height="117" />
+          <use xlink:href="#t" x="1762" y="360" width="58" height="117" />
+        </symbol>
+      </defs>
+
+      <g fill="none" fill-rule="evenodd" aria-label="DIGG">
+        <title id="digg-logo">DIGG</title>
+        <use
+          xlink:href="#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+      </g>
+      <g fill="none" fill-rule="evenodd">
+        <title id="digg-logo-sv">Myndigheten för digital förvaltning</title>
+        <use
+          xlink:href="#digg-name-sv"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </g>
+      <g fill="none" fill-rule="evenodd">
+        <title id="digg-logo-en" xml:lang="en">
+          Agency for Digital Government
+        </title>
+        <use
+          xlink:href="#digg-name-en"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </g>
+    </svg>
+
+    <p>Påpekande</p>
+  </header>
+
+  <main>
+    <dl>
+      <dt>Datum</dt>
+      <dd><time></time></dd>
+
+      <dt>Ärendenummer</dt>
+      <dd></dd>
+
+      <dt>Mottagare</dt>
+      <dd></dd>
+    </dl>
+
+    <h1>
+      Påpekande i enlighet med
+      <cite>lagen om tillgänglighet till digital offentlig service</cite>
+    </h1>
+
+    <section>
+      <h2>Saken</h2>
+
+      <p id="item-no-stmt">
+        Avsaknad av tillgänglighetsredogörelse i enlighet med 13&nbsp;§
+        <cite
+          >lag (2018:1937) om tillgänglighet till digital offentlig
+          service</cite
+        >
+        (<dfn>DOS-lagen</dfn>).
+      </p>
+
+      <p id="item-stmt-compliance">
+        Bristande tillgänglighetsredogörelse i enlighet med 13&nbsp;§
+        <cite
+          >lag (2018:1937) om tillgänglighet till digital offentlig
+          service</cite
+        >
+        (<dfn>DOS-lagen</dfn>). Detaljer om innehåll i
+        tillgänglighetsredogörelse regleras av 6&nbsp;§
+        <cite
+          >Myndigheten för digital förvaltnings föreskrifter om tillgänglighet
+          till digital offentlig service MDFFS&nbsp;2019:2</cite
+        >
+        (<dfn>föreskriften</dfn>).
+      </p>
+
+      <p id="item-a11y">
+        Bristande förenlighet med tillgänglighetskrav i enlighet med 10&nbsp;§
+        <cite class="abbr dos">DOS-lagen</cite>
+        <cite class="dfn dos"
+          >lag (2018:1937) om tillgänglighet till digital offentlig
+          service</cite
+        >
+        <span class="dfn dos">(<dfn>DOS-lagen</dfn>)</span>
+        samt 4&nbsp;§
+        <cite class="abbr ord">föreskriften.</cite>
+        <cite class="dfn ord"
+          >Myndigheten för digital förvaltnings föreskrifter om tillgänglighet
+          till digital offentlig service MDFFS&nbsp;2019:2</cite
+        >
+        <span class="dfn ord">(<dfn>föreskriften</dfn>).</span>
+      </p>
+    </section>
+
+    <section id="remarks">
+      <h2>Påpekande</h2>
+
+      <p>
+        Myndigheten för digital förvaltning (DIGG) har konstaterat att
+        <span class="psb-name"></span>
+        <span class="psb-abbr"></span>
+        (<abbr>org.nr</abbr>: <span class="reg-no"></span>) webbplats
+        <a href="#" class="url"></a> inte uppfyller kraven i
+        <cite>DOS-lagen</cite>; se bilaga&nbsp;1 (granskningsprotokoll).
+      </p>
+
+      <p>
+        Till följd av bristerna påpekar DIGG, i enlighet med 19&nbsp;§
+        1&nbsp;<abbr>st.</abbr> <cite>DOS-lagen</cite>, om att
+        <span class="psb"></span>
+        senast <time class="deadline"></time> ska åtgärda följande punkter
+        (observera att numreringen inte avser prioritet):
+      </p>
+
+      <ul id="fails"></ul>
+
+      <p>
+        Åtgärderna ska medföra att webbplatsen blir möjlig att uppfatta,
+        hanterbar, begriplig och robust enligt 10&nbsp;§
+        <cite>DOS-lagen</cite> och 4&nbsp;§ <cite>föreskriften</cite>; se
+        bilaga&nbsp;1 (granskningsprotokoll) för detaljer.
+      </p>
+
+      <p>
+        Om inte <span class="psb"></span> vidtar åtgärder enligt påpekande kan
+        DIGG komma att förelägga <span class="psb"></span> att vidta åtgärder.
+      </p>
+
+      <section class="em">
+        <h3>
+          Punkterna i påpekandet förväntas vara rättade senast
+          <time class="deadline"></time>.
+        </h3>
+
+        <p>
+          Innan tidsgränsen har passerats ska DIGG meddelas om vilka brister som
+          har åtgärdats.
+        </p>
+
+        <p>
+          För åtgärder som inte är möjliga att genomföra inom tidsramen ska en
+          åtgärdsplan tillhandahållas DIGG senast samma datum.
+        </p>
+
+        <p>DIGG genomför löpande uppföljningsarbete.</p>
+      </section>
+    </section>
+
+    <section>
+      <h2>Bakgrund</h2>
+
+      <p id="sample-info">
+        DIGG har inom sitt tillsynsuppdrag genomfört en granskning av %service%.
+        I granskningen konstaterades att %samples% brister i tillgänglighet, då
+        %pronoun% utifrån <cite>DOS-lagen</cite> inte är %requirements%.
+      </p>
+
+      <dl id="sample-summary">
+        <dt>Granskning inledd</dt>
+        <dd><time></time></dd>
+
+        <dt>Granskning avslutad</dt>
+        <dd><time></time></dd>
+
+        <dt>Antal granskade webbsidor</dt>
+        <dd></dd>
+
+        <dt>Antal granskade dokument</dt>
+        <dd></dd>
+      </dl>
+
+      <table>
+        <caption>
+          Ärendehistorik
+        </caption>
+
+        <colgroup>
+          <col class="date" />
+          <col />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">Datum</th>
+            <th scope="col">Händelse</th>
+          </tr>
+        </thead>
+
+        <tbody id="log"></tbody>
+      </table>
+    </section>
+  </main>
+</body>

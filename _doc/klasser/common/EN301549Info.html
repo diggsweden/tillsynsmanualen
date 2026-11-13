@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>EN301549Info – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 14rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Hjälpklasser</a></li>
+          <li><strong lang="en">EN301549Info</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">EN301549Info</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#m-clause"><code lang="en">clause()</code></a>
+          </li>
+          <li>
+            <a href="#m-is-wcag"><code lang="en">isWCAG()</code></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">EN301549Info</code> har bara statiska funktioner
+        och tillhandahåller information om kravavsnitten i
+        <cite>EN&nbsp;301&nbsp;549</cite> och <cite>WCAG</cite>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/EN301549Info.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 140 40" class="class uml-diagram">
+          <!--EN301549Info-->
+          <use
+            xlink:href="EN301549Info.svg#EN301549Info"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">EN301549Info</code>.
+        </figcaption>
+      </figure>
+
+      <!--clause()-->
+      <section>
+        <h2 id="m-clause"><code lang="en">clause()</code></h2>
+
+        <p>Returnerar ett informationsobjekt för angivet kravavsnitt.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">EN301549Info.clause</span>(<span class="var">num</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="info">
+          <dt><code lang="en">num</code></dt>
+          <dd>
+            Kravavsnittsnummer i <cite>EN&nbsp;301&nbsp;549</cite>, till exempel
+            ”11.1.3.1.2”.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med information om kravavsnittet, eller
+          <code class="js keyword">null</code> om argumentet inte är ett känt
+          kravavsnitt.
+        </p>
+
+        <h4>Fält i informationsobjektet</h4>
+
+        <dl class="properties">
+          <dt><code lang="en">clause</code></dt>
+          <dd>Avsnittsnummer, till exempel ”<samp>9.1.2.3</samp>”.</dd>
+
+          <dt><code lang="en">criterion</code></dt>
+          <dd>
+            Kriterienummer, till exempel ”<samp>1.2.3</samp>” (endast för
+            <cite>WCAG</cite>-kriterier).
+          </dd>
+
+          <dt><code lang="en">functionality</code></dt>
+          <dd>
+            Funktionalitetstyp:
+            <code lang="en" class="js literal">"open"</code>,
+            <code lang="en" class="js literal">"closed"</code> eller
+            <code class="js literal">""</code> (endast för krav som
+            <em>inte</em> ingår i <cite>WCAG</cite>).
+          </dd>
+
+          <dt><code lang="en">level</code></dt>
+          <dd>
+            Överensstämmelsenivå, till exempel ”<samp>AA</samp>” (endast för
+            <cite>WCAG</cite>-kriterier).
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Rubrik (kravets titel).</dd>
+
+          <dt><code lang="en">url</code></dt>
+          <dd>Länkadress.</dd>
+
+          <dt><code lang="en">wcag</code></dt>
+          <dd>
+            <code lang="en" class="js literal">true</code> om kravet ingår i
+            <cite>WCAG</cite>, annars
+            <code lang="en" class="js literal">false</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--isWCAG()-->
+      <section>
+        <h2 id="m-is-wcag"><code lang="en">isWCAG()</code></h2>
+
+        <p>
+          Kontrollerar om angivet avsnittsnummer motsvarar ett kriterium i
+          <cite>WCAG&nbsp;2.1</cite>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">EN301549Info.clause</span>(<span class="var">num</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="info">
+          <dt><code lang="en">num</code></dt>
+          <dd>
+            Kravavsnittsnummer i <cite>EN&nbsp;301&nbsp;549</cite>, till exempel
+            ”9.1.2.3”.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om numret motsvarar ett
+          <cite>WCAG</cite>-kriterium, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

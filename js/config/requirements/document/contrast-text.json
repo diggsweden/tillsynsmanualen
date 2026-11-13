@@ -1,0 +1,60 @@
+{
+  "methods": [
+    "Leta visuellt efter text som inte uppenbart har tillräcklig kontrast mot bakgrunden."
+  ],
+  "exceptions": [
+    "logotyper",
+    "inaktiva komponenter i användargränssnittet",
+    "text som utgör ren dekoration och inte förmedlar någon relevant information",
+    "text som inte är synlig för någon",
+    "text i bilder med annat signifikant innehåll."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "text"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Kontrast för bilder av text hanteras i en annan kontroll (förutsatt att du markerat innehållstypen ”Bilder”)."
+    },
+    {
+      "type": "text",
+      "text": "Textstorleken och fetstil visas vanligen i <cite translate=\"no\" lang=\"no\">Acrobat</cite> eller officeprogram tillsammans med andra textattribut."
+    },
+    {
+      "type": "figure",
+      "filters": ["pdf"],
+      "caption": "PDF: I redigeringsläge, markera texten, fäll ned menyn för textfärg och välj <samp>Annan färg…</samp>. Dialogrutan visar färgkoderna.",
+      "content": [
+        {
+          "type": "image",
+          "path": "farg-pdf.png",
+          "alt": "Menyn för textfärg innehåller alternativet Annan färg…"
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "filters": ["doc", "docx", "ppt", "pptx", "xls", "xlsx"],
+      "caption": "<span translate=\"no\" lang=\"en\">Microsot Office</span>: Högerklicka på texten, fäll ned menyn för textfärg och välj <samp>Fler färger…</samp>. Dialogrutan visar färgkoderna.",
+      "content": [
+        {
+          "type": "image",
+          "path": "farg-word-1.png",
+          "alt": "Menyn för textfärg innehåller alternativet Fler färger…"
+        },
+        {
+          "type": "image",
+          "path": "farg-word-2.png",
+          "alt": "Dialogen Färger visar färgkoderna"
+        }
+      ]
+    }
+  ]
+}

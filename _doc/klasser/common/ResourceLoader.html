@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ResourceLoader – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 13rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Hjälpklasser</a></li>
+          <li><strong lang="en">ResourceLoader</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ResourceLoader</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-configuration"
+              ><code lang="en">configuration()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-load-module"><code lang="en">loadModule()</code></a>
+          </li>
+          <li>
+            <a href="#m-page-content"><code lang="en">pageContent()</code></a>
+          </li>
+          <li>
+            <a href="#m-page-template"><code lang="en">pageTemplate()</code></a>
+          </li>
+          <li>
+            <a href="#m-resource"><code lang="en">resource()</code></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">ResourceLoader</code> hämtar olika typer av
+        resurser asynkront från servern. Den är inte, strikt sett, helt
+        nödvändig, men möjliggör enhetstester.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/ResourceLoader.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/common/ResourceLoader.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 130 70" class="class uml-diagram">
+          <!--ResourceLoader-->
+          <use
+            xlink:href="ResourceLoader.svg#ResourceLoader"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ResourceLoader</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ResourceLoader</span>()</code></pre>
+      </section>
+
+      <!--configuration()-->
+      <section>
+        <h2 id="m-configuration"><code lang="en">configuration()</code></h2>
+
+        <p>Hämtar en konfigurationsfil i JSON-format.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">configuration</span>(<span class="var">path</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>
+            Sökväg relativt konfigurationskatalogen (<code>js/config/</code>)
+            och utan filändelse.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med ett konfigurationsobjekt skapat genom
+          tolkning av JSON-filen när den hämtats.
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TyperError</code></dt>
+          <dd>Ett fel uppstod vid hämtning av filen från servern.</dd>
+        </dl>
+      </section>
+
+      <!--loadModule()-->
+      <section>
+        <h2 id="m-load-module"><code lang="en">loadModule()</code></h2>
+
+        <p>Importerar en JavaScript-modul.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">loadModule</span>(<span class="var">path</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>
+            Sökväg relativt controllerkatalogen (<code>js/controller/</code>)
+            (med filändelse).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med den importerade modulen.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TyperError</code></dt>
+          <dd>Ett fel uppstod vid import av modulen.</dd>
+        </dl>
+      </section>
+
+      <!--pageContent()-->
+      <section>
+        <h2 id="m-page-content"><code lang="en">pageContent()</code></h2>
+
+        <p>Hämtar ett innehållsfragment som text.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">pageContent</span>(<span class="var">path</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>
+            Sökväg relativt innehållskatalogen (<code>granskning/pages/</code>),
+            utan filändelse.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med den hämtade texten.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TyperError</code></dt>
+          <dd>Ett fel uppstod vid hämtning av filen från servern.</dd>
+        </dl>
+      </section>
+
+      <!--pageTemplate()-->
+      <section>
+        <h2 id="m-page-template"><code lang="en">pageTemplate()</code></h2>
+
+        <p>Hämtar en sidmall som text.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">pageTemplate</span>(<span class="var">path</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>
+            Sökväg relativt mallkatalogen (<code>granskning/templates/</code>),
+            utan filändelse.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med den hämtade texten.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TyperError</code></dt>
+          <dd>Ett fel uppstod vid hämtning av filen från servern.</dd>
+        </dl>
+      </section>
+
+      <!--resource()-->
+      <section>
+        <h2 id="m-resource"><code lang="en">resource()</code></h2>
+
+        <p>Hämtar en resursfil som text.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">resource</span>(<span class="var">path</span>) </code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">path</code></dt>
+          <dd>
+            Sökväg relativt skriptrotkatalogen (<code>js/</code>), (med
+            filändelse).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias med den hämtade texten.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TyperError</code></dt>
+          <dd>Ett fel uppstod vid hämtning av filen från servern.</dd>
+        </dl>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

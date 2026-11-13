@@ -1,0 +1,34 @@
+{
+  "methods": [
+    "Använd funktionen <samp translate=\"no\" lang=\"en\">Resize</samp> i <cite translate=\"no\" lang=\"en\">Web Developer</cite> och sätt storleken till 1280×1024. Förstora sidan till 400&nbsp;% (<kbd><kbd>Ctrl</kbd>+<kbd>+</kbd></kbd>). Minska förstoringen gradvis till 100&nbsp;% (<kbd><kbd>Ctrl</kbd>+<kbd>-</kbd></kbd>) och kontrollera att inga layoutfel uppträder.",
+    "Använd verktyget för följsamt designläge i <cite>Inspektören</cite> (<kbd><kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd>M</kbd>) och ställ in bredden 320 (vertikal skrollning) eller höjden 256 (horisontell skrollning). Gör vyn gradvis bredare/högre genom att dra i kantlinjen och kontrollera att inga layoutfel uppträder."
+  ],
+  "exceptions": [
+    "Skrollning i två ledder är acceptabelt om sidan har innehåll som kräver tvådimensionell layout, till exempel bilder, diagram, datatabeller, kartor, spel och videofilmer."
+  ],
+  "tools": [
+    {
+      "tool": "WebDeveloper",
+      "tab": "Resize",
+      "help": "Använd <samp translate=\"no\" lang=\"en\">Edit Resize Dimensions</samp> för att skapa ett val för 1280×1024, så slipper du skriva in siffrorna varje gång."
+    },
+    {
+      "tool": "DevTool",
+      "function": "Device"
+    }
+  ],
+  "info": [
+    {
+      "type": "note",
+      "text": "Om du använder metoden att förstora sidan till 400&nbsp;% i <cite translate=\"no\" lang=\"en\">Firefox</cite>, se till att <samp>Visa</samp>/<samp>Zoom</samp>/<samp>Zooma endast texten</samp> i menyn inte är ikryssat."
+    },
+    {
+      "type": "text",
+      "text": "Att ingen information eller funktion går förlorad betyder att innehåll inte ska bli oåtkomligt på grund av oflexibel design. Att visst innehåll avsiktligt döljs med följsam formgivning är ett medvetet beslut och ska inte leda till underkännande."
+    },
+    {
+      "type": "tip",
+      "text": "Använd funktionen <samp translate=\"no\" lang=\"en\">Edit Resize Dimensions</samp> på fliken <samp translate=\"no\" lang=\"en\">Resize</samp> i <cite translate=\"no\" lang=\"en\">Web Developer</cite> för att skapa en inställning på 1280×1024, så slipper du mata in värdena varje gång."
+    }
+  ]
+}

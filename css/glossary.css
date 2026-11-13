@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för ordlista, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Grundläggande formgivning av HTML-element. */
+
+  dl {
+  }
+  dd {
+    margin: 0 0 2.25em;
+    counter-increment: defs;
+  }
+  dd + dd {
+    margin-top: -1.5em;
+  }
+  dt {
+    font-weight: bolder;
+    counter-reset: defs;
+  }
+
+  section a[href^='#'] {
+    border: 0;
+    color: inherit;
+    font-weight: bolder;
+    text-decoration: none;
+  }
+  section a[href^='#']::before {
+    content: '\2192  ';
+  }
+
+  h2 {
+    text-align: center;
+  }
+  h2::before {
+    content: '— ';
+  }
+  h2::after {
+    content: ' —';
+  }
+
+  /* Klasser. */
+
+  .drop-shadow {
+    box-shadow: 0.2em 0.2em 0.3em var(--shadow);
+  }
+  span.drop-shadow {
+    display: inline-block;
+    width: 2rem;
+    height: 1rem;
+    border: 1px solid;
+    border-radius: 0.5em;
+    vertical-align: text-bottom;
+  }
+
+  dt.multi + dd::before,
+  dt.multi ~ dd + dd::before {
+    content: counter(defs) '. ';
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: light) {
+  /* Egna egenskaper. */
+
+  .drop-shadow {
+    --shadow: #666;
+  }
+}
+
+/*
+ * Bildskärm, mörkt visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  /* Egna egenskaper. */
+
+  .drop-shadow {
+    --shadow: rgb(204, 204, 204, 0.6);
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Sidelement. */
+
+  main nav {
+    position: static;
+    width: 8em;
+    margin: 0 auto 1.5em;
+    border: solid var(--nav-border);
+    border-width: 0 0.125em;
+    padding-left: 1em;
+  }
+  main nav a[href] {
+    border: 0;
+    padding: 0;
+    color: var(--link);
+    text-decoration: none;
+  }
+  main nav:hover a[href],
+  main nav:focus-within a[href] {
+    text-decoration: underline;
+  }
+  main nav a[aria-current] {
+    border-bottom: 0.25em solid;
+  }
+  main nav a:hover {
+    background-color: transparent;
+    color: var(--link);
+  }
+  main nav a:hover {
+    text-decoration: underline;
+  }
+  main nav span {
+    display: inline-block;
+    width: 1.5em;
+    text-align: center;
+    color: var(--subdued);
+  }
+  main nav span[aria-current] a {
+    border-bottom: 2px solid var(--menu-bg);
+    font-weight: bolder;
+  }
+
+  /* Klasser. */
+
+  body.focus main nav a:focus-visible {
+    background-color: transparent;
+    color: var(--link);
+  }
+  body.focus main nav a:focus-visible {
+    outline: var(--focus);
+  }
+}
+
+/*
+ * Formgivning för bred vy.
+ * ------------------------
+ */
+@media screen and (min-width: 52em) {
+  /* Sidelement. */
+
+  main nav {
+    position: sticky;
+    top: 1rem;
+    float: right;
+    margin: 0 -12em 0 0;
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Grundläggande formgivning av HTML-element. */
+
+  dl {
+  }
+  dd {
+    widows: 3;
+    orphans: 3;
+  }
+  dt {
+    page-break-after: avoid;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+}

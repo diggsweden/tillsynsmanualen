@@ -1,0 +1,1300 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Egna egenskaper. */
+
+  :root {
+    --fonts:
+      BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+      sans-serif;
+    --mono-fonts: Consolas, monospace;
+    --samp-fonts: Arial, sans-serif;
+  }
+
+  svg {
+    --fill: var(--text);
+    --stroke: var(--text);
+  }
+
+  /* Formgivning av HTML-element. */
+
+  html {
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  body {
+    counter-reset: figures;
+  }
+  a {
+    color: var(--link);
+  }
+
+  blockquote,
+  details,
+  dl,
+  fieldset,
+  form,
+  ol,
+  p,
+  table,
+  ul {
+    margin: 0 0 2.25em;
+  }
+
+  blockquote {
+    margin: 0 2rem 1.5rem;
+  }
+  blockquote[cite] {
+    font-size: smaller;
+  }
+
+  cite {
+    font-style: normal;
+  }
+  cite[lang],
+  cite cite {
+    font-style: italic;
+  }
+
+  details {
+  }
+  summary {
+    margin-bottom: 0.75rem;
+  }
+  summary h2 {
+    display: inline;
+  }
+
+  figure {
+    counter-increment: figures;
+  }
+  figcaption {
+    font-size: smaller;
+  }
+  figcaption::before {
+    content: 'Figur ' counter(figures) '. ';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text);
+  }
+  h1 {
+    margin: 0 0 2.25rem;
+    font-size: 200%;
+    font-weight: normal;
+  }
+  h2 {
+    margin: 6rem 0 1.5rem;
+    font-size: 150%;
+    font-weight: normal;
+  }
+  h3 {
+    margin: 4.5rem 0 0.75rem;
+    font-size: 120%;
+    font-weight: bold;
+  }
+  h4 {
+    margin: 3rem 0 0.75rem;
+    font-size: 110%;
+    font-weight: normal;
+  }
+  h5 {
+    margin: 1.5rem 0 0.25rem;
+    font-size: 100%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  h6 {
+    margin: 1.5rem 0 0.25rem;
+    font-size: 80%;
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  ol,
+  ul {
+    padding-left: 0;
+  }
+
+  svg {
+    fill: var(--fill);
+    stroke: var(--stroke);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 0;
+  }
+
+  table {
+    border-color: var(--border);
+    border-collapse: collapse;
+    caption-side: bottom;
+  }
+  caption {
+    font-size: smaller;
+    text-align: left;
+  }
+  td,
+  th {
+    padding: 0.1em 0.5em;
+    text-align: left;
+    vertical-align: top;
+  }
+  thead tr:last-child td,
+  thead tr:last-child th {
+    border-bottom: 2px solid;
+  }
+  tbody tr:last-child td,
+  tbody tr:last-child th {
+    border-bottom: 1px solid;
+  }
+
+  /* Klasser och attribut. */
+
+  [hidden] {
+    display: none !important;
+  }
+
+  .action,
+  .note,
+  .tip,
+  .warning {
+    min-height: 2em;
+    border: var(--border);
+    border-radius: 0.25em;
+    padding: 4em 1em 1em 1em;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .action *:first-child,
+  .note *:first-child,
+  .tip *:first-child,
+  .warning *:first-child {
+    margin-top: 0;
+  }
+  .action *:last-child,
+  .note *:last-child,
+  .tip *:last-child,
+  .warning *:last-child {
+    margin-bottom: 0;
+  }
+
+  .dimmed {
+    color: var(--dimmed-text);
+  }
+
+  .simplified .advanced,
+  .advanced .simplified {
+    display: none;
+  }
+
+  body.focus *:focus {
+    outline: 0;
+  }
+  body.focus *:focus-visible {
+    outline: var(--focus);
+    outline-offset: 0.25em;
+    transition: outline-offset 0.2s;
+  }
+  body.focus header nav.menu li li a:focus-visible,
+  body.focus header nav.menu li li span:focus-visible {
+    background: var(--focus-bg);
+    color: var(--focus-text);
+    outline: 0;
+  }
+  body.focus .page-menu button:focus {
+    border-color: currentColor;
+    outline: 0;
+  }
+  body.focus .page-menu a:focus-visible {
+    outline: 0;
+  }
+  body.focus .page-menu a:focus-visible span {
+    outline: var(--focus);
+  }
+
+  body.font {
+    font-family: var(--fonts);
+  }
+  body.font code,
+  body.font kbd {
+    font-family: var(--mono-fonts);
+    font-size: 1em;
+  }
+  body.font code var {
+    font-family: var(--fonts);
+    font-style: italic;
+  }
+  body.font h1,
+  body.font h2,
+  body.font h3,
+  body.font h4,
+  body.font h5,
+  body.font h6 {
+    font-family: var(--fonts);
+  }
+  body.font kbd kbd {
+    font-family: var(--fonts);
+  }
+  body.font samp {
+    font-family: var(--samp-fonts);
+    font-size: 1em;
+  }
+
+  .logo-d1 {
+    fill: #e77d6c;
+  }
+  .logo-d2 {
+    fill: #eea08d;
+  }
+  .logo-i1 {
+    fill: #5f514b;
+  }
+  .logo-i2 {
+    fill: #1a1919;
+  }
+  .logo-i3 {
+    fill: #887a73;
+  }
+  .logo-g11 {
+    fill: #eca26f;
+  }
+  .logo-g12 {
+    fill: #e48142;
+  }
+  .logo-g21 {
+    fill: #717e6b;
+  }
+  .logo-g22 {
+    fill: #485d49;
+  }
+  .logo-text {
+    fill: #485d49;
+  }
+
+  .major.action {
+    display: block;
+    box-sizing: border-box;
+    max-width: 18rem;
+    margin: 0 auto;
+    border-radius: 0.25em;
+    padding: 1.5rem 1rem;
+    font-size: 2em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+  }
+  .major span {
+    display: block;
+    margin-top: 0.5em;
+  }
+  .major svg {
+    vertical-align: middle;
+    fill: var(--fill);
+  }
+
+  /* Sidelement. */
+
+  body > header {
+  }
+  body > header > p {
+    margin: 0.75em 0 1.5em;
+    font-size: smaller;
+    font-style: italic;
+  }
+  body > header svg {
+    width: 18em;
+    height: 3em;
+  }
+
+  main {
+    padding-top: 2.25rem;
+  }
+
+  footer {
+    margin: 3rem 0 0;
+    font-size: smaller;
+  }
+  footer address {
+    margin: 0 0 2.25em;
+    font-style: normal;
+  }
+  footer address p {
+    margin: 0;
+  }
+  footer address a {
+    text-decoration: none;
+  }
+  footer address a[href^='mailto:']::before {
+    content: '\2709  ';
+  }
+  footer address a[href^='tel:']::before {
+    content: '\2706  ';
+  }
+  footer ul {
+    padding: 0;
+  }
+  footer ul li {
+    list-style-type: none;
+  }
+  footer ul li a[href^='https:'] {
+    padding: 0;
+    background: transparent;
+  }
+  [rel='license'] {
+    display: inline-block;
+    width: 7rem;
+    height: 1.2rem;
+    overflow: hidden;
+    border: 1px solid #fff;
+    background: #000 !important;
+    color: #fff !important;
+    line-height: 1.2rem;
+    text-align: left;
+    text-decoration: none;
+  }
+  [rel='license']::after {
+    content: none !important;
+  }
+  [rel='license'] span:first-child {
+    display: inline-block;
+    position: relative;
+    width: 2.2rem;
+    height: 1.2rem;
+    margin-right: 0.5em;
+    border-radius: 0 0.5em 0.5em 0/0 50% 50% 0;
+    background: #b7bdb6;
+    vertical-align: top;
+  }
+  [rel='license'] > span:first-child::before {
+    display: inline-block;
+    position: absolute;
+    top: -0.4em;
+    left: 0.2em;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    line-height: 1.5rem;
+    text-align: center;
+    content: 'CC';
+  }
+  [rel='license'] span span {
+    position: absolute;
+    left: -999rem;
+    color: #000;
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: light) {
+  /* Egna egenskaper. */
+
+  :root {
+    --bg: #fff;
+    --dark-accent-1: #cd7a6e;
+    --dark-accent-3: #5a6751;
+    --dark-neutral: #695f59;
+    --light-accent-1: #f7e4e1;
+    --light-accent-2: #f4e0c3;
+    --light-accent-3: #d6d9d3;
+    --light-neutral: #f0efee;
+    --medium-accent-1: #ebc0b8;
+    --medium-accent-3: #968f8b;
+    --medium-neutral: #e8e8e8;
+    --text: #2b2a29;
+    --text-neg: var(--bg);
+
+    --alt-bg: var(--medium-neutral);
+    --backdrop: rgba(0, 0, 0, 0.7);
+    --border: var(--medium-accent-3);
+    --ext-icon: url('img/light/extern.svg');
+    --fail: #a70606;
+    --focus: 3px dotted var(--text);
+    --heading: var(--dark-neutral);
+    --link: var(--text);
+    --link-decor: underline;
+    --nav-border: var(--medium-neutral);
+    --nav-current: var(--text);
+    --pass: #060;
+    --shadow: 0.2em 0.2em 0.25em var(--dark-neutral);
+    --subdued: #595959;
+    --target-icon: url('img/light/target.svg');
+  }
+
+  header > p,
+  footer {
+    --text: var(--dark-accent-3);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    --text: var(--heading);
+  }
+
+  kbd kbd {
+    --bg: var(--medium-neutral);
+  }
+
+  [role='status'].error {
+    --bg: rgba(255, 255, 255, 0.7);
+    --text: var(--fail);
+  }
+
+  [role='status'].success {
+    --bg: var(--pass);
+    --text: var(--text-neg);
+  }
+
+  .action {
+    --bg: var(--dark-accent-3);
+    --border: none;
+    --fill: var(--text-neg);
+    --text: var(--text-neg);
+  }
+
+  nav.menu {
+    --focus-bg: var(--text);
+    --focus-text: var(--text-neg);
+  }
+
+  .note {
+    --bg: url('img/light/note.svg') no-repeat 50% 1em/2em var(--light-accent-3);
+    --border: none;
+  }
+
+  .tip {
+    --bg: url('img/light/tip.svg') no-repeat 50% 1em/2em var(--light-accent-2);
+    --border: none;
+  }
+
+  .warning {
+    --bg: url('img/light/warning.svg') no-repeat 50% 1em/2em
+      var(--light-accent-1);
+    --border: none;
+  }
+
+  /* Formgivning av HTML-element. */
+
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/*
+ * Bildskärm, mörkt visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  /* Egna egenskaper. */
+
+  :root {
+    --accent-1: #84ae84;
+    --accent-2: #e09f6f;
+    --accent-3: #aeb8c1;
+    --bg: #111;
+    --text: #ddd;
+    --text-neg: var(--bg);
+
+    --alt-bg: #2a2b27;
+    --backdrop: rgba(255, 255, 255, 0.4);
+    --border: var(--subdued);
+    --ext-icon: url('img/dark/extern.svg');
+    --fail: #faa;
+    --focus: 0.25em dotted var(--accent-2);
+    --heading: #bbb;
+    --link: #cc6;
+    --link-decor: none;
+    --nav-border: #3d3d3d;
+    --nav-current: var(--text);
+    --pass: var(--accent-1);
+    --shadow: none;
+    --subdued: #a0a0a0;
+    --target-icon: url('img/dark/target.svg');
+  }
+
+  header > p,
+  footer {
+    --text: #bbb;
+  }
+
+  kbd kbd {
+    --bg: #2a2b27;
+    --text: #ddd;
+  }
+
+  [role='status'].error {
+    --bg: rgba(0, 0, 0, 0.7);
+    --text: var(--fail);
+  }
+
+  [role='status'].success {
+    --bg: rgba(0, 0, 0, 0.9);
+    --text: var(--pass);
+  }
+
+  .action {
+    --bg: transparent;
+    --border: 0.125em solid;
+    --text: var(--accent-1);
+  }
+
+  .major.action {
+    --bg: var(--accent-1);
+    --border: none;
+    --fill: var(--text-neg);
+    --text: var(--text-neg);
+  }
+
+  nav.menu {
+    --focus-bg: var(--text);
+    --focus-text: var(--text-neg);
+  }
+
+  .note {
+    --bg: url('img/dark/note.svg') no-repeat 50% 1em/2em;
+    --border: 0.125em solid;
+    --text: var(--accent-3);
+  }
+
+  .tip {
+    --alt-bg: #ccc;
+    --bg: url('img/dark/tip.svg') no-repeat 50% 1em/2em;
+    --border: 0.125em solid;
+    --text: var(--accent-2);
+  }
+
+  .warning {
+    --bg: url('img/dark/warning.svg') no-repeat 50% 1em/2em;
+    --border: 0.125em solid;
+    --text: var(--fail);
+  }
+
+  /* Formgivning av HTML-element. */
+
+  dialog::backdrop {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Egna egenskaper. */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    --fonts: Helvetica, Arial, sans-serif;
+  }
+
+  /* Formgivning av HTML-element. */
+
+  :root {
+    color-scheme: dark light;
+  }
+  body {
+    min-width: 18rem;
+    max-width: 60em;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  a[href^='#'] {
+    text-decoration-style: dotted;
+  }
+  a[href^='http:']::after,
+  a[href^='https:']::after,
+  a[rel='external']::after {
+    display: inline-block;
+    width: 1.2em;
+    height: 1em;
+    background: var(--ext-icon) no-repeat right top/1em;
+    content: '' / 'annan webbplats';
+  }
+  a[href][target]::after {
+    display: inline-block;
+    width: 1.25em;
+    height: 1em;
+    background: var(--target-icon) no-repeat right top/1em;
+    content: '';
+  }
+
+  dialog {
+    width: 90%;
+    max-width: 30em;
+    background: var(--bg);
+    color: var(--text);
+    font: 100%/1.5 var(--fonts);
+    cursor: auto;
+  }
+  dialog[role][aria-modal]::before {
+    content: none;
+  }
+  dialog h2 {
+    margin-top: 0;
+  }
+  dialog p:last-child {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-around;
+    margin-bottom: 0;
+  }
+  dialog button:focus-visible {
+    outline: var(--focus);
+    outline-offset: 0.25em;
+    transition: outline-offset 0.2s;
+  }
+
+  kbd kbd {
+    border: 0.125em outset;
+    border-radius: 0.25em;
+    padding: 0 0.5em;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* Klasser och attribut. */
+
+  [aria-busy='true'] {
+    cursor: wait;
+  }
+
+  .major.action svg {
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--fill);
+  }
+
+  .page-menu {
+    position: absolute;
+    right: 0;
+    top: -1.75em;
+    text-align: left;
+  }
+  .page-menu button {
+    border: 1px solid transparent;
+    border-radius: 0.25em;
+    padding: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 1em;
+  }
+  .page-menu button:hover {
+    border-color: currentColor;
+  }
+  .page-menu button::before {
+    display: inline-block;
+    width: 0.75em;
+    height: 0.15em;
+    border-width: 0.45em 0 0.15em;
+    border-style: double none solid;
+    content: '';
+  }
+  .page-menu button span {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .page-menu ul {
+    display: none;
+    position: absolute;
+    top: 1.75em;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+    border: 1px solid;
+    border-top-width: 0;
+    padding: 0;
+    box-shadow: var(--shadow);
+    background: var(--bg);
+  }
+  .page-menu button[aria-expanded] + ul {
+    display: block;
+  }
+  .page-menu li {
+    display: block;
+  }
+  .page-menu a[href] {
+    display: block;
+    border: 0;
+    padding: 0.25em 0.5em;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .page-menu a:hover span {
+    text-decoration: underline;
+  }
+
+  .print {
+    display: none;
+  }
+
+  .s {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .tip {
+  }
+  .tip > *:last-child {
+    margin-bottom: 0;
+  }
+  .tip table.grid td,
+  .tip table.grid th {
+    border-color: var(--text);
+  }
+
+  ul.toc {
+    padding: 0;
+  }
+  .toc > li {
+    display: block;
+  }
+  .toc > li::before {
+    margin-right: 0.75em;
+    content: '»';
+  }
+
+  /* Sidelement. */
+
+  body > header {
+    color: var(--text);
+  }
+  body > header > a[href^='#'] {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    left: 0;
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 1em;
+    background: var(--text);
+    color: var(--text-neg);
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.5s 0.2s;
+  }
+  body > header > a[href^='#']:focus {
+    transform: translateY(100%);
+    outline: 0;
+  }
+
+  header nav.menu {
+    margin: 1.5rem 0 0;
+  }
+  header nav.menu a {
+    color: inherit;
+    text-decoration: none;
+  }
+  header nav.menu > ul {
+    display: flex;
+    column-gap: 0.75em;
+    margin: 0;
+    border-bottom: 0.25em solid;
+    padding: 1em 0 0;
+  }
+  header nav.menu > ul > li {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  header nav.menu li span {
+    cursor: default;
+  }
+  header nav.menu li ul {
+    display: none;
+    position: absolute;
+    top: 2em;
+    left: 0;
+    margin: 1px 0 0;
+    border: 1px solid;
+    padding: 0;
+    box-shadow: var(--shadow);
+    background: var(--bg);
+  }
+  header nav.menu li [aria-expanded='true'] + ul {
+    display: block;
+  }
+  header nav.menu li li {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+  }
+  header nav.menu li li a,
+  header nav.menu li li span {
+    display: block;
+    padding: 0.25em 0.5em;
+  }
+  header nav.menu li li a:hover,
+  header nav.menu li li span:hover {
+    background: var(--focus-bg);
+    color: var(--focus-text);
+  }
+  header nav.menu li li span {
+    position: relative;
+  }
+  header nav.menu li li a[aria-haspopup]::after {
+    position: absolute;
+    top: 0.6em;
+    right: 0.5em;
+    width: 0.5em;
+    height: 0.5em;
+    border: solid;
+    border-width: 0 2px 2px 0;
+    transform: rotate(-45deg);
+    transition: transform 0.2s;
+    content: '';
+  }
+  header nav.menu li li a[aria-expanded='true']::after {
+    transform: rotate(45deg);
+  }
+  header nav.menu li li ul {
+    position: static;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    background-color: var(--alt-bg);
+  }
+
+  header nav.breadcrumbs {
+    margin: 0.75rem 0 0;
+    font-size: smaller;
+  }
+  header nav.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    column-gap: 0.5em;
+  }
+  header nav.breadcrumbs li {
+    display: inline;
+  }
+  header nav.breadcrumbs li + li::before {
+    display: inline-block;
+    height: 1em;
+    margin-right: 0.5em;
+    border-left: 1px solid;
+    vertical-align: middle;
+    transform: rotate(15deg);
+    content: '';
+  }
+
+  main {
+    position: relative;
+    max-width: 40rem;
+  }
+  main > div[role='status'] {
+    position: relative;
+    margin: 0 0 2.25rem;
+    background: var(--bg);
+    color: var(--text);
+  }
+  main > div[role='status']:empty {
+    margin: 0;
+  }
+  main > div[role='status'].closable::after {
+    position: absolute;
+    top: 0;
+    right: 0.5em;
+    content: '×';
+  }
+  main > div[role='status'].error {
+    position: fixed;
+    right: 10%;
+    top: 100%;
+    left: 10%;
+    z-index: 1;
+    border: 2px dashed;
+    padding: 0.5em;
+    background: var(--bg);
+    color: var(--text);
+    font-size: larger;
+    font-weight: bold;
+    transform: translateY(-120%);
+    transition: transform 0.5s;
+  }
+  main > div[role='status'].loading {
+    color: var(--subdued);
+    font-size: smaller;
+    font-style: italic;
+  }
+  main > div[role='status'].success {
+    position: fixed;
+    right: 10%;
+    bottom: 100%;
+    left: 10%;
+    z-index: 1;
+    border: 2px solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    transform: translateY(200%);
+    transition: transform 0.5s;
+  }
+
+  footer {
+    border-top: 0.25em solid;
+    padding: 0.5rem;
+    color: var(--text);
+  }
+  footer a {
+    color: inherit;
+  }
+  footer address p,
+  footer li {
+    margin: 0 0 0.75em;
+  }
+  footer address a span {
+    border-bottom: 1px solid;
+  }
+  footer li {
+    text-align: center;
+  }
+}
+
+/*
+ * Logotyp i mörkt visningsläge.
+ * -----------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  .logo-d1,
+  .logo-d2,
+  .logo-i1,
+  .logo-i2,
+  .logo-i3,
+  .logo-g11,
+  .logo-g12,
+  .logo-g21,
+  .logo-g22,
+  .logo-text {
+    fill: #fff;
+  }
+}
+
+/*
+ * Formgivning i mellanbred vy.
+ * ----------------------------
+ */
+@media screen and (min-width: 30em) {
+  /* Klasser och attribut. */
+
+  .action.major {
+    max-width: 24rem;
+  }
+  .action span {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+  }
+
+  .action,
+  .note,
+  .tip,
+  .warning {
+    padding: 1em 1em 1em 4em;
+    background-position: 1em 1em;
+  }
+
+  /* Sidelement. */
+
+  header nav.menu li li a[aria-haspopup][aria-expanded='true']::after {
+    transform: rotate(-45deg);
+  }
+  header nav.menu li li ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin: 1px 0 0;
+    border: 1px solid;
+    padding: 0;
+    box-shadow: var(--shadow);
+    background: var(--bg);
+  }
+
+  main {
+    padding-top: 3.75rem;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  footer address,
+  footer address p {
+    margin: 0;
+  }
+  footer li {
+    text-align: left;
+  }
+}
+
+/*
+ * Formgivning i bred vy.
+ * ----------------------
+ */
+@media screen and (min-width: 58em) {
+  /* Klasser och attribut. */
+
+  .page-menu {
+    position: sticky !important;
+    top: 1em;
+    right: auto;
+    float: right;
+    width: 14em;
+    margin-right: -16em;
+  }
+  .page-menu button {
+    display: none;
+  }
+  .page-menu ul {
+    display: block;
+    position: static;
+    border: 0;
+    box-shadow: none;
+  }
+  .page-menu ul::before {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--heading);
+    font-size: 120%;
+    content: 'Innehåll';
+  }
+  .page-menu a[href] {
+    border-left: 0.125em solid var(--nav-border);
+    padding: 0.5em 0 0.5em 1em;
+  }
+  .page-menu a[aria-current] {
+    border-color: var(--text);
+    font-weight: bold;
+  }
+
+  /* Sidelement. */
+
+  body > header {
+    display: grid;
+    grid-template-columns: 18em 1fr;
+  }
+  body > header > svg {
+    margin-bottom: 0.75em;
+  }
+  body > header > p {
+    text-align: right;
+  }
+  body > header > nav {
+    grid-column: 1 /3;
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Egna egenskaper. */
+
+  :root {
+    --fonts: 'Crimson Text', Cambria, serif;
+
+    --bg: transparent;
+    --border: #666;
+    --fail: #333;
+    --link: var(--text);
+    --pass: #666;
+    --text: #000;
+  }
+
+  body > header,
+  label {
+    --fonts: Ubuntu, Calibri, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    --fonts: Helvetica, Arial, sans-serif;
+  }
+
+  /* Formgivning av HTML-element. */
+
+  html {
+    line-height: 1.2;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
+  }
+
+  /* Klasser och attribut. */
+
+  .action,
+  .note,
+  .tip,
+  .warning {
+    position: relative;
+    border: 1pt solid #666;
+    padding: 1em;
+    page-break-inside: avoid;
+  }
+
+  .back {
+    display: none;
+  }
+
+  .major.action {
+    max-width: 12em;
+    margin-right: auto;
+    background-color: #eee;
+  }
+
+  .note {
+  }
+  .note::before {
+    display: inline-block;
+    position: absolute;
+    top: -0.75em;
+    right: 0;
+    border: 0.5pt solid;
+    padding: 0.1em 1em;
+    background-color: #fff;
+    color: #000;
+    transform: rotate(30deg);
+    content: 'OBS!';
+  }
+  .note > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .req {
+    display: none;
+  }
+
+  .s,
+  .screen {
+    display: none;
+  }
+
+  .tip {
+  }
+  .tip::before {
+    display: inline-block;
+    position: absolute;
+    top: -0.75em;
+    right: 0;
+    border: 0.5pt solid;
+    padding: 0.1em 1em;
+    background-color: #fff;
+    color: #000;
+    transform: rotate(30deg);
+    content: 'Tips';
+  }
+  .tip > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .warning {
+  }
+  .warning::before {
+    display: inline-block;
+    position: absolute;
+    top: -0.75em;
+    right: 0;
+    border: 0.5pt solid;
+    padding: 0.1em 1em;
+    background-color: #fff;
+    color: #000;
+    transform: rotate(30deg);
+    content: 'Varning';
+  }
+  .warning > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Sidelement. */
+
+  body > header {
+    margin-bottom: 1.5rem;
+    border-bottom: 2pt solid #ccc;
+  }
+  body > header > a,
+  header nav {
+    display: none;
+  }
+
+  main {
+  }
+  table {
+  }
+  thead tr:last-child td,
+  thead tr:last-child th {
+    border-bottom-width: 1pt;
+  }
+  tbody tr:last-child td,
+  tbody tr:last-child th {
+    border-top-width: 0.5pt;
+  }
+  .page-menu {
+    display: none;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2pt solid #ccc;
+    padding-top: 0.5rem;
+    color: #666;
+  }
+  footer li:nth-child(-n + 2) {
+    display: none;
+  }
+  [rel='license'] {
+    border-color: #000;
+    color: #000;
+  }
+}

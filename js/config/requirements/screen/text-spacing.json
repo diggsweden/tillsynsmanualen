@@ -1,0 +1,8 @@
+{
+  "methods": [
+    "Använd eventuell inställning i vyn för att utöka textavstånden. Försök att bedöma resultatet genom okulärbesiktning."
+  ],
+  "exceptions": [
+    "Innehåll på språk eller skriftsystem där något av textavstånden inte är tillämpligt. Att ändra ordmellanrum förväntas exempelvis inte ha någon effekt på japansk text, som inte har ”ord” på samma sätt som till exempel svenska."
+  ]
+}

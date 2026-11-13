@@ -1,0 +1,27 @@
+{
+  "methods": [
+    "Leta efter knappar som bara innehåller symboltecken, särskilt sådana som använder speciella glyf-teckensnitt för tecken som inte har någon definierad betydelse i Unicode.",
+    "Om du är osäker på om en lösning fungerar, testa helst med skärmläsare."
+  ],
+  "examples": {
+    "bad": [
+      "En knapp representerar en varukorg med koden <code translate=\"no\">&lt;button&gt;&lt;i class=\"fa fa-shopping-cart\"&gt;&lt;/i&gt;&lt;/button&gt;</code>, vilket semantiskt indikerar 0 kursiva tecken. Ingen information förmedlas till hjälpmedel och knappen saknar textinnehåll."
+    ],
+    "better": [
+      "Ikonen döljs för hjälpmedel och länkens syfte förmedlas med ARIA: <code translate=\"no\">&lt;button aria-label=\"Varukorg\"&gt;&lt;i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"&gt;&lt;/i&gt;&lt;/button&gt;</code>."
+    ],
+    "good": [
+      "Knappen visar ikon och text med ett semantiskt neutralt element: <code translate=\"no\">&lt;button&gt;&lt;span class=\"fa fa-shopping-cart\"&gt;&lt;/span&gt;Varukorg&lt;/button&gt;</code>."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Accessibility"
+    },
+    {
+      "tool": "external",
+      "text": "Skärmläsare"
+    }
+  ]
+}

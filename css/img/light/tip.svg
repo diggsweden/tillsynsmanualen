@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 240 240">
+  <defs>
+    <style type="text/css"><![CDATA[
+      circle {fill:none; stroke:#2b2a29; stroke-width:10}
+      path {fill:#ff0; stroke:#2b2a29; stroke-width:10px; stroke-linecap:round}
+    ]]></style>
+  </defs>
+  <circle cx="120" cy="120" r="110"/>
+  <path d="M110,209 h20 m-30,-20 h40
+           m-20,-20 h-10 c-5,0 -10,-5 -10,-10 v-10 c0,-10 0,-10 -12,-20 s-18,-20 -18,-30
+           s10,-50 50,-50 50,40 50,50 s0,20 -18,30 c-12,10 -12,10 -12,20 v10
+           c0,5 -5,10 -10,10 z"/>
+</svg>

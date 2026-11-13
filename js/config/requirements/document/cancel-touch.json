@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "Tryck ned fingret på interaktiva element och flytta fingret utanför elementet innan du lyfter upp det.",
+    "För dra-och-släpp–funktioner: markera och börja dra element, men flytta tillbaka pekaren till startläget (eller utanför målzonen) innan du lyfter fingret."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Exempel där det är en förutsättning att funktionen utförs vid nedtryckning är en pianoapp, ett virtuellt tangentbord eller ett spel där man ska skjuta på saker."
+    },
+    {
+      "type": "note",
+      "text": "Kravet gäller funktioner som tillhandahålls av dokumentet; inte funktioner i hjälpmedel, webbläsare, visningsprogram eller operativsystem."
+    },
+    {
+      "type": "text",
+      "text": "Du behöver vanligen inte kontrollera länkar, knappar och andra standardkomponenter. Det är främst om dokumentet tillhandahåller egna komponenter som reagerar på tryck och fingerrörelser som det finns risk för att det inte uppfyller det här kravet."
+    }
+  ]
+}

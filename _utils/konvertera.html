@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Konvertera ärende</title>
+
+    <style>
+      :root {
+        color-scheme: dark light;
+        font:
+          100%/1.5 'Segoe UI',
+          sans-serif;
+      }
+      body {
+        max-width: 40em;
+        margin: 0 auto;
+        padding: 2em 1em 3em;
+      }
+      button {
+        border: 1px solid;
+        border-radius: 0.5em;
+        padding: 0.25em 0.5em;
+        background-color: var(--bg);
+        color: var(--text);
+        font: inherit;
+      }
+      button:disabled {
+        visibility: hidden;
+      }
+      label {
+        display: inline-block;
+        width: 0;
+        overflow: hidden;
+      }
+      form p {
+        display: flex;
+        align-items: flex-start;
+      }
+      p {
+        margin: 0 0 2.25em;
+      }
+      [role='status']:not(:empty) {
+        margin-top: 3rem;
+        border: 2px dashed;
+        padding: 1rem;
+        color: var(--fail);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #111;
+          --fail: #c66;
+          --text: #ddd;
+        }
+      }
+      @media not (prefers-color-scheme: dark) {
+        :root {
+          --bg: #fcfcf9;
+          --fail: #900;
+          --text: #333;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Konvertera ärende</h1>
+
+    <p>
+      Ett verktyg för att konvertera en ärendefil som skapats med en tidig
+      prototyp av <cite>Tillsynsmanualen</cite> till ett format som går att läsa
+      in med aktuell version.
+    </p>
+
+    <form name="convert">
+      <p>
+        <label>
+          Ärende
+          <input
+            accept=".json,application/json"
+            name="in"
+            required
+            tabindex="-1"
+            type="file"
+          />
+        </label>
+        <button name="case" type="button">Välj ärende</button>
+      </p>
+
+      <p><button disabled name="convert">Konvertera</button></p>
+    </form>
+
+    <div role="status"></div>
+
+    <script src="konvertera.js" type="module"></script>
+  </body>
+</html>

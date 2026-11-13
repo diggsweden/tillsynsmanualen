@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dropdown – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      table {
+        width: 100%;
+      }
+      col.keys {
+        width: 6em;
+      }
+
+      .uml-diagram {
+        width: 45rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">Dropdown</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1 tabindex="-1" id="start-of-content">
+          <code lang="en">Dropdown</code>
+        </h1>
+
+        <nav aria-label="Innehåll" class="page-menu">
+          <ul id="content-menu">
+            <li><a href="#ctor">Konstruktor</a></li>
+            <li><a href="#properties">Fält</a></li>
+            <li>
+              <a href="#m-attach"><code lang="en">attach()</code></a>
+            </li>
+            <li>
+              <a href="#m-detach"><code lang="en">detach()</code></a>
+            </li>
+            <li>
+              <a href="#m-reset"><code lang="en">reset()</code></a>
+            </li>
+            <li>
+              <a href="#m-subscribe"><code lang="en">subscribe()</code></a>
+            </li>
+            <li><a href="#kbd">Tangenter</a></li>
+            <li><a href="#see">Se även</a></li>
+          </ul>
+        </nav>
+
+        <p>
+          En rullgardinslista som består av en knapp och en listruta. Varje
+          tryck på knappen växlar listrutans synlighet. Intressenter kan
+          prenumerera på händelseinformation och aviseras om ändringar av
+          markeringar i listrutan.
+        </p>
+
+        <p>
+          <code lang="en">Dropdown</code> använder
+          <code lang="en">Listbox</code> för att hantera den nedfällbara listan
+          (”rullgardinen”) och tillför bara lite kod för interaktionen med
+          knappen.
+        </p>
+
+        <p class="note">
+          <code lang="en">Dropdown</code> implementerades enligt ett
+          designmönster med samma namn i
+          <cite lang="en">WAI-ARIA Authoring Practices&nbsp;1.1</cite>. Detta
+          mönster är nu <i lang="en">deprecated</i> i
+          <cite lang="en">ARIA Authoring Practices Guide</cite>, utan något
+          fungerande alternativ med stöd för flerval.
+        </p>
+
+        <dl class="src">
+          <dt>Källkod</dt>
+          <dd><code>js/view/Dropdown.js</code></dd>
+
+          <dt>Enhetstester</dt>
+          <dd><code>_tests/view/Dropdown.test.js</code></dd>
+        </dl>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 450 210" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+            </defs>
+
+            <!--Dropdown-->
+            <use
+              xlink:href="Dropdown.svg#Dropdown"
+              x="0"
+              y="30"
+              class="highlight"
+            />
+
+            <path d="M201,46 h20 v-34 h20" class="composition" />
+            <line x1="201" y1="61" x2="240" y2="61" class="composition" />
+            <path d="M201,76 h20 v42 h20" class="composition" />
+            <line x1="100" y1="93" x2="100" y2="120" class="composition" />
+
+            <g transform="translate(240, 0)">
+              <!--HTMLButtonElement-->
+              <use
+                xlink:href="../HTMLButtonElement.svg#HTMLButtonElement"
+                x="0"
+                y="0"
+                class="external"
+              />
+
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="40"
+              />
+
+              <!--KeyMap-->
+              <use xlink:href="KeyMap.svg#KeyMap" x="0" y="100" />
+            </g>
+
+            <!--Listbox-->
+            <use xlink:href="Listbox.svg#Listbox" x="35" y="120" />
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Dropdown</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Dropdown</span>(<span class="var">listbox</span>, <span class="var">listeners</span>, <span class="var">keyMap</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">listbox</code></dt>
+          <dd>Listruta (rullgardin).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">keyMap</code></dt>
+          <dd>Tangentmappare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">buttonText</code></dt>
+          <dd>Textinnehåll i knappen.</dd>
+        </dl>
+      </section>
+
+      <!--attach()-->
+      <section>
+        <h2 id="m-attach"><code lang="en">attach()</code></h2>
+
+        <p>
+          Kopplar rullgardinslistan till underliggande HTML-element i DOM-trädet
+          och registrerar händelselyssnare.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">attach</span>(<span class="var">button</span>, <span class="var">list</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">button</code></dt>
+          <dd>
+            Knappen (<code lang="en" class="html tag">&lt;button&gt;</code>) som
+            ska visa och dölja listan.
+          </dd>
+
+          <dt><code lang="en">list</code></dt>
+          <dd>
+            Lista (<code class="html tag">&lt;ul&gt;</code>) som innehåller de
+            valbara elementen; se <code lang="en">Listbox</code>.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--detach()-->
+      <section>
+        <h2 id="m-detach"><code lang="en">detach()</code></h2>
+
+        <p>Tar bort registrerade händelselyssnare.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">detach</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--reset()-->
+      <section>
+        <h2 id="m-reset"><code lang="en">reset()</code></h2>
+
+        <p>Återställer alla valdmarkeringar i listrutan.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">reset</span>(<span class="var">selected</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">selected</code></dt>
+          <dd>Vektor med identiteter för de element som ska vara förvalda.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--subscribe()-->
+      <section>
+        <h2 id="m-subscribe"><code lang="en">subscribe()</code></h2>
+
+        <p>
+          Registrerar en observatör på listrutan. När användaren markerar eller
+          avmarkerar element i listrutan meddelas alla registrerade
+          observatörer.
+        </p>
+
+        <p>
+          Se <a href="Listbox.html"><code lang="en">Listbox</code></a> för
+          information om observatörer och aviseringar.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">subscribe</span>(<span class="var">notify</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">notify</code></dt>
+          <dd>Observatör att meddela vid markeringshändelser i listrutan.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Tangenter-->
+      <section>
+        <h2 id="kbd">Tangenter</h2>
+
+        <p>
+          Se <a href="Listbox.html"><code lang="en">Listbox</code></a> för
+          information om tangentmappningen i listrutan.
+        </p>
+
+        <table>
+          <caption>
+            Tangentmappning för knappen i
+            <code lang="en">Dropdown</code
+            >.
+          </caption>
+
+          <colgroup>
+            <col class="keys" />
+            <col />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th scope="col">Tangent</th>
+              <th scope="col">Funktion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <kbd><kbd lang="en">Enter</kbd></kbd>
+              </td>
+              <td>
+                Drar ned rullgardinen och fokuserar det första valda elementet.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>Esc</kbd></kbd>
+              </td>
+              <td>Drar upp rullgardinen.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭣</kbd></kbd>
+              </td>
+              <td>Drar ned rullgardinen och fokuserar första elementet.</td>
+            </tr>
+
+            <tr>
+              <td>
+                <kbd><kbd>⭡</kbd></kbd>
+              </td>
+              <td>Drar ned rullgardinen och fokuserar sista elementet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../common/KeyMap.html"><code lang="en">KeyMap</code></a>
+          </li>
+          <li>
+            <a href="Listbox.html"><code lang="en">Listbox</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

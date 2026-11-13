@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Requirement – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 32rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong lang="en">Requirement</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1 tabindex="-1" id="start-of-content">
+          <code lang="en">Requirement</code>
+        </h1>
+
+        <nav aria-label="Innehåll" class="page-menu">
+          <ul>
+            <li><a href="#ctor">Konstruktor</a></li>
+            <li><a href="#properties">Fält</a></li>
+            <li>
+              <a href="#m-check"><code lang="en">check()</code></a>
+            </li>
+            <li>
+              <a href="#m-checks"><code lang="en">checks()</code></a>
+            </li>
+            <li>
+              <a href="#m-match-category"
+                ><code lang="en">matchCategory()</code></a
+              >
+            </li>
+            <li>
+              <a href="#m-match-content-types"
+                ><code lang="en">matchContentTypes()</code></a
+              >
+            </li>
+            <li>
+              <a href="#m-match-format"><code lang="en">matchFormat()</code></a>
+            </li>
+            <li>
+              <a href="#m-match-platform"
+                ><code lang="en">matchPlatform()</code></a
+              >
+            </li>
+            <li>
+              <a href="#m-serialize"><code lang="en">serialize()</code></a>
+            </li>
+            <li>
+              <a href="#m-set-check"><code lang="en">setCheck()</code></a>
+            </li>
+            <li>
+              <a href="#m-to-json"><code lang="en">toJSON()</code></a>
+            </li>
+            <li>
+              <a href="#m-to-string"><code lang="en">toString()</code></a>
+            </li>
+            <li><a href="#see">Se även</a></li>
+          </ul>
+        </nav>
+
+        <p>
+          Klassen <code lang="en">Requirement</code> representerar ett krav som
+          ska kontrolleras i ett stickprov som ingår i urvalet i en granskning i
+          ett granskningsärende.
+        </p>
+
+        <p>
+          Ett krav består av en eller flera kontroller och kan ha villkor som
+          styr om det ska ingå i granskningen eller inte. Villkoren anges i
+          konfigurationen och utvärderas av kravinstansen.
+        </p>
+
+        <table>
+          <caption>
+            Villkorsstyrning av krav.
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Villkor</th>
+              <th scope="col">Kravet ingår om det tillhör…</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">categories</code></td>
+              <td>ett stickprov i någon av de angivna urvalskategorierna.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">contentTypes</code></td>
+              <td>ett stickprov med någon av de angivna innehållstyperna.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">formats</code></td>
+              <td>ett dokument med något av de angivna formaten.</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">platforms</code></td>
+              <td>
+                en vy i en mobil applikation på någon av de angivna
+                plattformarna.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <dl class="src">
+          <dt>Källkod</dt>
+          <dd><code>js/model/Requirement.js</code></dd>
+
+          <dt>Enhetstester</dt>
+          <dd><code>_tests/model/Requirement.test.js</code></dd>
+
+          <dt>Objektlager</dt>
+          <dd><code>requirements</code></dd>
+
+          <dt>Primärnyckel</dt>
+          <dd><code>key</code></dd>
+
+          <dt>Index/nyckel</dt>
+          <dd><code>by_sample</code> / <code>sampleID</code></dd>
+        </dl>
+
+        <p>
+          Ett krav kan godkännas utan granskning (”automatiskt godkännande”).
+          Granskaren kan tillämpa automatiskt godkännande för krav som uppenbart
+          är uppfyllda för alla stickprov, exempelvis på en mallbaserad
+          webbplats. Ett automatiskt godkännande kan dras tillbaka om det visar
+          sig att stickprovet avviker från normen.
+        </p>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 320 310" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+            </defs>
+
+            <!--Requirement-->
+            <use
+              xlink:href="Requirement.svg#Requirement"
+              x="0"
+              y="0"
+              class="highlight"
+            />
+
+            <line x1="141" y1="118" x2="180" y2="118" class="composition" />
+
+            <!--Check-->
+            <use xlink:href="Check.svg#Check" x="180" y="42" />
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Requirement</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Om ett dataobjekt anges som argument populerar konstruktorn instansen
+          med informa&shy;tionen i det. Det används vid återskapande av ett
+          objekt när det hämtas från objektdata&shy;basen eller när ett sparat
+          ärende i JSON-format läses in från fil.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Requirement</span>(<span class="var">sampleID</span>)
+<span class="keyword">new</span> <span class="ident">Requirement</span>(<span class="var">sampleID</span>, <span class="var">data</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">sampleID</code></dt>
+          <dd>Identitet för det stickprov som kravet ingår i.</dd>
+
+          <dt class="optional"><code lang="en">data</code></dt>
+          <dd>Dataobjekt att populera instansen med.</dd>
+        </dl>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Ingen stickprovsidentitet angiven.</dd>
+          <dd>Dataobjektet hör inte till det angivna stickprovet.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">approvable</code></dt>
+          <dd>
+            <code lang="en" class="js literal">true</code> om kravet ska gå att
+            godkänna utan granskning, annars
+            <code lang="en" class="js literal">false</code>.
+          </dd>
+
+          <dt><code lang="en">approved</code></dt>
+          <dd>
+            <code lang="en" class="js literal">true</code> om kravet har
+            godkänts utan granskning, annars
+            <code lang="en" class="js literal">false</code>.
+          </dd>
+
+          <dt><code lang="en">categories</code></dt>
+          <dd>Villkor för urvalskategorier.</dd>
+
+          <dt><code lang="en">clause</code></dt>
+          <dd>
+            Kravavsnittsnummer (i <cite>EN&nbsp;301&nbsp;549</cite>,
+            <code>DOS-lagen</code> eller <cite>föreskriften</cite>).
+          </dd>
+
+          <dt><code lang="en">contentTypes</code></dt>
+          <dd>Villkor för innehållstyper.</dd>
+
+          <dt><code lang="en">dependencies</code></dt>
+          <dd>
+            Funktion för att hämta krav; sätts i och anropas av härledda
+            kontroller. Kravklassen förmedlar bara funktionen. Se
+            <a href="DerivedCheck.html"><code lang="en">DerivedCheck</code></a
+            >.
+          </dd>
+
+          <dt class="readonly"><code lang="en">done</code></dt>
+          <dd>
+            Flagga som anger om kravet är färdiggranskat (<code lang="en"
+              >state</code
+            >
+            är skilt från <code lang="en" class="js keyword">null</code>).
+          </dd>
+
+          <dt><code lang="en">externalNote</code></dt>
+          <dd>Anteckning som ska visas i granskningsprotokollet.</dd>
+
+          <dt class="readonly"><code lang="en">failed</code></dt>
+          <dd>
+            Flagga som anger om ett färdiggranskat krav är underkänt (<code
+              lang="en"
+              >state</code
+            >
+            är <code lang="en" class="js literal">false</code>).
+          </dd>
+
+          <dt class="readonly"><code lang="en">hasChecks</code></dt>
+          <dd>Flagga som anger om kravet är populerat med kontroller.</dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>Kravets identitet i konfigurationen.</dd>
+
+          <dt><code lang="en">internalNote</code></dt>
+          <dd>Anteckning som ska visas i granskningsprotokollet.</dd>
+
+          <dt><code lang="en">key</code></dt>
+          <dd>Primärnyckel i databasen.</dd>
+
+          <dt><code lang="en">platforms</code></dt>
+          <dd>Villkor för plattformar (operativsystem).</dd>
+
+          <dt class="readonly"><code lang="en">sampleID</code></dt>
+          <dd>Stickprovsidentitet.</dd>
+
+          <dt class="readonly"><code lang="en">state</code></dt>
+          <dd>
+            Kravets tillstånd:
+            <code lang="en" class="js keyword">undefined</code> om någon
+            kontroll har obestämt tillstånd,
+            <code lang="en" class="js literal">false</code> om någon kontroll är
+            underkänd, annars <code lang="en" class="js literal">true</code>.
+            Icke tillämpliga kontroller och härledda kontroller som bara används
+            för att styra härledda villkor har ingen inverkan på
+            kravtillståndet.
+          </dd>
+
+          <dt><code lang="en">title</code></dt>
+          <dd>Kravets titel.</dd>
+        </dl>
+      </section>
+
+      <!--check()-->
+      <section>
+        <h2 id="m-check"><code lang="en">check()</code></h2>
+
+        <p>Returnerar kontrollen med angiven identitet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"> <span class="ident">check</span>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Kontrollidentitet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Kontrollen med angiven identitet, om den ingår i kravet, annars
+          <code lang="en" class="js keyword">undefined</code>.
+        </p>
+      </section>
+
+      <!--checks()-->
+      <section>
+        <h2 id="m-checks"><code lang="en">checks()</code></h2>
+
+        <p>Itererar över de kontroller som ingår i kravet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">checks</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett generatorobjekt som ger en <code lang="en">Check</code>-instans
+          vid varje anrop.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="var">check</span> <span class="keyword">of</span> <span class="var">requirement</span>.<span class="fn">checks</span>()) {…} </code></pre>
+      </section>
+
+      <!--matchCategory()-->
+      <section>
+        <h2 id="m-match-category"><code lang="en">matchCategory()</code></h2>
+
+        <p>
+          Kontrollerar om kravet matchar filtervillkoren för urvalskategori.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">matchCategory</span>(<span class="var">category</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">category</code></dt>
+          <dd>Urvalskategori att matcha.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om kravet ska ingå i
+          ett stickprov i angiven urvalskategori, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--matchContentTypes()-->
+      <section>
+        <h2 id="m-match-content-types">
+          <code lang="en">matchContentTypes()</code>
+        </h2>
+
+        <p>
+          Kontrollerar om kravet matchar filtervillkoren för innehållstyper.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">matchContentTypes</span>(<span class="var">types</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">types</code></dt>
+          <dd>Vektor med innehållstyper att matcha.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om kravet ska ingå i
+          ett stickprov med någon av de angivna innehållstyperna, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--matchFormat()-->
+      <section>
+        <h2 id="m-match-format"><code lang="en">matchFormat()</code></h2>
+
+        <p>
+          Kontrollerar om kravet matchar filtervillkoren för dokumentformat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">matchFormat</span>(<span class="var">format</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">format</code></dt>
+          <dd>Format att matcha.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om kravet ska ingå i
+          ett dokument i det angivna formatet, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--matchPlatform()-->
+      <section>
+        <h2 id="m-match-platform"><code lang="en">matchPlatform()</code></h2>
+
+        <p>
+          Kontrollerar om kravet matchar filtervillkoren för
+          applikationsplattform.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">matchPlatform</span>(<span class="var">platform</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">platform</code></dt>
+          <dd>Plattform att matcha.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om kravet ska ingå i en
+          vy i en mobil applikation på den angivna plattformet, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--serialize()-->
+      <section>
+        <h2 id="m-serialize"><code lang="en">serialize()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett objekt sparas i databasen.
+        </p>
+
+        <p>
+          Kontrollerna ingår inte i serialiseringen, eftersom de lagras i ett
+          eget objektlager och sparas separat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">serialize</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          kravinformationen.
+        </p>
+      </section>
+
+      <!--setCheck()-->
+      <section>
+        <h2 id="m-set-check"><code lang="en">setCheck()</code></h2>
+
+        <p>Lägger till eller uppdaterar en kontroll i stickprovet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">setCheck</span>(<span class="var">check</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">check</code></dt>
+          <dd>Kontroll att lägga till eller uppdatera.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="params">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Kontrollidentitet saknas eller är tom.</dd>
+        </dl>
+      </section>
+
+      <!--toJSON()-->
+      <section>
+        <h2 id="m-to-json"><code lang="en">toJSON()</code></h2>
+
+        <p>
+          Skapar ett objekt som kan ”serialiseras” och återskapas. Används när
+          ett ärende sparas till fil.
+        </p>
+
+        <p>
+          Kontrollerna ingår i serialiseringen, eftersom all information som hör
+          till ärendet behöver ingå i filen för att informationen ska gå att
+          återskapa.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toJSON</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett objekt med den information som krävs för att kunna återskapa
+          kravinformationen.
+        </p>
+      </section>
+
+      <!--toString()-->
+      <section>
+        <h2 id="m-to-string"><code lang="en">toString()</code></h2>
+
+        <p>Omvandlar kravet till en sträng.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toString</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Kravets identitet i konfigurationen.</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Sample.html"><code lang="en">Sample</code></a>
+          </li>
+          <li><a href="check.index.html">Kontrollklasser</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

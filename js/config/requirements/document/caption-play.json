@@ -1,0 +1,6 @@
+{
+  "methods": [
+    "Spela filmen, aktivera undertextreglaget två eller fler gånger och kontrollera att undertexterna visas och döljs."
+  ],
+  "exceptions": ["Öppna (”inbrända”) undertexter."]
+}

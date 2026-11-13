@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Testfall – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="test.html">Enhetstester</a></li>
+          <li><strong>Testfall</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Testfall</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#f-it"><code lang="en">it()</code></a>
+          </li>
+          <li>
+            <a href="#f-it-with"><code lang="en">it.with()</code></a>
+          </li>
+          <li>
+            <a href="#f-it-only"><code lang="en">it.only()</code></a>
+          </li>
+          <li>
+            <a href="#f-it-skip"><code lang="en">it.skip()</code></a>
+          </li>
+          <li>
+            <a href="#f-describe"><code lang="en">describe()</code></a>
+          </li>
+          <li>
+            <a href="#f-before-each"><code lang="en">beforeEach()</code></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Ett testfall består av ett eller flera tester, eventuellt grupperade i
+        samlingar (sviter). Ett test innehåller minst en förväntning. Om alla
+        förväntningar uppfylls vid exekveringen är testet godkänt; om alla
+        tester är godkända är testfallet eller samlingen godkänd.
+      </p>
+
+      <p>
+        Förväntningar, tester, samlingar och testfall representeras av klasser.
+        För ökad läsbarhet och minskad komplexitet definieras ett antal
+        bekvämlighetsfunktioner i <code lang="en">_tests/functions.js</code>,
+        som alla testfall importerar. De möjliggör en <cite>Jest</cite>-liknande
+        syntax.
+      </p>
+
+      <p>
+        Ett testfall är en specialiserad <a href="#f-describe">samling</a>, så
+        det kan ha en <a href="#f-before-each">initieringsfunktion</a> som körs
+        före alla tester i hela testfallet.
+      </p>
+
+      <p>
+        Ett testfall realiseras av en JavaScript-modul. Namnkonventionen i
+        <cite>Tillsynsmanualen</cite> är
+        <code lang="en"><var lang="sv">klass</var>.test.js</code> eller, för
+        några modellklasser som är grupperade i samma modul,
+        <code lang="en"><var lang="sv">modul</var>.test.js</code>.
+      </p>
+
+      <!--Test-->
+      <section>
+        <h2 id="f-it">Test: <code lang="en">it()</code></h2>
+
+        <p>
+          Ett test definieras med funktionen <code lang="en">it()</code>. På
+          engelska ger det en läsvänlig, självdokumen&shy;terande syntax som
+          förklarar testets syfte, till exempel
+          <code lang="en">it("adds two terms")</code>. Det är dock önskvärt att
+          ha beskrivningarna på svenska, samtidigt som det enkla
+          <i lang="en">”it”</i> inte känns riktigt lika tydligt om det skulle
+          översättas till <code>den()</code> eller <code>det()</code>.
+          Resultatet blir tyvärr en osmaklig blandning av språken, med något
+          försämrad begriplighet som följd.
+        </p>
+
+        <p>
+          <code lang="en">it()</code> anropar den statiska metoden
+          <code lang="en">TestRunner.addTest()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">it</span>(<span class="var">description</span>)
+<span class="ident">it</span>(<span class="var">description</span>, <span class="var">body</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">description</code></dt>
+          <dd>
+            En beskrivande text som förklarar vilken funktion testet verifierar.
+            (Inte vad testet gör!)
+          </dd>
+
+          <dt class="optional"><code lang="en">body</code></dt>
+          <dd>
+            En funktion som implementerar testet. Funktionen kan vara synkron
+            eller asynkron. Om funktionen kastar ett undantag är testet
+            underkänt, annars är det godkänt. Om ingen funktion anges är testet
+            ”avvaktande”, det vill säga väntar på att implementeras. Det gör det
+            möjligt att förbereda ett testfall med tester innan man börjar
+            implementera dem.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>.)</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">it</span>(<span class="literal">"adds two terms"</span>, () =&gt; {
+    <span class="fn">expect</span>(<span class="fn">add</span>(<span class="literal">1</span>, <span class="literal">2</span>).<span class="fn">toBe</span>(<span class="literal">3</span>));
+});
+
+<span class="fn">it</span>(<span class="literal">"loads the content"</span>, <span class="keyword">async</span> () =&gt; {
+    <span class="fn">expect</span>(<span class="keyword">await</span> <span class="fn">load</span>()).<span class="fn">toBe</span>(…));
+});
+
+<span class="fn">it</span>(<span class="literal">"is not yet implemented"</span>);</code></pre>
+      </section>
+
+      <!--Testdata-->
+      <section>
+        <h2 id="f-it-with">Testdata: <code lang="en">it.with()</code></h2>
+
+        <p>
+          Det är möjligt att exekvera samma test flera gånger med olika
+          uppsättningar testdata. Varje uppsättning data ska vara en vektor
+          (<code lang="en">Array</code>) med ett eller flera värden i. Den
+          angivna implementationen anropas en gång för varje element i vektorn
+          och varje anrop har vektorns innehåll som parametrar.
+        </p>
+
+        <p>
+          Det går även att infoga testdata i beskrivningstexten som visas när
+          testet exekverar, genom att ange värdets index (0-baserat) omgivet av
+          ’<kbd>{</kbd>’ och ’<kbd>}</kbd>’; se exempel nedan.
+        </p>
+
+        <p>
+          <code lang="en">it.with()</code>,
+          <code lang="en">it.only.with()</code> och
+          <code lang="en">it.skip.with()</code> anropar den statiska metoden
+          <code lang="en">TestRunner.addTest()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">it</span>.<span class="ident">with</span>(<span class="var">data</span>)(<span class="var">description</span>, <span class="var">body</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">data</code></dt>
+          <dd>Testdata.</dd>
+
+          <dt><code lang="en">description</code></dt>
+          <dd>
+            En beskrivande text som förklarar vilken funktion testet verifierar.
+          </dd>
+
+          <dt><code lang="en">body</code></dt>
+          <dd>En funktion som implementerar testet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>.)</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">it</span>.<span class="fn">with</span>(
+    [<span class="literal">true</span>,  <span class="literal">"on"</span>],
+    [<span class="literal">false</span>, <span class="literal">"off"</span>]
+)(<span class="literal">"returns the state '{1}'"</span>, (<span class="var">state</span>) =&gt; {
+    <span class="var">fixture</span>.<span class="fn">setState</span>(<span class="var">state</span>);
+    <span class="fn">expect</span>(<span class="var">fixture</span>.<span class="fn">getState</span>()).<span class="fn">toBe</span>(<span class="var">state</span>);
+});</code></pre>
+      </section>
+
+      <!--Singulärt test-->
+      <section>
+        <h2 id="f-it-only">Singulärt test: <code lang="en">it.only()</code></h2>
+
+        <p>
+          Ibland är det önskvärt att tillfälligt exekevera bara ett enda test i
+          ett (eller flera) testfall. För att slippa kommentera bort alla andra
+          testfall kan man därför märka ett test som det enda som ska utföras.
+          Ramverket exekverar det <em>första</em> testet det påträffar med en
+          sådan märkning.
+        </p>
+
+        <p>
+          Märkningen går att kombinera med testdata, till exempel
+          <code lang="en" class="js"
+            ><span class="fn">it</span>.<span class="fn">only</span>.<span
+              class="fn"
+              >with</span
+            >(…)(…)</code
+          >.
+        </p>
+
+        <p>
+          <code lang="en">it.only()</code> och
+          <code lang="en">it.only.with()</code> anropar den statiska metoden
+          <code lang="en">TestRunner.addTest()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">it</span>.<span class="ident">only</span>(<span class="var">description</span>, <span class="var">body</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">description</code></dt>
+          <dd>
+            En beskrivande text som förklarar vilken funktion testet verifierar.
+          </dd>
+
+          <dt><code lang="en">body</code></dt>
+          <dd>En funktion som implementerar testet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>.)</p>
+      </section>
+
+      <!--Överhoppat test-->
+      <section>
+        <h2 id="f-it-skip">
+          Överhoppat test: <code lang="en">it.skip()</code>
+        </h2>
+
+        <p>
+          Ibland är det önskvärt att tillfälligt undanta ett test från
+          exekvering. För att slippa kommentera bort koden kan man indikera att
+          ett test ska hoppas över.
+        </p>
+
+        <p>
+          Märkningen går att kombinera med testdata, till exempel
+          <code lang="en" class="js"
+            ><span class="fn">it</span>.<span class="fn">skip</span>.<span
+              class="fn"
+              >with</span
+            >(…)(…)</code
+          >.
+        </p>
+
+        <p>
+          <code lang="en">it.skip()</code> och
+          <code lang="en">it.skip.with()</code> anropar den statiska metoden
+          <code lang="en">TestRunner.addTest()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">it</span>.<span class="ident">skip</span>(<span class="var">description</span>, <span class="var">body</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">description</code></dt>
+          <dd>
+            En beskrivande text som förklarar vilken funktion testet verifierar.
+          </dd>
+
+          <dt><code lang="en">body</code></dt>
+          <dd>En funktion som implementerar testet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>.)</p>
+      </section>
+
+      <!--Testsamlingar-->
+      <section>
+        <h2 id="f-describe">
+          Testsamlingar: <code lang="en">describe()</code>
+        </h2>
+
+        <p>
+          En samling, eller testsvit, är en gruppering av tester med en gemensam
+          beskrivning. En samling kan ha en gemensam
+          <a href="#f-before-each">initieringsfunktion</a> som körs före varje
+          test. En samling kan också innehålla andra samlingar.
+        </p>
+
+        <p>
+          <code lang="en">describe()</code> anropar den statiska metoden
+          <code lang="en">TestRunner.addCollection()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">describe</span>(<span class="var">description</span>, <span class="var">body</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">description</code></dt>
+          <dd>En kort beskrivning av samlingen.</dd>
+
+          <dt><code lang="en">body</code></dt>
+          <dd>
+            En funktion som implementerar samlingen; vanligen ett antal tester,
+            eventuellt med en initieringsfunktion först.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">describe</span>(<span class="literal">"Checks"</span>, () =&gt; {
+    <span class="fn">beforeEach</span>(() =&gt; {…});
+    <span class="fn">it</span>(<span class="literal">"checks this"</span>, () =&gt; {…});
+    <span class="fn">it</span>(<span class="literal">"checks that"</span>, () =&gt; {…});
+});</code></pre>
+      </section>
+
+      <!--Initieringsfunktioner-->
+      <section>
+        <h2 id="f-before-each">
+          Initieringsfunktioner: <code lang="en">beforeEach()</code>
+        </h2>
+
+        <p>
+          En initieringsfunktion körs före varje test i den samling där den är
+          definierad. Initierings&shy;funktioner används för att sätta upp
+          testdata, så att varje test blir oberoende av andra tester.
+        </p>
+
+        <p>
+          <code lang="en">beforeEach()</code> anropar den statiska metoden
+          <code lang="en">TestRunner.addBeforeEach()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">beforeEach</span>(<span class="var">init</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">init</code></dt>
+          <dd>Initieringsfunktion att köra före varje test i samlingen.</dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="em"><span class="fn">describe</span>(<span class="literal">"Suite"</span>, () =&gt; {
+    <span class="keyword">let</span> <span class="var">fixture</span>;
+
+    <span class="fn">beforeEach</span>(() =&gt; {
+        <span class="var">fixture</span> = <span class="keyword">new</span> <span class="fn">Calculator</span>();
+    });
+
+    <span class="fn">it</span>(<span class="literal">"computes sum"</span>, () =&gt; {
+        <span class="fn">expect</span>(<span class="var">fixture</span>.<span class="fn">add</span>(<span class="literal">1</span> + <span class="literal">2</span>)).<span class="fn">toBe</span>(<span class="literal">3</span>);
+    });
+    …
+})</code></pre>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="forvantningar.html" accesskey="N" rel="next"
+        ><span>Förväntningar</span></a
+      >
+      <a href="test.html" accesskey="I" class="up"><span>Tester</span></a>
+      <a rel="prev"><span></span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

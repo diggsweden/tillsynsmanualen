@@ -1,0 +1,41 @@
+{
+  "methods": [
+    "Använd <cite translate=\"no\" lang=\"en\">WAVE</cite>.",
+    "Kontrollera i källkod (<kbd><kbd>Ctrl</kbd>+<kbd>U</kbd></kbd>) eller <cite>Inspektören</cite> att utländska ord ligger i en tagg som har attributet <code>lang</code> med rätt värde."
+  ],
+  "exceptions": [
+    "egennamn",
+    "tekniska termer",
+    "ord på obestämt språk (kan ha <code translate=\"no\" lang=\"en\">lang=\"\"</code>)",
+    "lånord och fraser som tagits upp i den omgivande textens språk."
+  ],
+  "examples": {
+    "good": [
+      "För ett ord på engelska ska språkkoden vara ”<code>en</code>” eller ”<code>eng</code>”, eventuellt med landstillägg som ”<code>-GB</code>” eller ”<code>-US</code>”."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "WAVE",
+      "present": {
+        "tab": "Details",
+        "section": "Features",
+        "text": "Language",
+        "icon": {
+          "src": "wave-lang.png",
+          "alt": "vit jordglob mot grön bakgrund"
+        }
+      }
+    },
+    {
+      "tool": "module",
+      "module": "SAO"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://www.loc.gov/standards/iso639-2/php/code_list.php",
+      "title": "ISO 639-2 Språkkoder"
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>MenuItem – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 33rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Menyklasser</a></li>
+          <li><strong lang="en">MenuItem</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">MenuItem</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#properties"><span>Fält</span></a>
+          </li>
+          <li>
+            <a href="#m-activate"><code lang="en">activate()</code></a>
+          </li>
+          <li>
+            <a href="#m-close"><code lang="en">close()</code></a>
+          </li>
+          <li>
+            <a href="#m-close-all"><code lang="en">closeall()</code></a>
+          </li>
+          <li>
+            <a href="#m-focus"><code lang="en">focus()</code></a>
+          </li>
+          <li>
+            <a href="#m-is"><code lang="en">is()</code></a>
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-starts-with"><code lang="en">startsWith()</code></a>
+          </li>
+          <li>
+            <a href="#m-toggle"><code lang="en">toggle()</code></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">MenuItem</code> representerar ett element i en
+        meny. Elementet kan antingen vara en lövnod, det vill säga en länk,
+        eller ha en utfällbar undermeny.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/menu/MenuItem.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/menu/MenuItem.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 330 220" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--MenuItem-->
+          <use
+            xlink:href="MenuItem.svg#MenuItem"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <path d="M101,18 h12 v-8 h-12" class="composition" />
+          <line x1="101" y1="68" x2="140" y2="68" class="composition" />
+
+          <!--Menu-->
+          <use xlink:href="Menu.svg#Menu" x="140" y="0" />
+
+          <g transform="translate(140, 0)">
+            <line x1="0" y1="78" x2="-39" y2="78" class="composition" />
+            <path d="M0,88 h-20 v10 h20" class="composition" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">MenuItem</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <p>
+          Konstruktorn sätter
+          <code lang="en" class="html attr">role=<span>"menuitem"</span></code>
+          och sätter också
+          <code lang="en" class="html attr">tabindex=<span>"-1"</span></code>
+          på det under&shy;liggande elementet för att ta bort det ur
+          navigeringssekvensen, eftersom menyn själv hanterar sin interna
+          navigering.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">MenuItem</span>(<span class="var">element</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">element</code></dt>
+          <dd>Det element som representerar menyelementet i DOM-trädet.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">current</code></dt>
+          <dd>
+            Anger om elementet är ”aktuellt” element i sin meny. Det aktuella
+            elementet har attributet
+            <code lang="en" class="html attr">aria-current</code>.
+          </dd>
+
+          <dt><code lang="en">focusable</code></dt>
+          <dd>
+            Anger om elementet är ”aktivt”, det vill säga ingår i webbläsarens
+            allmänna navigeringssekvens.
+          </dd>
+
+          <dt class="readonly"><code lang="en">href</code></dt>
+          <dd>
+            Det underliggande länkelementets
+            <code class="html attr">href</code>-attribut.
+          </dd>
+
+          <dt><code lang="en">parentItem</code></dt>
+          <dd>Överordnat menyelement.</dd>
+
+          <dt><code lang="en">parentMenu</code></dt>
+          <dd>Överordnad meny.</dd>
+
+          <dt><code lang="en">submenu</code></dt>
+          <dd>Undermeny.</dd>
+        </dl>
+      </section>
+
+      <!--activate()-->
+      <section>
+        <h2 id="m-activate"><code lang="en">activate()</code></h2>
+
+        <p>Aktiverar menyelementet.</p>
+
+        <p>
+          Om elementet är en lövnod stänger metoden alla överordnade menyer och
+          returnerar <code lang="en" class="js keyword">null</code> för att
+          signalera att händelsen inte ska anses som hanterad utan propageras så
+          att den aktiverar länken.
+        </p>
+
+        <p>
+          Om elementet har en undermeny öppnar metoden den och sätter fokus till
+          det första elementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">activate</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det fokuserade elementet i undermenyn om en sådan finns, annars
+          <code lang="en" class="js keyword">null</code>.
+        </p>
+      </section>
+
+      <!--close()-->
+      <section>
+        <h2 id="m-close"><code lang="en">close()</code></h2>
+
+        <p>
+          Stänger undermenyn (genom att sätta
+          <code lang="en" class="html attr"
+            >aria-expanded=<span>"false"</span></code
+          >
+          på det underliggande elementet). Stänger också alla eventuella öppna
+          underordnade menyer.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">close</span>()</code></pre>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Elementet har ingen undermeny.</dd>
+        </dl>
+      </section>
+
+      <!--closeAll()-->
+      <section>
+        <h2 id="m-close-all"><code lang="en">closeAll()</code></h2>
+
+        <p>
+          Stänger undermenyn (genom att sätta
+          <code lang="en" class="html attr"
+            >aria-expanded=<span>"false"</span></code
+          >
+          på det underliggande elementet) och alla överordnade menyer.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">close</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Det översta menyelement ovanför det aktuella elementet.</p>
+      </section>
+
+      <!--focus()-->
+      <section>
+        <h2 id="m-focus"><code lang="en">focus()</code></h2>
+
+        <p>Sätter tangentbordsfokus till det underliggande HTML-elementet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">focus</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Returnerar <code lang="en" class="js keyword">this</code>.</p>
+      </section>
+
+      <!--is()-->
+      <section>
+        <h2 id="m-is"><code lang="en">is()</code></h2>
+
+        <p>Jämför angiven DOM-nod med menyelementets underliggande nod.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">is</span>(<span class="var">node</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>node</code></dt>
+          <dd>DOM-nod att jämföra med.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om den angivna
+          DOM-noden är menyelementets underliggande HTML-element, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>Öppnar menyelementets undermeny.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">open</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Returnerar undermenyn (en instans av
+          <a href="Menu.html"><code lang="en">Menu</code></a
+          >).
+        </p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code>TypeError</code></dt>
+          <dd>Menyelementet har ingen undermeny.</dd>
+        </dl>
+      </section>
+
+      <!--startsWith)-->
+      <section>
+        <h2 id="m-starts-with"><code lang="en">startsWith()</code></h2>
+
+        <p>
+          Kontrollerar om elementets textinnehåll börjar med angivet tecken
+          (skiftlägesokänsligt).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">startsWith</span>(<span class="var">char</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code>char</code></dt>
+          <dd>Tecken att jämföra med.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om elementets
+          textinnehåll börjar med det angivna tecknet, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--toggle)-->
+      <section>
+        <h2 id="m-toggle"><code lang="en">toggle()</code></h2>
+
+        <p>
+          Växlar synlighet (genom att ändra värdet på
+          <code lang="en" class="html attr">aria-expanded</code>) för elementets
+          undermeny.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toggle</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om elementets har en
+          undermeny, annars <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../../meny.html">Menyn</a></li>
+          <li>
+            <a href="Menu.html"><code lang="en">Menu</code></a>
+          </li>
+          <li>
+            <a href="MenuBuilder.html"><code lang="en">MenuBuilder</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

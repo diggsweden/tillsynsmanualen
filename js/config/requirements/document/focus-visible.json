@@ -1,0 +1,14 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet. Aktivera (med tangentbordet) eventuella funktioner som öppnar en meny, dialogruta eller liknande."
+  ],
+  "exceptions": [
+    "Det är tillåtet att inte visa en synlig fokusmarkering förrän tangentbordet använts. När markeringen en gång visats måste den dock förbli synlig."
+  ],
+  "examples": {
+    "good": [
+      "Länkar och knappar kan ha en fokusmarkering i form av en ram runt elementet eller en tydligt avvikande bakgrundsfärg.",
+      "För inmatningsfält är det tillräckligt att visa en inmatningsmarkör eller att <em>allt</em> innehåll i fältet blir markerat när fältet får fokus."
+    ]
+  }
+}

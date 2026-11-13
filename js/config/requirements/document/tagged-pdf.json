@@ -1,0 +1,12 @@
+{
+  "steps": [
+    "Kontrollera i <cite translate=\"no\" lang=\"en\">Acrobat</cite> att ”<samp>Taggad PDF</samp>” är godkänt i panelen <samp>Tillgänglighetskontroll</samp>.",
+    "Öppna panelen <samp>Taggar</samp> och kontrollera att det finns taggar.",
+    "Välj <samp>Tillgänglighet|Läsordning</samp> och markera radioknappen <samp>Strukturtyper</samp>. Kontrollera att sidans olika element är korrekt uppmärkta och har ett innehåll. Gör detta för samtliga sidor."
+  ],
+  "examples": {
+    "bad": [
+      "Tomma &lt;P&gt;-taggar används för att skapa ”luft” mellan stycken."
+    ]
+  }
+}

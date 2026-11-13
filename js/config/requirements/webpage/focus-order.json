@@ -1,0 +1,31 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet. Aktivera (med tangentbordet) eventuella funktioner som öppnar en meny, dialogruta eller liknande."
+  ],
+  "examples": {
+    "bad": [
+      "Ett formulär har två grupper med fält sida vid sida, men fokusordningen går ”radvis”, inte genom en grupp i taget, och hoppar mellan fält som inte hör ihop."
+    ]
+  },
+  "tools": [
+    {
+      "tool": "bookmarklet",
+      "file": "ForceFocus",
+      "title": "Visa fokus"
+    }
+  ],
+  "info": [
+    {
+      "type": "action",
+      "text": "Upprepa kontrollen för varje brytpunkt om sidan har flera olika layouter (följsam formgivning)."
+    },
+    {
+      "type": "tip",
+      "text": "Ett vanligt designmönster är att komplexa komponenter själva sköter sin inre fokushantering. Det innebär att hela komponenten är ett enda tabbstopp och att navigering inom komponenten sker med piltangenter, <kbd><kbd>Home</kbd></kbd> och <kbd><kbd>End</kbd></kbd> etc."
+    },
+    {
+      "type": "tip",
+      "text": "Använd tillägget <cite>Visa fokus</cite> om det är svårt att se vilket element som har tangentbordsfokus."
+    }
+  ]
+}

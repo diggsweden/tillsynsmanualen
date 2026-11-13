@@ -1,0 +1,12 @@
+{
+  "methods": [
+    "Använd skärmläsaren för att kontrollera att alla interaktiva komponenter går att urskilja utan synförmåga."
+  ],
+  "info": [
+    {
+      "type": "definition",
+      "term": "Interaktiv komponent",
+      "description": "en del av användargränssnittet som används för att aktivera, stänga av eller anpassa en funktion."
+    }
+  ]
+}

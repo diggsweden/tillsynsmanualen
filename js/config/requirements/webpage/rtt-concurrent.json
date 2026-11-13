@@ -1,0 +1,13 @@
+{
+  "info": [
+    {
+      "type": "definition",
+      "term": "Realtidstext (RTT)",
+      "description": "Text som förmedlas till mottagaren direkt när den skrivs in av avsändaren. Används till exempel av personer som är döva eller har nedsatt hörsel och har svårt att uppfatta tal, eller personer som saknar talförmåga. <em>Inte</em> detsamma som en chattfunktion, där man vanligen skickar ett helt meddelande åt gången."
+    },
+    {
+      "type": "text",
+      "text": "”Samma anslutning” betyder att man inte behöver koppla upp sig med en anslutning för tal och en separat uppkoppling för realtidstext. Jämför program som <cite translate=\"no\" lang=\"en\">Skype</cite>, <cite translate=\"no\" lang=\"en\">Teams</cite> och <cite translate=\"no\" lang=\"en\">Zoom</cite> där man både kan tala och skriva i chatten med samma anslutning. (Chatt är inte realtidskommunikation, men illustrerar konceptet med att göra två saker via samma anslutning.)"
+    }
+  ]
+}

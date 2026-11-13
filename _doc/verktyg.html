@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Verktyg – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      figure.ecb {
+        width: 23rem;
+      }
+      .uml-diagram {
+        width: 70rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Verktyg</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Verktyg</h1>
+
+      <p>
+        <cite>Tillsynsmanualen</cite> innehåller två typer av verktyg som kan
+        ingå i en granskningssida: <i lang="en">bookmarklets</i> och
+        verktygsmoduler.
+      </p>
+
+      <p>
+        Alla verktyg återfinns i katalogen <code lang="en">js/tools/</code>.
+      </p>
+
+      <h2 lang="en">Bookmarklets</h2>
+
+      <p>
+        Ett
+        <a
+          href="https://en.wikipedia.org/wiki/Bookmarklet"
+          lang="en"
+          rel="external"
+          ><dfn>bookmarklet</dfn></a
+        >
+        är ett bokmärke (kallas ”favorit” i vissa webbläsare) som innehåller
+        JavaScript-kod i stället för en länkadress. När användaren klickar på
+        länken exekverar koden i den aktuella kontexten och har således tillgång
+        till DOM-trädet i den sida webbläsaren visar och kan hämta eller ändra
+        information i det.
+      </p>
+
+      <p>
+        Användaren installerar bokmärket genom att kopiera skriptkoden
+        (”länkadressen”, som måste börja med schemat ”<code>javascript:</code>”)
+        och klistra in den i ett nytt bokmärke. I många webbläsare kan man också
+        dra verktygslänken till bokmärkesraden för att installera den.
+      </p>
+
+      <p class="warning">
+        En alltför strikt <abbr>CSP</abbr> (<a
+          href="https://en.wikipedia.org/wiki/Content_Security_Policy"
+          hreflang="en"
+          rel="external"
+          ><i lang="en">content security policy</i></a
+        >) på en server kan förhindra att ett <i lang="en">bookmarklet</i> går
+        att exekevera.
+      </p>
+
+      <h2>Verktygsmoduler</h2>
+
+      <p>
+        En <dfn>verktygsmodul</dfn> är en JavaScript-modul som importeras
+        dynamiskt i <a href="krav.html">kravgransknings&shy;sidan</a> som stöd
+        för granskaren. Vilka verktyg som importeras styrs av
+        <a href="konfiguration.html#req">granskningskonfi&shy;gurationen</a> för
+        varje krav:
+      </p>
+
+      <pre class="json"><code lang="en"><span class="key">"tools"</span>: [
+    {
+        <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+        <span class="key">"module"</span>: <span lang="sv" class="value">"<var>filnamn-utan-katalog-och-ändelse</var>"</span>,
+        <span class="key">"params"</span>: {<var>parametrar</var>}
+    }
+]</code></pre>
+
+      <p>Eventuella parametrar skiljer från verktyg till verktyg.</p>
+
+      <p>
+        En verktygsmodul ska ha en defaultexport som anropas av
+        <a href="klasser/controller/RequirementController.html"
+          ><code lang="en">RequirementController</code></a
+        >
+        med två parametrar. Den första är det behållarelement i DOM-trädet där
+        modulen ska injicera verktygets användargränssnitt. Den andra är ett
+        parameterobjekt med fälten <code lang="en">controller</code> (aktuell
+        instans av <code lang="en">RequirementController</code>),
+        <code lang="en">model</code> (modellobjektet; en instans av
+        <a href="klasser/model/Model.html" lang="en">Model</a>) och eventuella
+        verktygsspecifika parametrar angivna i granskningskonfigurationen.
+      </p>
+
+      <h2 id="see">Se även</h2>
+
+      <ul class="toc">
+        <li><a href="tools/Contrast.html" lang="en">Contrast</a></li>
+        <li><a href="tools/Flashbox.html" lang="en">Flashbox</a></li>
+        <li>
+          <a href="tools/FlashThreshold.html" lang="en">FlashThreshold</a>
+        </li>
+        <li><a href="tools/FontSize.html" lang="en">FontSize</a></li>
+        <li><a href="tools/ForceFocus.html" lang="en">ForceFocus</a></li>
+        <li><a href="tools/Oscillator.html" lang="en">Oscillator</a></li>
+        <li><a href="tools/SAO.html">SAO</a></li>
+        <li>
+          <a href="tools/SpacingProperties.html" lang="en">SpacingProperties</a>
+        </li>
+        <li><a href="hjalpverktyg.html#verkyg">Testa verktyg</a></li>
+        <li><a href="tools/TextSpacing.html" lang="en">TextSpacing</a></li>
+        <li><a href="tools/Timer.html" lang="en">Timer</a></li>
+      </ul>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="klasser/index.html" accesskey="N" rel="next"
+        ><span>Klassindex</span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="../kontroller.html" accesskey="F" rel="prev"
+        ><span>Kontroller</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

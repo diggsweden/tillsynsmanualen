@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Förväntningar – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="test.html">Enhetstester</a></li>
+          <li><strong>Förväntningar</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Förväntningar</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#m-at-least-once"><code lang="en">atLeastOnce()</code></a>
+          </li>
+          <li>
+            <a href="#m-never"><code lang="en">never()</code></a>
+          </li>
+          <li>
+            <a href="#p-not"><code lang="en">not</code></a>
+          </li>
+          <li>
+            <a href="#m-once"><code lang="en">once()</code></a>
+          </li>
+          <li>
+            <a href="#m-times"><code lang="en">times()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-be"><code lang="en">toBe()</code></a>
+          </li>
+          <li>
+            <a href="#m-to-be-an-instance-of"
+              ><code lang="en">toBeAnInstanceOf()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-to-equal"><code lang="en">toEqual()</code></a>
+          </li>
+          <li>
+            <a href="#p-to-have-been-called"
+              ><code lang="en">toHaveBeenCalled</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-to-match"><code lang="en">toMatch()</code></a>
+          </li>
+          <li>
+            <a href="#m-with"><code lang="en">with()</code></a>
+          </li>
+          <li>
+            <a href="#f-any-function"><code lang="en">anyFunction()</code></a>
+          </li>
+          <li>
+            <a href="#f-exceptions"><code lang="en">exception()</code></a>
+          </li>
+          <li>
+            <a href="#f-failure"><code lang="en">failure()</code></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">Expectation</code> representerar en förväntning
+        som ska utvärderas i ett test. Om förväntningen inte uppfylls kastar
+        klassen ett undantag i form av en instans av
+        <code lang="en">ExpectationFailure</code>.
+      </p>
+
+      <p>Det finns ett antal olika förväntningar:</p>
+      <p></p>
+
+      <ul>
+        <li>strikt likhet (identitet)</li>
+        <li>likhet</li>
+        <li>mönstermatchning</li>
+        <li>instans av en specifik klass</li>
+        <li>antal funktionsanrop</li>
+        <li>parametrar i funktionsanrop.</li>
+      </ul>
+
+      <p>
+        Jämförelseförväntningarna kan negeras med fältet
+        <code lang="en">not</code>. Alla metoder returnerar en referens till
+        förväntninginstansen så att anropen kan sättas ihop till en kedja
+        <i lang="en"
+          >(<a
+            href="https://en.wikipedia.org/wiki/Fluent_interface"
+            rel="external"
+            >fluent interface</a
+          >)</i
+        >, till exempel:
+      </p>
+
+      <pre
+        class="js"
+      ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">once</span>().<span class="fn">with</span>(<span class="literal">"test"</span>);</code></pre>
+
+      <p>
+        (Funktionen <code lang="en">expect()</code> i
+        <code lang="en">_tests/functions.js</code> skapar en
+        <code lang="en">Expectation</code>-instans.)
+      </p>
+
+      <!--atLeastOnce()-->
+      <section>
+        <h2 id="m-at-least-once"><code lang="en">atLeastOnce()</code></h2>
+
+        <p>Verifierar att en mockmetod anropats en eller flera gånger.</p>
+
+        <p class="note">
+          Fältet <code lang="en">toHaveBeenCalled</code> måste ha refererats
+          före anropet till <code lang="en">atLeastOnce()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">atLeastOnce</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>Den angivna metoden anropades aldrig.</dd>
+
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>
+            Fältet <code lang="en">toHaveBeenCalled</code> refererades inte före
+            anropet.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">atLeastOnce</span>();</code></pre>
+      </section>
+
+      <!--never()-->
+      <section>
+        <h2 id="m-never"><code lang="en">never()</code></h2>
+
+        <p>Verifierar att en mockmetod inte anropats.</p>
+
+        <p class="note">
+          Fältet <code lang="en">toHaveBeenCalled</code> måste ha refererats
+          före anropet till <code lang="en">never()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">never</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>Den angivna metoden anropades.</dd>
+
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>
+            Fältet <code lang="en">toHaveBeenCalled</code> refererades inte före
+            anropet.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">never</span>();</code></pre>
+      </section>
+
+      <!--not-->
+      <section>
+        <h2 id="p-not"><code lang="en">not</code></h2>
+
+        <p>Fältet <code lang="en">not</code> negerar efterföljande villkor.</p>
+
+        <h3>Värde</h3>
+
+        <p>Den förväntningsinstans fältet ingår i.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">value</span>).<span class="var">not</span>.<span class="fn">toBe</span>(<span class="keyword">null</span>);
+<span class="fn">expect</span>(<span class="var">method</span>).<span class="var">not</span>.<span class="var">toHaveBeenCalled</span>.<span class="fn">with</span>(<span class="literal">"test"</span>);</code></pre>
+      </section>
+
+      <!--once()-->
+      <section>
+        <h2 id="m-once"><code lang="en">once()</code></h2>
+
+        <p>Verifierar att en mockmetod anropats exakt en gång.</p>
+
+        <p class="note">
+          Fältet <code lang="en">toHaveBeenCalled</code> måste ha refererats
+          före anropet till <code lang="en">once()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">once</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>
+            Den angivna metoden anropades aldrig, eller anropades mer än en
+            gång.
+          </dd>
+
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>
+            Fältet <code lang="en">toHaveBeenCalled</code> refererades inte före
+            anropet.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">once</span>();</code></pre>
+      </section>
+
+      <!--times()-->
+      <section>
+        <h2 id="m-times"><code lang="en">times()</code></h2>
+
+        <p>Verifierar att en mockmetod anropats angivet antal gånger.</p>
+
+        <p class="note">
+          Fältet <code lang="en">toHaveBeenCalled</code> måste ha refererats
+          före anropet till <code lang="en">times()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">times</span>(<span class="var">count</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">count</code></dt>
+          <dd>Förväntat antal gånger mockmetoden ska anropas.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>
+            Den angivna metoden anropades fler eller färre gånger än det angivna
+            antalet.
+          </dd>
+
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>
+            Fältet <code lang="en">toHaveBeenCalled</code> refererades inte före
+            anropet.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">times</span>(<span class="literal">2</span>);</code></pre>
+      </section>
+
+      <!--toBe()-->
+      <section>
+        <h2 id="m-to-be"><code lang="en">toBe()</code></h2>
+
+        <p>Jämför strikt likhet.</p>
+
+        <p>
+          <code lang="en">toBe()</code> motsvarar jämförelse med operatorn
+          <code>===</code> och testar alltså strikt likhet (identitet). Används
+          lämpligen för enkla datatyper som booleska eller numeriska värden och
+          sträng&shy;värden, samt vid test för identitet mellan två objekt. För
+          att jämföra datum, vektorer och objekt är vanligen metoden
+          <code lang="en">toEqual()</code> bättre lämpad.
+        </p>
+
+        <p class="tip">
+          Jämförelsen kan negeras med <code lang="en">not</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toBe</span>(<span class="var">expected</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">expected</code></dt>
+          <dd>Förväntat värde.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>
+            Det faktiska utfallet är inte strikt lika med det angivna förväntade
+            värdet.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">value</span>).<span class="var">toBe</span>(<span class="literal">42</span>);</code></pre>
+      </section>
+
+      <!--toBeAnInstanceOf()-->
+      <section>
+        <h2 id="m-to-be-an-instance-of">
+          <code lang="en">toBeAnInstanceOf()</code>
+        </h2>
+
+        <p>Jämför objektklass.</p>
+
+        <p>
+          Används för att verifiera att ett objekt är en instans av förväntad
+          klass.
+        </p>
+
+        <p class="tip">
+          Jämförelsen kan negeras med <code lang="en">not</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toBeAnInstanceOf</span>(<span class="var">class</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">class</code></dt>
+          <dd>Förväntad klass.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>Utfallet är inte ett objekt av den angivna klassen.</dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">obj</span>).<span class="var">toBeAnInstanceOf</span>(<span class="var">MyClass</span>);</code></pre>
+      </section>
+
+      <!--toEqual()-->
+      <section>
+        <h2 id="m-to-equal"><code lang="en">toEqual()</code></h2>
+
+        <p>Jämför icke-strikt likhet.</p>
+
+        <p>
+          <code lang="en">toEqual()</code> motsvarar jämförelse med operatorn
+          <code>==</code> för skalärer och testar alltså typ&shy;oberoende
+          likhet. Används lämpligen för att jämföra vektorer, datum eller
+          objekt.
+        </p>
+
+        <ul>
+          <li>
+            Vektorer: jämför längderna och matchar varje element icke-strikt.
+          </li>
+          <li>
+            Datum: Om parametern är ett datum ska utfallet vara ett datum med
+            samma värde; om utfallet är ett datum omvandlas parametern till ett
+            datum och jämförs.
+          </li>
+          <li>DOM-noder: jämför nodklass, underordnade noder och attribut.</li>
+          <li>
+            <code lang="en" class="js keyword">null</code>: utfallet ska vara
+            <code lang="en" class="js keyword">null</code>.
+          </li>
+          <li>
+            Objekt: jämför fält för fält (icke-strikt); jämför avsiktligt
+            <em>inte</em> klass.
+          </li>
+          <li>Reguljärt uttryck: utför mönstermatchning mot utfallet.</li>
+          <li>
+            Sträng: om både parameter och utfall är strängar, men inte lika,
+            visar felmeddelandet vid vilken position de skiljer sig.
+          </li>
+          <li>Skalär: typoberoende jämförelse.</li>
+        </ul>
+
+        <p class="tip">
+          Jämförelsen kan negeras med <code lang="en">not</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toEqual</span>(<span class="var">expected</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">expected</code></dt>
+          <dd>Förväntat värde.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>
+            Det faktiska utfallet är inte lika med det angivna förväntade
+            värdet.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">value</span>).<span class="var">toEqual</span>([<span class="literal">"foo"</span>, <span class="literal">"bar"</span>]);</code></pre>
+      </section>
+
+      <!--toHaveBeenCalled-->
+      <section>
+        <h2 id="p-to-have-been-called">
+          <code lang="en">toHaveBeenCalled</code>
+        </h2>
+
+        <p>
+          Förebereder förväntningsinstansen på matchningsmetoder för
+          funktionsanrop. Fältet måste refereras innan metoden
+          <code lang="en">with()</code> eller någon av metoderna för verifiering
+          av antalet anrop kan användas.
+        </p>
+
+        <h3>Värde</h3>
+
+        <p>Den förväntningsinstans fältet ingår i.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">once</span>();</code></pre>
+      </section>
+
+      <!--toMatch()-->
+      <section>
+        <h2 id="m-to-match"><code lang="en">toMatch()</code></h2>
+
+        <p>Mönstermatchning mot ett regulärt uttryck.</p>
+
+        <p class="tip">
+          Jämförelsen kan negeras med <code lang="en">not</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">toMatch</span>(<span class="var">expr</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">expr</code></dt>
+          <dd>Reguljärt uttryck att matcha mot utfallet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>Utfallet matchar inte det reguljära uttrycket.</dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">value</span>).<span class="var">toMatch</span>(<span class="literal">/^\d+$/</span>);</code></pre>
+      </section>
+
+      <!--with()-->
+      <section>
+        <h2 id="m-with"><code lang="en">with()</code></h2>
+
+        <p>
+          Verifiera argument vid anrop till mockfunktioner. Om funktionen
+          anropats en gång jämförs parameteruppsättningen med det anropet. Om
+          funktionen anropats flera gånger ska varje parameter till
+          <code lang="en">with()</code> vara en vektor med parametrarna till
+          respektive anrop.
+        </p>
+
+        <p>
+          Parametrarna jämförs icke-strikt. En förväntad parameter som är en
+          funktion kan matchas med
+          <a href="#f-any-function"><code lang="en">anyFunction()</code></a
+          >.
+        </p>
+
+        <p class="note">
+          Fältet <code lang="en">toHaveBeenCalled</code> måste ha refererats
+          före anropet till <code lang="en">with()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">with</span>(<span class="var">arg1</span>, …, <span class="var">argN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">argN</code></dt>
+          <dd>Förväntade anropsparametrar.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Den förväntningsinstans metoden anropas i.</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">ExpectationFailure</code></dt>
+          <dd>
+            Antalet parametrar skiljer, eller någon parameter i utfallet är inte
+            icke-strikt lika med den förväntade parametern.
+          </dd>
+        </dl>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">once</span>().<span class="fn">with</span>(<span class="literal">"test"</span>, <span class="literal">42</span>);
+
+<span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">times</span>(<span class="literal">2</span>).<span class="fn">with</span>(
+    [<span class="literal">"foo"</span>, <span class="literal">13</span>],
+    [<span class="literal">"bar"</span>, <span class="literal">42</span>]
+);
+        </code></pre>
+      </section>
+
+      <!--anyFunction()-->
+      <section>
+        <h2 id="f-any-function"><code lang="en">anyFunction()</code></h2>
+
+        <p>Matchar en funktion som parameter i ett funktionsanrop.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">expect</span>.<span class="ident">anyFunction</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>En tom funktion.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="fn">expect</span>(<span class="var">method</span>).<span class="var">toHaveBeenCalled</span>.<span class="fn">with</span>(<span class="literal">42</span>, <span class="var">expect</span>.<span class="fn">anyFunction</span>());</code></pre>
+      </section>
+
+      <!--exception()-->
+      <section>
+        <h2 id="f-exception"><code lang="en">exception()</code></h2>
+
+        <p>
+          Skapar en förväntning om ett synkront undantag. Det anrop som
+          förväntas generera ett undantag måste ske i en funktion som
+          <code lang="en">exception()</code> anropar, annars skulle felet
+          förhindra anropet.
+        </p>
+
+        <p>
+          För förväntade <em>asynkrona</em> undantag, se
+          <a href="f-failure"><code lang="en">expect.failure()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">expect</span>.<span class="ident">exception</span>(<span class="var">func</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">func</code></dt>
+          <dd>Synkron funktion som förväntas generera ett undantag.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Expectation</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="var">expect</span>.<span class="fn">exception</span>(() =&gt; <span class="fn">divideBy</span>(<span class="literal">0</span>));</code></pre>
+      </section>
+
+      <!--failure()-->
+      <section>
+        <h2 id="f-failure"><code lang="en">failure()</code></h2>
+
+        <p>
+          Skapar en förväntning om ett asynkront undantag. Det anrop som
+          förväntas generera ett undantag måste ske i en funktion som
+          <code lang="en">failure()</code> anropar, annars skulle felet
+          förhindra anropet.
+        </p>
+
+        <p>
+          För förväntade <em>synkrona</em> undantag, se
+          <a href="f-exception"><code lang="en">expect.exception()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">expect</span>.<span class="ident">failure</span>(<span class="var">func</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">func</code></dt>
+          <dd>Asynkron funktion som förväntas generera ett undantag.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>En <code lang="en">Expectation</code>-instans.</p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="var">expect</span>.<span class="fn">failure</span>(() =&gt; <span class="fn">load</span>(<span class="literal">"nosuchfile.json"</span>));</code></pre>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="mockning.html" accesskey="N" rel="next"><span>Mockning</span></a>
+      <a href="test.html" accesskey="I" class="up"><span>Tester</span></a>
+      <a href="testfall.html" accesskey="F" rel="prev"><span>Testfall</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

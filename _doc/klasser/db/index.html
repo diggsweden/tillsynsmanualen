@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Databasgränssnitt – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><strong>Databasgränssnitt</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Databasgränssnitt</h1>
+
+      <p>
+        Applikationen innehåller en uppsättning klasser som tillhandahåller ett
+        mer lättanvänt och lättförvaltat gränssnitt mot objektdatabasen (<code
+          lang="en"
+          >IndexedDB</code
+        >) än webbläsarens inbyggda lågnivå-API som baseras på händelselyssnare.
+        Detta gränssnitt är i stället löftesbaserat och kan användas med
+        <code lang="en" class="js"><span class="keyword">async</span></code
+        >/<code lang="en" class="js"><span class="keyword">await</span></code>
+        på vanligt sätt.
+      </p>
+
+      <h2>Klasser</h2>
+
+      <ul class="toc">
+        <li>
+          <a href="ConnectionFactory.html"
+            ><code lang="en">ConnectionFactory</code></a
+          >
+        </li>
+        <li>
+          <a href="Cursor.html"><code lang="en">Cursor</code></a>
+        </li>
+        <li>
+          <a href="Database.html"><code lang="en">Database</code></a>
+        </li>
+        <li>
+          <a href="Index.class.html"><code lang="en">Index</code></a>
+        </li>
+        <li>
+          <a href="ObjectStore.html"><code lang="en">ObjectStore</code></a>
+        </li>
+        <li>
+          <a href="Transaction.html"><code lang="en">Transaction</code></a>
+        </li>
+      </ul>
+
+      <h2>Exempel</h2>
+
+      <p>
+        Gränssnittet är en rak mappning mot lågnivå-API:et, till skillnad från
+        många tredjeparts&shy;bibliotek som försöker få
+        <code lang="en">IndexedDB</code> att bete sig som något annat än vad det
+        är (vanligen SQL).
+      </p>
+
+      <p>
+        En skillnad är dock anslutningen mot objektdatabasen. Gränssnittet
+        använder en <code lang="en">ConnectionFactory</code>-klass för att öppna
+        anslutningen. Den begär också att applikationen ska få lagra data
+        persistent, så att de inte raderas utan förvarning om webbläsaren
+        behöver frigöra utrymme. Dessutom skapar den databasen, objektlagren och
+        indexen första gången användaren startar granskningsfunktionen, och
+        hanterar eventuella framtida versionsförändringar.
+      </p>
+
+      <pre
+        class="js"
+      ><code lang="en"><span class="keyword">const</span> <span class="var">db</span> = <span class="keyword">await</span> <span class="var">ConnectionFactory</span>.<span class="fn">build</span>();
+<span class="keyword">const</span> <span class="var">tx</span> = <span class="var">db</span>.<span class="fn">transaction</span>([<span class="literal">"store"</span>]);
+<span class="keyword">const</span> <span class="var">rows</span> = <span class="keyword">await</span> <span class="var">tx</span>.<span class="fn">objectStore</span>(<span class="literal">"store"</span>).<span class="fn">getAll</span>();
+<span class="keyword">await</span> <span class="var">tx</span>.<span class="fn">complete</span>();</code></pre>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

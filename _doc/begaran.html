@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Begäranshantering – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Begäranshantering</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Begäranshantering</h1>
+
+      <p>
+        Granskningsfunktionen är en
+        <i lang="en">single-page application</i> (<abbr>SPA</abbr>) och hanterar
+        därmed varje sidbegäran internt inom applikationen.
+      </p>
+
+      <p>
+        Grundsidan som hämtas är <code>granskning/granska.html</code>: ett skal
+        med sidhuvud och sidfot och däremellan bara en tom statusbehållare och
+        ett tomt artikelelement. Den laddar också tre JavaScript-moduler:
+      </p>
+
+      <ul>
+        <li>
+          <a href="klasser/preferences.module.html"
+            ><code lang="en">preferences.module.js</code></a
+          >
+          för att hantera användarinställningar
+        </li>
+        <li>
+          <a href="klasser/menu/menu.module.html"
+            ><code lang="en">menu.module.js</code></a
+          >
+          som injicerar navigeringsmenyn på sidan
+        </li>
+        <li>
+          <a href="klasser/monitoring.module.html"
+            ><code lang="en">monitoring.module.js</code></a
+          >
+          som utgör den yttre händelseslingan i granskningsfunktionen.
+        </li>
+      </ul>
+
+      <p>
+        Applikationen har två händelseslingor: en yttre och en inre. Kittet som
+        håller samman dem är en
+        <a href="klasser/common/AppContext.html">applikationskontext</a> som
+        representerar en sidbegäran.
+      </p>
+
+      <section>
+        <h2>Händelseslingorna</h2>
+
+        <p>
+          Den yttre slingan utgörs av skriptmodulen
+          <a href="klasser/monitoring.module.html"
+            ><code lang="en">monitoring.module.js</code></a
+          >. Modulen använder en växel (<a href="klasser/Router.html"
+            ><code lang="en">Router</code></a
+          >) för att mappa sökvägen i en begäran till rätt initieringsmodul.
+          Sedan använder den en fördelare (<a href="klasser/Dispatcher.html"
+            ><code lang="en">Dispatcher</code></a
+          >) som fördelar begäran. Så länge användaren är kvar i
+          granskningsfunktionen hanterar den yttre slingan sidväxlingarna:
+          växlar och fördelar.
+        </p>
+
+        <p>
+          Fördelaren är den inre händelseslingan. Den hanterar begäran medan
+          användaren befinner sig inom en och samma sida. Den importerar den
+          initieringsmodul som växeln förmedlat och anropar den för att
+          instantiera vy och <i lang="en">controller</i>. Efter lite
+          förberedelser överlåter den hanteringen till controllern. När den
+          lämnar tillbaka kontrollen, exempelvis till följd av att användaren
+          klickat på en länk eller en knapp, avgör fördelaren om begäran innebär
+          ett byte av sida. I så fall återlämnar fördelaren kontrollen till den
+          yttre händelseslingan. Om det inte är fråga om ett sidbyte får
+          controllern återuppta hanteringen igen.
+        </p>
+
+        <p class="note">
+          Länkar till sidor utanför granskningsfunktionen, till exempel via
+          menyn, leder direkt till målsidan och därmed laddas granskningssidan
+          med sina händelse&shy;slingor ur.
+        </p>
+      </section>
+
+      <section>
+        <h2>Historiknavigering</h2>
+
+        <p>
+          Vid varje sidbesök i granskningsfunktionen sparar applikationen det
+          aktuella tillståndet i webbläsarens navigeringshistorik. Om användaren
+          navigerar med bakåt- eller framåt&shy;knappen i sin webbläsare kan
+          applikationen återställa tillståndet och visa rätt sida. Användaren
+          ska alltså inte märka att sidan är en <abbr>SPA</abbr>, utan den ska
+          bete sig som normala webbsidor.
+        </p>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="lagring.html" accesskey="N" rel="next"><span>Lagring</span></a>
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a rel="prev"></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

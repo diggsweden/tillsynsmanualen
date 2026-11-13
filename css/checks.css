@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för presentation av kontroller, Tillsynsmanual för digital
+ * offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Formgivning av HTML-element. */
+
+  p + ul {
+    margin-top: -2.25em;
+  }
+
+  /* Klasser och attribut. */
+
+  p.check {
+    margin-bottom: 0.75em;
+  }
+  ul.checks {
+    padding: 0;
+  }
+  ul.checks li {
+    display: block;
+  }
+  p.check,
+  ul.checks li {
+    padding-left: 2em;
+    text-indent: -2em;
+  }
+  p.check::before,
+  ul.checks li::before {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.8em;
+    border: 1px solid;
+    border-radius: 0.25em;
+    vertical-align: middle;
+    content: '';
+  }
+  ul.checks li::before {
+    border-radius: 50%;
+  }
+
+  div.condition {
+    margin: 0 0 2.25em 0.5em;
+    border-left: 0.25em solid var(--border);
+    padding-left: 0.5em;
+  }
+  p.condition {
+    margin-bottom: 0;
+  }
+}
+
+/*
+ * Formgivning för bildskärm.
+ * --------------------------
+ */
+@media screen {
+  /* Formgivning av HTML-element. */
+
+  article > section {
+    margin-bottom: 6em;
+    border-top: 0.5em double;
+  }
+  article > section > h2 {
+    margin-top: 1.5rem;
+  }
+  article > section section {
+    margin-bottom: 4.5em;
+  }
+  article > section section + section {
+    border-top: 0.25em solid var(--border);
+  }
+}
+
+/*
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Formgivning av HTML-element. */
+
+  section:nth-of-type(n + 2) {
+    page-break-before: always;
+  }
+}

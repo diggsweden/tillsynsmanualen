@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för juridisk information, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Formgivning av HTML-element. */
+
+  blockquote[cite] {
+    font-size: smaller;
+  }
+  blockquote[cite] b:first-child {
+    margin-right: 0.5em;
+  }
+  blockquote cite {
+    font-style: normal;
+  }
+  blockquote ol {
+    padding-left: 1em;
+  }
+  blockquote p {
+    margin: 0 0 0.75em;
+  }
+  blockquote p + ol {
+    margin-top: -0.75em;
+  }
+  blockquote ol ol {
+    margin: 0;
+    list-style-type: lower-alpha;
+  }
+}

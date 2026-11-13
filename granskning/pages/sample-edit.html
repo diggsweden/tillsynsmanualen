@@ -1,0 +1,781 @@
+<h1 id="start-of-content">Lägg till stickprov</h1>
+
+<p data-hidden="class!=new">
+  <label>
+    Kategorier med tillagda stickprov
+    <progress value="3" max="14"></progress>
+  </label>
+  <strong id="random">0 sidor</strong> återstår att lägga till som slumpmässigt
+  urval.
+</p>
+
+<p data-hidden="class!=new" class="note process">
+  Om ett stickprov är ett steg i en process ska alla steg i processen ingå i
+  urvalet.
+</p>
+
+<p aria-hidden="true" class="req">
+  Obligatoriska fält har tjock kantlinje och ledtexten är <em>betonad</em> och
+  följs av en asterisk&nbsp;(<samp>*</samp>).
+</p>
+
+<form autocomplete="off">
+  <p data-hidden="class=component">
+    <label>
+      Urvalskategori
+      <select name="category" data-required="class!=component" id="category">
+        <option value="">(välj kategori)</option>
+      </select>
+    </label>
+  </p>
+
+  <details data-hidden="class=component">
+    <summary>Beskrivning av urvalskategorier</summary>
+
+    <dl>
+      <dt>Hjälp</dt>
+      <dd>
+        <p>
+          Sidor eller vyer som förklarar hur man använder webbplatsen eller
+          appen eller specifika komponenter i den.
+        </p>
+      </dd>
+
+      <dt>Inloggning</dt>
+      <dd>
+        <p>
+          Sidor eller vyer där användaren autentiserar sig eller loggar in i en
+          tjänst.
+        </p>
+      </dd>
+
+      <dt>Juridisk information</dt>
+      <dd>
+        <p>
+          Sidor eller vyer som innehåller viktig juridisk information, till
+          exempel avtal eller villkor för att använda en tjänst. Inte
+          (nödvändigtvis) texter som hänvisar till olika lagparagrafer.
+        </p>
+      </dd>
+
+      <dt>Kontakt</dt>
+      <dd>
+        <p>
+          Sidor eller vyer med kontaktuppgifter, kontaktformulär, chatt- eller
+          samtalsfunktion och liknande.
+        </p>
+      </dd>
+
+      <dt>Meddelandefunktion</dt>
+      <dd>
+        <p>
+          Funktionen för att meddela aktören om bristande tillgänglighet, om den
+          inte är inbyggd i tillgänglighetsredogörelsen.
+        </p>
+      </dd>
+
+      <dt>Produktdokumentation</dt>
+      <dd>
+        <p>
+          Webbsidor eller dokument som beskriver hur en webbplats, e-tjänst
+          eller mobil applikation fungerar.
+        </p>
+      </dd>
+
+      <dt>Relevant</dt>
+      <dd>
+        <p>
+          Sidor eller vyer som du bedömer vara relevanta, utöver de som
+          specifikt pekas ut av andra kategorier. Exempel: information om kakor
+          <i lang="en">(cookies)</i> eller hantering av personuppgifter.
+        </p>
+      </dd>
+
+      <dt>Slumpmässigt urval</dt>
+      <dd>
+        <p>
+          Urvalskriterierna kräver att ett visst antal slumpmässigt valda
+          webbsidor eller vyer i en app ska ingå i urvalet.
+        </p>
+      </dd>
+
+      <dt>Start</dt>
+      <dd>
+        <p>Webbplatsens startsida, eller startvyn i en mobil applikation.</p>
+      </dd>
+
+      <dt>Supporttjänster</dt>
+      <dd>
+        <p>
+          Stödtjänster, till exempel kundtjänst eller helpdesk, och
+          supportdokumentation för webbplatsen, e-tjänsten eller appen.
+        </p>
+      </dd>
+
+      <dt>Tillgänglighetsredogörelse</dt>
+      <dd>
+        <p>
+          Den eller de tillgänglighetsredogörelser som beskriver webbplatsen,
+          e-tjänsten eller appen du granskar.
+        </p>
+      </dd>
+
+      <dt>Typ av tjänst</dt>
+      <dd>
+        <p>
+          Minst en relevant sida eller vy och ett dokument (om det finns) för
+          varje typ av tjänst som tillhandahålls, inbegripet sökfunktionen.
+        </p>
+      </dd>
+
+      <dt>Udda innehåll</dt>
+      <dd>
+        <p>
+          Exempel på sidor eller vyer med ett mycket markerat utseende eller en
+          annan typ av innehåll.
+        </p>
+      </dd>
+
+      <dt>Webbplatskarta</dt>
+      <dd><p>(Inte tillämpligt för mobila applikationer.)</p></dd>
+    </dl>
+  </details>
+
+  <fieldset role="radiogroup" data-hidden="class=component" class="radio-group">
+    <legend><span>Typ av stickprov</span></legend>
+
+    <label class="radio">
+      <input name="type" type="radio" value="document" />
+      Dokument
+    </label>
+
+    <label data-hidden="class!=app" class="radio">
+      <input name="type" type="radio" value="screen" />
+      Vy
+    </label>
+
+    <label class="radio">
+      <input name="type" type="radio" checked value="webpage" />
+      Webbsida
+    </label>
+
+    <input name="type" type="radio" hidden value="component" />
+  </fieldset>
+
+  <p data-hidden="field:category!=service">
+    <label>
+      <em>Typ av tjänst</em>
+      <input
+        name="serviceType"
+        type="text"
+        data-disabled="field:category!=service"
+        data-required="field:category=service"
+        list="service-list"
+      />
+      <datalist id="service-list">
+        <option>sök</option>
+      </datalist>
+    </label>
+  </p>
+
+  <p class="multiple fixed-last">
+    <label>
+      <em>Namn eller titel</em>
+      <input name="name" type="text" required />
+    </label>
+
+    <label data-hidden="class!=component" class="cb">
+      <input name="defaultEdit" type="checkbox" role="switch" />
+      Förvald
+    </label>
+
+    <input name="parentType" type="hidden" />
+  </p>
+
+  <p data-hidden="field:type!=document,webpage" class="multiple fixed-last">
+    <label>
+      <abbr>URL</abbr>
+      <input
+        name="url"
+        data-disabled="field:type!=document,webpage"
+        type="url"
+      />
+    </label>
+
+    <label data-hidden="field:type!=document">
+      Format
+      <input
+        name="format"
+        type="text"
+        data-disabled="field:type!=document"
+        class="format"
+      />
+    </label>
+  </p>
+
+  <p
+    data-hidden="!class=app;field:type=screen/component;field:parentType!=webpage"
+  >
+    <label class="cb">
+      <input
+        aria-describedby="closed-warning"
+        name="srSupport"
+        type="checkbox"
+        checked
+        role="switch"
+      />
+      Har stöd för skärmläsare
+    </label>
+    <span aria-hidden="true" data-hidden="class!=edit" id="closed-warning">
+      Kraven kommer att populeras om när du sparar ett stickprov efter att ha
+      ändrat denna inställning. Eventuella gjorda granskningar går förlorade.
+    </span>
+  </p>
+
+  <p data-hidden="field:type!=screen,webpage">
+    <label>
+      Processteg efter
+      <select name="follows" data-disabled="field:type!=screen,webpage">
+        <option value="">(inget föregående steg)</option>
+      </select>
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Notering
+      <input name="note" type="text" />
+    </label>
+  </p>
+
+  <!--Innehållstyper för stickprovet-->
+  <fieldset class="content-types">
+    <legend id="content-types-label">Innehållstyper</legend>
+
+    <p>
+      Markera de typer av innehåll som stickprovet innehåller. Du kan använda
+      mus/<i lang="en">touch</i> eller tangentbord (flytta runt med piltangenter
+      och markera/avmarkera med <kbd><kbd>Mellanslag</kbd></kbd
+      >).
+    </p>
+
+    <details>
+      <summary>Beskrivning av de olika innehållstyperna</summary>
+
+      <p>
+        Vilka innehållstyper som finns att välja beror på om stickprovet är en
+        webbsida, ett dokument, en vy eller en komponent.
+      </p>
+
+      <dl>
+        <dt>Aktivering med rörelse</dt>
+        <dd>
+          <p>
+            En vy i en mobil applikation (eller en webbsida) med egna funktioner
+            som styrs genom att röra på den mobila enheten eller genom att
+            utföra kroppsrörelser som uppfattas av den mobila enhetens kamera.
+          </p>
+        </dd>
+
+        <dt>Animeringar och filmklipp utan ljud</dt>
+        <dd><p>Animerade bilder eller videofilmer utan ljud.</p></dd>
+
+        <dt>Automatiskt rörligt eller uppdaterande innehåll</dt>
+        <dd>
+          <p>
+            Innehåll som förflyttar sig på skärmen under flera sekunder utan att
+            användaren bett om det. (Inte animerade bilder eller filmklipp.)
+          </p>
+          <p>Sidans innehåll uppdateras periodiskt.</p>
+        </dd>
+
+        <dt>Automatiskt uppspelat ljud</dt>
+        <dd><p>Ljud som spelas upp automatiskt när sidan visas.</p></dd>
+
+        <dt>Bilder, ikoner och grafik</dt>
+        <dd><p>Förgrunds- eller bakgrundsbilder, ikoner och liknande.</p></dd>
+
+        <dt>Biometri</dt>
+        <dd>
+          <p>
+            Autentiseringsfunktioner för åtkomst, som mäter någon kroppsdel
+            eller funktionsförmåga. Exempel: fingeravtryck, näthinna,
+            ansiktsigenkänning eller röstigenkänning.
+          </p>
+        </dd>
+
+        <dt>Eget skärmtangentbord</dt>
+        <dd>
+          <p>
+            En vy i en mobil applikation som visar ett eget virtuellt
+            tangentbord på skärmen. Det gäller alltså inte de tangentbord som
+            den mobila enhetens operativsystem tillhandahåller, utan om vyn har
+            sitt eget tangentbord.
+          </p>
+        </dd>
+
+        <dt>Filmklipp</dt>
+        <dd>
+          <p>
+            Inbäddad video (rörliga bilder med synkroniserat ljud) som spelas
+            upp på sidan, alltså inte länkar till videotjänster som YouTube
+            eller Vimeo.
+          </p>
+        </dd>
+
+        <dt>Formateringsverktyg</dt>
+        <dd>
+          <p>
+            En funktion där användaren kan redigera och formatera innehåll. En
+            vanlig textruta är inte ett formateringsverktyg, utan det krävs att
+            man kan påverka formgivningen av innehållet, exempelvis med fetstil,
+            kursivering eller punktlistor.
+          </p>
+        </dd>
+
+        <dt>Formulärobjekt och inmatningsfält</dt>
+        <dd>
+          <p>
+            Textfält, textrutor, listor, kryssrutor, radiogrupper och liknande
+            där användaren skriver in, väljer eller markerar innehåll.
+          </p>
+        </dd>
+
+        <dt>Funktioner för utökad tillgänglighet</dt>
+        <dd>
+          <p>
+            Webbsidan, dokumentet eller vyn har egna funktioner med syfte att
+            hjälpa personer med funktionsnedsättning. Exempel kan vara
+            lyssnafunktioner, funktioner för att förstora texten eller
+            högkontrastläge.
+          </p>
+        </dd>
+
+        <dt>Juridiska eller ekonomiska konsekvenser</dt>
+        <dd>
+          <p>
+            Något som innebär att användaren tar på sig ansvar eller
+            skyldigheter av juridisk eller finansiell karaktär, till exempel
+            genom att ingå avtal.
+          </p>
+          <p>Något som innebär att användaren betalar pengar.</p>
+        </dd>
+
+        <dt>Knappar och interaktiva element</dt>
+        <dd>
+          <p>
+            Element i användargränssnittet för att utföra en funktion. Se upp
+            för länkar form&shy;givna som knappar; de ska anges som länkar.
+            Knappar är element av typen
+            <code translate="no" lang="en">&lt;button&gt;</code> eller
+            <code translate="no" lang="en">&lt;input&gt;</code>-element med
+            någon av typerna <code translate="no" lang="en">button</code>,
+            <code translate="no" lang="en">reset</code> eller
+            <code translate="no" lang="en">submit</code> eller interaktiva
+            komponenter med <code translate="no" lang="en">role="button"</code>.
+          </p>
+
+          <p>
+            Även element i användargränssnittet, utöver länkar, inmatningsfält,
+            knappar och mediespelare, som användaren kan interagera med.
+            Exempelvis utfällbara avsnitt (hemmagjorda, som inte använder
+            <code translate="no" lang="en">&lt;details&gt;</code>). Omfattar
+            alla egna interaktiva element, oavsett om de är uppmärkta med
+            ARIA-attribut eller inte.
+          </p>
+        </dd>
+
+        <dt>Konvertering mellan filformat</dt>
+        <dd>
+          <p>
+            En funktion som omvandlar innehåll från ett format till ett annat.
+            Kan vara en specifik omvandlingstjänst, exempelvis för att
+            konvertera ett videoformat till ett annat, eller funktioner för att
+            till exempel spara en visad kvittens i PDF-format.
+          </p>
+        </dd>
+
+        <dt>Listor</dt>
+        <dd>
+          <p>
+            Innehåll som är uppmärkt som listor eller visuellt formgivet som
+            listor. ”Listor” kan vara ordnade (numrerade), oordnade
+            (punktlistor) eller beskrivningslistor (parvisa listor med
+            term/beskrivning eller nyckel/värde).
+          </p>
+        </dd>
+
+        <dt>Ljudklipp</dt>
+        <dd>
+          <p>
+            Inbäddade ljudfiler som spelas upp på sidan, alltså inte länkar till
+            fristående ljudfiler.
+          </p>
+        </dd>
+
+        <dt>Länkar</dt>
+        <dd>
+          <p>
+            Länkar till webbsidor eller dokument. Länkar kan ibland vara
+            formgivna som knappar, så kontrollera om det är ett
+            <code>&lt;a&gt;</code>-element med attributet <code>href</code>.
+          </p>
+        </dd>
+
+        <dt>Mediespelare</dt>
+        <dd>
+          <p>
+            En egen komponent för att spela upp ljudklipp eller film. På
+            webbsidor räknas inte webbläsarens inbyggda spelare (det vill säga
+            elementen <code translate="no" lang="en">&lt;audio&gt;</code> och
+            <code translate="no" lang="en">&lt;video&gt;</code> med attributet
+            <code translate="no" lang="en">controls</code>), utan bara
+            hemmagjorda eller tredjeparts mediespelare.
+          </p>
+        </dd>
+
+        <dt>Pekargester</dt>
+        <dd>
+          <p>
+            En vy i en mobil applikation (eller en webbsida) som har egna
+            funktioner specifikt för användning med touchskärm. Här ingår alltså
+            inte funktioner som styrs av den mobila enhetens operativsystem.
+          </p>
+        </dd>
+
+        <dt>Radering eller ändring av profildata</dt>
+        <dd>
+          <p>
+            Något som innebär att uppgifter som användaren själv matat in
+            förändras eller raderas. Exempelvis att ta bort sitt användarkonto
+            hos en tjänst.
+          </p>
+        </dd>
+
+        <dt>Rubriker</dt>
+        <dd>
+          <p>
+            Innehåll som är uppmärkt som rubriker eller visuellt formgivet som
+            rubriker.
+          </p>
+        </dd>
+
+        <dt>Röst/videokommunikation</dt>
+        <dd>
+          <p>
+            Den granskade tjänsten ger möjlighet till tvåvägs röst- eller
+            videokommunikation, exempelvis för samtal med handläggare eller
+            läkare, eller videomöten med flera deltagare.
+          </p>
+        </dd>
+
+        <dt>Snabba blinkningar</dt>
+        <dd>
+          <p>
+            Innehåll med flimmer: snabba växlingar mellan ljusa och mörka
+            färger, eller övergångar där en av färgerna är mättat röd. En
+            <dfn>övergång</dfn> är en växling från en färg till en annan och
+            tillbaka, till exempel ljus–mörk–ljus. Om tre eller fler övergångar
+            inträffar under en sekund räknas det som flimmer.
+          </p>
+        </dd>
+
+        <dt>Tabeller</dt>
+        <dd>
+          <p>
+            Innehåll som är uppmärkt som tabeller eller visuellt formgivet som
+            tabeller.
+          </p>
+        </dd>
+
+        <dt>Text</dt>
+        <dd>
+          <p>
+            Textinnehåll. Om det finns bilder av text, lägg till innehållstypen
+            ”<samp>Biler, ikoner och grafik</samp>”.
+          </p>
+        </dd>
+
+        <dt>Vred eller spakar</dt>
+        <dd>
+          <p>
+            En mobil applikation med virtuella ”reglage” på skärmen, som kräver
+            att användaren kan greppa eller nypa åt, eller vrida på handleden.
+          </p>
+        </dd>
+      </dl>
+    </details>
+
+    <ul
+      role="listbox"
+      aria-labelledby="content-types-label"
+      aria-multiselectable="true"
+      tabindex="0"
+      id="sample-content-types"
+      aria-activedescendant="ct-txt"
+    >
+      <li
+        aria-selected="true"
+        id="ct-txt"
+        role="option"
+        data-value="txt"
+        class="focused"
+      >
+        Text
+      </li>
+      <li aria-selected="false" id="ct-tch" role="option" data-value="tch">
+        Funktioner för touchskärm
+      </li>
+      <li aria-selected="false" id="ct-hea" role="option" data-value="hea">
+        Rubriker
+      </li>
+      <li aria-selected="false" id="ct-lst" role="option" data-value="lst">
+        Listor
+      </li>
+      <li aria-selected="false" id="ct-tbl" role="option" data-value="tbl">
+        Tabeller
+      </li>
+      <li aria-selected="false" id="ct-lnk" role="option" data-value="lnk">
+        Länkar
+      </li>
+      <li aria-selected="false" id="ct-img" role="option" data-value="img">
+        Bilder, ikoner och grafik
+      </li>
+      <li aria-selected="false" id="ct-aud" role="option" data-value="aud">
+        Ljudklipp
+      </li>
+      <li aria-selected="false" id="ct-ani" role="option" data-value="ani">
+        Animeringar och filmklipp utan ljud
+      </li>
+      <li aria-selected="false" id="ct-vid" role="option" data-value="vid">
+        Filmklipp
+      </li>
+      <li aria-selected="false" id="ct-inp" role="option" data-value="inp">
+        Formulärobjekt och inmatningsfält
+      </li>
+      <li aria-selected="false" id="ct-btn" role="option" data-value="btn">
+        Knappar
+      </li>
+      <li aria-selected="false" id="ct-ui" role="option" data-value="ui">
+        Interaktiva element
+      </li>
+      <li aria-selected="false" id="ct-leg" role="option" data-value="leg">
+        Juridiska/ekonomiska åtaganden
+      </li>
+      <li aria-selected="false" id="ct-eco" role="option" data-value="eco">
+        Ekonomiska transaktioner
+      </li>
+      <li aria-selected="false" id="ct-uda" role="option" data-value="uda">
+        Radering eller ändring av profildata
+      </li>
+      <li aria-selected="false" id="ct-snd" role="option" data-value="snd">
+        Automatiskt uppspelat ljud
+      </li>
+      <li aria-selected="false" id="ct-mov" role="option" data-value="mov">
+        Rörelse
+      </li>
+      <li aria-selected="false" id="ct-upd" role="option" data-value="upd">
+        Uppdatering
+      </li>
+      <li aria-selected="false" id="ct-fla" role="option" data-value="fla">
+        Snabba blinkningar
+      </li>
+      <li aria-selected="false" id="ct-acc" role="option" data-value="acc">
+        Funktioner för utökad tillgänglighet
+      </li>
+      <li aria-selected="false" id="ct-mp" role="option" data-value="mp">
+        Mediespelare
+      </li>
+      <li aria-selected="false" id="ct-edt" role="option" data-value="edt">
+        Formateringsverktyg
+      </li>
+      <li aria-selected="false" id="ct-bio" role="option" data-value="bio">
+        Biometri
+      </li>
+      <li aria-selected="false" id="ct-cnv" role="option" data-value="cnv">
+        Konvertering mellan filformat
+      </li>
+      <li aria-selected="false" id="ct-doc" role="option" data-value="doc">
+        Produktdokumentation
+      </li>
+      <li aria-selected="false" id="ct-sup" role="option" data-value="sup">
+        Supporttjänster
+      </li>
+      <li aria-selected="false" id="ct-vox" role="option" data-value="vox">
+        Röst-/videokommunikation
+      </li>
+      <li aria-selected="false" id="ct-kbd" role="option" data-value="kbd">
+        Eget skärmtangentbord
+      </li>
+      <li aria-selected="false" id="ct-ctl" role="option" data-value="ctl">
+        Vred eller spakar
+      </li>
+    </ul>
+  </fieldset>
+
+  <!--Komponenter-->
+  <fieldset data-disabled="field:type!=screen,webpage" class="components">
+    <legend>Komponenter</legend>
+
+    <ul id="components" data-empty="Inga komponenter"></ul>
+    <template id="component-template">
+      <li>
+        <label class="cb">
+          <input type="checkbox" role="switch" value="" />
+        </label>
+      </li>
+    </template>
+
+    <p>
+      <button
+        type="button"
+        aria-haspopup="dialog"
+        data-handler="component"
+        id="show-component-dialog"
+      >
+        Skapa komponenter…
+      </button>
+    </p>
+
+    <!--Dialogruta för tillägg av komponent-->
+    <dialog
+      aria-labelledby="show-component-dialog"
+      aria-atomic="true"
+      aria-modal="true"
+      id="component-dialog"
+    >
+      <p class="multiple fixed-last">
+        <label>
+          Namn
+          <input name="component" type="text" />
+        </label>
+
+        <label class="cb">
+          <input name="default" type="checkbox" role="switch" />
+          Förvald
+        </label>
+      </p>
+
+      <div class="content-types" id="component-content-types">
+        <button
+          type="button"
+          aria-haspopup="listbox"
+          data-handler="dropdown"
+          class="dropdown"
+          id="content-types-button"
+        >
+          0 innehållstyper
+        </button>
+
+        <ul
+          role="listbox"
+          aria-labelledby="content-types-button"
+          aria-multiselectable="true"
+        ></ul>
+      </div>
+
+      <p class="buttons">
+        <button type="button" value="component" id="add-component">
+          Lägg till komponent
+        </button>
+
+        <button type="button" data-handler="component">Stäng</button>
+      </p>
+
+      <div role="status"></div>
+    </dialog>
+  </fieldset>
+
+  <!--Kopplingar-->
+  <fieldset data-hidden="class!=edit;field:type!=component">
+    <legend>Kopplingar</legend>
+
+    <ul id="connections" data-empty="Inga kopplingar"></ul>
+    <template id="connection-template">
+      <li>
+        <label class="cb">
+          <input type="checkbox" role="switch" value="" />
+        </label>
+      </li>
+    </template>
+  </fieldset>
+
+  <p class="buttons">
+    <button value="save" accesskey="s">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-save" />
+      </svg>
+      Spara
+    </button>
+
+    <button disabled formnovalidate value="delete">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-delete" />
+      </svg>
+      Ta bort
+    </button>
+  </p>
+
+  <!--Dialogruta för att bekräfta komponentkopplingar-->
+  <dialog
+    aria-labelledby="ccd-label"
+    aria-atomic="true"
+    aria-modal="true"
+    id="confirm-component-dialog"
+  >
+    <h2 id="ccd-label">Kontrollera komponenter</h2>
+
+    <p>
+      Kontrollera att du lagt till rätt komponenter till den nya urvalet innan
+      du sparar.
+    </p>
+
+    <ul id="ccd-list"></ul>
+
+    <p>
+      <label class="cb">
+        <input type="checkbox" checked id="ccd-confirm" />
+        Visa den här kontrollen vid spara
+      </label>
+    </p>
+
+    <p>
+      <button data-handler="cancel" type="button" value="cancel">
+        <svg aria-hidden="true">
+          <use xlink:href="../img/ikoner.svg#ico-cancel" />
+        </svg>
+        Avbryt
+      </button>
+
+      <button data-handler="confirm" type="button" value="confirm">
+        <svg aria-hidden="true">
+          <use xlink:href="../img/ikoner.svg#ico-save" />
+        </svg>
+        Spara
+      </button>
+    </p>
+  </dialog>
+</form>
+
+<!--Dialogruta för att bekräfta borttag-->
+<dialog
+  role="alertdialog"
+  aria-atomic="true"
+  aria-labelledby="confirm-label"
+  aria-modal="true"
+  id="confirm-dialog"
+>
+  <h2 id="confirm-label">Bekräfta borttag</h2>
+  <p class="prompt"></p>
+
+  <p>
+    <button data-handler="confirm" type="button" value="false">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-cancel" />
+      </svg>
+      Avbryt
+    </button>
+
+    <button data-handler="confirm" type="button" value="true">OK</button>
+  </p>
+</dialog>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 240 240">
+  <defs>
+    <style type="text/css"><![CDATA[
+      circle, path {fill:#eef; stroke:none}
+      circle.bg {fill:#515267; stroke:none}
+    ]]></style>
+  </defs>
+  <circle cx="120" cy="120" r="120" class="bg"/>
+  <path d="M120,140 c-6,0 -12,-5 -12,-10 l-16,-80 c-1,-5 6,-10 12,-10
+           h32 c6,0 13,5 12,10 l-16,80 c-1,5 -6,10 -12,10 z"/>
+  <circle cx="120" cy="180" r="20"/>
+</svg>

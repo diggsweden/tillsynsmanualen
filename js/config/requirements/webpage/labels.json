@@ -1,0 +1,18 @@
+{
+  "methods": [
+    "Klicka på det som ser ut att vara ledtexter. Om det är en korrekt uppmärkt och kopplad ledtext blir tillhörande fält markerat (kryssruta, radioknapp) eller får fokus (inmatningsfält, lista).",
+    "Använd <cite>Inspektören</cite> för att se att en ledtext är uppmärkt med <code translate=\"no\" lang=\"en\">&lt;label&gt;</code> och att den är explicit eller implicit kopplad till det tillhörande fältet."
+  ],
+  "tools": [
+    {
+      "tool": "DevTool",
+      "tab": "Elements"
+    }
+  ],
+  "examples": {
+    "good": [
+      "<code translate=\"no\">&lt;label for=\"<mark>id</mark>\"&gt;Ledtext&lt;/label&gt; &lt;input id=\"<mark>id</mark>\"&gt;</code>",
+      "<code translate=\"no\">&lt;label&gt;Ledtext &lt;input&gt;&lt;/label&gt;</code>"
+    ]
+  }
+}

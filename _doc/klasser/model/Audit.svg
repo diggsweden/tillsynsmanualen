@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 450">
+  <g id="Audit">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="169" height="442"/>
+      <line x1="1" y1="12"  x2="170" y2="12"/>
+      <line x1="1" y1="112" x2="170" y2="112"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">Audit</text>
+      <text x="5" y="20">+caseID: number</text>
+      <text x="5" y="30">+failed: boolean</text>
+      <text x="5" y="40">+finished: date</text>
+      <text x="5" y="50">+id: number</text>
+      <text x="5" y="60">+firstSample: Sample</text>
+      <text x="5" y="70">+injunctions: date[][]</text>
+      <text x="5" y="80">+officer: Person</text>
+      <text x="5" y="90">+remarks: date[][]</text>
+      <text x="5" y="100">+started: date</text>
+      <text x="5" y="110">+version: string</text>
+      <text x="5" y="120">addInjunction(date, date): void</text>
+      <text x="5" y="130">addRemarks(date, date): void</text>
+      <text x="5" y="140">allSamples(): iterator</text>
+      <text x="5" y="150">auditProgress([boolean]): number[]</text>
+      <text x="5" y="160">components(): iterator</text>
+      <text x="5" y="170">contains(string): boolean</text>
+      <text x="5" y="180">count(string): number</text>
+      <text x="5" y="190">countDone(...class): number</text>
+      <text x="5" y="200">countType(class): number</text>
+      <text x="5" y="210">deleteColour(string): boolean</text>
+      <text x="5" y="220">deleteInjunction(date): void</text>
+      <text x="5" y="230">deleteRemarks(date): void</text>
+      <text x="5" y="240">deleteSample(number): boolean</text>
+      <text x="5" y="250">doneSamples(class): iterator</text>
+      <text x="5" y="260">failures(...classes): object</text>
+      <text x="5" y="270">finish(): void</text>
+      <text x="5" y="280">getSampleByName(string): Sample</text>
+      <text x="5" y="290">hasColour(string): boolean</text>
+      <text x="5" y="300">nextCategory(string): string</text>
+      <text x="5" y="310">nextSample(): sample</text>
+      <text x="5" y="320">observations(Sample, string, string): string[]</text>
+      <text x="5" y="330">previousCategory(string): string</text>
+      <text x="5" y="340">randomCount(): number</text>
+      <text x="5" y="350">reopen(): void</text>
+      <text x="5" y="360">sampleProgress(): number[]</text>
+      <text x="5" y="370">sample(number): Sample</text>
+      <text x="5" y="380">samples(string): iterator</text>
+      <text x="5" y="390">serialize(): object</text>
+      <text x="5" y="400">setColour(string, string): void</text>
+      <text x="5" y="410">setSample(Sample): void</text>
+      <text x="5" y="420">toJSON(): object</text>
+      <text x="5" y="430">toString(): string</text>
+      <text x="5" y="440">useCount(number): number</text>
+    </g>
+  </g>
+</svg>

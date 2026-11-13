@@ -1,0 +1,98 @@
+<h1 id="start-of-content">Redigera personinformation</h1>
+
+<p aria-hidden="true" class="req">
+  Obligatoriska fält har tjockare kantlinje och ledtexten är
+  <em>betonad</em> och följs av en asterisk (<samp>*</samp>).
+</p>
+
+<form action="?page=list&amp;type=person" autocomplete="off">
+  <p>
+    <label>
+      <em>E-postadress</em>
+      <input name="email" type="email" required />
+    </label>
+  </p>
+
+  <p class="multiple">
+    <label>
+      <em>Förnamn</em>
+      <input name="givenName" type="text" required />
+    </label>
+
+    <label>
+      <em>Efternamn</em>
+      <input name="familyName" type="text" required />
+    </label>
+  </p>
+
+  <fieldset class="advanced">
+    <legend>Roller</legend>
+
+    <div class="roles">
+      <p>
+        <label class="cb">
+          <input type="checkbox" role="switch" value="officer" />
+          Handläggare
+        </label>
+      </p>
+
+      <p>
+        <label class="cb">
+          <input type="checkbox" role="switch" value="supervisor" />
+          Tillsynsansvarig
+        </label>
+      </p>
+    </div>
+  </fieldset>
+
+  <p>
+    <label
+      >Telefonnummer
+      <input
+        name="telephone"
+        type="tel"
+        pattern="^0\d{1,3}(-|\s)*?(\s*\d{2,3}){2,3}$"
+        title="Ange som till exempel ”0123-45 67 89”."
+      />
+    </label>
+  </p>
+
+  <p>
+    <button value="save" accesskey="s" data-action="save">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-save" />
+      </svg>
+      Spara
+    </button>
+
+    <button formnovalidate value="delete" data-action="delete" class="button">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-delete" />
+      </svg>
+      Ta bort
+    </button>
+  </p>
+</form>
+
+<dialog
+  role="alertdialog"
+  aria-atomic="true"
+  ,
+  aria-labelledby="confirm-label"
+  aria-modal="true"
+  id="confirm-dialog"
+>
+  <h2 id="confirmm-label">Bekräfta borttag</h2>
+  <p class="prompt"></p>
+
+  <p>
+    <button data-handler="confirm" type="button" value="false">
+      <svg aria-hidden="true">
+        <use xlink:href="../img/ikoner.svg#ico-cancel" />
+      </svg>
+      Avbryt
+    </button>
+
+    <button data-handler="confirm" type="button" value="true">OK</button>
+  </p>
+</dialog>

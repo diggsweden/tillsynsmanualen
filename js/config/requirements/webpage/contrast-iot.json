@@ -1,0 +1,26 @@
+{
+  "steps": [
+    "Identifiera alla bilder av text.",
+    "Mät kontrasten mellan text och bakgrund på det ställe där den är sämst."
+  ],
+  "exceptions": [
+    "Text i logotyper.",
+    "Oväsentlig text, exempelvis texten på en gatunamnsskylt som råkar synas i bakgrunden på ett fotografi.",
+    "Inaktiva komponenter i användargränssnittet."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphic"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "action",
+      "text": "Om webbsidan har stöd för mörkt/ljust visningsläge, gör kontrollen i båda lägena."
+    }
+  ]
+}

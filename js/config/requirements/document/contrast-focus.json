@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "Navigera genom alla fokuserbara element på sidan med tangentbordet. Aktivera (med tangentbordet) eventuella funktioner som öppnar en meny, dialogruta eller liknande."
+  ],
+  "exceptions": [
+    "Komponenter där såväl komponentens som fokusmarkeringens utseende bestäms av webbläsaren eller visningsprogrammet."
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "graphic"
+      }
+    }
+  ]
+}

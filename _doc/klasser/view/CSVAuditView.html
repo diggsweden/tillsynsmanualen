@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSVAuditView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 35rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">CSVAuditView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">CSVAuditView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-save"><code lang="en">save()</code></a>
+          </li>
+          <li><a href="#file">Filformat</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för att generera en översikt med metadata från en granskning.
+        Översikten är i form av en kommaseparerad fil som går att öppna med ett
+        kalkylprogram, exempelvis Microsoft Excel.
+      </p>
+
+      <p class="note">
+        <code lang="en">CSVAuditView</code> ärver <em>inte</em> från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/CSVAuditView.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 350 50" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--CSVAuditView-->
+          <use
+            xlink:href="CSVAuditView.svg#CSVAuditView"
+            x="0"
+            y="10"
+            class="highlight"
+          />
+
+          <line x1="131" y1="21" x2="170" y2="21" class="composition" />
+
+          <!--FileStorage-->
+          <use
+            xlink:href="../common/FileStorage.svg#FileStorage"
+            x="170"
+            y="0"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">CSVAuditView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">CSVAuditView</span>(<span class="var">filesystem</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">filesystem</code></dt>
+          <dd>Fillagring.</dd>
+        </dl>
+      </section>
+
+      <!--save-->
+      <section>
+        <h2 id="m-save"><code lang="en">save()</code></h2>
+
+        <p>
+          Genererar en granskningsöversikt i form av en vektor med rader med
+          kommaseparerade värden. Öppnar sedan en filvalsdialog för att spara
+          resultatet som en CSV-fil i filsystemet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">save</span>(<span class="var">aCase</span>, <span class="var">audit</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">aCase</code></dt>
+          <dd>Ärende.</dd>
+
+          <dt><code lang="en">audit</code></dt>
+          <dd>Granskning</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när filen sparats.</p>
+      </section>
+
+      <!--Filformat-->
+      <section>
+        <h2 id="file">Filformat</h2>
+
+        <p>Varje rad har två kolumner: en ledtext och ett värde.</p>
+
+        <p>Rader för mobila applikationer:</p>
+        <ol>
+          <li>Namn</li>
+          <li>Operativsystem</li>
+          <li>Granskad version</li>
+          <li>Datum då tillsyn beslutades</li>
+          <li>Ärendenummer</li>
+          <li>Datum då granskningen inleddes</li>
+          <li>Datum då granskningen avslutades</li>
+          <li>Antalet granskade vyer</li>
+          <li>Antalet granskade webbsidor</li>
+          <li>Antalet granskade dokument</li>
+        </ol>
+
+        <p>Rader för webbplatser:</p>
+        <ol>
+          <li>Namn</li>
+          <li>URL</li>
+          <li>Datum då tillsyn beslutades</li>
+          <li>Ärendenummer</li>
+          <li>Datum då granskningen inleddes</li>
+          <li>Datum då granskningen avslutades</li>
+          <li>Antalet granskade webbsidor</li>
+          <li>Antalet granskade dokument</li>
+        </ol>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../model/Audit.html"><code lang="en">Audit</code></a>
+          </li>
+          <li>
+            <a href="../model/AuditCase.html"
+              ><code lang="en">AuditCase</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/CaseDisplayController.html"
+              ><code lang="en">CaseDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/FileStorage.html"
+              ><code lang="en">FileStorage</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

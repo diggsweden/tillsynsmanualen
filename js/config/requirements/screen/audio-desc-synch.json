@@ -1,0 +1,11 @@
+{
+  "methods": [
+    "Spela upp filmen med syntolkningen aktiverad och kontrollera att ljudbeskrivningarna kommer vid rätt tidpunkter i handlingen."
+  ],
+  "info": [
+    {
+      "type": "tip",
+      "text": "Funktioner i mediespelare för att aktivera syntolkning använder ofta förkortningen <abbr>AD</abbr> <i translate=\"no\" lang=\"en\">(audio description)</i> eller symbolen <img src=\"../img/audio-descr.png\" alt=\"Ett öga och tre koncentriska cirkelsegment som symboliserar ljudvågor\" style=\"vertical-align:middle\">."
+    }
+  ]
+}

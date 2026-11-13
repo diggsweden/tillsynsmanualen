@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Granskningsfunktionen – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Granskningsfunktionen</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Granskningsfunktionen</h1>
+
+      <p>
+        Granskningsfunktionen är en <i lang="en">single-page application</i>
+        för att hantera granskningar av digital service i enlighet med
+        <cite
+          >lagen (2018:1937) om tillgänglighet till digital offentlig
+          service</cite
+        >
+        (<dfn>DOS-lagen</dfn>).
+      </p>
+
+      <details>
+        <summary>Jämförelse med version 1</summary>
+
+        <p>
+          Granskningsfunktionen är avsedd att förenkla och effektivisera
+          handläggningen jämfört med den första versionen av
+          <cite>Tillsynsmanualen</cite>. Det gör den främst på tre sätt:
+        </p>
+
+        <ul>
+          <li>
+            Urvalet och granskningen är integrerade och ger användaren bättre
+            stöd i hela processen.
+          </li>
+          <li>
+            Granskningen omfattar bara de krav och kontroller som är relevanta
+            för innehållet i varje stickprov, vilket gör att granskaren slipper
+            bläddra förbi långa innehållsavsnitt med risk för att missa något
+            krav.
+          </li>
+          <li>
+            Funktionen genererar protokoll, påpekanden och förelägganden.
+            Granskaren slipper tids&shy;ödande och felbenägen kopiering av text
+            till flera olika officedokument.
+          </li>
+        </ul>
+      </details>
+
+      <p>
+        Liksom föregående version är <cite>Tillsynsmanualen</cite> avsedd att
+        publiceras offentligt för att tillsynsprocessen ska vara transparent och
+        rättssäker. Det är också meningen att andra än DIGG ska kunna använda
+        manualen för granskning, antingen av sin egen digitala service (tlll
+        exempel offentliga aktörer) eller av andras (konsulter).
+      </p>
+
+      <p>
+        Eftersom tillsynsarbetet medför en del administrativa moment som inte är
+        relevanta för den som vill använda verktyget för att granska själv finns
+        det två användargränssnitt: ett ”avancerat” för DIGG:s handläggare och
+        ett ”förenklat” för alla andra. Kraven och kon&shy;trollerna är exakt
+        desamma; det som skiljer är bara de administrativa delarna. Externa
+        granskare slipper till exempel lägga upp tillsynsplaner och kan generera
+        gransknings&shy;protokoll, men inte påpekanden och förelägganden.
+      </p>
+
+      <p>
+        Innan man kan börja granska behöver man ge sitt samtycke till lokal
+        lagring i webbläsa&shy;rens objektdatabas och lokala lagringsutrymme.
+        Granskningsfunktionen går inte använda utan sådan lagring. Därefter
+        behöver man fylla i viss grundinformation:
+      </p>
+
+      <ul>
+        <li>Minst en granskare (namn och kontaktuppgifter).</li>
+        <li>Tillsynskatalog (avancerat läge).</li>
+        <li>Minst en tillsynsansvarig (avancerat läge).</li>
+        <li>Minst en tillsynsplan (för övervakning, avancerat läge).</li>
+      </ul>
+
+      <p>
+        Länkar till de sidor i granskningsfunktionen som hanterar detta finns på
+        funktionens
+        <a href="../granskning/granska.html?page=start">välkomstsida</a>, liksom
+        en länk för att skapa ett ärende.
+      </p>
+
+      <h2 id="toc">Innehåll</h2>
+
+      <ul class="toc">
+        <li><a href="begaran.html">Begäranshantering</a></li>
+        <li><a href="lagring.html">Persistent lagring</a></li>
+        <li><a href="modell.html">Modellen</a></li>
+        <li><a href="vy.html">Basklass för vyer</a></li>
+        <li><a href="vykomponenter.html">Vykomponenter</a></li>
+        <li>
+          <a href="controller.html"
+            >Basklass för <i lang="en">controllers</i></a
+          >
+        </li>
+        <li><a href="start.html">Startsidan</a></li>
+        <li><a href="person.html">Redigera personuppgifter</a></li>
+        <li><a href="katalog.html">Redigera ärendekatalog</a></li>
+        <li><a href="tillsynsplan.html">Redigera tillsynsplan</a></li>
+        <li><a href="lista.html">Lista information</a></li>
+        <li><a href="arenden.html">Ärenden</a></li>
+        <li><a href="granskningar.html">Granskningar</a></li>
+        <li><a href="stickprov.html">Stickprov</a></li>
+        <li><a href="krav.html">Krav</a></li>
+        <li><a href="kontroller.html">Kontroller</a></li>
+        <li><a href="verktyg.html">Verktyg</a></li>
+        <li><a href="klasser/index.html">Klassindex</a></li>
+      </ul>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="hjalpverktyg.html" accesskey="N" rel="next"
+        ><span>Hjälpverkty</span></a
+      >
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="meny.html" accesskey="F" rel="prev"><span>Menyn</span></a>
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

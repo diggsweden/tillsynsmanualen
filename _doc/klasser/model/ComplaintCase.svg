@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 70">
+  <g id="ComplaintCase-no-details">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="99" height="62"/>
+      <line x1="1" y1="12" x2="100" y2="12"/>
+      <line x1="1" y1="52" x2="100" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="50" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ComplaintCase</text>
+      <text x="5" y="20">+date</text>
+      <text x="5" y="30">+monitoring</text>
+      <text x="5" y="40">+sections</text>
+      <text x="5" y="50">+supervisor</text>
+      <text x="5" y="60">serialize()</text>
+    </g>
+  </g>
+
+  <g id="ComplaintCase">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="139" height="62"/>
+      <line x1="1" y1="12" x2="140" y2="12"/>
+      <line x1="1" y1="52" x2="140" y2="52"/>
+    </g>
+
+    <g stroke="none">
+      <text x="70" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">ComplaintCase</text>
+      <text x="5" y="20">+date: date</text>
+      <text x="5" y="30">+monitoring: boolean</text>
+      <text x="5" y="40">+sections: number[][]</text>
+      <text x="5" y="50">+supervisor: Person</text>
+      <text x="5" y="60">serialize(): object</text>
+    </g>
+  </g>
+</svg>

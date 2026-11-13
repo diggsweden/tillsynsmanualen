@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Oscillator – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .class.uml-diagram {
+        width: 47rem;
+      }
+      figure.ecb {
+        width: 23rem;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../verktyg.html">Verktyg</a></li>
+          <li><strong lang="en">Oscillator</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">Oscillator</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#params">Parametrar</a></li>
+          <li><a href="#descr">Beskrivning</a></li>
+          <li><a href="#c-button">Reglage</a></li>
+          <li><a href="#c-oscillator">Tongenerator</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <code lang="en">Oscillator</code> är ett verktyg för att verifiera
+        kravavsnitt
+        <a
+          href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf#page=30"
+          hreflang="en"
+          rel="external"
+          >6.1 <span lang="en">Audio bandwidth</span></a
+        >
+        i <cite>EN&nbsp;301&nbsp;549</cite>.
+      </p>
+
+      <!--Parametrar-->
+      <section>
+        <h2 id="params">Parametrar i granskningskonfigurationen</h2>
+
+        <pre class="json"><code lang="en">{
+    <span class="key">"tool"</span>:   <span class="value">"module"</span>,
+    <span class="key">"module"</span>: <span class="value">"Oscillator"</span>,
+    <span class="key">"params"</span>: {
+        <span class="key">"frequency"</span>: <span class="value"><var>frekvens</var></span>
+    }
+}</code></pre>
+
+        <dl class="params">
+          <dt><code lang="en">frequency</code></dt>
+          <dd>Frekvens (i Hz) för tonen som ska spelas upp.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Avsnitt 6.1 i <cite>EN&nbsp;301&nbsp;549</cite> ställer krav på att
+          bandbredden vid tvåvägs röstkommunikation ska vara minst 7&nbsp;kHz.
+          Verktyget är en enkel tongenerator som spelar upp en sinusvåg med
+          angiven frekvens via
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API"
+            hreflang="en"
+            lang="en"
+            rel="external"
+            >Web Audio API</a
+          >.
+        </p>
+
+        <p>
+          Om man kan spela upp tonen genom kommunikationstjänsten och en
+          mottagare med normal hörsel kan uppfatta den borde kravet vara
+          uppfyllt.
+        </p>
+
+        <figure aria-hidden="true" class="ecb">
+          <svg viewBox="0 0 230 60" class="ecb uml-diagram">
+            <g transform="translate(25, 0)">
+              <!--OscillatorButton-->
+              <g>
+                <use
+                  xlink:href="../uml.svg#boundary"
+                  x="-12"
+                  y="0"
+                  width="48"
+                  height="42"
+                />
+                <text x="18" y="52">OscillatorButton</text>
+                <line x1="40" y1="22" x2="96" y2="22" />
+              </g>
+
+              <!--SineOscillator-->
+              <g transform="translate(100, 0)">
+                <use
+                  xlink:href="../uml.svg#controller"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="42"
+                />
+                <text x="18" y="52">SineOscillator</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption><code lang="en">Oscillator</code>, översikt.</figcaption>
+        </figure>
+
+        <figure aria-hidden="true">
+          <svg viewBox="0 0 470 450" class="class uml-diagram">
+            <defs>
+              <marker
+                id="composition"
+                markerWidth="10"
+                markerHeight="6"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="0"
+                refY="3"
+                viewBox="0 0 10 6"
+              >
+                <path d="M0,3 5,0 10,3 5,6 z" />
+              </marker>
+
+              <marker
+                class="stroked"
+                id="dependency"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M0,0 8,4 0,8" />
+              </marker>
+
+              <marker
+                class="hollow"
+                id="inheritance"
+                markerWidth="8"
+                markerHeight="8"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="4"
+                viewBox="0 0 8 8"
+              >
+                <path d="M1,0 8,4 1,8 Z" />
+              </marker>
+            </defs>
+
+            <g>
+              <!--OscillatorButton-->
+              <g>
+                <rect x="0.5" y="0.5" width="120" height="22" />
+                <text x="60" y="10" class="class">OscillatorButton</text>
+                <line x1="1" y1="12" x2="120" y2="12" />
+                <text x="5" y="20">appendTo(HTMLElement): void</text>
+
+                <line x1="121" y1="11" x2="160" y2="11" class="composition" />
+                <line x1="60" y1="23" x2="60" y2="50" class="dependency" />
+              </g>
+
+              <!--HTMLButtonElement-->
+              <g transform="translate(160, 0)" class="external">
+                <rect x="0.5" y="0.5" width="100" height="22" />
+                <text x="50" y="10" class="class">HTMLButtonElement</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">…</text>
+              </g>
+            </g>
+
+            <g transform="translate(0, 50)">
+              <!--SineOscillator-->
+              <g transform="translate(10, 0)">
+                <rect x="0.5" y="0.5" width="100" height="32" />
+                <text x="50" y="10" class="class">SineOscillator</text>
+                <line x1="1" y1="12" x2="100" y2="12" />
+                <text x="5" y="20">start(): void</text>
+                <text x="5" y="30">stop(): void</text>
+
+                <line x1="101" y1="16" x2="150" y2="16" class="dependency" />
+                <line x1="50" y1="33" x2="50" y2="70" class="composition" />
+              </g>
+
+              <g transform="translate(0, 70)">
+                <!--OscillatorNode-->
+                <g class="external">
+                  <rect x="0.5" y="0.5" width="140" height="52" />
+                  <text x="70" y="10" class="class">OscillatorNode</text>
+                  <line x1="1" y1="12" x2="140" y2="12" />
+                  <text x="5" y="20">+detune: AudioParam</text>
+                  <text x="5" y="30">+frequencey: AudioParam</text>
+                  <text x="5" y="40">+type: string</text>
+                  <line x1="1" y1="42" x2="140" y2="42" />
+                  <text x="5" y="50">setPeriodicWave(PeriodicWave): void</text>
+
+                  <line x1="70" y1="53" x2="70" y2="80" class="inheritance" />
+                </g>
+
+                <!--AudioScheduledSourceNode-->
+                <g transform="translate(0, 80)" class="external">
+                  <rect x="0.5" y="0.5" width="140" height="32" />
+                  <text x="70" y="10" class="class">
+                    AudioScheduledSourceNode
+                  </text>
+                  <line x1="1" y1="12" x2="140" y2="12" />
+                  <text x="5" y="20">start([number]): void</text>
+                  <text x="5" y="30">stop([number]): void</text>
+
+                  <line x1="70" y1="33" x2="70" y2="60" class="inheritance" />
+                </g>
+
+                <!--AudioNode-->
+                <g transform="translate(0, 140)" class="external">
+                  <rect x="0.5" y="0.5" width="180" height="82" />
+                  <text x="90" y="10" class="class">AudioNode</text>
+                  <line x1="1" y1="12" x2="180" y2="12" />
+                  <text x="5" y="20">+channelCount: number</text>
+                  <text x="5" y="30">+channelCountMode: string</text>
+                  <text x="5" y="40">+channelInterpretation: string</text>
+                  <text x="5" y="50">+context: AudioContext</text>
+                  <text x="5" y="60">+numberOfInputs: number</text>
+                  <text x="5" y="70">+numberOfOutputs: number</text>
+                  <line x1="1" y1="72" x2="180" y2="72" />
+                  <text x="5" y="80">
+                    connect(object [,number] [,number]): AudioNode
+                  </text>
+                </g>
+              </g>
+
+              <g transform="translate(160, 0)">
+                <!--AudioContext-->
+                <g class="external">
+                  <rect x="0.5" y="0.5" width="300" height="112" />
+                  <text x="150" y="10" class="class">AudioContext</text>
+                  <line x1="1" y1="12" x2="300" y2="12" />
+                  <text x="5" y="20">+baseLatency: number</text>
+                  <text x="5" y="30">+outputLatency: number</text>
+                  <line x1="1" y1="32" x2="300" y2="32" />
+                  <text x="5" y="40">close(): promise</text>
+                  <text x="5" y="50">
+                    createMediaElementSource(HTMLMediaElement):
+                    MediaElementAudioSourceNode
+                  </text>
+                  <text x="5" y="60">
+                    createMediaStreamDestination():
+                    MediaStreamAudioDestinationNode
+                  </text>
+                  <text x="5" y="70">
+                    createStreamSource(MediaStream): MediaStreamAudioSource
+                  </text>
+                  <text x="5" y="80">
+                    createStreamTrackSource(MediaStreamTrack):
+                    MediaStreamTrackAudioSource
+                  </text>
+                  <text x="5" y="90">getOutputTimestamp(): AudioTimeStamp</text>
+                  <text x="5" y="100">resume(): promise</text>
+                  <text x="5" y="110">suspend(): promise</text>
+
+                  <line
+                    x1="150"
+                    y1="113"
+                    x2="150"
+                    y2="140"
+                    class="inheritance"
+                  />
+                </g>
+
+                <!--BaseAudioContext-->
+                <g transform="translate(40, 140)" class="external">
+                  <rect x="0.5" y="0.5" width="220" height="252" />
+                  <text x="110" y="10" class="class">BaseAudioContext</text>
+                  <line x1="1" y1="12" x2="220" y2="12" />
+                  <text x="5" y="20">+audioWorklet: AudioWorklet</text>
+                  <text x="5" y="30">+currentTime: number</text>
+                  <text x="5" y="40">+destination: AudioDestinationNode</text>
+                  <text x="5" y="50">+listener: AudioListener</text>
+                  <text x="5" y="60">+sampleRate: number</text>
+                  <text x="5" y="70">+state: string</text>
+                  <line x1="1" y1="72" x2="220" y2="72" />
+                  <text x="5" y="80">createAnalyzer(): AnalyzerNode</text>
+                  <text x="5" y="90">
+                    createBiquadFilter(): BiquadFilterNode
+                  </text>
+                  <text x="5" y="100">
+                    createBuffer(number, number, number): AudioBuffer
+                  </text>
+                  <text x="5" y="110">
+                    createBufferSource(): AudioBufferSourceNode
+                  </text>
+                  <text x="5" y="120">
+                    createChannelMerger(number): ChannelMergerNode
+                  </text>
+                  <text x="5" y="130">
+                    createChannelSplitter(number): ChannelSplitterNode
+                  </text>
+                  <text x="5" y="140">
+                    createConstantSource(): ConstantSourceNode
+                  </text>
+                  <text x="5" y="150">createConvolver(): ConvolverNode</text>
+                  <text x="5" y="160">createDelay(number): DelayNode</text>
+                  <text x="5" y="170">
+                    createDynamicsCompressor(): DynamicsCompressorNode
+                  </text>
+                  <text x="5" y="180">createGain(): GainNode</text>
+                  <text x="5" y="190">
+                    createIIRFilter(array, array): IIRFilterNode
+                  </text>
+                  <text x="5" y="200">createOscillator(): OscillatorNode</text>
+                  <text x="5" y="210">createPanner(): PannerNode</text>
+                  <text x="5" y="220">
+                    createPeriodicWave(array, array, object): PeriodicWave
+                  </text>
+                  <text x="5" y="230">
+                    createStereoPanner(): StereoPannerNode
+                  </text>
+                  <text x="5" y="240">createWaveShaper(): WaveShaperNode</text>
+                  <text x="5" y="250">
+                    decodeAudioData(ArrayBuffer, callback, callback): promise
+                  </text>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>
+            Klassdiagram för <code lang="en">Oscillator</code>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!--Reglage-->
+      <section>
+        <h2 id="c-button"><code lang="en">OscillatorButton</code></h2>
+
+        <p>En knapp som startar och stoppar tongeneratorn.</p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn skapar knappelementet och registrerar en händelselyssnare
+          på det. När användaren trycker på knappen startar eller stoppar
+          händelselyssnaren tongeneratorn.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">OscillatorButton</span>(<span class="var">doc</span>, <span class="var">oscillator</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">doc</code></dt>
+          <dd>DOM-dokument.</dd>
+
+          <dt><code lang="en">oscillator</code></dt>
+          <dd>Tongenerator.</dd>
+        </dl>
+
+        <h3><code lang="en">appendTo()</code></h3>
+
+        <p>Infogar knappelementet i angiven behållare.</p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">appendTo</span>(<span class="var">parent</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">parent</code></dt>
+          <dd>Behållare att infoga knappen i.</dd>
+        </dl>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Tongenerator-->
+      <section>
+        <h2 id="c-oscillator"><code lang="en">SineOscillator</code></h2>
+
+        <p>En tongenerator som genererar en sinusvåg med angiven frekvens.</p>
+
+        <h3>Konstruktor</h3>
+
+        <p>
+          Konstruktorn lagrar bara konfigurationsparametern
+          <code lang="en">frequency</code>.
+        </p>
+
+        <h4>Syntax</h4>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SineOscillator</span>(<span class="var">frequency</span>)</code></pre>
+
+        <h4>Parametrar</h4>
+
+        <dl class="params">
+          <dt><code lang="en">frequency</code></dt>
+          <dd>Tonfrekvens i Hz.</dd>
+        </dl>
+
+        <h3><code lang="en">start()</code></h3>
+
+        <p>
+          Startar tongeneratorn genom att skapa en audiokontext och en
+          oscillator, sätta tonfrek&shy;vensen, ansluta oscillatorn till
+          kontextens standarddestination och sedan starta oscillatorn.
+        </p>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3><code lang="en">stop()</code></h3>
+
+        <p>
+          Stoppar tongeneratorn, om den är igång, genom att stoppa den
+          oscillator som skapats av metoden <code>start()</code>.
+        </p>
+
+        <h4>Returvärde</h4>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+    <script src="../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

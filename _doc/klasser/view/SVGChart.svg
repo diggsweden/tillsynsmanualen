@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 40">
+  <g id="SVGChart">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="149" height="32"/>
+      <line x1="1" y1="12" x2="150" y2="12"/>
+      <line x1="1" y1="22" x2="150" y2="22"/>
+    </g>
+
+    <g stroke="none">
+      <text x="75" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">SVGChart</text>
+      <text x="5" y="20">+document</text>
+      <text x="5" y="30">horizontalBarChart(): HorizontalBarChart</text>
+    </g>
+  </g>
+
+  <g id="HorizontalBarChart">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="149" height="112"/>
+      <line x1="1" y1="12" x2="150" y2="12"/>
+      <line x1="1" y1="82" x2="150" y2="82"/>
+    </g>
+
+    <g stroke="none">
+      <text x="75" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">HorizontalBarChart</text>
+      <text x="5" y="20">+axis: boolean</text>
+      <text x="5" y="30">+cssClass: string</text>
+      <text x="5" y="40">+decimals: number</text>
+      <text x="5" y="50">+indicator: number</text>
+      <text x="5" y="60">+lines: boolean</text>
+      <text x="5" y="70">+locale: string</text>
+      <text x="5" y="80">+minEnd: number</text>
+      <text x="5" y="90">addBar(string, number): void</text>
+      <text x="5" y="100">addZone(number, number, string): void</text>
+      <text x="5" y="110">render(): SVGSVGElement</text>
+    </g>
+  </g>
+</svg>

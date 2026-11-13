@@ -1,0 +1,11 @@
+{
+  "methods": [
+    "Använd vyns funktion för att sända, omvandla eller spela in video med synkroniserat ljud och undertexter. Verifiera att resultatets undertexer går att spela upp och är synkroniserade enligt kraven 7.1.1 och 7.1.2 i <cite>EN&nbsp;301&nbsp;549</cite>."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Utseende och placering för undertexterna bör i möjligaste mån bevaras. Det är inte ett lagkrav, men avvikelser bör ge en anmärkning (”frivillig rättelse”)."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "info": [
+    {
+      "type": "definition",
+      "term": "Talsvarsfunktioner",
+      "description": "Ett sätt för användaren att interagera med ett datorsystem genom talade kommandon och där datorsystemet svarar eller instruerar användaren genom inspelat eller syntetiskt tal."
+    }
+  ]
+}

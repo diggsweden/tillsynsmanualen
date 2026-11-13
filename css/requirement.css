@@ -1,0 +1,876 @@
+@charset "utf-8";
+
+/**
+ * Stilmall för stickprov, Tillsynsmanual för digital offentlig service.
+ *
+ * @license CC-BY 4.0
+ */
+
+/*
+ * Medieoberoende formgivning.
+ * ---------------------------
+ */
+@media all {
+  /* Egna egenskaper. */
+
+  .contrast .input button[data-action='delete'] svg {
+    --fill: var(--fail);
+    --stroke: var(--fail);
+  }
+
+  svg.fail {
+    --fill: var(--fail);
+    --stroke: var(--fail);
+  }
+
+  svg.pass {
+    --fill: var(--pass);
+    --stroke: var(--pass);
+  }
+
+  svg.unchecked {
+    --fill: var(--text);
+    --stroke: var(--text);
+  }
+
+  /* Formgivning av HTML-element. */
+
+  body {
+    max-width: 80em;
+  }
+
+  /* Klasser och attribut. */
+
+  dl.compact {
+    display: grid;
+    grid-template-columns: 6em 1fr;
+    column-gap: 0.5em;
+  }
+
+  .contrast {
+  }
+  .contrast button svg + span {
+    position: absolute;
+    left: -999em;
+  }
+  .contrast details ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  .input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.25em;
+  }
+  .input button,
+  .input label {
+    flex: 0 0 auto;
+  }
+  .input input,
+  .input > span {
+    flex: 1 1 100%;
+  }
+  .input > span {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25em;
+  }
+  .input > span > span {
+    position: relative;
+    flex: 0 0 auto;
+  }
+  .input .int {
+    flex: 0 0 auto;
+    max-width: 3em;
+  }
+  .input .num-0-1 {
+    flex: 0 0 auto;
+    max-width: 4em;
+  }
+  .eye-dropper {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    padding: 0;
+    background-color: transparent;
+    text-align: center;
+  }
+  .eye-dropper:hover {
+    border-color: var(--text);
+  }
+  .eye-dropper svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .result {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .result output {
+    height: 1.5em;
+    font-size: 150%;
+  }
+  label[for='conformance-level'] {
+    position: absolute;
+    left: -999em;
+  }
+  #conformance-level {
+    color: #777;
+    font-weight: bold;
+  }
+  #conformance-level.a span:nth-child(1) {
+    color: var(--fail);
+  }
+  #conformance-level.aa span:nth-child(-n + 2) {
+    color: var(--pass);
+  }
+  #conformance-level.aaa span {
+    color: var(--pass);
+  }
+  .sample-graphic {
+    position: relative;
+    min-height: 3em;
+  }
+  .sample-graphic div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .sample-graphic span {
+    position: absolute;
+    top: 25%;
+    right: 40%;
+    bottom: 25%;
+    left: 10%;
+  }
+  .sample-text {
+    position: relative;
+    height: calc(1em + 2rem);
+    text-align: center;
+  }
+  .sample-text span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    line-height: 1;
+    text-align: center;
+  }
+  .storage {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    background-color: transparent;
+    text-align: center;
+  }
+  .storage svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .contrast [role='dialog'] {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 16em;
+  }
+  .contrast [aria-expanded='false'] + [role='dialog'] {
+    display: none;
+  }
+  .contrast [role='dialog'] .dialog {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    transform: none;
+  }
+  .contrast [role='dialog'] .dialog span {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25em;
+  }
+  .contrast [role='dialog'] .dialog button {
+    width: 5em;
+  }
+
+  .fail {
+  }
+  .fail details button {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0.5em;
+    text-align: left;
+  }
+  .fail label + label {
+    margin-top: 0.75rem;
+  }
+
+  .flash-threshold {
+  }
+  .flash-threshold fieldset {
+    display: flex;
+    column-gap: 0.5em;
+    margin: 0;
+    border: 0;
+    padding: 0;
+  }
+  .flash-threshold legend {
+    padding: 0;
+  }
+  .flash-threshold > p:first-of-type {
+    flex: 1 1;
+  }
+  .flash-threshold output {
+    font-weight: bold;
+  }
+  .flash-threshold output.fail {
+    color: var(--fail);
+  }
+  .flash-threshold output.pass {
+    color: var(--pass);
+  }
+  .flash-threshold > p {
+    display: flex;
+    column-gap: 0.5em;
+  }
+
+  .font-size {
+  }
+  .font-size input {
+    width: 4em;
+    margin-right: 0.5em;
+  }
+  .font-size #fs-zoom {
+    width: 3em;
+  }
+  .font-size output {
+    font-weight: bold;
+  }
+  .font-size output.fail {
+    color: var(--fail);
+  }
+  .font-size output.pass {
+    color: var(--pass);
+  }
+
+  .links {
+  }
+  .links ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  .multi-lead {
+    margin: 4.5em 0 0;
+  }
+  .multi-lead ~ div.fail + fieldset.check {
+    margin-top: 4.5em;
+  }
+
+  .only-if {
+    display: none;
+  }
+  .android .only-if.android,
+  .doc .only-if.doc,
+  .docx .only-if.docx,
+  .ios .only-if.ios,
+  .pdf .only-if.pdf,
+  .ppt .only-if.ppt,
+  .pptx .only-if.pptx,
+  .xls .only-if.xls,
+  .xlsx .only-if.xlsx {
+    display: block;
+  }
+
+  .oscillator {
+  }
+  .oscillator button span {
+    position: absolute;
+    left: -999em;
+  }
+  .oscillator button svg {
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+  }
+
+  .requirement {
+  }
+  .requirement > section {
+    display: flex;
+  }
+  .requirement > section:not(.checks) h2 {
+    flex: 0 0 6em;
+    margin: 0;
+    border: solid var(--border);
+    border-width: 0 1px 1px;
+    padding: 0.25em 0.5em;
+    font: inherit;
+  }
+  .requirement section:not(.checks):first-of-type h2 {
+    border-width: 1px;
+  }
+  .requirement > section:not(.checks) h2 + * {
+    flex: 1 1 100%;
+    margin: 0;
+    border: solid var(--border);
+    border-width: 0 1px 1px 0;
+    padding: 0.25em 0.5em;
+  }
+  .requirement section:not(.checks):first-of-type h2 + * {
+    border-top-width: 1px;
+  }
+  .requirement > section:not(.checks) li {
+    margin-left: 1.25em;
+  }
+  .requirement > section:not(.checks) li:only-child {
+    display: block;
+    margin-left: 0;
+  }
+
+  .requirement > section.checks {
+    display: block;
+  }
+  .checks details.src {
+    margin: 0 0 0 7em;
+  }
+  .checks details.src ul {
+    display: grid;
+    grid-template-columns: 2em 5.5em 1fr;
+  }
+  .checks details.src ul li {
+    display: contents;
+  }
+  .checks details.src svg {
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0;
+    fill: var(--fill);
+    stroke: var(--stroke);
+  }
+  .checks > fieldset:last-of-type {
+    margin: 3em 0 0;
+    border: 0;
+    padding: 0;
+  }
+  .checks > fieldset:last-of-type > legend {
+    position: absolute;
+    left: -999em;
+  }
+  .checks > ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  .check,
+  .condition {
+    display: grid;
+    grid-template-columns: 6em 1fr;
+    align-items: start;
+    column-gap: 1em;
+    margin: 0 0 0.5em;
+    border: 0;
+    padding: 0;
+  }
+  .condition:nth-of-type(n + 2) {
+    margin-top: 3em;
+  }
+  .check .controls {
+    display: contents;
+  }
+  .check > legend,
+  .condition > legend {
+    display: contents;
+  }
+  .check > legend > span {
+    flex: 1 1 90%;
+  }
+  .check code {
+    padding: 0 0.5em;
+    background: var(--alt-bg);
+  }
+  .check > p,
+  .controls > p,
+  .condition > p {
+    display: flex;
+    order: -1;
+    column-gap: 2px;
+    margin: 0;
+  }
+  .checks .exceptions {
+    display: contents;
+  }
+  .checks .exceptions h4 {
+    margin: 0;
+    font: inherit;
+  }
+  fieldset.fail {
+    grid-column: 2;
+    border: 0.25em solid var(--fail);
+    border-radius: 0.5em;
+    padding: 0.5em;
+  }
+  .checks input[type='radio'] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    appearance: none;
+    border: 1px solid;
+  }
+  .check > p {
+    display: flex;
+  }
+  .check label,
+  .condition label {
+    display: inline-block;
+    position: relative;
+    flex: 0 0 3em;
+    margin: 0;
+    padding: 0.25em 0;
+    text-align: center;
+  }
+  .check input[type='radio']:checked,
+  .condition input[type='radio']:checked {
+    box-shadow: inset 0 0 0 0.125em;
+  }
+  .check input[value='ok'],
+  .condition input[value='yes'] {
+    border-radius: 1em 0 0 1em;
+  }
+  .check input[value='ok']:checked + svg {
+    fill: var(--pass);
+  }
+  .check input[value='fail'],
+  .condition input[value='no'] {
+    border-radius: 0 1em 1em 0;
+  }
+  .check input[value='fail']:checked + svg {
+    fill: var(--fail);
+  }
+  .check label svg {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+  }
+  .condition input[type='radio']:checked + span {
+    font-weight: bold;
+  }
+
+  p.sao {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  p.sao button {
+    flex: 0 0 auto;
+    border-radius: 0 1em 1em 0;
+    border-width: 1px 1px 1px 0;
+    background-color: transparent;
+  }
+  p.sao input {
+    flex: 1 1 80%;
+  }
+  p.sao label {
+    flex: 0 0 100%;
+  }
+
+  .text-spacing {
+  }
+  .text-spacing input {
+    display: inline;
+    width: 3em;
+    margin-right: 0.5em;
+  }
+  #ts-font-size {
+    width: 4em;
+  }
+  .text-spacing input + label {
+    display: inline;
+  }
+  .text-spacing output {
+    margin-left: 0.5em;
+    font-weight: bold;
+  }
+  .text-spacing output.fail {
+    color: var(--fail);
+  }
+  .text-spacing output.pass {
+    color: var(--pass);
+  }
+
+  .timer {
+    display: flex;
+    column-gap: 1em;
+  }
+  .timer button {
+    border: 0;
+    border-radius: 50%;
+    padding: 2px;
+  }
+  .timer button:hover {
+    background-color: var(--active);
+  }
+  .timer button[aria-pressed='true'] {
+    background-color: var(--active);
+  }
+  .timer button span {
+    position: absolute;
+    left: -999em;
+  }
+  .timer button svg {
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+  }
+  .timer output {
+    flex: 1 1 auto;
+    color: var(--pass);
+    font-size: 150%;
+  }
+  .timer output.expired {
+    color: var(--fail);
+  }
+
+  .wave {
+  }
+  .wave > svg {
+    width: 2em;
+    height: 2em;
+    margin-right: 1em;
+    vertical-align: middle;
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: light) {
+  /* Egna egenskaper. */
+
+  .bad {
+    --img: url('img/light/ico-bad.svg');
+  }
+
+  .better {
+    --img: url('img/light/ico-better.svg');
+  }
+
+  .check,
+  .condition {
+    --selected-bg: var(--dark-neutral);
+    --selected-text: var(--bg);
+    --unselected-bg: var(--medium-accent-3);
+    --unselected-svg: var(--medium-accent-3);
+    --unselected-text: var(--bg);
+  }
+
+  .good {
+    --img: url('img/light/ico-good.svg');
+  }
+
+  .timer {
+    --active: var(--light-accent-2);
+  }
+}
+
+/*
+ * Bildskärm, ljust visningsläge.
+ * ------------------------------
+ */
+@media screen and (prefers-color-scheme: dark) {
+  /* Egna egenskaper. */
+
+  .bad {
+    --img: url('img/dark/ico-bad.svg');
+  }
+
+  .better {
+    --img: url('img/dark/ico-better.svg');
+  }
+
+  .check,
+  .condition {
+    --selected-bg: var(--text);
+    --selected-text: var(--bg);
+    --unselected-bg: var(--subdued);
+    --unselected-svg: var(--subdued);
+    --unselected-text: var(--bg);
+  }
+
+  .good {
+    --img: url('img/dark/ico-good.svg');
+  }
+
+  .timer {
+    --active: var(--accent-2);
+  }
+}
+
+/*
+ * Formgivning för bildskärm och utskrift.
+ * ---------------------------------------
+ */
+@media screen, print {
+  /* Klasser och attribut. */
+
+  .arrow {
+    fill: none;
+    stroke-width: 1px;
+  }
+
+  li.bad,
+  li.better,
+  li.good {
+    display: block;
+    padding-left: 1.25em;
+  }
+  li.bad::before,
+  li.better::before,
+  li.good::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 0 0.5em 0 -1.5em;
+  }
+  li.bad::before {
+    content: var(--img) / 'Dåligt exempel.';
+  }
+  li.better::before {
+    content: var(--img) / 'Bättre exempel.';
+  }
+  li.good::before {
+    content: var(--img) / 'Bra exempel.';
+  }
+
+  .checks {
+  }
+  .checks input[type='radio'] + label::before {
+    content: none !important;
+  }
+  .check input[type='radio'] + label {
+    background: transparent;
+    color: var(--text);
+  }
+  .check input[type='radio'] + label svg {
+    fill: var(--unselected-svg);
+  }
+  .check input[value='ok']:checked + label svg {
+    fill: var(--pass);
+  }
+  .check input[value='fail']:checked + label svg {
+    fill: var(--fail);
+  }
+  .condition input[type='radio'] + label {
+    background: var(--unselected-bg);
+    color: var(--unselected-text);
+  }
+  .condition input[value='yes']:checked + label {
+    background: var(--selected-bg);
+    color: var(--selected-text);
+  }
+  .condition input[value='no']:checked + label {
+    background: var(--selected-bg);
+    color: var(--selected-text);
+  }
+
+  dl.compact {
+  }
+  dl.compact dt {
+    color: var(--heading);
+  }
+
+  .icon {
+    fill: var(--text);
+    stroke: none;
+  }
+
+  .list {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 1px;
+  }
+  .list rect {
+    stroke-width: 1px;
+  }
+}
+
+/**
+ * Formgivning för smala vyer.
+ * ------------------------
+ */
+@media screen and (max-width: 30em) {
+  /* Klasser och attribut. */
+
+  .requirement {
+  }
+  .requirement > section {
+    display: block;
+  }
+  .requirement > section:not(.checks) h2 {
+    border-width: 0 1px;
+  }
+  .requirement section:not(.checks):first-of-type h2 {
+    border-width: 1px 1px 0;
+  }
+  .requirement > section:not(.checks) h2 + * {
+    border-width: 0 1px 1px 1px;
+  }
+  .requirement section:not(.checks):first-of-type h2 + * {
+    border-top-width: 0;
+  }
+}
+
+/**
+ * Formgivning för medelbreda vyer.
+ * --------------------------------
+ */
+@media screen and (max-width: 50em) {
+  /* Klasser och attribut. */
+
+  p.seq-nav {
+    flex-direction: column;
+    row-gap: 1em;
+  }
+  p.seq-nav button {
+    width: 100%;
+  }
+}
+
+/**
+ * Formgivning för bredare vyer och för utskrift.
+ * ---------------------------------------------
+ */
+@media screen and (min-width: 50em), print {
+  /* Formgivning av HTML-element. */
+
+  article > form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+  }
+  article > form > p {
+    grid-column: 1 / 3;
+  }
+
+  form aside {
+    border-left: 1px solid var(--border);
+    padding-left: 1em;
+  }
+  form aside > section:first-child > h3 {
+    margin-top: 0;
+  }
+  form aside ol,
+  form aside ul {
+    padding-left: 1em;
+  }
+
+  /* Klasser och attribut. */
+
+  .contrast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 0.75em;
+  }
+  .contrast details {
+    grid-column: 1 / 3;
+    margin: 0;
+  }
+  .contrast p {
+    margin: 0;
+  }
+  .sample-text {
+    align-self: center;
+  }
+
+  .flash-threshold {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+  }
+  .flash-threshold .instructions {
+    grid-column: 1/-1;
+  }
+
+  .font-size {
+    display: grid;
+    grid-template-columns: 7.5em 8em 6em 1fr;
+    column-gap: 1em;
+  }
+  .font-size output {
+    line-height: 2;
+  }
+  .font-size .instructions {
+    grid-column: 1/-1;
+  }
+
+  form > p.req-nav:last-child {
+    justify-content: space-around;
+  }
+
+  .text-spacing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+  }
+  .text-spacing .instructions,
+  .text-spacing .instructions + p {
+    grid-column: 1/-1;
+  }
+  .text-spacing output {
+    display: block;
+    height: 1.5em;
+    margin-top: 0.5em;
+  }
+}
+
+/**
+ * Formgivning för utskrift.
+ * -------------------------
+ */
+@media print {
+  /* Egna egenskaper. */
+
+  .bad {
+    --img: url('img/light/ico-bad.svg');
+  }
+
+  .better {
+    --img: url('img/light/ico-better.svg');
+  }
+
+  .check,
+  .condition {
+    --selected-bg: transparent;
+    --selected-text: var(--text);
+    --unselected-bg: transparent;
+    --unselected-svg: #999;
+    --unselected-text: #999;
+  }
+
+  .good {
+    --img: url('img/light/ico-good.svg');
+  }
+
+  .timer {
+    --active: var(--light-accent-2);
+  }
+
+  input[type='radio'] + label,
+  input[type='radio']:checked + label {
+    border: 0.5pt solid;
+  }
+}

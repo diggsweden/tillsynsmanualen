@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redigera tillsynsplan – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      figure.ecb {
+        width: 21rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><a href="granskning.html">Granskningsfunktionen</a></li>
+          <li><strong>Redigera tillsynsplan</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Redigera tillsynsplan</h1>
+
+      <p>Modulen används för redigering av tillsynsplaner.</p>
+
+      <p>
+        Informationen lagras i objektdatabasen för att vara åtkomlig när man
+        skapar ett övervakningsärende, där den är valbar i en rullgardinslista.
+      </p>
+
+      <figure aria-hidden="true" class="ecb">
+        <svg viewBox="0 0 210 260" class="ecb uml-diagram">
+          <g transform="translate(50, 0)">
+            <!--ScheduleController-->
+            <g>
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">ScheduleController</text>
+              <line x1="40" y1="22" x2="84" y2="22" />
+              <line x1="18" y1="56" x2="18" y2="96" />
+            </g>
+
+            <!--ScheduleView-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#boundary"
+                x="-12"
+                y="0"
+                width="48"
+                height="42"
+              />
+              <text x="18" y="52">ScheduleView</text>
+            </g>
+          </g>
+
+          <g transform="translate(50, 100)">
+            <!--Model-->
+            <g>
+              <use
+                xlink:href="uml.svg#controller"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Model</text>
+              <line x1="16" y1="56" x2="-32" y2="96" />
+              <line x1="20" y1="56" x2="68" y2="96" />
+            </g>
+          </g>
+
+          <g transform="translate(0, 200)">
+            <!--Person-->
+            <g>
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Person</text>
+            </g>
+
+            <!--Schedule-->
+            <g transform="translate(100, 0)">
+              <use
+                xlink:href="uml.svg#entity"
+                x="0"
+                y="0"
+                width="36"
+                height="42"
+              />
+              <text x="18" y="52">Schedule</text>
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>Redigering av tillsynsplan, översikt.</figcaption>
+      </figure>
+
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="klasser/model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="klasser/model/Person.html"
+              ><code lang="en">Person</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/model/Schedule.html"
+              ><code lang="en">Schedule</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/schedule.module.html"
+              ><code lang="en">schedule.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/controller/ScheduleController.html"
+              ><code lang="en">ScheduleController</code></a
+            >
+          </li>
+          <li>
+            <a href="klasser/view/ScheduleView.html"
+              ><code lang="en">ScheduleView</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="lista.html" accesskey="N" rel="next"
+        ><span>Lista information</span></a
+      >
+      <a href="granskning.html#toc" accesskey="I" class="up"
+        ><span>Innehåll</span></a
+      >
+      <a href="katalog.html" accesskey="F" rel="prev"
+        ><span>Redigera ärende&shy;katalog</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

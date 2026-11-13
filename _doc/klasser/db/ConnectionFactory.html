@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ConnectionFactory – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 35rem;
+      }
+
+      .db line,
+      .db rect,
+      .db marker path {
+        fill: none;
+        stroke: var(--text);
+        stroke-width: 2px;
+      }
+      .db line.rel {
+        marker-end: url('#rel');
+      }
+      .db marker path {
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+        stroke-width: 1px;
+      }
+      .db text {
+        font-size: 20px;
+      }
+      .db text.key {
+        font-family: var(--mono-fonts);
+        font-size: 16px;
+        text-anchor: start;
+      }
+      .db text.table {
+        text-anchor: middle;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Databasgränssnitt</a></li>
+          <li><strong lang="en">ConnectionFactory</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ConnectionFactory</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#m-build"><code lang="en">build()</code></a>
+          </li>
+          <li>
+            <a href="#m-destroy"><code lang="en">destroy()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#db"><span>Databas</span></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">ConnectionFactory</code> skapar en anslutning
+        till den objektdatabas där <cite>Tillsyns&shy;manualen</cite> lagrar
+        data vid granskning av digital service. Den skapar databasen om den inte
+        finns, och begär att få lagra information beständigt så att den inte ska
+        raderas annat än på användarens uttryckliga begäran.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/db/ConnectionFactory.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/db/ConnectionFactory.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 350 240" class="class uml-diagram">
+          <defs>
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+          </defs>
+
+          <!--ConnectionFactory-->
+          <use
+            xlink:href="ConnectionFactory.svg#ConnectionFactory"
+            x="0"
+            y="105"
+            class="highlight"
+          />
+
+          <g transform="translate(0 105)">
+            <path d="M111,8 h20 v-84 h20" class="dependency" />
+            <line x1="111" y1="16" x2="150" y2="16" class="dependency" />
+            <path d="M111,24 h20 v85 h20" class="dependency" />
+          </g>
+
+          <!---Database-->
+          <use xlink:href="Database.svg#Database" x="150" y="0" />
+
+          <!--ObjectStore-->
+          <use xlink:href="ObjectStore.svg#ObjectStore" x="150" y="70" />
+
+          <!--StorageManager-->
+          <use
+            xlink:href="../StorageManager.svg#StorageManager"
+            x="150"
+            y="190"
+            class="external"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ConnectionFactory</code>.
+        </figcaption>
+      </figure>
+
+      <!--build()-->
+      <section>
+        <h2 id="m-build"><code lang="en">build()</code></h2>
+
+        <p>
+          Skapar en databasanslutning, begär att lagringen ska vara beständig
+          och skapar eller uppgraderar databasen vid behov.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">build</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med en
+          <a href="Database.html"><code lang="en">Database</code></a
+          >-instans när anslutningen är upprättad.
+        </p>
+
+        <h3>Exempel</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">db</span> = <span class="keyword">await</span> <span class="var">ConnectionFactory</span>.<span class="fn">build</span>();
+<span class="keyword">const</span> <span class="var">tx</span> = <span class="var">db</span>.<span class="fn">transaction</span>([<span class="literal">"store"</span>]);
+<span class="keyword">const</span> <span class="var">rows</span> = <span class="keyword">await</span> <span class="var">tx</span>.<span class="fn">objectStore</span>(<span class="literal">"store"</span>).<span class="fn">getAll</span>();
+<span class="keyword">await</span> <span class="var">tx</span>.<span class="fn">complete</span>();</code></pre>
+      </section>
+
+      <!--destroy()-->
+      <section>
+        <h2 id="m-destroy"><code lang="en">destroy()</code></h2>
+
+        <p>Raderar databasen och allt innehåll i den.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">destroy</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när databasen raderats.</p>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          Klassen har en huvudsaklig publik, statisk metod:
+          <code lang="en">build()</code>. Den gör två eller tre saker:
+        </p>
+
+        <ol>
+          <li>
+            Kontrollerar om <code lang="en">StorageManager</code> beviljat
+            beständig lagring för <cite>Tillsynsmanualen</cite>. Om så inte är
+            fallet begär metoden att få lagra data persistent, via
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist"
+              rel="external"
+              ><code lang="en">StorageManager.persist()</code></a
+            >.
+          </li>
+          <li>
+            Skapar en <a href="Database.html"><code lang="en">Database</code></a
+            >-instans, och öppnar en anslutning till den.
+          </li>
+          <li>
+            Hanterar en eventuell begäran om att skapa eller uppgradera
+            databasen.
+          </li>
+        </ol>
+
+        <h3>Persistens</h3>
+
+        <p>
+          Webbläsarens lagrings-API garanterar vanligen inte att information
+          lagras beständigt. Det har storleksbegränsningar och algoritmer som
+          ser till att utrymmet används optimalt, vilket innebär att information
+          kan raderas utan förvarning om någon annan webbplats behöver plats.
+          Detta vore förödande för granskningsfunktionen. Därför begär
+          <cite>Tillsyns&shy;manualen</cite> att få lagra data persistent
+          (beständigt). I vissa webbläsare kan detta kräva användarens
+          medgivande.
+        </p>
+
+        <p class="note">
+          Persistent lagring är bara möjligt vid säkra anslutningar (HTTPS).
+        </p>
+
+        <h3>Skapa och uppgradera databasen</h3>
+
+        <p>
+          Om databasen ännu inte existerar innebär öppningsanropet mot databasen
+          att <code lang="en">IndexedDB</code>-API:et genererar en
+          uppgraderingshändelse. Det sker också om databasen har ett lägre
+          versionsnummer än det som begärs i öppningsanropet.
+        </p>
+
+        <p>
+          Vid en uppgraderingshändelse ser
+          <code lang="en">ConnectionFactory</code> till att databasen populeras
+          med de objektlager och index som
+          <cite>Tillsynsmanualen</cite> behöver.
+        </p>
+      </section>
+
+      <!--Databas-->
+      <section>
+        <h2 id="db">Databas</h2>
+
+        <p>
+          Databasens namn är
+          <strong><code lang="en">monitoringManual</code></strong
+          >.
+        </p>
+
+        <figure aria-hidden="true">
+          <svg class="db" viewBox="0 0 800 710">
+            <defs>
+              <marker
+                id="rel"
+                markerWidth="8"
+                markerHeight="16"
+                markerUnits="strokeWidth"
+                orient="auto"
+                refX="8"
+                refY="8"
+                viewBox="0 0 8 16"
+              >
+                <path d="M8,0 0,8 8,16" />
+              </marker>
+
+              <symbol id="db-table">
+                <rect x="1" y="1" width="200" height="100" />
+                <line x1="1" y1="30" x2="200" y2="30" />
+              </symbol>
+            </defs>
+
+            <g>
+              <g>
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">cases</text>
+              </g>
+
+              <g transform="translate(400, 0)">
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">entries</text>
+                <text x="10" y="60" class="key" xml:lang="en">* caseID</text>
+              </g>
+
+              <line x1="200" y1="50" x2="400" y2="50" class="rel" />
+            </g>
+
+            <g transform="translate(0, 200)">
+              <line x1="100" y1="-100" x2="100" y2="0" class="rel" />
+
+              <g>
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">audits</text>
+                <text x="10" y="60" class="key" xml:lang="en">* caseID</text>
+              </g>
+
+              <g transform="translate(400, 0)">
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">people</text>
+              </g>
+            </g>
+
+            <g transform="translate(0, 400)">
+              <line x1="100" y1="-100" x2="100" y2="0" class="rel" />
+
+              <g>
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">samples</text>
+                <text x="10" y="60" class="key" xml:lang="en">* auditID</text>
+              </g>
+
+              <g transform="translate(400, 0)">
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">
+                  schedules
+                </text>
+              </g>
+            </g>
+
+            <g transform="translate(0, 600)">
+              <line x1="100" y1="-100" x2="100" y2="0" class="rel" />
+
+              <g>
+                <use xlink:href="#db-table" />
+                <text x="100" y="20" class="table" xml:lang="en">
+                  requirements
+                </text>
+                <text x="10" y="60" class="key" xml:lang="en">* sampleID</text>
+              </g>
+            </g>
+          </svg>
+
+          <figcaption>Databasschema</figcaption>
+        </figure>
+
+        <table>
+          <caption>
+            Objektlager i databasen
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Objektlager</th>
+              <th scope="col">Primärnyckel</th>
+              <th scope="col">Innehåll</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">audits</code></td>
+              <td>(genereras)</td>
+              <td>Granskningar i ärenden</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">cases</code></td>
+              <td>(genereras)</td>
+              <td>Ärenden</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">entries</code></td>
+              <td>(genereras)</td>
+              <td>Loggnoteringar i ärenden</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">people</code></td>
+              <td>(genereras)</td>
+              <td>Handläggare, tillsynsansvariga</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">requirements</code></td>
+              <td>(genereras)</td>
+              <td>Krav i stickprov</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">samples</code></td>
+              <td>(genereras)</td>
+              <td>Stickprov i granskningar</td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">schedules</code></td>
+              <td>(genereras)</td>
+              <td>Tillsynsplaner</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <caption>
+            Index i databasen
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Objektlager</th>
+              <th scope="col">Index</th>
+              <th scope="col">Nyckel</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code lang="en">audits</code></td>
+              <td><code lang="en">by_case</code></td>
+              <td><code lang="en">caseID</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">entries</code></td>
+              <td><code lang="en">by_case</code></td>
+              <td><code lang="en">caseID</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">requirements</code></td>
+              <td><code lang="en">by_sample</code></td>
+              <td><code lang="en">sampleID</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">samples</code></td>
+              <td><code lang="en">by_audit</code></td>
+              <td><code lang="en">auditID</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Database.html"><code lang="en">Database</code></a>
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_API"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              >Storage API</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

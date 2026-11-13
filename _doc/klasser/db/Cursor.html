@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cursor – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 27rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Databasgränssnitt</a></li>
+          <li><strong lang="en">Cursor</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">Cursor</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#properties"><span>Fält</span></a>
+          </li>
+          <li>
+            <a href="#m-advance"><code lang="en">advance()</code></a>
+          </li>
+          <li>
+            <a href="#m-continue"><code lang="en">continue()</code></a>
+          </li>
+          <li>
+            <a href="#m-continue-primary-key"
+              ><code lang="en">continuePrimaryKey()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-delete"><code lang="en">delete()</code></a>
+          </li>
+          <li>
+            <a href="#m-next"><code lang="en">next()</code></a>
+          </li>
+          <li>
+            <a href="#m-update"><code lang="en">update()</code></a>
+          </li>
+          <li><a href="#example">Exempel</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Kapslar in en <code lang="en">IDBCursor</code>-instans och
+        tillhandahåller ett löftesbaserat alternativ till det
+        händelseorienterade lågnivå-API:et.
+      </p>
+
+      <p>
+        Klassen implementerar också protokollen
+        <code lang="en">iterable</code> och <code lang="en">iterator</code>,
+        vilket innebär att den går att använda i en
+        <code lang="en" class="js"
+          ><span class="keyword">for await</span>…<span class="keyword"
+            >of</span
+          ></code
+        >-loop.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/db/Cursor.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/db/Cursor.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 270 340" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--Cursor-->
+          <use xlink:href="Cursor.svg#Cursor" x="0" y="0" class="highlight" />
+
+          <line x1="121" y1="48" x2="159" y2="48" class="composition" />
+          <line x1="60" y1="143" x2="60" y2="170" class="composition" />
+
+          <!--IDBCursorWithValue-->
+          <use
+            xlink:href="IDBCursorWithValue.svg#IDBCursorWithValue"
+            x="0"
+            y="170"
+            class="external"
+          />
+          <line x1="60" y1="193" x2="60" y2="220" class="inheritance" />
+
+          <!--IDBCursor-->
+          <use
+            xlink:href="IDBCursor.svg#IDBCursor"
+            x="0"
+            y="220"
+            class="external"
+          />
+
+          <!--IDBRequest-->
+          <use
+            xlink:href="IDBRequest.svg#IDBRequest"
+            x="160"
+            y="37"
+            classs="external"
+          />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">Cursor</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">Cursor</span>(<span class="var">request</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">request</code></dt>
+          <dd>
+            En <code lang="en">IDBRequest</code>-instans som typiskt kommer från
+            ett anrop till <code lang="en">openCursor()</code> i en instans av
+            <a href="Index.class.html"><code lang="en">Index</code></a> eller
+            <a href="ObjectStore.html"><code lang="en">ObjectStore</code></a
+            >.
+          </dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt class="readonly"><code lang="en">direction</code></dt>
+          <dd>Cursorns iterationsriktning.</dd>
+
+          <dt class="readonly"><code lang="en">key</code></dt>
+          <dd>Aktuell nyckel.</dd>
+
+          <dt class="readonly"><code lang="en">primaryKey</code></dt>
+          <dd>Aktuell primärnyckel.</dd>
+
+          <dt class="readonly"><code lang="en">source</code></dt>
+          <dd>Cursorns källa.</dd>
+
+          <dt class="readonly"><code lang="en">value</code></dt>
+          <dd>Aktuellt värde.</dd>
+        </dl>
+      </section>
+
+      <!--advance()-->
+      <section>
+        <h2 id="m-advance"><code lang="en">advance()</code></h2>
+
+        <p>Avanerar cursorn angivet antal steg.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">advance</span>(<span class="var">count</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">count</code></dt>
+          <dd>Antal steg att avancera cursorn.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--continue()-->
+      <section>
+        <h2 id="m-continue"><code lang="en">continue()</code></h2>
+
+        <p>Avancerar cursorn ett steg, eller till angiven nyckel.</p>
+
+        <h3>Syntax</h3>
+
+        <pre class="js"><code lang="en"><span class="ident">continue</span>()
+<span class="ident">continue</span>(<span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">key</code></dt>
+          <dd>Nyckel att positionera cursorn vid.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--continuePrimaryKey()-->
+      <section>
+        <h2 id="m-continue-primary-key">
+          <code lang="en">continuePrimaryKey()</code>
+        </h2>
+
+        <p>Positionera cursorn vid angivna nycklar</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">continue</span>(<span class="var">key</span>, <span class="var">primaryKey</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Nyckel att positionera cursorn vid.</dd>
+
+          <dt><code lang="en">primaryKey</code></dt>
+          <dd>Primärnyckel att positionera cursorn vid.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--delete()-->
+      <section>
+        <h2 id="m-delete"><code lang="en">delete()</code></h2>
+
+        <p>Radera värdet vid cursorns position.</p>
+
+        <p class="note">
+          Metoden är inte tillgänglig i en cursor som öppnats med
+          <code lang="en">openKeyCursor()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">delete</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när värdet tagits bort.</p>
+      </section>
+
+      <!--next()-->
+      <section>
+        <h2 id="m-next"><code lang="en">next()</code></h2>
+
+        <p>
+          Avancera iteratorn ett steg, asynkront, genom att invänta nästa
+          händelse i cursorbegäran.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">next</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med ett
+          <code lang="en">IteratorResult</code>-objekt när cursorn avancerats.
+        </p>
+      </section>
+
+      <!--update()-->
+      <section>
+        <h2 id="m-update"><code lang="en">update()</code></h2>
+
+        <p>Uppdatera värdet vid cursorns position.</p>
+
+        <p class="note">
+          Metoden är inte tillgänglig i en cursor som öppnats med
+          <code lang="en">openKeyCursor()</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">update</span>(<span class="var">value</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Värde att uppdatera med.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när värdet uppdaterats.</p>
+      </section>
+
+      <!--Exempel-->
+      <section>
+        <h2 id="example">Exempel</h2>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">cursor</span> = <span class="var">index</span>.<span class="fn">openCursor</span>();
+<span class="keyword">for await</span> (<span class="keyword">const</span> <span class="var">record</span> <span class="keyword">of</span> <span class="var">cursor</span>) {
+    // console.log(record.value);
+}</code></pre>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Index.class.html"><code lang="en">Index</code></a>
+          </li>
+          <li>
+            <a href="ObjectStore.html"><code lang="en">ObjectStore</code></a>
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBCursor</code></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest"
+              hreflang="en"
+              lang="en"
+              rel="external"
+              ><code>IDBRequest</code></a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

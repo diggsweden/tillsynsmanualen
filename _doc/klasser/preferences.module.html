@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>preferences.module.js – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../css/manual.css" />
+    <link rel="stylesheet" href="../doc.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../">Start</a></li>
+          <li><a href=".././">Dokumentation</a></li>
+          <li><a href="../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="./">Klasser</a></li>
+          <li><strong lang="en">preferences.module.js</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">preferences.module.js</code>
+      </h1>
+
+      <p>
+        Tillämpar användarinställningar genom att sätta klasser på
+        <code lang="en" class="html tag">&lt;body&gt;</code>-elementet för att
+        reglera vilka egenskaper som påverkas av
+        <cite>Tillsynsmanualens</cite> stilmallar.
+      </p>
+
+      <p>
+        Avsnitt 11.7 i <cite>EN&nbsp;301&nbsp;549</cite> ställer krav på att det
+        ska finnas ett sätt att använda en webbplats som respekterar
+        användarinställningar för:
+      </p>
+
+      <ul>
+        <li>måttenheter</li>
+        <li>färger</li>
+        <li>kontrast</li>
+        <li>teckensnitt</li>
+        <li>teckenstorlek</li>
+        <li>fokusmarkör.</li>
+      </ul>
+
+      <p>
+        <cite>Tillsynsmanualen</cite> innehåller inga måttenheter, så där löser
+        problemet sig självt. Den respekterar användarens inställningar för
+        färger såtillvida att den anpassar färgschemat efter inställningarna för
+        ljust eller mörkt visningaläge – vilket är de färginställningar den kan
+        känna av.
+      </p>
+
+      <p>
+        Manualen har ingen särskild hantering för konstrast, men uppfyller
+        kraven på nivå A&zwnj;A i WCAG överallt. I det mörka visningsläget
+        uppfyller den kontrastkraven på nivå A&zwnj;A&zwnj;A i de allra flesta
+        fall.
+      </p>
+
+      <p>
+        Användarens inställning för teckenstorlek respekteras såtillvida att
+        basstorleken är den som användaren angett eller, långt vanligare,
+        webbläsarens standardinställning. Det finns stilar som använder något
+        mindre grad, men texten är alltid möjlig att förstora med webbläsarens
+        inbyggda funktioner.
+      </p>
+
+      <p>
+        Teckensnitt och fokusmarkör skapar dock lite problem. Få användare
+        ändrar dessa inställningar, och standardinställningarna är inte bra. Det
+        stora flertalet skulle tvingas utstå
+        <span
+          style="
+            font:
+              16px Times New Roman,
+              serif;
+          "
+          >16&nbsp;px <span lang="en">Times New Roman</span></span
+        >
+        på Windows och den inbyggda fokusmarkören är i vissa webb&shy;läsare
+        klart undermålig. Då det inte finns någon CSS-mediefråga att tillgripa
+        har manualen anammat en lösning som inte är helt optimal, men kanske den
+        bästa som går att åstad&shy;komma under rådande omständigheter.
+      </p>
+
+      <p>
+        Den formger teckensnitt och fokusmarkör för förbättrad läsbarhet och
+        uppfattningsbarhet, men ger möjlighet för den som har synnerliga behov
+        att stänga av detta så att manualen tillämpar inställningarna i
+        webbläsaren. Detta sköts av <code>preferences.module.js</code>, som
+        inkluderas på alla sidor.
+      </p>
+
+      <h2>Funktion</h2>
+
+      <p>
+        När modulen importeras kontrollerar den om inställningar för att tillåta
+        formgivning av teckensnitt och fokusmarkör finns sparade i
+        inställningslagret. Avsaknad av lagrade inställningar tolkas, något
+        tveksamt, som medgivande.
+      </p>
+
+      <p>
+        Om inte användaren valt att, via sidan
+        <a href="../../start/installningar.html">Inställningar</a>, avböja denna
+        formgivning sätter modulen klasser på
+        <code lang="en" class="html tag">&lt;body&gt;</code>-element som gör att
+        stilmallarnas regler slår igenom.
+      </p>
+
+      <p>
+        Klasserna i fråga heter <code lang="en">focus</code> respektive
+        <code lang="en">font</code>.
+      </p>
+
+      <h2>Se även</h2>
+
+      <ul class="toc">
+        <li>
+          <a href="common/SettingStorage.html"
+            ><code lang="en">SettingStorage</code></a
+          >
+        </li>
+      </ul>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

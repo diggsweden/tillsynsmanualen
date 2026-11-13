@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 380">
+  <g id="SampleEditView">
+    <g fill="none">
+      <rect x="0.5" y="0.5" width="189" height="372"/>
+      <line x1="1" y1="12"  x2="190" y2="12"/>
+      <line x1="1" y1="182" x2="190" y2="182"/>
+    </g>
+
+    <g stroke="none">
+      <text x="85" y="10" font-size="1.125em" font-weight="bold" text-anchor="middle">SampleEditView</text>
+      <text x="5" y="20">+component: string</text>
+      <text x="5" y="30">+components: object[]</text>
+      <text x="5" y="40">+confirmOnSave: boolean</text>
+      <text x="5" y="50">+contentTypes: string[]</text>
+      <text x="5" y="60">+default: boolean</text>
+      <text x="5" y="70">+defaultEdit: boolean</text>
+      <text x="5" y="80">+deleteAction: string</text>
+      <text x="5" y="90">+follows: string</text>
+      <text x="5" y="100">+format: string</text>
+      <text x="5" y="110">+heading: string</text>
+      <text x="5" y="120">+name: string</text>
+      <text x="5" y="130">+note: string</text>
+      <text x="5" y="140">+predecessors: string[]</text>
+      <text x="5" y="150">+service: string</text>
+      <text x="5" y="160">+serviceType: string</text>
+      <text x="5" y="170">+type: string</text>
+      <text x="5" y="180">+url: string</text>
+      <text x="5" y="190">activate(): void</text>
+      <text x="5" y="200">addComponent(number, string, boolean): void</text>
+      <text x="5" y="210">addConnection(number, string, boolean): void</text>
+      <text x="5" y="220">clearComponentFields(): void</text>
+      <text x="5" y="230">clearComponentList(): void</text>
+      <text x="5" y="240">clearConnectionList(): void</text>
+      <text x="5" y="250">close(): void</text>
+      <text x="5" y="260">confirmComponents(): boolean</text>
+      <text x="5" y="270">deactivate(): void</text>
+      <text x="5" y="280">open(): promise</text>
+      <text x="5" y="290">setCategory(string, string [,object] [,number]): void</text>
+      <text x="5" y="300">setComponentContentTypes(array[]): void</text>
+      <text x="5" y="310">setCounter(number, string): void</text>
+      <text x="5" y="320">setNavigation(object): void</text>
+      <text x="5" y="330">setProgress(number, number): void</text>
+      <text x="5" y="340">setSampleContentTypes(array[]): void</text>
+      <text x="5" y="350">showComponentStatus(string): void</text>
+      <text x="5" y="360">showError(string): void</text>
+      <text x="5" y="370">testComponentValidity(): boolean</text>
+    </g>
+  </g>
+</svg>

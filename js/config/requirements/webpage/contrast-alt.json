@@ -1,0 +1,27 @@
+{
+  "methods": [
+    "Stäng av visning av bilder om din webbläsare har en bekväm funktion för det.",
+    "Använd <cite>Inspektören</cite> och ändra sökvägen (<code>src</code>-attributet) för varje bild så att textalternativet visas. (Lägg exempelvis till ett ”x” sist i namnet.)",
+    "Använd <cite translate=\"no\" lang=\"en\">Web Developer</cite> för att ersätta alla bilder med sina textalternativ. (Denna funktion är dock inte helt tillförlitlig.)"
+  ],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Contrast",
+      "params": {
+        "mode": "text"
+      }
+    }
+  ],
+  "info": [
+    {
+      "type": "action",
+      "text": "Om webbsidan har stöd för mörkt/ljust visningsläge, gör kontrollen i båda lägena."
+    },
+    {
+      "type": "definition",
+      "term": "Stor text",
+      "description": "Text som är minst <span style=\"font-size:18pt\">18&nbsp;punkter</span> (24&nbsp;px) eller <span style=\"font-size:14pt; font-weight:bold\">14&nbsp;punkter och fet</span> (19&nbsp;px)."
+    }
+  ]
+}

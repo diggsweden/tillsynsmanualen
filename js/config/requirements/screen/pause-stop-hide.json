@@ -1,0 +1,13 @@
+{
+  "methods": ["Titta efter saker som rör sig, exempelvis animeringar."],
+  "exceptions": ["Förloppsindikator, indikator på att vyn fortfarande laddar."],
+  "tools": [
+    {
+      "tool": "module",
+      "module": "Timer",
+      "params": {
+        "duration": 5000
+      }
+    }
+  ]
+}

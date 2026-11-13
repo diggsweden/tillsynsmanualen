@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ListController – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 50rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">ListController</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ListController</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li>
+            <a href="#m-prepare"><code lang="en">preopare()</code></a>
+          </li>
+          <li><a href="#upload">Uppladdning</a></li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        <i lang="en">Controller</i> för listning av personuppgifter,
+        tillsynsplaner eller ärenden.
+      </p>
+
+      <p>
+        <code lang="en">ListController</code> ärver från
+        <code lang="en">ControllerBase</code> och implementerar bara metoden
+        <code lang="en">prepare()</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/ListController.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/ListController.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 500 530" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--ListController-->
+          <use
+            xlink:href="ListController.svg#ListController"
+            x="160"
+            y="35"
+            class="highlight"
+          />
+
+          <line x1="160" y1="46" x2="121" y2="46" class="composition" />
+          <line x1="235" y1="58" x2="235" y2="108" class="inheritance" />
+
+          <!--FileReader-->
+          <use
+            xlink:href="../FileReader.svg#FileReader"
+            x="0"
+            y="0"
+            class="external"
+          />
+
+          <g transform="translate(0, 110)">
+            <!--ControllerBase-->
+            <use xlink:href="ControllerBase.svg#ControllerBase" x="170" y="0" />
+
+            <line x1="170" y1="16" x2="121" y2="16" class="composition" />
+            <line x1="301" y1="16" x2="350" y2="16" class="composition" />
+            <line x1="235" y1="33" x2="235" y2="60" class="composition" />
+
+            <!--AppContext-->
+            <use
+              xlink:href="../common/AppContext.svg#AppContext"
+              x="20"
+              y="0"
+            />
+
+            <!--Model-->
+            <use xlink:href="../model/Model.svg#Model" x="160" y="60" />
+
+            <!--ListView-->
+            <use xlink:href="../view/ListView.svg#ListView" x="350" y="0" />
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ListController</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ListController</span>(<span class="var">model</span>, <span class="var">view</span>, <span class="var">reader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjekt.</dd>
+
+          <dt><code lang="en">view</code></dt>
+          <dd>Vyinstans.</dd>
+
+          <dt><code lang="en">reader</code></dt>
+          <dd>Filläsare.</dd>
+        </dl>
+      </section>
+
+      <!--prepare()-->
+      <section>
+        <h2 id="m-prepare"><code lang="en">prepare()</code></h2>
+
+        <p>
+          Förbereder sidvisning: populerar länkstigen, gör listtypsspecifika
+          inställningar i vyn och förbereder eventuell filuppladdning (vid
+          listning av ärenden).
+        </p>
+
+        <p>
+          Parametern <code lang="en">type</code> styr vilken typ av entitet som
+          ska visas i listan. Giltiga värden är ”<code lang="en">person</code>”
+          (personer), ”<code lang="en">schedule</code>” (tillsynsplaner) eller
+          ”<code lang="en">case</code>” (ärenden).
+        </p>
+
+        <p>
+          Metoden hämtar uppgifter ur objektdatabasen och lägger till en länk i
+          vyn för varje instans. Den sätter också ikon och sökväg i länken som
+          skapar en ny instans av entiteten.
+        </p>
+
+        <p>
+          För ärenden förbereder metoden dessutom hantering av filuppladdning
+          (se nedan) genom att aktivera uppladdning i vyn och registrera en
+          observatör på vyn som anropas vid klick på knappen eller vid
+          dra-och-släpp–händelser.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">prepare</span>(<span class="var">context</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när förberedelserna är klara.</p>
+      </section>
+
+      <!--Uppladdning-->
+      <section>
+        <h2 id="upload">Uppladdning</h2>
+
+        <p>
+          För ärenden aktiverar <code lang="en">prepare()</code> uppladdning i
+          vyn. Det innebär att vyn visar en knapp för uppladdning och lyssnar
+          efter dra-och-släpp–händelser. Om användaren klickar på knappen eller
+          drar och släpper filer över vyn meddelar vyn controllern som hanterar
+          uppladdningen.
+        </p>
+
+        <p>
+          Det gör den med hjälp av
+          <code lang="en">FileReader</code>-<abbr>API</abbr>:et som läser
+          JSON-filen. Den tolkas sedan till ett JavaScript-objekt som omvandlas
+          till en ärendeinstans med hjälp av <code lang="en">CaseFactory</code>.
+        </p>
+
+        <p>
+          Om det uppladdade ärendet redan finns i databasen får användaren
+          bekräfta att det ska ersättas. Sedan populeras databasen med den
+          uppladdade informationen och länken till ärendet läggs till eller
+          ersätts i listan.
+        </p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../list.module.html"
+              ><code lang="en">list.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/CaseFactory.html"
+              ><code lang="en">CaseFactory</code></a
+            >
+          </li>
+          <li>
+            <a href="ControllerBase.html"
+              ><code lang="en">ControllerBase</code></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader"
+              hreflang="en"
+              rel="external"
+              ><code lang="en">FileReader</code></a
+            >
+          </li>
+          <li>
+            <a href="../model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="../view/ListView.html"><code lang="en">ListView</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

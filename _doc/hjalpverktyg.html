@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hjälpverktyg – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../css/manual.css" />
+    <link rel="stylesheet" href="doc.css" />
+
+    <style>
+      tbody:nth-last-child(n + 2) tr:last-child td {
+        border: 0;
+        padding-bottom: 1.5em;
+      }
+      th[colspan] {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../">Start</a></li>
+          <li><a href="./">Dokumentation</a></li>
+          <li><strong>Hjälpverktyg</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Hjälpverktyg</h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul>
+          <li><a href="#kravkonfig">Kravkonfiguration</a></li>
+          <li><a href="#granska">Granska</a></li>
+          <li><a href="#verktyg">Verktyg</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        I katalogen <code>_utils/</code> finns några verktyg som kan vara
+        användbara vid förvaltning.
+      </p>
+
+      <p>
+        Det viktigaste är <code>enhetstester.html</code> som är den webbsida som
+        visar och kör enhetstester. Detta verktyg beskrivs ingående i avsnittet
+        <a href="test.html">Enhetstester</a>.
+      </p>
+
+      <!--Kravkonfig-->
+      <section>
+        <h2 id="kravkonfig">Visa kravkonfiguration</h2>
+
+        <p>
+          Filerna <code>kravkonfig.html</code> och <code>kravkonfig.js</code>
+          utgör ett hjälpverktyg för att
+          <a href="../_utils/kravkonfig.html" target="_blank"
+            >visa krav&shy;konfigurationsfiler</a
+          >
+          på ett mer överskådligt sätt än vad rå JSON erbjuder. Verktyget varnar
+          dessutom för fel i filerna: dels ogiltig JSON, dels saknade eller
+          felstavade hänvisningar till krav, villkor och kontroller.
+        </p>
+
+        <p>
+          I fältet <samp>Konfigurationsfil</samp> fyller du i namnet på den
+          konfigurationsfil i katalogen
+          <code lang="en">js/config/requirements/</code> som du vill visa.
+          Verktyget lägger automatiskt till prefixet ”<code>config-</code>” och
+          ändelsen ”<code>.json</code>” om du utelämnar dem, så det räcker till
+          exempel att skriva ”<samp lang="en"><kbd>webpage</kbd></samp
+          >” för att visa <code lang="en">config-webpage.json</code>.
+        </p>
+
+        <p>
+          I rullgardinslistan efter textfältet väljer du den stickprovstyp som
+          konfigurationen gäller för: webbsida, dokument eller vy. Det påverkar
+          inte grundfunktionen i verktyget, men styr visningen av
+          granskningskonfigurationer (se nedan).
+        </p>
+
+        <p>
+          Tryck sedan på knappen <samp>Ladda</samp> för att läsa in och visa den
+          angivna konfigurationsfilen.
+        </p>
+
+        <p>
+          Verktyget visar de avsnitt och underavsnitt som definieras i fältet
+          <code lang="en">sections</code> i en
+          <a href="konfiguration.html#audit-req">kravkonfi&shy;guration</a>. Du
+          ser avsnittets identitet och eventuella villkor som styr visningen –
+          till exempel innehållstyper.
+        </p>
+
+        <p>
+          Verktyget visar sedan varje krav som ett utfällbart avsnitt med
+          information om kravets identitet, vilket avsnitt i
+          <cite>EN&nbsp;301&nbsp;549</cite> eller
+          <cite>DOS-föreskriften</cite> kravet gäller, vilket avsnitt och
+          underavsnitt kravet ingår i samt eventuella villkor för visning.
+        </p>
+
+        <p>
+          Därefter kommer en länk till granskningskonfigurationen för kravet.
+        </p>
+
+        <p class="warning">
+          Om du inte valt rätt stickprovstyp i listan innan du laddade
+          konfigurationen kommer länken att visa fel fil (eller ingen alls).
+        </p>
+
+        <p>
+          Till sist visar verktyget de kontroller och villkor som ingår i
+          kravet, på ett format som efterliknar utseendet på
+          kravgranskningssidan. Verktyget visar även
+          standardobservations&shy;texten. Knapparna är bara attrapper och är
+          inte klickbara. För villkor med två grenar visar verktyget båda.
+          Nästlade villkor indikeras med indrag och en kantlinje.
+        </p>
+
+        <p>
+          Sist på sidan visar verktyget statistik över innehållet i
+          konfigurationen, exempelvis antalet krav.
+        </p>
+      </section>
+
+      <!--Granska-->
+      <section>
+        <h2 id="granska">Visa granskningskonfiguration</h2>
+
+        <p>
+          Filerna <code>granska.html</code> och <code>granska.js</code> utgör
+          ett hjälpverktyg för att visa en granskningskonfiguration. Verktyget
+          anropas från verktyget
+          <a href="#kravkonfig">Visa kravkonfiguration</a> med frågeparametrar
+          och har inget användargränssnitt för att välja konfigurationsfil.
+        </p>
+
+        <p>
+          Verktyget visar en simulering av sidan för granskning av det angivna
+          kravet, med metoder, exempel, undantag, kontroller, villkor och
+          relaterad information, konstruerad från inne&shy;hållet i
+          konfigurationsfilen.
+        </p>
+
+        <p>
+          Verktygsmoduler laddas inte, utan visas bara med namn. För att testa
+          en verktygsmodul använder du i stället
+          <a href="#verktyg">Testa verktyg</a>.
+        </p>
+      </section>
+
+      <!--Verktyg-->
+      <section>
+        <h2 id="verktyg">Testa verktyg</h2>
+
+        <p>
+          Filerna <code>verktyg.html</code> och <code>verktyg.js</code> utgör
+          ett hjälpverktyg för att
+          <a href="../_utils/verktyg.html">visa och testa en verktygsmodul</a>.
+        </p>
+
+        <p>
+          En <a href="verktyg.html">verktygsmodul</a> är en JavaScript-modul som
+          refereras i en granskningskonfiguration och laddas dynamiskt av
+          kravgranskningssidan för att finnas till hands om användaren behöver
+          det. Det kan vara mycket enkelt, som formuläret för att söka i Svenska
+          Akademiens ord&shy;listor, eller mer komplext som
+          kontrastanalysverktyget som integrerar med MVC-modellen.
+        </p>
+
+        <p>
+          Fyll i namnet på det verktygsskript du vill testa (utan filändelse) i
+          fältet <samp>Modulnamn</samp>. Kända verktyg finns som
+          kompletteringsförslag.
+        </p>
+
+        <p>
+          Om verktyget har parametrar kan du fälla ut avsnittet
+          <samp>Parametrar</samp> och lägga till en eller flera parametrar.
+        </p>
+
+        <p>
+          Sedan trycker du på knappen <samp>Ladda modul</samp> för att importera
+          skriptmodulen.
+        </p>
+
+        <table>
+          <caption>
+            Parametrar för kända verktyg.
+          </caption>
+
+          <thead>
+            <tr>
+              <th colspan="4">Verktyg</th>
+            </tr>
+
+            <tr>
+              <th scope="col">Parameternamn</th>
+              <th scope="col">Funktion</th>
+              <th scope="col">Typ</th>
+              <th scope="col">Exempel</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th colspan="4" scope="rowgroup" lang="en">Contrast</th>
+            </tr>
+
+            <tr>
+              <td><code lang="en">mode</code></td>
+              <td>Test av text (1.4.3) eller grafik (1.4.11)</td>
+              <td>sträng</td>
+              <td>
+                <code lang="en" class="js literal">"text"</code>,
+                <code lang="en" class="js literal">"graphic"</code>
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th colspan="4" scope="rowgroup" lang="en">FlashThreshold</th>
+            </tr>
+
+            <tr>
+              <td><code lang="en">luminance</code></td>
+              <td>Kontroll-id för luminans</td>
+              <td>sträng</td>
+              <td><code class="js literal">"luminance"</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">red</code></td>
+              <td>Kontroll-id för rödmättnad</td>
+              <td>sträng</td>
+              <td><code class="js literal">"saturated-red"</code></td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th colspan="4" scope="rowgroup" lang="en">Oscillator</th>
+            </tr>
+
+            <tr>
+              <td><code lang="en">frequency</code></td>
+              <td>Tonfrekvens (Hz)</td>
+              <td>heltal</td>
+              <td><code class="js literal">7000</code></td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th colspan="4" scope="rowgroup" lang="en">SpacingProperties</th>
+            </tr>
+
+            <tr>
+              <td><code lang="en">letterSpacing</code></td>
+              <td>Kontroll-id för teckenavstånd</td>
+              <td>sträng</td>
+              <td><code class="js literal">"ts-char"</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">lineHeight</code></td>
+              <td>Kontroll-id för radavstånd</td>
+              <td>sträng</td>
+              <td><code class="js literal">"ts-line"</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">paragraphSpacing</code></td>
+              <td>Kontroll-id för styckeavstånd</td>
+              <td>sträng</td>
+              <td><code class="js literal">"ts-para"</code></td>
+            </tr>
+
+            <tr>
+              <td><code lang="en">wordSpacing</code></td>
+              <td>Kontroll-id för ordmellanrum</td>
+              <td>sträng</td>
+              <td><code class="js literal">"ts-word"</code></td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th colspan="4" scope="rowgroup" lang="en">Timer</th>
+            </tr>
+
+            <tr>
+              <td><code lang="en">duration</code></td>
+              <td>Tidsgräns (millisekunder)</td>
+              <td>heltal</td>
+              <td><code class="js literal">3000</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <nav aria-label="Navigering" class="nav">
+      <a href="leverans.html" accesskey="N" rel="next"><span>Leverans</span></a>
+      <a href="./" accesskey="I" class="up"><span>Innehåll</span></a>
+      <a href="granskning.html" accesskey="F" rel="prev"
+        ><span>Gransknings&shy;funktionen</span></a
+      >
+    </nav>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../js/preferences.module.js" type="module"></script>
+    <script src="../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>KeyMap – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 14rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Hjälpklasser</a></li>
+          <li><strong lang="en">KeyMap</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content"><code lang="en">KeyMap</code></h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-action"><code lang="en">action()</code></a>
+          </li>
+          <li>
+            <a href="#m-map"><code lang="en">map()</code></a>
+          </li>
+          <li><a href="#example">Exempel</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">KeyMap</code> mappar tangenttryckningar till
+        funktioner, vilket underlättar implementa&shy;tionen av flera av
+        designmönstren i
+        <a
+          href="https://www.w3.org/WAI/ARIA/apg/"
+          hreflang="en"
+          lang="en"
+          rel="external"
+          >ARIA Authoring Practices Guide</a
+        >.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/KeyMap.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/common/KeyMap.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 140 40" class="class uml-diagram">
+          <!--KeyMap-->
+          <use xlink:href="KeyMap.svg#KeyMap" x="0" y="0" class="highlight" />
+        </svg>
+
+        <figcaption>Klassdiagram för <code lang="en">KeyMap</code>.</figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">KeyMap</span>()</code></pre>
+      </section>
+
+      <!--action()-->
+      <section>
+        <h2 id="m-action"><code lang="en">action()</code></h2>
+
+        <p>
+          Utför den funktion som är mappad till en inträffad tangenthändelse.
+          Metoden är avsedd att anropas från en händelselyssnare.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">action</span>(<span class="var">event</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">event</code></dt>
+          <dd>Händelseinformation från DOM.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om metoden hanterat
+          händelsen, annars <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--map()-->
+      <section>
+        <h2 id="m-map"><code lang="en">map()</code></h2>
+
+        <p>Mappar en tangent till en funktion.</p>
+
+        <p>
+          Modifierare anges som <code class="js literal">"alt"</code>,
+          <code class="js literal">"ctrl"</code>,
+          <code class="js literal">"meta"</code> eller
+          <code class="js literal">"shift"</code>, eller en kombination, till
+          exempel <code class="js literal">"ctrl+shift"</code>.
+        </p>
+
+        <p>
+          Om tangent anges som <code class="js literal">"*"</code> mappas
+          funktionen som en standardfunktion och anropas för alla omappade
+          tangenter (som genererar ett skrivbart tecken).
+        </p>
+
+        <p class="note">
+          Detta innebär att det inte är möjligt att mappa en funktion till
+          asterisk&shy;tangenten.
+        </p>
+
+        <p class="tip">
+          För att mappa mellanslagstangenten, ange tangentnamn som
+          <code class="js literal">"&nbsp;"</code>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">map</span>(<span class="var">key</span>, <span class="var">action</span>)
+<span class="ident">map</span>(<span class="var">key</span>, <span class="var">action</span>, <span class="var">modifiers</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>
+            Tangentnamn, till exempel ”A” eller ”Enter” (skiftlägesokänsligt).
+          </dd>
+
+          <dt><code lang="en">action</code></dt>
+          <dd>Den funktion som ska anropas för den mappade tangenten.</dd>
+
+          <dt class="optional"><code lang="en">modifiers</code></dt>
+          <dd>Modifierartangent(er).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Exempel-->
+      <section>
+        <h2 id="example">Exempel</h2>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">const</span> <span class="var">keys</span> = <span class="keyword">new</span> <span class="ident">KeyMap</span>();
+<span class="var">keys</span>.<span class="fn">map</span>(<span class="literal">"Enter"</span>, () =&gt; <span class="fn">funcA</span>());
+<span class="var">keys</span>.<span class="fn">map</span>(<span class="literal">"A"</span>,     () =&gt; <span class="fn">funcB</span>(), <span class="literal">"ctrl+shift"</span>);
+
+<span class="var">element</span>.<span class="fn">addventListener</span>(<span class="literal">"keydown"</span>, (<span class="var">event</span>) =&gt; {
+    <span class="keyword">if</span> (<span class="var">keys</span>.<span class="fn">action</span>(<span class="var">event</span>)) {
+        <span class="var">event</span>.<span class="fn">stopPropagation</span>();
+        <span class="var">event</span>.<span class="fn">preventDefault</span>();
+    }
+});</code></pre>
+
+        <p>
+          När användaren trycker <kbd><kbd>Enter</kbd></kbd> kommer
+          <code>funcA()</code> att anropas.
+        </p>
+
+        <p>
+          När användaren trycker
+          <kbd><kbd>Ctrl</kbd>+<kbd>Skift</kbd>+<kbd>A</kbd></kbd>
+          kommer <code>funcB()</code> att anropas.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

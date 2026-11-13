@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "Vrid den mobila enheten 90° och kontrollera att innehållet anpassar sig (eller går att anpassa) efter orienteringen, alltså att textriktningen ändras så att den följer orienteringen."
+  ],
+  "exceptions": [
+    "En viss orientering är nödvändig, som för innehåll som till sin natur är avlångt (till exempel en pianoapp).",
+    "Användaren har valt att låsa orienteringen i sin mobila enhet."
+  ],
+  "info": [
+    {
+      "type": "text",
+      "text": "Webbläsaren i mobila enheter känner av orienteringen och anpassar visningsriktningen automatiskt. Problem kan ändå uppstå om webbplatsen inte är tillräckligt responsiv, så att delar av innehållet hamnar utanför det synliga området vid en viss orientering."
+    }
+  ]
+}

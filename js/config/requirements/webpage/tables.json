@@ -1,0 +1,28 @@
+{
+  "methods": [
+    "Leta efter innehåll som <em>borde vara</em> uppmärkt som tabeller och efter innehåll som <em>är</em> uppmärkt som tabeller."
+  ],
+  "tools": [
+    {
+      "tool": "WAVE",
+      "absent": {
+        "tab": "Details",
+        "section": "Structural Elements",
+        "text": "Layout table"
+      },
+      "present": {
+        "tab": "Details",
+        "section": "Structural Elements",
+        "text": "Data table",
+        "icon": {
+          "src": "wave-table.png",
+          "alt": "tre rader med tre kolumner mot blå bakgrund"
+        }
+      }
+    },
+    {
+      "tool": "DevTool",
+      "tab": "Elements"
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>ControllerBase – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40em;
+      }
+      table {
+        width: 100%;
+      }
+      col.field {
+        width: 4em;
+      }
+
+      .uml-diagram {
+        width: 49rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Controllerklasser</a></li>
+          <li><strong lang="en">ControllerBase</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">ControllerBase</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-handle"><code lang="en">handle()</code></a>
+          </li>
+          <li>
+            <a href="#m-prepare"><code lang="en">prepare()</code></a>
+          </li>
+          <li>
+            <a href="#m--action"><code lang="en">_action()</code></a>
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Basklass för <i lang="en">controllers</i>, med gemensamma funktioner.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/controller/ControllerBase.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/controller/ControllerBase.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 490 390" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--ControllerBase-->
+          <use
+            xlink:href="ControllerBase.svg#ControllerBase"
+            x="190"
+            y="175"
+            class="highlight"
+          />
+
+          <line x1="190" y1="191" x2="151" y2="191" class="composition" />
+          <path d="M321,186 h20 v-95 h20" class="composition" />
+          <path d="M321,197 h20 v93 h20" class="composition" />
+
+          <g transform="translate(190, 175)"></g>
+
+          <!--AppContext-->
+          <use xlink:href="../common/AppContext.svg#AppContext" x="360" y="0" />
+
+          <!--Model-->
+          <use xlink:href="../model/Model.svg#Model" x="0" y="30" />
+
+          <!--ViewBase-->
+          <use xlink:href="../view/ViewBase.svg#ViewBase" x="360" y="200" />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">ControllerBase</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">ControllerBase</span>(<span class="var">model</span>, <span class="var">view</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">model</code></dt>
+          <dd>Modellobjekt.</dd>
+
+          <dt><code lang="en">view</code></dt>
+          <dd>Vyinstans.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <p>
+          Basklassen har bara fält som subklasser ska ha tillgång till. Eftersom
+          JavaScript inte har stöd för <i lang="en">protected</i> måste klassen
+          använda publika fält (då subklasser inte kommer åt privata fält) och
+          använder namnkonventionen med ett inledande understreck för att
+          indikera att ”skyddade” fält och metoder inte är avsedda att användas
+          externt.
+        </p>
+
+        <dl class="properties">
+          <dt><code lang="en">_context</code></dt>
+          <dd>Applikationskontexten.</dd>
+
+          <dt class="readonly"><code lang="en">_model</code></dt>
+          <dd>Modellobjektet.</dd>
+
+          <dt><code lang="en">_persistPath</code></dt>
+          <dd>
+            För subklasser: styr om ”sidan” ska sparas som senast besökta sökväg
+            i inställ&shy;ningslagret. (Standardvärdet är
+            <code lang="en" class="js literal">false</code>.)
+          </dd>
+
+          <dt class="readonly"><code lang="en">_view</code></dt>
+          <dd>Vyinstansen.</dd>
+        </dl>
+      </section>
+
+      <!--handle()-->
+      <section>
+        <h2 id="m-handle"><code lang="en">handle()</code></h2>
+
+        <p>
+          Hanterar användarinteraktionen mellan modellen och vyn. Controllern
+          registrerar en observatör på vyn och meddelas när händelser inträffar
+          i vyn – till exempel formulärinskick, knapptryckning, ändringar av
+          värden i formulärfält eller klick på länkar till andra ”sidor” i
+          granskningsfunktionen.
+        </p>
+
+        <p>
+          Metoden hanterar också navigeringshistoriken: den registrerar ”sidan”
+          så att den får en egen post i historiken, och hanterar
+          navigeringshändelser när användaren använder framåt- eller
+          bakåtknappen i webbläsaren för att navigera mellan besökta sidor.
+        </p>
+
+        <p>
+          Metoden <code lang="en">handle()</code> anropas av fördelaren (<code
+            lang="en"
+            >Dispatcher</code
+          >) och hanterar interaktionen tills en händelse inträffar som kan
+          innebära ett sidbyte. Den återlämnar då kontrollen till fördelaren som
+          avgör om det är fråga om ett sidbyte eller inte. Om det inte ska ska
+          något sidbyte anropar fördelaren <code lang="en">handle()</code> på
+          nytt för att återuppta hanteringen av användar&shy;interaktionen.
+          Metoden kan allstå anropas upprepade gånger per besök till en given
+          sida.
+        </p>
+
+        <p>
+          Om ett statusmeddelande finns i applikationskontexten visar
+          <code lang="en">handle()</code> det (och tar bort det ur kontexten).
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">handle</span>(<span class="var">context</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Ett löfte som infrias med den eventuellt modifierade
+          applikationskontexten vid vissa vyhändelser eller vid
+          historiknavigering.
+        </p>
+      </section>
+
+      <!--prepare()-->
+      <section>
+        <h2 id="m-prepare"><code lang="en">prepare()</code></h2>
+
+        <p>
+          Förbereder sidvisning. Basklassmetoden gör ingenting, men härledda
+          klasser behöver vanligen ersätta den.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">await</span> <span class="ident">prepare</span>(<span class="var">context</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">context</code></dt>
+          <dd>Applikationskontext.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när förberedelserna är klara.</p>
+      </section>
+
+      <!--_action()-->
+      <section>
+        <h2 id="m--action"><code lang="en">_action()</code></h2>
+
+        <p>
+          Registrerar en åtgärdshanterare i en subklass. En åtgärd är kopplad
+          till en knapp i ett formulär. Ett klick på en knapp med
+          <code lang="en" class="html attr">value=<span>"save"</span></code>
+          genererar en vyhändelse med <code lang="en">action</code> satt till
+          <code lang="en" class="js literal">"save"</code>, vilket i sin tur
+          innebär att controllerbasklassen anropar den åtgärds&shy;hanterare som
+          är registrerad för åtgärden ”<code lang="en">save</code>”.
+        </p>
+
+        <p>
+          Åtgärdshanteraren anropas med det händelseinformationsobjekt som vyn
+          anropar registrerade observatörer med (se
+          <a href="../view/ViewBase.html"><code lang="en">ViewBase</code></a>
+          för detaljer).
+        </p>
+
+        <p class="note">
+          Detta är en ”skyddad” metod som bara är avsedd att anropas från
+          subklasser.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">_action</span>(<span class="var">name</span>, <span class="var">action</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">name</code></dt>
+          <dd>
+            Namn på åtgärden:
+            <code lang="en" class="html attr">value</code>-attributvärdet för en
+            knapp i formuläret.
+          </dd>
+
+          <dt><code lang="en">action</code></dt>
+          <dd>
+            Hanterarfunktion som anropas med händelseinformation från vyn.
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../common/AppContext.html"
+              ><code lang="en">AppContext</code></a
+            >
+          </li>
+          <li>
+            <a href="../Dispatcher.html"><code lang="en">Dispatcher</code></a>
+          </li>
+          <li>
+            <a href="../model/Model.html"><code lang="en">Model</code></a>
+          </li>
+          <li>
+            <a href="../view/ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>

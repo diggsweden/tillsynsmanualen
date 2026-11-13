@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kontrollklasser – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 35rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Modellklasser</a></li>
+          <li><strong>Kontrollklasser</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">Kontrollklasser</h1>
+
+      <p>
+        Klassen <code lang="en">Check</code> representerar en kontoll i ett krav
+        som ingår i ett stickprov i en granskning i ett granskningsärende. En
+        kontroll kan vara icke tillämplig, ogranskad, godkänd eller underkänd.
+        Om den är underkänd har den en tillhörande observation som beskiver
+        varför den är underkänd och, eventuellt, information om en tillhörande
+        skärmavbildning som illustrerar bristen.
+      </p>
+
+      <p>
+        Att en kontroll inte är tillämplig kan inträffa om den ingår i ett
+        villkor i konfigurationen. Granskaren tar ställning till om villkoret är
+        uppfyllt och väljer ”<samp>Ja</samp>” eller ”<samp>Nej</samp>” (det
+        finns också härledda villkor som utvärderas automatiskt). Innan
+        granskaren tagit ställning har alla kontroller i villkoret obestämd
+        tillämplighet. När granskaren har tagit ställning blir eventuella
+        kontroller i den valda grenen aktiverade och tillämpliga, medan
+        eventuella kontroller i den andra grenen blir avaktiverade och icke
+        tillämpliga.
+      </p>
+
+      <p>
+        Basklassen <code lang="en">Check</code> har tre subklasser:
+        <code lang="en">DerivedCheck</code> (härledd kontroll),
+        <code lang="en">MultipleCheck</code> (multipel kontroll) och
+        <code lang="en">SingleCheck</code> (singulär kontroll).
+      </p>
+
+      <p>
+        Singulära kontroller är vanligast och består av ett enda påstående som
+        granskaren antingen godkänner eller underkänner.
+      </p>
+
+      <p>
+        En multipel kontroll består av två eller fler alternativa påståenden. Om
+        något alternativ är godkänt är kontrollen godkänd. Bara om alla
+        alternativ är underkända blir alltså kontrollen som helhet underkänd och
+        kan ha en tillhörande observation.
+      </p>
+
+      <p>
+        En härledd kontroll styrs inte manuellt av granskaren, utan dess status
+        härleds från andra krav i samma stickprov.
+      </p>
+
+      <p>
+        Fabriksklassen <code lang="en">CheckFactory</code> återskapar en instans
+        av en kontrollklass från ett dataobjekt som hämtats från databasen eller
+        lästs in från en JSON-fil.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/model/checks.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/model/checks.test.js</code></dd>
+
+        <dt>Objektlager</dt>
+        <dd><code>checks</code></dd>
+
+        <dt>Primärnyckel</dt>
+        <dd><code>key</code></dd>
+
+        <dt>Index/nyckel</dt>
+        <dd><code>by_req</code> / <code>reqID</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 350 410" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="stroked"
+              id="dependency"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M0,0 8,4 0,8" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <g transform="translate(120, 0)">
+            <!--Requirement-->
+            <g class="external">
+              <rect x="0.5" y="0.5" width="100" height="22" />
+              <text x="50" y="10" class="class">Requirement</text>
+              <line x1="1" y1="12" x2="100" y2="12" />
+            </g>
+
+            <line x1="50" y1="23" x2="50" y2="54" class="composition" />
+
+            <!--Check-->
+            <use xlink:href="Check.svg#Check-no-details" x="0" y="55" />
+          </g>
+
+          <g transform="translate(0, 235)">
+            <!--DerivedCheck-->
+            <use
+              xlink:href="DerivedCheck.svg#DerivedCheck-no-details"
+              x="0"
+              y="0"
+            />
+
+            <path d="M50,0 v-14 h95 v-13" class="inheritance" />
+
+            <!--MultipleCheck-->
+            <use
+              xlink:href="MultipleCheck.svg#MultipleCheck-no-details"
+              x="120"
+              y="0"
+            />
+
+            <line x1="170" y1="0" x2="170" y2="-27" class="inheritance" />
+
+            <!--SingleCheck-->
+            <use
+              xlink:href="SingleCheck.svg#SingleCheck-no-details"
+              x="245"
+              y="0"
+            />
+
+            <path d="M295,0 v-14 h-100 v-13" class="inheritance" />
+          </g>
+
+          <!--CheckFactory-->
+          <use
+            xlink:href="CheckFactory.svg#CheckFactory-no-details"
+            x="120"
+            y="380"
+          />
+
+          <path d="M145,380 v-26 h-95 v-16" class="dependency" />
+          <line x1="170" y1="380" x2="170" y2="298" class="dependency" />
+          <path d="M200,380 v-26 h95 v-86" class="dependency" />
+        </svg>
+
+        <figcaption>Klassdiagram för kontrollklasser.</figcaption>
+      </figure>
+
+      <!--Se även-->
+      <section>
+        <h2>Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="Check.html"><code lang="en">Check</code></a>
+          </li>
+          <li>
+            <a href="CheckFactory.html"><code lang="en">CheckFactory</code></a>
+          </li>
+          <li>
+            <a href="DerivedCheck.html"><code lang="en">DerivedCheck</code></a>
+          </li>
+          <li>
+            <a href="MultipleCheck.html"
+              ><code lang="en">MultipleCheck</code></a
+            >
+          </li>
+          <li>
+            <a href="Requirement.html"><code lang="en">Requirement</code></a>
+          </li>
+          <li>
+            <a href="SingleCheck.html"><code lang="en">SingleCheck</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

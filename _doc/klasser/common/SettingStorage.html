@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>SettingStorage – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      .uml-diagram {
+        width: 26rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Hjälpklasser</a></li>
+          <li><strong lang="en">SettingStorage</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">SettingStorage</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li>
+            <a href="#ctor"><span>Konstruktor</span></a>
+          </li>
+          <li>
+            <a href="#m-clear"><code lang="en">clear()</code></a>
+          </li>
+          <li>
+            <a href="#m-contains"><code lang="en">contains()</code></a>
+          </li>
+          <li>
+            <a href="#m-read"><code lang="en">read()</code></a>
+          </li>
+          <li>
+            <a href="#m-remove"><code lang="en">remove()</code></a>
+          </li>
+          <li>
+            <a href="#m-write"><code lang="en">write()</code></a>
+          </li>
+          <li>
+            <a href="#descr"><span>Beskrivning</span></a>
+          </li>
+          <li>
+            <a href="#see"><span>Se även</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        Klassen <code lang="en">SettingStorage</code> hanterar läsning och
+        skrivning mot <i lang="en">web storage</i>, det vill säga webbläsarens
+        lokala lagringsutrymme (<code lang="en">localStorage</code>) och
+        sessionslager (<code lang="en">sessionStorage</code>).
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/common/SettingStorage.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/common/SettingStorage.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 260 80" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+          </defs>
+
+          <!--SettingStorage-->
+          <use
+            xlink:href="SettingStorage.svg#SettingStorage"
+            x="0"
+            y="0"
+            class="highlight"
+          />
+
+          <!--Storage-->
+          <line x1="101" y1="31" x2="140" y2="31" class="composition" />
+          <use
+            xlink:href="../Storage.svg#Storage"
+            x="140"
+            y="0"
+            class="external"
+          />
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">SettingStorage</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">SettingStorage</span>()
+<span class="keyword">new</span> <span class="ident">SettingStorage</span>(<span class="var">storage</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt class="optional"><code lang="en">storage</code></dt>
+          <dd>
+            Lagringsutrymme att använda; standardvärdet är
+            <code lang="en">localStorage</code>.
+          </dd>
+        </dl>
+      </section>
+
+      <!--clear()-->
+      <section>
+        <h2 id="m-clear"><code lang="en">clear()</code></h2>
+
+        <p>
+          Raderarar alla nycklar i lagringsutrymmet som rör
+          <cite>Tillsynsmanualen</cite>.
+        </p>
+
+        <p class="note">
+          Jämför <code lang="en">Storage.clear()</code> som raderar
+          <em>alla</em> nycklar i lagringsutrymmet för den aktuella domänen.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">clear</span>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Ett fel uppstod vid radering i lagringsutrymmet.</dd>
+        </dl>
+      </section>
+
+      <!--contains()-->
+      <section>
+        <h2 id="m-contains"><code lang="en">contains()</code></h2>
+
+        <p>Kontrollerar om angivna nycklar finns i lagringsutrymmet.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">contains</span>(<span class="var">key1</span>, …, <span class="var">keyN</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">keyN</code></dt>
+          <dd>En eller flera lagringsnycklar att söka efter.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          <code lang="en" class="js literal">true</code> om <em>samtliga</em>
+          angivna nycklar finns i lagringsutrymmet, annars
+          <code lang="en" class="js literal">false</code>.
+        </p>
+      </section>
+
+      <!--read()-->
+      <section>
+        <h2 id="m-read"><code lang="en">read()</code></h2>
+
+        <p>
+          Läser angiven nyckel i lagringsutrymmet. Se
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem"
+            lang="en"
+            rel="external"
+            ><code>Storage.getItem()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">read</span>(<span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Lagringsnyckel att läsa (utan namnprefixet).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det lagrade värdet för angiven nyckel, eller
+          <code lang="en" class="js keyword">null</code> om nyckeln inte finns i
+          lagringsutrymmet.
+        </p>
+      </section>
+
+      <!--remove()-->
+      <section>
+        <h2 id="m-remove"><code lang="en">remove()</code></h2>
+
+        <p>
+          Raderar angiven nyckel ur lagringsutrymmet. Se
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem"
+            lang="en"
+            rel="external"
+            ><code>Storage.removeItem()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">remove</span>(<span class="var">key</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Lagringsnyckel att radera (utan namnprefixet).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>
+          Det raderade nyckelns värde, eller
+          <code lang="en" class="js keyword">null</code> om nyckeln inte fanns i
+          lagringsutrymmet.
+        </p>
+      </section>
+
+      <!--write()-->
+      <section>
+        <h2 id="m-write"><code lang="en">write()</code></h2>
+
+        <p>
+          Lägger till eller uppdaterar angiven nyckel i lagringsutrymmet. Se
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem"
+            lang="en"
+            rel="external"
+            ><code>Storage.setItem()</code></a
+          >.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="ident">write</span>(<span class="var">key</span>, <span class="var">value</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">key</code></dt>
+          <dd>Lagringsnyckel att skriva till (utan namnprefixet).</dd>
+
+          <dt><code lang="en">value</code></dt>
+          <dd>Värde att lagra för den angivna nyckeln.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+
+        <h3>Undantag</h3>
+
+        <dl class="exceptions">
+          <dt><code lang="en">TypeError</code></dt>
+          <dd>Ett fel uppstod vid skrivning till lagringsutrymmet.</dd>
+        </dl>
+      </section>
+
+      <!--Beskrivning-->
+      <section>
+        <h2 id="descr">Beskrivning</h2>
+
+        <p>
+          <i lang="en">Web storage</i> är tacknämligt okomplicerat, men den här
+          klassen fyller ändå en viss funktion genom att se till att alla värden
+          applikationen lagrar har ett gemensamt namnprefix för att undvika
+          eventuella konflikter.
+        </p>
+
+        <table>
+          <caption>
+            Inställningar i
+            <code lang="en">localStorage</code>
+            (utan namnprefixet ”<code>digg.manual</code>”)
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Nyckel</th>
+              <th scope="col">Värde</th>
+              <th scope="col">Exempel</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><code>caseDir</code></td>
+              <td>Sökväg för ärendekatalog</td>
+              <td><samp>C:\Documents\Audits</samp></td>
+            </tr>
+
+            <tr>
+              <td><code>consent</code></td>
+              <td>Tidpunkt för samtycke till lokal lagring</td>
+              <td><samp>1656901275581</samp></td>
+            </tr>
+
+            <tr>
+              <td><code>lastPath</code></td>
+              <td>Begäran för senast besökta sida</td>
+              <td><samp lang="en">?page=list&amp;type=case</samp></td>
+            </tr>
+
+            <tr>
+              <td><code>mode</code></td>
+              <td>Visningsläge: förenklat/avancerat</td>
+              <td><samp lang="en">advanced</samp></td>
+            </tr>
+
+            <tr>
+              <td><code>styleFocus</code></td>
+              <td>Tillåt formgivning av fokusmarkör</td>
+              <td><samp lang="en">false</samp></td>
+            </tr>
+
+            <tr>
+              <td><code>styleFont</code></td>
+              <td>Tillåt formgivning av teckensnitt</td>
+              <td><samp lang="en">true</samp></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li><a href="../db/">Databasgränssnitt</a></li>
+          <li>
+            <a href="FileStorage.html"><code lang="en">FileStorage</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+  </body>
+</html>

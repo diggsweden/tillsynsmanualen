@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>AuditDisplayView – Tillsynsmanual</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="../../../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../../css/manual.css" />
+    <link rel="stylesheet" href="../../doc.css" />
+
+    <style>
+      section {
+        max-width: 40rem;
+      }
+      .uml-diagram {
+        width: 56rem;
+      }
+    </style>
+  </head>
+
+  <body class="wide">
+    <header>
+      <a href="#start-of-content">Till innehållet</a>
+
+      <svg role="img" aria-labelledby="digg-title" viewBox="0 0 3612 602">
+        <title id="digg-title">
+          DIGG - Myndigheten för digital förvaltning
+        </title>
+
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-d2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-d2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i1"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i1"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i2"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i2"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-i3"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-i3"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g11"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g11"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g12"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g12"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g21"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g21"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-logo-g22"
+          width="1696"
+          height="556"
+          x="0"
+          y="23"
+          class="logo-g22"
+        />
+        <use
+          xlink:href="../../../img/digg-logo.svg#digg-name"
+          width="1826"
+          height="478"
+          x="1786"
+          y="61"
+          class="logo-text"
+        />
+      </svg>
+
+      <p>Förvaltning av Tillsynsmanualen</p>
+
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="../../../">Start</a></li>
+          <li><a href="../.././">Dokumentation</a></li>
+          <li><a href="../../granskning.html">Granskningsfunktionen</a></li>
+          <li><a href="../">Klasser</a></li>
+          <li><a href="./">Vyklasser</a></li>
+          <li><strong lang="en">AuditDisplayView</strong></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <h1 tabindex="-1" id="start-of-content">
+        <code lang="en">AuditDisplayView</code>
+      </h1>
+
+      <nav aria-label="Innehåll" class="page-menu">
+        <ul id="content-menu">
+          <li><a href="#ctor">Konstruktor</a></li>
+          <li><a href="#properties">Fält</a></li>
+          <li>
+            <a href="#m-activate"><code lang="en">activate()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-document"><code lang="en">addDocument()</code></a>
+          </li>
+          <li>
+            <a href="#m-add-sample"><code lang="en">addSample()</code></a>
+          </li>
+          <li>
+            <a href="#m-close"><code lang="en">close()</code></a>
+          </li>
+          <li>
+            <a href="#m-delete-document"
+              ><code lang="en">deleteDocument()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-enable-injunctions"
+              ><code lang="en">enableInjunctions()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-open"><code lang="en">open()</code></a>
+          </li>
+          <li>
+            <a href="#m-set-audit-link"
+              ><code lang="en">setAuditLink()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-audit-progress"
+              ><code lang="en">setAuditProgress()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-finished-mode"
+              ><code lang="en">setFinishedMode()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-sample-link"
+              ><code lang="en">setSampleLink()</code></a
+            >
+          </li>
+          <li>
+            <a href="#m-set-sample-progress"
+              ><code lang="en">setSampleProgress()</code></a
+            >
+          </li>
+          <li><a href="#see">Se även</a></li>
+        </ul>
+      </nav>
+
+      <p>
+        Vy för presentation av en granskning. Vyinnehållet skiljer sig mellan
+        pågående och avslutade granskningar. För en pågående granskning finns
+        två förloppsindikatorer (urval och granskning), urvalslistan och två
+        knappar vars text och funktion varierar beroende på var i urvals- eller
+        granskningsprocessen granskningen befinner sig. För en avslutad
+        granskning finns i stället urvalslistan, en dokumentlista och – i
+        avancerat visningsläge – ett formulär för att skapa påpekanden och
+        förelägganden i granskningen.
+      </p>
+
+      <p>
+        <code lang="en">AuditDisplayView</code> ärver från
+        <code lang="en">ViewBase</code>.
+      </p>
+
+      <dl class="src">
+        <dt>Källkod</dt>
+        <dd><code>js/view/AuditDisplayView.js</code></dd>
+
+        <dt>Enhetstester</dt>
+        <dd><code>_tests/view/AuditDisplayView.test.js</code></dd>
+      </dl>
+
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 560 470" class="class uml-diagram">
+          <defs>
+            <marker
+              id="composition"
+              markerWidth="10"
+              markerHeight="6"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="0"
+              refY="3"
+              viewBox="0 0 10 6"
+            >
+              <path d="M0,3 5,0 10,3 5,6 z" />
+            </marker>
+
+            <marker
+              class="hollow"
+              id="inheritance"
+              markerWidth="8"
+              markerHeight="8"
+              markerUnits="strokeWidth"
+              orient="auto"
+              refX="8"
+              refY="4"
+              viewBox="0 0 8 8"
+            >
+              <path d="M1,0 8,4 1,8 Z" />
+            </marker>
+          </defs>
+
+          <!--AuditDisplayView-->
+          <g transform="translate(160, 0)">
+            <use
+              xlink:href="AuditDisplayView.svg#AuditDisplayView"
+              x="0"
+              y="0"
+              class="highlight"
+            />
+
+            <line x1="191" y1="11" x2="230" y2="11" class="composition" />
+            <line x1="95" y1="243" x2="95" y2="270" class="inheritance" />
+
+            <!--HTMLElement-->
+            <use
+              xlink:href="../HTMLElement.svg#HTMLElement"
+              x="230"
+              y="0"
+              class="external"
+            />
+          </g>
+
+          <g transform="translate(0, 270)">
+            <!--ViewBase-->
+            <use xlink:href="ViewBase.svg#ViewBase" x="190" y="0" />
+
+            <line x1="190" y1="10" x2="149" y2="10" class="composition" />
+            <path d="M190,38 h-20 v98 h-20" class="composition" />
+            <line x1="321" y1="21" x2="360" y2="21" class="composition" />
+            <line x1="321" y1="96" x2="360" y2="96" class="composition" />
+
+            <!--ResourceLoader-->
+            <use
+              xlink:href="../common/ResourceLoader.svg#ResourceLoader"
+              x="30"
+              y="0"
+            />
+
+            <!--BreadcrumbTrail-->
+            <use
+              xlink:href="BreadcrumbTrail.svg#BreadcrumbTrail"
+              x="0"
+              y="80"
+            />
+
+            <g transform="translate(360, 0)">
+              <!--EventListenerList-->
+              <use
+                xlink:href="../common/EventListenerList.svg#EventListenerList"
+                x="0"
+                y="0"
+              />
+
+              <!--AutoContentMenu-->
+              <use
+                xlink:href="AutoContentMenu.svg#AutoContentMenu"
+                x="0"
+                y="80"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <figcaption>
+          Klassdiagram för <code lang="en">AuditDisplayView</code>.
+        </figcaption>
+      </figure>
+
+      <!--Konstruktor-->
+      <section>
+        <h2 id="ctor">Konstruktor</h2>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><span class="keyword">new</span> <span class="ident">AuditDisplayView</span>(<span class="var">breadcrumbs</span>, <span class="var">listeners</span>, <span class="var">loader</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">breadcrumbs</code></dt>
+          <dd>Länkstig (”brödsmulor”).</dd>
+
+          <dt><code lang="en">listeners</code></dt>
+          <dd>Händelselyssnarlista.</dd>
+
+          <dt><code lang="en">loader</code></dt>
+          <dd>Resursladdare.</dd>
+        </dl>
+      </section>
+
+      <!--Fält-->
+      <section>
+        <h2 id="properties">Fält</h2>
+
+        <dl class="properties">
+          <dt><code lang="en">advancedMode</code></dt>
+          <dd>
+            Utökar basklassfältet genom att ta bort formuläret i förenklat
+            visningsläge.
+          </dd>
+
+          <dt><code lang="en">appVersion</code></dt>
+          <dd>Versionsnummer för mobil applikation. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">componentCount</code></dt>
+          <dd>Antalet komponenter i stickprovet.</dd>
+
+          <dt><code lang="en">date</code></dt>
+          <dd>
+            Sista åtgärdsdatum i formuläret för att skapa påpekande eller
+            föreläggande.
+          </dd>
+
+          <dt><code lang="en">documentCount</code></dt>
+          <dd>Antalet dokument i stickprovet.</dd>
+
+          <dt><code lang="en">heading</code></dt>
+          <dd>Sidrubrik. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">minDate</code></dt>
+          <dd>Tidigaste tillåtna åtgärdsdatum. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">screenCount</code></dt>
+          <dd>Antalet appvyer i stickprovet.</dd>
+
+          <dt><code lang="en">service</code></dt>
+          <dd>Typ av digital service.. (Endast skrivning.)</dd>
+
+          <dt><code lang="en">webpageCount</code></dt>
+          <dd>Antalet webbsidor i stickprovet.</dd>
+        </dl>
+      </section>
+
+      <!--activate()-->
+      <section>
+        <h2 id="m-activate"><code lang="en">activate()</code></h2>
+
+        <p>
+          Utökar
+          <a href="ViewBase.html#m-activate"
+            ><code lang="en">ViewBase.activate()</code></a
+          >
+          genom att lägga till händelselyssnare på dokument&shy;länkarna.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">activate</code>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addDocument()-->
+      <section>
+        <h2 id="m-add-document"><code lang="en">addDocument()</code></h2>
+
+        <p>
+          Lägger till en visningslänk till ett dokument i listan. Metoden klonar
+          en mall (<code lang="en" class="html tag">&lt;template&gt;</code>) i
+          källkoden, populerar det resulterande dokumentfragmentet och infogar
+          det sist i listan med dokument.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">addDocument</code>(<span class="var">icon</span>, <span class="var">name</span>, <span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">icon</code></dt>
+          <dd>
+            Identifierare för dokumenttypsikon i <code>/img/ikoner.svg</code>:
+            <code lang="en" class="js literal">"document"</code>
+            (gransknings&shy;protokoll),
+            <code lang="en" class="js literal">"remarks"</code> (påpekande)
+            eller
+            <code lang="en" class="js literal">"injunction"</code>
+            (föreläggande).
+          </dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Dokumentnamn.</dd>
+
+          <dt><code lang="en">id</code></dt>
+          <dd>Dokumentidentifierare (sträng).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--addSample()-->
+      <section>
+        <h2 id="m-add-sample"><code lang="en">addSample()</code></h2>
+
+        <p>
+          Lägger till ett stickprov i urvalslistan. Metoden klonar en mall
+          (<code lang="en" class="html tag">&lt;template&gt;</code>) i
+          källkoden, populerar det resulterande dokumentfragmentet och infogar
+          det sist i urvalslistan.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="js"><code lang="en"><code class="ident">addSample</code>(
+  <span class="var">auditID</span>,
+  <span class="var">sampleID</span>,
+  <span class="var">progress</span>,
+  <span class="var">category</span>,
+  <span class="var">connections</span>,
+  <span class="var">type</span>,
+  <span class="var">name</span>,
+  <span class="var">url</span>,
+  <span class="var">note</span>
+)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">auditID</code></dt>
+          <dd>Granskningsidentitet.</dd>
+
+          <dt><code lang="en">sampleID</code></dt>
+          <dd>Stickprovsidentitet.</dd>
+
+          <dt><code lang="en">progress</code></dt>
+          <dd>
+            Stickprovets granskningsförlopp, till exempel
+            <code class="js literal">"0 granskade"</code>,
+            <code class="js literal">"13 av 42 granskade"</code> eller
+            <code class="js literal">"Klar"</code>.
+          </dd>
+
+          <dt><code lang="en">category</code></dt>
+          <dd>Urvalskategori.</dd>
+
+          <dt><code lang="en">connections</code></dt>
+          <dd>
+            För en komponent: antal stickprov som innehåller komponenten. För
+            ett stickprov: antal ingående komponenter.
+          </dd>
+
+          <dt><code lang="en">type</code></dt>
+          <dd>
+            Stickprovstyp:
+            <code lang="en" class="js literal">"component"</code>,
+            <code lang="en" class="js literal">"document"</code>,
+            <code lang="en" class="js literal">"screen"</code> eller
+            <code lang="en" class="js literal">"webpage"</code>.
+          </dd>
+
+          <dt><code lang="en">name</code></dt>
+          <dd>Stickprovets namn eller titel.</dd>
+
+          <dt><code lang="en">url</code></dt>
+          <dd>Eventuell URL till stickprovet.</dd>
+
+          <dt><code lang="en">note</code></dt>
+          <dd>Eventuell anteckning från urvalet.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--close()-->
+      <section>
+        <h2 id="m-close"><code lang="en">close()</code></h2>
+
+        <p>
+          Utökar
+          <a href="ViewBase.html#m-close"
+            ><code lang="en">ViewBase.close()</code></a
+          >
+          genom att ta bort eventuell klass för typ av digital service, som
+          satts av vyn, från artikelelementet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">close</code>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--deleteDocument()-->
+      <section>
+        <h2 id="m-delete-document"><code lang="en">deleteDocument()</code></h2>
+
+        <p>Tar bort ett dokument ur listan.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">deleteDocument</code>(<span class="var">id</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">id</code></dt>
+          <dd>Dokumentidentifierare (sträng).</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--enableInjunctions()-->
+      <section>
+        <h2 id="m-enable-injunctions">
+          <code lang="en">enableInjunctions()</code>
+        </h2>
+
+        <p>Aktiverar eller avaktiverar knappen för att skapa föreläggande.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">enableInjunctions</code>(<span class="var">flag</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">flag</code></dt>
+          <dd>Flagga som anger om knappen ska vara aktiv.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--open()-->
+      <section>
+        <h2 id="m-open"><code lang="en">open()</code></h2>
+
+        <p>
+          Utökar
+          <a href="ViewBase.html#m-open"
+            ><code lang="en">ViewBase.open()</code></a
+          >. Om formuläret har förenklat visningsläge raderar metoden formuläret
+          för att skapa påpe&shy;kanden och förelägganden.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="keyword">await</code> <code class="ident">open</code>()</code></pre>
+
+        <h3>Returvärde</h3>
+
+        <p>Ett löfte som infrias när sidinnehållet laddats.</p>
+      </section>
+
+      <!--setAuditLink()-->
+      <section>
+        <h2 id="m-set-audit-link"><code lang="en">setAuditLink()</code></h2>
+
+        <p>
+          Sätter länkadress och textinnehåll i länken för att påbörja eller
+          fortsätta granskning.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">setAuditLink</code>(<span class="var">url</span>, <span class="var">text</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>
+            Länkadress. Om värdet är
+            <code lang="en" class="js keyword">null</code> tar metoden bort
+            <code class="html attr">href</code>-attributet från länken.
+          </dd>
+
+          <dt><code lang="en">text</code></dt>
+          <dd>Text att visa i länken.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setAuditProgress()-->
+      <section>
+        <h2 id="m-set-audit-progress">
+          <code lang="en">setAuditProgress()</code>
+        </h2>
+
+        <p>Uppdaterar förloppsindikatorn för granskning.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">setAuditProgress</code>(<span class="var">value</span>, <span class="var">max</span>, <span class="var">label</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Aktuellt värde (antal färdiggranskade stickprov).</dd>
+
+          <dt><code lang="en">max</code></dt>
+          <dd>Maximalt värde (antal stickprov i urvalet).</dd>
+
+          <dt><code lang="en">label</code></dt>
+          <dd>Ledtext att förmedla till hjälpmedel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setFinishedMode()-->
+      <section>
+        <h2 id="m-set-finished-mode">
+          <code lang="en">setFinishedMode()</code>
+        </h2>
+
+        <p>Sätter vyns visningsläge till ”pågående” eller ”slutfört”.</p>
+
+        <p>I ”pågående” läge tar metoden bort dokumentlistan.</p>
+
+        <p>
+          I ”slutfört” läge tar metoden bort förloppsindikatorerna samt urvals-
+          och granksningslänkarna. Om granskningen är helt godkänd tar den också
+          bort formuläret för att skapa påpekanden och förlägganden.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">setFinishedMode</code>(<span class="var">flag</span>, <span class="var">failed</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">flag</code></dt>
+          <dd>Flagga som anger om vyn ska sättas i ”slutfört” läge.</dd>
+
+          <dt><code lang="en">failed</code></dt>
+          <dd>
+            Flagga som anger om granskningen är underkänd (används bara i
+            ”slutfört” läge).
+          </dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSampleLink()-->
+      <section>
+        <h2 id="m-set-sample-link"><code lang="en">setSampleLink()</code></h2>
+
+        <p>
+          Sätter länkadress och textinnehåll i länken för att påbörja, fortsätta
+          eller komplettera urvalet.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">setSampleLink</code>(<span class="var">url</span>, <span class="var">text</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">url</code></dt>
+          <dd>Länkadress.</dd>
+
+          <dt><code lang="en">text</code></dt>
+          <dd>Text att visa i länken.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--setSampleProgress()-->
+      <section>
+        <h2 id="m-set-sample-progress">
+          <code lang="en">setSampleProgress()</code>
+        </h2>
+
+        <p>Uppdaterar förloppsindikatorn för urval.</p>
+
+        <h3>Syntax</h3>
+
+        <pre
+          class="js"
+        ><code lang="en"><code class="ident">setSampleProgress</code>(<span class="var">value</span>, <span class="var">max</span>, <span class="var">label</span>)</code></pre>
+
+        <h3>Parametrar</h3>
+
+        <dl class="params">
+          <dt><code lang="en">value</code></dt>
+          <dd>Aktuellt värde (antal kategorier med minst ett stickprov).</dd>
+
+          <dt><code lang="en">max</code></dt>
+          <dd>Maximalt värde (totalt antal kategorier).</dd>
+
+          <dt><code lang="en">label</code></dt>
+          <dd>Ledtext att förmedla till hjälpmedel.</dd>
+        </dl>
+
+        <h3>Returvärde</h3>
+
+        <p>Inget (<code lang="en" class="js keyword">undefined</code>).</p>
+      </section>
+
+      <!--Se även-->
+      <section>
+        <h2 id="see">Se även</h2>
+
+        <ul class="toc">
+          <li>
+            <a href="../audit.module.html"
+              ><code lang="en">audit.module.js</code></a
+            >
+          </li>
+          <li>
+            <a href="BreadcrumbTrail.html"
+              ><code lang="en">BreadcrumbTrail</code></a
+            >
+          </li>
+          <li>
+            <a href="../controller/AuditDisplayController.html"
+              ><code lang="en">AuditDisplayController</code></a
+            >
+          </li>
+          <li>
+            <a href="AuditEditView.html"
+              ><code lang="en">AuditEditView</code></a
+            >
+          </li>
+          <li>
+            <a href="AuditStartView.html"
+              ><code lang="en">AuditStartView</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/EventListenerList.html"
+              ><code lang="en">EventListenerList</code></a
+            >
+          </li>
+          <li>
+            <a href="../common/ResourceLoader.html"
+              ><code lang="en">ResourceLoader</code></a
+            >
+          </li>
+          <li>
+            <a href="ViewBase.html"><code lang="en">ViewBase</code></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        <p>Myndigheten för digital förvaltning</p>
+      </address>
+
+      <ul>
+        <li>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.sv"
+            rel="license"
+          >
+            <span><span lang="en">Creative Commons</span></span>
+            <span title="Erkännande">BY</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="../../../js/preferences.module.js" type="module"></script>
+    <script src="../../../js/menu/menu.module.js" type="module"></script>
+  </body>
+</html>
